@@ -3,10 +3,12 @@
 namespace Grocy\Controllers;
 
 use Grocy\Controllers\Users\User;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
 
 class UsersApiController extends BaseApiController
 {
-	public function AddPermission(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function AddPermission(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		try
 		{
@@ -29,7 +31,7 @@ class UsersApiController extends BaseApiController
 		}
 	}
 
-	public function CreateUser(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function CreateUser(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		User::checkPermission($request, User::PERMISSION_USERS_CREATE);
 		$requestBody = $this->GetParsedAndFilteredRequestBody($request);
@@ -50,7 +52,7 @@ class UsersApiController extends BaseApiController
 		}
 	}
 
-	public function DeleteUser(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function DeleteUser(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		User::checkPermission($request, User::PERMISSION_USERS_EDIT);
 		try
@@ -64,7 +66,7 @@ class UsersApiController extends BaseApiController
 		}
 	}
 
-	public function EditUser(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function EditUser(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		if ($args['userId'] == GROCY_USER_ID)
 		{
@@ -88,7 +90,7 @@ class UsersApiController extends BaseApiController
 		}
 	}
 
-	public function GetUserSetting(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function GetUserSetting(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		try
 		{
@@ -101,7 +103,7 @@ class UsersApiController extends BaseApiController
 		}
 	}
 
-	public function GetUserSettings(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function GetUserSettings(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		try
 		{
@@ -113,7 +115,7 @@ class UsersApiController extends BaseApiController
 		}
 	}
 
-	public function GetUsers(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function GetUsers(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		User::checkPermission($request, User::PERMISSION_USERS_READ);
 		try
@@ -126,7 +128,7 @@ class UsersApiController extends BaseApiController
 		}
 	}
 
-	public function CurrentUser(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function CurrentUser(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		try
 		{
@@ -138,7 +140,7 @@ class UsersApiController extends BaseApiController
 		}
 	}
 
-	public function ListPermissions(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function ListPermissions(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		try
 		{
@@ -159,7 +161,7 @@ class UsersApiController extends BaseApiController
 		}
 	}
 
-	public function SetPermissions(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function SetPermissions(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		try
 		{
@@ -204,7 +206,7 @@ class UsersApiController extends BaseApiController
 		}
 	}
 
-	public function SetUserSetting(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function SetUserSetting(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		try
 		{
@@ -219,7 +221,7 @@ class UsersApiController extends BaseApiController
 		}
 	}
 
-	public function DeleteUserSetting(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function DeleteUserSetting(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		try
 		{

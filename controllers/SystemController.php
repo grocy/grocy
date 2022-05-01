@@ -4,10 +4,12 @@ namespace Grocy\Controllers;
 
 use Grocy\Services\DatabaseMigrationService;
 use Grocy\Services\DemoDataGeneratorService;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
 
 class SystemController extends BaseController
 {
-	public function About(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function About(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		return $this->renderPage($response, 'about', [
 			'system_info' => $this->getApplicationService()->GetSystemInfo(),
@@ -15,12 +17,12 @@ class SystemController extends BaseController
 		]);
 	}
 
-	public function BarcodeScannerTesting(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function BarcodeScannerTesting(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		return $this->renderPage($response, 'barcodescannertesting');
 	}
 
-	public function Root(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function Root(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		// Schema migration is done here
 		$databaseMigrationService = DatabaseMigrationService::getInstance();

@@ -2,11 +2,14 @@
 
 namespace Grocy\Controllers;
 
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
+
 class EquipmentController extends BaseController
 {
 	protected $UserfieldsService;
 
-	public function EditForm(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function EditForm(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		if ($args['equipmentId'] == 'new')
 		{
@@ -25,7 +28,7 @@ class EquipmentController extends BaseController
 		}
 	}
 
-	public function Overview(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function Overview(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		return $this->renderPage($response, 'equipment', [
 			'equipment' => $this->getDatabase()->equipment()->orderBy('name', 'COLLATE NOCASE'),

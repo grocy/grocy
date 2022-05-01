@@ -2,9 +2,12 @@
 
 namespace Grocy\Controllers;
 
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
+
 class TasksController extends BaseController
 {
-	public function Overview(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function Overview(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		$usersService = $this->getUsersService();
 		$nextXDays = $usersService->GetUserSettings(GROCY_USER_ID)['tasks_due_soon_days'];
@@ -48,7 +51,7 @@ class TasksController extends BaseController
 		]);
 	}
 
-	public function TaskCategoriesList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function TaskCategoriesList(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		return $this->renderPage($response, 'taskcategories', [
 			'taskCategories' => $this->getDatabase()->task_categories()->orderBy('name', 'COLLATE NOCASE'),
@@ -57,7 +60,7 @@ class TasksController extends BaseController
 		]);
 	}
 
-	public function TaskCategoryEditForm(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function TaskCategoryEditForm(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		if ($args['categoryId'] == 'new')
 		{
@@ -76,7 +79,7 @@ class TasksController extends BaseController
 		}
 	}
 
-	public function TaskEditForm(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function TaskEditForm(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		if ($args['taskId'] == 'new')
 		{
@@ -99,7 +102,7 @@ class TasksController extends BaseController
 		}
 	}
 
-	public function TasksSettings(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function TasksSettings(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		return $this->renderPage($response, 'taskssettings');
 	}

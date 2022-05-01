@@ -4,12 +4,14 @@ namespace Grocy\Controllers;
 
 use Grocy\Services\RecipesService;
 use Grocy\Helpers\Grocycode;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
 
 class RecipesController extends BaseController
 {
 	use GrocycodeTrait;
 
-	public function MealPlan(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function MealPlan(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		$start = date('Y-m-d');
 		if (isset($request->getQueryParams()['start']) && IsIsoDate($request->getQueryParams()['start']))
@@ -68,7 +70,7 @@ class RecipesController extends BaseController
 		]);
 	}
 
-	public function Overview(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function Overview(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		$recipes = $this->getDatabase()->recipes()->where('type', RecipesService::RECIPE_TYPE_NORMAL)->orderBy('name', 'COLLATE NOCASE');
 		$recipesResolved = $this->getRecipesService()->GetRecipesResolved('recipe_id > 0');
@@ -145,7 +147,7 @@ class RecipesController extends BaseController
 		return $this->renderPage($response, 'recipes', $renderArray);
 	}
 
-	public function RecipeEditForm(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function RecipeEditForm(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		$recipeId = $args['recipeId'];
 
@@ -162,7 +164,7 @@ class RecipesController extends BaseController
 		]);
 	}
 
-	public function RecipePosEditForm(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function RecipePosEditForm(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		if ($args['recipePosId'] == 'new')
 		{
@@ -188,12 +190,12 @@ class RecipesController extends BaseController
 		}
 	}
 
-	public function RecipesSettings(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function RecipesSettings(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		return $this->renderPage($response, 'recipessettings');
 	}
 
-	public function MealPlanSectionEditForm(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function MealPlanSectionEditForm(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		if ($args['sectionId'] == 'new')
 		{
@@ -210,14 +212,14 @@ class RecipesController extends BaseController
 		}
 	}
 
-	public function MealPlanSectionsList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function MealPlanSectionsList(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		return $this->renderPage($response, 'mealplansections', [
 			'mealplanSections' => $this->getDatabase()->meal_plan_sections()->where('id > 0')->orderBy('sort_number')
 		]);
 	}
 
-	public function RecipeGrocycodeImage(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function RecipeGrocycodeImage(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		$gc = new Grocycode(Grocycode::RECIPE, $args['recipeId']);
 		return $this->ServeGrocycodeImage($request, $response, $gc);

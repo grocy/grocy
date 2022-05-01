@@ -3,10 +3,12 @@
 namespace Grocy\Controllers;
 
 use Grocy\Controllers\Users\User;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
 
 class UsersController extends BaseController
 {
-	public function PermissionList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function PermissionList(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		User::checkPermission($request, User::PERMISSION_USERS_READ);
 		return $this->renderPage($response, 'userpermissions', [
@@ -16,7 +18,7 @@ class UsersController extends BaseController
 		]);
 	}
 
-	public function UserEditForm(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function UserEditForm(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		if ($args['userId'] == 'new')
 		{
@@ -46,7 +48,7 @@ class UsersController extends BaseController
 		}
 	}
 
-	public function UserSettings(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function UserSettings(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		return $this->renderPage($response, 'usersettings', [
 			'languages' => array_filter(scandir(__DIR__ . '/../localization'), function ($item) {
@@ -60,7 +62,7 @@ class UsersController extends BaseController
 		]);
 	}
 
-	public function UsersList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function UsersList(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		User::checkPermission($request, User::PERMISSION_USERS_READ);
 		return $this->renderPage($response, 'users', [

@@ -6,10 +6,12 @@ use Grocy\Controllers\Users\User;
 use Grocy\Services\StockService;
 use Grocy\Helpers\WebhookRunner;
 use Grocy\Helpers\Grocycode;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
 
 class StockApiController extends BaseApiController
 {
-	public function AddMissingProductsToShoppingList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function AddMissingProductsToShoppingList(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		User::checkPermission($request, User::PERMISSION_SHOPPINGLIST_ITEMS_ADD);
 
@@ -33,7 +35,7 @@ class StockApiController extends BaseApiController
 		}
 	}
 
-	public function AddOverdueProductsToShoppingList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function AddOverdueProductsToShoppingList(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		User::checkPermission($request, User::PERMISSION_SHOPPINGLIST_ITEMS_ADD);
 
@@ -57,7 +59,7 @@ class StockApiController extends BaseApiController
 		}
 	}
 
-	public function AddExpiredProductsToShoppingList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function AddExpiredProductsToShoppingList(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		User::checkPermission($request, User::PERMISSION_SHOPPINGLIST_ITEMS_ADD);
 
@@ -81,7 +83,7 @@ class StockApiController extends BaseApiController
 		}
 	}
 
-	public function AddProduct(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function AddProduct(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		User::checkPermission($request, User::PERMISSION_STOCK_PURCHASE);
 
@@ -158,7 +160,7 @@ class StockApiController extends BaseApiController
 		}
 	}
 
-	public function AddProductByBarcode(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function AddProductByBarcode(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		try
 		{
@@ -171,7 +173,7 @@ class StockApiController extends BaseApiController
 		}
 	}
 
-	public function AddProductToShoppingList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function AddProductToShoppingList(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		User::checkPermission($request, User::PERMISSION_SHOPPINGLIST_ITEMS_ADD);
 
@@ -224,7 +226,7 @@ class StockApiController extends BaseApiController
 		}
 	}
 
-	public function ClearShoppingList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function ClearShoppingList(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		User::checkPermission($request, User::PERMISSION_SHOPPINGLIST_ITEMS_DELETE);
 
@@ -253,7 +255,7 @@ class StockApiController extends BaseApiController
 		}
 	}
 
-	public function ConsumeProduct(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function ConsumeProduct(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		User::checkPermission($request, User::PERMISSION_STOCK_CONSUME);
 
@@ -324,7 +326,7 @@ class StockApiController extends BaseApiController
 		}
 	}
 
-	public function ConsumeProductByBarcode(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function ConsumeProductByBarcode(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		try
 		{
@@ -349,12 +351,12 @@ class StockApiController extends BaseApiController
 		}
 	}
 
-	public function CurrentStock(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function CurrentStock(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		return $this->ApiResponse($response, $this->getStockService()->GetCurrentStock());
 	}
 
-	public function CurrentVolatileStock(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function CurrentVolatileStock(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		$nextXDays = 5;
 
@@ -375,7 +377,7 @@ class StockApiController extends BaseApiController
 		]);
 	}
 
-	public function EditStockEntry(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function EditStockEntry(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		User::checkPermission($request, User::PERMISSION_STOCK_EDIT);
 
@@ -433,7 +435,7 @@ class StockApiController extends BaseApiController
 		}
 	}
 
-	public function ExternalBarcodeLookup(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function ExternalBarcodeLookup(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		User::checkPermission($request, User::PERMISSION_MASTER_DATA_EDIT);
 
@@ -454,7 +456,7 @@ class StockApiController extends BaseApiController
 		}
 	}
 
-	public function InventoryProduct(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function InventoryProduct(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		User::checkPermission($request, User::PERMISSION_STOCK_INVENTORY);
 
@@ -524,7 +526,7 @@ class StockApiController extends BaseApiController
 		}
 	}
 
-	public function InventoryProductByBarcode(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function InventoryProductByBarcode(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		try
 		{
@@ -537,7 +539,7 @@ class StockApiController extends BaseApiController
 		}
 	}
 
-	public function OpenProduct(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function OpenProduct(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		User::checkPermission($request, User::PERMISSION_STOCK_OPEN);
 
@@ -578,7 +580,7 @@ class StockApiController extends BaseApiController
 		}
 	}
 
-	public function OpenProductByBarcode(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function OpenProductByBarcode(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		try
 		{
@@ -591,7 +593,7 @@ class StockApiController extends BaseApiController
 		}
 	}
 
-	public function ProductDetails(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function ProductDetails(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		try
 		{
@@ -603,7 +605,7 @@ class StockApiController extends BaseApiController
 		}
 	}
 
-	public function ProductDetailsByBarcode(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function ProductDetailsByBarcode(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		try
 		{
@@ -616,7 +618,7 @@ class StockApiController extends BaseApiController
 		}
 	}
 
-	public function ProductPriceHistory(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function ProductPriceHistory(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		try
 		{
@@ -628,7 +630,7 @@ class StockApiController extends BaseApiController
 		}
 	}
 
-	public function ProductStockEntries(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function ProductStockEntries(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		$allowSubproductSubstitution = false;
 		if (isset($request->getQueryParams()['include_sub_products']) && filter_var($request->getQueryParams()['include_sub_products'], FILTER_VALIDATE_BOOLEAN) !== false)
@@ -639,12 +641,12 @@ class StockApiController extends BaseApiController
 		return $this->FilteredApiResponse($response, $this->getStockService()->GetProductStockEntries($args['productId'], false, $allowSubproductSubstitution, true), $request->getQueryParams());
 	}
 
-	public function LocationStockEntries(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function LocationStockEntries(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		return $this->FilteredApiResponse($response, $this->getStockService()->GetLocationStockEntries($args['locationId']), $request->getQueryParams());
 	}
 
-	public function ProductStockLocations(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function ProductStockLocations(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		$allowSubproductSubstitution = false;
 		if (isset($request->getQueryParams()['include_sub_products']) && filter_var($request->getQueryParams()['include_sub_products'], FILTER_VALIDATE_BOOLEAN) !== false)
@@ -655,7 +657,7 @@ class StockApiController extends BaseApiController
 		return $this->FilteredApiResponse($response, $this->getStockService()->GetProductStockLocations($args['productId'], $allowSubproductSubstitution), $request->getQueryParams());
 	}
 
-	public function ProductPrintLabel(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function ProductPrintLabel(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		try
 		{
@@ -679,7 +681,7 @@ class StockApiController extends BaseApiController
 		}
 	}
 
-	public function StockEntryPrintLabel(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function StockEntryPrintLabel(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		try
 		{
@@ -709,7 +711,7 @@ class StockApiController extends BaseApiController
 		}
 	}
 
-	public function RemoveProductFromShoppingList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function RemoveProductFromShoppingList(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		User::checkPermission($request, User::PERMISSION_SHOPPINGLIST_ITEMS_DELETE);
 
@@ -750,7 +752,7 @@ class StockApiController extends BaseApiController
 		}
 	}
 
-	public function StockBooking(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function StockBooking(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		try
 		{
@@ -769,12 +771,12 @@ class StockApiController extends BaseApiController
 		}
 	}
 
-	public function StockEntry(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function StockEntry(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		return $this->ApiResponse($response, $this->getStockService()->GetStockEntry($args['entryId']));
 	}
 
-	public function StockTransactions(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function StockTransactions(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		try
 		{
@@ -792,7 +794,7 @@ class StockApiController extends BaseApiController
 		}
 	}
 
-	public function TransferProduct(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function TransferProduct(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		User::checkPermission($request, User::PERMISSION_STOCK_TRANSFER);
 
@@ -837,7 +839,7 @@ class StockApiController extends BaseApiController
 		}
 	}
 
-	public function TransferProductByBarcode(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function TransferProductByBarcode(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		try
 		{
@@ -862,7 +864,7 @@ class StockApiController extends BaseApiController
 		}
 	}
 
-	public function UndoBooking(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function UndoBooking(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		User::checkPermission($request, User::PERMISSION_STOCK_EDIT);
 
@@ -877,7 +879,7 @@ class StockApiController extends BaseApiController
 		}
 	}
 
-	public function UndoTransaction(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function UndoTransaction(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		User::checkPermission($request, User::PERMISSION_STOCK_EDIT);
 
@@ -892,7 +894,7 @@ class StockApiController extends BaseApiController
 		}
 	}
 
-	public function MergeProducts(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function MergeProducts(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		User::checkPermission($request, User::PERMISSION_STOCK_EDIT);
 

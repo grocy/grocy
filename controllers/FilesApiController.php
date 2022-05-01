@@ -3,11 +3,13 @@
 namespace Grocy\Controllers;
 
 use Grocy\Services\FilesService;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
 use Slim\Exception\HttpNotFoundException;
 
 class FilesApiController extends BaseApiController
 {
-	public function DeleteFile(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function DeleteFile(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		try
 		{
@@ -35,7 +37,7 @@ class FilesApiController extends BaseApiController
 		}
 	}
 
-	public function ServeFile(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function ServeFile(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		try
 		{
@@ -65,7 +67,7 @@ class FilesApiController extends BaseApiController
 		}
 	}
 
-	public function ShowFile(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function ShowFile(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		try
 		{
@@ -96,7 +98,7 @@ class FilesApiController extends BaseApiController
 		}
 	}
 
-	public function UploadFile(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function UploadFile(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		try
 		{

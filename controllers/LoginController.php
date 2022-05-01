@@ -3,21 +3,23 @@
 namespace Grocy\Controllers;
 
 use Grocy\Services\SessionService;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
 
 class LoginController extends BaseController
 {
-	public function LoginPage(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function LoginPage(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		return $this->renderPage($response, 'login');
 	}
 
-	public function Logout(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function Logout(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		$this->getSessionService()->RemoveSession($_COOKIE[SessionService::SESSION_COOKIE_NAME]);
 		return $response->withRedirect($this->AppContainer->get('UrlManager')->ConstructUrl('/'));
 	}
 
-	public function ProcessLogin(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function ProcessLogin(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		$authMiddlewareClass = GROCY_AUTH_CLASS;
 		if ($authMiddlewareClass::ProcessLogin($this->GetParsedAndFilteredRequestBody($request)))

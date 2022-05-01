@@ -3,11 +3,13 @@
 namespace Grocy\Controllers;
 
 use Grocy\Controllers\Users\User;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
 use Slim\Exception\HttpBadRequestException;
 
 class GenericEntityApiController extends BaseApiController
 {
-	public function AddObject(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function AddObject(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		User::checkPermission($request, User::PERMISSION_MASTER_DATA_EDIT);
 
@@ -46,7 +48,7 @@ class GenericEntityApiController extends BaseApiController
 		}
 	}
 
-	public function DeleteObject(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function DeleteObject(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		User::checkPermission($request, User::PERMISSION_MASTER_DATA_EDIT);
 
@@ -74,7 +76,7 @@ class GenericEntityApiController extends BaseApiController
 		}
 	}
 
-	public function EditObject(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function EditObject(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		User::checkPermission($request, User::PERMISSION_MASTER_DATA_EDIT);
 
@@ -116,7 +118,7 @@ class GenericEntityApiController extends BaseApiController
 		}
 	}
 
-	public function GetObject(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function GetObject(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		if ($this->IsValidExposedEntity($args['entity']) && !$this->IsEntityWithNoListing($args['entity']))
 		{
@@ -142,7 +144,7 @@ class GenericEntityApiController extends BaseApiController
 		}
 	}
 
-	public function GetObjects(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function GetObjects(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		if (!$this->IsValidExposedEntity($args['entity']) || $this->IsEntityWithNoListing($args['entity']))
 		{
@@ -179,7 +181,7 @@ class GenericEntityApiController extends BaseApiController
 		return $this->ApiResponse($response, $objects);
 	}
 
-	public function GetUserfields(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function GetUserfields(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		try
 		{
@@ -191,7 +193,7 @@ class GenericEntityApiController extends BaseApiController
 		}
 	}
 
-	public function SetUserfields(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function SetUserfields(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		User::checkPermission($request, User::PERMISSION_MASTER_DATA_EDIT);
 

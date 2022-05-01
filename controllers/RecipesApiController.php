@@ -5,10 +5,12 @@ namespace Grocy\Controllers;
 use Grocy\Controllers\Users\User;
 use Grocy\Helpers\WebhookRunner;
 use Grocy\Helpers\Grocycode;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
 
 class RecipesApiController extends BaseApiController
 {
-	public function AddNotFulfilledProductsToShoppingList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function AddNotFulfilledProductsToShoppingList(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		User::checkPermission($request, User::PERMISSION_SHOPPINGLIST_ITEMS_ADD);
 
@@ -24,7 +26,7 @@ class RecipesApiController extends BaseApiController
 		return $this->EmptyApiResponse($response);
 	}
 
-	public function ConsumeRecipe(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function ConsumeRecipe(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		User::checkPermission($request, User::PERMISSION_STOCK_CONSUME);
 
@@ -39,7 +41,7 @@ class RecipesApiController extends BaseApiController
 		}
 	}
 
-	public function GetRecipeFulfillment(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function GetRecipeFulfillment(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		try
 		{
@@ -65,7 +67,7 @@ class RecipesApiController extends BaseApiController
 		}
 	}
 
-	public function CopyRecipe(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function CopyRecipe(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		try
 		{
@@ -79,7 +81,7 @@ class RecipesApiController extends BaseApiController
 		}
 	}
 
-	public function RecipePrintLabel(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function RecipePrintLabel(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		try
 		{

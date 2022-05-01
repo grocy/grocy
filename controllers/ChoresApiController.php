@@ -5,10 +5,12 @@ namespace Grocy\Controllers;
 use Grocy\Controllers\Users\User;
 use Grocy\Helpers\WebhookRunner;
 use Grocy\Helpers\Grocycode;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
 
 class ChoresApiController extends BaseApiController
 {
-	public function CalculateNextExecutionAssignments(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function CalculateNextExecutionAssignments(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		try
 		{
@@ -42,7 +44,7 @@ class ChoresApiController extends BaseApiController
 		}
 	}
 
-	public function ChoreDetails(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function ChoreDetails(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		try
 		{
@@ -54,12 +56,12 @@ class ChoresApiController extends BaseApiController
 		}
 	}
 
-	public function Current(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function Current(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		return $this->FilteredApiResponse($response, $this->getChoresService()->GetCurrent(), $request->getQueryParams());
 	}
 
-	public function TrackChoreExecution(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function TrackChoreExecution(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		$requestBody = $this->GetParsedAndFilteredRequestBody($request);
 
@@ -99,7 +101,7 @@ class ChoresApiController extends BaseApiController
 		}
 	}
 
-	public function UndoChoreExecution(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function UndoChoreExecution(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		try
 		{
@@ -114,7 +116,7 @@ class ChoresApiController extends BaseApiController
 		}
 	}
 
-	public function ChorePrintLabel(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function ChorePrintLabel(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		try
 		{
@@ -138,7 +140,7 @@ class ChoresApiController extends BaseApiController
 		}
 	}
 
-	public function MergeChores(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function MergeChores(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		User::checkPermission($request, User::PERMISSION_MASTER_DATA_EDIT);
 

@@ -3,10 +3,12 @@
 namespace Grocy\Controllers;
 
 use Grocy\Controllers\Users\User;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
 
 class OpenApiController extends BaseApiController
 {
-	public function ApiKeysList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function ApiKeysList(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		$apiKeys = $this->getDatabase()->api_keys();
 		if (!User::hasPermissions(User::PERMISSION_ADMIN))
@@ -19,14 +21,14 @@ class OpenApiController extends BaseApiController
 		]);
 	}
 
-	public function CreateNewApiKey(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function CreateNewApiKey(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		$newApiKey = $this->getApiKeyService()->CreateApiKey();
 		$newApiKeyId = $this->getApiKeyService()->GetApiKeyId($newApiKey);
 		return $response->withRedirect($this->AppContainer->get('UrlManager')->ConstructUrl("/manageapikeys?CreatedApiKeyId=$newApiKeyId"));
 	}
 
-	public function DocumentationSpec(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function DocumentationSpec(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		$spec = $this->getOpenApiSpec();
 
@@ -86,7 +88,7 @@ class OpenApiController extends BaseApiController
 		return $this->ApiResponse($response, $spec);
 	}
 
-	public function DocumentationUi(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function DocumentationUi(ServerRequestInterface $request, ResponseInterface $response, array $args)
 	{
 		return $this->render($response, 'openapiui');
 	}
