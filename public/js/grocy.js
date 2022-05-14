@@ -257,6 +257,11 @@ __n = function(number, singularForm, pluralForm, isQu = false)
 		}
 	}
 
+	if (pluralForm.isEmpty())
+	{
+		pluralForm = singularForm;
+	}
+
 	if (isQu)
 	{
 		return Grocy.TranslatorQu.n__(singularForm, pluralForm, Math.abs(number), Math.abs(number))

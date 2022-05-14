@@ -11,6 +11,7 @@
 - New product option "Move on open" (defaults to disabled)
   - When enabled, on marking the product as opened, the corresponding amount will be moved to the products default consume location
   - (Thanks @RosemaryOrchard)
+- Optimized that when the plural form(s) of a quantity unit is/are not provided, the singular form is used to display plural amounts
 - Fixed "Automatically add products that are below their defined min. stock amount to the shopping list" (stock setting) was only done when consuming products, not when opening them
 
 ### Shopping list

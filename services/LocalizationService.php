@@ -78,6 +78,11 @@ class LocalizationService
 	{
 		$this->CheckAndAddMissingTranslationToPot($singularForm);
 
+		if (empty($pluralForm))
+		{
+			$pluralForm = $singularForm;
+		}
+
 		if ($isQu)
 		{
 			return sprintf($this->TranslatorQu->ngettext($singularForm, $pluralForm, abs(floatval($number))), $number);
@@ -218,6 +223,7 @@ class LocalizationService
 				$translation = new Translation('', $quantityUnit['name']);
 				$translation->setTranslation($quantityUnit['name']);
 				$translation->setPlural($quantityUnit['name_plural']);
+
 				$translation->setPluralTranslations(preg_split('/\r\n|\r|\n/', $quantityUnit['plural_forms']));
 
 				$this->PoQu[] = $translation;
