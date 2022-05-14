@@ -4,7 +4,7 @@ namespace Grocy\Services;
 
 class UsersService extends BaseService
 {
-	public function CreateUser(string $username, string $firstName, string $lastName, string $password, string $pictureFileName = null)
+	public function CreateUser(string $username, ?string $firstName, ?string $lastName, string $password, string $pictureFileName = null)
 	{
 		$newUserRow = $this->getDatabase()->users()->createRow([
 			'username' => $username,
