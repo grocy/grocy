@@ -11,6 +11,7 @@
 - New product option "Move on open" (defaults to disabled)
   - When enabled, on marking the product as opened, the corresponding amount will be moved to the products default consume location
   - (Thanks @RosemaryOrchard)
+- Fixed "Automatically add products that are below their defined min. stock amount to the shopping list" (stock setting) was only done when consuming products, not when opening them
 
 ### Shopping list
 
@@ -50,7 +51,7 @@
 
 ### General
 
-- xxx
+- LDAP authentication: Optimized that it's not required that LDAP accounts need to have a first-/lastname
 
 ### API
 
