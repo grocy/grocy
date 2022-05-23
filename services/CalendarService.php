@@ -154,7 +154,8 @@ class CalendarService extends BaseService
 				$mealPlanNotesEvents[] = [
 					'title' => $titlePrefix . $titlePrefix2 . $mealPlanDayNote->note,
 					'start' => $start,
-					'date_format' => $dateFormat
+					'date_format' => $dateFormat,
+					'link' => $this->UrlManager->ConstructUrl('/mealplan' . '?start=' . $start)
 				];
 			}
 
@@ -181,7 +182,8 @@ class CalendarService extends BaseService
 				$mealPlanProductEvents[] = [
 					'title' => $titlePrefix . $titlePrefix2 . FindObjectInArrayByPropertyValue($products, 'id', $mealPlanDayProduct->product_id)->name,
 					'start' => $start,
-					'date_format' => $dateFormat
+					'date_format' => $dateFormat,
+					'link' => $this->UrlManager->ConstructUrl('/mealplan' . '?start=' . $start)
 				];
 			}
 		}

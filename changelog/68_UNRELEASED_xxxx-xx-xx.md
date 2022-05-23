@@ -32,7 +32,7 @@
 
 ### Calendar
 
-- xxx
+- Fixed that clicking on meal plan product and notes calendar entries redirected to an invalid page
 
 ### Tasks
 
