@@ -20,7 +20,7 @@
 
 ### Recipes
 
-- xxx
+- Fixed that when a substituted product is used to display costs and calories (so when a parent product ingredient is currently not in stock itself), no unit conversions were considered for costs/calories calculation
 
 ### Meal plan
 
