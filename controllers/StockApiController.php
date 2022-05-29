@@ -584,9 +584,11 @@ class StockApiController extends BaseApiController
 		{
 			$args['productId'] = $this->getStockService()->GetProductIdFromBarcode($args['barcode']);
 
-			if (Grocycode::Validate($args['barcode'])) {
+			if (Grocycode::Validate($args['barcode']))
+			{
 				$gc = new Grocycode($args['barcode']);
-				if ($gc->GetExtraData()) {
+				if ($gc->GetExtraData())
+				{
 					$requestBody = $request->getParsedBody();
 					$requestBody['stock_entry_id'] = $gc->GetExtraData()[0];
 					$request = $request->withParsedBody($requestBody);
