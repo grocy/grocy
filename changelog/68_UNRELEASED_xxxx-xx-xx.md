@@ -58,3 +58,4 @@
 
 - Endpoint `/stock/products/{productId}`: New field/property `default_consume_location` (contains the products default consume location object)
 - Endpoint `/stock/products/{productId}/add`: Fixed that the request body parameter `transaction_type` was ignored / always set to `purchase`
+- Fixed that the endpoint `/stock/products/by-barcode/{barcode}/open` didn't handle stock entries provided by a grocycode (thanks @jtommi)
