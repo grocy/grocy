@@ -156,6 +156,8 @@ $('.input-group-chore-period-type').on('change keyup', function(e)
 	if (periodType === 'manually')
 	{
 		$('#chore-schedule-info').text(__t('This means the next execution of this chore is not scheduled'));
+		$("#period_days").val(1);
+		$("#period_interval").val(1);
 	}
 	else if (periodType === 'hourly')
 	{
@@ -184,6 +186,8 @@ $('.input-group-chore-period-type').on('change keyup', function(e)
 	else if (periodType === 'adaptive')
 	{
 		$('#chore-schedule-info').text(__t('This means the next execution of this chore is scheduled dynamically based on the past average execution frequency'));
+		$("#period_days").val(1);
+		$("#period_interval").val(1);
 	}
 
 	Grocy.FrontendHelpers.ValidateForm('chore-form');
