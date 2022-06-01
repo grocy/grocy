@@ -257,7 +257,7 @@ __n = function(number, singularForm, pluralForm, isQu = false)
 		}
 	}
 
-	if (pluralForm.isEmpty())
+	if (pluralForm == null || pluralForm.isEmpty())
 	{
 		pluralForm = singularForm;
 	}
