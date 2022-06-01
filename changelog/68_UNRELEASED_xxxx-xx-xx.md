@@ -21,6 +21,7 @@
 ### Recipes
 
 - Fixed that when a substituted product is used to display costs and calories (so when a parent product ingredient is currently not in stock itself), no unit conversions were considered for costs/calories calculation
+- Fixed that the displayed "already on the shopping list"-amount (for missing ingredients) was wrong when the products "Factor purchase to stock quantity unit" wasn't 1
 
 ### Meal plan
 
