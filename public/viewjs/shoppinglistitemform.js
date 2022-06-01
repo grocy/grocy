@@ -277,7 +277,11 @@ if (GetUriParam("embedded") !== undefined)
 {
 	if (GetUriParam("product") !== undefined || Grocy.EditMode == "edit")
 	{
-		Grocy.Components.ProductPicker.GetPicker().trigger('change');
+		if (GetUriParam("updateexistingproduct") != null)
+		{
+			Grocy.Components.ProductPicker.GetPicker().trigger('change');
+		}
+
 		$("#display_amount").focus();
 	}
 	else
