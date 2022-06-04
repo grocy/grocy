@@ -627,7 +627,7 @@ function RefreshLocaleNumberDisplay(rootSelector = "#page-content")
 		}
 
 		var value = parseFloat(text);
-		$(this).text(value.toLocaleString(undefined, { style: "currency", currency: Grocy.Currency, minimumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices }));
+		$(this).text(value.toLocaleString(undefined, { style: "currency", currency: Grocy.Currency, minimumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices_display, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices_display }));
 	});
 
 	$(rootSelector + " .locale-number.locale-number-quantity-amount").each(function()
@@ -666,7 +666,7 @@ function RefreshLocaleNumberInput(rootSelector = "#page-content")
 			return;
 		}
 
-		$(this).val(parseFloat(value).toLocaleString("en", { minimumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices, useGrouping: false }));
+		$(this).val(parseFloat(value).toLocaleString("en", { minimumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices_input, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices_input, useGrouping: false }));
 	});
 
 	$(rootSelector + " .locale-number-input.locale-number-quantity-amount").each(function()

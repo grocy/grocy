@@ -43,10 +43,10 @@ $('#save-purchase-button').on('click', function(e)
 					amount -= parseFloat(productDetails.product.tare_weight);
 				}
 
-				var price = parseFloat(jsonForm.price * $("#qu_id option:selected").attr("data-qu-factor")).toFixed(Grocy.UserSettings.stock_decimal_places_prices);
+				var price = parseFloat(jsonForm.price * $("#qu_id option:selected").attr("data-qu-factor")).toFixed(Grocy.UserSettings.stock_decimal_places_prices_input);
 				if ($("input[name='price-type']:checked").val() == "total-price")
 				{
-					price = parseFloat(price / amount).toFixed(Grocy.UserSettings.stock_decimal_places_prices);
+					price = parseFloat(price / amount).toFixed(Grocy.UserSettings.stock_decimal_places_prices_input);
 				}
 
 				jsonData.price = price;
@@ -595,13 +595,13 @@ function refreshPriceHint()
 			amount -= parseFloat(CurrentProductDetails.product.tare_weight);
 		}
 
-		var price = parseFloat($('#price').val() * $("#qu_id option:selected").attr("data-qu-factor")).toFixed(Grocy.UserSettings.stock_decimal_places_prices);
+		var price = parseFloat($('#price').val() * $("#qu_id option:selected").attr("data-qu-factor")).toFixed(Grocy.UserSettings.stock_decimal_places_prices_input);
 		if ($("input[name='price-type']:checked").val() == "total-price")
 		{
-			price = parseFloat(price / amount).toFixed(Grocy.UserSettings.stock_decimal_places_prices);
+			price = parseFloat(price / amount).toFixed(Grocy.UserSettings.stock_decimal_places_prices_input);
 		}
 
-		$('#price-hint').text(__t('means %1$s per %2$s', price.toLocaleString(undefined, { style: "currency", currency: Grocy.Currency, minimumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices }), $("#qu_id").attr("data-destination-qu-name")));
+		$('#price-hint').text(__t('means %1$s per %2$s', price.toLocaleString(undefined, { style: "currency", currency: Grocy.Currency, minimumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices_display, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices_display }), $("#qu_id").attr("data-destination-qu-name")));
 	}
 	else
 	{

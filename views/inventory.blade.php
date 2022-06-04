@@ -82,8 +82,8 @@
 			@include('components.numberpicker', array(
 			'id' => 'price',
 			'label' => 'Price',
-			'min' => '0.' . str_repeat('0', $userSettings['stock_decimal_places_prices']),
-			'decimals' => $userSettings['stock_decimal_places_prices'],
+			'min' => '0.' . str_repeat('0', $userSettings['stock_decimal_places_prices_input']),
+			'decimals' => $userSettings['stock_decimal_places_prices_input'],
 			'value' => '',
 			'contextInfoId' => 'price-hint',
 			'hint' => $__t('This will apply to added products'),

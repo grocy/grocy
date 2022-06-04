@@ -254,8 +254,8 @@ function RefreshStockEntryRow(stockRowId)
 							result.price = 0;
 						}
 
-						$('#stock-' + stockRowId + '-price').text(__t("%1$s per %2$s", (Number.parseFloat(result.price) * Number.parseFloat(productDetails.product.qu_factor_purchase_to_stock)).toLocaleString(undefined, { style: "currency", currency: Grocy.Currency, minimumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices }), productDetails.default_quantity_unit_purchase.name));
-						$('#stock-' + stockRowId + '-price').attr("data-original-title", __t("%1$s per %2$s", Number.parseFloat(result.price).toLocaleString(undefined, { style: "currency", currency: Grocy.Currency, minimumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices }), productDetails.quantity_unit_stock.name));
+						$('#stock-' + stockRowId + '-price').text(__t("%1$s per %2$s", (Number.parseFloat(result.price) * Number.parseFloat(productDetails.product.qu_factor_purchase_to_stock)).toLocaleString(undefined, { style: "currency", currency: Grocy.Currency, minimumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices_display, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices_display }), productDetails.default_quantity_unit_purchase.name));
+						$('#stock-' + stockRowId + '-price').attr("data-original-title", __t("%1$s per %2$s", Number.parseFloat(result.price).toLocaleString(undefined, { style: "currency", currency: Grocy.Currency, minimumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices_display, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices_display }), productDetails.quantity_unit_stock.name));
 					},
 					function(xhr)
 					{

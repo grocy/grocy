@@ -17,7 +17,7 @@
 
 	if (!jsonForm.price.toString().isEmpty())
 	{
-		price = parseFloat(jsonForm.price).toFixed(Grocy.UserSettings.stock_decimal_places_prices);
+		price = parseFloat(jsonForm.price).toFixed(Grocy.UserSettings.stock_decimal_places_prices_input);
 	}
 
 	var jsonData = {};

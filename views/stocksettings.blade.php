@@ -173,10 +173,19 @@
 		))
 
 		@if(GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
+
 		@include('components.numberpicker', array(
-		'id' => 'stock_decimal_places_prices',
-		'additionalAttributes' => 'data-setting-key="stock_decimal_places_prices"',
-		'label' => 'Decimal places allowed for prices',
+		'id' => 'stock_decimal_places_prices_input',
+		'additionalAttributes' => 'data-setting-key="stock_decimal_places_prices_input"',
+		'label' => 'Decimal places allowed for prices (input)',
+		'min' => 0,
+		'additionalCssClasses' => 'user-setting-control'
+		))
+
+		@include('components.numberpicker', array(
+		'id' => 'stock_decimal_places_prices_display',
+		'additionalAttributes' => 'data-setting-key="stock_decimal_places_prices_display"',
+		'label' => 'Decimal places allowed for prices (display)',
 		'min' => 0,
 		'additionalCssClasses' => 'user-setting-control'
 		))
@@ -197,6 +206,7 @@
 				</label>
 			</div>
 		</div>
+
 		@endif
 
 		<a href="{{ $U('/stockoverview') }}"

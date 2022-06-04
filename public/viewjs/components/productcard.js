@@ -84,8 +84,8 @@ Grocy.Components.ProductCard.Refresh = function(productId)
 
 			if (productDetails.last_price !== null)
 			{
-				$('#productcard-product-last-price').text(__t("%1$s per %2$s", (Number.parseFloat(productDetails.last_price) * Number.parseFloat(productDetails.product.qu_factor_purchase_to_stock)).toLocaleString(undefined, { style: "currency", currency: Grocy.Currency, minimumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices }), productDetails.default_quantity_unit_purchase.name));
-				$('#productcard-product-last-price').attr("data-original-title", __t("%1$s per %2$s", Number.parseFloat(productDetails.last_price).toLocaleString(undefined, { style: "currency", currency: Grocy.Currency, minimumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices }), productDetails.quantity_unit_stock.name));
+				$('#productcard-product-last-price').text(__t("%1$s per %2$s", (Number.parseFloat(productDetails.last_price) * Number.parseFloat(productDetails.product.qu_factor_purchase_to_stock)).toLocaleString(undefined, { style: "currency", currency: Grocy.Currency, minimumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices_display, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices_display }), productDetails.default_quantity_unit_purchase.name));
+				$('#productcard-product-last-price').attr("data-original-title", __t("%1$s per %2$s", Number.parseFloat(productDetails.last_price).toLocaleString(undefined, { style: "currency", currency: Grocy.Currency, minimumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices_display, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices_display }), productDetails.quantity_unit_stock.name));
 			}
 			else
 			{
@@ -95,8 +95,8 @@ Grocy.Components.ProductCard.Refresh = function(productId)
 
 			if (productDetails.avg_price !== null)
 			{
-				$('#productcard-product-average-price').text(__t("%1$s per %2$s", (Number.parseFloat(productDetails.avg_price) * Number.parseFloat(productDetails.product.qu_factor_purchase_to_stock)).toLocaleString(undefined, { style: "currency", currency: Grocy.Currency, minimumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices }), productDetails.default_quantity_unit_purchase.name));
-				$('#productcard-product-average-price').attr("data-original-title", __t("%1$s per %2$s", Number.parseFloat(productDetails.avg_price).toLocaleString(undefined, { style: "currency", currency: Grocy.Currency, minimumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices }), productDetails.quantity_unit_stock.name));
+				$('#productcard-product-average-price').text(__t("%1$s per %2$s", (Number.parseFloat(productDetails.avg_price) * Number.parseFloat(productDetails.product.qu_factor_purchase_to_stock)).toLocaleString(undefined, { style: "currency", currency: Grocy.Currency, minimumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices_display, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices_display }), productDetails.default_quantity_unit_purchase.name));
+				$('#productcard-product-average-price').attr("data-original-title", __t("%1$s per %2$s", Number.parseFloat(productDetails.avg_price).toLocaleString(undefined, { style: "currency", currency: Grocy.Currency, minimumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices_display, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices_display }), productDetails.quantity_unit_stock.name));
 			}
 			else
 			{
@@ -227,7 +227,7 @@ Grocy.Components.ProductCard.ReInitPriceHistoryChart = function()
 						beginAtZero: true,
 						callback: function(value, index, ticks)
 						{
-							return Number.parseFloat(value).toLocaleString(undefined, { style: "currency", currency: Grocy.Currency, minimumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices });
+							return Number.parseFloat(value).toLocaleString(undefined, { style: "currency", currency: Grocy.Currency, minimumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices_display, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices_display });
 						}
 					}
 				}]
@@ -246,7 +246,7 @@ Grocy.Components.ProductCard.ReInitPriceHistoryChart = function()
 							label += ': ';
 						}
 
-						label += tooltipItem.yLabel.toLocaleString(undefined, { style: "currency", currency: Grocy.Currency, minimumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices })
+						label += tooltipItem.yLabel.toLocaleString(undefined, { style: "currency", currency: Grocy.Currency, minimumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices_display, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices_display })
 						return label;
 					}
 				}

@@ -173,7 +173,8 @@ DefaultUserSetting('product_presets_qu_id', -1); // Default quantity unit id for
 DefaultUserSetting('product_presets_default_due_days', 0); // Default due days for new products (-1 means that the product will be never overdue)
 DefaultUserSetting('product_presets_treat_opened_as_out_of_stock', true); // Default "Treat opened as out of stock" option for new products
 DefaultUserSetting('stock_decimal_places_amounts', 4); // Default decimal places allowed for amounts
-DefaultUserSetting('stock_decimal_places_prices', 2); // Default decimal places allowed for prices
+DefaultUserSetting('stock_decimal_places_prices_input', 2); // Default decimal places allowed for prices (input)
+DefaultUserSetting('stock_decimal_places_prices_display', 2); // Default decimal places allowed for prices (display)
 DefaultUserSetting('stock_auto_decimal_separator_prices', false);  // If the decimal separator should be set automatically for amount inputs
 DefaultUserSetting('stock_due_soon_days', 5); // The "expiring soon" days
 DefaultUserSetting('stock_default_purchase_amount', 0); // The default amount prefilled on the purchase page
