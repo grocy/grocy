@@ -471,7 +471,7 @@ if (Grocy.EditMode == "create" && GetUriParam("copy-of") != undefined)
 			{
 				Grocy.Components.ProductPicker.SetId(sourceProduct.parent_product_id);
 			}
-			if (sourceProduct.description != null)
+			if (sourceProduct.description != null && !sourceProduct.description.isEmpty())
 			{
 				$("#description").summernote("pasteHTML", sourceProduct.description);
 			}
