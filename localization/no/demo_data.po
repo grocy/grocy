@@ -4,6 +4,7 @@
 # Ruben Sperre <ruben@rsperre.net>, 2020
 # Marius Borø <blizzwave@gmail.com>, 2021
 # Tor Eirik Trandal <teitrand@hotmail.com>, 2021
+# Kurt Inge Smådal, 2022
 # 
 msgid ""
 msgstr ""
@@ -11,7 +12,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Tor Eirik Trandal <teitrand@hotmail.com>, 2021\n"
+"Last-Translator: Kurt Inge Smådal, 2022\n"
 "Language-Team: Norwegian (https://www.transifex.com/grocy/teams/93189/no/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -108,10 +109,10 @@ msgid "Tomato"
 msgstr "Tomat"
 
 msgid "Change towels in the bathroom"
-msgstr ""
+msgstr "Bytte håndklær på badet"
 
 msgid "Mop the kitchen floor"
-msgstr ""
+msgstr "Vask kjøkkengulvet"
 
 msgid "Warranty ends"
 msgstr "Garanti utgår"
@@ -126,7 +127,7 @@ msgid "Heat remote control"
 msgstr "Fjernkontroll for termostat"
 
 msgid "Take out the trash"
-msgstr ""
+msgstr "Ta ut søppelet"
 
 msgid "Some good snacks"
 msgstr "Noen gode snacks"
@@ -251,13 +252,13 @@ msgid "Russian"
 msgstr "Russisk"
 
 msgid "Vacuum the living room floor"
-msgstr ""
+msgstr "Støvsug stuegulvet"
 
 msgid "Clean the litter box"
-msgstr ""
+msgstr "Tøm kattesanden"
 
 msgid "Change the bed sheets"
-msgstr ""
+msgstr "Bytte sengetøy"
 
 msgid "Swedish"
 msgstr "Svensk"
@@ -378,7 +379,7 @@ msgid "Dinner"
 msgstr "Middag"
 
 msgid "Catalan"
-msgstr ""
+msgstr "Katalansk"
 
 msgid "Slovenian"
-msgstr ""
+msgstr "Slovenisk"

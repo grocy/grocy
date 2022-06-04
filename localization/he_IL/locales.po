@@ -95,7 +95,7 @@ msgstr "סלובקית"
 
 # Slovenian
 msgid "sl"
-msgstr ""
+msgstr "סלובנית"
 
 # Swedish
 msgid "sv_SE"

@@ -1,11 +1,12 @@
 # 
 # Translators:
-# Ricardo Rodrigues <fenix999@gmail.com>, 2020
 # Miguel Pereira <miguelpereira.pro@gmail.com>, 2020
 # Carlos Pereira <cmp.sta@gmail.com>, 2020
 # Jorge Araújo, 2021
-# Joao Santos <joaocpdsantos@gmail.com>, 2022
 # Luís Neto, 2022
+# Francisco Norton Brandão, 2022
+# Ricardo Rodrigues <fenix999@gmail.com>, 2022
+# Joao Santos <joaocpdsantos@gmail.com>, 2022
 # 
 msgid ""
 msgstr ""
@@ -13,13 +14,13 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Luís Neto, 2022\n"
+"Last-Translator: Joao Santos <joaocpdsantos@gmail.com>, 2022\n"
 "Language-Team: Portuguese (Portugal) (https://www.transifex.com/grocy/teams/93189/pt_PT/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pt_PT\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 "X-Domain: grocy/strings\n"
 
 msgid "Stock overview"
@@ -29,26 +30,31 @@ msgid "%s product expires"
 msgid_plural "%s products expiring"
 msgstr[0] "%s produto expira"
 msgstr[1] "%s produtos a expirar"
+msgstr[2] "%s produtos a expirar"
 
 msgid "within the next day"
 msgid_plural "within the next %s days"
 msgstr[0] "no próximo dia"
 msgstr[1] "nos próximos %s dias"
+msgstr[2] "nos próximos %s dias"
 
 msgid "%s product is already expired"
 msgid_plural "%s products are already expired"
 msgstr[0] "%s produto já expirou"
 msgstr[1] "%s produtos já expiraram"
+msgstr[2] "%s produtos já expiraram"
 
 msgid "%s product is overdue"
 msgid_plural "%s products are overdue"
 msgstr[0] "%s produto expirado"
 msgstr[1] "%s produtos expirados"
+msgstr[2] "%s produtos expirados"
 
 msgid "%s product is below defined min. stock amount"
 msgid_plural "%s products are below defined min. stock amount"
 msgstr[0] "%s produto está abaixo da quantidade min. de stock"
 msgstr[1] "%s produtos estão abaixo da quantidade min. de stock"
+msgstr[2] "%s produtos estão abaixo da quantidade min. de stock"
 
 msgid "Product"
 msgstr "Produto"
@@ -57,6 +63,7 @@ msgid "%s Product"
 msgid_plural "%s Products"
 msgstr[0] "%s Produto"
 msgstr[1] "%s Produtos"
+msgstr[2] "%s Produtos"
 
 msgid "Amount"
 msgstr "Quantidade"
@@ -89,7 +96,7 @@ msgid "Battery tracking"
 msgstr "Tracking de Pilhas"
 
 msgid "Locations"
-msgstr "Localizações"
+msgstr "Locais"
 
 msgid "Stores"
 msgstr "Lojas"
@@ -191,7 +198,7 @@ msgid "Name"
 msgstr "Nome"
 
 msgid "Location"
-msgstr "Localização"
+msgstr "Local"
 
 msgid "Min. stock amount"
 msgstr "Quantidade mínima de stock"
@@ -221,7 +228,7 @@ msgid "Factor purchase to stock quantity unit"
 msgstr "Unidade de medida do stock por compra"
 
 msgid "Create location"
-msgstr "Criar localização"
+msgstr "Criar local"
 
 msgid "Create store"
 msgstr "Criar loja"
@@ -257,7 +264,7 @@ msgid "Edit product"
 msgstr "Editar Produto"
 
 msgid "Edit location"
-msgstr "Editar Localização"
+msgstr "Editar local"
 
 msgid "Edit store"
 msgstr "Editar loja"
@@ -414,7 +421,7 @@ msgid "A name is required"
 msgstr "O nome é obrigatório"
 
 msgid "A location is required"
-msgstr "A localização é obrigatória"
+msgstr "O local é obrigatório"
 
 msgid "A quantity unit is required"
 msgstr "Uma unidade de medida é obrigatória"
@@ -478,6 +485,9 @@ msgstr[0] ""
 "Não existe suficiente em stock, %s ingrediente em falta mas já na lista de "
 "compras"
 msgstr[1] ""
+"Não existe suficiente em stock, %s ingredientes em falta mas já na lista de "
+"compras"
+msgstr[2] ""
 "Não existe suficiente em stock, %s ingredientes em falta mas já na lista de "
 "compras"
 
@@ -588,26 +598,31 @@ msgid "%s Unit"
 msgid_plural "%s Units"
 msgstr[0] "%s Unidade"
 msgstr[1] "%s Unidades"
+msgstr[2] "%s Unidades"
 
 msgid "%s chore is due to be done"
 msgid_plural "%s chores are due to be done"
 msgstr[0] "%s tarefa está agendada"
 msgstr[1] "%s tarefas estão agendadas "
+msgstr[2] "%s tarefas estão agendadas "
 
 msgid "%s chore is overdue to be done"
 msgid_plural "%s chores are overdue to be done"
 msgstr[0] "%s tarefa já ultrapassou o prazo"
 msgstr[1] "%s tarefas já ultrapassaram o prazo"
+msgstr[2] "%s tarefas já ultrapassaram o prazo"
 
 msgid "%s battery is due to be charged"
 msgid_plural "%s batteries are due to be charged"
 msgstr[0] "%s pilha precisa ser carregada"
 msgstr[1] "%s pilhas precisam ser carregadas"
+msgstr[2] "%s pilhas precisam ser carregadas"
 
 msgid "%s battery is overdue to be charged"
 msgid_plural "%s batteries are overdue to be charged"
 msgstr[0] "%s pilha ultrapassou o prazo para ser carregada"
 msgstr[1] "%s pilhas ultrapassaram o prazo para serem carregadas"
+msgstr[2] "%s pilhas ultrapassaram o prazo para serem carregadas"
 
 msgid "in singular form"
 msgstr "no singular"
@@ -681,11 +696,13 @@ msgid "%s task is due to be done"
 msgid_plural "%s tasks are due to be done"
 msgstr[0] "%s tarefa agendada"
 msgstr[1] "%s tarefas agendadas"
+msgstr[2] "%s tarefas agendadas"
 
 msgid "%s task is overdue to be done"
 msgid_plural "%s tasks are overdue to be done"
 msgstr[0] "%s tarefas pendentes de execução"
 msgstr[1] "%staferas pendentes de realização"
+msgstr[2] "%staferas pendentes de realização"
 
 msgid "Edit task category"
 msgstr "Editar categoria da tarefa"
@@ -967,7 +984,7 @@ msgid ""
 msgstr ""
 
 msgid "You have to select a location"
-msgstr "Precisa de seleccionar uma localização"
+msgstr "É necessário seleccionar um local"
 
 msgid "You have to select a store"
 msgstr "Tem de seleccionar uma loja"
@@ -1129,6 +1146,7 @@ msgid "Not enough in stock, %s ingredient missing"
 msgid_plural "Not enough in stock, %s ingredients missing"
 msgstr[0] "Sem stock suficiente, %s ingredientes faltando"
 msgstr[1] "Sem stock suficiente, %s ingredientes faltando"
+msgstr[2] "Sem stock suficiente, %s ingredientes faltando"
 
 msgid "Not enough in stock, but already on the shopping list"
 msgstr "Stock insuficiente, mas já na lista de compras"
@@ -1137,7 +1155,7 @@ msgid "Not enough in stock"
 msgstr "Não há stock suficiente"
 
 msgid "Default location"
-msgstr "Localização predefinida"
+msgstr "Local predefinido"
 
 msgid "Default amount for purchase"
 msgstr "Quantidade predefinida para comprar"
@@ -1169,6 +1187,7 @@ msgid "%s serving"
 msgid_plural "%s servings"
 msgstr[0] "%s porções"
 msgstr[1] "%s porções"
+msgstr[2] "%s porções"
 
 msgid "Week costs"
 msgstr "Custo por semana"
@@ -1220,7 +1239,7 @@ msgid "Print"
 msgstr "Imprimir"
 
 msgid "all locations"
-msgstr "Todas localizações"
+msgstr "Todos os locais"
 
 msgid ""
 "Here you can print a page per location with the current stock, maybe to hang"
@@ -1228,7 +1247,7 @@ msgid ""
 msgstr ""
 
 msgid "this location"
-msgstr "Esta localização"
+msgstr "Este local"
 
 msgid "Consumed amount"
 msgstr ""
@@ -1303,6 +1322,7 @@ msgid_plural ""
 "(based on the start date) every %s days"
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
 
 msgid ""
 "This means the next execution of this chore is scheduled %s hour after the "
@@ -1312,6 +1332,7 @@ msgid_plural ""
 "last execution"
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
 
 msgid ""
 "This means the next execution of this chore is scheduled every week on the "
@@ -1321,6 +1342,7 @@ msgid_plural ""
 "the selected weekdays"
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
 
 msgid ""
 "This means the next execution of this chore is scheduled on the selected day"
@@ -1330,6 +1352,7 @@ msgid_plural ""
 " every %s months"
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
 
 msgid "This means the next execution of this chore is not scheduled"
 msgstr "Isto significa que a próxima execução desta tarefa não está agendada"
@@ -1369,6 +1392,7 @@ msgid "%s chore is assigned to me"
 msgid_plural "%s chores are assigned to me"
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
 
 msgid "Assigned to me"
 msgstr "Atribuído a mim"
@@ -1377,7 +1401,7 @@ msgid "assigned to %s"
 msgstr "atribuído a %s"
 
 msgid "Assignment"
-msgstr ""
+msgstr "Tarefa"
 
 msgid "Consume product on chore execution"
 msgstr ""
@@ -1522,18 +1546,19 @@ msgid_plural ""
 "the same day (based on the start date)"
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
 
 msgid "Transfer"
 msgstr "Transferir"
 
 msgid "From location"
-msgstr "Da localização"
+msgstr "De local"
 
 msgid "To location"
-msgstr "Para a localização"
+msgstr "Para local"
 
 msgid "There are no units available at this location"
-msgstr "Não existem unidades disponíveis nesta localização"
+msgstr "Não existem unidades disponíveis neste local"
 
 msgid "Amount: %1$s; Due on %2$s; Bought on %3$s"
 msgstr ""
@@ -1670,7 +1695,7 @@ msgid "Unknown store"
 msgstr ""
 
 msgid "Store"
-msgstr ""
+msgstr "Loja"
 
 msgid "Transaction successfully undone"
 msgstr ""
@@ -1697,46 +1722,46 @@ msgid "Show an icon if the product is already on the shopping list"
 msgstr ""
 
 msgid "Calories"
-msgstr ""
+msgstr "Calorias"
 
 msgid "means %1$s per %2$s"
 msgstr ""
 
 msgid "Create recipe"
-msgstr ""
+msgstr "Criar receita"
 
 msgid "Save & continue to add ingredients and included recipes"
 msgstr ""
 
 msgid "Save & continue"
-msgstr ""
+msgstr "Salvar & continuar"
 
 msgid "Save & return to recipes"
-msgstr ""
+msgstr "Salvar & retornar a receitas"
 
 msgid "Stock value"
 msgstr ""
 
 msgid "Average price"
-msgstr ""
+msgstr "Preço médio"
 
 msgid "Active"
-msgstr ""
+msgstr "Ativo"
 
 msgid "Barcodes"
-msgstr ""
+msgstr "Códigos de barras"
 
 msgid "Barcode"
-msgstr ""
+msgstr "Código de barras"
 
 msgid "Create Barcode"
-msgstr ""
+msgstr "Criar código de barras"
 
 msgid "Barcode for product"
-msgstr ""
+msgstr "Código de barras para produto "
 
 msgid "Edit Barcode"
-msgstr ""
+msgstr "Editar código de barras"
 
 msgid ""
 "Based on the prices of the default consume rule (Opened first, then first "
@@ -1745,7 +1770,7 @@ msgid ""
 msgstr ""
 
 msgid "Clear filter"
-msgstr ""
+msgstr "Limpar filtro"
 
 msgid "Permissions for user %s"
 msgstr ""
@@ -1760,16 +1785,16 @@ msgid "You are not allowed to view this page"
 msgstr ""
 
 msgid "Page not found"
-msgstr ""
+msgstr "Página não encontrada"
 
 msgid "Unauthorized"
-msgstr ""
+msgstr "Não autorizado"
 
 msgid "Error source"
 msgstr ""
 
 msgid "Error message"
-msgstr ""
+msgstr "Mensagem de erro"
 
 msgid "Stack trace"
 msgstr ""
@@ -1778,13 +1803,13 @@ msgid "Easy error info copy & paste (for reporting)"
 msgstr ""
 
 msgid "This page does not exist"
-msgstr ""
+msgstr "Esta página não existe"
 
 msgid "You will be redirected to the default page in %s seconds"
 msgstr ""
 
 msgid "Server error"
-msgstr ""
+msgstr "Erro do servidor"
 
 msgid "A server error occured while processing your request"
 msgstr ""
@@ -1796,10 +1821,10 @@ msgid "Language"
 msgstr ""
 
 msgid "User settings"
-msgstr ""
+msgstr "Configurações do utilizador"
 
 msgid "Default"
-msgstr ""
+msgstr "Padrão"
 
 msgid "Stock journal summary"
 msgstr ""
@@ -1814,7 +1839,7 @@ msgid "Value"
 msgstr ""
 
 msgid "%s total value"
-msgstr ""
+msgstr "%svalor total"
 
 msgid ""
 "Show purchased date on purchase and inventory page (otherwise the purchased "
@@ -1831,7 +1856,7 @@ msgid "Decimal places allowed for prices"
 msgstr ""
 
 msgid "Edit shopping list"
-msgstr ""
+msgstr "Editar lista de compras"
 
 msgid "Save & continue to add quantity unit conversions & barcodes"
 msgstr ""
@@ -1995,6 +2020,7 @@ msgid "%s product is due"
 msgid_plural "%s products are due"
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
 
 msgid "Due date"
 msgstr ""
@@ -2006,6 +2032,7 @@ msgid "%s product is expired"
 msgid_plural "%s products are expired"
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
 
 msgid "Expired"
 msgstr ""
@@ -2291,11 +2318,13 @@ msgid "%s month"
 msgid_plural "%s months"
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
 
 msgid "%s year"
 msgid_plural "%s years"
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
 
 msgid "Display product"
 msgstr ""
@@ -2369,16 +2398,19 @@ msgid "%s task is due to be done today"
 msgid_plural "%s tasks are due to be done today"
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
 
 msgid "%s chore is due to be done today"
 msgid_plural "%s chores are due to be done today"
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
 
 msgid "%s battery is due to be charged today"
 msgid_plural "%s batteries are due to be charged today"
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
 
 msgid "Set to 0 to hide due soon filters/highlighting"
 msgstr ""
@@ -2504,7 +2536,18 @@ msgid "Edit meal plan entry"
 msgstr ""
 
 msgid "Default consume location"
-msgstr "Lugar de consumo predefinido"
+msgstr "Local de consumo predefinido"
 
 msgid "Stock entries at this location will be consumed first"
+msgstr ""
+
+msgid "Move on open"
+msgstr ""
+
+msgid ""
+"When enabled, on marking this product as opened, the corresponding amount "
+"will be moved to the default consume location"
+msgstr ""
+
+msgid "Moved to %1$s"
 msgstr ""

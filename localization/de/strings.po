@@ -377,7 +377,7 @@ msgid "Added %1$s of %2$s to stock"
 msgstr "%1$s %2$s dem Bestand hinzugefügt"
 
 msgid "Stock amount of %1$s is now %2$s"
-msgstr "Es sind nun %1$s %2$s im Bestand"
+msgstr "Es sind nun %2$s %1$s im Bestand"
 
 msgid "Tracked execution of chore %1$s on %2$s"
 msgstr "Ausführung von %1$s am %2$s erfasst"
@@ -2671,3 +2671,16 @@ msgstr "Standardverbrauchsstandort"
 
 msgid "Stock entries at this location will be consumed first"
 msgstr "Bestandseinträge an diesem Standort werden zuerst verbraucht"
+
+msgid "Move on open"
+msgstr "Beim Öffnen umlagern"
+
+msgid ""
+"When enabled, on marking this product as opened, the corresponding amount "
+"will be moved to the default consume location"
+msgstr ""
+"Wenn aktiviert, wird wenn das Produkt als geöffnet markiert wurde, die "
+"entsprechende Menge an den Standardverbrauchsstandort umgelagert"
+
+msgid "Moved to %1$s"
+msgstr "Umgelagert nach %1$s"

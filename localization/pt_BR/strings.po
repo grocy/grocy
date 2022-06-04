@@ -1,18 +1,19 @@
 # 
 # Translators:
 # Joao Santos <joaocpdsantos@gmail.com>, 2019
-# Armando Neto <armando.muassab@gmail.com>, 2019
-# Danilo Vieira <cebikyn@gmail.com>, 2019
-# Jefferson Brito Passos dos Santos <jeffersantoss@gmail.com>, 2019
 # Arthur Vieira <skytakes.arthur@gmail.com>, 2020
 # Leonardo Fialho <leonardofialho@gmail.com>, 2020
 # Andre Souto <andre.jost@gmail.com>, 2020
 # Wendell Mendes <wendellmendes@live.com>, 2021
-# Jonatha Nogueira Barbosa <jb.barbosa133@gmail.com>, 2021
-# Bruno Mouta <brumouta@gmail.com>, 2021
 # João Filipe Cavichiolo Storrer <jofi_casto@hotmail.com>, 2021
 # Fernando Luiz Bonifácio de Oliveira, 2021
 # Eduardo Bizarro, 2021
+# Ryan Monteiro, 2022
+# Danilo Vieira <cebikyn@gmail.com>, 2022
+# Jefferson Brito Passos dos Santos <jeffersantoss@gmail.com>, 2022
+# Armando Neto <armando.muassab@gmail.com>, 2022
+# Bruno Mouta <brumouta@gmail.com>, 2022
+# Jonatha Nogueira Barbosa <jb.barbosa133@gmail.com>, 2022
 # 
 msgid ""
 msgstr ""
@@ -20,13 +21,13 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Eduardo Bizarro, 2021\n"
+"Last-Translator: Jonatha Nogueira Barbosa <jb.barbosa133@gmail.com>, 2022\n"
 "Language-Team: Portuguese (Brazil) (https://www.transifex.com/grocy/teams/93189/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pt_BR\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 "X-Domain: grocy/strings\n"
 
 msgid "Stock overview"
@@ -36,26 +37,31 @@ msgid "%s product expires"
 msgid_plural "%s products expiring"
 msgstr[0] "%s produtos vencendo"
 msgstr[1] "%s produtos vencendo"
+msgstr[2] "%s produtos vencendo"
 
 msgid "within the next day"
 msgid_plural "within the next %s days"
 msgstr[0] "produtos vencendo nos próximos dias"
 msgstr[1] "nos próximos %s dias"
+msgstr[2] "nos próximos %s dias"
 
 msgid "%s product is already expired"
 msgid_plural "%s products are already expired"
 msgstr[0] "%s produto já expirou"
 msgstr[1] "%s produtos já expiraram."
+msgstr[2] "%s produtos já expiraram."
 
 msgid "%s product is overdue"
 msgid_plural "%s products are overdue"
 msgstr[0] "%sproduto está vencido"
 msgstr[1] "%sprodutos estão vencidos"
+msgstr[2] "%sprodutos estão vencidos"
 
 msgid "%s product is below defined min. stock amount"
 msgid_plural "%s products are below defined min. stock amount"
 msgstr[0] "%s produtos estão abaixo da quantidade minima de estoque definida"
 msgstr[1] "%s produtos estão abaixo da quantidade minima de estoque"
+msgstr[2] "%s produtos estão abaixo da quantidade minima de estoque"
 
 msgid "Product"
 msgstr "Produto"
@@ -64,6 +70,7 @@ msgid "%s Product"
 msgid_plural "%s Products"
 msgstr[0] "%s Produtos"
 msgstr[1] "%s Products"
+msgstr[2] "%s Products"
 
 msgid "Amount"
 msgstr "Quantidade"
@@ -484,6 +491,9 @@ msgstr[0] ""
 msgstr[1] ""
 "Estoque insuficiente, %s ingredientes faltando mas já estão na lista de "
 "compras"
+msgstr[2] ""
+"Estoque insuficiente, %s ingredientes faltando mas já estão na lista de "
+"compras"
 
 msgid "Expand to fullscreen"
 msgstr "Expandir para tela inteira"
@@ -591,26 +601,31 @@ msgid "%s Unit"
 msgid_plural "%s Units"
 msgstr[0] "%s Unidade"
 msgstr[1] "%s Unidades"
+msgstr[2] "%s Unidades"
 
 msgid "%s chore is due to be done"
 msgid_plural "%s chores are due to be done"
 msgstr[0] "%s tarefa doméstica está perto de perder o prazo"
 msgstr[1] "%s tarefas domésticas estão perto de perder o prazo"
+msgstr[2] "%s tarefas domésticas estão perto de perder o prazo"
 
 msgid "%s chore is overdue to be done"
 msgid_plural "%s chores are overdue to be done"
 msgstr[0] "%s tarefa doméstica está vencida"
 msgstr[1] "%s tarefas domésticas estão vencidas"
+msgstr[2] "%s tarefas domésticas estão vencidas"
 
 msgid "%s battery is due to be charged"
 msgid_plural "%s batteries are due to be charged"
 msgstr[0] "%s bateria deve ser carregada"
 msgstr[1] "%s baterias devem ser carregadas"
+msgstr[2] "%s baterias devem ser carregadas"
 
 msgid "%s battery is overdue to be charged"
 msgid_plural "%s batteries are overdue to be charged"
 msgstr[0] "%s bateria está pendente de ser carregada"
 msgstr[1] "%s baterias estão pendentes de serem carregadas"
+msgstr[2] "%s baterias estão pendentes de serem carregadas"
 
 msgid "in singular form"
 msgstr "no singular"
@@ -686,11 +701,13 @@ msgid "%s task is due to be done"
 msgid_plural "%s tasks are due to be done"
 msgstr[0] "%s tarefa a ser feita"
 msgstr[1] "%s tarefas a serem feitas"
+msgstr[2] "%s tarefas a serem feitas"
 
 msgid "%s task is overdue to be done"
 msgid_plural "%s tasks are overdue to be done"
 msgstr[0] "%s tarefa pendente de ser feita"
 msgstr[1] "%s tarefas pendentes de serem feitas"
+msgstr[2] "%s tarefas pendentes de serem feitas"
 
 msgid "Edit task category"
 msgstr "Editar categoria de tarefas"
@@ -1149,6 +1166,7 @@ msgid "Not enough in stock, %s ingredient missing"
 msgid_plural "Not enough in stock, %s ingredients missing"
 msgstr[0] "Não há estoque suficiente, %s falta ingrediente"
 msgstr[1] "Não há estoque suficiente, %s faltam ingredientes"
+msgstr[2] "Não há estoque suficiente, %s faltam ingredientes"
 
 msgid "Not enough in stock, but already on the shopping list"
 msgstr "Estoque insuficiente, mas já na lista de compras"
@@ -1193,6 +1211,7 @@ msgid "%s serving"
 msgid_plural "%s servings"
 msgstr[0] "%sporção"
 msgstr[1] "%sporções"
+msgstr[2] "%sporções"
 
 msgid "Week costs"
 msgstr "Custos na semana"
@@ -1334,6 +1353,7 @@ msgid_plural ""
 "(based on the start date) every %s days"
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
 
 msgid ""
 "This means the next execution of this chore is scheduled %s hour after the "
@@ -1343,6 +1363,7 @@ msgid_plural ""
 "last execution"
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
 
 msgid ""
 "This means the next execution of this chore is scheduled every week on the "
@@ -1352,6 +1373,7 @@ msgid_plural ""
 "the selected weekdays"
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
 
 msgid ""
 "This means the next execution of this chore is scheduled on the selected day"
@@ -1361,6 +1383,7 @@ msgid_plural ""
 " every %s months"
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
 
 msgid "This means the next execution of this chore is not scheduled"
 msgstr ""
@@ -1402,6 +1425,7 @@ msgid "%s chore is assigned to me"
 msgid_plural "%s chores are assigned to me"
 msgstr[0] "%s tarefa doméstica está atribuída a mim"
 msgstr[1] "%s tarefas domésticas estão atribuídas a mim"
+msgstr[2] "%s tarefas domésticas estão atribuídas a mim"
 
 msgid "Assigned to me"
 msgstr "Atribuir para mim"
@@ -1555,6 +1579,7 @@ msgid_plural ""
 "the same day (based on the start date)"
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
 
 msgid "Transfer"
 msgstr "Transferir"
@@ -2060,6 +2085,7 @@ msgid "%s product is due"
 msgid_plural "%s products are due"
 msgstr[0] "%s produto são vencido"
 msgstr[1] "%sprodutos estão vencendo"
+msgstr[2] "%sprodutos estão vencendo"
 
 msgid "Due date"
 msgstr "Prazo"
@@ -2071,6 +2097,7 @@ msgid "%s product is expired"
 msgid_plural "%s products are expired"
 msgstr[0] "%s produto está expirado"
 msgstr[1] "%s produtos estão expirados"
+msgstr[2] "%s produtos estão expirados"
 
 msgid "Expired"
 msgstr "Expirado"
@@ -2217,7 +2244,7 @@ msgid "Product to remove"
 msgstr "Produto para ser removido"
 
 msgid "Error while merging"
-msgstr ""
+msgstr "Erro ao combinar"
 
 msgid "After merging, this product will be kept"
 msgstr "Após a combinação, este produto será mantido"
@@ -2308,7 +2335,7 @@ msgid "Connecting to printer..."
 msgstr "Conectando à impressora..."
 
 msgid "Unable to print"
-msgstr ""
+msgstr "Não foi possível imprimir"
 
 msgid "Only done items"
 msgstr ""
@@ -2324,7 +2351,7 @@ msgid "%1$s per %2$s"
 msgstr "%1$s por %2$s"
 
 msgid "Mark this item as undone"
-msgstr ""
+msgstr "Marcar este item como desfeito"
 
 msgid "Mandatory"
 msgstr "Obrigatório"
@@ -2342,7 +2369,7 @@ msgid "Timestamp"
 msgstr ""
 
 msgid "Should not be frozen"
-msgstr ""
+msgstr "Não deve ser congelado"
 
 msgid ""
 "When enabled, on moving this product to a freezer location (so when freezing"
@@ -2350,13 +2377,13 @@ msgid ""
 msgstr ""
 
 msgid "This product shouldn't be frozen"
-msgstr ""
+msgstr "Este produto não deve ser congelado"
 
 msgid "Copy all meal plan entries of %s"
 msgstr ""
 
 msgid "A date is required"
-msgstr ""
+msgstr "Data é necessária"
 
 msgid "Day"
 msgstr "Dia"
@@ -2374,14 +2401,16 @@ msgid "%s month"
 msgid_plural "%s months"
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
 
 msgid "%s year"
 msgid_plural "%s years"
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
 
 msgid "Display product"
-msgstr ""
+msgstr "Exibir produto"
 
 msgid "Copy recipe"
 msgstr "Copiar receita"
@@ -2423,7 +2452,7 @@ msgid "Section"
 msgstr "Seção"
 
 msgid "Are you sure to empty the shopping list?"
-msgstr ""
+msgstr "Vocẽ tem certeza que deseja esvaziar a lista de compras?"
 
 msgid "This is the default which will be prefilled on purchase"
 msgstr ""
@@ -2446,31 +2475,34 @@ msgid ""
 msgstr ""
 
 msgid "Due today"
-msgstr ""
+msgstr "Vencendo hoje"
 
 msgid "%s task is due to be done today"
 msgid_plural "%s tasks are due to be done today"
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
 
 msgid "%s chore is due to be done today"
 msgid_plural "%s chores are due to be done today"
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
 
 msgid "%s battery is due to be charged today"
 msgid_plural "%s batteries are due to be charged today"
 msgstr[0] ""
 msgstr[1] ""
+msgstr[2] ""
 
 msgid "Set to 0 to hide due soon filters/highlighting"
 msgstr ""
 
 msgid "Save & close"
-msgstr ""
+msgstr "Salvar e fechar"
 
 msgid "Save & add another task"
-msgstr ""
+msgstr "Salvar e adicionar outra tarefa"
 
 msgid "Treat opened as out of stock"
 msgstr ""
@@ -2493,7 +2525,7 @@ msgid "A start date is required"
 msgstr ""
 
 msgid "Start date"
-msgstr ""
+msgstr "Data de inicio"
 
 msgid "The start date cannot be changed when the chore was once tracked"
 msgstr ""
@@ -2553,13 +2585,13 @@ msgid ""
 msgstr ""
 
 msgid "Night mode"
-msgstr ""
+msgstr "Modo noturno"
 
 msgid "On"
 msgstr ""
 
 msgid "Use system setting"
-msgstr ""
+msgstr "Usar definições do sistema"
 
 msgid "Off"
 msgstr ""
@@ -2573,7 +2605,7 @@ msgid "Reassigned"
 msgstr ""
 
 msgid "Default value"
-msgstr ""
+msgstr "Valor padrão"
 
 msgid "Now / today"
 msgstr ""
@@ -2588,4 +2620,15 @@ msgid "Default consume location"
 msgstr ""
 
 msgid "Stock entries at this location will be consumed first"
+msgstr ""
+
+msgid "Move on open"
+msgstr ""
+
+msgid ""
+"When enabled, on marking this product as opened, the corresponding amount "
+"will be moved to the default consume location"
+msgstr ""
+
+msgid "Moved to %1$s"
 msgstr ""

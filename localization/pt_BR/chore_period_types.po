@@ -2,6 +2,8 @@
 # Translators:
 # Danilo Vieira <cebikyn@gmail.com>, 2019
 # Jefferson Brito Passos dos Santos <jeffersantoss@gmail.com>, 2019
+# Ryan Monteiro, 2022
+# Arthur Rodrigues <araruna@gmail.com>, 2022
 # 
 msgid ""
 msgstr ""
@@ -9,32 +11,32 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Jefferson Brito Passos dos Santos <jeffersantoss@gmail.com>, 2019\n"
+"Last-Translator: Arthur Rodrigues <araruna@gmail.com>, 2022\n"
 "Language-Team: Portuguese (Brazil) (https://www.transifex.com/grocy/teams/93189/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pt_BR\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 "X-Domain: grocy/chore_types\n"
 
 msgid "manually"
 msgstr "manualmente"
 
 msgid "daily"
-msgstr "diário"
+msgstr "diariamente"
 
 msgid "weekly"
-msgstr "semanal"
+msgstr "semanalmente"
 
 msgid "monthly"
-msgstr "mensal"
+msgstr "mensalmente"
 
 msgid "yearly"
 msgstr "anualmente"
 
 msgid "hourly"
-msgstr ""
+msgstr "de hora em hora"
 
 msgid "adaptive"
-msgstr ""
+msgstr "adaptável"

@@ -1,6 +1,7 @@
 # 
 # Translators:
 # a a <akv40402@zzrgg.com>, 2020
+# ba X <985096998@qq.com>, 2022
 # 
 msgid ""
 msgstr ""
@@ -8,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: a a <akv40402@zzrgg.com>, 2020\n"
+"Last-Translator: ba X <985096998@qq.com>, 2022\n"
 "Language-Team: Chinese (China) (https://www.transifex.com/grocy/teams/93189/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -33,7 +34,7 @@ msgid "yearly"
 msgstr "每年"
 
 msgid "hourly"
-msgstr ""
+msgstr "每小时"
 
 msgid "adaptive"
-msgstr ""
+msgstr "‎适应的‎"

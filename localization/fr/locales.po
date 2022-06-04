@@ -1,8 +1,6 @@
 # 
 # Translators:
-# Hydreliox <hydreliox@gmail.com>, 2020
-# nerdinator <florian.dupret@gmail.com>, 2020
-# C P <anoxy78@gmail.com>, 2020
+# Jonathan Blanc, 2022
 # 
 msgid ""
 msgstr ""
@@ -10,123 +8,123 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2020-08-31 19:11+0000\n"
-"Last-Translator: C P <anoxy78@gmail.com>, 2020\n"
+"Last-Translator: Jonathan Blanc, 2022\n"
 "Language-Team: French (https://www.transifex.com/grocy/teams/93189/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 "X-Domain: grocy/locales\n"
 
 # Czech
 msgid "cs"
-msgstr "tch"
+msgstr "Czech"
 
 # Danish
 msgid "da"
-msgstr "dan"
+msgstr "Danish"
 
 # German
 msgid "de"
-msgstr "all"
+msgstr "German"
 
 # Greek
 msgid "el_GR"
-msgstr "gre"
+msgstr "Greek"
 
 # English
 msgid "en"
-msgstr "ang"
+msgstr "English"
 
 # English (Great Britain)
 msgid "en_GB"
-msgstr "uk"
+msgstr "English (Great Britain)"
 
 # Spanish
 msgid "es"
-msgstr "esp"
+msgstr "Spanish"
 
 # French
 msgid "fr"
-msgstr "fra"
+msgstr "French"
 
 # Hungarian
 msgid "hu"
-msgstr "hon"
+msgstr "Hungarian"
 
 # Italian
 msgid "it"
-msgstr "ita"
+msgstr "Italian"
 
 # Japanese
 msgid "ja"
-msgstr "jap"
+msgstr "Japanese"
 
 # Korean
 msgid "ko_KR"
-msgstr "cor"
+msgstr "Korean"
 
 # Dutch
 msgid "nl"
-msgstr "hol"
+msgstr "Dutch"
 
 # Norwegian
 msgid "no"
-msgstr "nor"
+msgstr "Norwegian"
 
 # Polish
 msgid "pl"
-msgstr "pol"
+msgstr "Polish"
 
 # Portuguese (Brazil)
 msgid "pt_BR"
-msgstr "bre"
+msgstr "Portuguese (Brazil)"
 
 # Portuguese (Portugal)
 msgid "pt_PT"
-msgstr "por"
+msgstr "Portuguese (Portugal)"
 
 # Russian
 msgid "ru"
-msgstr "rus"
+msgstr "Russian"
 
 # Slovak
 msgid "sk_SK"
-msgstr "slo"
+msgstr "Slovak"
 
 # Slovenian
 msgid "sl"
-msgstr ""
+msgstr "Slovenian"
 
 # Swedish
 msgid "sv_SE"
-msgstr "sue"
+msgstr "Swedish"
 
 # Turkish
 msgid "tr"
-msgstr "tur"
+msgstr "Turkish"
 
 # Chinese (Taiwan)
 msgid "zh_TW"
-msgstr "chi"
+msgstr "Chinese (Taiwan)"
 
 # Chinese (China)
 msgid "zh_CN"
-msgstr "zh_CN"
+msgstr "Chinese (China)"
 
 # Hebrew (Israel)
 msgid "he_IL"
-msgstr "he_IL"
+msgstr "Hebrew (Israel)"
 
 # Tamil
 msgid "ta"
-msgstr "ta"
+msgstr "Tamil"
 
 # Finnish
 msgid "fi"
-msgstr "fi"
+msgstr "Finnish"
 
 # Catalan
 msgid "ca"
-msgstr ""
+msgstr "Catalan"

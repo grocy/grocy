@@ -1,9 +1,9 @@
 # 
 # Translators:
 # Juraj Smieško <juraj.smiesko@gmail.com>, 2020
-# Jose Riha <jose1711@gmail.com>, 2021
 # Miroslav Ďurian, 2022
 # Bernd Bestel <bernd@berrnd.de>, 2022
+# Jose Riha <jose1711@gmail.com>, 2022
 # 
 msgid ""
 msgstr ""
@@ -11,7 +11,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Bernd Bestel <bernd@berrnd.de>, 2022\n"
+"Last-Translator: Jose Riha <jose1711@gmail.com>, 2022\n"
 "Language-Team: Slovak (Slovakia) (https://www.transifex.com/grocy/teams/93189/sk_SK/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -105,7 +105,7 @@ msgid "Stores"
 msgstr "Obchody"
 
 msgid "Quantity units"
-msgstr "Jednotky množstva"
+msgstr "Množstevné jednotky"
 
 msgid "Chores"
 msgstr "Povinnosti"
@@ -899,7 +899,7 @@ msgid "%s opened"
 msgstr "%s otvorený"
 
 msgid "Product due"
-msgstr ""
+msgstr "Výrobok expiruje"
 
 msgid "Task due"
 msgstr "Úloha aktívna o"
@@ -1016,7 +1016,7 @@ msgid "Changelog"
 msgstr "Zoznam zmien"
 
 msgid "will be multiplied by a factor of %1$s to get %2$s"
-msgstr ""
+msgstr "bude vynásobený faktorom %1$s, aby ste dostali %2$s"
 
 msgid "The given date is earlier than today, are you sure?"
 msgstr "Zadaný dátum je v minulosti, ste si istý?"
@@ -1027,6 +1027,8 @@ msgstr "Množstvo výrobku"
 msgid ""
 "Type a new product name or barcode and hit TAB or ENTER to start a workflow"
 msgstr ""
+"Napíšte meno výrobku alebo čiarový kód a stlačte TAB alebo ENTER na začatie "
+"procesu"
 
 msgid ""
 "This will be used as the default setting when adding this product as a "
@@ -1300,7 +1302,7 @@ msgid "Default for QU"
 msgstr "Predvolená jednotka"
 
 msgid "Quantity unit from"
-msgstr "Z jednotky množstva"
+msgstr "Z množstevnej jednotky"
 
 msgid "Quantity unit to"
 msgstr "Na jednotku množstva"
@@ -1464,7 +1466,7 @@ msgid "Configure fields"
 msgstr "Nastavenia polí"
 
 msgid "Quantity unit plural form testing"
-msgstr "Množné číslo jednotky množstva z testovania"
+msgstr "Testovanie plurálu množstevnej jednotky"
 
 msgid "Result"
 msgstr "Výsledok"
@@ -1616,6 +1618,9 @@ msgid ""
 "Camera access is only possible when supported and allowed by your browser "
 "and when grocy is served via a secure (https://) connection"
 msgstr ""
+"Prístup ku kamere je možný iba tam, kde to podporuje a povoľuje váš "
+"prehliadač a keď ku grocy pristupujete prostredníctvom zabezpečeného "
+"(https://) spojenia"
 
 msgid "Keep screen on"
 msgstr "Nevypínať obrazovku"
@@ -1738,7 +1743,7 @@ msgid "Mark this stock entry as open"
 msgstr "Označiť túto položku zásob ako otvorenú"
 
 msgid "Mark this item as done"
-msgstr "Označiť túto položku ako hotovú"
+msgstr "Označiť túto položku ako dokončenú"
 
 msgid "Edit this item"
 msgstr "Upraviť túto položku"
@@ -1747,7 +1752,7 @@ msgid "Delete this item"
 msgstr "Odstrániť túto položku"
 
 msgid "Show an icon if the product is already on the shopping list"
-msgstr ""
+msgstr "Zobraziť ikonu, ak je už výrobok v nákupnom zozname"
 
 msgid "Calories"
 msgstr "Kalórie"
@@ -1896,7 +1901,7 @@ msgid "Save & continue to add conversions"
 msgstr "Uložiť a pokračovať na pridanie prevodov"
 
 msgid "Save & return to quantity units"
-msgstr "Uložiť a vrátiť sa na jednotky množstva"
+msgstr "Uložiť a vrátiť sa na množstevné jednotky"
 
 msgid "price"
 msgstr "cena"
@@ -2181,7 +2186,7 @@ msgid "Show header"
 msgstr ""
 
 msgid "Group by product group"
-msgstr ""
+msgstr "Zoskupovať podľa skupiny výrobku"
 
 msgid "Table"
 msgstr ""
@@ -2190,16 +2195,16 @@ msgid "Layout type"
 msgstr ""
 
 msgid "Merge this product with another one"
-msgstr ""
+msgstr "Zlúčiť tento výrobok s iným"
 
 msgid "Merge products"
 msgstr ""
 
 msgid "Product to keep"
-msgstr ""
+msgstr "Výrobok, ktorý bude ponechaný"
 
 msgid "Product to remove"
-msgstr ""
+msgstr "Výrobok, ktorý bude odstránený"
 
 msgid "Error while merging"
 msgstr ""
@@ -2231,7 +2236,7 @@ msgid "Print options"
 msgstr ""
 
 msgid "A product or a note is required"
-msgstr ""
+msgstr "Vyžaduje sa výrobok alebo poznámka"
 
 msgid "grocycode"
 msgstr ""
@@ -2299,7 +2304,7 @@ msgid "Show only in-stock products"
 msgstr ""
 
 msgid "Product description"
-msgstr ""
+msgstr "Popis výrobku"
 
 # Example: *3.21 USD* per *Pack*
 msgid "%1$s per %2$s"
@@ -2318,7 +2323,7 @@ msgid "When enabled, then this field must be filled on the destination form"
 msgstr ""
 
 msgid "In-stock products"
-msgstr ""
+msgstr "Výrobky v zásobe"
 
 msgid "Timestamp"
 msgstr ""
@@ -2347,7 +2352,7 @@ msgid "Add recipe"
 msgstr ""
 
 msgid "Copy this day"
-msgstr ""
+msgstr "Kopírovať tento deň"
 
 msgid "Date range"
 msgstr ""
@@ -2367,7 +2372,7 @@ msgstr[2] ""
 msgstr[3] ""
 
 msgid "Display product"
-msgstr ""
+msgstr "Zobraziť výrobok"
 
 msgid "Copy recipe"
 msgstr ""
@@ -2571,13 +2576,24 @@ msgid "Now / today"
 msgstr ""
 
 msgid "Add meal plan entry"
-msgstr ""
+msgstr "Pridať položku jedálnička"
 
 msgid "Edit meal plan entry"
-msgstr ""
+msgstr "Upraviť položku jedálnička"
 
 msgid "Default consume location"
 msgstr ""
 
 msgid "Stock entries at this location will be consumed first"
+msgstr ""
+
+msgid "Move on open"
+msgstr ""
+
+msgid ""
+"When enabled, on marking this product as opened, the corresponding amount "
+"will be moved to the default consume location"
+msgstr ""
+
+msgid "Moved to %1$s"
 msgstr ""

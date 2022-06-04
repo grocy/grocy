@@ -4,6 +4,8 @@
 # Dionysios Gkotsis <bloodsak4@yahoo.gr>, 2020
 # ByteGet, 2020
 # Thodoris Kalatzis <teo.kal@hotmail.com>, 2021
+# Bernd Bestel <bernd@berrnd.de>, 2022
+# emmker kats, 2022
 # 
 msgid ""
 msgstr ""
@@ -11,7 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Thodoris Kalatzis <teo.kal@hotmail.com>, 2021\n"
+"Last-Translator: emmker kats, 2022\n"
 "Language-Team: Greek (Greece) (https://www.transifex.com/grocy/teams/93189/el_GR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -40,8 +42,8 @@ msgstr[1] "%s προϊόντα έχουν ήδη λήξει"
 
 msgid "%s product is overdue"
 msgid_plural "%s products are overdue"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%s προϊόν που έχει ήδη λήξει"
+msgstr[1] "%s προϊόντα που έληξαν"
 
 msgid "%s product is below defined min. stock amount"
 msgid_plural "%s products are below defined min. stock amount"
@@ -276,8 +278,8 @@ msgstr ""
 
 msgid "This means 1 %1$s purchased will be converted into %2$s %3$s in stock"
 msgstr ""
-"Το προϊόν% s έχει ήδη λήξειΑυτό σημαίνει ότι 1% 1 $ s που αγοράζεται θα "
-"μετατραπεί σε% 2 $ s% 3 $ s σε απόθεμα"
+"Το προϊόν% s έχει ήδη λήξειΑυτό σημαίνει ότι %1$s s που αγοράζεται θα "
+"μετατραπεί σε% %2$s %3$s σε απόθεμα"
 
 msgid "Login"
 msgstr "Σύνδεση"
@@ -292,7 +294,7 @@ msgid "Invalid credentials, please try again"
 msgstr "Μη έγκυρα διαπιστευτήρια, δοκιμάστε ξανά"
 
 msgid "Are you sure to delete battery \"%s\"?"
-msgstr "Είστε βέβαιοι ότι θα διαγράψετε την μπαταρία \"% s\";"
+msgstr "Είστε βέβαιοι ότι θα διαγράψετε την μπαταρία \"%s\";"
 
 msgid "Yes"
 msgstr "Ναί"
@@ -301,12 +303,12 @@ msgid "No"
 msgstr "Οχι"
 
 msgid "Are you sure to delete chore \"%s\"?"
-msgstr "Είστε βέβαιοι ότι θα διαγράψετε τη δουλειά \"% s\";"
+msgstr "Είστε βέβαιοι ότι θα διαγράψετε τη δουλειά \"%s\";"
 
 msgid "\"%s\" could not be resolved to a product, how do you want to proceed?"
 msgstr ""
 "Το προϊόν% s είναι κάτω από το καθορισμένο ελάχιστο. ποσό αποθέματοςΔεν ήταν"
-" δυνατή η επίλυση του \"% s\" σε ένα προϊόν, πώς θέλετε να προχωρήσετε;"
+" δυνατή η επίλυση του \"%s\" σε ένα προϊόν, πώς θέλετε να προχωρήσετε;"
 
 msgid "Create or assign product"
 msgstr "Δημιουργία ή εκχώρηση προϊόντος"
@@ -324,16 +326,16 @@ msgid "Add as new product and prefill barcode"
 msgstr "Προσθέστε ως νέο προϊόν και γραμμωτού κώδικα προσυμπλήρωσης"
 
 msgid "Are you sure to delete quantity unit \"%s\"?"
-msgstr "Είστε βέβαιοι ότι θα διαγράψετε τη μονάδα ποσότητας \"% s\";"
+msgstr "Είστε βέβαιοι ότι θα διαγράψετε τη μονάδα ποσότητας \"%s\";"
 
 msgid "Are you sure to delete product \"%s\"?"
-msgstr "Είστε βέβαιοι ότι θα διαγράψετε το προϊόν \"% s\";"
+msgstr "Είστε βέβαιοι ότι θα διαγράψετε το προϊόν \"%s\";"
 
 msgid "Are you sure to delete location \"%s\"?"
-msgstr "Είστε βέβαιοι ότι θα διαγράψετε την τοποθεσία \"% s\";"
+msgstr "Είστε βέβαιοι ότι θα διαγράψετε την τοποθεσία \"%s\";"
 
 msgid "Are you sure to delete store \"%s\"?"
-msgstr "Είστε βέβαιοι ότι θα διαγράψετε το κατάστημα \"% s\";"
+msgstr "Είστε βέβαιοι ότι θα διαγράψετε το κατάστημα \"%s\";"
 
 msgid "Manage API keys"
 msgstr "Διαχείριση κλειδιών API"
@@ -360,13 +362,13 @@ msgid "This product is not in stock"
 msgstr "Αυτό το προϊόν δεν είναι διαθέσιμο"
 
 msgid "This means %s will be added to stock"
-msgstr "Αυτό σημαίνει ότι το% s θα προστεθεί στο απόθεμα"
+msgstr "Αυτό σημαίνει ότι το %s θα προστεθεί στο απόθεμα"
 
 msgid "This means %s will be removed from stock"
-msgstr "Αυτό σημαίνει ότι το% s θα αφαιρεθεί από το απόθεμα"
+msgstr "Αυτό σημαίνει ότι το %s θα αφαιρεθεί από το απόθεμα"
 
 msgid "Removed %1$s of %2$s from stock"
-msgstr "Καταργήθηκε% 1 $ s από% 2 $ s από το απόθεμα"
+msgstr "Καταργήθηκε %1$s s από %2$s s από το απόθεμα"
 
 msgid "About grocy"
 msgstr "Σχετικά με το grocy"
@@ -378,19 +380,19 @@ msgid "Released on"
 msgstr "Κυκλοφόρησε στις"
 
 msgid "Added %1$s of %2$s to stock"
-msgstr "Προστέθηκε% 1 $ s από% 2 $ s στο απόθεμα"
+msgstr "Προστέθηκε %1$s από %2$s στο απόθεμα"
 
 msgid "Stock amount of %1$s is now %2$s"
-msgstr "Το χρηματικό ποσό των% 1 $ s είναι τώρα% 2 $ s"
+msgstr "Το χρηματικό ποσό των %1$s είναι τώρα %2$s"
 
 msgid "Tracked execution of chore %1$s on %2$s"
-msgstr "Παρακολούθηση εκτέλεσης της δουλειάς% 1 $ s στο% 2 $ s"
+msgstr "Παρακολούθηση εκτέλεσης της δουλειάς %1$s στο %2$s"
 
 msgid "Tracked charge cycle of battery %1$s on %2$s"
-msgstr "Παρακολούθηση κύκλου φόρτισης μπαταρίας% 1 $ s στο% 2 $ s"
+msgstr "Παρακολούθηση κύκλου φόρτισης μπαταρίας %1$s στο %2$s"
 
 msgid "Consume all %s which are currently in stock"
-msgstr "Καταναλώστε όλα τα% s που βρίσκονται σε απόθεμα"
+msgstr "Καταναλώστε όλα τα %s που βρίσκονται σε απόθεμα"
 
 msgid "All"
 msgstr "Ολα"
@@ -450,13 +452,13 @@ msgid "Edit recipe ingredient"
 msgstr "Επεξεργασία συστατικού συνταγής"
 
 msgid "Are you sure to delete recipe \"%s\"?"
-msgstr "Είστε βέβαιοι ότι θα διαγράψετε τη συνταγή \"% s\";"
+msgstr "Είστε βέβαιοι ότι θα διαγράψετε τη συνταγή \"%s\";"
 
 msgid "Are you sure to delete recipe ingredient \"%s\"?"
-msgstr "Είστε βέβαιοι ότι θα διαγράψετε το συστατικό συνταγής \"% s\";"
+msgstr "Είστε βέβαιοι ότι θα διαγράψετε το συστατικό συνταγής \"%s\";"
 
 msgid "Are you sure to empty shopping list \"%s\"?"
-msgstr "Είστε βέβαιοι ότι αδειάζετε τη λίστα αγορών \"% s\";"
+msgstr "Είστε βέβαιοι ότι αδειάζετε τη λίστα αγορών \"%s\";"
 
 msgid "Clear list"
 msgstr "Σαφή κατάλογο"
@@ -494,8 +496,7 @@ msgstr "Συνταγή"
 
 msgid "Not enough in stock, %1$s missing, %2$s already on shopping list"
 msgstr ""
-"% s ΠροϊόνΔεν υπάρχει αρκετό απόθεμα,% 1 $ s λείπει,% 2 $ s ήδη στη λίστα "
-"αγορών"
+"% s ΠροϊόνΔεν υπάρχει αρκετό απόθεμα, %1$s λείπει, %2$s ήδη στη λίστα αγορών"
 
 msgid "Show notes"
 msgstr "Εμφάνιση σημειώσεων"
@@ -508,10 +509,10 @@ msgid ""
 "shopping list?"
 msgstr ""
 "ΠοσόΕίστε βέβαιοι ότι θα βάλετε όλα τα συστατικά που λείπουν για τη συνταγή "
-"\"% s\" στη λίστα αγορών;"
+"\"%s\" στη λίστα αγορών;"
 
 msgid "Added for recipe %s"
-msgstr "Προστέθηκε για τη συνταγή% s"
+msgstr "Προστέθηκε για τη συνταγή %s"
 
 msgid "Manage users"
 msgstr "Διαχείριση χρηστών"
@@ -523,7 +524,7 @@ msgid "Users"
 msgstr "Χρήστες"
 
 msgid "Are you sure to delete user \"%s\"?"
-msgstr "Είστε βέβαιοι ότι θα διαγράψετε τον χρήστη \"% s\";"
+msgstr "Είστε βέβαιοι ότι θα διαγράψετε τον χρήστη \"%s\";"
 
 msgid "Create user"
 msgstr "Δημιουργία χρήστη"
@@ -624,7 +625,7 @@ msgid ""
 msgstr ""
 
 msgid "Removed all ingredients of recipe \"%s\" from stock"
-msgstr "Καταργήθηκαν όλα τα συστατικά της συνταγής \"% s\" από το απόθεμα"
+msgstr "Καταργήθηκαν όλα τα συστατικά της συνταγής \"%s\" από το απόθεμα"
 
 msgid "Consume all ingredients needed by this recipe"
 msgstr "Καταναλώστε όλα τα συστατικά που απαιτούνται από αυτήν τη συνταγή"
@@ -654,7 +655,7 @@ msgid "Assigned to"
 msgstr "Ανατεθεί"
 
 msgid "Mark task \"%s\" as completed"
-msgstr "Επισημάνετε την εργασία \"% s\" ως ολοκληρωμένη"
+msgstr "Επισημάνετε την εργασία \"%s\" ως ολοκληρωμένη"
 
 msgid "Uncategorized"
 msgstr "Χωρίς κατηγορία"
@@ -675,7 +676,7 @@ msgid "Edit task"
 msgstr "Επεξεργασία εργασίας"
 
 msgid "Are you sure to delete task \"%s\"?"
-msgstr "Είστε βέβαιοι ότι θα διαγράψετε την εργασία \"% s\";"
+msgstr "Είστε βέβαιοι ότι θα διαγράψετε την εργασία \"%s\";"
 
 msgid "%s task is due to be done"
 msgid_plural "%s tasks are due to be done"
@@ -709,7 +710,7 @@ msgid "Product group"
 msgstr "Ομάδα προϊόντων"
 
 msgid "Are you sure to delete product group \"%s\"?"
-msgstr "Είστε βέβαιοι ότι θα διαγράψετε την ομάδα προϊόντων \"% s\";"
+msgstr "Είστε βέβαιοι ότι θα διαγράψετε την ομάδα προϊόντων \"%s\";"
 
 msgid "Stay logged in permanently"
 msgstr "Μείνετε μόνιμα συνδεδεμένοι"
@@ -763,7 +764,7 @@ msgid "Select file"
 msgstr "Επιλέξτε αρχείο"
 
 msgid "Image of product %s"
-msgstr "Εικόνα του προϊόντος% s"
+msgstr "Εικόνα του προϊόντος %s"
 
 msgid "Deletion not possible"
 msgstr "Δεν είναι δυνατή η διαγραφή"
@@ -855,7 +856,7 @@ msgid "Add this item to stock"
 msgstr ""
 
 msgid "Adding shopping list item %1$s of %2$s"
-msgstr "Προσθήκη στοιχείου λίστας αγορών% 1 $ s από% 2 $ s"
+msgstr "Προσθήκη στοιχείου λίστας αγορών %1$s από %2$s"
 
 msgid "Use a specific stock item"
 msgstr "Χρησιμοποιήστε ένα συγκεκριμένο είδος αποθέματος"
@@ -866,10 +867,10 @@ msgid ""
 msgstr ""
 
 msgid "Mark %1$s of %2$s as open"
-msgstr "Επισήμανση% 1 $ s από% 2 $ s ως ανοιχτό"
+msgstr "Επισήμανση %1$s s από %2$s ως ανοιχτό"
 
 msgid "Marked %1$s of %2$s as opened"
-msgstr "Επισημάνθηκε% 1 $ s από% 2 $ s ως άνοιγμα"
+msgstr "Επισημάνθηκε %1$s από %2$s ως άνοιγμα"
 
 msgid "Mark as opened"
 msgstr "Επισήμανση ως άνοιξε"
@@ -881,7 +882,7 @@ msgid "Opened"
 msgstr "Άνοιξε"
 
 msgid "%s opened"
-msgstr "Το% s άνοιξε"
+msgstr "Το %s άνοιξε"
 
 msgid "Product due"
 msgstr ""
@@ -1008,7 +1009,7 @@ msgid "Changelog"
 msgstr "Τσανγκολόγκ"
 
 msgid "will be multiplied by a factor of %1$s to get %2$s"
-msgstr "θα πολλαπλασιαστεί με συντελεστή% 1 $ s για να πάρει% 2 $ s"
+msgstr "θα πολλαπλασιαστεί με συντελεστή %1$s για να πάρει %2$s"
 
 msgid "The given date is earlier than today, are you sure?"
 msgstr "Η δεδομένη ημερομηνία είναι νωρίτερη από σήμερα, είστε βέβαιοι;"
@@ -1052,7 +1053,7 @@ msgid "Create shopping list"
 msgstr "Δημιουργία λίστας αγορών"
 
 msgid "Are you sure to delete shopping list \"%s\"?"
-msgstr "Είστε βέβαιοι ότι θα διαγράψετε τη λίστα αγορών \"% s\";"
+msgstr "Είστε βέβαιοι ότι θα διαγράψετε τη λίστα αγορών \"%s\";"
 
 msgid "Average shelf life"
 msgstr "Μέση διάρκεια ζωής"
@@ -1067,7 +1068,7 @@ msgid "Show less"
 msgstr "Δείξε λιγότερο"
 
 msgid "The amount must be between %1$s and %2$s"
-msgstr "Το ποσό πρέπει να κυμαίνεται μεταξύ% 1 $ s και% 2 $ s"
+msgstr "Το ποσό πρέπει να κυμαίνεται μεταξύ %1$s και %2$s"
 
 msgid "Day of month"
 msgstr "Ημέρα του μήνα"
@@ -1184,7 +1185,7 @@ msgstr ""
 "παρακολουθείται μόνο η ημέρα εκτέλεσης και όχι η ώρα"
 
 msgid "Consume %1$s of %2$s"
-msgstr "Καταναλώστε% 1 $ s από% 2 $ s"
+msgstr "Καταναλώστε %1$s από %2$s"
 
 msgid "Meal plan"
 msgstr "Προτίμηση γεύματος"
@@ -1207,7 +1208,7 @@ msgid "Products"
 msgstr "Προϊόντα"
 
 msgid "Marked task %s as completed on %s"
-msgstr "Επισημάνθηκε η εργασία% s ως ολοκληρωμένη στο% s"
+msgstr "Επισημάνθηκε η εργασία %s ως ολοκληρωμένη στο %s"
 
 msgid "Booking has subsequent dependent bookings, undo not possible"
 msgstr ""
@@ -1224,7 +1225,7 @@ msgid "Today"
 msgstr "Σήμερα"
 
 msgid "Not all ingredients of recipe \"%s\" are in stock, nothing removed"
-msgstr "Δεν υπάρχουν όλα τα συστατικά της συνταγής \"% s\", τίποτα δεν αφαιρείται"
+msgstr "Δεν υπάρχουν όλα τα συστατικά της συνταγής \"%s\", τίποτα δεν αφαιρείται"
 
 msgid "Undo task"
 msgstr ""
@@ -1264,7 +1265,7 @@ msgid "Time of printing"
 msgstr "Ώρα εκτύπωσης"
 
 msgid "Are you sure to delete equipment \"%s\"?"
-msgstr "Είστε βέβαιοι ότι θα διαγράψετε τον εξοπλισμό \"% s\";"
+msgstr "Είστε βέβαιοι ότι θα διαγράψετε τον εξοπλισμό \"%s\";"
 
 msgid "Parent product"
 msgstr "Γονικό προϊόν"
@@ -1283,7 +1284,7 @@ msgid "Factor"
 msgstr "Παράγοντας"
 
 msgid "1 %s is the same as..."
-msgstr "Το 1% s είναι το ίδιο με ..."
+msgstr "Το %s είναι το ίδιο με ..."
 
 msgid "Create QU conversion"
 msgstr "Δημιουργία μετατροπής QU"
@@ -1298,10 +1299,10 @@ msgid "Quantity unit to"
 msgstr "Μονάδα ποσότητας έως"
 
 msgid "This cannot be equal to %s"
-msgstr "Αυτό δεν μπορεί να είναι ίσο με% s"
+msgstr "Αυτό δεν μπορεί να είναι ίσο με %s"
 
 msgid "This means 1 %1$s is the same as %2$s %3$s"
-msgstr "Αυτό σημαίνει ότι το 1% 1 $ s είναι το ίδιο με το% 2 $ s% 3 $ s"
+msgstr "Αυτό σημαίνει ότι το %1$s s είναι το ίδιο με το %2$s %3$s"
 
 msgid "QU conversions"
 msgstr "QU μετατροπές"
@@ -1406,7 +1407,7 @@ msgid "Assigned to me"
 msgstr "Ανατέθηκε σε μένα"
 
 msgid "assigned to %s"
-msgstr "εκχωρήθηκε στο% s"
+msgstr "εκχωρήθηκε στο %s"
 
 msgid "Assignment"
 msgstr "ΑΝΑΘΕΣΗ ΕΡΓΑΣΙΑΣ"
@@ -1415,7 +1416,7 @@ msgid "Consume product on chore execution"
 msgstr "Καταναλώστε το προϊόν κατά την εκτέλεση της δουλειάς"
 
 msgid "Are you sure to delete user field \"%s\"?"
-msgstr "Είστε βέβαιοι ότι θα διαγράψετε το πεδίο χρήστη \"% s\";"
+msgstr "Είστε βέβαιοι ότι θα διαγράψετε το πεδίο χρήστη \"%s\";"
 
 msgid "Userentities"
 msgstr "Χρήστες"
@@ -1430,10 +1431,10 @@ msgid "Edit userentity"
 msgstr "Επεξεργασία χρήστη"
 
 msgid "Edit %s"
-msgstr "Επεξεργασία% s"
+msgstr "Επεξεργασία %s"
 
 msgid "Create %s"
-msgstr "Δημιουργία% s"
+msgstr "Δημιουργία %s"
 
 msgid "Are you sure to delete this userobject?"
 msgstr "Είστε βέβαιοι ότι διαγράψατε αυτό το αντικείμενο χρήστη;"
@@ -1484,7 +1485,7 @@ msgid "Add to shopping list"
 msgstr "Προσθήκη στη λίστα αγορών"
 
 msgid "Added %1$s of %2$s to the shopping list \"%3$s\""
-msgstr "Προστέθηκε% 1 $ s από% 2 $ s στη λίστα αγορών \"% 3 $ s\""
+msgstr "Προστέθηκε% %1$s από% %2$s στη λίστα αγορών \"%3$s\""
 
 msgid "Output"
 msgstr "Παραγωγή"
@@ -1534,7 +1535,7 @@ msgid "Total price"
 msgstr "Συνολικό ποσό"
 
 msgid "in %s and based on the purchase quantity unit"
-msgstr "σε% s και βασίζεται στη μονάδα ποσότητας αγοράς"
+msgstr "σε %s και βασίζεται στη μονάδα ποσότητας αγοράς"
 
 msgid "Unlimited"
 msgstr "Απεριόριστος"
@@ -1543,7 +1544,7 @@ msgid "Clear"
 msgstr "Σαφή"
 
 msgid "Are you sure to remove the included recipe \"%s\"?"
-msgstr "Είστε βέβαιοι ότι έχετε καταργήσει τη συνταγή \"% s\";"
+msgstr "Είστε βέβαιοι ότι έχετε καταργήσει τη συνταγή \"%s\";"
 
 msgid "Period interval"
 msgstr "Διάστημα περιόδου"
@@ -1573,7 +1574,7 @@ msgid "Amount: %1$s; Due on %2$s; Bought on %3$s"
 msgstr ""
 
 msgid "Transfered %1$s of %2$s from %3$s to %4$s"
-msgstr "Μεταφέρθηκε% 1 $ s από% 2's από% 3 $ s σε% 4 $ s"
+msgstr "Μεταφέρθηκε %1$s από %2$s's από %3$s σε %4$s"
 
 msgid "Stock entries"
 msgstr "Καταχωρήσεις αποθεμάτων"
@@ -1585,10 +1586,10 @@ msgid "Purchased date"
 msgstr "Ημερομηνία αγοράς"
 
 msgid "Consume all %s for this stock entry"
-msgstr "Καταναλώστε όλα τα% s για αυτήν την καταχώριση μετοχών"
+msgstr "Καταναλώστε όλα τα %s για αυτήν την καταχώριση μετοχών"
 
 msgid "The amount cannot be lower than %1$s"
-msgstr "Το ποσό δεν μπορεί να είναι χαμηλότερο από% 1 $ s"
+msgstr "Το ποσό δεν μπορεί να είναι χαμηλότερο από %1$s"
 
 msgid "Stock entry successfully updated"
 msgstr "Η καταχώριση μετοχής ενημερώθηκε με επιτυχία"
@@ -1630,7 +1631,7 @@ msgid "Booking does not exist or was already undone"
 msgstr "Η κράτηση δεν υπάρχει ή έχει ήδη αναιρεθεί"
 
 msgid "Are you sure to delete API key \"%s\"?"
-msgstr "Είστε βέβαιοι ότι θα διαγράψετε το κλειδί API \"% s\";"
+msgstr "Είστε βέβαιοι ότι θα διαγράψετε το κλειδί API \"%s\";"
 
 msgid "Add note"
 msgstr "Προσθήκη σημείωσης"
@@ -1686,7 +1687,7 @@ msgid "Frozen"
 msgstr "Παγωμένος"
 
 msgid "Are you sure to delete userentity \"%s\"?"
-msgstr "Είστε βέβαιοι ότι θα διαγράψετε το userentity \"% s\";"
+msgstr "Είστε βέβαιοι ότι θα διαγράψετε το userentity \"%s\";"
 
 msgid "Shopping list settings"
 msgstr "Ρυθμίσεις λίστας αγορών"
@@ -1698,7 +1699,7 @@ msgid "Desired servings"
 msgstr "Επιθυμητές μερίδες"
 
 msgid "Base: %s"
-msgstr "Βάση:% s"
+msgstr "Βάση: %s"
 
 msgid "Recipes settings"
 msgstr "Ρυθμίσεις συνταγών"
@@ -1743,7 +1744,7 @@ msgid "Calories"
 msgstr "Θερμίδες"
 
 msgid "means %1$s per %2$s"
-msgstr "σημαίνει% 1 $ s ανά% 2 $ s"
+msgstr "σημαίνει %1$s ανά %2$s"
 
 msgid "Create recipe"
 msgstr "Δημιουργήστε συνταγή"
@@ -1791,7 +1792,7 @@ msgid "Clear filter"
 msgstr "Απόθεμα μονάδας ποσότητας"
 
 msgid "Permissions for user %s"
-msgstr "Αγορά παράγοντα σε μονάδα ποσότητας αποθεμάτων"
+msgstr "Αγορά παράγοντα σε μονάδα ποσότητας αποθεμάτων %s"
 
 msgid "Are you sure you want to remove full permissions for yourself?"
 msgstr "Δημιουργία τοποθεσίας"
@@ -1824,7 +1825,7 @@ msgid "This page does not exist"
 msgstr "Επεξεργασία μπαταρίας"
 
 msgid "You will be redirected to the default page in %s seconds"
-msgstr "Επεξεργασία μικροδουλειάς"
+msgstr "Επεξεργασία μικροδουλειάς %s"
 
 msgid "Server error"
 msgstr "Επεξεργασία μονάδας ποσότητας"
@@ -2546,4 +2547,15 @@ msgid "Default consume location"
 msgstr ""
 
 msgid "Stock entries at this location will be consumed first"
+msgstr ""
+
+msgid "Move on open"
+msgstr ""
+
+msgid ""
+"When enabled, on marking this product as opened, the corresponding amount "
+"will be moved to the default consume location"
+msgstr ""
+
+msgid "Moved to %1$s"
 msgstr ""

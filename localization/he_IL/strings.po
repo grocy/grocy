@@ -2650,3 +2650,16 @@ msgstr "מיקום ברירת המחדל לצריכה"
 
 msgid "Stock entries at this location will be consumed first"
 msgstr "רשומות המלאי במיקום זה תיצרכנה תחילה"
+
+msgid "Move on open"
+msgstr "העברה עם הפתיחה"
+
+msgid ""
+"When enabled, on marking this product as opened, the corresponding amount "
+"will be moved to the default consume location"
+msgstr ""
+"כשהאפשרות מופעלת, בעת סימון פתיחת מוצר, הכמות המתאימה תועבר למיקום הצריכה "
+"כברירת מחדל"
+
+msgid "Moved to %1$s"
+msgstr "הועבר אל %1$s"

@@ -1,19 +1,19 @@
 # 
 # Translators:
 # Bernd Bestel <bernd@berrnd.de>, 2019
-# Ankue <ankue.spam@gmail.com>, 2019
-# Igor Perez <igordiablo@hotmail.com>, 2020
-# Jose Rugel <joserugel@gmail.com>, 2020
+# José Rugel <joserugel@gmail.com>, 2020
 # Christian Cotillas <marril01@gmail.com>, 2020
 # 94da36f1deec90bc5ed082cca3edbf58_8d5d5e6 <4436ad586b0a58e21cae88865adf5b43_901667>, 2020
 # Alan Pucheta <apucheta@protonmail.com>, 2020
 # Enrique Lapenta <enriquelap20@gmail.com>, 2020
-# Alberto Martin <ami232@gmail.com>, 2021
 # Adrián R.G. <adrirgrillo@gmail.com>, 2021
 # victormce <victormce@gmail.com>, 2021
 # Fernando Sánchez <fernando.l.sanchez@gmail.com>, 2021
 # Juan José González-Abril, 2021
 # GRBaset, 2022
+# Ankue <ankue.spam@gmail.com>, 2022
+# Igor Perez <igordiablo@hotmail.com>, 2022
+# Alberto Martin <ami232@gmail.com>, 2022
 # 
 msgid ""
 msgstr ""
@@ -21,13 +21,13 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: GRBaset, 2022\n"
+"Last-Translator: Alberto Martin <ami232@gmail.com>, 2022\n"
 "Language-Team: Spanish (https://www.transifex.com/grocy/teams/93189/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: es\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 "X-Domain: grocy/strings\n"
 
 msgid "Stock overview"
@@ -37,26 +37,31 @@ msgid "%s product expires"
 msgid_plural "%s products expiring"
 msgstr[0] "%s producto caducará"
 msgstr[1] "%s productos caducarán"
+msgstr[2] "%s productos caducarán"
 
 msgid "within the next day"
 msgid_plural "within the next %s days"
 msgstr[0] "mañana"
 msgstr[1] "en los próximos %s días"
+msgstr[2] "en los próximos %s días"
 
 msgid "%s product is already expired"
 msgid_plural "%s products are already expired"
 msgstr[0] "%s producto ha caducado"
 msgstr[1] "%s productos han caducado"
+msgstr[2] "%s productos han caducado"
 
 msgid "%s product is overdue"
 msgid_plural "%s products are overdue"
 msgstr[0] "%s producto ha superado su fecha de consumo preferente"
 msgstr[1] "%s productos han superado sus fechas de consumo preferente"
+msgstr[2] "%s productos han superado sus fechas de consumo preferente"
 
 msgid "%s product is below defined min. stock amount"
 msgid_plural "%s products are below defined min. stock amount"
 msgstr[0] "%s producto por debajo del mínimo de existencias definido"
 msgstr[1] "%s productos por debajo del mínimo de existencias definido"
+msgstr[2] "%s productos por debajo del mínimo de existencias definido"
 
 msgid "Product"
 msgstr "Producto"
@@ -65,6 +70,7 @@ msgid "%s Product"
 msgid_plural "%s Products"
 msgstr[0] "%s Producto"
 msgstr[1] "%s Productos"
+msgstr[2] "%s Productos"
 
 msgid "Amount"
 msgstr "Cantidad"
@@ -488,6 +494,9 @@ msgstr[0] ""
 msgstr[1] ""
 "No hay existencias suficientes: faltan %s ingredientes, pero ya están en la "
 "lista de la compra"
+msgstr[2] ""
+"No hay existencias suficientes: faltan %s ingredientes, pero ya están en la "
+"lista de la compra"
 
 msgid "Expand to fullscreen"
 msgstr "Pantalla completa"
@@ -597,26 +606,31 @@ msgid "%s Unit"
 msgid_plural "%s Units"
 msgstr[0] "%s Unidad"
 msgstr[1] "%s Unidades"
+msgstr[2] "%s Unidades"
 
 msgid "%s chore is due to be done"
 msgid_plural "%s chores are due to be done"
 msgstr[0] "%s tarea del hogar debe hacerse"
 msgstr[1] "%s tareas del hogar deben hacerse"
+msgstr[2] "%s tareas del hogar deben hacerse"
 
 msgid "%s chore is overdue to be done"
 msgid_plural "%s chores are overdue to be done"
 msgstr[0] "%s tarea del hogar debería haberse hecho"
 msgstr[1] "%s tareas del hogar deberían haberse hecho"
+msgstr[2] "%s tareas del hogar deberían haberse hecho"
 
 msgid "%s battery is due to be charged"
 msgid_plural "%s batteries are due to be charged"
 msgstr[0] "%s batería debe cargarse"
 msgstr[1] "%s baterías deben cargarse"
+msgstr[2] "%s baterías deben cargarse"
 
 msgid "%s battery is overdue to be charged"
 msgid_plural "%s batteries are overdue to be charged"
 msgstr[0] "%s batería debería haberse cargado"
 msgstr[1] "%s baterías deberían haberse cargado"
+msgstr[2] "%s baterías deberían haberse cargado"
 
 msgid "in singular form"
 msgstr "en singular"
@@ -693,11 +707,13 @@ msgid "%s task is due to be done"
 msgid_plural "%s tasks are due to be done"
 msgstr[0] "%s tarea debe hacerse"
 msgstr[1] "%s tareas deben hacerse"
+msgstr[2] "%s tareas deben hacerse"
 
 msgid "%s task is overdue to be done"
 msgid_plural "%s tasks are overdue to be done"
 msgstr[0] "%s tarea debería haberse hecho"
 msgstr[1] "%s tareas deberían haberse hecho"
+msgstr[2] "%s tareas deberían haberse hecho"
 
 msgid "Edit task category"
 msgstr "Modificar la categoría de la tarea"
@@ -1158,6 +1174,7 @@ msgid "Not enough in stock, %s ingredient missing"
 msgid_plural "Not enough in stock, %s ingredients missing"
 msgstr[0] "No hay existencias suficientes: falta %s ingrediente"
 msgstr[1] "No hay existencias suficientes: faltan %s ingredientes"
+msgstr[2] "No hay existencias suficientes: faltan %s ingredientes"
 
 msgid "Not enough in stock, but already on the shopping list"
 msgstr ""
@@ -1203,6 +1220,7 @@ msgid "%s serving"
 msgid_plural "%s servings"
 msgstr[0] "%s raciones"
 msgstr[1] "%s raciones"
+msgstr[2] "%s raciones"
 
 msgid "Week costs"
 msgstr "Coste semanal"
@@ -1349,6 +1367,9 @@ msgstr[0] ""
 msgstr[1] ""
 "Esto significa que la próxima ejecución de esta tarea del hogar está "
 "programada a la misma hora (basándose en la fecha inicial) cada %s días"
+msgstr[2] ""
+"Esto significa que la próxima ejecución de esta tarea del hogar está "
+"programada a la misma hora (basándose en la fecha inicial) cada %s días"
 
 msgid ""
 "This means the next execution of this chore is scheduled %s hour after the "
@@ -1360,6 +1381,9 @@ msgstr[0] ""
 "Esto significa que la próxima ejecución de esta tarea del hogar está "
 "programada %s hora después de la última ejecución"
 msgstr[1] ""
+"Esto significa que la próxima ejecución de esta tarea del hogar está "
+"programada%s horas después de la última ejecución"
+msgstr[2] ""
 "Esto significa que la próxima ejecución de esta tarea del hogar está "
 "programada%s horas después de la última ejecución"
 
@@ -1375,6 +1399,9 @@ msgstr[0] ""
 msgstr[1] ""
 "Esto significa que la próxima ejecución de esta tarea del hogar está "
 "programada cada %s semanas en los días de la semana elegidos"
+msgstr[2] ""
+"Esto significa que la próxima ejecución de esta tarea del hogar está "
+"programada cada %s semanas en los días de la semana elegidos"
 
 msgid ""
 "This means the next execution of this chore is scheduled on the selected day"
@@ -1386,6 +1413,9 @@ msgstr[0] ""
 "Esto significa que la próxima ejecución de esta tarea del hogar está "
 "programada para el día elegido cada mes"
 msgstr[1] ""
+"Esto significa que la próxima ejecución de esta tarea del hogar está "
+"programada para el día elegido cada %s meses"
+msgstr[2] ""
 "Esto significa que la próxima ejecución de esta tarea del hogar está "
 "programada para el día elegido cada %s meses"
 
@@ -1429,6 +1459,7 @@ msgid "%s chore is assigned to me"
 msgid_plural "%s chores are assigned to me"
 msgstr[0] "%s tarea del hogar asignada a mí"
 msgstr[1] "%s tareas del hogar asignadas a mí"
+msgstr[2] "%s tareas del hogar asignadas a mí"
 
 msgid "Assigned to me"
 msgstr "Asignada a mí"
@@ -1588,6 +1619,9 @@ msgstr[0] ""
 "Esto significa que la próxima ejecución de esta tarea del hogar está "
 "programada cada año en el mismo día (basándose en la fecha inicial)"
 msgstr[1] ""
+"Esto significa que la próxima ejecución de esta tarea del hogar está "
+"programada cada %s años en el mismo día (basándose en la fecha inicial)"
+msgstr[2] ""
 "Esto significa que la próxima ejecución de esta tarea del hogar está "
 "programada cada %s años en el mismo día (basándose en la fecha inicial)"
 
@@ -2104,6 +2138,7 @@ msgid "%s product is due"
 msgid_plural "%s products are due"
 msgstr[0] "%s producto ha superado su fecha de consumo preferente"
 msgstr[1] "%s productos han superado sus fechas de consumo preferente"
+msgstr[2] "%s productos han superado sus fechas de consumo preferente"
 
 msgid "Due date"
 msgstr "Fecha límite"
@@ -2115,6 +2150,7 @@ msgid "%s product is expired"
 msgid_plural "%s products are expired"
 msgstr[0] "%s producto está caducado"
 msgstr[1] "%s productos están caducados"
+msgstr[2] "%s productos están caducados"
 
 msgid "Expired"
 msgstr "Caducado"
@@ -2433,11 +2469,13 @@ msgid "%s month"
 msgid_plural "%s months"
 msgstr[0] "%s mes"
 msgstr[1] "%s meses"
+msgstr[2] "%s meses"
 
 msgid "%s year"
 msgid_plural "%s years"
 msgstr[0] "%s año"
 msgstr[1] "%s años"
+msgstr[2] "%s años"
 
 msgid "Display product"
 msgstr "Mostrar producto"
@@ -2517,16 +2555,19 @@ msgid "%s task is due to be done today"
 msgid_plural "%s tasks are due to be done today"
 msgstr[0] "%s tarea debe hacerse hoy"
 msgstr[1] "%s tareas deben hacerse hoy"
+msgstr[2] "%s tareas deben hacerse hoy"
 
 msgid "%s chore is due to be done today"
 msgid_plural "%s chores are due to be done today"
 msgstr[0] "%s tarea del hogar debe hacerse hoy"
 msgstr[1] "%s tareas del hogar deben hacerse hoy"
+msgstr[2] "%s tareas del hogar deben hacerse hoy"
 
 msgid "%s battery is due to be charged today"
 msgid_plural "%s batteries are due to be charged today"
 msgstr[0] "%s batería debe cargarse hoy"
 msgstr[1] "%s baterías deben cargarse hoy"
+msgstr[2] "%s baterías deben cargarse hoy"
 
 msgid "Set to 0 to hide due soon filters/highlighting"
 msgstr "Poner 0 para ocultar los filtros/resaltado de fecha límite próxima"
@@ -2653,4 +2694,15 @@ msgid "Default consume location"
 msgstr ""
 
 msgid "Stock entries at this location will be consumed first"
+msgstr ""
+
+msgid "Move on open"
+msgstr ""
+
+msgid ""
+"When enabled, on marking this product as opened, the corresponding amount "
+"will be moved to the default consume location"
+msgstr ""
+
+msgid "Moved to %1$s"
 msgstr ""

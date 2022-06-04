@@ -6,6 +6,7 @@
 # Pro Peller <smiglo@tuta.io>, 2020
 # Rafal Dadas <dadasrafal@gmail.com>, 2020
 # Tomasz Wieczorek <tomek12-96@o2.pl>, 2022
+# Hans Müller, 2022
 # 
 msgid ""
 msgstr ""
@@ -13,7 +14,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Tomasz Wieczorek <tomek12-96@o2.pl>, 2022\n"
+"Last-Translator: Hans Müller, 2022\n"
 "Language-Team: Polish (https://www.transifex.com/grocy/teams/93189/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -122,10 +123,10 @@ msgid "Tomato"
 msgstr "Pomidor"
 
 msgid "Change towels in the bathroom"
-msgstr ""
+msgstr "wymienić ręczniki w łazience"
 
 msgid "Mop the kitchen floor"
-msgstr ""
+msgstr "umyć podłogę"
 
 msgid "Warranty ends"
 msgstr "Koniec gwarancji"
@@ -140,7 +141,7 @@ msgid "Heat remote control"
 msgstr "Pilot do sterowania ciepłem"
 
 msgid "Take out the trash"
-msgstr ""
+msgstr "wyrzucić śmieci"
 
 msgid "Some good snacks"
 msgstr "Dobre przekąski"
@@ -267,13 +268,13 @@ msgid "Russian"
 msgstr "Rosyjski"
 
 msgid "Vacuum the living room floor"
-msgstr ""
+msgstr "odkurzyć w salonie"
 
 msgid "Clean the litter box"
-msgstr ""
+msgstr "wyczyścić kuwetę"
 
 msgid "Change the bed sheets"
-msgstr ""
+msgstr "zmieńić prześcieradło"
 
 msgid "Swedish"
 msgstr "Szwedzki"
@@ -399,4 +400,4 @@ msgid "Catalan"
 msgstr "Kataloński"
 
 msgid "Slovenian"
-msgstr ""
+msgstr "słoweński"

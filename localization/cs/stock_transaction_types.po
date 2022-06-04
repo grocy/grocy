@@ -36,10 +36,10 @@ msgid "product-opened"
 msgstr "otevření balení"
 
 msgid "stock-edit-old"
-msgstr "změna zásoby – stará"
+msgstr "změna zásob – stará"
 
 msgid "stock-edit-new"
-msgstr "změna zásoby – nová"
+msgstr "změna zásob – nová"
 
 msgid "self-production"
 msgstr "vlastní výroba"

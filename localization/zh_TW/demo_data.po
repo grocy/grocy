@@ -3,6 +3,7 @@
 # jd615645 <jd615645@gmail.com>, 2020
 # richegg Tsai <zxp86021@gmail.com>, 2020
 # 鍾佑豪 <zobuwei@gmail.com>, 2020
+# Alex Li, 2022
 # 
 msgid ""
 msgstr ""
@@ -10,7 +11,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: 鍾佑豪 <zobuwei@gmail.com>, 2020\n"
+"Last-Translator: Alex Li, 2022\n"
 "Language-Team: Chinese (Taiwan) (https://www.transifex.com/grocy/teams/93189/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -101,10 +102,10 @@ msgid "Tomato"
 msgstr "番茄"
 
 msgid "Change towels in the bathroom"
-msgstr ""
+msgstr "更換浴室毛巾"
 
 msgid "Mop the kitchen floor"
-msgstr ""
+msgstr "拖廚房地板"
 
 msgid "Warranty ends"
 msgstr "保固過期"
@@ -119,7 +120,7 @@ msgid "Heat remote control"
 msgstr "暖爐遙控器"
 
 msgid "Take out the trash"
-msgstr ""
+msgstr "倒垃圾"
 
 msgid "Some good snacks"
 msgstr "美味零食"
@@ -243,13 +244,13 @@ msgid "Russian"
 msgstr "俄文"
 
 msgid "Vacuum the living room floor"
-msgstr ""
+msgstr "吸客廳地板"
 
 msgid "Clean the litter box"
-msgstr ""
+msgstr "清理貓砂盆"
 
 msgid "Change the bed sheets"
-msgstr ""
+msgstr "更換床單"
 
 msgid "Swedish"
 msgstr "瑞典文"
@@ -360,13 +361,13 @@ msgid "Finnish"
 msgstr ""
 
 msgid "Breakfast"
-msgstr ""
+msgstr "早餐"
 
 msgid "Lunch"
-msgstr ""
+msgstr "午餐"
 
 msgid "Dinner"
-msgstr ""
+msgstr "晚餐"
 
 msgid "Catalan"
 msgstr ""

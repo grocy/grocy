@@ -5,6 +5,7 @@
 # John Coles <john@johncoles.com>, 2020
 # Chris H <cjh861@outlook.com>, 2021
 # David Knapman <dai.knapz@gmail.com>, 2021
+# Johnnie Blows, 2022
 # 
 msgid ""
 msgstr ""
@@ -12,7 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: David Knapman <dai.knapz@gmail.com>, 2021\n"
+"Last-Translator: Johnnie Blows, 2022\n"
 "Language-Team: English (United Kingdom) (https://www.transifex.com/grocy/teams/93189/en_GB/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -109,10 +110,10 @@ msgid "Tomato"
 msgstr "Tomato"
 
 msgid "Change towels in the bathroom"
-msgstr ""
+msgstr "Change towels in the bathroom"
 
 msgid "Mop the kitchen floor"
-msgstr ""
+msgstr "Mop the kitchen floor"
 
 msgid "Warranty ends"
 msgstr "Warranty ends"
@@ -127,7 +128,7 @@ msgid "Heat remote control"
 msgstr "Heat remote control"
 
 msgid "Take out the trash"
-msgstr ""
+msgstr "Take out the rubbish"
 
 msgid "Some good snacks"
 msgstr "Some good snacks"
@@ -252,13 +253,13 @@ msgid "Russian"
 msgstr "Russian"
 
 msgid "Vacuum the living room floor"
-msgstr ""
+msgstr "Vacuum the living room floor"
 
 msgid "Clean the litter box"
-msgstr ""
+msgstr "Clean the litter box"
 
 msgid "Change the bed sheets"
-msgstr ""
+msgstr "Change the bed linen"
 
 msgid "Swedish"
 msgstr "Swedish"
@@ -379,7 +380,7 @@ msgid "Dinner"
 msgstr "Dinner"
 
 msgid "Catalan"
-msgstr ""
+msgstr "Catalan"
 
 msgid "Slovenian"
-msgstr ""
+msgstr "Slovenian"

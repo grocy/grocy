@@ -2634,3 +2634,14 @@ msgstr ""
 
 msgid "Stock entries at this location will be consumed first"
 msgstr ""
+
+msgid "Move on open"
+msgstr ""
+
+msgid ""
+"When enabled, on marking this product as opened, the corresponding amount "
+"will be moved to the default consume location"
+msgstr ""
+
+msgid "Moved to %1$s"
+msgstr ""
