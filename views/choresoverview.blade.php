@@ -322,7 +322,7 @@
 					'format' => 'YYYY-MM-DD HH:mm:ss',
 					'initWithNow' => false,
 					'limitEndToNow' => false,
-					'limitStartToNow' => true,
+					'limitStartToNow' => false,
 					'invalidFeedback' => $__t('This can only be in the future')
 					))
 

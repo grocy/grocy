@@ -30,7 +30,7 @@
 
 ### Chores
 
-- xxx
+- Fixed that rescheduling of "Track date only"-chores for today was not possible
 
 ### Calendar
 
