@@ -151,7 +151,7 @@ Grocy.Components.ProductCard.Refresh = function(productId)
 									datasets[key] = []
 								}
 								chart.labels.push(moment(dataPoint.date).toDate());
-								datasets[key].push(Number.parseFloat(dataPoint.price) * Number.parseFloat(productDetails.product.qu_factor_purchase_to_stock));
+								datasets[key].push({ x: moment(dataPoint.date).toDate(), y: Number.parseFloat(dataPoint.price) * Number.parseFloat(productDetails.product.qu_factor_purchase_to_stock) });
 
 							});
 							Object.keys(datasets).forEach((key) =>
@@ -163,6 +163,7 @@ Grocy.Components.ProductCard.Refresh = function(productId)
 									label: key,
 								});
 							});
+
 							Grocy.Components.ProductCard.PriceHistoryChart.update();
 						}
 						else

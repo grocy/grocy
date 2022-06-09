@@ -14,6 +14,7 @@
 - The stock setting "Decimal places allowed for prices" has been split into separate settings for input and displaying prices (the existing setting will be set for both new options on migration, so no changed behavior when not configured)
 - Optimized that when the plural form(s) of a quantity unit is/are not provided, the singular form is used to display plural amounts
 - Fixed "Automatically add products that are below their defined min. stock amount to the shopping list" (stock setting) was only done when consuming products, not when opening them
+- Fixed that the price history chart (product card) showed the price on a wrong date when having multiple purchases on the same date from different stores
 
 ### Shopping list
 
