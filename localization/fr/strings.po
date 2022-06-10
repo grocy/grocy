@@ -38,6 +38,7 @@
 # Daniel Nautré <daniel.nautre@gmail.com>, 2022
 # Olivier Brencklé, 2022
 # Jonathan Blanc, 2022
+# ThalusA, 2022
 # 
 msgid ""
 msgstr ""
@@ -45,7 +46,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Jonathan Blanc, 2022\n"
+"Last-Translator: ThalusA, 2022\n"
 "Language-Team: French (https://www.transifex.com/grocy/teams/93189/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -100,7 +101,7 @@ msgid "Amount"
 msgstr "Quantité"
 
 msgid "Logout"
-msgstr "Déconnecter"
+msgstr "Se déconnecter"
 
 msgid "Chores overview"
 msgstr "Aperçu des corvées"
@@ -1960,9 +1961,6 @@ msgstr "Commun"
 msgid "Decimal places allowed for amounts"
 msgstr "Nombre de décimales pour les quantitées"
 
-msgid "Decimal places allowed for prices"
-msgstr "Nombre de décimales pour les prix"
-
 msgid "Edit shopping list"
 msgstr "Modifier liste de courses"
 
@@ -2743,3 +2741,9 @@ msgstr ""
 
 msgid "Moved to %1$s"
 msgstr "Déplacé vers %1$s"
+
+msgid "Decimal places allowed for prices (input)"
+msgstr "Nombre de décimales autorisés pour les prix (entrée utilisateur)"
+
+msgid "Decimal places allowed for prices (display)"
+msgstr "Nombre de décimales autorisés pour les prix (affichage)"

@@ -1885,9 +1885,6 @@ msgstr ""
 msgid "Decimal places allowed for amounts"
 msgstr "Desatinné miesta pre množstvá sú povolené"
 
-msgid "Decimal places allowed for prices"
-msgstr "Desatinné miesta pre ceny sú povolené"
-
 msgid "Edit shopping list"
 msgstr "Upraviť nákupný zoznam"
 
@@ -2596,4 +2593,10 @@ msgid ""
 msgstr ""
 
 msgid "Moved to %1$s"
+msgstr ""
+
+msgid "Decimal places allowed for prices (input)"
+msgstr ""
+
+msgid "Decimal places allowed for prices (display)"
 msgstr ""

@@ -1941,9 +1941,6 @@ msgstr "Común"
 msgid "Decimal places allowed for amounts"
 msgstr "Cifras decimales permitidas para cantidades"
 
-msgid "Decimal places allowed for prices"
-msgstr "Cifras decimales permitidas para precios"
-
 msgid "Edit shopping list"
 msgstr "Modificar lista de la compra"
 
@@ -2705,4 +2702,10 @@ msgid ""
 msgstr ""
 
 msgid "Moved to %1$s"
+msgstr ""
+
+msgid "Decimal places allowed for prices (input)"
+msgstr ""
+
+msgid "Decimal places allowed for prices (display)"
 msgstr ""

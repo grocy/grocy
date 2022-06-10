@@ -1907,9 +1907,6 @@ msgstr "Allgemein"
 msgid "Decimal places allowed for amounts"
 msgstr "Erlaubte Nachkommastellen für Mengen"
 
-msgid "Decimal places allowed for prices"
-msgstr "Erlaubte Nachkommastellen für Preise"
-
 msgid "Edit shopping list"
 msgstr "Einkaufszettel bearbeiten"
 
@@ -2684,3 +2681,9 @@ msgstr ""
 
 msgid "Moved to %1$s"
 msgstr "Umgelagert nach %1$s"
+
+msgid "Decimal places allowed for prices (input)"
+msgstr "Erlaubte Nachkommastellen für Preise (Eingabe)"
+
+msgid "Decimal places allowed for prices (display)"
+msgstr "Erlaubte Nachkommastellen für Preise (Anzeige)"

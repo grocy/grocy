@@ -1801,9 +1801,6 @@ msgstr "பொது"
 msgid "Decimal places allowed for amounts"
 msgstr "தொகைகளுக்கு தசம இடங்கள் அனுமதிக்கப்படுகின்றன"
 
-msgid "Decimal places allowed for prices"
-msgstr "தசம இடங்கள் விலைகளுக்கு அனுமதிக்கப்படுகின்றன"
-
 msgid "Edit shopping list"
 msgstr "வாங்க வேண்டிய பொருட்கள் பட்டியலினைத் தொகு"
 
@@ -2488,4 +2485,10 @@ msgid ""
 msgstr ""
 
 msgid "Moved to %1$s"
+msgstr ""
+
+msgid "Decimal places allowed for prices (input)"
+msgstr ""
+
+msgid "Decimal places allowed for prices (display)"
 msgstr ""

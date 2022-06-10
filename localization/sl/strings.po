@@ -1862,9 +1862,6 @@ msgstr "Skupno"
 msgid "Decimal places allowed for amounts"
 msgstr "Dovoljena decimalna mesta za količine"
 
-msgid "Decimal places allowed for prices"
-msgstr "Dovoljena decimalna mesta za cene"
-
 msgid "Edit shopping list"
 msgstr "Uredi seznam nakupov"
 
@@ -2570,4 +2567,10 @@ msgid ""
 msgstr ""
 
 msgid "Moved to %1$s"
+msgstr ""
+
+msgid "Decimal places allowed for prices (input)"
+msgstr ""
+
+msgid "Decimal places allowed for prices (display)"
 msgstr ""

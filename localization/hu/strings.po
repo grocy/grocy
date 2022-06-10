@@ -1870,9 +1870,6 @@ msgstr "Általános"
 msgid "Decimal places allowed for amounts"
 msgstr "Mennyiségek tizedesjegyei"
 
-msgid "Decimal places allowed for prices"
-msgstr "Árak tizedesjegyei"
-
 msgid "Edit shopping list"
 msgstr "Bevásárlólista szerkesztése"
 
@@ -2611,4 +2608,10 @@ msgid ""
 msgstr ""
 
 msgid "Moved to %1$s"
+msgstr ""
+
+msgid "Decimal places allowed for prices (input)"
+msgstr ""
+
+msgid "Decimal places allowed for prices (display)"
 msgstr ""

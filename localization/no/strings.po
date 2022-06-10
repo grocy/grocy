@@ -1881,9 +1881,6 @@ msgstr "Felles"
 msgid "Decimal places allowed for amounts"
 msgstr "Desimaler kan brukes på antall"
 
-msgid "Decimal places allowed for prices"
-msgstr "Desimaler kan brukes på priser"
-
 msgid "Edit shopping list"
 msgstr "Endre handleliste"
 
@@ -2640,3 +2637,9 @@ msgstr ""
 
 msgid "Moved to %1$s"
 msgstr "Flyttet til %1$s"
+
+msgid "Decimal places allowed for prices (input)"
+msgstr ""
+
+msgid "Decimal places allowed for prices (display)"
+msgstr ""

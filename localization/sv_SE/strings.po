@@ -11,6 +11,7 @@
 # Andreas Olsson <basen82@protonmail.com>, 2020
 # A A <transifex@stardestroyer.se>, 2020
 # Robert Johansson, 2022
+# Eduard Kapoun, 2022
 # 
 msgid ""
 msgstr ""
@@ -18,7 +19,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Robert Johansson, 2022\n"
+"Last-Translator: Eduard Kapoun, 2022\n"
 "Language-Team: Swedish (Sweden) (https://www.transifex.com/grocy/teams/93189/sv_SE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -616,12 +617,15 @@ msgid "Quantity unit"
 msgstr "Mängdenhet"
 
 msgid "Only check if any amount is in stock"
-msgstr ""
+msgstr "Kontrollera endast om någon enhet finns i lager"
 
 msgid ""
 "Are you sure to consume all ingredients needed by recipe \"%s\" (ingredients"
 " marked with \"only check if any amount is in stock\" will be ignored)?"
 msgstr ""
+"Vill du verkligen förbruka alla ingredienser som behövs för receptet \"%s\" "
+"(ingredienser märkta med \"kontrollera endast om någon enhet finns i lager\""
+" kommer att ignoreras)?"
 
 msgid "Removed all ingredients of recipe \"%s\" from stock"
 msgstr "Ta bort alla ingredienser i receptet \"%s\" från lager"
@@ -1245,6 +1249,8 @@ msgid ""
 "Here you can print a page per location with the current stock, maybe to hang"
 " it there and note the consumed things on it"
 msgstr ""
+"Här kan du skriva ut en sida per plats med det aktuella lagret, kanske för "
+"att hänga den där och notera de förbrukade sakerna på den."
 
 msgid "this location"
 msgstr "Denna position"
@@ -1852,9 +1858,6 @@ msgstr "Allmän"
 
 msgid "Decimal places allowed for amounts"
 msgstr "Decimaler tillåtet för antal"
-
-msgid "Decimal places allowed for prices"
-msgstr "Decimailer tillåtet för priser"
 
 msgid "Edit shopping list"
 msgstr "Redigera inköpslista"
@@ -2552,4 +2555,10 @@ msgid ""
 msgstr ""
 
 msgid "Moved to %1$s"
+msgstr ""
+
+msgid "Decimal places allowed for prices (input)"
+msgstr ""
+
+msgid "Decimal places allowed for prices (display)"
 msgstr ""

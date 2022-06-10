@@ -1836,9 +1836,6 @@ msgstr "Comú"
 msgid "Decimal places allowed for amounts"
 msgstr "Decimals permesos per a les quantitats"
 
-msgid "Decimal places allowed for prices"
-msgstr "Decimals permesos per als preus"
-
 msgid "Edit shopping list"
 msgstr "Editar llista de la compra"
 
@@ -2556,4 +2553,10 @@ msgid ""
 msgstr ""
 
 msgid "Moved to %1$s"
+msgstr ""
+
+msgid "Decimal places allowed for prices (input)"
+msgstr ""
+
+msgid "Decimal places allowed for prices (display)"
 msgstr ""

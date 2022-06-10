@@ -2,7 +2,7 @@
 # Translators:
 # jd615645 <jd615645@gmail.com>, 2020
 # richegg Tsai <zxp86021@gmail.com>, 2020
-# 鍾佑豪 <zobuwei@gmail.com>, 2020
+# 鍾佑豪 <zobuwei@gmail.com>, 2022
 # 
 msgid ""
 msgstr ""
@@ -10,7 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:43+0000\n"
-"Last-Translator: 鍾佑豪 <zobuwei@gmail.com>, 2020\n"
+"Last-Translator: 鍾佑豪 <zobuwei@gmail.com>, 2022\n"
 "Language-Team: Chinese (Taiwan) (https://www.transifex.com/grocy/teams/93189/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -41,7 +41,7 @@ msgstr "日期"
 
 # Date & time
 msgid "datetime"
-msgstr "日期與時間"
+msgstr "日期時間"
 
 # Checkbox
 msgid "checkbox"
@@ -49,11 +49,11 @@ msgstr "勾選"
 
 # Select list (a single item can be selected)
 msgid "preset-list"
-msgstr "預選列表"
+msgstr "預設列表"
 
 # Select list (multiple items can be selected)
 msgid "preset-checklist"
-msgstr "預勾選列表"
+msgstr "預設勾選列表"
 
 # Link
 msgid "link"
@@ -61,7 +61,7 @@ msgstr "連結"
 
 # Link (with title)
 msgid "link-with-title"
-msgstr ""
+msgstr "標題連結"
 
 # File
 msgid "file"

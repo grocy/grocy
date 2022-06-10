@@ -1946,9 +1946,6 @@ msgstr "Nastavení pro všechny produkty"
 msgid "Decimal places allowed for amounts"
 msgstr "Počet desetinných míst pro množství produktu"
 
-msgid "Decimal places allowed for prices"
-msgstr "Počet desetinných míst pro cenu produktu"
-
 msgid "Edit shopping list"
 msgstr "Upravit nákupní seznam"
 
@@ -2724,3 +2721,9 @@ msgstr ""
 
 msgid "Moved to %1$s"
 msgstr "Produkt přesunut do: %1$s"
+
+msgid "Decimal places allowed for prices (input)"
+msgstr "Počet desetinných míst při zapisování ceny"
+
+msgid "Decimal places allowed for prices (display)"
+msgstr "Počet desetinných míst při zobrazování ceny"

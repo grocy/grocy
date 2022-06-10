@@ -1912,9 +1912,6 @@ msgstr "Общие"
 msgid "Decimal places allowed for amounts"
 msgstr "Разрешённое кол-во знаков после запятой, для количества"
 
-msgid "Decimal places allowed for prices"
-msgstr "Разрешённое кол-во знаков после запятой, для цены"
-
 msgid "Edit shopping list"
 msgstr "Изменить список покупок"
 
@@ -2644,4 +2641,10 @@ msgid ""
 msgstr ""
 
 msgid "Moved to %1$s"
+msgstr ""
+
+msgid "Decimal places allowed for prices (input)"
+msgstr ""
+
+msgid "Decimal places allowed for prices (display)"
 msgstr ""

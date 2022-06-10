@@ -2,8 +2,8 @@
 # Translators:
 # jd615645 <jd615645@gmail.com>, 2020
 # richegg Tsai <zxp86021@gmail.com>, 2020
-# 鍾佑豪 <zobuwei@gmail.com>, 2020
 # Alex Li, 2022
+# 鍾佑豪 <zobuwei@gmail.com>, 2022
 # 
 msgid ""
 msgstr ""
@@ -11,7 +11,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Alex Li, 2022\n"
+"Last-Translator: 鍾佑豪 <zobuwei@gmail.com>, 2022\n"
 "Language-Team: Chinese (Taiwan) (https://www.transifex.com/grocy/teams/93189/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -90,7 +90,7 @@ msgid "Cold cuts"
 msgstr "冷盤肉"
 
 msgid "Paprika"
-msgstr "辣椒"
+msgstr "彩椒"
 
 msgid "Cucumber"
 msgstr "黃瓜"
@@ -117,7 +117,7 @@ msgid "Alarm clock"
 msgstr "鬧鐘"
 
 msgid "Heat remote control"
-msgstr "暖爐遙控器"
+msgstr "暖氣遙控器"
 
 msgid "Take out the trash"
 msgstr "倒垃圾"
@@ -129,10 +129,10 @@ msgid "Pizza dough"
 msgstr "披薩麵團"
 
 msgid "Sieved tomatoes"
-msgstr "精選番茄"
+msgstr "番茄泥"
 
 msgid "Salami"
-msgstr "義大利香腸"
+msgstr "薩拉米臘腸"
 
 msgid "Toast"
 msgstr "吐司"
@@ -281,7 +281,7 @@ msgid "Example field value..."
 msgstr "範例值"
 
 msgid "Waffle rolls"
-msgstr "蛋捲"
+msgstr "捲心酥"
 
 msgid "Danish"
 msgstr "丹麥文"
@@ -293,7 +293,7 @@ msgid "Norwegian"
 msgstr "挪威文"
 
 msgid "Demo"
-msgstr "Demo"
+msgstr "測試"
 
 msgid "Stable version"
 msgstr "穩定版本"
@@ -308,7 +308,7 @@ msgid "not yet released"
 msgstr "尚未發布"
 
 msgid "Portuguese (Brazil)"
-msgstr "葡萄牙文（巴西）"
+msgstr "葡萄牙文(巴西)"
 
 msgid "This is a note"
 msgstr "這是一則備註"
@@ -326,7 +326,7 @@ msgid "Czech"
 msgstr "捷克文"
 
 msgid "Portuguese (Portugal)"
-msgstr "葡萄牙文（葡萄牙）"
+msgstr "葡萄牙文(葡萄牙)"
 
 # Use a in your country well known supermarket name
 msgid "DemoSupermarket1"
@@ -340,7 +340,7 @@ msgid "Japanese"
 msgstr "日文"
 
 msgid "Chinese (Taiwan)"
-msgstr "正體中文（臺灣）"
+msgstr "正體中文(臺灣)"
 
 msgid "Greek"
 msgstr "希臘文"
@@ -349,16 +349,16 @@ msgid "Korean"
 msgstr "韓文"
 
 msgid "Chinese (China)"
-msgstr ""
+msgstr "簡體中文"
 
 msgid "Hebrew (Israel)"
-msgstr ""
+msgstr "希伯來文(以色列)"
 
 msgid "Tamil"
-msgstr ""
+msgstr "坦米爾文"
 
 msgid "Finnish"
-msgstr ""
+msgstr "芬蘭文"
 
 msgid "Breakfast"
 msgstr "早餐"
@@ -370,7 +370,7 @@ msgid "Dinner"
 msgstr "晚餐"
 
 msgid "Catalan"
-msgstr ""
+msgstr "加泰羅尼亞文"
 
 msgid "Slovenian"
-msgstr ""
+msgstr "斯洛維尼亞文"

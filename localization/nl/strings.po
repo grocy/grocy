@@ -1902,9 +1902,6 @@ msgstr "Gebruikelijk"
 msgid "Decimal places allowed for amounts"
 msgstr "Decimalen zijn toegestaan in de hoeveelheid"
 
-msgid "Decimal places allowed for prices"
-msgstr "Decimalen zijn toegestaan voor de prijs"
-
 msgid "Edit shopping list"
 msgstr "Wijzig boodschappenlijst"
 
@@ -2657,4 +2654,10 @@ msgid ""
 msgstr ""
 
 msgid "Moved to %1$s"
+msgstr ""
+
+msgid "Decimal places allowed for prices (input)"
+msgstr ""
+
+msgid "Decimal places allowed for prices (display)"
 msgstr ""

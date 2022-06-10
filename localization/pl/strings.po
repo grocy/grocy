@@ -1956,9 +1956,6 @@ msgstr "Pospolite"
 msgid "Decimal places allowed for amounts"
 msgstr "Miejsca dziesiętne zezwolone dla ilości"
 
-msgid "Decimal places allowed for prices"
-msgstr "Miejsca dziesiętne zezwolone dla cen"
-
 msgid "Edit shopping list"
 msgstr "Edytuj listę zakupów"
 
@@ -2721,4 +2718,10 @@ msgid ""
 msgstr ""
 
 msgid "Moved to %1$s"
+msgstr ""
+
+msgid "Decimal places allowed for prices (input)"
+msgstr ""
+
+msgid "Decimal places allowed for prices (display)"
 msgstr ""

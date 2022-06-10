@@ -1,6 +1,6 @@
 # 
 # Translators:
-# 鍾佑豪 <zobuwei@gmail.com>, 2020
+# 鍾佑豪 <zobuwei@gmail.com>, 2022
 # 
 msgid ""
 msgstr ""
@@ -8,7 +8,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2020-08-31 19:11+0000\n"
-"Last-Translator: 鍾佑豪 <zobuwei@gmail.com>, 2020\n"
+"Last-Translator: 鍾佑豪 <zobuwei@gmail.com>, 2022\n"
 "Language-Team: Chinese (Taiwan) (https://www.transifex.com/grocy/teams/93189/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -95,7 +95,7 @@ msgstr "斯洛伐克文"
 
 # Slovenian
 msgid "sl"
-msgstr ""
+msgstr "斯洛維尼亞文"
 
 # Swedish
 msgid "sv_SE"
@@ -111,20 +111,20 @@ msgstr "正體中文(台灣)"
 
 # Chinese (China)
 msgid "zh_CN"
-msgstr ""
+msgstr "簡體中文"
 
 # Hebrew (Israel)
 msgid "he_IL"
-msgstr ""
+msgstr "希伯來文(以色列)"
 
 # Tamil
 msgid "ta"
-msgstr ""
+msgstr "坦米爾文"
 
 # Finnish
 msgid "fi"
-msgstr ""
+msgstr "芬蘭文"
 
 # Catalan
 msgid "ca"
-msgstr ""
+msgstr "加泰羅尼亞文"

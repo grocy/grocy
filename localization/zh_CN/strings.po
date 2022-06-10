@@ -1777,9 +1777,6 @@ msgstr "通用"
 msgid "Decimal places allowed for amounts"
 msgstr "允许小数点后位-数量"
 
-msgid "Decimal places allowed for prices"
-msgstr "允许小数点后位-价格"
-
 msgid "Edit shopping list"
 msgstr "编辑购物清单"
 
@@ -2458,3 +2455,9 @@ msgstr "‎启用后，在将此‎‎产品‎‎标记为已打开时，相应
 
 msgid "Moved to %1$s"
 msgstr "移动到%1$s"
+
+msgid "Decimal places allowed for prices (input)"
+msgstr ""
+
+msgid "Decimal places allowed for prices (display)"
+msgstr ""

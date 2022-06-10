@@ -3,6 +3,7 @@
 # jd615645 <jd615645@gmail.com>, 2020
 # richegg Tsai <zxp86021@gmail.com>, 2020
 # Alex Li, 2022
+# 鍾佑豪 <zobuwei@gmail.com>, 2022
 # 
 msgid ""
 msgstr ""
@@ -10,7 +11,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Alex Li, 2022\n"
+"Last-Translator: 鍾佑豪 <zobuwei@gmail.com>, 2022\n"
 "Language-Team: Chinese (Taiwan) (https://www.transifex.com/grocy/teams/93189/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -38,4 +39,4 @@ msgid "hourly"
 msgstr "每小時"
 
 msgid "adaptive"
-msgstr ""
+msgstr "自動"

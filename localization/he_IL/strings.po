@@ -1908,9 +1908,6 @@ msgstr "משותף"
 msgid "Decimal places allowed for amounts"
 msgstr "מקומות עשרוניים מותרים לכמויות"
 
-msgid "Decimal places allowed for prices"
-msgstr "מקומות עשרוניים מותרים למחירים"
-
 msgid "Edit shopping list"
 msgstr "עריכת רשימת הקניות"
 
@@ -2663,3 +2660,9 @@ msgstr ""
 
 msgid "Moved to %1$s"
 msgstr "הועבר אל %1$s"
+
+msgid "Decimal places allowed for prices (input)"
+msgstr ""
+
+msgid "Decimal places allowed for prices (display)"
+msgstr ""

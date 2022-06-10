@@ -1852,9 +1852,6 @@ msgstr ""
 msgid "Decimal places allowed for amounts"
 msgstr ""
 
-msgid "Decimal places allowed for prices"
-msgstr ""
-
 msgid "Edit shopping list"
 msgstr "Editar lista de compras"
 
@@ -2550,4 +2547,10 @@ msgid ""
 msgstr ""
 
 msgid "Moved to %1$s"
+msgstr ""
+
+msgid "Decimal places allowed for prices (input)"
+msgstr ""
+
+msgid "Decimal places allowed for prices (display)"
 msgstr ""

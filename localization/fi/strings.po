@@ -1855,9 +1855,6 @@ msgstr "Yleinen"
 msgid "Decimal places allowed for amounts"
 msgstr "Desimaalit sallittu määriin"
 
-msgid "Decimal places allowed for prices"
-msgstr "Desimaalit sallittu hintoihin"
-
 msgid "Edit shopping list"
 msgstr "Muokkaa ostoslistaa"
 
@@ -2587,4 +2584,10 @@ msgid ""
 msgstr ""
 
 msgid "Moved to %1$s"
+msgstr ""
+
+msgid "Decimal places allowed for prices (input)"
+msgstr ""
+
+msgid "Decimal places allowed for prices (display)"
 msgstr ""
