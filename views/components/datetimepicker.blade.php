@@ -74,7 +74,8 @@
 					id="datetimepicker-shortcut"
 					name="datetimepicker-shortcut"
 					value="1"
-					data-datetimepicker-shortcut-value="{{ $shortcutValue }}">
+					data-datetimepicker-shortcut-value="{{ $shortcutValue }}"
+					tabindex="-1">
 				<label class="form-check-label custom-control-label"
 					for="datetimepicker-shortcut">{{ $__t($shortcutLabel) }}
 				</label>
