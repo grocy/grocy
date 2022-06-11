@@ -98,6 +98,11 @@ $(".numberpicker.locale-number-input.locale-number-currency").on("blur", functio
 	if (BoolVal(Grocy.UserSettings.stock_auto_decimal_separator_prices))
 	{
 		var value = this.value.toString();
+		if (value == null || value.isEmpty() || value.includes(".") || value.includes(","))
+		{
+			return;
+		}
+
 		var decimalPlaces = parseInt(Grocy.UserSettings.stock_decimal_places_prices_input);
 
 		if (value.length <= decimalPlaces)
