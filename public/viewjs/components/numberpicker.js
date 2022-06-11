@@ -110,7 +110,7 @@ $(".numberpicker.locale-number-input.locale-number-currency").on("blur", functio
 			value = value.padStart(decimalPlaces, "0");
 		}
 
-		var valueNew = parseFloat(value.substring(0, value.length - decimalPlaces) + '.' + value.slice(decimalPlaces * -1)).toLocaleString(undefined, { minimumFractionDigits: decimalPlaces, maximumFractionDigits: decimalPlaces });
+		var valueNew = parseFloat(value.substring(0, value.length - decimalPlaces) + '.' + value.slice(decimalPlaces * -1));
 		$(this).val(valueNew);
 	}
 });
