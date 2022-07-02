@@ -48,7 +48,8 @@
 
 ### General
 
-- xxx
+- New translations: (thanks all the translators)
+  - Lithuanian (demo available at <https://lt.demo.grocy.info>)
 
 ### API
 

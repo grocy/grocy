@@ -1,0 +1,2722 @@
+# 
+# Translators:
+# Vytautas Barkauskas, 2022
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
+"PO-Revision-Date: 2019-05-01 17:42+0000\n"
+"Last-Translator: Vytautas Barkauskas, 2022\n"
+"Language-Team: Lithuanian (https://www.transifex.com/grocy/teams/93189/lt/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: lt\n"
+"Plural-Forms: nplurals=4; plural=(n % 10 == 1 && (n % 100 > 19 || n % 100 < 11) ? 0 : (n % 10 >= 2 && n % 10 <=9) && (n % 100 > 19 || n % 100 < 11) ? 1 : n % 1 != 0 ? 2: 3);\n"
+"X-Domain: grocy/strings\n"
+
+msgid "Stock overview"
+msgstr "Atsargų apžvalga"
+
+msgid "%s product expires"
+msgid_plural "%s products expiring"
+msgstr[0] "%sbaigiasi produkto galiojimo laikas"
+msgstr[1] "%sbaigiasi produktų galiojimo laikas"
+msgstr[2] "%sbaigiasi produktų galiojimo laikas"
+msgstr[3] "%sbaigiasi produktų galiojimo laikas"
+
+msgid "within the next day"
+msgid_plural "within the next %s days"
+msgstr[0] "per artimiausią dieną"
+msgstr[1] "per artimiausias %s dienas"
+msgstr[2] "per artimiausias %s dienų"
+msgstr[3] "per artimiausias %sdienų"
+
+msgid "%s product is already expired"
+msgid_plural "%s products are already expired"
+msgstr[0] "%sprodukto galiojimo laikas pasibaigęs"
+msgstr[1] "%sproduktų galiojimo laikas pasibaigęs"
+msgstr[2] "%sproduktų galiojimo laikas pasibaigęs"
+msgstr[3] "%sproduktų galiojimo laikas pasibaigęs"
+
+msgid "%s product is overdue"
+msgid_plural "%s products are overdue"
+msgstr[0] "%s produktas vėluoja"
+msgstr[1] "%s produktai vėluoja"
+msgstr[2] "%s produktai vėluoja"
+msgstr[3] "%s produktai vėluoja"
+
+msgid "%s product is below defined min. stock amount"
+msgid_plural "%s products are below defined min. stock amount"
+msgstr[0] "%s produktas yra žemiau apibrėžtos min. atsargų kiekio ribos"
+msgstr[1] "%s produktai yra žemiau apibrėžtos min. atsargų kiekio ribos"
+msgstr[2] "%sproduktai yra žemiau apibrėžtos min. atsargų kiekio ribos"
+msgstr[3] "%sproduktai yra žemiau apibrėžtos min. atsargų kiekio ribos"
+
+msgid "Product"
+msgstr "Produktas"
+
+msgid "%s Product"
+msgid_plural "%s Products"
+msgstr[0] "%sProduktas"
+msgstr[1] "%sProduktai"
+msgstr[2] "%sProduktų"
+msgstr[3] "%sProduktų"
+
+msgid "Amount"
+msgstr "Kiekis"
+
+msgid "Logout"
+msgstr "Atsijungti"
+
+msgid "Chores overview"
+msgstr "Namų ruošos darbų apžvalga"
+
+msgid "Batteries overview"
+msgstr "Baterijų apžvalga"
+
+msgid "Purchase"
+msgstr "Pirkimas"
+
+msgid "Consume"
+msgstr "Vartoti"
+
+msgid "Inventory"
+msgstr "inventorius"
+
+msgid "Shopping list"
+msgstr "Prekių sąrašas"
+
+msgid "Chore tracking"
+msgstr "Namų ruošos darbų sekimas"
+
+msgid "Battery tracking"
+msgstr "Baterijos sekimas"
+
+msgid "Locations"
+msgstr "Vietos"
+
+msgid "Stores"
+msgstr "Parduotuvės"
+
+msgid "Quantity units"
+msgstr "Kiekio vienetai"
+
+msgid "Chores"
+msgstr "Namų ruošos darbai"
+
+msgid "Batteries"
+msgstr "Baterijos"
+
+msgid "Chore"
+msgstr "Namų ruošos darbas"
+
+msgid "Next estimated tracking"
+msgstr "Kitas numatomas stebėjimas"
+
+msgid "Last tracked"
+msgstr "Paskutinį kartą stebėta"
+
+msgid "Battery"
+msgstr "Baterija"
+
+msgid "Last charged"
+msgstr "Paskutinį kartą krautą"
+
+msgid "Next planned charge cycle"
+msgstr "Kitas planuojamas įkrovimo ciklas"
+
+msgid "Best before"
+msgstr "Geriausias iki"
+
+msgid "OK"
+msgstr "Gerai"
+
+msgid "Product overview"
+msgstr "Produkto apvžvalga"
+
+msgid "Stock quantity unit"
+msgstr "Atsargų kiekio vienetas"
+
+msgid "Stock amount"
+msgstr "Atsargų kiekis"
+
+msgid "Last purchased"
+msgstr "Paskutinis pirktas"
+
+msgid "Last used"
+msgstr "Paskutinis naudotas"
+
+msgid "Spoiled"
+msgstr "Sugadintas"
+
+msgid "Barcode lookup is disabled"
+msgstr "Brūkšninio kodo paieška išjungta"
+
+msgid ""
+"will be added to the list of barcodes for the selected product on submit"
+msgstr ""
+"pristatymo metu bus įtrauktas į pasirinkto produkto brūkšninių kodų sąrašą"
+
+msgid "New amount"
+msgstr "Naujas kiekis"
+
+msgid "Note"
+msgstr "Pastaba"
+
+msgid "Tracked time"
+msgstr "Stebėtas laikas"
+
+msgid "Chore overview"
+msgstr "Namų ruošos darbų apžvalga"
+
+msgid "Tracked count"
+msgstr "Stebėtas skaičius"
+
+msgid "Battery overview"
+msgstr "Akumuliatoriaus apžvalga"
+
+msgid "Charge cycles count"
+msgstr "Įkrovimo ciklai skaičiuojami"
+
+msgid "Create shopping list item"
+msgstr "Sukurkite pirkinių sąrašo elementą"
+
+msgid "Edit shopping list item"
+msgstr "Redaguoti pirkinių sąrašo elementą"
+
+msgid "Save"
+msgstr "Išsaugoti"
+
+msgid "Add"
+msgstr "Pridėti"
+
+msgid "Name"
+msgstr "Pavadinimas"
+
+msgid "Location"
+msgstr "Vieta"
+
+msgid "Min. stock amount"
+msgstr "Min. atsargų kiekis"
+
+msgid "Description"
+msgstr "Aprašymas"
+
+msgid "Create product"
+msgstr "Sukurti produktą"
+
+msgid "Barcode(s)"
+msgstr "Brūkšninis kodas (-ai)"
+
+msgid "Minimum stock amount"
+msgstr "Minimalus atsargų kiekis"
+
+msgid "Default best before days"
+msgstr "Numatytasis geriausias iki dienų"
+
+msgid "Default quantity unit purchase"
+msgstr "Numatytasis kiekio vieneto pirkimas"
+
+msgid "Quantity unit stock"
+msgstr "Kiekio vieneto atsargos"
+
+msgid "Factor purchase to stock quantity unit"
+msgstr "Pirkimo veiksnys į atsargų kiekio vienetą"
+
+msgid "Create location"
+msgstr "Sukurti vietą"
+
+msgid "Create store"
+msgstr "Sukurti parduotuvę"
+
+msgid "Create quantity unit"
+msgstr "Sukurti kiekio vienetą"
+
+msgid "Period type"
+msgstr "Periodo tipas"
+
+msgid "Period days"
+msgstr "Periodo dienos"
+
+msgid "Create chore"
+msgstr "Sukurti namų ruošos darbą"
+
+msgid "Used in"
+msgstr "Naudojamas"
+
+msgid "Create battery"
+msgstr "Sukurti baterija"
+
+msgid "Edit battery"
+msgstr "Redaguoti bateriją"
+
+msgid "Edit chore"
+msgstr "Redaguoti namų ruošos darbą"
+
+msgid "Edit quantity unit"
+msgstr "Redaguoti kiekio vienetą"
+
+msgid "Edit product"
+msgstr "Redaguoti produktą"
+
+msgid "Edit location"
+msgstr "Redaguoti vietovę"
+
+msgid "Edit store"
+msgstr "Redaguoti parduotuvę"
+
+msgid "Manage master data"
+msgstr "Redaguoti pagrindinė informaciją"
+
+msgid "This will apply to added products"
+msgstr "Tai bus taikoma pridėtiems produktams"
+
+msgid "never"
+msgstr "niekada"
+
+msgid "Add products that are below defined min. stock amount"
+msgstr ""
+"Pridėkite produktus, kurių vertė mažesnė nei apibrėžta min. atsargų kiekis"
+
+msgid "This means 1 %1$s purchased will be converted into %2$s %3$s in stock"
+msgstr "Tai reiškiąs 1 %1$s įsigytas bus konvertuotas į %2$s %3$s sandėlyje"
+
+msgid "Login"
+msgstr "Prisijungti"
+
+msgid "Username"
+msgstr "Vartotojo vardas"
+
+msgid "Password"
+msgstr "Slaptažodis"
+
+msgid "Invalid credentials, please try again"
+msgstr "Blogi prisijungimo duomenys, bandykite dar kartą"
+
+msgid "Are you sure to delete battery \"%s\"?"
+msgstr "Ar jūs tikrai norite ištrinti bateriją \"%s\"?"
+
+msgid "Yes"
+msgstr "Taip"
+
+msgid "No"
+msgstr "Ne"
+
+msgid "Are you sure to delete chore \"%s\"?"
+msgstr "Ar tikrai norite ištrinti namų ruošos darbą \"%s\"?"
+
+msgid "\"%s\" could not be resolved to a product, how do you want to proceed?"
+msgstr "\"%s\" nepavyko išspręsti produkto, kaip norite tęsti?"
+
+msgid "Create or assign product"
+msgstr "Sukurti ar priskirti produktą"
+
+msgid "Cancel"
+msgstr "Atšaukti"
+
+msgid "Add as new product"
+msgstr "Pridėti naują produktą"
+
+msgid "Add as barcode to existing product"
+msgstr "Pridėti kaip brūkšninį kodą prie esamo produkto"
+
+msgid "Add as new product and prefill barcode"
+msgstr "Pridėti kaip naują produktą ir iš anksto užpildyti brūkšninį kodą"
+
+msgid "Are you sure to delete quantity unit \"%s\"?"
+msgstr "Ar tikrai norite ištrinti kiekio vienetą \"%s\"?"
+
+msgid "Are you sure to delete product \"%s\"?"
+msgstr "Ar tikrai norite ištrinti produktą \"%s\"?"
+
+msgid "Are you sure to delete location \"%s\"?"
+msgstr "Ar tikrai norite ištrinti vietovę \"%s\"?"
+
+msgid "Are you sure to delete store \"%s\"?"
+msgstr "Ar tikrai norite ištrinti parduotuvę \"%s\"?"
+
+msgid "Manage API keys"
+msgstr "Valdyti API raktus"
+
+msgid "REST API browser"
+msgstr "REST API naršyklė"
+
+msgid "API keys"
+msgstr "API raktai"
+
+msgid "Create new API key"
+msgstr "Sukurti naują API raktą"
+
+msgid "API key"
+msgstr "Api raktas"
+
+msgid "Expires"
+msgstr "Galioja"
+
+msgid "Created"
+msgstr "Sukurta"
+
+msgid "This product is not in stock"
+msgstr "Šis produktas nėra sandėlyje"
+
+msgid "This means %s will be added to stock"
+msgstr "Tai reiškia, kad%s bus pridėtas į sandėlį"
+
+msgid "This means %s will be removed from stock"
+msgstr "Tai reiškia, kad %s bus pašalintas iš sandėlio"
+
+msgid "Removed %1$s of %2$s from stock"
+msgstr "Pašalintas %1$s iš %2$s sandėlio"
+
+msgid "About grocy"
+msgstr "Apie grocy"
+
+msgid "Close"
+msgstr "Uždaryti"
+
+msgid "Released on"
+msgstr "Išleista"
+
+msgid "Added %1$s of %2$s to stock"
+msgstr "Pridėta %1$s iš%2$s į sandėlį"
+
+msgid "Stock amount of %1$s is now %2$s"
+msgstr "%1$s sandėlyje yra %2$s"
+
+msgid "Tracked execution of chore %1$s on %2$s"
+msgstr "Stebimas darbų atlikimas%1$s iš %2$s"
+
+msgid "Tracked charge cycle of battery %1$s on %2$s"
+msgstr "Sekamas krovimo ciklas baterijos %1$siš%2$s"
+
+msgid "Consume all %s which are currently in stock"
+msgstr "Suvartokite visus %s, kurie yra sandėlyje"
+
+msgid "All"
+msgstr "Visi"
+
+msgid "Search"
+msgstr "Paieška"
+
+msgid "Not logged in"
+msgstr "Neprisijungęs"
+
+msgid "You have to select a product"
+msgstr "Jūs turite pasirinkti produktus"
+
+msgid "You have to select a chore"
+msgstr "Jūs turite pasirinkti namų ruošos darbus"
+
+msgid "You have to select a battery"
+msgstr "Jūs turite pasirinkti baterija"
+
+msgid "A name is required"
+msgstr "Vardas yra privalomas"
+
+msgid "A location is required"
+msgstr "Vieta yra privaloma"
+
+msgid "A quantity unit is required"
+msgstr "Kiekis yra privalomas"
+
+msgid "A period type is required"
+msgstr "Periodo tipas yra privalomas"
+
+msgid "A best before date is required"
+msgstr "Geriausias iki yra privalomas"
+
+msgid "Settings"
+msgstr "Nustatymai"
+
+msgid "This can only be before now"
+msgstr "Šitas gali būti atliekamas iki"
+
+msgid "Calendar"
+msgstr "Kalendorius"
+
+msgid "Recipes"
+msgstr "Receptai"
+
+msgid "Edit recipe"
+msgstr "Redaguoti receptą"
+
+msgid "Ingredients list"
+msgstr "Ingredientų sąrašas"
+
+msgid "Add recipe ingredient"
+msgstr "Pridėti recepto ingredientą"
+
+msgid "Edit recipe ingredient"
+msgstr "Redaguoti recepto ingredientą"
+
+msgid "Are you sure to delete recipe \"%s\"?"
+msgstr "Ar tikrai norite ištrinti receptą \"%s\"?"
+
+msgid "Are you sure to delete recipe ingredient \"%s\"?"
+msgstr "Ar tikrai norite ištrinti recepto ingredientą \"%s\"?"
+
+msgid "Are you sure to empty shopping list \"%s\"?"
+msgstr "Ar tikrai norite išvalyti pirkinių sąrašą \"%s\"?"
+
+msgid "Clear list"
+msgstr "Išvalyti sąraįą"
+
+msgid "Requirements fulfilled"
+msgstr "Reikalavimai įvykdyti"
+
+msgid "Put missing products on shopping list"
+msgstr "Į pirkinių sąrašą įtraukite trūkstamus produktus"
+
+msgid "Enough in stock"
+msgstr "Sandėlyje pakankamai"
+
+msgid ""
+"Not enough in stock, %s ingredient missing but already on the shopping list"
+msgid_plural ""
+"Not enough in stock, %s ingredients missing but already on the shopping list"
+msgstr[0] ""
+"Nėra pakankamo kiekio sandėlyje, %s ingrediento, bet jie yra pirkinių "
+"krepšelyje."
+msgstr[1] ""
+"Nėra pakankamo kiekio sandėlyje, %s ingredientų, bet jie yra pirkinių "
+"krepšelyje."
+msgstr[2] ""
+"Nėra pakankamo kiekio sandėlyje, %s ingredientų, bet jie yra pirkinių "
+"krepšelyje."
+msgstr[3] ""
+"Nėra pakankamo kiekio sandėlyje, %s ingredientų, bet jie yra pirkinių "
+"sąraše."
+
+msgid "Expand to fullscreen"
+msgstr "Išskleisti į viso ekrano režimą"
+
+msgid "Ingredients"
+msgstr "Ingredientai"
+
+msgid "Preparation"
+msgstr "Paruošimas"
+
+msgid "Recipe"
+msgstr "Receptas"
+
+msgid "Not enough in stock, %1$s missing, %2$s already on shopping list"
+msgstr ""
+"Nėra pakankamo kiekio sandėlyje, %1$s trūksta, bet %2$syra pirkinių sąraše."
+
+msgid "Show notes"
+msgstr "Rodyti užrašus"
+
+msgid "Put missing amount on shopping list"
+msgstr "Į pirkinių sąrašą įtraukite trūkstamą kiekį"
+
+msgid ""
+"Are you sure to put all missing ingredients for recipe \"%s\" on the "
+"shopping list?"
+msgstr ""
+"Ar tikrai norite įdėti visus trūkstamus ingredientus receptui \"%s\" į "
+"pirkinių sąrašą?"
+
+msgid "Added for recipe %s"
+msgstr "Pridėta receptui %s"
+
+msgid "Manage users"
+msgstr "Tvarkyti vartotojus"
+
+msgid "User"
+msgstr "Vartotojas"
+
+msgid "Users"
+msgstr "Vartotojai"
+
+msgid "Are you sure to delete user \"%s\"?"
+msgstr "Ar tikrai norite ištrinti vartotoją \"%s\"?"
+
+msgid "Create user"
+msgstr "Sukurti vartotoją"
+
+msgid "Edit user"
+msgstr "Redaguoti vartotoją"
+
+msgid "First name"
+msgstr "Vardas"
+
+msgid "Last name"
+msgstr "Pavardė"
+
+msgid "A username is required"
+msgstr "Vartotojo vardas yra privalomas"
+
+msgid "Confirm password"
+msgstr "Patvirtinti slaptažodį"
+
+msgid "Passwords do not match"
+msgstr "Slaptažodžiai nesutampa"
+
+msgid "Change password"
+msgstr "Pakeisti slaptažodį"
+
+msgid "Done by"
+msgstr "Atlikta"
+
+msgid "Last done by"
+msgstr "Paskutinį kartą atnaujintą"
+
+msgid "Unknown"
+msgstr "Neatpažintas"
+
+msgid "Chores journal"
+msgstr "Namų ruošos darbų žurnalas"
+
+msgid "0 means suggestions for the next charge cycle are disabled"
+msgstr "0 reiškia, kad pasiūlymai dėl kito įkrovimo ciklo išjungti"
+
+msgid "Charge cycle interval (days)"
+msgstr "Pakrovimo ciklo intervalas (dienomis)"
+
+msgid "Last price"
+msgstr "Paskutinė kaina"
+
+msgid "Price history"
+msgstr "Kainų istorija"
+
+msgid "No price history available"
+msgstr "Kainų istorija negalima"
+
+msgid "Price"
+msgstr "Kaina"
+
+msgid "Unit"
+msgstr "Vienetas"
+
+msgid "%s Unit"
+msgid_plural "%s Units"
+msgstr[0] "%sVienetas"
+msgstr[1] "%sVienetai"
+msgstr[2] "%sVienetų"
+msgstr[3] "%sVienetų"
+
+msgid "%s chore is due to be done"
+msgid_plural "%s chores are due to be done"
+msgstr[0] "%snamų ruošos darbas turi būti atliktas"
+msgstr[1] "%snamų ruošos darbai turi būti atliktas"
+msgstr[2] "%snamų ruošos darbų turi būti atlikta"
+msgstr[3] "%snamų ruošos darbų turi būti atlikta"
+
+msgid "%s chore is overdue to be done"
+msgid_plural "%s chores are overdue to be done"
+msgstr[0] "%snamų ruošos darbas vėluoja"
+msgstr[1] "%snamų ruošos darbai vėluoja"
+msgstr[2] "%snamų ruošos darbų vėluoja"
+msgstr[3] "%snamų ruošos darbų vėluoja"
+
+msgid "%s battery is due to be charged"
+msgid_plural "%s batteries are due to be charged"
+msgstr[0] "%sbaterija turi būti pakrauta"
+msgstr[1] "%sbaterijos turi būti pakrautos"
+msgstr[2] "%sbaterijų turi būti pakrauta"
+msgstr[3] "%sbaterijų turi būti pakrauta"
+
+msgid "%s battery is overdue to be charged"
+msgid_plural "%s batteries are overdue to be charged"
+msgstr[0] "%sbaterija vėluojama įkrauti"
+msgstr[1] "%sbaterijas vėluojama įkrauti"
+msgstr[2] "%sbaterijos vėluojama įkrauti"
+msgstr[3] "%sbaterijų vėluojama įkrauti"
+
+msgid "in singular form"
+msgstr "vienaskaitos forma"
+
+msgid "Quantity unit"
+msgstr "Kiekio vienetas"
+
+msgid "Only check if any amount is in stock"
+msgstr "Tik patikrinkite, ar sandėlyje yra koks nors kiekis"
+
+msgid ""
+"Are you sure to consume all ingredients needed by recipe \"%s\" (ingredients"
+" marked with \"only check if any amount is in stock\" will be ignored)?"
+msgstr ""
+"Ar tikrai sunaudosite visus ingredientus, kurių reikia pagal receptą „%s“ "
+"(ingredientai, pažymėti „tik patikrinkite, ar jų yra sandėlyje“, bus "
+"ignoruojami)?"
+
+msgid "Removed all ingredients of recipe \"%s\" from stock"
+msgstr "Iš atsargų pašalinti visi recepto „%s“ ingredientai"
+
+msgid "Consume all ingredients needed by this recipe"
+msgstr "Suvartokite visus pagal šį receptą reikalingus ingredientus"
+
+msgid "Click to show technical details"
+msgstr "Spustelėkite norėdami pamatyti techninę informaciją"
+
+msgid "Error while saving, probably this item already exists"
+msgstr "Išsaugant įvyko klaida, tikriausiai šis elementas jau yra"
+
+msgid "Error details"
+msgstr "Klaidos detalės"
+
+msgid "Tasks"
+msgstr "Užduotys"
+
+msgid "Show done tasks"
+msgstr "Rodyti atliktas užduotis"
+
+msgid "Task"
+msgstr "Užduotis"
+
+msgid "Due"
+msgstr "Dėl"
+
+msgid "Assigned to"
+msgstr "Priskirtas"
+
+msgid "Mark task \"%s\" as completed"
+msgstr "Pažymėti užduotį \"%s\" kaip užbaigtą"
+
+msgid "Uncategorized"
+msgstr "Neįtraukta į kategorijas"
+
+msgid "Task categories"
+msgstr "Užduočių kategorijos"
+
+msgid "Create task"
+msgstr "Sukurti užduotį"
+
+msgid "A due date is required"
+msgstr "Būtina nurodyti terminą"
+
+msgid "Category"
+msgstr "Kategorija"
+
+msgid "Edit task"
+msgstr "Redaguoti užduotį"
+
+msgid "Are you sure to delete task \"%s\"?"
+msgstr "Ar tikrai norite ištrinti užduotį \"%s\"?"
+
+msgid "%s task is due to be done"
+msgid_plural "%s tasks are due to be done"
+msgstr[0] "%sužduotis turi būti atlikta"
+msgstr[1] "%sužduotys turi būti atliktos"
+msgstr[2] "%sužduočių turi būti atliktos"
+msgstr[3] "%sužduočių turi būti atliktos"
+
+msgid "%s task is overdue to be done"
+msgid_plural "%s tasks are overdue to be done"
+msgstr[0] "%sužduotį vėluoja atlikti"
+msgstr[1] "%sužduotis vėluoja atlikti"
+msgstr[2] "%sužduočių vėluojama atlikti"
+msgstr[3] "%sužduočių vėluojama atlikti"
+
+msgid "Edit task category"
+msgstr "Redaguoti užduoties kategoriją"
+
+msgid "Create task category"
+msgstr "Sukurkite užduočių kategoriją"
+
+msgid "Product groups"
+msgstr "Produktų grupės"
+
+msgid "Ungrouped"
+msgstr "Išgrupuotas"
+
+msgid "Create product group"
+msgstr "Sukurkite produktų grupę"
+
+msgid "Edit product group"
+msgstr "Redaguoti produktų grupę"
+
+msgid "Product group"
+msgstr "Produktų grupė"
+
+msgid "Are you sure to delete product group \"%s\"?"
+msgstr "Ar tikrai norite ištrinti produkto grupę \"%s\"?"
+
+msgid "Stay logged in permanently"
+msgstr "Būkite prisijungę visam laikui"
+
+msgid "When not set, you will get logged out at latest after 30 days"
+msgstr "Jei nenustatyta, būsite atjungti ne vėliau kaip po 30 dienų"
+
+msgid "Status"
+msgstr "Būsena"
+
+msgid "Below min. stock amount"
+msgstr "Žemiau min. atsargų kiekis"
+
+msgid "Due soon"
+msgstr "Greitai"
+
+msgid "Overdue"
+msgstr "Pavėluota"
+
+msgid "View settings"
+msgstr "Peržiūrėti nustatymus"
+
+msgid "Auto reload on external changes"
+msgstr "Automatiškai iš naujo įkelti išorinius pakeitimus"
+
+msgid "Auto enable in time range"
+msgstr "Automatinis įjungimas laiko intervale"
+
+msgid "From"
+msgstr "Nuo"
+
+msgid "in format"
+msgstr "formatu"
+
+msgid "To"
+msgstr "Iki"
+
+msgid "Time range goes over midnight"
+msgstr "Laiko intervalas viršija vidurnaktį"
+
+msgid "Product picture"
+msgstr "Produkto paveikslėlis"
+
+msgid "No file selected"
+msgstr "Nepasirinktas failas"
+
+msgid "Delete"
+msgstr "Ištrinti"
+
+msgid "Select file"
+msgstr "Pasirinkite failą"
+
+msgid "Image of product %s"
+msgstr "Produkto paveikslėlis %s"
+
+msgid "Deletion not possible"
+msgstr "Ištrinti negalima"
+
+msgid "Equipment"
+msgstr "Įranga"
+
+msgid "Instruction manual"
+msgstr "Instrukcijos"
+
+msgid "The selected equipment has no instruction manual"
+msgstr "Pasirinktas įrenginys, neturi instrukcijų"
+
+msgid "Notes"
+msgstr "Užrašai"
+
+msgid "Edit equipment"
+msgstr "Redaguoti įrenginį"
+
+msgid "Create equipment"
+msgstr "Sukurti įrenginį"
+
+msgid "The current file will be deleted on save"
+msgstr "Dabartinis failas bus ištrintas saugojimo metu"
+
+msgid "No picture available"
+msgstr "Nėra paveikslo"
+
+msgid "Presets for new products"
+msgstr "Naujų produktų išankstiniai nustatymai"
+
+msgid "Included recipes"
+msgstr "Įtraukti receptai"
+
+msgid "A recipe is required"
+msgstr "Reikalingas receptas"
+
+msgid "Add included recipe"
+msgstr "Pridėti įtrauktą receptą"
+
+msgid "Edit included recipe"
+msgstr "Redaguoti įtrauktą receptą"
+
+msgid "Group"
+msgstr "Grupė"
+
+msgid "This will be used as a headline to group ingredients together"
+msgstr "Tai bus naudojama kaip antraštė sudedamosioms dalims grupuoti"
+
+msgid "Journal"
+msgstr "Žurnalas"
+
+msgid "Stock journal"
+msgstr "Sandėlio žurnalas"
+
+msgid "Undone on"
+msgstr "Anuliuota"
+
+msgid "Batteries journal"
+msgstr "Baterijų žurnalas"
+
+msgid "Undo charge cycle"
+msgstr "Atšaukti įkrovimo ciklą"
+
+msgid "Undo chore execution"
+msgstr "Anuliuoti namų ruošos darbų atlikimą"
+
+msgid "Chore execution successfully undone"
+msgstr "Darbo atlikimas sėkmingai atšauktas"
+
+msgid "Undo"
+msgstr "Anuliuoti"
+
+msgid "Booking successfully undone"
+msgstr "Užsakymas sėkmingai anuliuotas"
+
+msgid "Charge cycle successfully undone"
+msgstr "Įkrovimo ciklas sėkmingai atšauktas"
+
+msgid "Disable stock fulfillment checking for this ingredient"
+msgstr "Išjungti šio ingrediento atsargų įvykdymo tikrinimą"
+
+msgid "Add all list items to stock"
+msgstr "Pridėkite visus sąrašo elementus prie atsargų"
+
+msgid "Add this item to stock"
+msgstr "Pridėkite šią prekę į sandėlį"
+
+msgid "Adding shopping list item %1$s of %2$s"
+msgstr "Pridedamas pirkinių sąrašo elementas %1$s iš %2$s"
+
+msgid "Use a specific stock item"
+msgstr "Naudokite konkrečią atsargų prekę"
+
+msgid ""
+"The first item in this list would be picked by the default rule consume rule"
+" (Opened first, then first due first, then first in first out)"
+msgstr ""
+"Pirmasis šio sąrašo elementas būtų parenkamas pagal numatytąją vartojimo "
+"taisyklę (iš pradžių atidaryta, tada pirmiausia turi būti, tada pirmas iš "
+"pradžių)"
+
+msgid "Mark %1$s of %2$s as open"
+msgstr "Pažymėti %1$s iš %2$skaip atidaryta"
+
+msgid "Marked %1$s of %2$s as opened"
+msgstr "Pažymėta %1$siš%2$s kaip atidaryta"
+
+msgid "Mark as opened"
+msgstr "Pažymėti kaip atidaryta"
+
+msgid "Not opened"
+msgstr "Neatidaryta"
+
+msgid "Opened"
+msgstr "Atidaryta"
+
+msgid "%s opened"
+msgstr "%satidaryta"
+
+msgid "Product due"
+msgstr "Produkto galojimas"
+
+msgid "Task due"
+msgstr "Užduoties galiojimas"
+
+msgid "Chore due"
+msgstr "Namų ruošos atlikimo data"
+
+msgid "Battery charge cycle due"
+msgstr "Baterijos įkrovimo ciklas"
+
+msgid "Show clock in header"
+msgstr "Rodyti laikrodį antraštėje"
+
+msgid "Stock settings"
+msgstr "Sandėlio nustatymai"
+
+msgid "Shopping list to stock workflow"
+msgstr "Pirkinių sąrašas"
+
+msgid "Skip"
+msgstr "Praleisti"
+
+msgid "Servings"
+msgstr "Porcijos"
+
+msgid "Costs"
+msgstr "Kainos"
+
+msgid "The ingredients listed here result in this amount of servings"
+msgstr "Iš čia išvardytų ingredientų gaunamas toks porcijų kiekis"
+
+msgid "Do not check against the shopping list when adding missing items to it"
+msgstr "Netikrinti pirkinių sąrašo, kai į jį įtraukiate trūkstamas prekes"
+
+msgid ""
+"By default the amount to be added to the shopping list is \"needed amount - "
+"stock amount - shopping list amount\" - when this is enabled, it is only "
+"checked against the stock amount, not against what is already on the "
+"shopping list"
+msgstr ""
+"Pagal numatytuosius nustatymus į pirkinių sąrašą įtraukiama suma yra "
+"„reikalinga suma – atsargų kiekis – pirkinių sąrašo suma“ – kai tai įjungta,"
+" ji tikrinama tik pagal atsargų kiekį, o ne su tuo, kas jau yra pirkinių "
+"sąraše."
+
+msgid "Picture"
+msgstr "Paveikslas"
+
+msgid "Uncheck ingredients to not put them on the shopping list"
+msgstr ""
+"Panaikinkite ingredientų žymėjimą, kad neįtrauktumėte jų į pirkinių sąrašą"
+
+msgid "This is for statistical purposes only"
+msgstr "Tai skirta tik statistikos tikslams"
+
+msgid "You have to select a recipe"
+msgstr "Jūs turite pasirinkti receptą"
+
+msgid "Key type"
+msgstr "Rakto tipas"
+
+msgid "Share/Integrate calendar (iCal)"
+msgstr "Dalintis/Integruoti kalendorių (iCal)"
+
+msgid ""
+"Use the following (public) URL to share or integrate the calendar in iCal "
+"format"
+msgstr ""
+"Norėdami bendrinti arba integruoti kalendorių iCal formatu, naudokite šį "
+"(viešąjį) URL"
+
+msgid "Enable tare weight handling"
+msgstr "Įjungti taros svorio tvarkymą"
+
+msgid ""
+"This is useful e.g. for flour in jars - on purchase/consume/inventory you "
+"always weigh the whole jar, the amount to be posted is then automatically "
+"calculated based on what is in stock and the tare weight defined below"
+msgstr ""
+"Tai naudinga pvz. miltams stiklainiuose - perkant/vartojant/inventorizuojant"
+" visada pasveriate visą indelį, tada automatiškai apskaičiuojama suma, kurią"
+" reikia užregistruoti, pagal turimą sandėlyje ir toliau nurodytą taros svorį"
+
+msgid "Tare weight"
+msgstr "Taros svoris"
+
+msgid ""
+"Tare weight handling enabled - please weigh the whole container, the amount "
+"to be posted will be automatically calculcated"
+msgstr ""
+"Taros svorio tvarkymas įjungtas - pasverkite visą konteinerį, bus "
+"automatiškai apskaičiuojamas kiekis, kurį reikia paskelbti."
+
+msgid "You have to select a location"
+msgstr "Turite pasirinkti vietą"
+
+msgid "You have to select a store"
+msgstr "Turite pasirinkti parduotuvę"
+
+msgid "List"
+msgstr "Sąrašas"
+
+msgid "Gallery"
+msgstr "Galerija"
+
+msgid "The current picture will be deleted on save"
+msgstr "Dabartinis paveikslas bus ištrintas saugojimo metu"
+
+msgid "Journal for this battery"
+msgstr "Šios baterijos žurnalas"
+
+msgid "System info"
+msgstr "Sistemos informaciją"
+
+msgid "Changelog"
+msgstr "Pakeitimų žurnalas"
+
+msgid "will be multiplied by a factor of %1$s to get %2$s"
+msgstr "bus padaugintas iš %1$s, kad gautume %2$s"
+
+msgid "The given date is earlier than today, are you sure?"
+msgstr "Nurodyta data yra ankstesnė nei šiandien, ar tikrai?"
+
+msgid "Product count"
+msgstr "Produktų skaičius"
+
+msgid ""
+"Type a new product name or barcode and hit TAB or ENTER to start a workflow"
+msgstr ""
+"Įveskite naują produkto pavadinimą arba brūkšninį kodą ir paspauskite TAB "
+"arba ENTER, kad pradėtumėte pildymą"
+
+msgid ""
+"This will be used as the default setting when adding this product as a "
+"recipe ingredient"
+msgstr ""
+"Pridedant šį produktą kaip recepto ingredientą, jis bus naudojamas kaip "
+"numatytasis nustatymas"
+
+msgid "Add item"
+msgstr "Pridėti daiktą"
+
+msgid "Selected shopping list"
+msgstr "Pasirinktas pirkinių sąrašas"
+
+msgid "New shopping list"
+msgstr "Naujas pirkinių sąrašas"
+
+msgid "Delete shopping list"
+msgstr "Ištrinti pirkinių sąrašą"
+
+msgid "Chores settings"
+msgstr "Namų ruošos nustatymai"
+
+msgid "Batteries settings"
+msgstr "Baterijų nustatymai"
+
+msgid "Tasks settings"
+msgstr "Užduočių nustatymai"
+
+msgid "Create shopping list"
+msgstr "Sukurti pirkinių sąrašą"
+
+msgid "Are you sure to delete shopping list \"%s\"?"
+msgstr "Ar tikrai norite ištrinti pirkinių sąrašą \"%s\"?"
+
+msgid "Average shelf life"
+msgstr "Vidutinis galiojimo laikas"
+
+msgid "Spoil rate"
+msgstr "Sugadinimo norma"
+
+msgid "Show more"
+msgstr "Rodyti daugiau"
+
+msgid "Show less"
+msgstr "Rodyti mažiau"
+
+msgid "The amount must be between %1$s and %2$s"
+msgstr "Kiekis turi būti tarp %1$sir%2$s "
+
+msgid "Day of month"
+msgstr "Mėnesio diena"
+
+msgid "Monday"
+msgstr "Pirmadienis"
+
+msgid "Tuesday"
+msgstr "Antradienis"
+
+msgid "Wednesday"
+msgstr "Trečiadienis"
+
+msgid "Thursday"
+msgstr "Ketvirtadienis"
+
+msgid "Friday"
+msgstr "Penktadienis"
+
+msgid "Saturday"
+msgstr "Šeštadienis"
+
+msgid "Sunday"
+msgstr "Sekmadienis"
+
+msgid "Configure userfields"
+msgstr "Konfigūruoti vartotojo laukus"
+
+msgid "Userfields"
+msgstr "Vartotojo laukai"
+
+msgid "Entity"
+msgstr "Esybė"
+
+msgid "Caption"
+msgstr "Antraštė"
+
+msgid "Type"
+msgstr "Tipas"
+
+msgid "Create userfield"
+msgstr "Sukurti vartotojo lauką"
+
+msgid "A entity is required"
+msgstr "Reikalingas subjektas"
+
+msgid "A caption is required"
+msgstr "Antraštė būtina"
+
+msgid "A type is required"
+msgstr "Reikalingas tipas"
+
+msgid "Show as column in tables"
+msgstr "Lentelėse rodyti kaip stulpelį"
+
+msgid "This is required and can only contain letters and numbers"
+msgstr "Tai būtina ir jame gali būti tik raidžių ir skaičių"
+
+msgid "Edit userfield"
+msgstr "Redaguoti vartotojo lauką"
+
+msgid "Plural forms"
+msgstr "Daugiskaitos formos"
+
+msgid "One plural form per line, the current language requires"
+msgstr "Dabartinė kalba reikalauja vienos daugiskaitos formos eilutėje"
+
+msgid "Plural count"
+msgstr "Daugiskaita"
+
+msgid "Plural rule"
+msgstr "Daugiskaitos taisyklė"
+
+msgid "in plural form"
+msgstr "daugiskaitos forma"
+
+msgid "Not enough in stock, %s ingredient missing"
+msgid_plural "Not enough in stock, %s ingredients missing"
+msgstr[0] "Sandėlyje nepakanka, trūksta %s ingrediento"
+msgstr[1] "Sandėlyje nepakanka, trūksta %singredientų"
+msgstr[2] "Sandėlyje nepakanka, trūksta %s ingredientų"
+msgstr[3] "Sandėlyje nepakanka, trūksta %s ingredientų"
+
+msgid "Not enough in stock, but already on the shopping list"
+msgstr "Sandėlyje neužtenka, bet jau yra pirkinių sąraše"
+
+msgid "Not enough in stock"
+msgstr "Nėra pakankamai sandėlyje"
+
+msgid "Default location"
+msgstr "Numatyta vieta"
+
+msgid "Default amount for purchase"
+msgstr "Numatytas pirkimo kiekis"
+
+msgid "Default amount for consume"
+msgstr "Numatytas suvartojamas kiekis"
+
+msgid "Variable amount"
+msgstr "Kintantis kiekis"
+
+msgid ""
+"When this is not empty, it will be shown instead of the amount entered above"
+" while the amount there will still be used for stock fulfillment checking"
+msgstr ""
+"Kai laukas nėra tuščias, jis bus rodomas vietoj anksčiau įvestos sumos, o "
+"ten esanti suma vis tiek bus naudojama atsargų įvykdymui tikrinti"
+
+msgid "Track date only"
+msgstr "Tik sekimo data"
+
+msgid "When enabled only the day of an execution is tracked, not the time"
+msgstr "Kai įjungta, stebima tik vykdymo diena, o ne laikas"
+
+msgid "Consume %1$s of %2$s"
+msgstr "Vartoti %1$siš %2$s"
+
+msgid "Meal plan"
+msgstr "Maisto planas"
+
+msgid "%s serving"
+msgid_plural "%s servings"
+msgstr[0] "%sporcija"
+msgstr[1] "%sporcijos"
+msgstr[2] "%sporcijų"
+msgstr[3] "%sporcijų"
+
+msgid "Week costs"
+msgstr "Savaitės kaina"
+
+msgid "Configuration"
+msgstr "Konfigūracija"
+
+msgid "A predefined list of values, one per line"
+msgstr "Iš anksto nustatytas verčių sąrašas, po vieną eilutėje"
+
+msgid "Products"
+msgstr "Produktai"
+
+msgid "Marked task %s as completed on %s"
+msgstr "Pažymėti užduotį %skaip atliktą %s"
+
+msgid "Booking has subsequent dependent bookings, undo not possible"
+msgstr "Užsakymas turi vėlesnių priklausomų užsakymų, anuliuoti negalima"
+
+msgid "per serving"
+msgstr "porcijoje"
+
+msgid "Never"
+msgstr "Niekada"
+
+msgid "Today"
+msgstr "Šiandien"
+
+msgid "Not all ingredients of recipe \"%s\" are in stock, nothing removed"
+msgstr "Ne visi recepto „%s“ ingredientai yra sandėlyje, nieko nėra pašalinta"
+
+msgid "Undo task"
+msgstr "Anuliuoti užduotį"
+
+msgid "Due date rollover"
+msgstr "Termino perkėlimas"
+
+msgid ""
+"When enabled the chore can never be overdue, the due date will shift forward"
+" each day when due"
+msgstr ""
+"Kai įjungta, darbų atlikimo terminas niekada negali būti uždelstas, terminas"
+" kiekvieną dieną bus perkeltas į priekį"
+
+msgid "Location Content Sheet"
+msgstr "Vietos turinio lapas"
+
+msgid "Print"
+msgstr "Spausdinti"
+
+msgid "all locations"
+msgstr "visos vietos"
+
+msgid ""
+"Here you can print a page per location with the current stock, maybe to hang"
+" it there and note the consumed things on it"
+msgstr ""
+"Čia galite atsispausdinti puslapį kiekvienoje vietoje su esamomis "
+"atsargomis, galbūt ten pakabinti ir pažymėti sunaudotus daiktus"
+
+msgid "this location"
+msgstr "ši vieta"
+
+msgid "Consumed amount"
+msgstr "Suvartotas kiekis"
+
+msgid "Time of printing"
+msgstr "Spausdinimo laikas"
+
+msgid "Are you sure to delete equipment \"%s\"?"
+msgstr "Ar tikrai norite ištrinti įrenginį \"%s\"?"
+
+msgid "Parent product"
+msgstr "Pirminis produktas"
+
+msgid ""
+"Not possible because this product is already used as a parent product in "
+"another product"
+msgstr ""
+"Neįmanoma, nes šis produktas jau naudojamas kaip pirminis produktas kitame "
+"gaminyje"
+
+msgid "Default conversions"
+msgstr "Numatytosios konversijos"
+
+msgid "Factor"
+msgstr "Faktorius"
+
+msgid "1 %s is the same as..."
+msgstr "1 %syra toks pat kaip..."
+
+msgid "Create QU conversion"
+msgstr "Sukurti kiekio vienetų konversija"
+
+msgid "Default for QU"
+msgstr "Numatytas kiekio vieneto konversijai"
+
+msgid "Quantity unit from"
+msgstr "Kiekio vienetas iš"
+
+msgid "Quantity unit to"
+msgstr "Kiekio vienetas į"
+
+msgid "This cannot be equal to %s"
+msgstr "Tai negali būti lygu %s"
+
+msgid "This means 1 %1$s is the same as %2$s %3$s"
+msgstr "Tai reiškia, kad 1 %1$syra toks pat kaip %2$s%3$s"
+
+msgid "QU conversions"
+msgstr "kiekio vienetų konversijos"
+
+msgid "Product overrides"
+msgstr "Prekės nepaisoma"
+
+msgid "Override for product"
+msgstr "Nepaisyti produkto"
+
+msgid "This equals %1$s %2$s"
+msgstr "Šis lygus %1$s%2$s"
+
+msgid "Edit QU conversion"
+msgstr "Redaguoti kiekio vieneto konversiją"
+
+msgid "An assignment type is required"
+msgstr "Būtinas užduoties tipas"
+
+msgid "Assignment type"
+msgstr "Užduoties tipas"
+
+msgid ""
+"This means the next execution of this chore is scheduled at the same time "
+"(based on the start date) every day"
+msgid_plural ""
+"This means the next execution of this chore is scheduled at the same time "
+"(based on the start date) every %s days"
+msgstr[0] ""
+"Tai reiškia, kad kitas šio darbo atlikimas suplanuotas kiekvieną dieną tuo "
+"pačiu metu (pagal pradžios datą)"
+msgstr[1] ""
+"Tai reiškia, kad kitas šio darbo atlikimas suplanuotas tuo pačiu metu (pagal"
+" pradžios datą) kas %s dienas"
+msgstr[2] ""
+"Tai reiškia, kad kitas šio darbo atlikimas suplanuotas tuo pačiu metu (pagal"
+" pradžios datą) kas %s dienų"
+msgstr[3] ""
+"Tai reiškia, kad kitas šio darbo atlikimas suplanuotas tuo pačiu metu (pagal"
+" pradžios datą) kas %s dienų"
+
+msgid ""
+"This means the next execution of this chore is scheduled %s hour after the "
+"last execution"
+msgid_plural ""
+"This means the next execution of this chore is scheduled %s hours after the "
+"last execution"
+msgstr[0] ""
+"Tai reiškia, kad kitas šio darbo atlikimas suplanuotas praėjus %s valandai "
+"po paskutinio vykdymo"
+msgstr[1] ""
+"Tai reiškia, kad kitas šio darbo atlikimas suplanuotas praėjus%sval. po "
+"paskutinio vykdymo"
+msgstr[2] ""
+"Tai reiškia, kad kitas šio darbo atlikimas suplanuotas praėjus%sval. po "
+"paskutinio vykdymo"
+msgstr[3] ""
+"Tai reiškia, kad kitas šio darbo atlikimas suplanuotas praėjus%sval. po "
+"paskutinio vykdymo"
+
+msgid ""
+"This means the next execution of this chore is scheduled every week on the "
+"selected weekdays"
+msgid_plural ""
+"This means the next execution of this chore is scheduled every %s weeks on "
+"the selected weekdays"
+msgstr[0] ""
+"Tai reiškia, kad kitas šio darbo atlikimas suplanuotas kiekvieną savaitę "
+"pasirinktomis darbo dienomis"
+msgstr[1] ""
+"Tai reiškia, kad kitas šio darbo atlikimas suplanuotas kas %s savaičių "
+"pasirinktomis darbo dienomis"
+msgstr[2] ""
+"Tai reiškia, kad kitas šio darbo atlikimas suplanuotas kas %s savaičių "
+"pasirinktomis darbo dienomis"
+msgstr[3] ""
+"Tai reiškia, kad kitas šio darbo atlikimas suplanuotas kas %s savaičių "
+"pasirinktomis darbo dienomis"
+
+msgid ""
+"This means the next execution of this chore is scheduled on the selected day"
+" every month"
+msgid_plural ""
+"This means the next execution of this chore is scheduled on the selected day"
+" every %s months"
+msgstr[0] ""
+"Tai reiškia, kad kitas šio darbo atlikimas suplanuotas pasirinktą kiekvieno "
+"mėnesio dieną"
+msgstr[1] ""
+"Tai reiškia, kad kitas šio darbo atlikimas suplanuotas pasirinktą dieną kas "
+"%s mėnesių"
+msgstr[2] ""
+"Tai reiškia, kad kitas šio darbo atlikimas suplanuotas pasirinktą dieną kas "
+"%s mėnesių"
+msgstr[3] ""
+"Tai reiškia, kad kitas šio darbo atlikimas suplanuotas pasirinktą dieną kas "
+"%s mėnesių"
+
+msgid "This means the next execution of this chore is not scheduled"
+msgstr "Tai reiškia, kad kitas šio darbo atlikimas nenumatytas"
+
+msgid ""
+"This means the next execution of this chore will not be assigned to anyone"
+msgstr "Tai reiškia, kad kitas šio darbo atlikimas niekam nebus paskirtas"
+
+msgid ""
+"This means the next execution of this chore will be assigned to the one who "
+"executed it least"
+msgstr "Tai reiškia, kad kitas šio darbo atlikimas niekam nebus paskirtas"
+
+msgid "This means the next execution of this chore will be assigned randomly"
+msgstr "Tai reiškia, kad kitas šio darbo atlikimas bus paskirtas atsitiktinai"
+
+msgid ""
+"This means the next execution of this chore will be assigned to the next one"
+" in alphabetical order"
+msgstr ""
+"Tai reiškia, kad kitas šio darbo atlikimas bus priskirtas kitam abėcėlės "
+"tvarka"
+
+msgid "Assign to"
+msgstr "Priskirti"
+
+msgid "This assignment type requires that at least one is assigned"
+msgstr "Šis priskyrimo tipas reikalauja, kad būtų priskirtas bent vienas"
+
+msgid "%s chore is assigned to me"
+msgid_plural "%s chores are assigned to me"
+msgstr[0] "man paskirtas darbas"
+msgstr[1] "%sman paskirti darbai"
+msgstr[2] "%sman paskiriamų darbų"
+msgstr[3] "%sman paskirtų darbų"
+
+msgid "Assigned to me"
+msgstr "Priskirti sau"
+
+msgid "assigned to %s"
+msgstr "Priskirta %s"
+
+msgid "Assignment"
+msgstr "Priskirta"
+
+msgid "Consume product on chore execution"
+msgstr "Suvartokite produktą atlikdami darbus"
+
+msgid "Are you sure to delete user field \"%s\"?"
+msgstr "Ar tikrai norite ištrinti vartotojo lauką \"%s\"?"
+
+msgid "Userentities"
+msgstr "Naudingumas"
+
+msgid "Create userentity"
+msgstr "Sukurti naudingumą"
+
+msgid "Show in sidebar menu"
+msgstr "Rodyti šoniniame menu"
+
+msgid "Edit userentity"
+msgstr "Redaguoti naudingumą"
+
+msgid "Edit %s"
+msgstr "Redaguoti %s"
+
+msgid "Create %s"
+msgstr "Sukurti %s"
+
+msgid "Are you sure to delete this userobject?"
+msgstr "Ar tikrai ištrinsite šį vartotojo objektą?"
+
+msgid "Icon CSS class"
+msgstr "Ikonų CSS klasės"
+
+msgid "For example"
+msgstr "Pavyzdys"
+
+msgid "Configure fields"
+msgstr "Konfigūruoti laukus"
+
+msgid "Quantity unit plural form testing"
+msgstr "Kiekio vieneto daugiskaitos formos testavimas"
+
+msgid "Result"
+msgstr "Rezultatas"
+
+msgid "Test plural forms"
+msgstr "Išbandykite daugiskaitos formas"
+
+msgid "Scan a barcode"
+msgstr "Nuskaitykite brūkšninį kodą"
+
+msgid "Error while initializing the barcode scanning library"
+msgstr "Klaida inicijuojant brūkšninio kodo nuskaitymo biblioteką"
+
+msgid ""
+"The resulting price of this ingredient will be multiplied by this factor"
+msgstr "Klaida inicijuojant brūkšninio kodo nuskaitymo biblioteką"
+
+msgid "Price factor"
+msgstr "Kainos faktorius"
+
+msgid "Do you find grocy useful?"
+msgstr "Ar manote, kad grocy naudingas?"
+
+msgid "Say thanks"
+msgstr "Sakyk ačiū"
+
+msgid "Search for recipes containing this product"
+msgstr "Ieškokite receptų, kuriuose yra šis produktas"
+
+msgid "Add to shopping list"
+msgstr "Pridėti į pirkinių sąrašą"
+
+msgid "Added %1$s of %2$s to the shopping list \"%3$s\""
+msgstr "Pridėta %1$siš %2$sį pirkinių sąrašą \"%3$s\""
+
+msgid "Output"
+msgstr "Išėjimas"
+
+msgid "Energy (kcal)"
+msgstr "Maistinė vertė (kcal)"
+
+msgid "Per stock quantity unit"
+msgstr "Pagal atsargų kiekio vienetą"
+
+msgid "Barcode scanner testing"
+msgstr "Brūkšninio kodo skaitytuvo testavimas"
+
+msgid "Expected barcode"
+msgstr "Laukiamas brūkšninis kodas"
+
+msgid "Scan field"
+msgstr "Nuskaitymo laukas"
+
+msgid "Scanned barcodes"
+msgstr "Nuskaityti brūkšniniai kodai"
+
+msgid "Hit"
+msgstr "Pataikė"
+
+msgid "Miss"
+msgstr "Praleido"
+
+msgid "Display recipe"
+msgstr "Rodyti receptą"
+
+msgid "Accumulate sub products min. stock amount"
+msgstr "Sukaupti subproduktus min. atsargų kiekis"
+
+msgid ""
+"If enabled, the min. stock amount of sub products will be accumulated into "
+"this product, means the sub product will never be missing, only this product"
+msgstr ""
+"Jei įjungta, min. Į šią prekę bus sukauptas subproduktų atsargų kiekis, tai "
+"reiškia, kad subprodukto niekada netrūks, tik šios prekės"
+
+msgid "Are you sure to remove this conversion?"
+msgstr "Ar tikrai pašalinsite šią konversiją?"
+
+msgid "Unit price"
+msgstr "Vieneto kaina"
+
+msgid "Total price"
+msgstr "Visa kaina"
+
+msgid "in %s and based on the purchase quantity unit"
+msgstr "%spagal pirkimo kiekio vienetą"
+
+msgid "Unlimited"
+msgstr "Neribota"
+
+msgid "Clear"
+msgstr "Išvalyti"
+
+msgid "Are you sure to remove the included recipe \"%s\"?"
+msgstr "Ar tikrai norite ištrinti įtrauktą receptą \"%s\"?"
+
+msgid "Period interval"
+msgstr "Periodinis intervalas"
+
+msgid ""
+"This means the next execution of this chore is scheduled every year on the "
+"same day (based on the start date)"
+msgid_plural ""
+"This means the next execution of this chore is scheduled every %s years on "
+"the same day (based on the start date)"
+msgstr[0] ""
+"Tai reiškia, kad kitas šio darbo atlikimas planuojamas kiekvienais metais tą"
+" pačią dieną (pagal pradžios datą)"
+msgstr[1] ""
+"Tai reiškia, kad kitas šio darbo atlikimas suplanuotas kas %s metus tą pačią"
+" dieną (pagal pradžios datą)"
+msgstr[2] ""
+"Tai reiškia, kad kitas šio darbo atlikimas suplanuotas kas %s metų tą pačią "
+"dieną (pagal pradžios datą)"
+msgstr[3] ""
+"Tai reiškia, kad kitas šio darbo atlikimas suplanuotas kas %s metų tą pačią "
+"dieną (pagal pradžios datą)"
+
+msgid "Transfer"
+msgstr "Perdavimas"
+
+msgid "From location"
+msgstr "Iš vietos"
+
+msgid "To location"
+msgstr "Į vietą"
+
+msgid "There are no units available at this location"
+msgstr "Šioje vietoje vienetų nėra"
+
+msgid "Amount: %1$s; Due on %2$s; Bought on %3$s"
+msgstr "Kiekis: %1$s; Galioja %2$s; Pirkta %3$s"
+
+msgid "Transfered %1$s of %2$s from %3$s to %4$s"
+msgstr "Perduota %1$siš %2$snuo %3$siki %4$s"
+
+msgid "Stock entries"
+msgstr "Atsargų įrašai"
+
+msgid "Best before date"
+msgstr "Geriausias iki"
+
+msgid "Purchased date"
+msgstr "Pirkimo data"
+
+msgid "Consume all %s for this stock entry"
+msgstr "Sunaudoti visus %sšiam atsargų įrašui"
+
+msgid "The amount cannot be lower than %1$s"
+msgstr "Kiekis negali būti žemesnis už %1$s"
+
+msgid "Stock entry successfully updated"
+msgstr "Atsargų įrašas sėkmingai atnaujintas"
+
+msgid "Edit stock entry"
+msgstr "Redaguoti sandėlio įrašą"
+
+msgid ""
+"Camera access is only possible when supported and allowed by your browser "
+"and when grocy is served via a secure (https://) connection"
+msgstr ""
+"Prieiga prie fotoaparato galima tik tada, kai ją palaiko ir leidžia jūsų "
+"naršyklė, o Grocy teikiamas saugiu (https://) ryšiu"
+
+msgid "Keep screen on"
+msgstr "Laikykite ekraną įjungtą"
+
+msgid "Keep screen on while displaying a \"fullscreen-card\""
+msgstr "Laikykite ekraną įjungtą, kol rodoma „viso ekrano kortelė“"
+
+msgid "A purchased date is required"
+msgstr "Būtina nurodyti pirkimo datą"
+
+msgid ""
+"When a product is selected, one unit (per serving in stock quantity unit) "
+"will be added to stock on consuming this recipe"
+msgstr ""
+"Pasirinkus produktą, suvartojus šį receptą į atsargas bus pridėtas vienas "
+"vienetas (vienai porcijai atsargų kiekio vienetuose)"
+
+msgid "Produces product"
+msgstr "Gamina produktą"
+
+msgid "This booking cannot be undone"
+msgstr "Šio užsakymo anuliuoti negalima"
+
+msgid "Booking does not exist or was already undone"
+msgstr "Užsakymas neegzistuoja arba jau buvo anuliuotas"
+
+msgid "Are you sure to delete API key \"%s\"?"
+msgstr "Ar tikrai norite ištrinti API raktą \"%s\"?"
+
+msgid "Add note"
+msgstr "Pridėti įrašą"
+
+msgid "per day"
+msgstr "per dieną"
+
+msgid "Only undone items"
+msgstr "Tik anuliuoti elementai"
+
+msgid "Add product"
+msgstr "Pridėti produktą"
+
+msgid "Consume all ingredients needed by this weeks recipes or products"
+msgstr ""
+"Vartokite visus ingredientus, kurių reikia pagal šios savaitės receptus ar "
+"produktus"
+
+msgid "Meal plan recipe"
+msgstr "Maitinimo plano receptas"
+
+msgid "Meal plan note"
+msgstr "Maitinimo plano užrašai"
+
+msgid "Meal plan product"
+msgstr "Maitinimo plano produktai"
+
+msgid "Scan mode"
+msgstr "Nuskaitymo režimas"
+
+msgid "on"
+msgstr "įjungta"
+
+msgid "off"
+msgstr "išjungta"
+
+msgid ""
+"Scan mode is on but not all required fields could be populated automatically"
+msgstr ""
+"Nuskaitymo režimas įjungtas, bet ne visi privalomi laukai gali būti "
+"užpildyti automatiškai"
+
+msgid "Is freezer"
+msgstr "Yra šaldiklis"
+
+msgid "This cannot be the same as the \"From\" location"
+msgstr "Tai negali būti tokia pati kaip vieta „Iš“."
+
+msgid "Thawed"
+msgstr "Atšildytas"
+
+msgid "Frozen"
+msgstr "Šaldytas"
+
+msgid "Are you sure to delete userentity \"%s\"?"
+msgstr "Ar tikrai ištrinsite naudotojo tapatybę „%s“?"
+
+msgid "Shopping list settings"
+msgstr "Pirkinių sąrašo nustatymai"
+
+msgid "Show a month-view calendar"
+msgstr "Rodyti mėnesio peržiūros kalendorių"
+
+msgid "Desired servings"
+msgstr "Pageidaujamos porcijos"
+
+msgid "Base: %s"
+msgstr "Pagrindas: %s"
+
+msgid "Recipes settings"
+msgstr "Receptų nustatymai"
+
+msgid "Recipe card"
+msgstr "Recepto kortelė"
+
+msgid "Group ingredients by their product group"
+msgstr "Sugrupuokite ingredientus pagal jų produktų grupę"
+
+msgid "Unknown store"
+msgstr "Nežinoma parduotuvė"
+
+msgid "Store"
+msgstr "Parduotuvė"
+
+msgid "Transaction successfully undone"
+msgstr "Sandoris sėkmingai anuliuotas"
+
+msgid "Default store"
+msgstr "Numatytoji parduotuvė"
+
+msgid "Consume this stock entry"
+msgstr "Sunaudoti šį atsargų įrašą"
+
+msgid "Mark this stock entry as open"
+msgstr "Pažymėkite šį sandėlio įrašą kaip atidarytą"
+
+msgid "Mark this item as done"
+msgstr "Pažymėkite šį elementą kaip atliktą"
+
+msgid "Edit this item"
+msgstr "Redaguoti šį elementą"
+
+msgid "Delete this item"
+msgstr "Ištrinti šį elementą"
+
+msgid "Show an icon if the product is already on the shopping list"
+msgstr "Rodyti piktogramą, jei prekė jau yra pirkinių sąraše"
+
+msgid "Calories"
+msgstr "Kalorijos"
+
+msgid "means %1$s per %2$s"
+msgstr "reiškia %1$suž %2$s"
+
+msgid "Create recipe"
+msgstr "Sukurti receptą"
+
+msgid "Save & continue to add ingredients and included recipes"
+msgstr "Išsaugokite ir toliau pridėkite ingredientų ir įtrauktų receptų"
+
+msgid "Save & continue"
+msgstr "Išsaugoti ir tęsti"
+
+msgid "Save & return to recipes"
+msgstr "Išsaugoti ir grįžti į receptus"
+
+msgid "Stock value"
+msgstr "Sandėlio vertė"
+
+msgid "Average price"
+msgstr "Vidutinė kaina"
+
+msgid "Active"
+msgstr "Aktyvus"
+
+msgid "Barcodes"
+msgstr "Brūkšniniai kodai"
+
+msgid "Barcode"
+msgstr "Brūkšninis kodas"
+
+msgid "Create Barcode"
+msgstr "Sukurti brūkšninį kodą"
+
+msgid "Barcode for product"
+msgstr "Produkto brūkšninis kodas"
+
+msgid "Edit Barcode"
+msgstr "Redaguoti brūkšninį kodą"
+
+msgid ""
+"Based on the prices of the default consume rule (Opened first, then first "
+"due first, then first in first out) for in-stock ingredients and on the last"
+" price for missing ones"
+msgstr ""
+"Remiantis numatytosios vartojimo taisyklės kainomis (iš pradžių atidaroma, "
+"tada pirmiausia turi būti sumokėta, tada pirmiausia išleidžiama) sandėlyje "
+"esančioms sudedamosioms dalims ir paskutinei trūkstamų ingredientų kainai"
+
+msgid "Clear filter"
+msgstr "Išvalyti filtą"
+
+msgid "Permissions for user %s"
+msgstr "Leidimai naudotojui %s"
+
+msgid "Are you sure you want to remove full permissions for yourself?"
+msgstr "Ar tikrai norite pašalinti visus leidimus?"
+
+msgid "Permissions saved"
+msgstr "Leidimai išsaugoti"
+
+msgid "You are not allowed to view this page"
+msgstr "Jums neleidžiama peržiūrėti šio puslapio"
+
+msgid "Page not found"
+msgstr "Puslapis nerastas"
+
+msgid "Unauthorized"
+msgstr "Neleistina"
+
+msgid "Error source"
+msgstr "Klaidos šaltinis"
+
+msgid "Error message"
+msgstr "Klaidos pranešimas"
+
+msgid "Stack trace"
+msgstr "Išrašo pėdsakas"
+
+msgid "Easy error info copy & paste (for reporting)"
+msgstr "Lengvas klaidų informacijos kopijavimas ir įklijavimas (pranešimui)"
+
+msgid "This page does not exist"
+msgstr "Šis puslapis neegzistuoja"
+
+msgid "You will be redirected to the default page in %s seconds"
+msgstr "Po %s sekundžių būsite nukreipti į numatytąjį puslapį"
+
+msgid "Server error"
+msgstr "Serverio klaida"
+
+msgid "A server error occured while processing your request"
+msgstr "Apdorojant jūsų užklausą įvyko serverio klaida"
+
+msgid "If you think this is a bug, please report it"
+msgstr "Jei manote, kad tai klaida, praneškite apie tai"
+
+msgid "Language"
+msgstr "Kalba"
+
+msgid "User settings"
+msgstr "Vartotojo nustatymai"
+
+msgid "Default"
+msgstr "Numatytas"
+
+msgid "Stock journal summary"
+msgstr "Sandėlio žurnalo santrauka"
+
+msgid "Journal summary"
+msgstr "Žurnalo santrauka"
+
+msgid "Consume exact amount"
+msgstr "Suvartoti tikslią sumą"
+
+msgid "Value"
+msgstr "Vertė"
+
+msgid "%s total value"
+msgstr "%svisa vertė"
+
+msgid ""
+"Show purchased date on purchase and inventory page (otherwise the purchased "
+"date defaults to today)"
+msgstr ""
+"Rodyti pirkimo datą pirkimo ir atsargų puslapyje (kitaip pirkimo data yra "
+"numatyta šiandien)"
+
+msgid "Common"
+msgstr "Dažnas"
+
+msgid "Decimal places allowed for amounts"
+msgstr "Leidžiami skaitmenys po kablelio"
+
+msgid "Edit shopping list"
+msgstr "Redaguoti pirkinių sąrašą"
+
+msgid "Save & continue to add quantity unit conversions & barcodes"
+msgstr ""
+"Išsaugokite ir toliau pridėkite kiekio vienetų konversijas ir brūkšninius "
+"kodus"
+
+msgid "Save & return to products"
+msgstr "Išsaugoti ir grįžti prie produktų"
+
+msgid "Save & continue to add conversions"
+msgstr "Išsaugokite ir toliau pridėkite konversijų"
+
+msgid "Save & return to quantity units"
+msgstr "Išsaugoti ir grįžti į kiekio vienetus"
+
+msgid "price"
+msgstr "kaina"
+
+msgid "New stock amount"
+msgstr "Naujas atsargų kiekis"
+
+msgid "Price per stock unit"
+msgstr "Kaina už atsargų vienetą"
+
+msgid "Table options"
+msgstr "Lentelės parinktys"
+
+msgid "This product is currently on a shopping list"
+msgstr "Šis produktas šiuo metu yra pirkinių sąraše"
+
+msgid "Undo transaction"
+msgstr "Anuliuoti operaciją"
+
+msgid "Transaction type"
+msgstr "Operacijos tipas"
+
+msgid "Transaction time"
+msgstr "Operacijos laikas"
+
+msgid "Chore journal"
+msgstr "Namų ruošos žurnalas"
+
+msgid "Track chore execution"
+msgstr "Sekite namų ruošos darbų atlikimą"
+
+msgid "Mark task as completed"
+msgstr "Pažymėkite užduotį kaip atliktą"
+
+msgid "Track charge cycle"
+msgstr "Stebėkite įkrovimo ciklą"
+
+msgid "Battery journal"
+msgstr "Baterijos žurnalas"
+
+msgid "This product has a picture"
+msgstr "Šis produktas turi nuotrauką"
+
+msgid "Consume this stock entry as spoiled"
+msgstr "Suvartokite šį atsargų įrašą kaip sugadintą"
+
+msgid "Configure user permissions"
+msgstr "Konfigūruoti vartotojo teises"
+
+msgid "Show a QR-Code for this API key"
+msgstr "Parodykite šio API rakto QR kodą"
+
+msgid ""
+"This is the default quantity unit used when adding this product to the "
+"shopping list"
+msgstr ""
+"Tai numatytasis kiekio vienetas, naudojamas įtraukiant šią prekę į pirkinių "
+"sąrašą"
+
+msgid ""
+"Show a warning when the due date of the purchased product is earlier than "
+"the next due date in stock"
+msgstr ""
+"Rodyti įspėjimą, kai įsigytos prekės terminas yra ankstesnis už kitą "
+"sandėlyje esantį terminą"
+
+msgid "This is due earlier than already in-stock items"
+msgstr "Tai atsitinka anksčiau nei jau esančios prekės"
+
+msgid ""
+"When enabled, after changing/scanning a product and if all fields could be "
+"automatically populated (by product and/or barcode defaults), the "
+"transaction is automatically submitted"
+msgstr ""
+"Kai įjungta, pakeitus/nuskenavus produktą ir jo visi laukai gali būti "
+"automatiškai užpildyti (pagal gaminio ir/arba brūkšninio kodo numatytuosius "
+"nustatymus)."
+
+msgid "Quick consume amount"
+msgstr "Greitas suvartojimo kiekis"
+
+msgid ""
+"This amount is used for the \"quick consume/open buttons\" on the stock "
+"overview page (related to quantity unit stock)"
+msgstr ""
+"Ši suma naudojama atsargų apžvalgos puslapyje esantiems „greito "
+"vartojimo/atidarymo mygtukams“ (susijęs su atsargų kiekio vienetu)"
+
+msgid "Copy"
+msgstr "Kopijuoti"
+
+msgid "Are you sure to remove this barcode?"
+msgstr "Ar tikrai norite ištrinti šį brūkšninį kodą?"
+
+msgid "Due date type"
+msgstr "Termino datos tipas"
+
+msgid ""
+"Based on the selected type, the highlighting on the stock overview page will"
+" be different"
+msgstr ""
+"Atsižvelgiant į pasirinktą tipą, atsargų apžvalgos puslapio paryškinimas "
+"skirsis"
+
+msgid ""
+"Means that the product is maybe still safe to be consumed after its due date"
+" is reached"
+msgstr ""
+"Reiškia, kad produktas gali būti saugus vartoti pasibaigus jo terminui"
+
+msgid "Expiration date"
+msgstr "Galiojimo laikas"
+
+msgid ""
+"Means that the product is not safe to be consumed after its due date is "
+"reached"
+msgstr "Reiškia, kad produktas nesaugus vartoti pasibaigus jo terminui"
+
+msgid ""
+"For purchases this amount of days will be added to today for the due date "
+"suggestion"
+msgstr ""
+"Pirkinių atveju šis dienų skaičius bus pridėtas prie šiandienos, kad būtų "
+"pasiūlytas terminas"
+
+msgid "-1 means that this product will be never overdue"
+msgstr "-1 reiškia, kad šis produktas niekada nebus pavėluotas"
+
+msgid "Default due days"
+msgstr "Numatytosios mokėjimo dienos"
+
+msgid ""
+"When this product was marked as opened, the due date will be replaced by "
+"today + this amount of days, but only if the resulting date is not after the"
+" original due date (a value of 0 disables this)"
+msgstr ""
+"Kai šis produktas buvo pažymėtas kaip atidarytas, grąžinimo data bus "
+"pakeista į šiandieną + šis dienų skaičius, bet tik tuo atveju, jei gauta "
+"data nėra vėlesnė už pradinę galiojimo datą (vertė 0 tai išjungia)"
+
+msgid "Default due days after opened"
+msgstr "Numatytasis terminas po atidarymo dienos"
+
+msgid ""
+"On moving this product to a freezer location (so when freezing it), the due "
+"date will be replaced by today + this amount of days"
+msgstr ""
+"Perkeliant šį gaminį į šaldiklio vietą (taigi jį užšaldant), terminas bus "
+"pakeistas į šiandieną + tiek dienų"
+
+msgid "Default due days after freezing"
+msgstr "Numatytasis terminas yra dienos po užšaldymo"
+
+msgid ""
+"On moving this product from a freezer location (so when thawing it), the due"
+" date will be replaced by today + this amount of days"
+msgstr ""
+"Perkeliant šį gaminį iš šaldiklio (taigi jį atšildant), terminas bus "
+"pakeistas į šiandieną + tiek dienų"
+
+msgid "Default due days after thawing"
+msgstr "Numatytasis terminas praėjus kelioms dienoms po atšildymo"
+
+msgid "Next due date"
+msgstr "Kitas terminas"
+
+msgid "%s product is due"
+msgid_plural "%s products are due"
+msgstr[0] "%sprodukto terminas"
+msgstr[1] "%sproduktų terminas"
+msgstr[2] "%sproduktų terminas"
+msgstr[3] "%sproduktų terminas"
+
+msgid "Due date"
+msgstr "Terminas"
+
+msgid "Never overdue"
+msgstr "Niekada nevėluoja"
+
+msgid "%s product is expired"
+msgid_plural "%s products are expired"
+msgstr[0] "%sprodukto galiojimo laikas pasibaigęs"
+msgstr[1] "%sproduktų galiojimo laikas pasibaigęs"
+msgstr[2] "%sproduktų galiojimo laikas pasibaigęs"
+msgstr[3] "%sproduktų galiojimo laikas pasibaigęs"
+
+msgid "Expired"
+msgstr "Baigėsi galiojimo laikas"
+
+msgid "Due soon days"
+msgstr "Terminas greitu laiku"
+
+msgid "Add overdue/expired products"
+msgstr "Pridėkite produktus, kurių galiojimo laikas pasibaigęs"
+
+msgid ""
+"Products with tare weight enabled are currently not supported for transfer"
+msgstr ""
+"Produktų, kurių taros svoris įjungtas, perkėlimas šiuo metu nepalaikomas"
+
+msgid ""
+"This cannot be lower than %1$s or equal %2$s and needs to be a valid number "
+"with max. %3$s decimal places"
+msgstr ""
+"Tai negali būti mažesnis nei %1$s arba lygus %2$s ir turi būti galiojantis "
+"skaičius su maks. %3$s skaitmenys po kablelio"
+
+msgid ""
+"This must be between %1$s and %2$s, cannot equal %3$s and needs to be a "
+"valid number with max. %4$s decimal places"
+msgstr ""
+"Tai turi būti nuo %1$s iki %2$s, negali būti lygi %3$s ir turi būti "
+"galiojantis skaičius su maks. %4$s skaitmenys po kablelio"
+
+msgid ""
+"This cannot be lower than %1$s and needs to be a valid number with max. %2$s"
+" decimal places"
+msgstr ""
+"Tai negali būti mažesnis nei %1$s ir turi būti galiojantis skaičius su maks."
+" %2$s skaitmenys po kablelio"
+
+msgid ""
+"This must between %1$s and %2$s and needs to be a valid number with max. "
+"%3$s decimal places"
+msgstr ""
+"Tai turi būti nuo %1$s iki %2$s ir turi būti galiojantis skaičius su maks. "
+"%3$s skaitmenys po kablelio"
+
+msgid ""
+"Automatically do the booking using the last price and the amount of the "
+"shopping list item, if the product has \"Default due days\" set"
+msgstr ""
+"Automatiškai atlikti užsakymą naudojant paskutinę pirkinių sąrašo prekės "
+"kainą ir sumą, jei prekei nustatytas „Numatytosios mokėjimo dienos“"
+
+msgid ""
+"When moving products from/to a freezer location, the products due date is "
+"automatically adjusted according to the product settings"
+msgstr ""
+"Perkeliant produktus iš/į šaldiklio vietą, produktų pristatymo data "
+"automatiškai koreguojama pagal gaminio nustatymus"
+
+msgid "This is the internal field name, e. g. for the API"
+msgstr "Tai vidinis lauko pavadinimas, pvz. API"
+
+msgid "This is used to display the field on the frontend"
+msgstr "Tai naudojama laukui rodyti priekinėje dalyje"
+
+msgid "Multiple Userfields will be ordered by that number on the input form"
+msgstr "Keli naudotojų laukai bus surūšiuoti pagal tą numerį įvesties formoje"
+
+msgid "Sort number"
+msgstr "Rūšiuoti numerį"
+
+msgid "Download file"
+msgstr "Atsisiųsti failą"
+
+msgid "Use the products \"Quick consume amount\""
+msgstr "Naudokite produktus „Greitas suvartojimo kiekis“"
+
+msgid "Disabled"
+msgstr "Išjungta"
+
+msgid ""
+"This also removes any stock amount, the journal and all other references of "
+"this product - consider disabling it instead, if you want to keep that and "
+"just hide the product."
+msgstr ""
+"Taip pat pašalinama bet kokia atsargų suma, žurnalas ir visos kitos šio "
+"produkto nuorodos – apsvarstykite galimybę jį išjungti, jei norite jį "
+"pasilikti ir tiesiog paslėpti produktą."
+
+msgid "Show disabled"
+msgstr "Rodyti išjungtus"
+
+msgid "Never show on stock overview"
+msgstr "Niekada nerodyti atsargų apžvalgoje"
+
+msgid "None"
+msgstr "Nieko"
+
+msgid "Group by"
+msgstr "Grupuoti pagal"
+
+msgid "Ingredient group"
+msgstr "Ingredientų grupė"
+
+msgid "Reset"
+msgstr "Nustatyti iš naujo"
+
+msgid "Are you sure to reset the table options?"
+msgstr "Ar tikrai iš naujo nustatysite lentelės parinktis?"
+
+msgid "Hide/view columns"
+msgstr "Slėpti / peržiūrėti stulpelius"
+
+msgid ""
+"A different amount/unit can then be used below while for stock fulfillment "
+"checking it is sufficient when any amount of the product in stock"
+msgstr ""
+"Tada toliau galima naudoti kitą kiekį / vienetą, o atsargų įvykdymui "
+"patikrinti pakanka, kai sandėlyje yra bet koks produkto kiekis"
+
+msgid "Last price (Unit)"
+msgstr "Paskutinė kaina (vienetas)"
+
+msgid "Last price (Total)"
+msgstr "Paskutinė kaina (iš viso)"
+
+msgid "Show header"
+msgstr "Rodyti antraštę"
+
+msgid "Group by product group"
+msgstr "Grupuoti pagal produkto grupę"
+
+msgid "Table"
+msgstr "Lentelė"
+
+msgid "Layout type"
+msgstr "Išdėstymo tipas"
+
+msgid "Merge this product with another one"
+msgstr "Sujunkite šį produktą su kitu"
+
+msgid "Merge products"
+msgstr "Sujungti produktus"
+
+msgid "Product to keep"
+msgstr "Produktus saugoti"
+
+msgid "Product to remove"
+msgstr "Produktą ištrinti"
+
+msgid "Error while merging"
+msgstr "Klaida sujungiant"
+
+msgid "After merging, this product will be kept"
+msgstr "Sujungus, šis produktas bus saugomas"
+
+msgid ""
+"After merging, all occurences of this product will be replaced by the kept "
+"product (means this product will not exist anymore)"
+msgstr ""
+"Sujungus, visi šio gaminio atvejai bus pakeisti saugomu produktu (tai "
+"reiškia, kad šio produkto nebebus)"
+
+msgid "Merge"
+msgstr "Sujungti"
+
+msgid "Title"
+msgstr "Pavadinimas"
+
+msgid "Link"
+msgstr "Nuoroda"
+
+msgid ""
+"The stock overview page lists all products which are currently in-stock or "
+"below their min. stock amount - enable this to hide this product there "
+"always"
+msgstr ""
+"Atsargų apžvalgos puslapyje pateikiami visi produktai, kurie šiuo metu yra "
+"sandėlyje arba mažesni nei min. atsargų kiekis – įjunkite, kad šis produktas"
+" visada būtų paslėptas"
+
+msgid "Print options"
+msgstr "Spausdinimo parinktys"
+
+msgid "A product or a note is required"
+msgstr "Reikalingas produktas arba pastaba"
+
+msgid "grocycode"
+msgstr "grocykodas"
+
+msgid "Download"
+msgstr "Atsisiųsti"
+
+# Example: Download *Product* grocycode
+msgid "Download %s grocycode"
+msgstr "Parsisiųsti %sgrocykodą"
+
+msgid ""
+"grocycode is a unique referer to this %s in your grocy instance - print it "
+"onto a label and scan it like any other barcode"
+msgstr ""
+"grocykodas yra unikali nuoroda į šį %s jūsų grocy egzemplioriuje – "
+"atspausdinkite jį ant etiketės ir nuskaitykite kaip bet kurį kitą brūkšninį "
+"kodą"
+
+# Abbreviation for "due date"
+msgid "DD"
+msgstr "DD"
+
+msgid "Print on label printer"
+msgstr "Spausdinti ant etikečių spausdintuvo"
+
+msgid "Default stock entry label"
+msgstr "Numatytoji atsargų įvedimo etiketė"
+
+msgid "Stock entry label"
+msgstr "Atsargų įvedimo etiketė"
+
+msgid "No label"
+msgstr "Nėra etiketės"
+
+msgid "Single label"
+msgstr "Viena etiketė"
+
+msgid "Label per unit"
+msgstr "Etiketė vienam vienetui"
+
+msgid "Error while executing WebHook"
+msgstr "Klaida vykdant WebHook"
+
+# Example: Print *Product* grocycode on label printer
+msgid "Print %s grocycode on label printer"
+msgstr "Spausdinkite %s grocycode ant etikečių spausdintuvo"
+
+msgid "Open stock entry label in new window"
+msgstr "Atidaryti atsargų įrašo etiketę naujame lange"
+
+msgid "Thermal printer"
+msgstr "Terminis spausdintuvas"
+
+msgid "Printing"
+msgstr "Spausdinama"
+
+msgid "Connecting to printer..."
+msgstr "Jungiamasi prie spausdintuvo..."
+
+msgid "Unable to print"
+msgstr "Nepavyko išspausdinti"
+
+msgid "Only done items"
+msgstr "Tik atliktiems daiktams"
+
+msgid "Show only in-stock products"
+msgstr "Rodyti tik sandėlyje esančius produktus"
+
+msgid "Product description"
+msgstr "Produkto aprašymas"
+
+# Example: *3.21 USD* per *Pack*
+msgid "%1$s per %2$s"
+msgstr "%1$s per %2$s"
+
+msgid "Mark this item as undone"
+msgstr "Pažymėti šį elementą kaip anuliuotą"
+
+msgid "Mandatory"
+msgstr "Privaloma"
+
+msgid "Mandatory Userfield"
+msgstr "Privalomas vartotojo laukas"
+
+msgid "When enabled, then this field must be filled on the destination form"
+msgstr "Kai įjungta, šis laukas turi būti užpildytas paskirties formoje"
+
+msgid "In-stock products"
+msgstr "Prekės sandėlyje"
+
+msgid "Timestamp"
+msgstr "Laiko žyma"
+
+msgid "Should not be frozen"
+msgstr "Negalima užšaldyti"
+
+msgid ""
+"When enabled, on moving this product to a freezer location (so when freezing"
+" it), a warning will be shown"
+msgstr ""
+"Kai įjungta, perkėlus šį gaminį į šaldiklio vietą (taigi jį užšaldžius), bus"
+" rodomas įspėjimas"
+
+msgid "This product shouldn't be frozen"
+msgstr "Šis produktas neturėtų būti užšaldytas"
+
+msgid "Copy all meal plan entries of %s"
+msgstr "Nukopijuokite visus %s maitinimo plano įrašus"
+
+msgid "A date is required"
+msgstr "Būtina data"
+
+msgid "Day"
+msgstr "Diena"
+
+msgid "Add recipe"
+msgstr "Pridėti receptą"
+
+msgid "Copy this day"
+msgstr "Kopijuoti šią dieną"
+
+msgid "Date range"
+msgstr "Datos intervalas"
+
+msgid "%s month"
+msgid_plural "%s months"
+msgstr[0] "%smėnesis"
+msgstr[1] "%smėnesiai"
+msgstr[2] "%smėnesių"
+msgstr[3] "%smėnesių"
+
+msgid "%s year"
+msgid_plural "%s years"
+msgstr[0] "%smetas"
+msgstr[1] "%smetai"
+msgstr[2] "%smetų"
+msgstr[3] "%smetų"
+
+msgid "Display product"
+msgstr "Rodyti produktą"
+
+msgid "Copy recipe"
+msgstr "Kopijuoti receptą"
+
+msgid "Copy of %s"
+msgstr "Kopijuoti iš %s"
+
+msgid "Add decimal separator automatically for price inputs"
+msgstr "Įvesdami kainą automatiškai pridėkite dešimtainį skyriklį"
+
+msgid ""
+"When enabled, you always have to enter the value including decimal places, "
+"the decimal separator will be automatically added based on the amount of "
+"allowed decimal places"
+msgstr ""
+"Kai įjungta, visada turite įvesti reikšmę, įskaitant dešimtainius tikslus, "
+"po kablelio skyriklis bus automatiškai pridėtas pagal leistinų skaičių po "
+"kablelio skaičių"
+
+msgid "Stock entry"
+msgstr "Atsargų įvedimas"
+
+msgid "Configure sections"
+msgstr "Konfigūruoti skyrius"
+
+msgid "Meal plan sections"
+msgstr "Maitinimo plano skiltys"
+
+msgid "Create meal plan section"
+msgstr "Sukurkite maitinimo plano skiltį"
+
+msgid "Sections will be ordered by that number on the meal plan"
+msgstr "Skiltys bus išrūšiuotos šiuo numeriu maitinimo plane"
+
+msgid "Edit meal plan section"
+msgstr "Redaguoti maitinimo plano skiltį"
+
+msgid "Are you sure to delete meal plan section \"%s\"?"
+msgstr "Ar tikrai ištrinsite maitinimo plano skiltį „%s“?"
+
+msgid "Section"
+msgstr "Skiltis"
+
+msgid "Are you sure to empty the shopping list?"
+msgstr "Ar tikrai ištuštinate pirkinių sąrašą?"
+
+msgid "This is the default which will be prefilled on purchase"
+msgstr "Tai numatytasis nustatymas, kuris bus iš anksto užpildytas perkant"
+
+msgid "Merge chores"
+msgstr "Sujungti darbus"
+
+msgid "Chore to keep"
+msgstr "Išlaikyti darbą"
+
+msgid "After merging, this chore will be kept"
+msgstr "Sujungus, šis darbas bus paliktas"
+
+msgid "Chore to remove"
+msgstr "Ištrinti darbą"
+
+msgid ""
+"After merging, all occurences of this chore will be replaced by the kept "
+"chore (means this chore will not exist anymore)"
+msgstr ""
+"Sujungus, visi šio darbo įvykiai bus pakeisti išlaikomu darbu (tai reiškia, "
+"kad šio darbo nebebus)"
+
+msgid "Due today"
+msgstr "Iki šiandien"
+
+msgid "%s task is due to be done today"
+msgid_plural "%s tasks are due to be done today"
+msgstr[0] "%sužduotis turi būti atlikta šiandien"
+msgstr[1] "%sužduotys turi būti atliktos šiandien"
+msgstr[2] "%sužduočių turi būti atliktos šiandien"
+msgstr[3] "%sužduočių turi būti atliktos šiandien"
+
+msgid "%s chore is due to be done today"
+msgid_plural "%s chores are due to be done today"
+msgstr[0] "%sdarbas turi būti atliktas šiandien"
+msgstr[1] "%sdarbai turi būti atlikti šiandien"
+msgstr[2] "%sdarbų turi būti atlikti šiandien"
+msgstr[3] "%sdarbų turi būti atlikti šiandien"
+
+msgid "%s battery is due to be charged today"
+msgid_plural "%s batteries are due to be charged today"
+msgstr[0] "%sbaterija turi būti įkrauta šiandien"
+msgstr[1] "%sbaterijos turi būti įkrautos šiandien"
+msgstr[2] "%sbaterijų turi būti įkrautos šiandien"
+msgstr[3] "%sbaterijų turi būti įkrautos šiandien"
+
+msgid "Set to 0 to hide due soon filters/highlighting"
+msgstr "Nustatykite 0, kad netrukus būtų paslėpti filtrai / paryškinimai"
+
+msgid "Save & close"
+msgstr "Išsaugoti ir uždaryti"
+
+msgid "Save & add another task"
+msgstr "Išsaugoti ir pridėti kitą užduotį"
+
+msgid "Treat opened as out of stock"
+msgstr "Patiekalas atidarytas kaip išparduotas"
+
+msgid ""
+"When enabled, opened items will be counted as missing for calculating if "
+"this product is below its minimum stock amount"
+msgstr ""
+"Kai įjungta, atidarytos prekės bus laikomos trūkstamomis apskaičiuojant, ar "
+"šio produkto kiekis yra mažesnis nei minimalus atsargų kiekis"
+
+msgid "Skipped"
+msgstr "Praleistas"
+
+msgid "Skip next chore schedule"
+msgstr "Praleiskite kitą darbų tvarkaraštį"
+
+msgid "Time"
+msgstr "Laikas"
+
+msgid "A start date is required"
+msgstr "Būtina nurodyti pradžios datą"
+
+msgid "Start date"
+msgstr "Pradžios data"
+
+msgid "The start date cannot be changed when the chore was once tracked"
+msgstr "Pradžios datos negalima pakeisti, kai kažkada buvo sekamas darbas"
+
+msgid "Show the recipe list and the recipe side by side"
+msgstr "Parodykite receptų sąrašą ir receptą greta"
+
+msgid ""
+"This means the next execution of this chore is scheduled dynamically based "
+"on the past average execution frequency"
+msgstr ""
+"Tai reiškia, kad kitas šio darbo atlikimas suplanuojamas dinamiškai, "
+"atsižvelgiant į ankstesnį vidutinį vykdymo dažnį"
+
+msgid "Average execution frequency"
+msgstr "Vidutinis vykdymo dažnis"
+
+msgid "Reschedule next execution"
+msgstr "Suplanuokite kitą vykdymą"
+
+msgid "This can only be in the future"
+msgstr "Tai gali būti tik ateityje"
+
+msgid "Rescheduled"
+msgstr "Suplanuota iš naujo"
+
+msgid "Due score"
+msgstr "Dera balas"
+
+msgid ""
+"The higher this number is, the more ingredients currently in stock are due "
+"soon, overdue or already expired"
+msgstr ""
+"Kuo didesnis šis skaičius, tuo daugiau šiuo metu sandėlyje esančių "
+"ingredientų greitai suges, vėluoja arba jau pasibaigę"
+
+msgid "Disable own stock"
+msgstr "Išjungti savo atsargas"
+
+msgid ""
+"When enabled, this product can't have own stock, means it will not be "
+"selectable on purchase (useful for parent products which are just used as a "
+"summary/total view of the child products)"
+msgstr ""
+"Kai įjungta, šis produktas negali turėti savo atsargų, tai reiškia, kad jo "
+"nebus galima pasirinkti perkant (naudinga pirminiams produktams, kurie "
+"naudojami tik kaip antrinių produktų suvestinė / bendras vaizdas)"
+
+msgid "Out of stock items will be shown at the products default location"
+msgstr "Prekės, kurių nėra sandėlyje, bus rodomos numatytoje produktų vietoje"
+
+msgid "Show a little checkbox next to each ingredient to mark it as done"
+msgstr ""
+"Prie kiekvieno ingrediento parodykite nedidelį žymimąjį laukelį, kad "
+"pažymėtumėte jį kaip atliktą"
+
+msgid ""
+"The ingredient is crossed out when clicked, the status is not saved, means "
+"reset when the page is reloaded"
+msgstr ""
+"Paspaudus ingredientas perbraukiamas, būsena neišsaugoma, reiškia atstatymą,"
+" kai puslapis įkeliamas iš naujo"
+
+msgid ""
+"The parent product %1$s is currently not in stock, %2$s is the current next "
+"sub product based on the default consume rule (Opened first, then first due "
+"first, then first in first out)"
+msgstr ""
+"Pirminio produkto %1$s šiuo metu sandėlyje nėra, %2$s yra dabartinis kitas "
+"antrinis produktas, pagrįstas numatytąją vartojimo taisykle (atidaryta "
+"pirmiausia, tada pirmas turi būti, tada pirmas iš pradžių)"
+
+msgid "Night mode"
+msgstr "Naktinis režimas"
+
+msgid "On"
+msgstr "Įjungta"
+
+msgid "Use system setting"
+msgstr "Naudokite sistemos nustatymus"
+
+msgid "Off"
+msgstr "Išjungta"
+
+msgid ""
+"Automatically add products that are below their defined min. stock amount to"
+" the shopping list"
+msgstr ""
+"Automatiškai pridėti produktus, kurių vertė yra mažesnė nei nustatyta min. "
+"atsargų kiekį į pirkinių sąrašą"
+
+msgid "Reassigned"
+msgstr "Perskirtas"
+
+msgid "Default value"
+msgstr "Numatytoji reikšmė"
+
+msgid "Now / today"
+msgstr "Dabar / šiandien"
+
+msgid "Add meal plan entry"
+msgstr "Pridėkite maitinimo plano įrašą"
+
+msgid "Edit meal plan entry"
+msgstr "Redaguoti maitinimo plano įrašą"
+
+msgid "Default consume location"
+msgstr "Numatytoji vartojimo vieta"
+
+msgid "Stock entries at this location will be consumed first"
+msgstr "Pirmiausia bus sunaudotos šios vietos atsargos"
+
+msgid "Move on open"
+msgstr "Perkelti į atidarytą"
+
+msgid ""
+"When enabled, on marking this product as opened, the corresponding amount "
+"will be moved to the default consume location"
+msgstr ""
+"Kai įjungta, pažymėjus šį produktą kaip atidarytą, atitinkama suma bus "
+"perkelta į numatytąją vartojimo vietą"
+
+msgid "Moved to %1$s"
+msgstr "Perkelti į %1$s"
+
+msgid "Decimal places allowed for prices (input)"
+msgstr "Leidžiamos kainos po kablelio (įvestis)"
+
+msgid "Decimal places allowed for prices (display)"
+msgstr "Leidžiamos kainos po kablelio (parodymas)"

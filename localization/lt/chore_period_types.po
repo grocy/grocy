@@ -1,0 +1,39 @@
+# 
+# Translators:
+# Vytautas Barkauskas, 2022
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
+"PO-Revision-Date: 2019-05-01 17:42+0000\n"
+"Last-Translator: Vytautas Barkauskas, 2022\n"
+"Language-Team: Lithuanian (https://www.transifex.com/grocy/teams/93189/lt/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: lt\n"
+"Plural-Forms: nplurals=4; plural=(n % 10 == 1 && (n % 100 > 19 || n % 100 < 11) ? 0 : (n % 10 >= 2 && n % 10 <=9) && (n % 100 > 19 || n % 100 < 11) ? 1 : n % 1 != 0 ? 2: 3);\n"
+"X-Domain: grocy/chore_types\n"
+
+msgid "manually"
+msgstr "rankiniu būdu"
+
+msgid "daily"
+msgstr "kasdien"
+
+msgid "weekly"
+msgstr "kas savaitę"
+
+msgid "monthly"
+msgstr "kas mėnesį"
+
+msgid "yearly"
+msgstr "kas metus"
+
+msgid "hourly"
+msgstr "kas valandą"
+
+msgid "adaptive"
+msgstr "pritaikytas"
