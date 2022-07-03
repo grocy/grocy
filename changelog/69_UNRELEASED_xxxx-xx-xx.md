@@ -16,7 +16,7 @@
 
 ### Recipes
 
-- xxx
+- Fixed that headlines in the recipe description (preparation text) were removed on saving
 
 ### Meal plan
 
