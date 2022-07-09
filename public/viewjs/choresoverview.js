@@ -307,6 +307,10 @@ $(document).on("click", ".reschedule-chore-button", function(e)
 			Grocy.Components.DateTimePicker.SetValue(moment(prefillDate).format("YYYY-MM-DD HH:mm:ss"));
 		}
 
+		if (typeof choreDetails.chore.next_execution_assigned_to_user_id != "string")
+		{
+			choreDetails.chore.next_execution_assigned_to_user_id = "";
+		}
 		if (choreDetails.chore.next_execution_assigned_to_user_id != null && !choreDetails.chore.next_execution_assigned_to_user_id.isEmpty())
 		{
 			Grocy.Components.UserPicker.SetId(choreDetails.chore.next_execution_assigned_to_user_id)
