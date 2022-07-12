@@ -61,6 +61,7 @@
 				@php if($mode == 'edit') { $productId = $listItem->product_id; } else { $productId = ''; } @endphp
 				@include('components.productpicker', array(
 				'products' => $products,
+				'barcodes' => $barcodes,
 				'nextInputSelector' => '#amount',
 				'isRequired' => true,
 				'prefillById' => $productId,

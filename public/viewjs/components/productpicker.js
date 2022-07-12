@@ -277,7 +277,7 @@ $('#product_id_text_input').on('blur', function(e)
 				{
 					if (barcodeResult.length > 0)
 					{
-						existsAsProduct = true;
+						existsAsBarcode = true;
 					}
 
 					Grocy.Api.Get('objects/products?query[]=name=' + input,

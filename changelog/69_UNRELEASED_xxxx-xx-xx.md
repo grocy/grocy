@@ -12,7 +12,7 @@
 
 ### Shopping list
 
-- xxx
+- Fixed that products could not be added to the shopping list via barcode scanning
 
 ### Recipes
 
