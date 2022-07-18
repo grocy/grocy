@@ -406,7 +406,7 @@ class StockService extends BaseService
 				$potentialStockEntries = FindAllObjectsInArrayByPropertyValue($potentialStockEntries, 'stock_id', $specificStockEntryId);
 			}
 
-			$productStockAmount = SumArrayValue($potentialStockEntries, 'amount');
+			$productStockAmount = floatval($productDetails->stock_amount_aggregated);
 			if ($amount > $productStockAmount)
 			{
 				throw new \Exception('Amount to be consumed cannot be > current stock amount (if supplied, at the desired location)');
