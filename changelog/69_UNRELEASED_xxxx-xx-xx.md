@@ -46,7 +46,7 @@
 
 ### Userfields
 
-- xxx
+- Fixed that edit forms were broken when editing an object with `null` Userfields (so when the field for that object was not set before / on the initial object creation)
 
 ### General
 
