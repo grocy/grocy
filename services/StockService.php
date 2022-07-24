@@ -677,7 +677,16 @@ class StockService extends BaseService
 
 	public function GetMissingProducts()
 	{
-		return $this->getDatabaseService()->ExecuteDbQuery('SELECT * FROM stock_missing_products')->fetchAll(\PDO::FETCH_OBJ);
+		$missingProductsResponse = $this->getDatabaseService()->ExecuteDbQuery('SELECT * FROM stock_missing_products')->fetchAll(\PDO::FETCH_OBJ);
+
+		$relevantProducts = $this->getDatabase()->products()->where('id IN (SELECT id FROM stock_missing_products)');
+		foreach ($relevantProducts as $product)
+		{
+			FindObjectInArrayByPropertyValue($missingProductsResponse, 'id', $product->id)->product = $product;
+
+		}
+
+		return $missingProductsResponse;
 	}
 
 	public function GetProductDetails(int $productId)
