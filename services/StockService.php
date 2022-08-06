@@ -683,7 +683,6 @@ class StockService extends BaseService
 		foreach ($relevantProducts as $product)
 		{
 			FindObjectInArrayByPropertyValue($missingProductsResponse, 'id', $product->id)->product = $product;
-
 		}
 
 		return $missingProductsResponse;
@@ -1020,7 +1019,7 @@ class StockService extends BaseService
 					'opened_date' => date('Y-m-d'),
 					'transaction_id' => $transactionId,
 					'user_id' => GROCY_USER_ID,
-                    'note' => $stockEntry->note
+					'note' => $stockEntry->note
 				]);
 				$logRow->save();
 
@@ -1046,7 +1045,7 @@ class StockService extends BaseService
 					'shopping_location_id' => $stockEntry->shopping_location_id,
 					'stock_id' => $stockEntry->stock_id,
 					'price' => $stockEntry->price,
-                    'note' => $stockEntry->note
+					'note' => $stockEntry->note
 				]);
 				$newStockRow->save();
 
@@ -1063,7 +1062,7 @@ class StockService extends BaseService
 					'opened_date' => date('Y-m-d'),
 					'transaction_id' => $transactionId,
 					'user_id' => GROCY_USER_ID,
-                    'note' => $stockEntry->note
+					'note' => $stockEntry->note
 				]);
 				$logRow->save();
 
@@ -1314,7 +1313,7 @@ class StockService extends BaseService
 					'correlation_id' => $correlationId,
 					'transaction_Id' => $transactionId,
 					'user_id' => GROCY_USER_ID,
-                    'note' => $stockEntry->note
+					'note' => $stockEntry->note
 				]);
 				$logRowForLocationFrom->save();
 
@@ -1332,7 +1331,7 @@ class StockService extends BaseService
 					'correlation_id' => $correlationId,
 					'transaction_Id' => $transactionId,
 					'user_id' => GROCY_USER_ID,
-                    'note' => $stockEntry->note
+					'note' => $stockEntry->note
 				]);
 				$logRowForLocationTo->save();
 
@@ -1362,7 +1361,7 @@ class StockService extends BaseService
 					'correlation_id' => $correlationId,
 					'transaction_Id' => $transactionId,
 					'user_id' => GROCY_USER_ID,
-                    'note' => $stockEntry->note
+					'note' => $stockEntry->note
 				]);
 				$logRowForLocationFrom->save();
 
@@ -1380,7 +1379,7 @@ class StockService extends BaseService
 					'correlation_id' => $correlationId,
 					'transaction_Id' => $transactionId,
 					'user_id' => GROCY_USER_ID,
-                    'note' => $stockEntry->note
+					'note' => $stockEntry->note
 				]);
 				$logRowForLocationTo->save();
 
@@ -1401,7 +1400,7 @@ class StockService extends BaseService
 					'shopping_location_id' => $stockEntry->shopping_location_id,
 					'open' => $stockEntry->open,
 					'opened_date' => $stockEntry->opened_date,
-                    'note' => $stockEntry->note
+					'note' => $stockEntry->note
 				]);
 				$stockEntryNew->save();
 
