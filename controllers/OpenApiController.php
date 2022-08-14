@@ -36,7 +36,7 @@ class OpenApiController extends BaseApiController
 		$spec->info->description = str_replace('PlaceHolderManageApiKeysUrl', $this->AppContainer->get('UrlManager')->ConstructUrl('/manageapikeys'), $spec->info->description);
 		$spec->servers[0]->url = $this->AppContainer->get('UrlManager')->ConstructUrl('/api');
 
-		$spec->components->schemas->ExposedEntity_IncludingUserEntities = clone $spec->components->schemas->ExposedEntity;
+		$spec->components->schemas->ExposedEntity_IncludingUserEntities = clone $spec->components->schemas->StringEnumTemplate;;
 		foreach ($this->getUserfieldsService()->GetEntities() as $userEntity)
 		{
 			array_push($spec->components->schemas->ExposedEntity_IncludingUserEntities->enum, $userEntity);
@@ -61,6 +61,7 @@ class OpenApiController extends BaseApiController
 				array_push($spec->components->schemas->ExposedEntity_IncludingUserEntities_NotIncludingNotEditable->enum, $value);
 			}
 		}
+		array_push($spec->components->schemas->ExposedEntity_IncludingUserEntities_NotIncludingNotEditable->enum, 'stock'); // TODO: Don't hardcode this here - stock entries are normally not editable, but the corresponding Userfields are
 		sort($spec->components->schemas->ExposedEntity_IncludingUserEntities_NotIncludingNotEditable->enum);
 
 		$spec->components->schemas->ExposedEntity_NotIncludingNotDeletable = clone $spec->components->schemas->StringEnumTemplate;

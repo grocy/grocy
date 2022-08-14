@@ -638,7 +638,7 @@
 						"required": true,
 						"description": "A valid object id of the given entity",
 						"schema": {
-							"type": "integer"
+							"type": "string"
 						}
 					}
 				],
@@ -687,7 +687,7 @@
 						"required": true,
 						"description": "A valid object id of the given entity",
 						"schema": {
-							"type": "integer"
+							"type": "string"
 						}
 					}
 				],
