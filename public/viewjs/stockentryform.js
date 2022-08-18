@@ -44,6 +44,7 @@
 	Grocy.Api.Put("stock/entry/" + Grocy.EditObjectRowId, jsonData,
 		function(result)
 		{
+			Grocy.EditObjectId = result[0].transaction_id;
 			Grocy.Components.UserfieldsForm.Save(function()
 			{
 				var successMessage = __t('Stock entry successfully updated') + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockBookingEntry(\'' + result.id + '\',\'' + Grocy.EditObjectRowId + '\')"><i class="fa-solid fa-undo"></i> ' + __t("Undo") + '</a>';
