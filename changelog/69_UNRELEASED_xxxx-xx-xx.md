@@ -16,6 +16,7 @@
 - Fixed that adding Userfields to existing stock entries was not possible (only editing existing Userfield values, e.g. added during purchase or inventory, was possible)
 - Fixed that it was not possible to change a products stock QU, when the needed unit conversion (old QU => new QU) was only defined globally (means on QU level) or by the products "Factor purchase to stock quantity unit"
 - Fixed that when changing a products stock QU, the products "Quick consume mount", "Energy (kcal)" and "Tare weight" wasn't updated according to the corresponding unit conversion factor
+- Fixed that when changing a products stock QU, the product barcode amounts were also changed based on the corresponding unit conversion factor
 
 ### Shopping list
 

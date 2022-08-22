@@ -29,11 +29,6 @@ BEGIN
 	WHERE type = 'product'
 		AND product_id = NEW.id;
 
-	UPDATE product_barcodes
-	SET amount = amount * IFNULL((SELECT factor FROM quantity_unit_conversions_resolved WHERE product_id = NEW.id AND from_qu_id = OLD.qu_id_stock AND to_qu_id = NEW.qu_id_stock LIMIT 1), 1.0)
-	WHERE product_id = NEW.id
-		AND amount IS NOT NULL;
-
 	UPDATE recipes_pos
 	SET amount = amount * IFNULL((SELECT factor FROM quantity_unit_conversions_resolved WHERE product_id = NEW.id AND from_qu_id = OLD.qu_id_stock AND to_qu_id = NEW.qu_id_stock LIMIT 1), 1.0)
 	WHERE product_id = NEW.id;
