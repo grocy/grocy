@@ -8,6 +8,7 @@
 
 ### Stock
 
+- Improved that when editing a unit conversion, the "Quantity unit from" and "Quantity unit to" of the corresponding inverse conversion is now also updated accordingly if changed (until now only the factor was updated automatically)
 - Fixed that stock entry notes were lost when consuming/opening/transferring a partial amount of the corresponding stock entry (thanks @akoshpinter)
 - Fixed that the average shelf life of a product (on the productcard) was wrong when the corresponding stock entry was edited
 - Fixed that when the stock setting "Decimal places allowed for amounts" was set to `0`, unit conversion (if any) failed when adding the corresponding product to stock
