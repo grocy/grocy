@@ -103,8 +103,9 @@
 		Grocy.Webhooks = {
 		@if(GROCY_FEATURE_FLAG_LABEL_PRINTER && !GROCY_LABEL_PRINTER_RUN_SERVER)
 			"labelprinter" : {
-				"hook" : "{{ GROCY_LABEL_PRINTER_WEBHOOK}}",
-				"extra_data" : {!! json_encode(GROCY_LABEL_PRINTER_PARAMS) !!}
+				"hook": "{{ GROCY_LABEL_PRINTER_WEBHOOK }}",
+				"extra_data": {!! json_encode(GROCY_LABEL_PRINTER_PARAMS) !!},
+				"json": {{ BoolToString(GROCY_LABEL_PRINTER_HOOK_JSON) }}
 			}
 		@endif
 		};

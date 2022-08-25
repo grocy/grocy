@@ -505,14 +505,28 @@ Grocy.FrontendHelpers.RunWebhook = function(webhook, data, repetitions = 1)
 
 	for (i = 0; i < repetitions; i++)
 	{
-		$.post(webhook.hook, data).fail(function(req, status, errorThrown)
+		if (webhook.json)
 		{
-			if (!hasAlreadyFailed)
+			$.ajax(webhook.hook, { "data": JSON.stringify(data), "contentType": "application/json", "type": "POST" }).fail(function(req, status, errorThrown)
 			{
-				hasAlreadyFailed = true;
-				Grocy.FrontendHelpers.ShowGenericError(__t("Error while executing WebHook", { "status": status, "errorThrown": errorThrown }));
-			}
-		});
+				if (!hasAlreadyFailed)
+				{
+					hasAlreadyFailed = true;
+					Grocy.FrontendHelpers.ShowGenericError(__t("Error while executing WebHook", { "status": status, "errorThrown": errorThrown }));
+				}
+			});
+		}
+		else
+		{
+			$.post(webhook.hook, data).fail(function(req, status, errorThrown)
+			{
+				if (!hasAlreadyFailed)
+				{
+					hasAlreadyFailed = true;
+					Grocy.FrontendHelpers.ShowGenericError(__t("Error while executing WebHook", { "status": status, "errorThrown": errorThrown }));
+				}
+			});
+		}
 	}
 }
 
