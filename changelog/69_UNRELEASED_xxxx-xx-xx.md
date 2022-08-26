@@ -26,6 +26,7 @@
 ### Recipes
 
 - Fixed that headlines in the recipe description (preparation text) were removed on saving
+- Fixed that the default consume rule was not always applied correctly when a recipe consumed a substituted ingredient (so when having a parent product in the recipe which is currently not in stock itself)
 
 ### Meal plan
 
