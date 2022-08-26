@@ -66,3 +66,4 @@
 
 - Endpoint `/stock/volatile`
   - The field/property `missing_products` now also contains the `product` object
+- Endpoint `/recipes/{recipeId}/consume`: Fixed (again) that consuming partially fulfilled recipes was possible, although an error was already returned in that case (and potentially some of the in stock ingredients were consumed in fact)

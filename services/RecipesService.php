@@ -81,15 +81,25 @@ class RecipesService extends BaseService
 		}
 
 		$transactionId = uniqid();
-
 		$recipePositions = $this->getDatabase()->recipes_pos_resolved()->where('recipe_id', $recipeId)->fetchAll();
-		foreach ($recipePositions as $recipePosition)
+
+		$this->getDatabaseService()->GetDbConnectionRaw()->beginTransaction();
+		try
 		{
-			if ($recipePosition->only_check_single_unit_in_stock == 0)
+			foreach ($recipePositions as $recipePosition)
 			{
-				$this->getStockService()->ConsumeProduct($recipePosition->product_id_effective, $recipePosition->recipe_amount, false, StockService::TRANSACTION_TYPE_CONSUME, 'default', $recipeId, null, $transactionId, true, true);
+				if ($recipePosition->only_check_single_unit_in_stock == 0)
+				{
+					$this->getStockService()->ConsumeProduct($recipePosition->product_id_effective, $recipePosition->recipe_amount, false, StockService::TRANSACTION_TYPE_CONSUME, 'default', $recipeId, null, $transactionId, true, true);
+				}
 			}
 		}
+		catch (Exception $ex)
+		{
+			$this->getDatabaseService()->GetDbConnectionRaw()->rollback();
+			throw $ex;
+		}
+		$this->getDatabaseService()->GetDbConnectionRaw()->commit();
 
 		$recipeRow = $this->getDatabase()->recipes()->where('id = :1', $recipeId)->fetch();
 		if (!empty($recipeRow->product_id))

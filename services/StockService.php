@@ -493,8 +493,6 @@ class StockService extends BaseService
 				}
 			}
 
-			$this->CompactStockEntries($productId);
-
 			if (boolval($this->getUsersService()->GetUserSetting(GROCY_USER_ID, 'shopping_list_auto_add_below_min_stock_amount')))
 			{
 				$this->AddMissingProductsToShoppingList(intval($this->getUsersService()->GetUserSetting(GROCY_USER_ID, 'shopping_list_auto_add_below_min_stock_amount_list_id')));
