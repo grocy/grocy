@@ -120,15 +120,6 @@ $('#user-form input').keydown(function(event)
 	}
 });
 
-if (GetUriParam("changepw") === "true")
-{
-	$('#password').focus();
-}
-else
-{
-	$('#username').focus();
-}
-
 $("#user-picture").on("change", function(e)
 {
 	$("#user-picture-label").removeClass("d-none");
@@ -147,6 +138,26 @@ $("#delete-current-user-picture-button").on("click", function(e)
 	$("#user-picture-label").addClass("d-none");
 	$("#user-picture-label-none").removeClass("d-none");
 });
+
+$("#change_password").click(function()
+{
+	$("#password").attr("disabled", !this.checked);
+	$("#password_confirm").attr("disabled", !this.checked);
+
+	setTimeout(function()
+	{
+		$("#password").focus();
+	}, 200);
+});
+
+if (GetUriParam("changepw") === "true")
+{
+	$("#change_password").click();
+}
+else
+{
+	$('#username').focus();
+}
 
 Grocy.Components.UserfieldsForm.Load();
 Grocy.FrontendHelpers.ValidateForm('user-form');

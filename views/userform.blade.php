@@ -66,13 +66,32 @@
 			</div>
 
 			@if(!defined('GROCY_EXTERNALLY_MANAGED_AUTHENTICATION'))
+			@if($mode == 'edit')
+			<div class="form-group mb-1">
+				<div class="custom-control custom-checkbox">
+					<input class="form-check-input custom-control-input"
+						type="checkbox"
+						id="change_password"
+						name="change_password"
+						value="1">
+					<label class="form-check-label custom-control-label"
+						for="change_password">{{ $__t('Change password') }}
+					</label>
+				</div>
+			</div>
+			@endif
+
 			<div class="form-group">
 				<label for="password">{{ $__t('Password') }}</label>
 				<input type="password"
 					class="form-control"
 					required
 					id="password"
-					name="password">
+					name="password"
+					@if($mode=='edit'
+					)
+					disabled
+					@endif>
 			</div>
 
 			<div class="form-group">
@@ -81,7 +100,11 @@
 					class="form-control"
 					required
 					id="password_confirm"
-					name="password_confirm">
+					name="password_confirm"
+					@if($mode=='edit'
+					)
+					disabled
+					@endif>
 				<div class="invalid-feedback">{{ $__t('Passwords do not match') }}</div>
 			</div>
 			@else

@@ -35,7 +35,7 @@ class UsersService extends BaseService
 		$row->delete();
 	}
 
-	public function EditUser(int $userId, string $username, string $firstName, string $lastName, string $password, string $pictureFileName = null)
+	public function EditUser(int $userId, string $username, string $firstName, string $lastName, ?string $password, string $pictureFileName = null)
 	{
 		if (!$this->UserExists($userId))
 		{
@@ -43,13 +43,26 @@ class UsersService extends BaseService
 		}
 
 		$user = $this->getDatabase()->users($userId);
-		$user->update([
-			'username' => $username,
-			'first_name' => $firstName,
-			'last_name' => $lastName,
-			'password' => password_hash($password, PASSWORD_DEFAULT),
-			'picture_file_name' => $pictureFileName
-		]);
+
+		if ($password == null || empty($password))
+		{
+			$user->update([
+				'username' => $username,
+				'first_name' => $firstName,
+				'last_name' => $lastName,
+				'picture_file_name' => $pictureFileName
+			]);
+		}
+		else
+		{
+			$user->update([
+				'username' => $username,
+				'first_name' => $firstName,
+				'last_name' => $lastName,
+				'password' => password_hash($password, PASSWORD_DEFAULT),
+				'picture_file_name' => $pictureFileName
+			]);
+		}
 	}
 
 	public function GetUserSetting($userId, $settingKey)
