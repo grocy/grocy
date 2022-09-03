@@ -9,7 +9,7 @@ const REQUIRED_PHP_EXTENSIONS = ['fileinfo', 'pdo_sqlite', 'gd', 'ctype', 'json'
 	'filter', 'iconv', 'tokenizer'
 ];
 
-const REQUIRED_SQLITE_VERSION = '3.9.0';
+const REQUIRED_SQLITE_VERSION = '3.22.0';
 
 class PrerequisiteChecker
 {
