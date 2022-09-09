@@ -406,17 +406,15 @@ class StockService extends BaseService
 				$potentialStockEntries = FindAllObjectsInArrayByPropertyValue($potentialStockEntries, 'stock_id', $specificStockEntryId);
 			}
 
-			$productStockAmount = floatval($productDetails->stock_amount_aggregated);
-			if ($amount > $productStockAmount)
-			{
-				throw new \Exception('Amount to be consumed cannot be > current stock amount (if supplied, at the desired location)');
-			}
-
 			if ($transactionId === null)
 			{
 				$transactionId = uniqid();
 			}
 
+			//first simulate stock consumption. Otherwhise calculations are wrong when stock units of parent and child products have a big conversion factor
+			$stockeEntriesToConsume = [];
+
+			// collect all stockentries
 			foreach ($potentialStockEntries as $stockEntry)
 			{
 				if ($amount == 0)
@@ -431,66 +429,101 @@ class StockService extends BaseService
 					$conversion = $this->getDatabase()->quantity_unit_conversions_resolved()->where('product_id = :1 AND from_qu_id = :2 AND to_qu_id = :3', $stockEntry->product_id, $productDetails->product->qu_id_stock, $subProduct->qu_id_stock)->fetch();
 					if ($conversion != null)
 					{
-						$amount = $amount * floatval($conversion->factor);
+						//remember factor for later
+						$factor = floatval($conversion->factor);
+						$amount = $amount * $factor;
+					}else{
+						//fail when no conversion is provided, calculattions will be wrong otherwhise
+						throw new \Exception('No conversion from child to parent product');
 					}
 				}
 
+				//collect data
 				if ($amount >= $stockEntry->amount)
 				{
-					// Take the whole stock entry
-					$logRow = $this->getDatabase()->stock_log()->createRow([
-						'product_id' => $stockEntry->product_id,
-						'amount' => $stockEntry->amount * -1,
-						'best_before_date' => $stockEntry->best_before_date,
-						'purchased_date' => $stockEntry->purchased_date,
-						'used_date' => date('Y-m-d'),
-						'spoiled' => $spoiled,
-						'stock_id' => $stockEntry->stock_id,
-						'transaction_type' => $transactionType,
-						'price' => $stockEntry->price,
-						'opened_date' => $stockEntry->opened_date,
-						'recipe_id' => $recipeId,
-						'transaction_id' => $transactionId,
-						'user_id' => GROCY_USER_ID,
-						'location_id' => $stockEntry->location_id,
-						'note' => $stockEntry->note
-					]);
-					$logRow->save();
-
-					$stockEntry->delete();
+					$stockeEntriesToConsume[] = [
+						"entry" => $stockEntry,
+						"amount" => $stockEntry->amount
+					];
 
 					$amount -= $stockEntry->amount;
 				}
 				else
 				{
-					// Stock entry amount is > than needed amount -> split the stock entry resp. update the amount
-					$restStockAmount = $stockEntry->amount - $amount;
+					$stockeEntriesToConsume[] = [
+						"entry" => $stockEntry,
+						"amount" => $amount
+					];
 
-					$logRow = $this->getDatabase()->stock_log()->createRow([
-						'product_id' => $stockEntry->product_id,
-						'amount' => $amount * -1,
-						'best_before_date' => $stockEntry->best_before_date,
-						'purchased_date' => $stockEntry->purchased_date,
-						'used_date' => date('Y-m-d'),
-						'spoiled' => $spoiled,
-						'stock_id' => $stockEntry->stock_id,
-						'transaction_type' => $transactionType,
-						'price' => $stockEntry->price,
-						'opened_date' => $stockEntry->opened_date,
-						'recipe_id' => $recipeId,
-						'transaction_id' => $transactionId,
-						'user_id' => GROCY_USER_ID,
-						'location_id' => $stockEntry->location_id,
-						'note' => $stockEntry->note
-					]);
-					$logRow->save();
-
-					$stockEntry->update([
-						'amount' => $restStockAmount
-					]);
 
 					$amount = 0;
 				}
+
+				// convert back when $amount had been scaled beforehand
+				if ($allowSubproductSubstitution && $stockEntry->product_id != $productId){
+					$amount=$amount/$factor;
+				}
+
+
+			}
+
+			//only when stock can be fullfilled, persist it
+			if($amount<=0){
+				foreach($stockeEntriesToConsume as $entry){
+					$stockEntry = $entry['entry'];
+					$amount = $entry['amount'];
+					// Take the whole stock entry
+					if($amount==$stockEntry->amount){
+						$logRow = $this->getDatabase()->stock_log()->createRow([
+							'product_id' => $stockEntry->product_id,
+							'amount' => $stockEntry->amount * -1,
+							'best_before_date' => $stockEntry->best_before_date,
+							'purchased_date' => $stockEntry->purchased_date,
+							'used_date' => date('Y-m-d'),
+							'spoiled' => $spoiled,
+							'stock_id' => $stockEntry->stock_id,
+							'transaction_type' => $transactionType,
+							'price' => $stockEntry->price,
+							'opened_date' => $stockEntry->opened_date,
+							'recipe_id' => $recipeId,
+							'transaction_id' => $transactionId,
+							'user_id' => GROCY_USER_ID,
+							'location_id' => $stockEntry->location_id,
+							'note' => $stockEntry->note
+					    ]);
+						$logRow->save();
+
+						$stockEntry->delete();
+					}else{
+						// Stock entry amount is > than needed amount -> split the stock entry resp. update the amount
+						$restStockAmount = $stockEntry->amount - $amount;
+
+						$logRow = $this->getDatabase()->stock_log()->createRow([
+							'product_id' => $stockEntry->product_id,
+							'amount' => $amount * -1,
+							'best_before_date' => $stockEntry->best_before_date,
+							'purchased_date' => $stockEntry->purchased_date,
+							'used_date' => date('Y-m-d'),
+							'spoiled' => $spoiled,
+							'stock_id' => $stockEntry->stock_id,
+							'transaction_type' => $transactionType,
+							'price' => $stockEntry->price,
+							'opened_date' => $stockEntry->opened_date,
+							'recipe_id' => $recipeId,
+							'transaction_id' => $transactionId,
+							'user_id' => GROCY_USER_ID,
+							'location_id' => $stockEntry->location_id,
+							'note' => $stockEntry->note
+						]);
+						$logRow->save();
+
+						$stockEntry->update([
+							'amount' => $restStockAmount
+						]);
+					}
+				}
+			}else{
+				throw new \Exception('Amount to be consumed cannot be > current stock amount (if supplied, at the desired location)');
 			}
 
 			if (boolval($this->getUsersService()->GetUserSetting(GROCY_USER_ID, 'shopping_list_auto_add_below_min_stock_amount')))
