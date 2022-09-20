@@ -166,11 +166,13 @@ $('.input-group-chore-period-type').on('change keyup', function(e)
 	else if (periodType === 'daily')
 	{
 		$('#chore-schedule-info').text(__n(periodInterval, "This means the next execution of this chore is scheduled at the same time (based on the start date) every day", "This means the next execution of this chore is scheduled at the same time (based on the start date) every %s days"));
+		$("#period_days").val(1);
 	}
 	else if (periodType === 'weekly')
 	{
 		$('#chore-schedule-info').text(__n(periodInterval, "This means the next execution of this chore is scheduled every week on the selected weekdays", "This means the next execution of this chore is scheduled every %s weeks on the selected weekdays"));
 		$("#period_config").val($(".period-type-weekly input:checkbox:checked").map(function() { return this.value; }).get().join(","));
+		$("#period_days").val(1);
 	}
 	else if (periodType === 'monthly')
 	{
@@ -182,6 +184,7 @@ $('.input-group-chore-period-type').on('change keyup', function(e)
 	else if (periodType === 'yearly')
 	{
 		$('#chore-schedule-info').text(__n(periodInterval, 'This means the next execution of this chore is scheduled every year on the same day (based on the start date)', 'This means the next execution of this chore is scheduled every %s years on the same day (based on the start date)'));
+		$("#period_days").val(1);
 	}
 	else if (periodType === 'adaptive')
 	{
