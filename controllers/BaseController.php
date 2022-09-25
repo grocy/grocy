@@ -229,12 +229,12 @@ class BaseController
 			if (!is_bool($value) && !is_array($value))
 			{
 				$value = self::$htmlPurifierInstance->purify($value);
-			}
 
-			// Allow some special chars
-			if (!is_array($value))
-			{
+				// Allow some special chars
+				// Maybe also possible through HTMLPurifier config (http://htmlpurifier.org/live/configdoc/plain.html)
 				$value = str_replace('&amp;', '&', $value);
+				$value = str_replace('&gt;', '>', $value);
+				$value = str_replace('&lt;', '<', $value);
 			}
 		}
 
