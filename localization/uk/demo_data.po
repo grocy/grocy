@@ -1,0 +1,401 @@
+# 
+# Translators:
+# Oleksii Filonenko <brightone@protonmail.com>, 2020
+# Aleksey Zaremskiy, 2022
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
+"PO-Revision-Date: 2019-05-01 17:42+0000\n"
+"Last-Translator: Aleksey Zaremskiy, 2022\n"
+"Language-Team: Ukrainian (https://www.transifex.com/grocy/teams/93189/uk/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: uk\n"
+"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != 11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || (n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
+"X-Domain: grocy/demo_data\n"
+
+msgid "Cookies"
+msgstr "Печиво"
+
+msgid "Chocolate"
+msgstr "Шоколад"
+
+msgid "Pantry"
+msgstr "Комора"
+
+msgid "Candy cupboard"
+msgstr "Шафа для солодощів"
+
+msgid "Tinned food cupboard"
+msgstr "Шафа для їжі в банках"
+
+msgid "Fridge"
+msgstr "Холодильник"
+
+msgid "Piece"
+msgid_plural "Pieces"
+msgstr[0] "Одиниця"
+msgstr[1] "Одиниці"
+msgstr[2] "Одиниць"
+msgstr[3] "Одиниць"
+
+msgid "Pack"
+msgid_plural "Packs"
+msgstr[0] "Пакет"
+msgstr[1] "Пакети"
+msgstr[2] "Пакетів"
+msgstr[3] "Пакетів"
+
+msgid "Glass"
+msgid_plural "Glasses"
+msgstr[0] "Склянка"
+msgstr[1] "Склянки"
+msgstr[2] "Склянок"
+msgstr[3] "Склянок"
+
+msgid "Tin"
+msgid_plural "Tins"
+msgstr[0] "Бляшанка"
+msgstr[1] "Бляшанки"
+msgstr[2] "Бляшанок"
+msgstr[3] "Бляшанок"
+
+msgid "Can"
+msgid_plural "Cans"
+msgstr[0] "Банка"
+msgstr[1] "Банки"
+msgstr[2] "Банок"
+msgstr[3] "Банок"
+
+msgid "Bunch"
+msgid_plural "Bunches"
+msgstr[0] "Пучок"
+msgstr[1] "Пучки"
+msgstr[2] "Пучків"
+msgstr[3] "Пучків"
+
+msgid "Gummy bears"
+msgstr "Желейні ведмедики"
+
+msgid "Crisps"
+msgstr "Чипси"
+
+msgid "Eggs"
+msgstr "Яйця"
+
+msgid "Noodles"
+msgstr "Локшина"
+
+msgid "Pickles"
+msgstr "Консервовані огірки"
+
+msgid "Gulash soup"
+msgstr "Гуляш"
+
+msgid "Yogurt"
+msgstr "Йогурт"
+
+msgid "Cheese"
+msgstr "Сир"
+
+msgid "Cold cuts"
+msgstr "Нарізка"
+
+msgid "Paprika"
+msgstr "Паприка"
+
+msgid "Cucumber"
+msgstr "Огірки"
+
+msgid "Radish"
+msgstr "Редька"
+
+msgid "Tomato"
+msgstr "Помідори"
+
+msgid "Change towels in the bathroom"
+msgstr "Змінити рушники у ванній кімнаті"
+
+msgid "Mop the kitchen floor"
+msgstr "Помити підлогу на кухні"
+
+msgid "Warranty ends"
+msgstr "Строк придатності"
+
+msgid "TV remote control"
+msgstr "Пульт від телевізора"
+
+msgid "Alarm clock"
+msgstr "Будильник"
+
+msgid "Heat remote control"
+msgstr "Пульт від обігрівача"
+
+msgid "Take out the trash"
+msgstr "Винести сміття"
+
+msgid "Some good snacks"
+msgstr "Смаколики"
+
+msgid "Pizza dough"
+msgstr "Тісто для піци"
+
+msgid "Sieved tomatoes"
+msgstr "Томатна паста"
+
+msgid "Salami"
+msgstr "Салямі"
+
+msgid "Toast"
+msgstr "Грінка"
+
+msgid "Minced meat"
+msgstr "Фарш"
+
+msgid "Pizza"
+msgstr "Піца"
+
+msgid "Spaghetti bolognese"
+msgstr "Спагетті болоньєзе"
+
+msgid "Sandwiches"
+msgstr "Бутерброди"
+
+msgid "English"
+msgstr "Англійська"
+
+msgid "German"
+msgstr "Німецька"
+
+msgid "Italian"
+msgstr "Італійська"
+
+msgid "This is the note content of the recipe ingredient"
+msgstr "Це нотатка до інгрієнта цього рецепту"
+
+msgid "Demo User"
+msgstr "Демо користувач"
+
+msgid "Gram"
+msgid_plural "Grams"
+msgstr[0] "Грам"
+msgstr[1] "Грами"
+msgstr[2] "Грамів"
+msgstr[3] "Грамів"
+
+msgid "Flour"
+msgstr "Борошно"
+
+msgid "Pancakes"
+msgstr "Млинці"
+
+msgid "Sugar"
+msgstr "Цукор"
+
+msgid "Sweets"
+msgstr "Цукерки"
+
+msgid "Bakery products"
+msgstr "Випічка"
+
+msgid "Tinned food"
+msgstr "Консерви"
+
+msgid "Butchery products"
+msgstr "М'ясо"
+
+msgid "Vegetables/Fruits"
+msgstr "Фрукти/Овочі"
+
+msgid "Refrigerated products"
+msgstr "Заморозка"
+
+msgid "Coffee machine"
+msgstr "Кавова машинка"
+
+msgid "Dishwasher"
+msgstr "Посудомийка"
+
+msgid "Liter"
+msgstr "Літр"
+
+msgid "Liters"
+msgstr "Літри"
+
+msgid "Bottle"
+msgstr "Пляшка"
+
+msgid "Bottles"
+msgstr "Пляшки"
+
+msgid "Milk"
+msgstr "Молоко"
+
+msgid "Chocolate sauce"
+msgstr "Шоколадна глазурь"
+
+msgid "Milliliters"
+msgstr "Мілілітри"
+
+msgid "Milliliter"
+msgstr "Мілілітр"
+
+msgid "Bottom"
+msgstr "Низ"
+
+msgid "Topping"
+msgstr "Верхівка"
+
+msgid "French"
+msgstr "Французька"
+
+msgid "Turkish"
+msgstr "Турецька"
+
+msgid "Spanish"
+msgstr "Іспанська"
+
+msgid "Russian"
+msgstr "Кацапська"
+
+msgid "Vacuum the living room floor"
+msgstr "Пропилососити підлогу у вітальні"
+
+msgid "Clean the litter box"
+msgstr "Прибрати за улюбленцем"
+
+msgid "Change the bed sheets"
+msgstr "Змінити постіль"
+
+msgid "Swedish"
+msgstr "Шведська"
+
+msgid "Polish"
+msgstr "Польська"
+
+msgid "Milk Chocolate"
+msgstr "Молочний шоколад"
+
+msgid "Dark Chocolate"
+msgstr "Чорний шоколад"
+
+msgid "Slice"
+msgid_plural "Slices"
+msgstr[0] "Шматочок"
+msgstr[1] "Шматочки"
+msgstr[2] "Шматочки"
+msgstr[3] "Шматочки"
+
+msgid "Example userentity"
+msgstr "Зразок сутності користувача"
+
+msgid "This is an example user entity..."
+msgstr "Це зразок сутності користувача..."
+
+msgid "Custom field"
+msgstr "Своє поле"
+
+msgid "Example field value..."
+msgstr "Зразок значення поля..."
+
+msgid "Waffle rolls"
+msgstr "Вафельні трубочки"
+
+msgid "Danish"
+msgstr "Дацька"
+
+msgid "Dutch"
+msgstr "Голландська"
+
+msgid "Norwegian"
+msgstr "Норвежська"
+
+msgid "Demo"
+msgstr "Демо"
+
+msgid "Stable version"
+msgstr "Стабільна версія"
+
+msgid "Preview version"
+msgstr "Робоча версія"
+
+msgid "current release"
+msgstr "поточний реліз"
+
+msgid "not yet released"
+msgstr "ще не випущений"
+
+msgid "Portuguese (Brazil)"
+msgstr "Португальська (Бразилія)"
+
+msgid "This is a note"
+msgstr "Це нотатка"
+
+msgid "Freezer"
+msgstr "Морозильна камера"
+
+msgid "Hungarian"
+msgstr "Угорська"
+
+msgid "Slovak"
+msgstr "Словацька"
+
+msgid "Czech"
+msgstr "Чеська"
+
+msgid "Portuguese (Portugal)"
+msgstr "Португальська (Португалія)"
+
+# Use a in your country well known supermarket name
+msgid "DemoSupermarket1"
+msgstr "Магазин1"
+
+# Use a in your country well known supermarket name
+msgid "DemoSupermarket2"
+msgstr "Магазин2"
+
+msgid "Japanese"
+msgstr "Японська"
+
+msgid "Chinese (Taiwan)"
+msgstr "Китайська (Тайвань)"
+
+msgid "Greek"
+msgstr "Грецька"
+
+msgid "Korean"
+msgstr "Корейська"
+
+msgid "Chinese (China)"
+msgstr "Китайська (Китай)"
+
+msgid "Hebrew (Israel)"
+msgstr "Іврит (Ізраїль)"
+
+msgid "Tamil"
+msgstr "Тамільська"
+
+msgid "Finnish"
+msgstr "Фінська"
+
+msgid "Breakfast"
+msgstr "Сніданок"
+
+msgid "Lunch"
+msgstr "Обід"
+
+msgid "Dinner"
+msgstr "Вечеря"
+
+msgid "Catalan"
+msgstr "Каталонська"
+
+msgid "Slovenian"
+msgstr "Словенська"
+
+msgid "Lithuanian"
+msgstr "Литовська"

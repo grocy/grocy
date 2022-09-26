@@ -377,3 +377,6 @@ msgstr ""
 
 msgid "Lithuanian"
 msgstr ""
+
+msgid "Ukrainian"
+msgstr ""

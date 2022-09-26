@@ -1,0 +1,2588 @@
+# 
+# Translators:
+# Ivan Gavryliuk <igavryliuk@solusvm.com>, 2020
+# Oleksii Filonenko <brightone@protonmail.com>, 2020
+# Aleksey Zaremskiy, 2022
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
+"PO-Revision-Date: 2019-05-01 17:42+0000\n"
+"Last-Translator: Aleksey Zaremskiy, 2022\n"
+"Language-Team: Ukrainian (https://www.transifex.com/grocy/teams/93189/uk/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: uk\n"
+"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != 11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % 100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || (n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
+"X-Domain: grocy/strings\n"
+
+msgid "Stock overview"
+msgstr "Перегляд запасів"
+
+msgid "%s product expires"
+msgid_plural "%s products expiring"
+msgstr[0] "%sпродукт, що псується"
+msgstr[1] "%sпродукти, що псуються"
+msgstr[2] "%s продуктів, що псуються"
+msgstr[3] "%s продуктів, що псуються"
+
+msgid "within the next day"
+msgid_plural "within the next %s days"
+msgstr[0] "впродовж наступного дня"
+msgstr[1] "впродовж наступних %s днів"
+msgstr[2] "впродовж наступних %s днів"
+msgstr[3] "впродовж наступних %s днів"
+
+msgid "%s product is already expired"
+msgid_plural "%s products are already expired"
+msgstr[0] "%sпродукт вийшли з строку придатності"
+msgstr[1] "%sпродукти вийшли з строку придатності"
+msgstr[2] "%sпродуктів вийшли з строку придатності"
+msgstr[3] "%s продуктів вийшли з строку придатності"
+
+msgid "%s product is overdue"
+msgid_plural "%s products are overdue"
+msgstr[0] "%s продукт залежався"
+msgstr[1] "%s продуктів залежалось"
+msgstr[2] "%s продуктів залежалось"
+msgstr[3] "%sпродуктів залежалось"
+
+msgid "%s product is below defined min. stock amount"
+msgid_plural "%s products are below defined min. stock amount"
+msgstr[0] "%s продукт в наявності менше допустимого"
+msgstr[1] "%s продукти в наявності менше допустимого"
+msgstr[2] "%s продуктів в наявності менше допустимого"
+msgstr[3] "%s продуктів в наявності менше допустимого"
+
+msgid "Product"
+msgstr "Продукт"
+
+msgid "%s Product"
+msgid_plural "%s Products"
+msgstr[0] "%s Продукт"
+msgstr[1] "%s Продукти"
+msgstr[2] "%s Продуктів"
+msgstr[3] "%s Продуктів"
+
+msgid "Amount"
+msgstr "Кількість"
+
+msgid "Logout"
+msgstr "Вийти"
+
+msgid "Chores overview"
+msgstr "Огляд робіт"
+
+msgid "Batteries overview"
+msgstr "Огляд акумуляторів"
+
+msgid "Purchase"
+msgstr "Придбати"
+
+msgid "Consume"
+msgstr "Вжити"
+
+msgid "Inventory"
+msgstr "Інвентар"
+
+msgid "Shopping list"
+msgstr "Список покупок"
+
+msgid "Chore tracking"
+msgstr "Виконати роботу"
+
+msgid "Battery tracking"
+msgstr "Відстеження акумуляторів"
+
+msgid "Locations"
+msgstr "Місця"
+
+msgid "Stores"
+msgstr "Магазини"
+
+msgid "Quantity units"
+msgstr "Одиниці виміру"
+
+msgid "Chores"
+msgstr "Завдання"
+
+msgid "Batteries"
+msgstr "Акумулятори"
+
+msgid "Chore"
+msgstr "Завдання"
+
+msgid "Next estimated tracking"
+msgstr "Наступне виконання"
+
+msgid "Last tracked"
+msgstr "Востаннє виконано"
+
+msgid "Battery"
+msgstr "Акумулятор"
+
+msgid "Last charged"
+msgstr "Востаннє заряжалась"
+
+msgid "Next planned charge cycle"
+msgstr "Наступний запланований цикл заряду"
+
+msgid "Best before"
+msgstr "Термін придатності"
+
+msgid "OK"
+msgstr "Готово"
+
+msgid "Product overview"
+msgstr "Огляд продуктів"
+
+msgid "Stock quantity unit"
+msgstr "Одиниця виміру в запасах"
+
+msgid "Stock amount"
+msgstr "Кількість в запасах"
+
+msgid "Last purchased"
+msgstr "Востаннє придбано"
+
+msgid "Last used"
+msgstr "Востаннє використано"
+
+msgid "Spoiled"
+msgstr "Зіпсовано"
+
+msgid "Barcode lookup is disabled"
+msgstr "Пошук штрихкодів вимкнено"
+
+msgid ""
+"will be added to the list of barcodes for the selected product on submit"
+msgstr "буде додано до списку штрихкодів обраного продукту при збереженні"
+
+msgid "New amount"
+msgstr "Нова кількість"
+
+msgid "Note"
+msgstr "Нотатка"
+
+msgid "Tracked time"
+msgstr "Час виконання"
+
+msgid "Chore overview"
+msgstr "Огляд робіт"
+
+msgid "Tracked count"
+msgstr "Виконано разів"
+
+msgid "Battery overview"
+msgstr "Огляд батарей"
+
+msgid "Charge cycles count"
+msgstr "Кількість циклів зарядки"
+
+msgid "Create shopping list item"
+msgstr "Додати у список покупок"
+
+msgid "Edit shopping list item"
+msgstr "Редагувати продукт у списку покупок"
+
+msgid "Save"
+msgstr "Зберегти"
+
+msgid "Add"
+msgstr "Додати"
+
+msgid "Name"
+msgstr "Ім'я"
+
+msgid "Location"
+msgstr "Місце"
+
+msgid "Min. stock amount"
+msgstr "Мінімальна наявна кількість"
+
+msgid "Description"
+msgstr "Опис"
+
+msgid "Create product"
+msgstr "Створити продукт"
+
+msgid "Barcode(s)"
+msgstr "Штрихкод(и)"
+
+msgid "Minimum stock amount"
+msgstr "Мінімальна кількість у наявності"
+
+msgid "Default best before days"
+msgstr "Краще вжити до за замовчуванням"
+
+msgid "Default quantity unit purchase"
+msgstr "Одиниці вимірювання за замовчуванням"
+
+msgid "Quantity unit stock"
+msgstr "Кількість у наявності"
+
+msgid "Factor purchase to stock quantity unit"
+msgstr "Можник одиниці покупки до одиниці у наявності"
+
+msgid "Create location"
+msgstr "Створити місце"
+
+msgid "Create store"
+msgstr "Створити магазин"
+
+msgid "Create quantity unit"
+msgstr "Створити одиницю вимірювання"
+
+msgid "Period type"
+msgstr "Тип періоду"
+
+msgid "Period days"
+msgstr "Період у днях"
+
+msgid "Create chore"
+msgstr "Створити роботу"
+
+msgid "Used in"
+msgstr "Використовується у"
+
+msgid "Create battery"
+msgstr "Створити батарею"
+
+msgid "Edit battery"
+msgstr "Редагувати батарею"
+
+msgid "Edit chore"
+msgstr "Редагувати роботу"
+
+msgid "Edit quantity unit"
+msgstr "Регагувати одиницю вимірування"
+
+msgid "Edit product"
+msgstr "Редагувати продукт"
+
+msgid "Edit location"
+msgstr "Редагувати місце"
+
+msgid "Edit store"
+msgstr "Редагувати магазин"
+
+msgid "Manage master data"
+msgstr "Керування базою даних"
+
+msgid "This will apply to added products"
+msgstr "Це буде застосовано до доданих продуктів"
+
+msgid "never"
+msgstr "ніколи"
+
+msgid "Add products that are below defined min. stock amount"
+msgstr "Додати продукти, кількість яких в наявності недостатня"
+
+msgid "This means 1 %1$s purchased will be converted into %2$s %3$s in stock"
+msgstr "Це значає, що 1%1$s при купівлі буде записано як %2$s%3$sв наявності"
+
+msgid "Login"
+msgstr "Логін"
+
+msgid "Username"
+msgstr "Ім'я користувача"
+
+msgid "Password"
+msgstr "Пароль"
+
+msgid "Invalid credentials, please try again"
+msgstr "Невірні дані, спробуйте ще раз"
+
+msgid "Are you sure to delete battery \"%s\"?"
+msgstr "Ви впевнені, що хочете видалити батарею \"%s\"?"
+
+msgid "Yes"
+msgstr "Так"
+
+msgid "No"
+msgstr "Ні"
+
+msgid "Are you sure to delete chore \"%s\"?"
+msgstr "Ви впевнені, що хочете видалити роботу \"%s\"?"
+
+msgid "\"%s\" could not be resolved to a product, how do you want to proceed?"
+msgstr "\"%s\" не розпізнається як продукт. Як бути?"
+
+msgid "Create or assign product"
+msgstr "Створити або призначити продукт"
+
+msgid "Cancel"
+msgstr "Скасувати"
+
+msgid "Add as new product"
+msgstr "Додати як новий продукт"
+
+msgid "Add as barcode to existing product"
+msgstr "Додати як варіант штрихкоду до існуючого продукту"
+
+msgid "Add as new product and prefill barcode"
+msgstr "Додати як новий продукт із таким штрихкодом"
+
+msgid "Are you sure to delete quantity unit \"%s\"?"
+msgstr "Ви впевнені, що хочете видалити одиницю вимірювання \"%s\"?"
+
+msgid "Are you sure to delete product \"%s\"?"
+msgstr "Ви впевнені, що хочете видалити продукт \"%s\"?"
+
+msgid "Are you sure to delete location \"%s\"?"
+msgstr "Ви впевнені, що хочете видалити місце \"%s\"?"
+
+msgid "Are you sure to delete store \"%s\"?"
+msgstr "Ви впевнені, що хочете видалити магазин \"%s\"?"
+
+msgid "Manage API keys"
+msgstr "Керуваня API ключами"
+
+msgid "REST API browser"
+msgstr "REST API browser"
+
+msgid "API keys"
+msgstr "API ключі"
+
+msgid "Create new API key"
+msgstr "Створити новий API ключ"
+
+msgid "API key"
+msgstr "API ключ"
+
+msgid "Expires"
+msgstr "Строк придатності"
+
+msgid "Created"
+msgstr "Створено"
+
+msgid "This product is not in stock"
+msgstr "Немає в наявності"
+
+msgid "This means %s will be added to stock"
+msgstr "Це означає, що %s буде додано"
+
+msgid "This means %s will be removed from stock"
+msgstr "Це означає, що %s буде прибрано"
+
+msgid "Removed %1$s of %2$s from stock"
+msgstr "Прибрано з наявності %1$s%2$s "
+
+msgid "About grocy"
+msgstr "Про grocy"
+
+msgid "Close"
+msgstr "Закрити"
+
+msgid "Released on"
+msgstr "Випущено"
+
+msgid "Added %1$s of %2$s to stock"
+msgstr "Додано %1$s%2$s до наявності"
+
+msgid "Stock amount of %1$s is now %2$s"
+msgstr "Тепер у наявності %2$s%1$s"
+
+msgid "Tracked execution of chore %1$s on %2$s"
+msgstr "Виконано роботу %1$s о %2$s"
+
+msgid "Tracked charge cycle of battery %1$s on %2$s"
+msgstr "Відмічено цикл зарядки батареї %1$s о %2$s"
+
+msgid "Consume all %s which are currently in stock"
+msgstr "Вжити усі %s, що є в наявності"
+
+msgid "All"
+msgstr "Усі"
+
+msgid "Search"
+msgstr "Пошук"
+
+msgid "Not logged in"
+msgstr "Не авторизовано"
+
+msgid "You have to select a product"
+msgstr "Ви маєте обрати продукт"
+
+msgid "You have to select a chore"
+msgstr "Ви маєте обрати роботу"
+
+msgid "You have to select a battery"
+msgstr "Ви маєте обрати батарею"
+
+msgid "A name is required"
+msgstr "Ім'я є обов'язковим"
+
+msgid "A location is required"
+msgstr "Місце є обов'язковим"
+
+msgid "A quantity unit is required"
+msgstr "Одиниця вимірювання є обов'язковою"
+
+msgid "A period type is required"
+msgstr "Необхідно обрати тип періоду"
+
+msgid "A best before date is required"
+msgstr "Необхідно вказати приблизний строк придатності"
+
+msgid "Settings"
+msgstr "Налаштування"
+
+msgid "This can only be before now"
+msgstr "Це може бути лише у минулому"
+
+msgid "Calendar"
+msgstr "Календар"
+
+msgid "Recipes"
+msgstr "Рецепти"
+
+msgid "Edit recipe"
+msgstr "Редагувати рецепт"
+
+msgid "Ingredients list"
+msgstr "Список інгрідієнтів"
+
+msgid "Add recipe ingredient"
+msgstr "Додати інгрідієнт"
+
+msgid "Edit recipe ingredient"
+msgstr "Редагувати ігнрадієнт"
+
+msgid "Are you sure to delete recipe \"%s\"?"
+msgstr "Ви впевнені, що хочете видалити рецепт \"%s\"?"
+
+msgid "Are you sure to delete recipe ingredient \"%s\"?"
+msgstr "Ви впевнені, що хочете видалити інгрідієнт \"%s\"?"
+
+msgid "Are you sure to empty shopping list \"%s\"?"
+msgstr "Ви впевнені, що хочете очистити список покупок \"%s\"?"
+
+msgid "Clear list"
+msgstr "Очистити список"
+
+msgid "Requirements fulfilled"
+msgstr "Виконані вимоги"
+
+msgid "Put missing products on shopping list"
+msgstr "Додати відсутні продукти до списку покупок"
+
+msgid "Enough in stock"
+msgstr "Достатньо у наявності"
+
+msgid ""
+"Not enough in stock, %s ingredient missing but already on the shopping list"
+msgid_plural ""
+"Not enough in stock, %s ingredients missing but already on the shopping list"
+msgstr[0] ""
+"Не достатньо в наявності, %s інгрідієнта не вистачає, але вже додано до "
+"списку покупок."
+msgstr[1] ""
+"Не достатньо в наявності, %s інгрідієнтів не вистачає, але вже додано до "
+"списку покупок."
+msgstr[2] ""
+"Не достатньо в наявності, %s інгрідієнтів не вистачає, але вже додано до "
+"списку покупок."
+msgstr[3] ""
+"Не достатньо в наявності, %s інгрідієнтів не вистачає, але вже додано до "
+"списку покупок."
+
+msgid "Expand to fullscreen"
+msgstr "На весь екран"
+
+msgid "Ingredients"
+msgstr "Інгрідієнти"
+
+msgid "Preparation"
+msgstr "Приготування"
+
+msgid "Recipe"
+msgstr "Рецепт"
+
+msgid "Not enough in stock, %1$s missing, %2$s already on shopping list"
+msgstr ""
+"Не достатньо в наявності, %1$s інгрідієнтів не вистачає, %2$s вже додано до "
+"списку покупок."
+
+msgid "Show notes"
+msgstr "Показати нотатки"
+
+msgid "Put missing amount on shopping list"
+msgstr "Додати недостатню кількість до списку покупок"
+
+msgid ""
+"Are you sure to put all missing ingredients for recipe \"%s\" on the "
+"shopping list?"
+msgstr ""
+"Ви впевнені, що хочете додати усі відсутні продукти для рецепту \"%s\" до "
+"списку покупок?"
+
+msgid "Added for recipe %s"
+msgstr "Додано до рецепту %s"
+
+msgid "Manage users"
+msgstr "Керування користувачами"
+
+msgid "User"
+msgstr "Користувач"
+
+msgid "Users"
+msgstr "Користувачі"
+
+msgid "Are you sure to delete user \"%s\"?"
+msgstr "Ви впевнені, що хочете видалити користувача \"%s\"?"
+
+msgid "Create user"
+msgstr "Створити користувача"
+
+msgid "Edit user"
+msgstr "Редагувати користувача"
+
+msgid "First name"
+msgstr "Ім'я"
+
+msgid "Last name"
+msgstr "Прізвище"
+
+msgid "A username is required"
+msgstr "Ім'я користувача є обов'язковим"
+
+msgid "Confirm password"
+msgstr "Підтвердити пароль"
+
+msgid "Passwords do not match"
+msgstr "Паролі не співпадають"
+
+msgid "Change password"
+msgstr "Змінити пароль"
+
+msgid "Done by"
+msgstr "Виконано"
+
+msgid "Last done by"
+msgstr "Останнього разу виконано"
+
+msgid "Unknown"
+msgstr "Невідомо"
+
+msgid "Chores journal"
+msgstr "Журнал робіт"
+
+msgid "0 means suggestions for the next charge cycle are disabled"
+msgstr "0 означає, що пропозиції про наступну зарядку будуть вимкнені"
+
+msgid "Charge cycle interval (days)"
+msgstr "Період зарядки (дні)"
+
+msgid "Last price"
+msgstr "Остання ціна"
+
+msgid "Price history"
+msgstr "Історія цін"
+
+msgid "No price history available"
+msgstr "Історія цін недоступна"
+
+msgid "Price"
+msgstr "Ціна"
+
+msgid "Unit"
+msgstr "Одиниця вимірювання"
+
+msgid "%s Unit"
+msgid_plural "%s Units"
+msgstr[0] "%s одиниця"
+msgstr[1] "%s одиниць"
+msgstr[2] "%s одиниць"
+msgstr[3] "%s одиниць"
+
+msgid "%s chore is due to be done"
+msgid_plural "%s chores are due to be done"
+msgstr[0] "%s робота має бути виконана"
+msgstr[1] "%s робіт має бути виконано"
+msgstr[2] "%s робіт має бути виконано"
+msgstr[3] "%s робіт має бути виконано"
+
+msgid "%s chore is overdue to be done"
+msgid_plural "%s chores are overdue to be done"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+msgid "%s battery is due to be charged"
+msgid_plural "%s batteries are due to be charged"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+msgid "%s battery is overdue to be charged"
+msgid_plural "%s batteries are overdue to be charged"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+msgid "in singular form"
+msgstr "в однині"
+
+msgid "Quantity unit"
+msgstr "Одиниця вимірювання"
+
+msgid "Only check if any amount is in stock"
+msgstr "Перевіряти лише наявність, без кількості"
+
+msgid ""
+"Are you sure to consume all ingredients needed by recipe \"%s\" (ingredients"
+" marked with \"only check if any amount is in stock\" will be ignored)?"
+msgstr ""
+"Ви впевнені, що хочете вжити усі продукти з рецепту \"%s\" (інгрідієнти, що "
+"помічені як \"перевіряти лише наявність\" будуть проігноровані)?"
+
+msgid "Removed all ingredients of recipe \"%s\" from stock"
+msgstr "Вжито з наявності усі інгрідієнти з рецепту \"%s\""
+
+msgid "Consume all ingredients needed by this recipe"
+msgstr "Вжити всі інгрідієнти цього рецепту"
+
+msgid "Click to show technical details"
+msgstr "Натисніть, щоб показати технічні деталі"
+
+msgid "Error while saving, probably this item already exists"
+msgstr "Помилка при збереженні, схоже що цей об'єкт вже існує"
+
+msgid "Error details"
+msgstr "Деталі помилки"
+
+msgid "Tasks"
+msgstr "Завдання"
+
+msgid "Show done tasks"
+msgstr "Показати викані завдання"
+
+msgid "Task"
+msgstr "Завдання"
+
+msgid "Due"
+msgstr "Виконати до"
+
+msgid "Assigned to"
+msgstr "Призначено"
+
+msgid "Mark task \"%s\" as completed"
+msgstr "Відмітити завдання \"%s\" як виконане"
+
+msgid "Uncategorized"
+msgstr "Без категорії"
+
+msgid "Task categories"
+msgstr "Категорії завдань"
+
+msgid "Create task"
+msgstr "Створити завдання"
+
+msgid "A due date is required"
+msgstr "Строк виконання є необхідним"
+
+msgid "Category"
+msgstr "Категорія"
+
+msgid "Edit task"
+msgstr "Редагувати завдання"
+
+msgid "Are you sure to delete task \"%s\"?"
+msgstr "Ви впевнені, що хочете видалити завдання \"%s\"?"
+
+msgid "%s task is due to be done"
+msgid_plural "%s tasks are due to be done"
+msgstr[0] "%s завдання має бути виконано"
+msgstr[1] "%s завдання має бути виконано"
+msgstr[2] "%s завдань має бути виконано"
+msgstr[3] "%s завдань має бути виконано"
+
+msgid "%s task is overdue to be done"
+msgid_plural "%s tasks are overdue to be done"
+msgstr[0] "%s прострочено"
+msgstr[1] "%s прострочено"
+msgstr[2] "%s прострочено"
+msgstr[3] "%s прострочено"
+
+msgid "Edit task category"
+msgstr "Змінити категорію завдання"
+
+msgid "Create task category"
+msgstr "Створити категорію завдань"
+
+msgid "Product groups"
+msgstr "Групи продуктів"
+
+msgid "Ungrouped"
+msgstr "Без групи"
+
+msgid "Create product group"
+msgstr "Створити групу продуктів"
+
+msgid "Edit product group"
+msgstr "Редагувати групу продуктів"
+
+msgid "Product group"
+msgstr "Група продуктів"
+
+msgid "Are you sure to delete product group \"%s\"?"
+msgstr "Ви впевнені, що хочете видалити групу продуктів \"%s\"?"
+
+msgid "Stay logged in permanently"
+msgstr "Залишатись авторизованим"
+
+msgid "When not set, you will get logged out at latest after 30 days"
+msgstr "Якщо не обрано, вас буде деавторизовано через 30 днів"
+
+msgid "Status"
+msgstr "Статус"
+
+msgid "Below min. stock amount"
+msgstr "Менше мінімальної кількості"
+
+msgid "Due soon"
+msgstr "Скоро зіпсується"
+
+msgid "Overdue"
+msgstr "Вийшли з строку придатності"
+
+msgid "View settings"
+msgstr "Оглянути налаштування"
+
+msgid "Auto reload on external changes"
+msgstr "Автоматично оновити при зовнішніх змінах"
+
+msgid "Auto enable in time range"
+msgstr "Автоматично увімкнути у проміжок часу"
+
+msgid "From"
+msgstr "Від"
+
+msgid "in format"
+msgstr "у форматі"
+
+msgid "To"
+msgstr "До"
+
+msgid "Time range goes over midnight"
+msgstr "Проміжок часу заходить за північ"
+
+msgid "Product picture"
+msgstr "Зображення продукту"
+
+msgid "No file selected"
+msgstr "Файл не обрано"
+
+msgid "Delete"
+msgstr "Видалити"
+
+msgid "Select file"
+msgstr "Обрати файл"
+
+msgid "Image of product %s"
+msgstr "Зображення продукту %s"
+
+msgid "Deletion not possible"
+msgstr "Видалення неможливе"
+
+msgid "Equipment"
+msgstr "Обладнання"
+
+msgid "Instruction manual"
+msgstr "Інструкція"
+
+msgid "The selected equipment has no instruction manual"
+msgstr "Обране обладнання не має інструкції"
+
+msgid "Notes"
+msgstr "Нотатки"
+
+msgid "Edit equipment"
+msgstr "Редагувати обладнання"
+
+msgid "Create equipment"
+msgstr "Створити обладнання"
+
+msgid "The current file will be deleted on save"
+msgstr "Поточний файл буде видалено при збереженні"
+
+msgid "No picture available"
+msgstr "Зображення недоступне"
+
+msgid "Presets for new products"
+msgstr "Налаштування для нових продуктів"
+
+msgid "Included recipes"
+msgstr "Включені рецепти"
+
+msgid "A recipe is required"
+msgstr "Необхідний рецепт"
+
+msgid "Add included recipe"
+msgstr "Додати включений рецепт"
+
+msgid "Edit included recipe"
+msgstr "Редагувати включений рецепит"
+
+msgid "Group"
+msgstr "Група"
+
+msgid "This will be used as a headline to group ingredients together"
+msgstr "Це буде заголовком для групи інгрідієнтів"
+
+msgid "Journal"
+msgstr "Журнал"
+
+msgid "Stock journal"
+msgstr "Журнал продуктів"
+
+msgid "Undone on"
+msgstr "Показати відміни"
+
+msgid "Batteries journal"
+msgstr "Журнал батарей"
+
+msgid "Undo charge cycle"
+msgstr "Скасувати цикл зарядки"
+
+msgid "Undo chore execution"
+msgstr "Скасувати виконання роботи"
+
+msgid "Chore execution successfully undone"
+msgstr "Виконання роботи успішно скасоване"
+
+msgid "Undo"
+msgstr "Скасувати"
+
+msgid "Booking successfully undone"
+msgstr "Бронювання скасовано"
+
+msgid "Charge cycle successfully undone"
+msgstr "Цикл зарядки скасовано"
+
+msgid "Disable stock fulfillment checking for this ingredient"
+msgstr "Вимкнути перевірку наявності для цього інгрідієнту"
+
+msgid "Add all list items to stock"
+msgstr "Додати усі продукти у наявність"
+
+msgid "Add this item to stock"
+msgstr "Додати у наявність"
+
+msgid "Adding shopping list item %1$s of %2$s"
+msgstr "Додано у список покупок %1$s з %2$s"
+
+msgid "Use a specific stock item"
+msgstr "Використати певну одиницю продукту"
+
+msgid ""
+"The first item in this list would be picked by the default rule consume rule"
+" (Opened first, then first due first, then first in first out)"
+msgstr ""
+"Перший буде обрано згідно з правилом споживання (спочатку відкритий, потім "
+"той, що швидше зіпсується, далі в такому порядку, у якому і купувалось)"
+
+msgid "Mark %1$s of %2$s as open"
+msgstr "Відмітити %1$s%2$s відкритим"
+
+msgid "Marked %1$s of %2$s as opened"
+msgstr "Відмічено %1$s%2$s відкритим"
+
+msgid "Mark as opened"
+msgstr "Відмітити відкритим"
+
+msgid "Not opened"
+msgstr "Не відкрито"
+
+msgid "Opened"
+msgstr "Відкрито"
+
+msgid "%s opened"
+msgstr "%s відкрито"
+
+msgid "Product due"
+msgstr "Термін придатності продукту"
+
+msgid "Task due"
+msgstr "Термін виконання завдання "
+
+msgid "Chore due"
+msgstr "Термін виконання роботи"
+
+msgid "Battery charge cycle due"
+msgstr "Термін циклу зарядки"
+
+msgid "Show clock in header"
+msgstr "Показувати годинник у шапці"
+
+msgid "Stock settings"
+msgstr "Налаштування інвентаря"
+
+msgid "Shopping list to stock workflow"
+msgstr "Метод переносу з списку покупок у наявність"
+
+msgid "Skip"
+msgstr "Пропустити"
+
+msgid "Servings"
+msgstr "Порції"
+
+msgid "Costs"
+msgstr "Вартість"
+
+msgid "The ingredients listed here result in this amount of servings"
+msgstr "Ці інгрідієнти мають скласти таку кількість порцій"
+
+msgid "Do not check against the shopping list when adding missing items to it"
+msgstr "Не звірятись із списком покупок, додаючи туди продукти"
+
+msgid ""
+"By default the amount to be added to the shopping list is \"needed amount - "
+"stock amount - shopping list amount\" - when this is enabled, it is only "
+"checked against the stock amount, not against what is already on the "
+"shopping list"
+msgstr ""
+"За замовчуванням додається кількість \"потрібна кількість - те, що в "
+"наявності - те, що вже в списку покупок\". Коли ця опція увімкнена, "
+"додається просто різниця необідного і того, що в наявності (без врахування "
+"списку покупок)"
+
+msgid "Picture"
+msgstr "Зображення"
+
+msgid "Uncheck ingredients to not put them on the shopping list"
+msgstr ""
+
+msgid "This is for statistical purposes only"
+msgstr ""
+
+msgid "You have to select a recipe"
+msgstr "Ви повинні вибрати рецепт"
+
+msgid "Key type"
+msgstr "Тип ключа"
+
+msgid "Share/Integrate calendar (iCal)"
+msgstr "Поділитись/інтегрувати календар (iCal)"
+
+msgid ""
+"Use the following (public) URL to share or integrate the calendar in iCal "
+"format"
+msgstr ""
+"Використати цей (публічний) URL щоб ділитись чи інтегрувати календар у "
+"форматі iCal"
+
+msgid "Enable tare weight handling"
+msgstr "Задіяти використання постійної тари"
+
+msgid ""
+"This is useful e.g. for flour in jars - on purchase/consume/inventory you "
+"always weigh the whole jar, the amount to be posted is then automatically "
+"calculated based on what is in stock and the tare weight defined below"
+msgstr ""
+"Це може бути корисним, наприклад, для борошна у банках - про "
+"покупці/вживанні/інвентаризації ви завжди зважуєте усю банку. Кількість "
+"продукту буде автоматично обчислена виходячи з того, яка кількість є у "
+"наявності та вагу самої тари"
+
+msgid "Tare weight"
+msgstr "Вага тари"
+
+msgid ""
+"Tare weight handling enabled - please weigh the whole container, the amount "
+"to be posted will be automatically calculcated"
+msgstr ""
+"Задіяно використання тари - будь ласка зважте разом з тарою. Кількість буде "
+"обчислено автоматично"
+
+msgid "You have to select a location"
+msgstr "Ви маєте обрати місце"
+
+msgid "You have to select a store"
+msgstr "Ви маєте обрати магазин"
+
+msgid "List"
+msgstr "Список"
+
+msgid "Gallery"
+msgstr "Галерея"
+
+msgid "The current picture will be deleted on save"
+msgstr "Поточне зображення буде видалено при збереженні"
+
+msgid "Journal for this battery"
+msgstr "Журнал циклів цієї батареї"
+
+msgid "System info"
+msgstr "Системна інформація"
+
+msgid "Changelog"
+msgstr "Список змін"
+
+msgid "will be multiplied by a factor of %1$s to get %2$s"
+msgstr "буде помножено на %1$s і вийде %2$s"
+
+msgid "The given date is earlier than today, are you sure?"
+msgstr "Ця дата раніше ніж сьогодні. Ви впевнені?"
+
+msgid "Product count"
+msgstr "Кількість продукту"
+
+msgid ""
+"Type a new product name or barcode and hit TAB or ENTER to start a workflow"
+msgstr "Введіть назву продукту або номер штрихкоду та натисніть TAB чи ENTER"
+
+msgid ""
+"This will be used as the default setting when adding this product as a "
+"recipe ingredient"
+msgstr ""
+"Це буде налаштуванням за замовчуванням при додаванні цього продукту як "
+"інгрідієнта до рецептів"
+
+msgid "Add item"
+msgstr "Додати"
+
+msgid "Selected shopping list"
+msgstr "Обрати список покупок"
+
+msgid "New shopping list"
+msgstr "Новий список покупок"
+
+msgid "Delete shopping list"
+msgstr "Видалити список покупок"
+
+msgid "Chores settings"
+msgstr "Наташтування робіт"
+
+msgid "Batteries settings"
+msgstr "Налаштування батарей"
+
+msgid "Tasks settings"
+msgstr "Налаштування завдань"
+
+msgid "Create shopping list"
+msgstr "Створити список покупок"
+
+msgid "Are you sure to delete shopping list \"%s\"?"
+msgstr "Ви впевнені, що хочете видалити список покупок \"%s\"?"
+
+msgid "Average shelf life"
+msgstr "Середній термін придатності"
+
+msgid "Spoil rate"
+msgstr "Відсоток зіпсованого"
+
+msgid "Show more"
+msgstr "Показати більше"
+
+msgid "Show less"
+msgstr "Показати менше"
+
+msgid "The amount must be between %1$s and %2$s"
+msgstr "Кількість має бути між%1$s і %2$s"
+
+msgid "Day of month"
+msgstr "День місяця"
+
+msgid "Monday"
+msgstr "Понеділок"
+
+msgid "Tuesday"
+msgstr "Вівторок"
+
+msgid "Wednesday"
+msgstr "Середа"
+
+msgid "Thursday"
+msgstr "Четвер"
+
+msgid "Friday"
+msgstr "П'ятниця"
+
+msgid "Saturday"
+msgstr "Субота"
+
+msgid "Sunday"
+msgstr "Неділя"
+
+msgid "Configure userfields"
+msgstr "Налаштувати користувацькі поля"
+
+msgid "Userfields"
+msgstr "Користувацькі поля"
+
+msgid "Entity"
+msgstr "Сутність"
+
+msgid "Caption"
+msgstr "Підпис"
+
+msgid "Type"
+msgstr "Тип"
+
+msgid "Create userfield"
+msgstr "Створити поле"
+
+msgid "A entity is required"
+msgstr "Необхідно вказати сутність"
+
+msgid "A caption is required"
+msgstr "Необхідно додати підпис"
+
+msgid "A type is required"
+msgstr "Необхідно вказати тип"
+
+msgid "Show as column in tables"
+msgstr "Показати як стовбчик в таблиці"
+
+msgid "This is required and can only contain letters and numbers"
+msgstr "Є обов'язковим. Може містити лише літери та числа"
+
+msgid "Edit userfield"
+msgstr "Редагувати поле"
+
+msgid "Plural forms"
+msgstr "Множинна форма"
+
+msgid "One plural form per line, the current language requires"
+msgstr "Одна множинна форма на рядок, на вимогу мови"
+
+msgid "Plural count"
+msgstr "Кількість множини"
+
+msgid "Plural rule"
+msgstr "Правило множини"
+
+msgid "in plural form"
+msgstr "у формі множини"
+
+msgid "Not enough in stock, %s ingredient missing"
+msgid_plural "Not enough in stock, %s ingredients missing"
+msgstr[0] "Недостатня кількість у наявності, %s інградієнта не вистачає"
+msgstr[1] "Недостатня кількість у наявності, %s інградієнта не вистачає"
+msgstr[2] "Недостатня кількість у наявності, %s інградієнтів не вистачає"
+msgstr[3] "Недостатня кількість у наявності, %s інградієнтів не вистачає"
+
+msgid "Not enough in stock, but already on the shopping list"
+msgstr "Недостатньо в наявності, але вже додано до списку покупок"
+
+msgid "Not enough in stock"
+msgstr "Недостатньо в наявності"
+
+msgid "Default location"
+msgstr "Місце за замовчуванням"
+
+msgid "Default amount for purchase"
+msgstr ""
+
+msgid "Default amount for consume"
+msgstr "Кількість, яка вживається за замовчуванням"
+
+msgid "Variable amount"
+msgstr "Змінна кількість"
+
+msgid ""
+"When this is not empty, it will be shown instead of the amount entered above"
+" while the amount there will still be used for stock fulfillment checking"
+msgstr ""
+
+msgid "Track date only"
+msgstr "Відмічати лише дату"
+
+msgid "When enabled only the day of an execution is tracked, not the time"
+msgstr "Коли увімкнено, відстежується лише дата виконання, без вказання часу"
+
+msgid "Consume %1$s of %2$s"
+msgstr "Вжити %1$s%2$s"
+
+msgid "Meal plan"
+msgstr "План харчування"
+
+msgid "%s serving"
+msgid_plural "%s servings"
+msgstr[0] "%s порція"
+msgstr[1] "%s порції"
+msgstr[2] "%s порцій"
+msgstr[3] "%s порцій"
+
+msgid "Week costs"
+msgstr "Вартість за тиждень"
+
+msgid "Configuration"
+msgstr "Конфігурація"
+
+msgid "A predefined list of values, one per line"
+msgstr "Заданий список величин, одна на рядок"
+
+msgid "Products"
+msgstr "Продукти"
+
+msgid "Marked task %s as completed on %s"
+msgstr "Завдання %s відмічено виконаним %s"
+
+msgid "Booking has subsequent dependent bookings, undo not possible"
+msgstr ""
+"Бронювання має залежні від нього наступні бронювання. Відміна неможлива"
+
+msgid "per serving"
+msgstr "на порцію"
+
+msgid "Never"
+msgstr "Ніколи"
+
+msgid "Today"
+msgstr "Сьогодні"
+
+msgid "Not all ingredients of recipe \"%s\" are in stock, nothing removed"
+msgstr "Не усі інгрідієнти рецепту \"%s\" є в наявності, нічого не видалено"
+
+msgid "Undo task"
+msgstr "Відмінити завдання"
+
+msgid "Due date rollover"
+msgstr "Автопереніс терміну виконання"
+
+msgid ""
+"When enabled the chore can never be overdue, the due date will shift forward"
+" each day when due"
+msgstr ""
+
+msgid "Location Content Sheet"
+msgstr "Список змісту по місцям"
+
+msgid "Print"
+msgstr "Друк"
+
+msgid "all locations"
+msgstr "усі місця"
+
+msgid ""
+"Here you can print a page per location with the current stock, maybe to hang"
+" it there and note the consumed things on it"
+msgstr ""
+
+msgid "this location"
+msgstr "це місце"
+
+msgid "Consumed amount"
+msgstr "Кількість вжитого"
+
+msgid "Time of printing"
+msgstr "Час друку"
+
+msgid "Are you sure to delete equipment \"%s\"?"
+msgstr "Ви впевнені, що хочете видалити обладнання \"%s\"?"
+
+msgid "Parent product"
+msgstr ""
+
+msgid ""
+"Not possible because this product is already used as a parent product in "
+"another product"
+msgstr ""
+
+msgid "Default conversions"
+msgstr ""
+
+msgid "Factor"
+msgstr "Фактор"
+
+msgid "1 %s is the same as..."
+msgstr "1 %s це те саме, що ..."
+
+msgid "Create QU conversion"
+msgstr "Створити конверсію одиниць виміру"
+
+msgid "Default for QU"
+msgstr "За замовчуванням для одинить виміру"
+
+msgid "Quantity unit from"
+msgstr "Одиниці кількості від"
+
+msgid "Quantity unit to"
+msgstr "Одиниці кількості до"
+
+msgid "This cannot be equal to %s"
+msgstr "Це не може дорівнювати %s"
+
+msgid "This means 1 %1$s is the same as %2$s %3$s"
+msgstr ""
+
+msgid "QU conversions"
+msgstr "Конверсія одиниць виміру"
+
+msgid "Product overrides"
+msgstr ""
+
+msgid "Override for product"
+msgstr ""
+
+msgid "This equals %1$s %2$s"
+msgstr ""
+
+msgid "Edit QU conversion"
+msgstr "Змінити одиницю виміру"
+
+msgid "An assignment type is required"
+msgstr "Тип призначення є обов'язковим"
+
+msgid "Assignment type"
+msgstr "Тип призначення"
+
+msgid ""
+"This means the next execution of this chore is scheduled at the same time "
+"(based on the start date) every day"
+msgid_plural ""
+"This means the next execution of this chore is scheduled at the same time "
+"(based on the start date) every %s days"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+msgid ""
+"This means the next execution of this chore is scheduled %s hour after the "
+"last execution"
+msgid_plural ""
+"This means the next execution of this chore is scheduled %s hours after the "
+"last execution"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+msgid ""
+"This means the next execution of this chore is scheduled every week on the "
+"selected weekdays"
+msgid_plural ""
+"This means the next execution of this chore is scheduled every %s weeks on "
+"the selected weekdays"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+msgid ""
+"This means the next execution of this chore is scheduled on the selected day"
+" every month"
+msgid_plural ""
+"This means the next execution of this chore is scheduled on the selected day"
+" every %s months"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+msgid "This means the next execution of this chore is not scheduled"
+msgstr ""
+
+msgid ""
+"This means the next execution of this chore will not be assigned to anyone"
+msgstr ""
+
+msgid ""
+"This means the next execution of this chore will be assigned to the one who "
+"executed it least"
+msgstr ""
+
+msgid "This means the next execution of this chore will be assigned randomly"
+msgstr ""
+
+msgid ""
+"This means the next execution of this chore will be assigned to the next one"
+" in alphabetical order"
+msgstr ""
+
+msgid "Assign to"
+msgstr "Призначити"
+
+msgid "This assignment type requires that at least one is assigned"
+msgstr ""
+
+msgid "%s chore is assigned to me"
+msgid_plural "%s chores are assigned to me"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+msgid "Assigned to me"
+msgstr "Призначено мені"
+
+msgid "assigned to %s"
+msgstr "призначено %s"
+
+msgid "Assignment"
+msgstr "Призначення"
+
+msgid "Consume product on chore execution"
+msgstr "Вжити продукт при виконанні цієї роботи"
+
+msgid "Are you sure to delete user field \"%s\"?"
+msgstr "Ви впевнені, що хочете видалити поле \"%s\"?"
+
+msgid "Userentities"
+msgstr ""
+
+msgid "Create userentity"
+msgstr ""
+
+msgid "Show in sidebar menu"
+msgstr ""
+
+msgid "Edit userentity"
+msgstr ""
+
+msgid "Edit %s"
+msgstr "Редагувати %s"
+
+msgid "Create %s"
+msgstr "Створити %s"
+
+msgid "Are you sure to delete this userobject?"
+msgstr ""
+
+msgid "Icon CSS class"
+msgstr ""
+
+msgid "For example"
+msgstr "Наприклад"
+
+msgid "Configure fields"
+msgstr "Налаштувати поля"
+
+msgid "Quantity unit plural form testing"
+msgstr ""
+
+msgid "Result"
+msgstr "Результат"
+
+msgid "Test plural forms"
+msgstr ""
+
+msgid "Scan a barcode"
+msgstr "Відсканувати штрихкод"
+
+msgid "Error while initializing the barcode scanning library"
+msgstr ""
+
+msgid ""
+"The resulting price of this ingredient will be multiplied by this factor"
+msgstr ""
+
+msgid "Price factor"
+msgstr "Фактор ціни"
+
+msgid "Do you find grocy useful?"
+msgstr "Чи корисний для Вас grocy?"
+
+msgid "Say thanks"
+msgstr "Скажіть \"дякую\""
+
+msgid "Search for recipes containing this product"
+msgstr ""
+
+msgid "Add to shopping list"
+msgstr "Додати до списку покупок"
+
+msgid "Added %1$s of %2$s to the shopping list \"%3$s\""
+msgstr "Додано %1$s %2$s до списку покупок \"%3$s\""
+
+msgid "Output"
+msgstr ""
+
+msgid "Energy (kcal)"
+msgstr "Енергія (ккал)"
+
+msgid "Per stock quantity unit"
+msgstr ""
+
+msgid "Barcode scanner testing"
+msgstr "Тестування сканування штрихкоду"
+
+msgid "Expected barcode"
+msgstr "Очікуваний штрихкод"
+
+msgid "Scan field"
+msgstr ""
+
+msgid "Scanned barcodes"
+msgstr "Відскановані штрихкоди"
+
+msgid "Hit"
+msgstr "Влучання"
+
+msgid "Miss"
+msgstr "Промах"
+
+msgid "Display recipe"
+msgstr "Відобразити рецепт"
+
+msgid "Accumulate sub products min. stock amount"
+msgstr ""
+
+msgid ""
+"If enabled, the min. stock amount of sub products will be accumulated into "
+"this product, means the sub product will never be missing, only this product"
+msgstr ""
+
+msgid "Are you sure to remove this conversion?"
+msgstr ""
+
+msgid "Unit price"
+msgstr "Вартість за одиницю"
+
+msgid "Total price"
+msgstr "Загальна вартість"
+
+msgid "in %s and based on the purchase quantity unit"
+msgstr ""
+
+msgid "Unlimited"
+msgstr "Необмежено"
+
+msgid "Clear"
+msgstr "Очистити"
+
+msgid "Are you sure to remove the included recipe \"%s\"?"
+msgstr ""
+
+msgid "Period interval"
+msgstr "Інтервал повторення"
+
+msgid ""
+"This means the next execution of this chore is scheduled every year on the "
+"same day (based on the start date)"
+msgid_plural ""
+"This means the next execution of this chore is scheduled every %s years on "
+"the same day (based on the start date)"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+msgid "Transfer"
+msgstr "Перемістити"
+
+msgid "From location"
+msgstr "З місця"
+
+msgid "To location"
+msgstr "У місце"
+
+msgid "There are no units available at this location"
+msgstr ""
+
+msgid "Amount: %1$s; Due on %2$s; Bought on %3$s"
+msgstr ""
+
+msgid "Transfered %1$s of %2$s from %3$s to %4$s"
+msgstr ""
+
+msgid "Stock entries"
+msgstr ""
+
+msgid "Best before date"
+msgstr ""
+
+msgid "Purchased date"
+msgstr "Дата покупки"
+
+msgid "Consume all %s for this stock entry"
+msgstr "Вжити усі %s цього продкту"
+
+msgid "The amount cannot be lower than %1$s"
+msgstr ""
+
+msgid "Stock entry successfully updated"
+msgstr ""
+
+msgid "Edit stock entry"
+msgstr "Редагувати елемент"
+
+msgid ""
+"Camera access is only possible when supported and allowed by your browser "
+"and when grocy is served via a secure (https://) connection"
+msgstr ""
+
+msgid "Keep screen on"
+msgstr "Тримати екран увімкненим"
+
+msgid "Keep screen on while displaying a \"fullscreen-card\""
+msgstr "Тримати екран увімкненим, коли відображена картка \"на весь екран\""
+
+msgid "A purchased date is required"
+msgstr "Необхідна дата придбання"
+
+msgid ""
+"When a product is selected, one unit (per serving in stock quantity unit) "
+"will be added to stock on consuming this recipe"
+msgstr ""
+
+msgid "Produces product"
+msgstr ""
+
+msgid "This booking cannot be undone"
+msgstr ""
+
+msgid "Booking does not exist or was already undone"
+msgstr ""
+
+msgid "Are you sure to delete API key \"%s\"?"
+msgstr ""
+
+msgid "Add note"
+msgstr "Додати нотатку"
+
+msgid "per day"
+msgstr "на день"
+
+msgid "Only undone items"
+msgstr "Тільки відмінені пункти"
+
+msgid "Add product"
+msgstr "Додати продукт"
+
+msgid "Consume all ingredients needed by this weeks recipes or products"
+msgstr "Вжити усі ігрідієнти цього рецепту"
+
+msgid "Meal plan recipe"
+msgstr ""
+
+msgid "Meal plan note"
+msgstr ""
+
+msgid "Meal plan product"
+msgstr ""
+
+msgid "Scan mode"
+msgstr ""
+
+msgid "on"
+msgstr "увімкнено"
+
+msgid "off"
+msgstr "вимкнено"
+
+msgid ""
+"Scan mode is on but not all required fields could be populated automatically"
+msgstr ""
+
+msgid "Is freezer"
+msgstr "Є морозильною камерою"
+
+msgid "This cannot be the same as the \"From\" location"
+msgstr "Не може бути тим же місцем, що й \"з\""
+
+msgid "Thawed"
+msgstr "Розморожене"
+
+msgid "Frozen"
+msgstr "Заморожене"
+
+msgid "Are you sure to delete userentity \"%s\"?"
+msgstr ""
+
+msgid "Shopping list settings"
+msgstr "Налаштування списку покупок"
+
+msgid "Show a month-view calendar"
+msgstr ""
+
+msgid "Desired servings"
+msgstr ""
+
+msgid "Base: %s"
+msgstr ""
+
+msgid "Recipes settings"
+msgstr ""
+
+msgid "Recipe card"
+msgstr ""
+
+msgid "Group ingredients by their product group"
+msgstr ""
+
+msgid "Unknown store"
+msgstr ""
+
+msgid "Store"
+msgstr ""
+
+msgid "Transaction successfully undone"
+msgstr ""
+
+msgid "Default store"
+msgstr ""
+
+msgid "Consume this stock entry"
+msgstr "Вжити"
+
+msgid "Mark this stock entry as open"
+msgstr ""
+
+msgid "Mark this item as done"
+msgstr ""
+
+msgid "Edit this item"
+msgstr ""
+
+msgid "Delete this item"
+msgstr ""
+
+msgid "Show an icon if the product is already on the shopping list"
+msgstr ""
+
+msgid "Calories"
+msgstr "Калорії"
+
+msgid "means %1$s per %2$s"
+msgstr "одначає %1$s на %2$s"
+
+msgid "Create recipe"
+msgstr "Створити рецепт"
+
+msgid "Save & continue to add ingredients and included recipes"
+msgstr "Зберегти та продовжити додавати інгрідієнти"
+
+msgid "Save & continue"
+msgstr "Зберегти та продовжити"
+
+msgid "Save & return to recipes"
+msgstr "Зберегти та повернутись у рецепти"
+
+msgid "Stock value"
+msgstr "Вартість інвентаря"
+
+msgid "Average price"
+msgstr "Середня ціна"
+
+msgid "Active"
+msgstr "Активні"
+
+msgid "Barcodes"
+msgstr "Штрихкоди"
+
+msgid "Barcode"
+msgstr "Штрихкод"
+
+msgid "Create Barcode"
+msgstr "Створити штрихкод"
+
+msgid "Barcode for product"
+msgstr "Штрихкод продукту"
+
+msgid "Edit Barcode"
+msgstr "Редагувати штрихкод"
+
+msgid ""
+"Based on the prices of the default consume rule (Opened first, then first "
+"due first, then first in first out) for in-stock ingredients and on the last"
+" price for missing ones"
+msgstr ""
+
+msgid "Clear filter"
+msgstr ""
+
+msgid "Permissions for user %s"
+msgstr ""
+
+msgid "Are you sure you want to remove full permissions for yourself?"
+msgstr ""
+
+msgid "Permissions saved"
+msgstr ""
+
+msgid "You are not allowed to view this page"
+msgstr ""
+
+msgid "Page not found"
+msgstr ""
+
+msgid "Unauthorized"
+msgstr ""
+
+msgid "Error source"
+msgstr ""
+
+msgid "Error message"
+msgstr ""
+
+msgid "Stack trace"
+msgstr ""
+
+msgid "Easy error info copy & paste (for reporting)"
+msgstr ""
+
+msgid "This page does not exist"
+msgstr ""
+
+msgid "You will be redirected to the default page in %s seconds"
+msgstr ""
+
+msgid "Server error"
+msgstr "Помилка сервера"
+
+msgid "A server error occured while processing your request"
+msgstr ""
+
+msgid "If you think this is a bug, please report it"
+msgstr ""
+
+msgid "Language"
+msgstr "Мова"
+
+msgid "User settings"
+msgstr "Налаштування користувача"
+
+msgid "Default"
+msgstr "За замовчуванням"
+
+msgid "Stock journal summary"
+msgstr ""
+
+msgid "Journal summary"
+msgstr ""
+
+msgid "Consume exact amount"
+msgstr "Вжити певну кількість"
+
+msgid "Value"
+msgstr "Величина"
+
+msgid "%s total value"
+msgstr ""
+
+msgid ""
+"Show purchased date on purchase and inventory page (otherwise the purchased "
+"date defaults to today)"
+msgstr ""
+
+msgid "Common"
+msgstr "Загальне"
+
+msgid "Decimal places allowed for amounts"
+msgstr "Дробні значення дозволені для кількості"
+
+msgid "Edit shopping list"
+msgstr "Редагувати список покупок"
+
+msgid "Save & continue to add quantity unit conversions & barcodes"
+msgstr "Зберегти та продовжити додавати одиниці виміру та штрихкоди"
+
+msgid "Save & return to products"
+msgstr "Зберегти та повернутись до продуктів"
+
+msgid "Save & continue to add conversions"
+msgstr "Зберегти та продовжити додавати конверсії"
+
+msgid "Save & return to quantity units"
+msgstr "Зберегти та повернутись до одиниць виміру"
+
+msgid "price"
+msgstr "вартість"
+
+msgid "New stock amount"
+msgstr "Нова кількість у наявності"
+
+msgid "Price per stock unit"
+msgstr "Вартість за одиницю"
+
+msgid "Table options"
+msgstr ""
+
+msgid "This product is currently on a shopping list"
+msgstr ""
+
+msgid "Undo transaction"
+msgstr ""
+
+msgid "Transaction type"
+msgstr "Тип транзакції"
+
+msgid "Transaction time"
+msgstr "Час транзакції"
+
+msgid "Chore journal"
+msgstr "Журнал робіт"
+
+msgid "Track chore execution"
+msgstr "Відмітити виконання роботи"
+
+msgid "Mark task as completed"
+msgstr "Відмітити завдання як виконане"
+
+msgid "Track charge cycle"
+msgstr "Відмітити цикл зарядки"
+
+msgid "Battery journal"
+msgstr "Журнал батарей"
+
+msgid "This product has a picture"
+msgstr "Цей продукт має зображення"
+
+msgid "Consume this stock entry as spoiled"
+msgstr "Вжити, відмітивши зіпсованим"
+
+msgid "Configure user permissions"
+msgstr "Налаштувати права користувачів"
+
+msgid "Show a QR-Code for this API key"
+msgstr "Показати QR-код для цього API ключа"
+
+msgid ""
+"This is the default quantity unit used when adding this product to the "
+"shopping list"
+msgstr ""
+
+msgid ""
+"Show a warning when the due date of the purchased product is earlier than "
+"the next due date in stock"
+msgstr ""
+
+msgid "This is due earlier than already in-stock items"
+msgstr ""
+
+msgid ""
+"When enabled, after changing/scanning a product and if all fields could be "
+"automatically populated (by product and/or barcode defaults), the "
+"transaction is automatically submitted"
+msgstr ""
+
+msgid "Quick consume amount"
+msgstr "Кількість для швидкого вживання"
+
+msgid ""
+"This amount is used for the \"quick consume/open buttons\" on the stock "
+"overview page (related to quantity unit stock)"
+msgstr ""
+"Ця кількість використовується для визначення, яка кількість вживається чи "
+"відмічається відкритою кнопками \"Швидке вживання\" та \"Швидке "
+"відкривання\""
+
+msgid "Copy"
+msgstr "Копіювати"
+
+msgid "Are you sure to remove this barcode?"
+msgstr "Ви впевнені, що хочете видалити цей штрихкод?"
+
+msgid "Due date type"
+msgstr "Тип терміну"
+
+msgid ""
+"Based on the selected type, the highlighting on the stock overview page will"
+" be different"
+msgstr "Залежно від обраного типу, підсвітка на сторінці інвентаря буде іншою"
+
+msgid ""
+"Means that the product is maybe still safe to be consumed after its due date"
+" is reached"
+msgstr ""
+"Означає, що продукт може ще бути безпечним для вживання після вичерпання "
+"строку придатності"
+
+msgid "Expiration date"
+msgstr "Термін придатності"
+
+msgid ""
+"Means that the product is not safe to be consumed after its due date is "
+"reached"
+msgstr ""
+"Означає, що вживати продукт після вичерпання строку придатності може бути "
+"небезпечно!"
+
+msgid ""
+"For purchases this amount of days will be added to today for the due date "
+"suggestion"
+msgstr ""
+
+msgid "-1 means that this product will be never overdue"
+msgstr ""
+
+msgid "Default due days"
+msgstr "Термін придатності за замовчуванням"
+
+msgid ""
+"When this product was marked as opened, the due date will be replaced by "
+"today + this amount of days, but only if the resulting date is not after the"
+" original due date (a value of 0 disables this)"
+msgstr ""
+
+msgid "Default due days after opened"
+msgstr "Термін придатності після відкривання"
+
+msgid ""
+"On moving this product to a freezer location (so when freezing it), the due "
+"date will be replaced by today + this amount of days"
+msgstr ""
+
+msgid "Default due days after freezing"
+msgstr "Термін придатності після заморозки за замовчуванням"
+
+msgid ""
+"On moving this product from a freezer location (so when thawing it), the due"
+" date will be replaced by today + this amount of days"
+msgstr ""
+
+msgid "Default due days after thawing"
+msgstr ""
+
+msgid "Next due date"
+msgstr ""
+
+msgid "%s product is due"
+msgid_plural "%s products are due"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+msgid "Due date"
+msgstr "Термін придатності"
+
+msgid "Never overdue"
+msgstr "Не має терміну придатності"
+
+msgid "%s product is expired"
+msgid_plural "%s products are expired"
+msgstr[0] "%s продукт зіпсовано"
+msgstr[1] "%s продукти зіпсовано"
+msgstr[2] "%s продуктів зіпсовано"
+msgstr[3] "%s продуктів зіпсовано"
+
+msgid "Expired"
+msgstr "Зіпсовано"
+
+msgid "Due soon days"
+msgstr "Днів, скоро буде зіпсовано"
+
+msgid "Add overdue/expired products"
+msgstr ""
+
+msgid ""
+"Products with tare weight enabled are currently not supported for transfer"
+msgstr ""
+
+msgid ""
+"This cannot be lower than %1$s or equal %2$s and needs to be a valid number "
+"with max. %3$s decimal places"
+msgstr ""
+
+msgid ""
+"This must be between %1$s and %2$s, cannot equal %3$s and needs to be a "
+"valid number with max. %4$s decimal places"
+msgstr ""
+
+msgid ""
+"This cannot be lower than %1$s and needs to be a valid number with max. %2$s"
+" decimal places"
+msgstr ""
+
+msgid ""
+"This must between %1$s and %2$s and needs to be a valid number with max. "
+"%3$s decimal places"
+msgstr ""
+
+msgid ""
+"Automatically do the booking using the last price and the amount of the "
+"shopping list item, if the product has \"Default due days\" set"
+msgstr ""
+
+msgid ""
+"When moving products from/to a freezer location, the products due date is "
+"automatically adjusted according to the product settings"
+msgstr ""
+
+msgid "This is the internal field name, e. g. for the API"
+msgstr ""
+
+msgid "This is used to display the field on the frontend"
+msgstr ""
+
+msgid "Multiple Userfields will be ordered by that number on the input form"
+msgstr ""
+
+msgid "Sort number"
+msgstr "Порядковий номер"
+
+msgid "Download file"
+msgstr "Завантажити файл"
+
+msgid "Use the products \"Quick consume amount\""
+msgstr "Використати \"Кілкість швидкого вживання\" продукту"
+
+msgid "Disabled"
+msgstr "Вимкнено"
+
+msgid ""
+"This also removes any stock amount, the journal and all other references of "
+"this product - consider disabling it instead, if you want to keep that and "
+"just hide the product."
+msgstr ""
+
+msgid "Show disabled"
+msgstr "Відобразити вимкнені"
+
+msgid "Never show on stock overview"
+msgstr "Ніколи не відображати у інвентарі"
+
+msgid "None"
+msgstr "Нічого"
+
+msgid "Group by"
+msgstr "Групувати по"
+
+msgid "Ingredient group"
+msgstr "Група інгрідієнтів"
+
+msgid "Reset"
+msgstr "Скинути"
+
+msgid "Are you sure to reset the table options?"
+msgstr "Ви впевнені, що хочете скинуті налаштування таблиці?"
+
+msgid "Hide/view columns"
+msgstr ""
+
+msgid ""
+"A different amount/unit can then be used below while for stock fulfillment "
+"checking it is sufficient when any amount of the product in stock"
+msgstr ""
+
+msgid "Last price (Unit)"
+msgstr "Остання ціна (за одиницю)"
+
+msgid "Last price (Total)"
+msgstr "Остання ціна (загалом)"
+
+msgid "Show header"
+msgstr "Показати шапку"
+
+msgid "Group by product group"
+msgstr "Групувати по групі продукту"
+
+msgid "Table"
+msgstr "Таблиця"
+
+msgid "Layout type"
+msgstr ""
+
+msgid "Merge this product with another one"
+msgstr ""
+
+msgid "Merge products"
+msgstr "Об'єднати продукти"
+
+msgid "Product to keep"
+msgstr "Продукт, який буде збережено"
+
+msgid "Product to remove"
+msgstr "Продукт, який буде видалено"
+
+msgid "Error while merging"
+msgstr "Помилка при об'єднанні"
+
+msgid "After merging, this product will be kept"
+msgstr "Після об'єднання, цей продукт лишиться"
+
+msgid ""
+"After merging, all occurences of this product will be replaced by the kept "
+"product (means this product will not exist anymore)"
+msgstr ""
+
+msgid "Merge"
+msgstr "Об'єднати"
+
+msgid "Title"
+msgstr "Назва"
+
+msgid "Link"
+msgstr "Посилання"
+
+msgid ""
+"The stock overview page lists all products which are currently in-stock or "
+"below their min. stock amount - enable this to hide this product there "
+"always"
+msgstr ""
+
+msgid "Print options"
+msgstr "Налаштування друку"
+
+msgid "A product or a note is required"
+msgstr "Необхідний продукт або нотатка"
+
+msgid "grocycode"
+msgstr "grocycode"
+
+msgid "Download"
+msgstr "Завантижити"
+
+# Example: Download *Product* grocycode
+msgid "Download %s grocycode"
+msgstr "Завантажити %s grocycode"
+
+msgid ""
+"grocycode is a unique referer to this %s in your grocy instance - print it "
+"onto a label and scan it like any other barcode"
+msgstr ""
+
+# Abbreviation for "due date"
+msgid "DD"
+msgstr ""
+
+msgid "Print on label printer"
+msgstr ""
+
+msgid "Default stock entry label"
+msgstr ""
+
+msgid "Stock entry label"
+msgstr ""
+
+msgid "No label"
+msgstr ""
+
+msgid "Single label"
+msgstr ""
+
+msgid "Label per unit"
+msgstr ""
+
+msgid "Error while executing WebHook"
+msgstr ""
+
+# Example: Print *Product* grocycode on label printer
+msgid "Print %s grocycode on label printer"
+msgstr ""
+
+msgid "Open stock entry label in new window"
+msgstr ""
+
+msgid "Thermal printer"
+msgstr "Термальний принтер"
+
+msgid "Printing"
+msgstr "друкую"
+
+msgid "Connecting to printer..."
+msgstr "З'єднуюсь з принтером"
+
+msgid "Unable to print"
+msgstr "Неможливо надрукувати"
+
+msgid "Only done items"
+msgstr "Лише зроблене"
+
+msgid "Show only in-stock products"
+msgstr "Показати лише продукти в наявності"
+
+msgid "Product description"
+msgstr "Опис продкуту"
+
+# Example: *3.21 USD* per *Pack*
+msgid "%1$s per %2$s"
+msgstr ""
+
+msgid "Mark this item as undone"
+msgstr ""
+
+msgid "Mandatory"
+msgstr "Обов'язково"
+
+msgid "Mandatory Userfield"
+msgstr "Обов'язкове користувацьке поле"
+
+msgid "When enabled, then this field must be filled on the destination form"
+msgstr ""
+
+msgid "In-stock products"
+msgstr ""
+
+msgid "Timestamp"
+msgstr "Timestamp"
+
+msgid "Should not be frozen"
+msgstr "Не варто заморожувати"
+
+msgid ""
+"When enabled, on moving this product to a freezer location (so when freezing"
+" it), a warning will be shown"
+msgstr ""
+
+msgid "This product shouldn't be frozen"
+msgstr ""
+
+msgid "Copy all meal plan entries of %s"
+msgstr ""
+
+msgid "A date is required"
+msgstr "Необхідна дата"
+
+msgid "Day"
+msgstr "День"
+
+msgid "Add recipe"
+msgstr "Додати рецепт"
+
+msgid "Copy this day"
+msgstr "Копіювати цей день"
+
+msgid "Date range"
+msgstr "Проміжок дат"
+
+msgid "%s month"
+msgid_plural "%s months"
+msgstr[0] "%s місяць"
+msgstr[1] "%s місяці"
+msgstr[2] "%s місяців"
+msgstr[3] "%s місяців"
+
+msgid "%s year"
+msgid_plural "%s years"
+msgstr[0] "%s рік"
+msgstr[1] "%s роки"
+msgstr[2] "%s років"
+msgstr[3] "%s років"
+
+msgid "Display product"
+msgstr "Показати продукт"
+
+msgid "Copy recipe"
+msgstr "Копіювати рецепт"
+
+msgid "Copy of %s"
+msgstr "Копія %s"
+
+msgid "Add decimal separator automatically for price inputs"
+msgstr ""
+
+msgid ""
+"When enabled, you always have to enter the value including decimal places, "
+"the decimal separator will be automatically added based on the amount of "
+"allowed decimal places"
+msgstr ""
+
+msgid "Stock entry"
+msgstr ""
+
+msgid "Configure sections"
+msgstr ""
+
+msgid "Meal plan sections"
+msgstr ""
+
+msgid "Create meal plan section"
+msgstr ""
+
+msgid "Sections will be ordered by that number on the meal plan"
+msgstr ""
+
+msgid "Edit meal plan section"
+msgstr ""
+
+msgid "Are you sure to delete meal plan section \"%s\"?"
+msgstr ""
+
+msgid "Section"
+msgstr ""
+
+msgid "Are you sure to empty the shopping list?"
+msgstr ""
+
+msgid "This is the default which will be prefilled on purchase"
+msgstr ""
+
+msgid "Merge chores"
+msgstr ""
+
+msgid "Chore to keep"
+msgstr ""
+
+msgid "After merging, this chore will be kept"
+msgstr ""
+
+msgid "Chore to remove"
+msgstr ""
+
+msgid ""
+"After merging, all occurences of this chore will be replaced by the kept "
+"chore (means this chore will not exist anymore)"
+msgstr ""
+
+msgid "Due today"
+msgstr ""
+
+msgid "%s task is due to be done today"
+msgid_plural "%s tasks are due to be done today"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+msgid "%s chore is due to be done today"
+msgid_plural "%s chores are due to be done today"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+msgid "%s battery is due to be charged today"
+msgid_plural "%s batteries are due to be charged today"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
+
+msgid "Set to 0 to hide due soon filters/highlighting"
+msgstr ""
+
+msgid "Save & close"
+msgstr ""
+
+msgid "Save & add another task"
+msgstr ""
+
+msgid "Treat opened as out of stock"
+msgstr ""
+
+msgid ""
+"When enabled, opened items will be counted as missing for calculating if "
+"this product is below its minimum stock amount"
+msgstr ""
+
+msgid "Skipped"
+msgstr "Пропущено"
+
+msgid "Skip next chore schedule"
+msgstr "Пропустити наступне планування ррботи"
+
+msgid "Time"
+msgstr "Час"
+
+msgid "A start date is required"
+msgstr "Необхідна дата початку"
+
+msgid "Start date"
+msgstr "Дата початку"
+
+msgid "The start date cannot be changed when the chore was once tracked"
+msgstr ""
+
+msgid "Show the recipe list and the recipe side by side"
+msgstr ""
+
+msgid ""
+"This means the next execution of this chore is scheduled dynamically based "
+"on the past average execution frequency"
+msgstr ""
+
+msgid "Average execution frequency"
+msgstr ""
+
+msgid "Reschedule next execution"
+msgstr "Перенести наступне виконання"
+
+msgid "This can only be in the future"
+msgstr "Це може бути лише в майбутньому"
+
+msgid "Rescheduled"
+msgstr "Перенесено"
+
+msgid "Due score"
+msgstr ""
+
+msgid ""
+"The higher this number is, the more ingredients currently in stock are due "
+"soon, overdue or already expired"
+msgstr ""
+
+msgid "Disable own stock"
+msgstr ""
+
+msgid ""
+"When enabled, this product can't have own stock, means it will not be "
+"selectable on purchase (useful for parent products which are just used as a "
+"summary/total view of the child products)"
+msgstr ""
+
+msgid "Out of stock items will be shown at the products default location"
+msgstr ""
+
+msgid "Show a little checkbox next to each ingredient to mark it as done"
+msgstr ""
+
+msgid ""
+"The ingredient is crossed out when clicked, the status is not saved, means "
+"reset when the page is reloaded"
+msgstr ""
+
+msgid ""
+"The parent product %1$s is currently not in stock, %2$s is the current next "
+"sub product based on the default consume rule (Opened first, then first due "
+"first, then first in first out)"
+msgstr ""
+
+msgid "Night mode"
+msgstr "Нічний режим"
+
+msgid "On"
+msgstr "Увімкнено"
+
+msgid "Use system setting"
+msgstr "Використати системні налаштування"
+
+msgid "Off"
+msgstr "Вимкнено"
+
+msgid ""
+"Automatically add products that are below their defined min. stock amount to"
+" the shopping list"
+msgstr ""
+
+msgid "Reassigned"
+msgstr "Перепризначено"
+
+msgid "Default value"
+msgstr "Значення за замовчуванням"
+
+msgid "Now / today"
+msgstr "Зараз / сьогодні"
+
+msgid "Add meal plan entry"
+msgstr "Додати пункт у план харчування"
+
+msgid "Edit meal plan entry"
+msgstr "Редагувати пункт у плані харчування"
+
+msgid "Default consume location"
+msgstr "Місце вживання за замовчуванням"
+
+msgid "Stock entries at this location will be consumed first"
+msgstr "Продукти з цього місця будуть вжиті першими"
+
+msgid "Move on open"
+msgstr "Перемістити у відкрите"
+
+msgid ""
+"When enabled, on marking this product as opened, the corresponding amount "
+"will be moved to the default consume location"
+msgstr ""
+"Якщо увімкнено, при відмічанні цього товару відкритим, він буде перенесений "
+"у місце вживання за замовчуванням"
+
+msgid "Moved to %1$s"
+msgstr "Переміщено у %1$s"
+
+msgid "Decimal places allowed for prices (input)"
+msgstr "Кількість знаків після коми у цінах (поле)"
+
+msgid "Decimal places allowed for prices (display)"
+msgstr "Кількість знаків після коми у цінах (відображення)"
