@@ -4443,10 +4443,6 @@
 					"tare_weight": {
 						"type": "number"
 					},
-					"barcode": {
-						"type": "string",
-						"description": "Can contain multiple barcodes separated by comma"
-					},
 					"min_stock_amount": {
 						"type": "number",
 						"minimum": 0,
@@ -4500,7 +4496,6 @@
 					"qu_id_purchase": "3",
 					"qu_id_stock": "3",
 					"qu_factor_purchase_to_stock": "1.0",
-					"barcode": "cok1",
 					"min_stock_amount": "8",
 					"default_best_before_days": "0",
 					"row_created_timestamp": "2019-05-02 20:12:26",
@@ -4811,7 +4806,6 @@
 						"qu_id_purchase": "3",
 						"qu_id_stock": "3",
 						"qu_factor_purchase_to_stock": "1.0",
-						"barcode": "cok1",
 						"min_stock_amount": "8",
 						"default_best_before_days": "0",
 						"row_created_timestamp": "2019-05-02 20:12:26",
