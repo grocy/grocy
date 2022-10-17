@@ -9,7 +9,26 @@ class GenericEntityApiController extends BaseApiController
 {
 	public function AddObject(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		User::checkPermission($request, User::PERMISSION_MASTER_DATA_EDIT);
+		if ($args['entity'] == 'shopping_list' || $args['entity'] == 'shopping_lists')
+		{
+			User::checkPermission($request, User::PERMISSION_SHOPPINGLIST_ITEMS_ADD);
+		}
+		elseif ($args['entity'] == 'recipes' || $args['entity'] == 'recipes_pos' || $args['entity'] == 'recipes_nestings')
+		{
+			User::checkPermission($request, User::PERMISSION_RECIPES);
+		}
+		elseif ($args['entity'] == 'meal_plan')
+		{
+			User::checkPermission($request, User::PERMISSION_RECIPES_MEALPLAN);
+		}
+		elseif ($args['entity'] == 'equipment')
+		{
+			User::checkPermission($request, User::PERMISSION_EQUIPMENT);
+		}
+		else
+		{
+			User::checkPermission($request, User::PERMISSION_MASTER_DATA_EDIT);
+		}
 
 		if ($this->IsValidExposedEntity($args['entity']) && !$this->IsEntityWithNoEdit($args['entity']))
 		{
@@ -48,7 +67,26 @@ class GenericEntityApiController extends BaseApiController
 
 	public function DeleteObject(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		User::checkPermission($request, User::PERMISSION_MASTER_DATA_EDIT);
+		if ($args['entity'] == 'shopping_list' || $args['entity'] == 'shopping_lists')
+		{
+			User::checkPermission($request, User::PERMISSION_SHOPPINGLIST_ITEMS_DELETE);
+		}
+		elseif ($args['entity'] == 'recipes' || $args['entity'] == 'recipes_pos' || $args['entity'] == 'recipes_nestings')
+		{
+			User::checkPermission($request, User::PERMISSION_RECIPES);
+		}
+		elseif ($args['entity'] == 'meal_plan')
+		{
+			User::checkPermission($request, User::PERMISSION_RECIPES_MEALPLAN);
+		}
+		elseif ($args['entity'] == 'equipment')
+		{
+			User::checkPermission($request, User::PERMISSION_EQUIPMENT);
+		}
+		else
+		{
+			User::checkPermission($request, User::PERMISSION_MASTER_DATA_EDIT);
+		}
 
 		if ($this->IsValidExposedEntity($args['entity']) && !$this->IsEntityWithNoDelete($args['entity']))
 		{
@@ -76,7 +114,26 @@ class GenericEntityApiController extends BaseApiController
 
 	public function EditObject(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		User::checkPermission($request, User::PERMISSION_MASTER_DATA_EDIT);
+		if ($args['entity'] == 'shopping_list' || $args['entity'] == 'shopping_lists')
+		{
+			User::checkPermission($request, User::PERMISSION_SHOPPINGLIST_ITEMS_ADD);
+		}
+		elseif ($args['entity'] == 'recipes' || $args['entity'] == 'recipes_pos' || $args['entity'] == 'recipes_nestings')
+		{
+			User::checkPermission($request, User::PERMISSION_RECIPES);
+		}
+		elseif ($args['entity'] == 'meal_plan')
+		{
+			User::checkPermission($request, User::PERMISSION_RECIPES_MEALPLAN);
+		}
+		elseif ($args['entity'] == 'equipment')
+		{
+			User::checkPermission($request, User::PERMISSION_EQUIPMENT);
+		}
+		else
+		{
+			User::checkPermission($request, User::PERMISSION_MASTER_DATA_EDIT);
+		}
 
 		if ($this->IsValidExposedEntity($args['entity']) && !$this->IsEntityWithNoEdit($args['entity']))
 		{

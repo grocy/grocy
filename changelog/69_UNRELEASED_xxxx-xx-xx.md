@@ -61,6 +61,7 @@
 
 - It's now possible to edit a user without necessarily updating the users password
 - Fixed that when running label printer WebHooks client side (so when `LABEL_PRINTER_RUN_SERVER` = `false`), the setting `LABEL_PRINTER_HOOK_JSON` was ignored (the WebHook data was always sent as form data)
+- Fixed that granular user permissions (like "Shopping list / Add items" or "Equipment") didn't allow to add/edit the corresponding items without also having the "Edit master data" permission
 - New translations: (thanks all the translators)
   - Lithuanian (demo available at <https://lt.demo.grocy.info>)
   - Ukrainian (demo available at <https://uk.demo.grocy.info>)

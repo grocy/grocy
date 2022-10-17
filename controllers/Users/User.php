@@ -83,16 +83,12 @@ class User
 		return $user->getPermissionList();
 	}
 
-	public static function checkPermission($request, string ...$permissions): void
+	public static function checkPermission($request, string $permission): void
 	{
 		$user = new self();
-
-		foreach ($permissions as $permission)
+		if (!$user->hasPermission($permission))
 		{
-			if (!$user->hasPermission($permission))
-			{
-				throw new PermissionMissingException($request, $permission);
-			}
+			throw new PermissionMissingException($request, $permission);
 		}
 	}
 
