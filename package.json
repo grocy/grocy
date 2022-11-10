@@ -32,7 +32,7 @@
 		"startbootstrap-sb-admin": "4.0.0",
 		"summernote": "^0.8.18",
 		"swagger-ui-dist": "^4.10.3",
-		"tempusdominus-bootstrap-4": "^5.39.2",
+		"tempusdominus-bootstrap-4": "https://github.com/berrnd/tempusdominus-bootstrap-4.git#master",
 		"toastr": "^2.1.4"
 	},
 	"scripts": {
