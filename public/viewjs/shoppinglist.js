@@ -9,7 +9,7 @@ var shoppingListTable = $('#shoppinglist-table').DataTable({
 		{ 'visible': false, 'targets': 6 },
 		{ 'visible': false, 'targets': 7 },
 		{ 'visible': false, 'targets': 8 },
-		{ "type": "num", "targets": 2 },
+		{ "type": "custom-sort", "targets": 2 },
 		{ "type": "html-num-fmt", "targets": 5 },
 		{ "type": "html-num-fmt", "targets": 6 }
 	].concat($.fn.dataTable.defaults.columnDefs),

@@ -322,7 +322,8 @@
 					<td>
 						@if($currentStockEntry->product_group_name !== null){{ $currentStockEntry->product_group_name }}@endif
 					</td>
-					<td data-order="@if($currentStockEntry->product_no_own_stock == 1){{ $currentStockEntry->amount_aggregated }}@else{{ $currentStockEntry->amount }}@endif">
+					<td>
+						<span class="custom-sort d-none">@if($currentStockEntry->product_no_own_stock == 1){{ $currentStockEntry->amount_aggregated }}@else{{ $currentStockEntry->amount }}@endif</span>
 						<span class="@if($currentStockEntry->product_no_own_stock == 1) d-none @endif">
 							<span id="product-{{ $currentStockEntry->product_id }}-amount"
 								class="locale-number locale-number-quantity-amount">{{ $currentStockEntry->amount }}</span> <span id="product-{{ $currentStockEntry->product_id }}-qu-name">{{ $__n($currentStockEntry->amount, $currentStockEntry->qu_unit_name, $currentStockEntry->qu_unit_name_plural) }}</span>
@@ -400,8 +401,8 @@
 						<time class="timeago timeago-contextual"
 							datetime="{{ $currentStockEntry->last_purchased }}"></time>
 					</td>
-					<td data-order="{{$currentStockEntry->last_price}}"
-						class="@if(!GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING) d-none @endif">
+					<td class="@if(!GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING) d-none @endif">
+						<span class="custom-sort d-none">{{$currentStockEntry->last_price}}</span>
 						@if(!empty($currentStockEntry->last_price))
 						<span data-toggle="tooltip"
 							data-trigger="hover click"
@@ -430,8 +431,8 @@
 							class="lazy">
 						@endif
 					</td>
-					<td data-order="{{$currentStockEntry->average_price}}"
-						class="@if(!GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING) d-none @endif">
+					<td class="@if(!GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING) d-none @endif">
+						<span class="custom-sort d-none">{{$currentStockEntry->average_price}}</span>
 						@if(!empty($currentStockEntry->average_price))
 						<span data-toggle="tooltip"
 							data-trigger="hover click"

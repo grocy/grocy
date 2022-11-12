@@ -243,8 +243,8 @@
 					}
 					@endphp
 					@endif
-					<td data-order={{
-						$listItem->amount }}>
+					<td>
+						<span class="custom-sort d-none">{{$listItem->amount}}</span>
 						<span class="locale-number locale-number-quantity-amount">{{ $listItem->amount }}</span> @if(!empty($listItem->product_id)){{ $__n($listItem->amount, $listItem->qu_name, $listItem->qu_name_plural, true) }}@endif
 					</td>
 					<td>

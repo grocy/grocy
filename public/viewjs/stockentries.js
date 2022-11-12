@@ -5,9 +5,9 @@
 		{ 'searchable': false, "targets": 0 },
 		{ 'visible': false, 'targets': 10 },
 		{ "type": "num", "targets": 1 },
-		{ "type": "num", "targets": 3 },
+		{ "type": "custom-sort", "targets": 3 },
 		{ "type": "html", "targets": 4 },
-		{ "type": "html-num-fmt", "targets": 7 },
+		{ "type": "custom-sort", "targets": 7 },
 		{ "type": "html", "targets": 8 },
 		{ "type": "html", "targets": 9 }
 	].concat($.fn.dataTable.defaults.columnDefs)

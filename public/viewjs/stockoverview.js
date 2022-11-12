@@ -1,4 +1,6 @@
-﻿var stockOverviewTable = $('#stock-overview-table').DataTable({
+﻿
+
+var stockOverviewTable = $('#stock-overview-table').DataTable({
 	'order': [[5, 'asc']],
 	'columnDefs': [
 		{ 'orderable': false, 'targets': 0 },
@@ -19,15 +21,15 @@
 		{ 'visible': false, 'targets': 16 },
 		{ 'visible': false, 'targets': 17 },
 		{ 'visible': false, 'targets': 18 },
-		{ "type": "num", "targets": 3 },
+		{ "type": "custom-sort", "targets": 3 },
 		{ "type": "html-num-fmt", "targets": 9 },
 		{ "type": "html-num-fmt", "targets": 10 },
 		{ "type": "html", "targets": 5 },
 		{ "type": "html", "targets": 11 },
-		{ "type": "html-num-fmt", "targets": 12 },
+		{ "type": "custom-sort", "targets": 12 },
 		{ "type": "num", "targets": 13 },
 		{ "type": "html-num-fmt", "targets": 4 },
-		{ "type": "html-num-fmt", "targets": 18 }
+		{ "type": "custom-sort", "targets": 18 }
 	].concat($.fn.dataTable.defaults.columnDefs)
 });
 

@@ -255,7 +255,8 @@
 						data-product-id="{{ $stockEntry->product_id }}">
 						{{ FindObjectInArrayByPropertyValue($products, 'id', $stockEntry->product_id)->name }}
 					</td>
-					<td data-order="{{ $stockEntry->amount }}">
+					<td>
+						<span class="custom-sort d-none">{{$stockEntry->amount}}</span>
 						<span id="stock-{{ $stockEntry->id }}-amount"
 							class="locale-number locale-number-quantity-amount">{{ $stockEntry->amount }}</span> <span id="product-{{ $stockEntry->product_id }}-qu-name">{{ $__n($stockEntry->amount, FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $stockEntry->product_id)->qu_id_stock)->name, FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $stockEntry->product_id)->qu_id_stock)->name_plural, true) }}</span>
 						<span id="stock-{{ $stockEntry->id }}-opened-amount"
@@ -279,8 +280,8 @@
 						{{ FindObjectInArrayByPropertyValue($shoppinglocations, 'id', $stockEntry->shopping_location_id)->name }}
 						@endif
 					</td>
-					<td data-order="{{$stockEntry->price}}"
-						class="@if(!GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING) d-none @endif">
+					<td class="@if(!GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING) d-none @endif">
+						<span class="custom-sort d-none">{{$stockEntry->price}}</span>
 						<span id="stock-{{ $stockEntry->id }}-price"
 							data-toggle="tooltip"
 							data-trigger="hover click"

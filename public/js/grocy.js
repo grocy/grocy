@@ -895,6 +895,18 @@ $(document).on("click", "tr.dtrg-group", function()
 	collapsedGroups[name] = !collapsedGroups[name];
 	$("table").DataTable().draw();
 });
+$.fn.dataTable.ext.type.order["custom-sort-pre"] = function(data)
+{
+	// Workaround for https://github.com/DataTables/ColReorder/issues/85
+	//
+	// Custom sorting can normally be provided by a "data-order" attribute on the <td> element,
+	// however this causes issues when reordering such a column...
+	//
+	// This here is for a custom column type "custom-sort",
+	// the custom order value needs to be provided in the first child (<span>) of the <td>
+
+	return (parseFloat($(data).get(0).innerText));
+};
 
 // serializeJSON defaults
 $.serializeJSON.defaultOptions.checkboxUncheckedValue = "0";
