@@ -303,9 +303,6 @@ Grocy.Components.DateTimePicker.GetInputElement().on('input', function(e)
 $('.datetimepicker').on('update.datetimepicker', function(e)
 {
 	Grocy.Components.DateTimePicker.GetInputElement().trigger('input');
-	Grocy.Components.DateTimePicker.GetInputElement().trigger('change');
-	Grocy.Components.DateTimePicker.GetInputElement().trigger('keypress');
-	Grocy.Components.DateTimePicker.GetInputElement().trigger('keyup');
 });
 
 $('.datetimepicker').on('hide.datetimepicker', function(e)
