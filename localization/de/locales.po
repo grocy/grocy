@@ -128,3 +128,11 @@ msgstr "Finnisch"
 # Catalan
 msgid "ca"
 msgstr "Katalanisch"
+
+# Lithuanian
+msgid "lt"
+msgstr "Litauisch"
+
+# Ukrainian
+msgid "uk"
+msgstr "Ukrainisch"

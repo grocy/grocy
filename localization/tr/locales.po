@@ -128,3 +128,11 @@ msgstr "Fince"
 # Catalan
 msgid "ca"
 msgstr ""
+
+# Lithuanian
+msgid "lt"
+msgstr ""
+
+# Ukrainian
+msgid "uk"
+msgstr ""

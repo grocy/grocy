@@ -383,3 +383,9 @@ msgstr "Katalansk"
 
 msgid "Slovenian"
 msgstr "Slovenisk"
+
+msgid "Lithuanian"
+msgstr ""
+
+msgid "Ukrainian"
+msgstr ""

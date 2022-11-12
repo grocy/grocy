@@ -31,7 +31,7 @@ msgid "Candy cupboard"
 msgstr "Шафа для солодощів"
 
 msgid "Tinned food cupboard"
-msgstr "Шафа для їжі в банках"
+msgstr "Шафа для консервації"
 
 msgid "Fridge"
 msgstr "Холодильник"
@@ -399,3 +399,6 @@ msgstr "Словенська"
 
 msgid "Lithuanian"
 msgstr "Литовська"
+
+msgid "Ukrainian"
+msgstr "Українська"

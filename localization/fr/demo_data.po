@@ -1,16 +1,16 @@
 # 
 # Translators:
-# Cedric Octave <transifex@octvcdrc.fr>, 2019
+# 8a6ec6ba31fecee74183669e4744ef28_7d4badd <d361cc5e10b554e8c048e8ae22413142_453062>, 2019
 # bigoudo, 2019
+# Matthieu K, 2019
 # Antonin DESFONTAINES <antonin.desfontaines@outlook.com>, 2019
 # sebastien GRANDJEAN <maluseb@hotmail.fr>, 2020
+# Jordan COUTON <couton.jordan@gmail.com>, 2020
 # patate douce <poubel125@gmail.com>, 2020
+# nerdinator <florian.dupret@gmail.com>, 2020
 # C P <anoxy78@gmail.com>, 2020
 # Barthelemy Drabczuk, 2021
 # Zkryvix <angelo.frangione@gmail.com>, 2021
-# Matthieu K, 2022
-# Jordan COUTON <couton.jordan@gmail.com>, 2022
-# nerdinator <florian.dupret@gmail.com>, 2022
 # Jonathan Blanc, 2022
 # 
 msgid ""
@@ -398,3 +398,9 @@ msgstr "Catalan"
 
 msgid "Slovenian"
 msgstr "Slovène"
+
+msgid "Lithuanian"
+msgstr ""
+
+msgid "Ukrainian"
+msgstr ""

@@ -1,12 +1,13 @@
 # 
 # Translators:
 # Bernd Bestel <bernd@berrnd.de>, 2019
+# Matteo Piotto <matteo.piotto@welaika.com>, 2019
 # 42d76af3cd20bc399c7e8a413695959f, 2019
 # Matteo Piccina <altermatte@gmail.com>, 2021
 # Sergio Zampello <seriotv88@gmail.com>, 2021
-# Matteo Piotto <matteo.piotto@welaika.com>, 2022
 # Antonino Ursino <ninus_@libero.it>, 2022
 # Walter Palagi, 2022
+# Moltivie Denied <major2015usa@gmail.com>, 2022
 # 
 msgid ""
 msgstr ""
@@ -14,7 +15,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Walter Palagi, 2022\n"
+"Last-Translator: Moltivie Denied <major2015usa@gmail.com>, 2022\n"
 "Language-Team: Italian (https://www.transifex.com/grocy/teams/93189/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2647,16 +2648,21 @@ msgstr ""
 "che sono in scadenza o già scaduti"
 
 msgid "Disable own stock"
-msgstr ""
+msgstr "Disabilita il proprio magazzino"
 
 msgid ""
 "When enabled, this product can't have own stock, means it will not be "
 "selectable on purchase (useful for parent products which are just used as a "
 "summary/total view of the child products)"
 msgstr ""
+"Quando abilitato, questo prodotto non puo' avere una propria scorta, "
+"significa che non verra' selezionato per gli acquisti (utile per i prodotti "
+"principali i quali vengono solo usati come riepilogo del sommario/totale dei"
+" sottoprodotti)"
 
 msgid "Out of stock items will be shown at the products default location"
 msgstr ""
+"I prodotti esauriti verranno mostrati nella pagina dei prodotti predefiniti"
 
 msgid "Show a little checkbox next to each ingredient to mark it as done"
 msgstr ""
@@ -2667,12 +2673,17 @@ msgid ""
 "The ingredient is crossed out when clicked, the status is not saved, means "
 "reset when the page is reloaded"
 msgstr ""
+"L'ingrediente e' cancellato quando ci si clicca sopra, lo stato non e' "
+"salvato, cio' significa resettare quando la pagina verra' riaggiornata"
 
 msgid ""
 "The parent product %1$s is currently not in stock, %2$s is the current next "
 "sub product based on the default consume rule (Opened first, then first due "
 "first, then first in first out)"
 msgstr ""
+"Il prodotto principale %1$s non e' attualmente nel magazzino, %2$s  e' "
+"l'attuale sottocategoria secondo la regola di consumo predefinita. (Prima "
+"aperta, prima dovuta alla prima, primo dentro primo fuori)"
 
 msgid "Night mode"
 msgstr "Modalità notturna"
@@ -2709,24 +2720,28 @@ msgid "Edit meal plan entry"
 msgstr "Modifica elemento del piano pasti"
 
 msgid "Default consume location"
-msgstr ""
+msgstr "Location di consumo predefinita"
 
 msgid "Stock entries at this location will be consumed first"
 msgstr ""
+"Le entrate di riserva in questa location saranno le prime ad essere "
+"consumate"
 
 msgid "Move on open"
-msgstr ""
+msgstr "Avanti apri"
 
 msgid ""
 "When enabled, on marking this product as opened, the corresponding amount "
 "will be moved to the default consume location"
 msgstr ""
+"Quando abilitato, selezionando questo prodotto come aperto, l'attuale "
+"quantita' verra' spostata nella location di consumo predefinita"
 
 msgid "Moved to %1$s"
 msgstr "Spostato a %1$s"
 
 msgid "Decimal places allowed for prices (input)"
-msgstr ""
+msgstr "Numeri decimali consentiti per i prezzi (input)"
 
 msgid "Decimal places allowed for prices (display)"
-msgstr ""
+msgstr "Numeri decimali consentiti per i prezzi (display)"

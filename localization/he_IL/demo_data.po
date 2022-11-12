@@ -397,3 +397,9 @@ msgstr "קטלאנית"
 
 msgid "Slovenian"
 msgstr "סלובנית"
+
+msgid "Lithuanian"
+msgstr "ליטאית"
+
+msgid "Ukrainian"
+msgstr "אוקראינית"

@@ -2662,7 +2662,7 @@ msgid "Moved to %1$s"
 msgstr "הועבר אל %1$s"
 
 msgid "Decimal places allowed for prices (input)"
-msgstr ""
+msgstr "מקומות אחרי נקודה עשרונית למחירים (קלט)"
 
 msgid "Decimal places allowed for prices (display)"
-msgstr ""
+msgstr "מקומות אחרי נקודה עשרונית למחירים (תצוגה)"

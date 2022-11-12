@@ -5,6 +5,7 @@
 # Pavel Pletenev <cpp.create@gmail.com>, 2020
 # J K <su1ka.box@gmail.com>, 2021
 # Sergey Kodolov, 2021
+# Dmitry Galyshev, 2022
 # 
 msgid ""
 msgstr ""
@@ -12,7 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Sergey Kodolov, 2021\n"
+"Last-Translator: Dmitry Galyshev, 2022\n"
 "Language-Team: Russian (https://www.transifex.com/grocy/teams/93189/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -121,10 +122,10 @@ msgid "Tomato"
 msgstr "Помидор"
 
 msgid "Change towels in the bathroom"
-msgstr ""
+msgstr "Сменить полотенца в ванной"
 
 msgid "Mop the kitchen floor"
-msgstr ""
+msgstr "Вымыть пол в кухне"
 
 msgid "Warranty ends"
 msgstr "Гарантия заканчивается"
@@ -139,7 +140,7 @@ msgid "Heat remote control"
 msgstr "Пульт ДУ для печки"
 
 msgid "Take out the trash"
-msgstr ""
+msgstr "Вынести мусор"
 
 msgid "Some good snacks"
 msgstr "Вкусные закуски"
@@ -266,13 +267,13 @@ msgid "Russian"
 msgstr "Русский"
 
 msgid "Vacuum the living room floor"
-msgstr ""
+msgstr "Пропылесосить в гостиной"
 
 msgid "Clean the litter box"
-msgstr ""
+msgstr "Убрать за животными"
 
 msgid "Change the bed sheets"
-msgstr ""
+msgstr "Сменить постельное бельё"
 
 msgid "Swedish"
 msgstr "Шведский"
@@ -399,3 +400,9 @@ msgstr ""
 
 msgid "Slovenian"
 msgstr ""
+
+msgid "Lithuanian"
+msgstr ""
+
+msgid "Ukrainian"
+msgstr "Украинский"

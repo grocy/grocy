@@ -379,3 +379,9 @@ msgstr "Katalanisch"
 
 msgid "Slovenian"
 msgstr "Slowenisch"
+
+msgid "Lithuanian"
+msgstr "Litauisch"
+
+msgid "Ukrainian"
+msgstr "Ukrainisch"

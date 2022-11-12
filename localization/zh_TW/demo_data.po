@@ -374,3 +374,9 @@ msgstr "加泰羅尼亞文"
 
 msgid "Slovenian"
 msgstr "斯洛維尼亞文"
+
+msgid "Lithuanian"
+msgstr ""
+
+msgid "Ukrainian"
+msgstr ""

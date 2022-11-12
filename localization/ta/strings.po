@@ -1,7 +1,7 @@
 # 
 # Translators:
 # Sathish K <sathishkk@sathishkumark.com>, 2019
-# Aswin Kumar, 2021
+# Aswin Kumar, 2022
 # 
 msgid ""
 msgstr ""
@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Aswin Kumar, 2021\n"
+"Last-Translator: Aswin Kumar, 2022\n"
 "Language-Team: Tamil (https://www.transifex.com/grocy/teams/93189/ta/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2245,7 +2245,7 @@ msgid "A date is required"
 msgstr ""
 
 msgid "Day"
-msgstr ""
+msgstr "நாள்"
 
 msgid "Add recipe"
 msgstr ""
@@ -2258,8 +2258,8 @@ msgstr ""
 
 msgid "%s month"
 msgid_plural "%s months"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%s மாதம்"
+msgstr[1] "%s மாதங்கள்"
 
 msgid "%s year"
 msgid_plural "%s years"
@@ -2462,7 +2462,7 @@ msgid "Default value"
 msgstr ""
 
 msgid "Now / today"
-msgstr ""
+msgstr "இப்போது / இன்று"
 
 msgid "Add meal plan entry"
 msgstr ""

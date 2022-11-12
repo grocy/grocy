@@ -1,5 +1,6 @@
 # 
 # Translators:
+# Bernd Bestel <bernd@berrnd.de>, 2022
 # Vytautas Barkauskas, 2022
 # 
 msgid ""
@@ -335,7 +336,7 @@ msgid "This is a note"
 msgstr "Tai pastaba"
 
 msgid "Freezer"
-msgstr "Šaldytuvas"
+msgstr "Šaldiklis"
 
 msgid "Hungarian"
 msgstr "Vengrų"
@@ -395,3 +396,9 @@ msgstr "Katalonų"
 
 msgid "Slovenian"
 msgstr "Slovėnų"
+
+msgid "Lithuanian"
+msgstr "Lietuvių"
+
+msgid "Ukrainian"
+msgstr ""

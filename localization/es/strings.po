@@ -1,19 +1,19 @@
 # 
 # Translators:
 # Bernd Bestel <bernd@berrnd.de>, 2019
+# Ankue <ankue.spam@gmail.com>, 2019
+# Igor Perez <igordiablo@hotmail.com>, 2020
 # José Rugel <joserugel@gmail.com>, 2020
 # Christian Cotillas <marril01@gmail.com>, 2020
 # 94da36f1deec90bc5ed082cca3edbf58_8d5d5e6 <4436ad586b0a58e21cae88865adf5b43_901667>, 2020
 # Alan Pucheta <apucheta@protonmail.com>, 2020
 # Enrique Lapenta <enriquelap20@gmail.com>, 2020
+# Alberto Martin <ami232@gmail.com>, 2021
 # Adrián R.G. <adrirgrillo@gmail.com>, 2021
 # victormce <victormce@gmail.com>, 2021
 # Fernando Sánchez <fernando.l.sanchez@gmail.com>, 2021
 # Juan José González-Abril, 2021
 # GRBaset, 2022
-# Ankue <ankue.spam@gmail.com>, 2022
-# Igor Perez <igordiablo@hotmail.com>, 2022
-# Alberto Martin <ami232@gmail.com>, 2022
 # 
 msgid ""
 msgstr ""
@@ -21,7 +21,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Alberto Martin <ami232@gmail.com>, 2022\n"
+"Last-Translator: GRBaset, 2022\n"
 "Language-Team: Spanish (https://www.transifex.com/grocy/teams/93189/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"

@@ -128,3 +128,11 @@ msgstr "פינית"
 # Catalan
 msgid "ca"
 msgstr "קטלאנית"
+
+# Lithuanian
+msgid "lt"
+msgstr "ליטאית"
+
+# Ukrainian
+msgid "uk"
+msgstr "אוקראינית"

@@ -1,10 +1,10 @@
 # 
 # Translators:
-# 鳥山 陽平 <kagemomiji@gmail.com>, 2020
 # EbXpJ6bp <ebxpj6bp@outlook.jp>, 2020
 # Cisco Benjamin <metallica@vivaldi.net>, 2020
 # Tatsuya Ueda <ml@tatsuya.info>, 2020
 # KATSUHIKO SHIGEYAMA <kshigeyama@gmail.com>, 2020
+# 鳥山 陽平 <kagemomiji@gmail.com>, 2022
 # 
 msgid ""
 msgstr ""
@@ -12,7 +12,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: KATSUHIKO SHIGEYAMA <kshigeyama@gmail.com>, 2020\n"
+"Last-Translator: 鳥山 陽平 <kagemomiji@gmail.com>, 2022\n"
 "Language-Team: Japanese (https://www.transifex.com/grocy/teams/93189/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -870,7 +870,7 @@ msgid "Stock settings"
 msgstr "在庫設定"
 
 msgid "Shopping list to stock workflow"
-msgstr ""
+msgstr "買い物リストを在庫へ"
 
 msgid "Skip"
 msgstr "スキップ"
@@ -962,7 +962,7 @@ msgid "will be multiplied by a factor of %1$s to get %2$s"
 msgstr ""
 
 msgid "The given date is earlier than today, are you sure?"
-msgstr ""
+msgstr "今日より前の日付ですが，設定しますか？"
 
 msgid "Product count"
 msgstr "製品数"
@@ -1118,7 +1118,7 @@ msgstr "可変量"
 msgid ""
 "When this is not empty, it will be shown instead of the amount entered above"
 " while the amount there will still be used for stock fulfillment checking"
-msgstr ""
+msgstr "値を設定すると、上で設定した量の代わりにレシピに表示されますが、在庫量を確認する時の値は変更されません"
 
 msgid "Track date only"
 msgstr "日付のみ追跡"
@@ -1227,10 +1227,10 @@ msgid "Default for QU"
 msgstr "数量単位のデフォルト"
 
 msgid "Quantity unit from"
-msgstr ""
+msgstr "変換前の単位"
 
 msgid "Quantity unit to"
-msgstr ""
+msgstr "変換後の単位"
 
 msgid "This cannot be equal to %s"
 msgstr "%s と同じにすることはできません"
@@ -1799,7 +1799,7 @@ msgid "New stock amount"
 msgstr "新しい在庫量"
 
 msgid "Price per stock unit"
-msgstr ""
+msgstr "在庫単位あたりの金額"
 
 msgid "Table options"
 msgstr ""
@@ -1928,10 +1928,10 @@ msgstr "デフォルトの冷凍後の期限"
 msgid ""
 "On moving this product from a freezer location (so when thawing it), the due"
 " date will be replaced by today + this amount of days"
-msgstr ""
+msgstr "製品を冷凍庫から移したら(解凍したら)、消費期限はその日から指定した日数分を経過した日付に変更される"
 
 msgid "Default due days after thawing"
-msgstr ""
+msgstr "デフォルトの解凍後の期限"
 
 msgid "Next due date"
 msgstr "次の期日"
@@ -2232,17 +2232,17 @@ msgstr ""
 
 msgid "%s month"
 msgid_plural "%s months"
-msgstr[0] ""
+msgstr[0] "%s ヵ月"
 
 msgid "%s year"
 msgid_plural "%s years"
-msgstr[0] ""
+msgstr[0] "%s年 "
 
 msgid "Display product"
 msgstr ""
 
 msgid "Copy recipe"
-msgstr ""
+msgstr "レシピをコピー"
 
 msgid "Copy of %s"
 msgstr ""
@@ -2257,7 +2257,7 @@ msgid ""
 msgstr ""
 
 msgid "Stock entry"
-msgstr ""
+msgstr "在庫エントリー"
 
 msgid "Configure sections"
 msgstr ""
@@ -2322,13 +2322,13 @@ msgid "Set to 0 to hide due soon filters/highlighting"
 msgstr ""
 
 msgid "Save & close"
-msgstr ""
+msgstr "保存して閉じる"
 
 msgid "Save & add another task"
-msgstr ""
+msgstr "保存して別のタスクを追加する"
 
 msgid "Treat opened as out of stock"
-msgstr ""
+msgstr "開封したら在庫から減らす"
 
 msgid ""
 "When enabled, opened items will be counted as missing for calculating if "
@@ -2362,10 +2362,10 @@ msgid ""
 msgstr ""
 
 msgid "Average execution frequency"
-msgstr ""
+msgstr "実施頻度の平均"
 
 msgid "Reschedule next execution"
-msgstr ""
+msgstr "次の予定を変更する"
 
 msgid "This can only be in the future"
 msgstr ""

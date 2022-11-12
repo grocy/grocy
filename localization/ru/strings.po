@@ -8,6 +8,7 @@
 # J K <su1ka.box@gmail.com>, 2021
 # Pavel Pletenev <cpp.create@gmail.com>, 2021
 # Sergey Kodolov, 2022
+# Dmitry Galyshev, 2022
 # 
 msgid ""
 msgstr ""
@@ -15,7 +16,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Sergey Kodolov, 2022\n"
+"Last-Translator: Dmitry Galyshev, 2022\n"
 "Language-Team: Russian (https://www.transifex.com/grocy/teams/93189/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -85,13 +86,13 @@ msgid "Batteries overview"
 msgstr "Обзор батареек"
 
 msgid "Purchase"
-msgstr "Купить"
+msgstr "Покупка"
 
 msgid "Consume"
 msgstr "Использовать"
 
 msgid "Inventory"
-msgstr "Инвентарь"
+msgstr "Ревизия"
 
 msgid "Shopping list"
 msgstr "Список покупок"
@@ -696,7 +697,7 @@ msgid "Create task"
 msgstr "Создать задачу"
 
 msgid "A due date is required"
-msgstr "Необходим срок выполнения"
+msgstr "Необходимо указать срок годности"
 
 msgid "Category"
 msgstr "Категория"
@@ -1000,9 +1001,8 @@ msgid ""
 "calculated based on what is in stock and the tare weight defined below"
 msgstr ""
 "Это удобно, например, для хранения муки в контейнере - при "
-"покупке/потреблении/инветаризации взвесьте весь контейнер, а настоящее "
-"количество будет автоматически рассчитано на основе объёма в запасе и веса "
-"тары ниже"
+"покупке/потреблении/ревизии взвесьте весь контейнер, а настоящее количество "
+"будет автоматически рассчитано на основе объёма в запасе и веса тары ниже"
 
 msgid "Tare weight"
 msgstr "Вес тары"
@@ -1217,7 +1217,7 @@ msgid "When enabled only the day of an execution is tracked, not the time"
 msgstr "Когда включено, только день выполнение будет записан, но не время"
 
 msgid "Consume %1$s of %2$s"
-msgstr "Употребить %1$s %2$s"
+msgstr "Использовать %1$s из %2$s"
 
 msgid "Meal plan"
 msgstr "План питания"
@@ -1365,9 +1365,17 @@ msgid_plural ""
 "This means the next execution of this chore is scheduled at the same time "
 "(based on the start date) every %s days"
 msgstr[0] ""
+"Это означает, что следующее выполнение этой работы будет запланировано в то "
+"же время (с даты начала) каждый день"
 msgstr[1] ""
+"Это означает, что следующее выполнение этой работы будет запланировано в то "
+"же время (с даты начала) каждые %s дней"
 msgstr[2] ""
+"Это означает, что следующее выполнение этой работы будет запланировано в то "
+"же время (с даты начала) каждые %s дней"
 msgstr[3] ""
+"Это означает, что следующее выполнение этой работы будет запланировано в то "
+"же время (с даты начала) каждые %s дней"
 
 msgid ""
 "This means the next execution of this chore is scheduled %s hour after the "
@@ -1376,9 +1384,17 @@ msgid_plural ""
 "This means the next execution of this chore is scheduled %s hours after the "
 "last execution"
 msgstr[0] ""
+"Это означает, что следующее выполнение этой работы будет запланировано на %s"
+" час позже времени последнего исполнения"
 msgstr[1] ""
+"Это означает, что следующее выполнение этой работы будет запланировано на %s"
+" часов позже времени последнего исполнения"
 msgstr[2] ""
+"Это означает, что следующее выполнение этой работы будет запланировано на %s"
+" часов позже времени последнего исполнения"
 msgstr[3] ""
+"Это означает, что следующее выполнение этой работы будет запланировано на %s"
+" часов позже времени последнего исполнения"
 
 msgid ""
 "This means the next execution of this chore is scheduled every week on the "
@@ -1387,9 +1403,17 @@ msgid_plural ""
 "This means the next execution of this chore is scheduled every %s weeks on "
 "the selected weekdays"
 msgstr[0] ""
+"Это значит, что следующее выполнение этой работы будет запланировано каждую "
+"неделю по выбранным дням недели"
 msgstr[1] ""
+"Это значит, что следующее выполнение этой работы будет запланировано каждые "
+"%s недели по выбранным дням недели"
 msgstr[2] ""
+"Это значит, что следующее выполнение этой работы будет запланировано каждые "
+"%s недель по выбранным дням недели"
 msgstr[3] ""
+"Это значит, что следующее выполнение этой работы будет запланировано каждые "
+"%s недель по выбранным дням недели"
 
 msgid ""
 "This means the next execution of this chore is scheduled on the selected day"
@@ -1398,9 +1422,17 @@ msgid_plural ""
 "This means the next execution of this chore is scheduled on the selected day"
 " every %s months"
 msgstr[0] ""
+"Это значит, что следующее выполнение этой работы будет запланировано каждый "
+"месяц в указанный день"
 msgstr[1] ""
+"Это значит, что следующее выполнение этой работы будет запланировано каждые "
+"%s месяцев в указанный день"
 msgstr[2] ""
+"Это значит, что следующее выполнение этой работы будет запланировано каждые "
+"%s месяцев в указанный день"
 msgstr[3] ""
+"Это значит, что следующее выполнение этой работы будет запланировано каждые "
+"%s месяцев в указанный день"
 
 msgid "This means the next execution of this chore is not scheduled"
 msgstr "Это означает, что следующее выполнение этой работы не будет назначено"
@@ -1438,7 +1470,7 @@ msgid "%s chore is assigned to me"
 msgid_plural "%s chores are assigned to me"
 msgstr[0] "%s работа назначена мне"
 msgstr[1] "%s работы назначены мне"
-msgstr[2] "%sработ назначены мне"
+msgstr[2] "%s работ назначены мне"
 msgstr[3] "%s работ назначены мне"
 
 msgid "Assigned to me"
@@ -1716,7 +1748,7 @@ msgstr ""
 " автоматически"
 
 msgid "Is freezer"
-msgstr "В морозилке"
+msgstr "Это морозильная камера"
 
 msgid "This cannot be the same as the \"From\" location"
 msgstr "Это не может быть тем же местом хранения, что и \"из\""
@@ -1800,13 +1832,13 @@ msgid "Save & return to recipes"
 msgstr "Сохранить и вернуться к рецептам"
 
 msgid "Stock value"
-msgstr ""
+msgstr "Стоимость запасов"
 
 msgid "Average price"
 msgstr "Средняя цена"
 
 msgid "Active"
-msgstr ""
+msgstr "Активный"
 
 msgid "Barcodes"
 msgstr "Штрихкоды"
@@ -1896,7 +1928,7 @@ msgid "Consume exact amount"
 msgstr "Использовать точное количество"
 
 msgid "Value"
-msgstr ""
+msgstr "Стоимость"
 
 msgid "%s total value"
 msgstr "%s всего"
@@ -1905,6 +1937,8 @@ msgid ""
 "Show purchased date on purchase and inventory page (otherwise the purchased "
 "date defaults to today)"
 msgstr ""
+"Показывать дату на страницах покупки или ревизии (иначе дата покупки будет "
+"сегодняшней)"
 
 msgid "Common"
 msgstr "Общие"
@@ -1925,7 +1959,7 @@ msgid "Save & continue to add conversions"
 msgstr ""
 
 msgid "Save & return to quantity units"
-msgstr ""
+msgstr "Сохранить и вернуться к единицам измерения"
 
 msgid "price"
 msgstr "цена"
@@ -1934,10 +1968,10 @@ msgid "New stock amount"
 msgstr "Новое кол-во в запасе"
 
 msgid "Price per stock unit"
-msgstr ""
+msgstr "Цена за единицу в запасах"
 
 msgid "Table options"
-msgstr ""
+msgstr "Параметры отображения"
 
 msgid "This product is currently on a shopping list"
 msgstr "Этот продукт уже находится в списке покупок"
@@ -1955,7 +1989,7 @@ msgid "Chore journal"
 msgstr "Журнал работ по дому"
 
 msgid "Track chore execution"
-msgstr "Отслеживать выполнение работы"
+msgstr "Отметить работу сделанной"
 
 msgid "Mark task as completed"
 msgstr "Пометить задачу как выполненную"
@@ -2018,7 +2052,7 @@ msgid "Are you sure to remove this barcode?"
 msgstr "Вы уверены, что хотите удалить штрихкод?"
 
 msgid "Due date type"
-msgstr ""
+msgstr "Тип срока годности"
 
 msgid ""
 "Based on the selected type, the highlighting on the stock overview page will"
@@ -2028,7 +2062,7 @@ msgstr ""
 msgid ""
 "Means that the product is maybe still safe to be consumed after its due date"
 " is reached"
-msgstr ""
+msgstr "Означает, что просроченный продукт возможно употреблять "
 
 msgid "Expiration date"
 msgstr "Окончание срока годности"
@@ -2036,7 +2070,7 @@ msgstr "Окончание срока годности"
 msgid ""
 "Means that the product is not safe to be consumed after its due date is "
 "reached"
-msgstr ""
+msgstr "Означает, что просроченный продукт употреблять опасно "
 
 msgid ""
 "For purchases this amount of days will be added to today for the due date "
@@ -2056,6 +2090,9 @@ msgid ""
 "today + this amount of days, but only if the resulting date is not after the"
 " original due date (a value of 0 disables this)"
 msgstr ""
+"Когда продукт помечается как открытый, срок годности будет изменён на это "
+"количество дней, начиная с сегодняшнего, но только если срок годности на "
+"упаковке наступает не раньше (значение 0 отключает этот функционал)"
 
 msgid "Default due days after opened"
 msgstr "Срок годности в днях по умолчанию после открытия"
@@ -2093,7 +2130,7 @@ msgstr[2] "%s продуктов подойдут к сроку"
 msgstr[3] "%s продуктов подойдут к сроку"
 
 msgid "Due date"
-msgstr "К сроку"
+msgstr "Срок годности"
 
 msgid "Never overdue"
 msgstr "Без срока годности"
@@ -2109,7 +2146,7 @@ msgid "Expired"
 msgstr "Истёк срок годности"
 
 msgid "Due soon days"
-msgstr ""
+msgstr "Дней до истечения срока годности"
 
 msgid "Add overdue/expired products"
 msgstr "Добавить просроченные продукты"
@@ -2172,7 +2209,7 @@ msgid "Multiple Userfields will be ordered by that number on the input form"
 msgstr ""
 
 msgid "Sort number"
-msgstr ""
+msgstr "Порядковый номер"
 
 msgid "Download file"
 msgstr "Скачать файл"
@@ -2190,7 +2227,7 @@ msgid ""
 msgstr ""
 
 msgid "Show disabled"
-msgstr ""
+msgstr "Показать неактивные"
 
 msgid "Never show on stock overview"
 msgstr "Никогда не показывать в обзоре запасов"
@@ -2263,7 +2300,7 @@ msgid "Merge"
 msgstr "Объединить"
 
 msgid "Title"
-msgstr ""
+msgstr "Заголовок"
 
 msgid "Link"
 msgstr "Ссылка"
@@ -2281,19 +2318,21 @@ msgid "A product or a note is required"
 msgstr "Необходим продукт или заметка"
 
 msgid "grocycode"
-msgstr ""
+msgstr "grocy-код"
 
 msgid "Download"
-msgstr ""
+msgstr "Скачать"
 
 # Example: Download *Product* grocycode
 msgid "Download %s grocycode"
-msgstr ""
+msgstr "Скачать grocy-код для %s"
 
 msgid ""
 "grocycode is a unique referer to this %s in your grocy instance - print it "
 "onto a label and scan it like any other barcode"
 msgstr ""
+"grocy-код является идентификатором этой %s в вашей системе - распечатайте "
+"его, наклейте и сканируйте как обычный штрих-код"
 
 # Abbreviation for "due date"
 msgid "DD"
@@ -2322,7 +2361,7 @@ msgstr ""
 
 # Example: Print *Product* grocycode on label printer
 msgid "Print %s grocycode on label printer"
-msgstr ""
+msgstr "Распечатать %s grocy-код на принтере"
 
 msgid "Open stock entry label in new window"
 msgstr ""
@@ -2331,19 +2370,19 @@ msgid "Thermal printer"
 msgstr ""
 
 msgid "Printing"
-msgstr ""
+msgstr "Печатаю"
 
 msgid "Connecting to printer..."
-msgstr ""
+msgstr "Подключаюсь к принтеру..."
 
 msgid "Unable to print"
-msgstr ""
+msgstr "Не могу распечатать"
 
 msgid "Only done items"
 msgstr ""
 
 msgid "Show only in-stock products"
-msgstr ""
+msgstr "Показать только продукты в наличии"
 
 msgid "Product description"
 msgstr "Описание продукта"
@@ -2356,7 +2395,7 @@ msgid "Mark this item as undone"
 msgstr ""
 
 msgid "Mandatory"
-msgstr ""
+msgstr "Обязательно"
 
 msgid "Mandatory Userfield"
 msgstr ""
@@ -2365,21 +2404,23 @@ msgid "When enabled, then this field must be filled on the destination form"
 msgstr ""
 
 msgid "In-stock products"
-msgstr ""
+msgstr "Продукты в наличии"
 
 msgid "Timestamp"
 msgstr ""
 
 msgid "Should not be frozen"
-msgstr ""
+msgstr "Не замораживать"
 
 msgid ""
 "When enabled, on moving this product to a freezer location (so when freezing"
 " it), a warning will be shown"
 msgstr ""
+"При выполнении перемещения в морозильную камеру (т. е. при замораживании) "
+"будет отображаться предупреждение"
 
 msgid "This product shouldn't be frozen"
-msgstr ""
+msgstr "Этот продукт нельзя замораживать"
 
 msgid "Copy all meal plan entries of %s"
 msgstr ""
@@ -2438,19 +2479,19 @@ msgid "Stock entry"
 msgstr ""
 
 msgid "Configure sections"
-msgstr ""
+msgstr "Настроить секции"
 
 msgid "Meal plan sections"
-msgstr ""
+msgstr "Секции плана питания"
 
 msgid "Create meal plan section"
-msgstr ""
+msgstr "Создать секцию плана питания"
 
 msgid "Sections will be ordered by that number on the meal plan"
-msgstr ""
+msgstr "Секции будут расположены в плане питания в порядке возрастания"
 
 msgid "Edit meal plan section"
-msgstr ""
+msgstr "Изменить секцию плана питания"
 
 msgid "Are you sure to delete meal plan section \"%s\"?"
 msgstr ""
@@ -2462,16 +2503,16 @@ msgid "Are you sure to empty the shopping list?"
 msgstr "Вы уверены, что нужно очистить список покупок?"
 
 msgid "This is the default which will be prefilled on purchase"
-msgstr ""
+msgstr "Значение, которое будет изначально заполнено при внесении покупки "
 
 msgid "Merge chores"
-msgstr ""
+msgstr "Объединить работы"
 
 msgid "Chore to keep"
 msgstr ""
 
 msgid "After merging, this chore will be kept"
-msgstr ""
+msgstr "После объединения эта работа сохранится"
 
 msgid "Chore to remove"
 msgstr ""
@@ -2493,10 +2534,10 @@ msgstr[3] ""
 
 msgid "%s chore is due to be done today"
 msgid_plural "%s chores are due to be done today"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "%s работу по дому нужно сделать сегодня"
+msgstr[1] "%s работ по дому нужно сделать сегодня"
+msgstr[2] "%s работ по дому нужно сделать сегодня"
+msgstr[3] "%s работ по дому нужно сделать сегодня"
 
 msgid "%s battery is due to be charged today"
 msgid_plural "%s batteries are due to be charged today"
@@ -2509,36 +2550,39 @@ msgid "Set to 0 to hide due soon filters/highlighting"
 msgstr ""
 
 msgid "Save & close"
-msgstr ""
+msgstr "Сохранить и закрыть"
 
 msgid "Save & add another task"
-msgstr ""
+msgstr "Сохранить и добавить другую"
 
 msgid "Treat opened as out of stock"
-msgstr ""
+msgstr "Открытое не учитывается в запасах"
 
 msgid ""
 "When enabled, opened items will be counted as missing for calculating if "
 "this product is below its minimum stock amount"
 msgstr ""
+"Если включено, открытый продукт не учитывается в запасах и при расчёте "
+"минимальных остатков этого продукта."
 
 msgid "Skipped"
 msgstr ""
 
 msgid "Skip next chore schedule"
-msgstr ""
+msgstr "Пропустить следующее выполнение работы"
 
 msgid "Time"
-msgstr ""
+msgstr "Время"
 
 msgid "A start date is required"
-msgstr ""
+msgstr "Необходимо указать дату начала"
 
 msgid "Start date"
-msgstr ""
+msgstr "Дата начала"
 
 msgid "The start date cannot be changed when the chore was once tracked"
 msgstr ""
+"Дата начала не может быть изменена если работа хоть раз была выполнена"
 
 msgid "Show the recipe list and the recipe side by side"
 msgstr ""
@@ -2547,18 +2591,20 @@ msgid ""
 "This means the next execution of this chore is scheduled dynamically based "
 "on the past average execution frequency"
 msgstr ""
+"Это означает, что следующее выполнение этой работы будет назначено "
+"основываясь на том, как часто она выполнялась раньше "
 
 msgid "Average execution frequency"
-msgstr ""
+msgstr "Средняя частота выполнения"
 
 msgid "Reschedule next execution"
-msgstr ""
+msgstr "Перепланировать следующее выполнение"
 
 msgid "This can only be in the future"
 msgstr ""
 
 msgid "Rescheduled"
-msgstr ""
+msgstr "Перепланировано"
 
 msgid "Due score"
 msgstr ""
@@ -2569,13 +2615,16 @@ msgid ""
 msgstr ""
 
 msgid "Disable own stock"
-msgstr ""
+msgstr "Не добавлять в запасы"
 
 msgid ""
 "When enabled, this product can't have own stock, means it will not be "
 "selectable on purchase (useful for parent products which are just used as a "
 "summary/total view of the child products)"
 msgstr ""
+"Если включено, продукт не может иметь собственного запаса и такой продукт "
+"нельзя купить (используется для родительских продуктов, которые используются"
+" для обобщения запасов продуктов одного типа)"
 
 msgid "Out of stock items will be shown at the products default location"
 msgstr ""
@@ -2595,16 +2644,16 @@ msgid ""
 msgstr ""
 
 msgid "Night mode"
-msgstr ""
+msgstr "Ночной режим"
 
 msgid "On"
-msgstr ""
+msgstr "Вкл"
 
 msgid "Use system setting"
-msgstr ""
+msgstr "Как в системе"
 
 msgid "Off"
-msgstr ""
+msgstr "Выкл"
 
 msgid ""
 "Automatically add products that are below their defined min. stock amount to"
@@ -2612,36 +2661,38 @@ msgid ""
 msgstr ""
 
 msgid "Reassigned"
-msgstr ""
+msgstr "Переназначено"
 
 msgid "Default value"
 msgstr ""
 
 msgid "Now / today"
-msgstr ""
+msgstr "Сейчас / сегодня"
 
 msgid "Add meal plan entry"
-msgstr ""
+msgstr "Добавить приём пищи"
 
 msgid "Edit meal plan entry"
 msgstr ""
 
 msgid "Default consume location"
-msgstr ""
+msgstr "По умолчанию использовать из места хранения"
 
 msgid "Stock entries at this location will be consumed first"
-msgstr ""
+msgstr "Запасы из этого места хранения употребляются первыми"
 
 msgid "Move on open"
-msgstr ""
+msgstr "Перемещать открытое сюда"
 
 msgid ""
 "When enabled, on marking this product as opened, the corresponding amount "
 "will be moved to the default consume location"
 msgstr ""
+"Если включено, заданное количество продукта помеченное открытым будет "
+"перемещено в это место хранения"
 
 msgid "Moved to %1$s"
-msgstr ""
+msgstr "Перемещено в %1$s"
 
 msgid "Decimal places allowed for prices (input)"
 msgstr ""

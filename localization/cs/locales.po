@@ -130,3 +130,11 @@ msgstr "Finština"
 # Catalan
 msgid "ca"
 msgstr "Katalánština"
+
+# Lithuanian
+msgid "lt"
+msgstr "Litevština"
+
+# Ukrainian
+msgid "uk"
+msgstr "Ukrajinština"

@@ -329,7 +329,7 @@ msgid "current release"
 msgstr "Aktuální verze"
 
 msgid "not yet released"
-msgstr "zatím nevydáno"
+msgstr "zatím nevydaná"
 
 msgid "Portuguese (Brazil)"
 msgstr "Portugalština (Brazílie)"
@@ -398,3 +398,9 @@ msgstr "Katalánština"
 
 msgid "Slovenian"
 msgstr "Slovinština"
+
+msgid "Lithuanian"
+msgstr "Litevština"
+
+msgid "Ukrainian"
+msgstr "Ukrajinština"

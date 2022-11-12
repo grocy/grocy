@@ -129,3 +129,11 @@ msgstr "Finés"
 # Catalan
 msgid "ca"
 msgstr "ca"
+
+# Lithuanian
+msgid "lt"
+msgstr ""
+
+# Ukrainian
+msgid "uk"
+msgstr ""

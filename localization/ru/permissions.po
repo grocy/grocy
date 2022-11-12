@@ -1,10 +1,14 @@
 # 
+# Translators:
+# Dmitry Galyshev, 2022
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2020-08-29 16:33+0000\n"
+"Last-Translator: Dmitry Galyshev, 2022\n"
 "Language-Team: Russian (https://www.transifex.com/grocy/teams/93189/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -15,120 +19,120 @@ msgstr ""
 
 # All permissions
 msgid "ADMIN"
-msgstr ""
+msgstr "Администратор"
 
 # Create users
 msgid "USERS_CREATE"
-msgstr ""
+msgstr "Может заводить пользователей"
 
 # Edit users (including passwords)
 msgid "USERS_EDIT"
-msgstr ""
+msgstr "Может изменять пользователей"
 
 # Show users
 msgid "USERS_READ"
-msgstr ""
+msgstr "Может видеть других пользователей"
 
 # Edit own user data / change own password
 msgid "USERS_EDIT_SELF"
-msgstr ""
+msgstr "Может изменять свои данные"
 
 # Undo charge cycle
 msgid "BATTERIES_UNDO_CHARGE_CYCLE"
-msgstr ""
+msgstr "Может отменять цикл заряда батареи"
 
 # Track charge cycle
 msgid "BATTERIES_TRACK_CHARGE_CYCLE"
-msgstr ""
+msgstr "Может отслеживать цикл заряда батареи"
 
 # Track execution
 msgid "CHORE_TRACK_EXECUTION"
-msgstr ""
+msgstr "Может отслеживать выполнение работы"
 
 # Undo execution
 msgid "CHORE_UNDO_EXECUTION"
-msgstr ""
+msgstr "Может отменять выполнение работы"
 
 # Edit master data
 msgid "MASTER_DATA_EDIT"
-msgstr ""
+msgstr "Может управлять основными данными"
 
 # Undo execution
 msgid "TASKS_UNDO_EXECUTION"
-msgstr ""
+msgstr "Может отменять выполнение задачи"
 
 # Mark completed
 msgid "TASKS_MARK_COMPLETED"
-msgstr ""
+msgstr "Может отслеживать выполнение задачи"
 
 # Edit stock entries
 msgid "STOCK_EDIT"
-msgstr ""
+msgstr "Может изменять запасы"
 
 # Transfer
 msgid "STOCK_TRANSFER"
-msgstr ""
+msgstr "Может перемещать продукты между хранилищами"
 
 # Inventory
 msgid "STOCK_INVENTORY"
-msgstr ""
+msgstr "Может проводить инвентаризацию запасов"
 
 # Consume
 msgid "STOCK_CONSUME"
-msgstr ""
+msgstr "Может отмечать запасы употреблёнными"
 
 # Open products
 msgid "STOCK_OPEN"
-msgstr ""
+msgstr "Может помечать запасы как открытые"
 
 # Purchase
 msgid "STOCK_PURCHASE"
-msgstr ""
+msgstr "Может вносить купленные продукты в запасы"
 
 # Add items
 msgid "SHOPPINGLIST_ITEMS_ADD"
-msgstr ""
+msgstr "Может добавлять пункты в список покупок"
 
 # Remove items
 msgid "SHOPPINGLIST_ITEMS_DELETE"
-msgstr ""
+msgstr "Может удалять пункты из списка покупок"
 
 # User management
 msgid "USERS"
-msgstr ""
+msgstr "Пользователи"
 
 # Stock
 msgid "STOCK"
-msgstr ""
+msgstr "Запасы"
 
 # Shopping list
 msgid "SHOPPINGLIST"
-msgstr ""
+msgstr "Список покупок"
 
 # Chores
 msgid "CHORES"
-msgstr ""
+msgstr "Работы по дому"
 
 # Batteries
 msgid "BATTERIES"
-msgstr ""
+msgstr "Батарейки"
 
 # Tasks
 msgid "TASKS"
-msgstr ""
+msgstr "Задачи"
 
 # Recipes
 msgid "RECIPES"
-msgstr ""
+msgstr "Рецепты"
 
 # Equipment
 msgid "EQUIPMENT"
-msgstr ""
+msgstr "Техника"
 
 # Calendar
 msgid "CALENDAR"
-msgstr ""
+msgstr "Календарь"
 
 # Meal plan
 msgid "RECIPES_MEALPLAN"
-msgstr ""
+msgstr "Может составлять план питания"

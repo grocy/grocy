@@ -23,12 +23,13 @@
 # Anne Gerben van Assen <annegerben+transifex@vanassen.eu>, 2021
 # Sebastiaan Ammerlaan <steelbas@gmail.com>, 2021
 # Mark Peters <forkless@gmail.com>, 2021
-# Daan Breur <daanbreur@gmail.com>, 2021
 # Grocy NL, 2021
 # mc bloch <transifex@mcbloch.dev>, 2021
 # Gerard stn, 2021
 # Simon Bor <mail@simonbor.nl>, 2022
 # T. van der Nagel, 2022
+# Daan Breur <daanbreur@gmail.com>, 2022
+# Pieter Vantorre, 2022
 # 
 msgid ""
 msgstr ""
@@ -36,7 +37,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: T. van der Nagel, 2022\n"
+"Last-Translator: Pieter Vantorre, 2022\n"
 "Language-Team: Dutch (https://www.transifex.com/grocy/teams/93189/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -51,7 +52,7 @@ msgstr "Voorraad"
 msgid "%s product expires"
 msgid_plural "%s products expiring"
 msgstr[0] "%sproduct verloopt"
-msgstr[1] "%s producten verlopen"
+msgstr[1] "%s producten verlopen bijna"
 
 msgid "within the next day"
 msgid_plural "within the next %s days"
@@ -109,7 +110,7 @@ msgid "Chore tracking"
 msgstr "Klusjes volgen"
 
 msgid "Battery tracking"
-msgstr "Batterij volgen"
+msgstr "Batterijen volgen"
 
 msgid "Locations"
 msgstr "Locaties"
@@ -625,7 +626,7 @@ msgstr[1] "Er moeten %s batterijen opgeladen worden"
 msgid "%s battery is overdue to be charged"
 msgid_plural "%s batteries are overdue to be charged"
 msgstr[0] "%s batterij moet nog opgeladen worden"
-msgstr[1] "%sbatterijen moeten nog opgeladen worden"
+msgstr[1] "%s batterijen moeten nog opgeladen worden"
 
 msgid "in singular form"
 msgstr "In enkelvoud"
@@ -2509,7 +2510,7 @@ msgstr[1] "%s taken moeten vandaag worden gedaan"
 msgid "%s chore is due to be done today"
 msgid_plural "%s chores are due to be done today"
 msgstr[0] "%sklusje moet vandaag worden gedaan"
-msgstr[1] "%sKlusjes moeten vandaag worden gedaan."
+msgstr[1] "%s klusjes moeten vandaag worden gedaan."
 
 msgid "%s battery is due to be charged today"
 msgid_plural "%s batteries are due to be charged today"
@@ -2582,7 +2583,7 @@ msgid ""
 msgstr ""
 
 msgid "Disable own stock"
-msgstr ""
+msgstr "Eigen voorraad uitschakelen"
 
 msgid ""
 "When enabled, this product can't have own stock, means it will not be "
@@ -2608,16 +2609,16 @@ msgid ""
 msgstr ""
 
 msgid "Night mode"
-msgstr ""
+msgstr "Nachtmodus"
 
 msgid "On"
-msgstr ""
+msgstr "Aan"
 
 msgid "Use system setting"
 msgstr ""
 
 msgid "Off"
-msgstr ""
+msgstr "Uit"
 
 msgid ""
 "Automatically add products that are below their defined min. stock amount to"
@@ -2628,10 +2629,10 @@ msgid "Reassigned"
 msgstr ""
 
 msgid "Default value"
-msgstr ""
+msgstr "Standaardwaarde"
 
 msgid "Now / today"
-msgstr ""
+msgstr "Nu / vandaag"
 
 msgid "Add meal plan entry"
 msgstr ""
@@ -2646,7 +2647,7 @@ msgid "Stock entries at this location will be consumed first"
 msgstr ""
 
 msgid "Move on open"
-msgstr ""
+msgstr "Verplaats na openen"
 
 msgid ""
 "When enabled, on marking this product as opened, the corresponding amount "

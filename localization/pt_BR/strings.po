@@ -1,19 +1,20 @@
 # 
 # Translators:
 # Joao Santos <joaocpdsantos@gmail.com>, 2019
+# Armando Neto <armando.muassab@gmail.com>, 2019
+# Danilo Vieira <cebikyn@gmail.com>, 2019
+# Jefferson Brito Passos dos Santos <jeffersantoss@gmail.com>, 2019
 # Arthur Vieira <skytakes.arthur@gmail.com>, 2020
 # Leonardo Fialho <leonardofialho@gmail.com>, 2020
 # Andre Souto <andre.jost@gmail.com>, 2020
 # Wendell Mendes <wendellmendes@live.com>, 2021
+# Jonatha Nogueira Barbosa <jb.barbosa133@gmail.com>, 2021
+# Bruno Mouta <brumouta@gmail.com>, 2021
 # João Filipe Cavichiolo Storrer <jofi_casto@hotmail.com>, 2021
-# Fernando Luiz Bonifácio de Oliveira, 2021
 # Eduardo Bizarro, 2021
 # Ryan Monteiro, 2022
-# Danilo Vieira <cebikyn@gmail.com>, 2022
-# Jefferson Brito Passos dos Santos <jeffersantoss@gmail.com>, 2022
-# Armando Neto <armando.muassab@gmail.com>, 2022
-# Bruno Mouta <brumouta@gmail.com>, 2022
-# Jonatha Nogueira Barbosa <jb.barbosa133@gmail.com>, 2022
+# Fernando Luiz Bonifácio de Oliveira, 2022
+# Webysther Sperandio <webysther@gmail.com>, 2022
 # 
 msgid ""
 msgstr ""
@@ -21,7 +22,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Jonatha Nogueira Barbosa <jb.barbosa133@gmail.com>, 2022\n"
+"Last-Translator: Webysther Sperandio <webysther@gmail.com>, 2022\n"
 "Language-Team: Portuguese (Brazil) (https://www.transifex.com/grocy/teams/93189/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -53,9 +54,9 @@ msgstr[2] "%s produtos já expiraram."
 
 msgid "%s product is overdue"
 msgid_plural "%s products are overdue"
-msgstr[0] "%sproduto está vencido"
-msgstr[1] "%sprodutos estão vencidos"
-msgstr[2] "%sprodutos estão vencidos"
+msgstr[0] "%s produto está vencido"
+msgstr[1] "%s produtos estão vencidos"
+msgstr[2] "%s produtos estão vencidos"
 
 msgid "%s product is below defined min. stock amount"
 msgid_plural "%s products are below defined min. stock amount"
@@ -350,7 +351,7 @@ msgid "Manage API keys"
 msgstr "Organizar Chaves do API"
 
 msgid "REST API browser"
-msgstr ""
+msgstr "Navegador da API REST"
 
 msgid "API keys"
 msgstr "chaves API"
@@ -884,6 +885,9 @@ msgid ""
 "The first item in this list would be picked by the default rule consume rule"
 " (Opened first, then first due first, then first in first out)"
 msgstr ""
+"O primeiro item nesta lista seria escolhido pela regra de consumo de regra "
+"padrão (Aberto primeiro, depois primeiro a expirar, depois primeiro a entrar"
+" primeiro a sair)"
 
 msgid "Mark %1$s of %2$s as open"
 msgstr "Marcar %1$s de %2$s como aberto"
@@ -1209,9 +1213,9 @@ msgstr "Plano de refeições"
 
 msgid "%s serving"
 msgid_plural "%s servings"
-msgstr[0] "%sporção"
-msgstr[1] "%sporções"
-msgstr[2] "%sporções"
+msgstr[0] "%s porção"
+msgstr[1] "%s porções"
+msgstr[2] "%s porções"
 
 msgid "Week costs"
 msgstr "Custos na semana"
@@ -1352,8 +1356,14 @@ msgid_plural ""
 "This means the next execution of this chore is scheduled at the same time "
 "(based on the start date) every %s days"
 msgstr[0] ""
+"Isso significa que a próxima execução dessa tarefa é agendada no mesmo "
+"horário (com base na data de início) todos os dias"
 msgstr[1] ""
+"Isso significa que a próxima execução dessa tarefa é agendada no mesmo "
+"horário (com base na data de início) a cada %s dias"
 msgstr[2] ""
+"Isso significa que a próxima execução dessa tarefa é agendada no mesmo "
+"horário (com base na data de início) a cada %s dias"
 
 msgid ""
 "This means the next execution of this chore is scheduled %s hour after the "
@@ -2081,8 +2091,8 @@ msgstr "Próxima data de vencimento"
 msgid "%s product is due"
 msgid_plural "%s products are due"
 msgstr[0] "%s produto são vencido"
-msgstr[1] "%sprodutos estão vencendo"
-msgstr[2] "%sprodutos estão vencendo"
+msgstr[1] "%s produtos estão vencendo"
+msgstr[2] "%s produtos estão vencendo"
 
 msgid "Due date"
 msgstr "Prazo"

@@ -2,13 +2,13 @@
 # Translators:
 # Bernd Bestel <bernd@berrnd.de>, 2019
 # Troels Siggaard <troels@siggaard.com>, 2019
-# Brian Moos Lindberg <brian@blueeel.dk>, 2019
 # Mihai Marinescu <mihai@marinescu.dk>, 2020
 # Kim Bardrum <kim.bardrum@gmail.com>, 2021
 # Michael Winkel <mbw@mbw.dk>, 2021
 # klavslund <klavslund@gmail.com>, 2021
 # dark159123 <r.j.hansen@protonmail.com>, 2021
 # Jesper Donnis, 2021
+# Brian Moos Lindberg <brian@blueeel.dk>, 2022
 # 
 msgid ""
 msgstr ""
@@ -16,7 +16,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Jesper Donnis, 2021\n"
+"Last-Translator: Brian Moos Lindberg <brian@blueeel.dk>, 2022\n"
 "Language-Team: Danish (https://www.transifex.com/grocy/teams/93189/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2045,7 +2045,7 @@ msgid "Expired"
 msgstr "Udløbet"
 
 msgid "Due soon days"
-msgstr "Udløber snart, (dage)"
+msgstr "Forfalder snart, (dage)"
 
 msgid "Add overdue/expired products"
 msgstr "Tilføj varer der er udløbet, for gamle"
@@ -2116,7 +2116,7 @@ msgid "Use the products \"Quick consume amount\""
 msgstr "Brug varens værdi for ‘hurtig nedskrivning’"
 
 msgid "Disabled"
-msgstr "De-aktiveret"
+msgstr "Deaktiveret"
 
 msgid ""
 "This also removes any stock amount, the journal and all other references of "
@@ -2128,7 +2128,7 @@ msgstr ""
 "beholde historikken."
 
 msgid "Show disabled"
-msgstr "Vis de-aktiverede"
+msgstr "Vis deaktiverede"
 
 msgid "Never show on stock overview"
 msgstr "Vis aldrig på lageroversigten"
@@ -2285,7 +2285,7 @@ msgid "Unable to print"
 msgstr "Kan ikke printe"
 
 msgid "Only done items"
-msgstr ""
+msgstr "Kun færdige punkter"
 
 msgid "Show only in-stock products"
 msgstr "Vis kun varer på lager"
@@ -2298,7 +2298,7 @@ msgid "%1$s per %2$s"
 msgstr ""
 
 msgid "Mark this item as undone"
-msgstr ""
+msgstr "Marker dette punkt som ufærdigt"
 
 msgid "Mandatory"
 msgstr "Obligatorisk"
@@ -2314,7 +2314,7 @@ msgid "In-stock products"
 msgstr "Varer på lager"
 
 msgid "Timestamp"
-msgstr ""
+msgstr "Tidsstempel"
 
 msgid "Should not be frozen"
 msgstr "Bør ikke fryses"
@@ -2342,7 +2342,7 @@ msgid "Add recipe"
 msgstr "Tilføj opskrift"
 
 msgid "Copy this day"
-msgstr ""
+msgstr "Kopier denne dag"
 
 msgid "Date range"
 msgstr "Datointerval"
@@ -2425,7 +2425,7 @@ msgid ""
 msgstr ""
 
 msgid "Due today"
-msgstr ""
+msgstr "Forfalder i dag"
 
 msgid "%s task is due to be done today"
 msgid_plural "%s tasks are due to be done today"
@@ -2434,8 +2434,8 @@ msgstr[1] ""
 
 msgid "%s chore is due to be done today"
 msgid_plural "%s chores are due to be done today"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%s gøremål forfalder i dag"
+msgstr[1] "%s gøremål forfalder i dag"
 
 msgid "%s battery is due to be charged today"
 msgid_plural "%s batteries are due to be charged today"
@@ -2443,10 +2443,10 @@ msgstr[0] ""
 msgstr[1] ""
 
 msgid "Set to 0 to hide due soon filters/highlighting"
-msgstr ""
+msgstr "Sæt til 0 for at skjule filtre/fremhævninger for snarlig forfald"
 
 msgid "Save & close"
-msgstr ""
+msgstr "Gem & luk"
 
 msgid "Save & add another task"
 msgstr ""
@@ -2466,13 +2466,13 @@ msgid "Skip next chore schedule"
 msgstr ""
 
 msgid "Time"
-msgstr ""
+msgstr "Tid"
 
 msgid "A start date is required"
-msgstr ""
+msgstr "En startdato er påkrævet"
 
 msgid "Start date"
-msgstr ""
+msgstr "Startdato"
 
 msgid "The start date cannot be changed when the chore was once tracked"
 msgstr ""
@@ -2506,19 +2506,23 @@ msgid ""
 msgstr ""
 
 msgid "Disable own stock"
-msgstr ""
+msgstr "Deaktiver egen lagerbeholdning"
 
 msgid ""
 "When enabled, this product can't have own stock, means it will not be "
 "selectable on purchase (useful for parent products which are just used as a "
 "summary/total view of the child products)"
 msgstr ""
+"Hvis aktiveret kan denne vare ikke have egen beholdning. Det betyder den "
+"ikke kan indvælges ved køb (anvendelig ved overordnet vare som blot benyttes"
+" til summering af underordnede varer)."
 
 msgid "Out of stock items will be shown at the products default location"
 msgstr ""
 
 msgid "Show a little checkbox next to each ingredient to mark it as done"
 msgstr ""
+"Vis en lille boks ved siden af hver ingrediens til at markere som færdigt"
 
 msgid ""
 "The ingredient is crossed out when clicked, the status is not saved, means "
@@ -2532,16 +2536,16 @@ msgid ""
 msgstr ""
 
 msgid "Night mode"
-msgstr ""
+msgstr "Nattilstand"
 
 msgid "On"
-msgstr ""
+msgstr "Til"
 
 msgid "Use system setting"
-msgstr ""
+msgstr "Benyt systemindstilling"
 
 msgid "Off"
-msgstr ""
+msgstr "Fra"
 
 msgid ""
 "Automatically add products that are below their defined min. stock amount to"
@@ -2552,10 +2556,10 @@ msgid "Reassigned"
 msgstr ""
 
 msgid "Default value"
-msgstr ""
+msgstr "Standardværdi"
 
 msgid "Now / today"
-msgstr ""
+msgstr "Nu / i dag"
 
 msgid "Add meal plan entry"
 msgstr ""
@@ -2564,13 +2568,13 @@ msgid "Edit meal plan entry"
 msgstr ""
 
 msgid "Default consume location"
-msgstr ""
+msgstr "Standard forbrugsplacering"
 
 msgid "Stock entries at this location will be consumed first"
-msgstr ""
+msgstr "Vareposteringer på denne placering vil bliver forbrugt først"
 
 msgid "Move on open"
-msgstr ""
+msgstr "Flyt ved åbning"
 
 msgid ""
 "When enabled, on marking this product as opened, the corresponding amount "
@@ -2578,7 +2582,7 @@ msgid ""
 msgstr ""
 
 msgid "Moved to %1$s"
-msgstr ""
+msgstr "Flyttet til %1$s"
 
 msgid "Decimal places allowed for prices (input)"
 msgstr ""

@@ -1,6 +1,6 @@
 # 
 # Translators:
-# Termitebug <rogueshadow@keemail.me>, 2020
+# Kalle Laakso <rogueshadow@keemail.me>, 2020
 # Markus Laaksonen, 2022
 # 
 msgid ""

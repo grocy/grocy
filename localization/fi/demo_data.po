@@ -1,6 +1,6 @@
 # 
 # Translators:
-# Termitebug <rogueshadow@keemail.me>, 2020
+# Kalle Laakso <rogueshadow@keemail.me>, 2020
 # jarkko hämäläinen <zeik@iki.fi>, 2020
 # Jukka-Pekka Kokkonen <jukkapekka.kokkonen@gmail.com>, 2020
 # Matti Koskimies <matti@apulanta.fi>, 2021
@@ -382,4 +382,10 @@ msgid "Catalan"
 msgstr "Katalonialainen"
 
 msgid "Slovenian"
+msgstr ""
+
+msgid "Lithuanian"
+msgstr ""
+
+msgid "Ukrainian"
 msgstr ""
