@@ -2338,3 +2338,6 @@ msgstr ""
 
 msgid "Decimal places allowed for prices (display)"
 msgstr ""
+
+msgid "Clear done items"
+msgstr ""

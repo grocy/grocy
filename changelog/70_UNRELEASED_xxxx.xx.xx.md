@@ -12,7 +12,7 @@
 
 ### Shopping list
 
-- xxx
+- Added a new button "Clear done items" (to clear all done items with one click)
 
 ### Recipes
 

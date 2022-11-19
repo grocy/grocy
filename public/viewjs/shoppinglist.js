@@ -236,6 +236,20 @@ $(document).on('click', '#clear-shopping-list', function(e)
 	});
 });
 
+$(document).on("click", "#clear-done-items", function(e)
+{
+	Grocy.Api.Post('stock/shoppinglist/clear', { "list_id": $("#selected-shopping-list").val(), "done_only": true },
+		function(result)
+		{
+			window.location.reload();
+		},
+		function(xhr)
+		{
+			console.error(xhr);
+		}
+	);
+});
+
 $(document).on('click', '.shopping-list-stock-add-workflow-list-item-button', function(e)
 {
 	e.preventDefault();
