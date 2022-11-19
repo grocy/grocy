@@ -80,7 +80,7 @@ class BatteriesController extends BaseController
 		$usersService = $this->getUsersService();
 		$nextXDays = $usersService->GetUserSettings(GROCY_USER_ID)['batteries_due_soon_days'];
 
-		$batteries = $this->getDatabase()->batteries()->where('active = 1')->orderBy('name', 'COLLATE NOCASE');
+		$batteries = $this->getDatabase()->batteries()->where('active = 1');
 		$currentBatteries = $this->getBatteriesService()->GetCurrent();
 		foreach ($currentBatteries as $currentBattery)
 		{

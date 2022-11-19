@@ -52,4 +52,4 @@
 
 ### API
 
-- The Endpoint `/batteries` now also returns the corresponding battery object (as field/property `battery`)
+- The endpoint `/batteries` now also returns the corresponding battery object (as field/property `battery`)
