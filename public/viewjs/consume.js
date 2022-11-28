@@ -378,7 +378,7 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 				$(".input-group-productamountpicker").trigger("change");
 
 				var defaultLocationId = productDetails.location.id;
-				if (productDetails.product.default_consume_location_id != null && !productDetails.product.default_consume_location_id.isEmpty())
+				if ((productDetails.product.default_consume_location_id || "").isEmpty())
 				{
 					defaultLocationId = productDetails.product.default_consume_location_id;
 				}
