@@ -38,9 +38,13 @@ grocy is technically a pretty simple PHP application, so the basic notes to get 
 - Include `try_files $uri /index.php$is_args$query_string;` in your location block if you use nginx
   - Or disable URL rewriting (see the option `DISABLE_URL_REWRITING` in `data/config.php`)
 - &rarr; Default login is user `admin` with password `admin`, please change the password immediately (user menu at the top right corner)
-- _Currently everything is only tested against (means 100 % works with) PHP 8.0 with SQLite 3.27.2_
 
-Alternatively clone this repository (the `release` branch always references the latest released version, or checkout the latest tagged revision) and install Composer and Yarn dependencies manually.
+Alternatively clone this repository (the `release` branch always references the latest released version) and install Composer and Yarn dependencies manually.
+
+### Platform support
+
+- PHP 8.0 (with SQLite 3.27.2+)
+- Required PHP extensions: `fileinfo`, `pdo_sqlite`, `gd`, `ctype`, `json`, `intl`, `zlib`, `mbstring`
 
 ## How to run using Docker
 
@@ -120,7 +124,7 @@ There is no plugin included for any service, see the reference implementation in
 
 Database schema migration is automatically done when visiting the root (`/`) route (click on the logo in the left upper edge).
 
-_Please note: Database migrations are supposed to work between releases, not between every commit. If you want to run the current `master` branch (which is the development version), however, you need to handle that (and maybe more) yourself._
+_Please note: Database migrations are supposed to work between releases, not between every commit. If you want to run the current `master` branch (which is the development version), you need to handle that (and maybe more) yourself._
 
 ### Disable certain features
 
