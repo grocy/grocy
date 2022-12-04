@@ -1,4 +1,4 @@
-> ⚠️ xxxBREAKING CHANGESxxx
+> ⚠️ The minimum required SQLite version is now 3.34.0.
 
 > ❗ xxxImportant upgrade informationXXX
 
@@ -8,7 +8,7 @@
 
 ### Stock
 
-- xxx
+- Quantity unit conversions now support transitive conversions, means the QU hierarchy has now unlimited levels (thanks a lot @esclear)
 
 ### Shopping list
 
