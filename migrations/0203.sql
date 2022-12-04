@@ -151,20 +151,41 @@ AS (
 	AND c.path LIKE ('%/' || s.from_qu_id || '/' || s.to_qu_id || '/%')
 )
 
-SELECT DISTINCT
-	-1 AS id, -- Dummy, LessQL needs an id column
-	c.product_id,
-	c.from_qu_id,
-	qu_from.name AS from_qu_name,
-	qu_from.name_plural AS from_qu_name_plural,
-	c.to_qu_id,
-	qu_to.name AS to_qu_name,
-	qu_to.name_plural AS to_qu_name_plural,
-	FIRST_VALUE(factor) OVER (PARTITION BY product_id, from_qu_id, to_qu_id ORDER BY depth ASC) AS factor,
-	c.path AS source
-FROM closure c
-JOIN quantity_units qu_from
-	ON c.from_qu_id = qu_from.id
-JOIN quantity_units qu_to
-	ON c.to_qu_id = qu_to.id
-ORDER BY product_id, from_qu_id, to_qu_id;
+SELECT *
+FROM (
+	SELECT DISTINCT
+		-1 AS id, -- Dummy, LessQL needs an id column
+		c.product_id,
+		c.from_qu_id,
+		qu_from.name AS from_qu_name,
+		qu_from.name_plural AS from_qu_name_plural,
+		c.to_qu_id,
+		qu_to.name AS to_qu_name,
+		qu_to.name_plural AS to_qu_name_plural,
+		FIRST_VALUE(factor) OVER (PARTITION BY product_id, from_qu_id, to_qu_id ORDER BY depth ASC) AS factor,
+		c.path AS source
+	FROM closure c
+	JOIN quantity_units qu_from
+		ON c.from_qu_id = qu_from.id
+	JOIN quantity_units qu_to
+		ON c.to_qu_id = qu_to.id
+
+	UNION
+
+	-- Also return a conversion from/to the products stock QU (with a factor of 1)
+	SELECT
+		-1 AS id, -- Dummy, LessQL needs an id column
+		p.id AS product_id,
+		p.qu_id_stock AS from_qu_id,
+		qu.name AS from_qu_name,
+		qu.name_plural AS from_qu_name_plural,
+		p.qu_id_stock AS to_qu_id,
+		qu.name AS to_qu_name,
+		qu.name_plural AS to_qu_name_plural,
+		1.0 AS factor,
+		'/' || p.qu_id_stock AS source
+	FROM products p
+	JOIN quantity_units qu
+		ON p.qu_id_stock = qu.id
+) x
+ORDER BY x.product_id, x.from_qu_id, x.to_qu_id;

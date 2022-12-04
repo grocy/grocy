@@ -14,12 +14,10 @@ Grocy.Components.ProductAmountPicker.Reload = function(productId, destinationQuI
 		conversionsForProduct.forEach(conversion =>
 		{
 			var factor = parseFloat(conversion.factor);
-			if (conversion.to_qu_id == destinationQuId)
-			{
-				factor = 1;
-			}
 
-			if (!$('#qu_id option[value="' + conversion.to_qu_id + '"]').length) // Don't add the destination QU multiple times
+			// Only conversions related to the destination QU are needed
+			// + only add one conversion per to_qu_id (multiple ones can be a result of contradictory definitions = user input bullshit)
+			if (conversion.from_qu_id == destinationQuId && !$('#qu_id option[value="' + conversion.to_qu_id + '"]').length)
 			{
 				$("#qu_id").append('<option value="' + conversion.to_qu_id + '" data-qu-factor="' + factor + '" data-qu-name-plural="' + conversion.to_qu_name_plural + '">' + conversion.to_qu_name + '</option>');
 			}
@@ -33,7 +31,7 @@ Grocy.Components.ProductAmountPicker.Reload = function(productId, destinationQuI
 
 	if (!Grocy.Components.ProductAmountPicker.InitialValueSet)
 	{
-		var convertedAmount = $("#display_amount").val() * $("#qu_id option:selected").attr("data-qu-factor");
+		var convertedAmount = ($("#display_amount").val() * $("#qu_id option:selected").attr("data-qu-factor")).toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_amounts });
 		$("#display_amount").val(convertedAmount);
 
 		Grocy.Components.ProductAmountPicker.InitialValueSet = true;
