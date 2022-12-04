@@ -5779,7 +5779,8 @@
 					"chores_log",
 					"meal_plan_sections",
 					"products_last_purchased",
-					"products_average_price"
+					"products_average_price",
+					"quantity_unit_conversions_resolved"
 				]
 			},
 			"ExposedEntityNoListing": {
@@ -5797,7 +5798,8 @@
 					"stock_current_locations",
 					"chores_log",
 					"products_last_purchased",
-					"products_average_price"
+					"products_average_price",
+					"quantity_unit_conversions_resolved"
 				]
 			},
 			"ExposedEntityNoDelete": {
@@ -5808,7 +5810,8 @@
 					"stock_current_locations",
 					"chores_log",
 					"products_last_purchased",
-					"products_average_price"
+					"products_average_price",
+					"quantity_unit_conversions_resolved"
 				]
 			},
 			"ExposedEntityEditRequiresAdmin": {
