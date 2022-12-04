@@ -65,6 +65,8 @@ class DemoDataGeneratorService extends BaseService
 				INSERT INTO quantity_units (id, name, name_plural) VALUES (11, '{$this->__n_sql(1, 'Milliliter', 'Milliliters')}', '{$this->__n_sql(2, 'Milliliter', 'Milliliters')}'); --11
 				DELETE FROM quantity_units WHERE name = '{$this->__t_sql('Slice')}';
 				INSERT INTO quantity_units (id, name, name_plural) VALUES (12, '{$this->__n_sql(1, 'Slice', 'Slices')}', '{$this->__n_sql(2, 'Slice', 'Slices')}'); --12
+				DELETE FROM quantity_units WHERE name = '{$this->__t_sql('Kilogram')}';
+				INSERT INTO quantity_units (id, name, name_plural) VALUES (13, '{$this->__n_sql(1, 'Kilogram', 'Kilograms')}', '{$this->__n_sql(2, 'Kilogram', 'Kilograms')}'); --13
 
 				INSERT INTO product_groups(name) VALUES ('01 {$this->__t_sql('Sweets')}'); --1
 				INSERT INTO product_groups(name) VALUES ('02 {$this->__t_sql('Bakery products')}'); --2
@@ -112,6 +114,8 @@ class DemoDataGeneratorService extends BaseService
 
 				INSERT INTO quantity_unit_conversions (from_qu_id, to_qu_id, factor, product_id) VALUES (3, 12, 10, 10);
 				INSERT INTO quantity_unit_conversions (from_qu_id, to_qu_id, factor, product_id) VALUES (3, 8, 1000, 22);
+				INSERT INTO quantity_unit_conversions (from_qu_id, to_qu_id, factor) VALUES (13, 8, 1000);
+				INSERT INTO quantity_unit_conversions (from_qu_id, to_qu_id, factor) VALUES (9, 11, 1000);
 
 				INSERT INTO shopping_list (note, amount) VALUES ('{$this->__t_sql('Some good snacks')}', 1);
 				INSERT INTO shopping_list (product_id, amount) VALUES (20, 1);

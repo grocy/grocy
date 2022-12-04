@@ -187,7 +187,7 @@ class StockController extends BaseController
 				'products' => $this->getDatabase()->products()->where('id != :1 AND parent_product_id IS NULL and active = 1', $product->id)->orderBy('name', 'COLLATE NOCASE'),
 				'isSubProductOfOthers' => $this->getDatabase()->products()->where('parent_product_id = :1', $product->id)->count() !== 0,
 				'mode' => 'edit',
-				'quConversions' => $this->getDatabase()->quantity_unit_conversions(),
+				'quConversions' => $this->getDatabase()->quantity_unit_conversions()->where('product_id', $product->id),
 				'productBarcodeUserfields' => $this->getUserfieldsService()->GetFields('product_barcodes'),
 				'productBarcodeUserfieldValues' => $this->getUserfieldsService()->GetAllValues('product_barcodes')
 			]);

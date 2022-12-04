@@ -1217,9 +1217,6 @@ msgstr ""
 msgid "QU conversions"
 msgstr ""
 
-msgid "Product overrides"
-msgstr ""
-
 msgid "Override for product"
 msgstr ""
 
@@ -2349,4 +2346,7 @@ msgid "Show resolved conversions"
 msgstr ""
 
 msgid "QU conversions resolved"
+msgstr ""
+
+msgid "Product specifc QU conversions"
 msgstr ""

@@ -293,16 +293,10 @@ $("#delete-current-product-picture-button").on("click", function(e)
 
 var quConversionsTable = $('#qu-conversions-table-products').DataTable({
 	'order': [[1, 'asc']],
-	"orderFixed": [[4, 'asc']],
 	'columnDefs': [
 		{ 'orderable': false, 'targets': 0 },
-		{ 'searchable': false, "targets": 0 },
-		{ 'visible': false, 'targets': 4 }
-	].concat($.fn.dataTable.defaults.columnDefs),
-	'rowGroup': {
-		enable: true,
-		dataSrc: 4
-	}
+		{ 'searchable': false, "targets": 0 }
+	].concat($.fn.dataTable.defaults.columnDefs)
 });
 $('#qu-conversions-table-products tbody').removeClass("d-none");
 quConversionsTable.columns.adjust().draw();
