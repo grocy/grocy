@@ -114,6 +114,9 @@ class DemoDataGeneratorService extends BaseService
 
 				INSERT INTO quantity_unit_conversions (from_qu_id, to_qu_id, factor, product_id) VALUES (3, 12, 10, 10);
 				INSERT INTO quantity_unit_conversions (from_qu_id, to_qu_id, factor, product_id) VALUES (3, 8, 1000, 22);
+				INSERT INTO quantity_unit_conversions (from_qu_id, to_qu_id, factor, product_id) VALUES (10, 9, 1, 23);
+				INSERT INTO quantity_unit_conversions (from_qu_id, to_qu_id, factor, product_id) VALUES (3, 8, 500, 6);
+				INSERT INTO quantity_unit_conversions (from_qu_id, to_qu_id, factor, product_id) VALUES (3, 8, 200, 18);
 				INSERT INTO quantity_unit_conversions (from_qu_id, to_qu_id, factor) VALUES (13, 8, 1000);
 				INSERT INTO quantity_unit_conversions (from_qu_id, to_qu_id, factor) VALUES (9, 11, 1000);
 
