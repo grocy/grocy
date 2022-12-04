@@ -15,22 +15,22 @@ WITH RECURSIVE conversion_factors_dup(product_id, from_qu_id, to_qu_id, factor, 
 AS (
 	-- 1. Product "purchase to stock" factors ...
 	SELECT
-		p.id,
-		p.qu_id_purchase,
-		p.qu_id_stock,
-		p.qu_factor_purchase_to_stock,
+		id,
+		qu_id_purchase,
+		qu_id_stock,
+		qu_factor_purchase_to_stock,
 		50
-	FROM products p
-	WHERE p.qu_id_stock != p.qu_id_purchase
+	FROM products
+	WHERE qu_id_stock != qu_id_purchase
 	UNION -- ... and the inverse factors
 	SELECT
-		p.id,
-		p.qu_id_stock,
-		p.qu_id_purchase,
-		1.0 / p.qu_factor_purchase_to_stock,
+		id,
+		qu_id_stock,
+		qu_id_purchase,
+		1.0 / qu_factor_purchase_to_stock,
 		50
-	FROM products p
-	WHERE p.qu_id_stock != p.qu_id_purchase
+	FROM products
+	WHERE qu_id_stock != qu_id_purchase
 
 	UNION
 
@@ -53,9 +53,20 @@ AS (
 		from_qu_id,
 		to_qu_id,
 		factor,
-		10
+		20
 	FROM quantity_unit_conversions
 	WHERE product_id IS NULL
+
+	UNION
+
+	-- 4. QU conversions with a factor of 1.0 from the stock unit to the stock unit
+	SELECT
+		id,
+		qu_id_stock,
+		qu_id_stock,
+		1.0,
+		10
+	FROM products
 ),
 
 -- Now, remove duplicate conversions, only retaining the entries with the highest priority
@@ -151,41 +162,22 @@ AS (
 	AND c.path LIKE ('%/' || s.from_qu_id || '/' || s.to_qu_id || '/%')
 )
 
-SELECT *
-FROM (
-	SELECT DISTINCT
-		-1 AS id, -- Dummy, LessQL needs an id column
-		c.product_id,
-		c.from_qu_id,
-		qu_from.name AS from_qu_name,
-		qu_from.name_plural AS from_qu_name_plural,
-		c.to_qu_id,
-		qu_to.name AS to_qu_name,
-		qu_to.name_plural AS to_qu_name_plural,
-		FIRST_VALUE(factor) OVER (PARTITION BY product_id, from_qu_id, to_qu_id ORDER BY depth ASC) AS factor,
-		c.path AS source
-	FROM closure c
-	JOIN quantity_units qu_from
-		ON c.from_qu_id = qu_from.id
-	JOIN quantity_units qu_to
-		ON c.to_qu_id = qu_to.id
-
-	UNION
-
-	-- Also return a conversion from/to the products stock QU (with a factor of 1)
-	SELECT
-		-1 AS id, -- Dummy, LessQL needs an id column
-		p.id AS product_id,
-		p.qu_id_stock AS from_qu_id,
-		qu.name AS from_qu_name,
-		qu.name_plural AS from_qu_name_plural,
-		p.qu_id_stock AS to_qu_id,
-		qu.name AS to_qu_name,
-		qu.name_plural AS to_qu_name_plural,
-		1.0 AS factor,
-		'/' || p.qu_id_stock AS source
-	FROM products p
-	JOIN quantity_units qu
-		ON p.qu_id_stock = qu.id
-) x
-ORDER BY x.product_id, x.from_qu_id, x.to_qu_id;
+SELECT DISTINCT
+	-1 AS id, -- Dummy, LessQL needs an id column
+	c.product_id,
+	c.from_qu_id,
+	qu_from.name AS from_qu_name,
+	qu_from.name_plural AS from_qu_name_plural,
+	c.to_qu_id,
+	qu_to.name AS to_qu_name,
+	qu_to.name_plural AS to_qu_name_plural,
+	FIRST_VALUE(factor) OVER win AS factor,
+	FIRST_VALUE(c.path) OVER win AS source
+FROM closure c
+JOIN quantity_units qu_from
+	ON c.from_qu_id = qu_from.id
+JOIN quantity_units qu_to
+	ON c.to_qu_id = qu_to.id
+GROUP BY product_id, from_qu_id, to_qu_id
+WINDOW win AS (PARTITION BY product_id, from_qu_id, to_qu_id ORDER BY depth ASC)
+ORDER BY product_id, from_qu_id, to_qu_id;
