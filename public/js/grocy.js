@@ -1236,3 +1236,8 @@ $(document).on("click", "#clear-filter-button", function(e)
 	// to prevent that the tooltip stays until clicked anywhere else
 	document.activeElement.blur();
 });
+
+$(document).on("shown.bs.modal", function(e)
+{
+	ResizeResponsiveEmbeds();
+})
