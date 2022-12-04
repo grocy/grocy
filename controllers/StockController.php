@@ -123,7 +123,6 @@ class StockController extends BaseController
 	public function ProductBarcodesEditForm(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		$product = null;
-
 		if (isset($request->getQueryParams()['product']))
 		{
 			$product = $this->getDatabase()->products($request->getQueryParams()['product']);
@@ -272,7 +271,6 @@ class StockController extends BaseController
 	public function QuantityUnitConversionEditForm(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		$product = null;
-
 		if (isset($request->getQueryParams()['product']))
 		{
 			$product = $this->getDatabase()->products($request->getQueryParams()['product']);
@@ -547,6 +545,26 @@ class StockController extends BaseController
 			'products' => $this->getDatabase()->products()->where('active = 1')->orderBy('name', 'COLLATE NOCASE'),
 			'users' => $usersService->GetUsersAsDto(),
 			'transactionTypes' => GetClassConstants('\Grocy\Services\StockService', 'TRANSACTION_TYPE_')
+		]);
+	}
+
+	public function QuantityUnitConversionsResolved(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	{
+		$product = null;
+		if (isset($request->getQueryParams()['product']))
+		{
+			$product = $this->getDatabase()->products($request->getQueryParams()['product']);
+			$quantityUnitConversionsResolved = $this->getDatabase()->quantity_unit_conversions_resolved()->where('product_id', $product->id);
+		}
+		else
+		{
+			$quantityUnitConversionsResolved = $this->getDatabase()->quantity_unit_conversions_resolved()->where('product_id IS NULL');
+		}
+
+		return $this->renderPage($response, 'quantityunitconversionsresolved', [
+			'product' => $product,
+			'quantityUnits' => $this->getDatabase()->quantity_units()->orderBy('name', 'COLLATE NOCASE'),
+			'quantityUnitConversionsResolved' => $quantityUnitConversionsResolved
 		]);
 	}
 }

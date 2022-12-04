@@ -2341,3 +2341,12 @@ msgstr ""
 
 msgid "Clear done items"
 msgstr ""
+
+msgid "This shows all to this product directly or indirectly related quantity units and their derived conversion factors"
+msgstr ""
+
+msgid "Show resolved conversions"
+msgstr ""
+
+msgid "QU conversions resolved"
+msgstr ""
