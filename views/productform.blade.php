@@ -724,7 +724,6 @@
 						<a class="btn btn-outline-primary btn-sm m-1 mt-md-0 mb-md-0 float-right show-as-dialog-link"
 							href="{{ $U('/quantityunitconversionsresolved?embedded&product=' . $product->id ) }}"
 							data-toggle="tooltip"
-							data-trigger="hover click"
 							title="{{ $__t('This shows all to this product directly or indirectly related quantity units and their derived conversion factors') }}">
 							{{ $__t('Show resolved conversions') }}
 						</a>

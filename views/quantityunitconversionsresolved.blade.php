@@ -8,21 +8,29 @@
 <div class="row">
 	<div class="col">
 		<div class="title-related-links">
-			<h2 class="title">@yield('title')</h2>
-			@if($product != null)
-			<h2>
-				<span class="text-muted small">{{ $__t('Product') }} <strong>{{ $product->name }}</strong></span>
+			<h2 class="title">
+				@yield('title')
+				@if($product != null)
+				<span class="text-muted font-italic small">{{ $__t('Product') }} <strong>{{ $product->name }}</strong></span>
+				@endif
 			</h2>
-			@endif
+			<div class="float-right">
+				<button class="btn btn-outline-dark d-md-none mt-2"
+					type="button"
+					data-toggle="collapse"
+					data-target="#table-filter-row">
+					<i class="fa-solid fa-filter"></i>
+				</button>
+			</div>
 		</div>
 	</div>
 </div>
 
 <hr class="my-2">
 
-<div class="row d-md-flex"
+<div class="row collapse d-md-flex"
 	id="table-filter-row">
-	<div class="col-6">
+	<div class="col-12 col-md-6 col-xl-2">
 		<div class="input-group">
 			<div class="input-group-prepend">
 				<span class="input-group-text"><i class="fa-solid fa-search"></i></span>
@@ -33,7 +41,7 @@
 				placeholder="{{ $__t('Search') }}">
 		</div>
 	</div>
-	<div class="col-5">
+	<div class="col-12 col-md-6 col-xl-2">
 		<div class="input-group">
 			<div class="input-group-prepend">
 				<span class="input-group-text"><i class="fa-solid fa-filter"></i>&nbsp;{{ $__t('Quantity unit') }}</span>
@@ -47,8 +55,8 @@
 			</select>
 		</div>
 	</div>
-	<div class="col-1">
-		<div class="float-right">
+	<div class="col">
+		<div class="float-right mt-1">
 			<button id="clear-filter-button"
 				class="btn btn-sm btn-outline-info"
 				data-toggle="tooltip"
