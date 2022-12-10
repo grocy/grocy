@@ -10,7 +10,6 @@
 		max-height: 250px !important;
 		object-fit: cover !important;
 	}
-
 </style>
 @endpush
 
@@ -520,7 +519,7 @@
 										@endif
 
 										@if(!empty($selectedRecipePosition->note))
-										<div class="text-muted">{!! nl2br($selectedRecipePosition->note) !!}</div>
+										<div class="text-muted">{!! nl2br($selectedRecipePosition->note ?? '') !!}</div>
 										@endif
 									</li>
 									@php $lastProductGroup = $selectedRecipePosition->product_group; @endphp

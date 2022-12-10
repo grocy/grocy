@@ -43,7 +43,7 @@ Alternatively clone this repository (the `release` branch always references the 
 
 ### Platform support
 
-- PHP 8.0 (with SQLite 3.27.2+)
+- PHP 8.1 (with SQLite 3.34.0+)
 - Required PHP extensions: `fileinfo`, `pdo_sqlite`, `gd`, `ctype`, `json`, `intl`, `zlib`, `mbstring`
 
 ## How to run using Docker

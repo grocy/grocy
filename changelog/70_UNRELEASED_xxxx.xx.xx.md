@@ -1,4 +1,4 @@
-> ⚠️ The minimum required SQLite version is now 3.34.0.
+> ⚠️ PHP 8.1 (with SQLite 3.34.0+) is from now on the only supported runtime version.
 
 > ❗ xxxImportant upgrade informationXXX
 

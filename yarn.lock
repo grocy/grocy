@@ -34,9 +34,9 @@
   integrity sha512-pBKuG/g7pMv1dCJ+x3piXqRfWuE/quPlPYaeGf3FwKUBGZyHl4LvM4bA8YmSlQzoMvH/MhcnvVHBhQ5x0fhseA==
 
 "@fortawesome/fontawesome-free@^6.1.1":
-  version "6.2.0"
-  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free/-/fontawesome-free-6.2.0.tgz#ba3510825b332816fe7190f28827f8cb33a298b5"
-  integrity sha512-CNR7qRIfCwWHNN7FnKUniva94edPdyQzil/zCwk3v6k4R6rR2Fr8i4s3PM7n/lyfPA6Zfko9z5WDzFxG9SW1uQ==
+  version "6.2.1"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free/-/fontawesome-free-6.2.1.tgz#344baf6ff9eaad7a73cff067d8c56bfc11ae5304"
+  integrity sha512-viouXhegu/TjkvYQoiRZK3aax69dGXxgEjpvZW81wIJdxm5Fnvp3VVIP4VHKqX4SvFw6qpmkILkD4RJWAdrt7A==
 
 ajv@^6.12.3:
   version "6.12.6"
@@ -108,9 +108,9 @@ bootstrap@^4.5.2, bootstrap@^4.6.1:
   integrity sha512-51Bbp/Uxr9aTuy6ca/8FbFloBUJZLHwnhTcnjIeRn2suQWsWzcuJhGjKDB5eppVte/8oCdOL3VuwxvZDUggwGQ==
 
 bwip-js@^3.0.1:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/bwip-js/-/bwip-js-3.1.0.tgz#4ab493f747d08240e7fab1e294377e0a1883cbae"
-  integrity sha512-H+4s1/25kC/ybwt+o0zhFkbTL4nGrzZV7KW44luWqT/ClmCzhXVqVgaNx8d9YoOUVKR461xDmLt3eGDRtGqRag==
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/bwip-js/-/bwip-js-3.2.1.tgz#bbb424ad31757e7e532fe7d517e351e6b67ce49f"
+  integrity sha512-5f/MxGYfYCg+PS94Fm9fNhNr3YlLEtR8dfelI+v2kBcvbEj6DA0xX5HpzddW18EFNGkcRIcsmeYZRIw6fvNU2Q==
 
 caseless@~0.12.0:
   version "0.12.0"
@@ -532,9 +532,9 @@ mime-types@^2.0.1, mime-types@^2.1.12, mime-types@~2.1.19:
     mime-db "1.52.0"
 
 moment-timezone@^0.5.34:
-  version "0.5.38"
-  resolved "https://registry.yarnpkg.com/moment-timezone/-/moment-timezone-0.5.38.tgz#9674a5397b8be7c13de820fd387d8afa0f725aad"
-  integrity sha512-nMIrzGah4+oYZPflDvLZUgoVUO4fvAqHstvG3xAUnMolWncuAiLDWNnJZj6EwJGMGfb1ZcuTFE6GI3hNOVWI/Q==
+  version "0.5.39"
+  resolved "https://registry.yarnpkg.com/moment-timezone/-/moment-timezone-0.5.39.tgz#342625a3b98810f04c8f4ea917e448d3525e600b"
+  integrity sha512-hoB6suq4ISDj7BDgctiOy6zljBsdYT0++0ZzZm9rtxIvJhIbQ3nmbgSWe7dNFGurl6/7b1OUkHlmN9JWgXVz7w==
   dependencies:
     moment ">= 2.9.0"
 
@@ -627,9 +627,9 @@ qs@~6.5.2:
   integrity sha512-qxXIEh4pCGfHICj1mAJQ2/2XVZkjCDTcEgfoSQxc/fYivUZxTkk7L3bDBJSoNrEzXI17oUO5Dp07ktqE5KzczA==
 
 regenerator-runtime@^0.13.4:
-  version "0.13.10"
-  resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.13.10.tgz#ed07b19616bcbec5da6274ebc75ae95634bfc2ee"
-  integrity sha512-KepLsg4dU12hryUO7bp/axHAKvwGOCV0sGloQtpagJ12ai+ojVDqkeGSiRX1zlq+kjIMZ1t7gpze+26QqtdGqw==
+  version "0.13.11"
+  resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.13.11.tgz#f6dca3e7ceec20590d07ada785636a90cdca17f9"
+  integrity sha512-kY1AZVr2Ra+t+piVaJ4gxaFaReZVH40AKNo7UCX6W+dEwBo/2oZJzqfuN1qLq1oL45o56cPaTXELwrTh8Fpggg==
 
 request@^2.44.0:
   version "2.88.2"

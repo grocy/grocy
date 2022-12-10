@@ -1,13 +1,13 @@
 {
 	"require": {
-		"php": "^8.0",
+		"php": "8.1",
 		"slim/slim": "^4.0",
 		"slim/psr7": "^1.0",
 		"slim/http": "^1.0",
 		"php-di/php-di": "^6.0",
 		"berrnd/slim-blade-view": "^1.0.0",
-		"morris/lessql": "^1.0",
-		"gettext/gettext": "^4.8",
+		"morris/lessql": "dev-php81",
+		"gettext/gettext": "dev-php81",
 		"eluceo/ical": "^2.2.0",
 		"erusev/parsedown": "^1.7",
 		"gumlet/php-image-resize": "^2.0",
@@ -16,6 +16,16 @@
 		"guzzlehttp/guzzle": "^7.0",
 		"mike42/escpos-php": "^3.0"
 	},
+	"repositories": [
+		{
+			"type": "vcs",
+			"url": "https://github.com/berrnd/lessql"
+		},
+		{
+			"type": "vcs",
+			"url": "https://github.com/berrnd/Gettext"
+		}
+	],
 	"autoload": {
 		"psr-4": {
 			"Grocy\\Services\\": "services/",
