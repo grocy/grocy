@@ -376,7 +376,9 @@
 						@include('components.userfields_thead', array(
 						'userfields' => $productUserfields
 						))
-
+						@include('components.userfields_thead', array(
+						'userfields' => $productGroupUserfields
+						))
 					</tr>
 				</thead>
 				<tbody>
@@ -399,6 +401,10 @@
 						@include('components.userfields_tbody', array(
 						'userfields' => $productUserfields,
 						'userfieldValues' => FindAllObjectsInArrayByPropertyValue($productUserfieldValues, 'object_id', $listItem->product_id)
+						))
+						@include('components.userfields_tbody', array(
+						'userfields' => $productGroupUserfields,
+						'userfieldValues' => FindAllObjectsInArrayByPropertyValue($productGroupUserfieldValues, 'object_id', $listItem->product_group_id)
 						))
 
 					</tr>

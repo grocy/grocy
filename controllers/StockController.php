@@ -352,7 +352,6 @@ class StockController extends BaseController
 	public function ShoppingList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		$listId = 1;
-
 		if (isset($request->getQueryParams()['list']))
 		{
 			$listId = $request->getQueryParams()['list'];
@@ -368,6 +367,8 @@ class StockController extends BaseController
 			'quantityUnitConversionsResolved' => $this->getDatabase()->quantity_unit_conversions_resolved(),
 			'productUserfields' => $this->getUserfieldsService()->GetFields('products'),
 			'productUserfieldValues' => $this->getUserfieldsService()->GetAllValues('products'),
+			'productGroupUserfields' => $this->getUserfieldsService()->GetFields('product_groups'),
+			'productGroupUserfieldValues' => $this->getUserfieldsService()->GetAllValues('product_groups'),
 			'userfields' => $this->getUserfieldsService()->GetFields('shopping_list'),
 			'userfieldValues' => $this->getUserfieldsService()->GetAllValues('shopping_list')
 		]);

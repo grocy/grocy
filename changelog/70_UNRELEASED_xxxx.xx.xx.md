@@ -44,7 +44,7 @@
 
 ### Userfields
 
-- xxx
+- Product group Userfields are now also rendered on the shopping list
 
 ### General
 
