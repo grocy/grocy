@@ -9,6 +9,7 @@
 ### Stock
 
 - Quantity unit conversions now support transitive conversions, means the QU hierarchy has now unlimited levels (thanks a lot @esclear)
+- Fixed that hiding the "Purchased date" column (table options) on the stock entries page didn't work
 
 ### Shopping list
 
@@ -16,7 +17,7 @@
 
 ### Recipes
 
-- xxx
+- Fixed that hiding the "Requirements fulfilled" column (table options) on the recipes page didn't work
 
 ### Meal plan
 
@@ -32,7 +33,7 @@
 
 ### Tasks
 
-- xxx
+- Fixed that hiding the "Category" column (table options) on the tasks page didn't work
 
 ### Batteries
 
