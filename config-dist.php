@@ -53,7 +53,7 @@ Setting('CURRENCY', 'USD');
 Setting('BASE_PATH', '');
 
 // The base URL of your installation,
-// should be just "/" when running directly under the root of a (sub)domain
+// should end in "/" when running directly under the root of a (sub)domain
 // or for example "https://example.com/grocy" when using a subdirectory
 Setting('BASE_URL', '/');
 
