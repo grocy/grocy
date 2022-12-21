@@ -18,6 +18,7 @@
 ### Recipes
 
 - Fixed that hiding the "Requirements fulfilled" column (table options) on the recipes page didn't work
+- Fixed that ingredient costs and calories were wrong when product substitution and unit conversions were involved at the same time
 
 ### Meal plan
 
