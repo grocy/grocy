@@ -10,6 +10,7 @@
 
 - Quantity unit conversions now support transitive conversions, means the QU hierarchy has now unlimited levels (thanks a lot @esclear)
 - Fixed that hiding the "Purchased date" column (table options) on the stock entries page didn't work
+- Fixed that the consumed amount was wrong, when consuming multiple substituted subproducts at once and when multiple/different conversion factors were involved
 
 ### Shopping list
 
