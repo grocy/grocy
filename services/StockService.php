@@ -407,7 +407,7 @@ class StockService extends BaseService
 			}
 
 			$productStockAmount = floatval($productDetails->stock_amount_aggregated);
-			if ($amount > $productStockAmount)
+			if (round($amount, 2) > round($productStockAmount, 2))
 			{
 				throw new \Exception('Amount to be consumed cannot be > current stock amount (if supplied, at the desired location)');
 			}
@@ -460,6 +460,13 @@ class StockService extends BaseService
 					$stockEntry->delete();
 
 					$amount -= $stockEntry->amount;
+
+					if ($allowSubproductSubstitution && $stockEntry->product_id != $productId && $conversion != null)
+					{
+						// A sub product with QU conversions was used
+						// => Convert the rest amount back to be based on the original (parent) product for the next round
+						$amount = $amount / floatval($conversion->factor);
+					}
 				}
 				else
 				{
