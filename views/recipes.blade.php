@@ -10,6 +10,27 @@
 		max-height: 250px !important;
 		object-fit: cover !important;
 	}
+
+	@media only screen and (min-width: 60rem) {
+		/* See ingredients and recipe side by side */
+
+		.fullscreen [id^=recipe-] .tab-content {
+			display: flex;
+		}
+
+		.fullscreen [id^=recipe-] .nav-tabs {
+			display: none;
+		}
+
+		.fullscreen [id^=recipe-] [id^=ingredients-] {
+			width: 20rem;
+			padding-right: 3rem;
+		}
+
+		.fullscreen [id^=recipe-] [id^=prep-] {
+			display: inline;
+		}
+	}
 </style>
 @endpush
 
