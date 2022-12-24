@@ -18,6 +18,7 @@
 
 ### Recipes
 
+- Changed that when a ingredient has a "Variable amount" set, the text entered there now also replaces the unit when displaying the recipe (not only the amount as before)
 - Fixed that hiding the "Requirements fulfilled" column (table options) on the recipes page didn't work
 - Fixed that ingredient costs and calories were wrong when product substitution and unit conversions were involved at the same time
 
