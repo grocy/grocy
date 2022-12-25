@@ -10,7 +10,7 @@ const REQUIRED_PHP_EXTENSIONS = ['fileinfo', 'pdo_sqlite', 'gd', 'ctype', 'json'
 ];
 
 const REQUIRED_PHP_VERSION = '8.1.0';
-const REQUIRED_SQLITE_VERSION = '3.22.0';
+const REQUIRED_SQLITE_VERSION = '3.34.0';
 
 class PrerequisiteChecker
 {
