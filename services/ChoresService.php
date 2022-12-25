@@ -49,7 +49,7 @@ class ChoresService extends BaseService
 			$assignedUsers = [];
 			foreach ($users as $user)
 			{
-				if (in_array($user->id, explode(',', $chore->assignment_config)))
+				if (!empty($chore->assignment_config) && in_array($user->id, explode(',', $chore->assignment_config)))
 				{
 					$assignedUsers[] = $user;
 				}
