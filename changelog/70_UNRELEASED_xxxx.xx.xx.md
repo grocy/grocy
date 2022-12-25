@@ -62,6 +62,7 @@
 - ⚠️ **Breaking changes**:
   - The product property `qu_factor_purchase_to_stock` was removed (existing factors were migrated to normal product specific QU conversions, see above)
   - The endpoint `/stock/products/{productId}` returns a new field/property `qu_conversion_factor_purchase_to_stock` for convenience (contains the conversion factor of the corresponding QU conversion from the product's qu_id_purchase to qu_id_stock)
+  - Numbers are now returned as numbers (so technically without quotes around them, were strings for nearly all endpoints before)
 - The following entities are now also available via the endpoint `/objects/{entity}` (only listing, no edit)
   - `quantity_unit_conversions_resolved` (returns all final/resolved conversion factors per product and any directly or indirectly related quantity units)
 - The endpoint `/batteries` now also returns the corresponding battery object (as field/property `battery`)

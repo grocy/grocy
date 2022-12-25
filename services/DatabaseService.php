@@ -69,7 +69,6 @@ class DatabaseService
 		{
 			$pdo = new \PDO('sqlite:' . $this->GetDbFilePath());
 			$pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
-			$pdo->setAttribute(\PDO::ATTR_STRINGIFY_FETCHES, true);
 
 			$pdo->sqliteCreateFunction('regexp', function ($pattern, $value) {
 				mb_regex_encoding('UTF-8');

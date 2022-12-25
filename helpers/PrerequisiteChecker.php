@@ -9,12 +9,14 @@ const REQUIRED_PHP_EXTENSIONS = ['fileinfo', 'pdo_sqlite', 'gd', 'ctype', 'json'
 	'filter', 'iconv', 'tokenizer'
 ];
 
+const REQUIRED_PHP_VERSION = '8.1.0';
 const REQUIRED_SQLITE_VERSION = '3.22.0';
 
 class PrerequisiteChecker
 {
 	public function checkRequirements()
 	{
+		self::checkForPhpVersion();
 		self::checkForConfigFile();
 		self::checkForConfigDistFile();
 		self::checkForComposer();
@@ -49,7 +51,6 @@ class PrerequisiteChecker
 	private function checkForPhpExtensions()
 	{
 		$loadedExtensions = get_loaded_extensions();
-
 		foreach (REQUIRED_PHP_EXTENSIONS as $extension)
 		{
 			if (!in_array($extension, $loadedExtensions))
@@ -62,10 +63,18 @@ class PrerequisiteChecker
 	private function checkForSqliteVersion()
 	{
 		$sqliteVersion = self::getSqlVersionAsString();
-
 		if (version_compare($sqliteVersion, REQUIRED_SQLITE_VERSION, '<'))
 		{
 			throw new ERequirementNotMet('SQLite ' . REQUIRED_SQLITE_VERSION . ' is required, however you are running ' . $sqliteVersion);
+		}
+	}
+
+	private function checkForPhpVersion()
+	{
+		$phpVersion = phpversion();
+		if (version_compare($phpVersion, REQUIRED_PHP_VERSION, '<'))
+		{
+			throw new ERequirementNotMet('PHP ' . REQUIRED_PHP_VERSION . ' is required, however you are running ' . $phpVersion);
 		}
 	}
 
