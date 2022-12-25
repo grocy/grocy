@@ -600,13 +600,25 @@ class StockService extends BaseService
 			{
 				// Add product to database and include new product id in output
 				$productData = $pluginOutput;
-				unset($productData['barcode']);
+				unset($productData['barcode'], $productData['qu_factor_purchase_to_stock']);
+
 				$newProductRow = $this->getDatabase()->products()->createRow($productData);
 				$newProductRow->save();
+
 				$this->getDatabase()->product_barcodes()->createRow([
 					'product_id' => $newProductRow->id,
 					'barcode' => $pluginOutput['barcode']
 				])->save();
+
+				if ($pluginOutput['qu_id_stock'] != $pluginOutput['qu_id_purchase'])
+				{
+					$this->getDatabase()->quantity_unit_conversions()->createRow([
+						'product_id' => $newProductRow->id,
+						'from_qu_id' => $pluginOutput['qu_id_purchase'],
+						'to_qu_id' => $pluginOutput['qu_id_stock'],
+						'factor' => $pluginOutput['qu_factor_purchase_to_stock'],
+					])->save();
+				}
 
 				$pluginOutput['id'] = $newProductRow->id;
 			}
@@ -753,6 +765,16 @@ class StockService extends BaseService
 			$defaultConsumeLocation = $this->getDatabase()->locations($product->default_consume_location_id);
 		}
 
+		$quConversionFactorPurchaseToStock = 1.0;
+		if ($product->qu_id_stock != $product->qu_id_purchase)
+		{
+			$conversion = $this->getDatabase()->quantity_unit_conversions()->where('product_id = :1 AND from_qu_id = :2 AND to_qu_id = :3', $product->id, $product->qu_id_purchase, $product->qu_id_stock)->fetch();
+			if ($conversion != null)
+			{
+				$quConversionFactorPurchaseToStock = $conversion->factor;
+			}
+		}
+
 		return [
 			'product' => $product,
 			'product_barcodes' => $productBarcodes,
@@ -777,7 +799,8 @@ class StockService extends BaseService
 			'spoil_rate_percent' => $spoilRate,
 			'is_aggregated_amount' => $stockCurrentRow->is_aggregated_amount,
 			'has_childs' => $this->getDatabase()->products()->where('parent_product_id = :1', $product->id)->count() !== 0,
-			'default_consume_location' => $defaultConsumeLocation
+			'default_consume_location' => $defaultConsumeLocation,
+			'qu_conversion_factor_purchase_to_stock' => $quConversionFactorPurchaseToStock
 		];
 	}
 

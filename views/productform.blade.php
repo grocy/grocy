@@ -395,7 +395,7 @@
 					id="qu_id_purchase"
 					name="qu_id_purchase">
 					<option></option>
-					@foreach($quantityunits as $quantityunit)
+					@foreach($quantityunitsPurchase as $quantityunit)
 					<option @if($mode=='edit'
 						&&
 						$quantityunit->id == $product->qu_id_purchase) selected="selected" @endif value="{{ $quantityunit->id }}">{{ $quantityunit->name }}</option>
@@ -403,18 +403,6 @@
 				</select>
 				<div class="invalid-feedback">{{ $__t('A quantity unit is required') }}</div>
 			</div>
-
-			@php if($mode == 'edit') { $value = $product->qu_factor_purchase_to_stock; } else { $value = 1; } @endphp
-			@include('components.numberpicker', array(
-			'id' => 'qu_factor_purchase_to_stock',
-			'label' => 'Factor purchase to stock quantity unit',
-			'min' => $DEFAULT_MIN_AMOUNT,
-			'decimals' => $userSettings['stock_decimal_places_amounts'],
-			'value' => $value,
-			'additionalCssClasses' => 'input-group-qu locale-number-input locale-number-quantity-amount',
-			'additionalHtmlElements' => '<p id="qu-conversion-info"
-				class="form-text text-info d-none"></p>'
-			))
 
 			<div class="form-group mb-1">
 				<div class="custom-control custom-checkbox">

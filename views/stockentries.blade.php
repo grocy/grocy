@@ -287,7 +287,7 @@
 							data-trigger="hover click"
 							data-html="true"
 							title="{!! $__t('%1$s per %2$s', '<span class=\'locale-number locale-number-currency\'>' . $stockEntry->price . '</span>', FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $stockEntry->product_id)->qu_id_stock)->name) !!}">
-							{!! $__t('%1$s per %2$s', '<span class="locale-number locale-number-currency">' . floatval($stockEntry->price) * floatval(FindObjectInArrayByPropertyValue($products, 'id', $stockEntry->product_id)->qu_factor_purchase_to_stock) . '</span>', FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $stockEntry->product_id)->qu_id_purchase)->name) !!}
+							{!! $__t('%1$s per %2$s', '<span class="locale-number locale-number-currency">' . floatval($stockEntry->price) * floatval($stockEntry->product_qu_factor_purchase_to_stock) . '</span>', FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $stockEntry->product_id)->qu_id_purchase)->name) !!}
 						</span>
 					</td>
 					<td>

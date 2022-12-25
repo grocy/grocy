@@ -91,7 +91,6 @@ $('.save-product-button').on('click', function(e)
 	var parentProductId = jsonData.product_id;
 	delete jsonData.product_id;
 	jsonData.parent_product_id = parentProductId;
-	jsonData.qu_factor_purchase_to_stock = $("#qu_factor_purchase_to_stock").val(); // Set manually due to input could be disabled
 	Grocy.FrontendHelpers.BeginUiBusy("product-form");
 
 	if (jsonData.parent_product_id.toString().isEmpty())
@@ -160,64 +159,12 @@ if (GetUriParam("flow") !== undefined || GetUriParam("returnto") !== undefined)
 
 $('.input-group-qu').on('change', function(e)
 {
-	var quIdPurchase = $("#qu_id_purchase").val();
-	var quIdStock = $("#qu_id_stock").val();
-
-	if (Grocy.EditMode == "create" && !quIdPurchase.toString().isEmpty() && !quIdStock.toString().isEmpty() && quIdPurchase != quIdStock)
-	{
-		Grocy.Api.Get("objects/quantity_unit_conversions?query[]=product_id=null&query[]=from_qu_id=" + quIdPurchase + "&query[]=to_qu_id=" + quIdStock,
-			function(response)
-			{
-				if (response != null && response.length > 0)
-				{
-					var conversion = response[0];
-
-					$("#qu_factor_purchase_to_stock").val(conversion.factor);
-					RefreshLocaleNumberInput("#qu_factor_purchase_to_stock");
-					RefreshQuConversionInfo();
-				}
-			},
-			function(xhr)
-			{
-				console.error(xhr);
-			}
-		);
-	}
-
-	RefreshQuConversionInfo();
-
 	$("#tare_weight_qu_info").text($("#qu_id_stock option:selected").text());
 	$("#quick_consume_qu_info").text($("#qu_id_stock option:selected").text());
 	$("#energy_qu_info").text($("#qu_id_stock option:selected").text());
 
 	Grocy.FrontendHelpers.ValidateForm('product-form');
 });
-
-function RefreshQuConversionInfo()
-{
-	var quIdPurchase = $("#qu_id_purchase").val();
-	var quIdStock = $("#qu_id_stock").val();
-	var factor = $('#qu_factor_purchase_to_stock').val();
-
-	if (factor > 1 && quIdPurchase != quIdStock)
-	{
-		$('#qu-conversion-info').text(__t('This means 1 %1$s purchased will be converted into %2$s %3$s in stock', $("#qu_id_purchase option:selected").text(), (1 * factor).toString(), __n((1 * factor).toString(), $("#qu_id_stock option:selected").text(), $("#qu_id_stock option:selected").data("plural-form"), true)));
-		$('#qu-conversion-info').removeClass('d-none');
-	}
-	else
-	{
-		$('#qu-conversion-info').addClass('d-none');
-	}
-
-	if (quIdStock == quIdPurchase)
-	{
-		$("#qu_factor_purchase_to_stock").attr("disabled", "");
-	}
-	else
-	{
-		$("#qu_factor_purchase_to_stock").removeAttr("disabled");
-	}
-}
 
 $('#product-form input').keyup(function(event)
 {
@@ -420,8 +367,6 @@ $('#qu_id_stock').change(function(e)
 		quIdPurchase[0].selectedIndex = quIdStock[0].selectedIndex;
 		Grocy.FrontendHelpers.ValidateForm('product-form');
 	}
-
-	RefreshQuConversionInfo();
 });
 
 $(window).on("message", function(e)
@@ -465,7 +410,6 @@ if (Grocy.EditMode == "create" && GetUriParam("copy-of") != undefined)
 			}
 			$("#qu_id_stock").val(sourceProduct.qu_id_stock);
 			$("#qu_id_purchase").val(sourceProduct.qu_id_purchase);
-			$("#qu_factor_purchase_to_stock").val(sourceProduct.qu_factor_purchase_to_stock);
 			if (BoolVal(sourceProduct.enable_tare_weight_handling))
 			{
 				$("#enable_tare_weight_handling").prop("checked", true);

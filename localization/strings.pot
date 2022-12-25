@@ -204,9 +204,6 @@ msgstr ""
 msgid "Quantity unit stock"
 msgstr ""
 
-msgid "Factor purchase to stock quantity unit"
-msgstr ""
-
 msgid "Create location"
 msgstr ""
 
@@ -259,9 +256,6 @@ msgid "never"
 msgstr ""
 
 msgid "Add products that are below defined min. stock amount"
-msgstr ""
-
-msgid "This means 1 %1$s purchased will be converted into %2$s %3$s in stock"
 msgstr ""
 
 msgid "Login"
