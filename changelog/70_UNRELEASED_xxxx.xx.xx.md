@@ -2,6 +2,8 @@
 
 > ❗ The major version bump is due to breaking API changes, please see below if you use the API.
 
+> _Recommendation: Benchmark tests showed that e.g. unit conversion handling is up to 5 times faster when using a more recent (3.39.4+) SQLite version._
+
 ### New feature: xxxx
 
 - xxx
