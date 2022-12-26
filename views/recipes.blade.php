@@ -519,7 +519,7 @@
 											<i class="fa-solid fa-exchange-alt"></i> {{ FindObjectInArrayByPropertyValue($products, 'id', $selectedRecipePosition->product_id_effective)->name }}
 										</span>
 										@endif
-										@if($selectedRecipePosition->need_fulfilled == 1 && GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING) <span class="float-right font-italic ml-2 locale-number locale-number-currency">{{ $selectedRecipePosition->costs }}</span> @endif
+										@if(GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING) <span class="float-right font-italic ml-2 locale-number locale-number-currency">{{ $selectedRecipePosition->costs }}</span> @endif
 										<span class="float-right font-italic"><span class="locale-number locale-number-generic">{{ $selectedRecipePosition->calories }}</span> {{ $__t('Calories') }}</span>
 										@if(!empty($selectedRecipePosition->recipe_variable_amount))
 										<div class="small text-muted font-italic">{{ $__t('Variable amount') }}</div>
