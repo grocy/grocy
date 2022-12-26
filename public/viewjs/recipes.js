@@ -442,3 +442,58 @@ $(document).on('click', '.ingredient-done-button', function(e)
 
 	$(e.currentTarget).parent().toggleClass("text-strike-through");
 });
+
+$(document).on("click", ".add-to-mealplan-button", function(e)
+{
+	Grocy.Components.DateTimePicker.Init(true);
+	Grocy.Components.DateTimePicker.SetValue(moment().format("YYYY-MM-DD"));
+	Grocy.Components.RecipePicker.Clear();
+	$("#add-to-mealplan-modal").modal("show");
+	$('#recipe_id').val($(e.currentTarget).attr("data-recipe-id"));
+	$('#recipe_id').data('combobox').refresh();
+	$('#recipe_id').trigger('change');
+	Grocy.FrontendHelpers.ValidateForm("add-to-mealplan-form");
+	$("#recipe_servings").focus();
+});
+
+$('#save-add-to-mealplan-button').on('click', function(e)
+{
+	e.preventDefault();
+
+	if (!Grocy.FrontendHelpers.ValidateForm("add-to-mealplan-form", true) || $(".combobox-menu-visible").length)
+	{
+		return false;
+	}
+
+	var formData = $('#add-to-mealplan-form').serializeJSON();
+	formData.day = Grocy.Components.DateTimePicker.GetValue();
+
+	Grocy.Api.Post('objects/meal_plan', formData,
+		function(result)
+		{
+			toastr.success(__t("Successfully added the recipe to the meal plan"));
+			$("#add-to-mealplan-modal").modal("hide");
+		},
+		function(xhr)
+		{
+			Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
+		}
+	);
+});
+
+$('#add-to-mealplan-form input').keydown(function(event)
+{
+	if (event.keyCode === 13) // Enter
+	{
+		event.preventDefault();
+
+		if (!Grocy.FrontendHelpers.ValidateForm('add-to-mealplan-form'))
+		{
+			return false;
+		}
+		else
+		{
+			$("#save-add-to-mealplan-button").click();
+		}
+	}
+});

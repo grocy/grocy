@@ -95,7 +95,7 @@ class RecipesController extends BaseController
 			$totalCalories = FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $selectedRecipe->id)->calories;
 		}
 
-		$renderArray = [
+		$viewData = [
 			'recipes' => $recipes,
 			'recipesResolved' => $recipesResolved,
 			'recipePositionsResolved' => $this->getDatabase()->recipes_pos_resolved()->where('recipe_id', $selectedRecipe->id),
@@ -106,7 +106,8 @@ class RecipesController extends BaseController
 			'userfieldValues' => $this->getUserfieldsService()->GetAllValues('recipes'),
 			'quantityUnitConversionsResolved' => $this->getDatabase()->quantity_unit_conversions_resolved(),
 			'selectedRecipeTotalCosts' => $totalCosts,
-			'selectedRecipeTotalCalories' => $totalCalories
+			'selectedRecipeTotalCalories' => $totalCalories,
+			'mealplanSections' => $this->getDatabase()->meal_plan_sections()->orderBy('sort_number')
 		];
 
 		if ($selectedRecipe)
@@ -137,12 +138,12 @@ class RecipesController extends BaseController
 				}
 			}
 
-			$renderArray['selectedRecipeSubRecipes'] = $selectedRecipeSubRecipes;
-			$renderArray['includedRecipeIdsAbsolute'] = $includedRecipeIdsAbsolute;
-			$renderArray['allRecipePositions'] = $allRecipePositions;
+			$viewData['selectedRecipeSubRecipes'] = $selectedRecipeSubRecipes;
+			$viewData['includedRecipeIdsAbsolute'] = $includedRecipeIdsAbsolute;
+			$viewData['allRecipePositions'] = $allRecipePositions;
 		}
 
-		return $this->renderPage($response, 'recipes', $renderArray);
+		return $this->renderPage($response, 'recipes', $viewData);
 	}
 
 	public function RecipeEditForm(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)

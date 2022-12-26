@@ -156,6 +156,12 @@
 										<i class="fa-solid fa-ellipsis-v"></i>
 									</button>
 									<div class="table-inline-menu dropdown-menu dropdown-menu-right hide-on-fullscreen-card hide-when-embedded">
+										<a class="dropdown-item add-to-mealplan-button"
+											type="button"
+											href="#"
+											data-recipe-id="{{ $recipe->id }}">
+											<span class="dropdown-item-text">{{ $__t('Add to meal plan') }}</span>
+										</a>
 										<a class="dropdown-item recipe-delete"
 											type="button"
 											href="#"
@@ -565,5 +571,75 @@
 		</div>
 	</div>
 	@endif
+</div>
+
+<div class="modal fade"
+	id="add-to-mealplan-modal"
+	tabindex="-1">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title w-100">
+					<span>{{ $__t('Add meal plan entry') }}</span>
+					<span class="text-muted float-right">{{ $__t('Recipe') }}</span>
+				</h4>
+			</div>
+			<div class="modal-body">
+				<form id="add-to-mealplan-form"
+					novalidate>
+
+					@include('components.datetimepicker', array(
+					'id' => 'day',
+					'label' => 'Day',
+					'format' => 'YYYY-MM-DD',
+					'initWithNow' => false,
+					'limitEndToNow' => false,
+					'limitStartToNow' => false,
+					'isRequired' => true,
+					'additionalCssClasses' => 'date-only-datetimepicker',
+					'invalidFeedback' => $__t('A date is required')
+					))
+
+					@include('components.recipepicker', array(
+					'recipes' => $recipes,
+					'isRequired' => true,
+					'nextInputSelector' => '#recipe_servings'
+					))
+
+					@include('components.numberpicker', array(
+					'id' => 'recipe_servings',
+					'label' => 'Servings',
+					'min' => $DEFAULT_MIN_AMOUNT,
+					'decimals' => $userSettings['stock_decimal_places_amounts'],
+					'value' => '1',
+					'additionalCssClasses' => 'locale-number-input locale-number-quantity-amount'
+					))
+
+					<div class="form-group">
+						<label for="section_id">{{ $__t('Section') }}</label>
+						<select class="custom-control custom-select"
+							id="section_id"
+							name="section_id"
+							required>
+							@foreach($mealplanSections as $mealplanSection)
+							<option value="{{ $mealplanSection->id }}">{{ $mealplanSection->name }}</option>
+							@endforeach
+						</select>
+					</div>
+
+					<input type="hidden"
+						name="type"
+						value="recipe">
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button type="button"
+					class="btn btn-secondary"
+					data-dismiss="modal">{{ $__t('Cancel') }}</button>
+				<button id="save-add-to-mealplan-button"
+					class="btn btn-success">{{ $__t('Save') }}</button>
+			</div>
+		</div>
+	</div>
 </div>
 @stop

@@ -2350,3 +2350,9 @@ msgstr ""
 
 msgid "This is the default quantity unit used when consuming this product"
 msgstr ""
+
+msgid "Add to meal plan"
+msgstr ""
+
+msgid "Successfully added the recipe to the meal plan"
+msgstr ""
