@@ -2,6 +2,11 @@ Grocy.Components.BatteryCard = {};
 
 Grocy.Components.BatteryCard.Refresh = function(batteryId)
 {
+	if (!$(".batterycard").is(":visible"))
+	{
+		return;
+	}
+
 	Grocy.Api.Get('batteries/' + batteryId,
 		function(batteryDetails)
 		{

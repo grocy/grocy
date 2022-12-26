@@ -2,6 +2,11 @@ Grocy.Components.ChoreCard = {};
 
 Grocy.Components.ChoreCard.Refresh = function(choreId)
 {
+	if (!$(".chorecard").is(":visible"))
+	{
+		return;
+	}
+
 	Grocy.Api.Get('chores/' + choreId,
 		function(choreDetails)
 		{
