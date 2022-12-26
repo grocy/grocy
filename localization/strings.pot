@@ -2344,3 +2344,9 @@ msgstr ""
 
 msgid "Product specifc QU conversions"
 msgstr ""
+
+msgid "Default quantity unit consume"
+msgstr ""
+
+msgid "This is the default quantity unit used when consuming this product"
+msgstr ""

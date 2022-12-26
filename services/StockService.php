@@ -747,6 +747,7 @@ class StockService extends BaseService
 		$nextDueDate = $this->getDatabase()->stock()->where('product_id', $productId)->min('best_before_date');
 		$quPurchase = $this->getDatabase()->quantity_units($product->qu_id_purchase);
 		$quStock = $this->getDatabase()->quantity_units($product->qu_id_stock);
+		$quConsume = $this->getDatabase()->quantity_units($product->qu_id_consume);
 		$location = $this->getDatabase()->locations($product->location_id);
 		$averageShelfLifeDays = intval($this->getDatabase()->stock_average_product_shelf_life()->where('id', $productId)->fetch()->average_shelf_life_days);
 		$currentPrice = $this->getDatabase()->products_current_price()->where('product_id', $productId)->fetch()->price;
@@ -785,8 +786,9 @@ class StockService extends BaseService
 			'stock_amount_opened' => $stockCurrentRow->amount_opened,
 			'stock_amount_aggregated' => $stockCurrentRow->amount_aggregated,
 			'stock_amount_opened_aggregated' => $stockCurrentRow->amount_opened_aggregated,
-			'default_quantity_unit_purchase' => $quPurchase,
 			'quantity_unit_stock' => $quStock,
+			'default_quantity_unit_purchase' => $quPurchase,
+			'default_quantity_unit_consume' => $quConsume,
 			'last_price' => $lastPrice,
 			'avg_price' => $avgPrice,
 			'oldest_price' => $currentPrice, // Deprecated

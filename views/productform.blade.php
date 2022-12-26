@@ -395,10 +395,30 @@
 					id="qu_id_purchase"
 					name="qu_id_purchase">
 					<option></option>
-					@foreach($quantityunitsPurchase as $quantityunit)
+					@foreach($referencedQuantityunits as $quantityunit)
 					<option @if($mode=='edit'
 						&&
 						$quantityunit->id == $product->qu_id_purchase) selected="selected" @endif value="{{ $quantityunit->id }}">{{ $quantityunit->name }}</option>
+					@endforeach
+				</select>
+				<div class="invalid-feedback">{{ $__t('A quantity unit is required') }}</div>
+			</div>
+			
+			<div class="form-group">
+				<label for="qu_id_consume">{{ $__t('Default quantity unit consume') }}</label>
+				<i class="fa-solid fa-question-circle text-muted"
+					data-toggle="tooltip"
+					data-trigger="hover click"
+					title="{{ $__t('This is the default quantity unit used when consuming this product') }}"></i>
+				<select required
+					class="custom-control custom-select input-group-qu"
+					id="qu_id_consume"
+					name="qu_id_consume">
+					<option></option>
+					@foreach($referencedQuantityunits as $quantityunit)
+					<option @if($mode=='edit'
+						&&
+						$quantityunit->id == $product->qu_id_consume) selected="selected" @endif value="{{ $quantityunit->id }}">{{ $quantityunit->name }}</option>
 					@endforeach
 				</select>
 				<div class="invalid-feedback">{{ $__t('A quantity unit is required') }}</div>

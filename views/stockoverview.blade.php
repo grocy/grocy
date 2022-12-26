@@ -192,12 +192,12 @@
 							href="#"
 							data-toggle="tooltip"
 							data-placement="left"
-							title="{{ $__t('Consume %1$s of %2$s', floatval($currentStockEntry->quick_consume_amount) . ' ' . $currentStockEntry->qu_unit_name, $currentStockEntry->product_name) }}"
+							title="{{ $__t('Consume %1$s of %2$s', floatval($currentStockEntry->quick_consume_amount_qu_consume) . ' ' . $currentStockEntry->qu_consume_name, $currentStockEntry->product_name) }}"
 							data-product-id="{{ $currentStockEntry->product_id }}"
 							data-product-name="{{ $currentStockEntry->product_name }}"
-							data-product-qu-name="{{ $currentStockEntry->qu_unit_name }}"
+							data-product-qu-name="{{ $currentStockEntry->qu_stock_name }}"
 							data-consume-amount="{{ $currentStockEntry->quick_consume_amount }}">
-							<i class="fa-solid fa-utensils"></i> <span class="locale-number locale-number-quantity-amount">{{ $currentStockEntry->quick_consume_amount }}</span>
+							<i class="fa-solid fa-utensils"></i> <span class="locale-number locale-number-quantity-amount">{{ $currentStockEntry->quick_consume_amount_qu_consume }}</span>
 						</a>
 						<a id="product-{{ $currentStockEntry->product_id }}-consume-all-button"
 							class="permission-STOCK_CONSUME btn btn-danger btn-sm product-consume-button @if($currentStockEntry->amount_aggregated == 0) disabled @endif"
@@ -207,7 +207,7 @@
 							title="{{ $__t('Consume all %s which are currently in stock', $currentStockEntry->product_name) }}"
 							data-product-id="{{ $currentStockEntry->product_id }}"
 							data-product-name="{{ $currentStockEntry->product_name }}"
-							data-product-qu-name="{{ $currentStockEntry->qu_unit_name }}"
+							data-product-qu-name="{{ $currentStockEntry->qu_stock_name }}"
 							data-consume-amount="@if($currentStockEntry->enable_tare_weight_handling == 1){{$currentStockEntry->tare_weight}}@else{{$currentStockEntry->amount}}@endif"
 							data-original-total-stock-amount="{{$currentStockEntry->amount}}">
 							<i class="fa-solid fa-utensils"></i> {{ $__t('All') }}
@@ -217,12 +217,12 @@
 							href="#"
 							data-toggle="tooltip"
 							data-placement="left"
-							title="{{ $__t('Mark %1$s of %2$s as open', floatval($currentStockEntry->quick_consume_amount) . ' ' . $currentStockEntry->qu_unit_name, $currentStockEntry->product_name) }}"
+							title="{{ $__t('Mark %1$s of %2$s as open', floatval($currentStockEntry->quick_consume_amount_qu_consume) . ' ' . $currentStockEntry->qu_consume_name, $currentStockEntry->product_name) }}"
 							data-product-id="{{ $currentStockEntry->product_id }}"
 							data-product-name="{{ $currentStockEntry->product_name }}"
-							data-product-qu-name="{{ $currentStockEntry->qu_unit_name }}"
+							data-product-qu-name="{{ $currentStockEntry->qu_stock_name }}"
 							data-open-amount="{{ $currentStockEntry->quick_consume_amount }}">
-							<i class="fa-solid fa-box-open"></i> <span class="locale-number locale-number-quantity-amount">{{ $currentStockEntry->quick_consume_amount }}</span>
+							<i class="fa-solid fa-box-open"></i> <span class="locale-number locale-number-quantity-amount">{{ $currentStockEntry->quick_consume_amount_qu_consume }}</span>
 						</a>
 						@endif
 						<div class="dropdown d-inline-block">
@@ -326,14 +326,14 @@
 						<span class="custom-sort d-none">@if($currentStockEntry->product_no_own_stock == 1){{ $currentStockEntry->amount_aggregated }}@else{{ $currentStockEntry->amount }}@endif</span>
 						<span class="@if($currentStockEntry->product_no_own_stock == 1) d-none @endif">
 							<span id="product-{{ $currentStockEntry->product_id }}-amount"
-								class="locale-number locale-number-quantity-amount">{{ $currentStockEntry->amount }}</span> <span id="product-{{ $currentStockEntry->product_id }}-qu-name">{{ $__n($currentStockEntry->amount, $currentStockEntry->qu_unit_name, $currentStockEntry->qu_unit_name_plural) }}</span>
+								class="locale-number locale-number-quantity-amount">{{ $currentStockEntry->amount }}</span> <span id="product-{{ $currentStockEntry->product_id }}-qu-name">{{ $__n($currentStockEntry->amount, $currentStockEntry->qu_stock_name, $currentStockEntry->qu_stock_name_plural) }}</span>
 							<span id="product-{{ $currentStockEntry->product_id }}-opened-amount"
 								class="small font-italic">@if($currentStockEntry->amount_opened > 0){{ $__t('%s opened', $currentStockEntry->amount_opened) }}@endif</span>
 						</span>
 						@if($currentStockEntry->is_aggregated_amount == 1)
 						<span class="@if($currentStockEntry->product_no_own_stock == 0) pl-1 @endif text-secondary">
 							<i class="fa-solid fa-custom-sigma-sign"></i> <span id="product-{{ $currentStockEntry->product_id }}-amount-aggregated"
-								class="locale-number locale-number-quantity-amount">{{ $currentStockEntry->amount_aggregated }}</span> {{ $__n($currentStockEntry->amount_aggregated, $currentStockEntry->qu_unit_name, $currentStockEntry->qu_unit_name_plural, true) }}
+								class="locale-number locale-number-quantity-amount">{{ $currentStockEntry->amount_aggregated }}</span> {{ $__n($currentStockEntry->amount_aggregated, $currentStockEntry->qu_stock_name, $currentStockEntry->qu_stock_name_plural, true) }}
 							@if($currentStockEntry->amount_opened_aggregated > 0)
 							<span id="product-{{ $currentStockEntry->product_id }}-opened-amount-aggregated"
 								class="small font-italic">
@@ -407,8 +407,8 @@
 						<span data-toggle="tooltip"
 							data-trigger="hover click"
 							data-html="true"
-							title="{!! $__t('%1$s per %2$s', '<span class=\'locale-number locale-number-currency\'>' . $currentStockEntry->last_price . '</span>', $currentStockEntry->qu_unit_name) !!}">
-							{!! $__t('%1$s per %2$s', '<span class="locale-number locale-number-currency">' . floatval($currentStockEntry->last_price) * floatval($currentStockEntry->product_qu_factor_purchase_to_stock) . '</span>', $currentStockEntry->qu_purchase_unit_name) !!}
+							title="{!! $__t('%1$s per %2$s', '<span class=\'locale-number locale-number-currency\'>' . $currentStockEntry->last_price . '</span>', $currentStockEntry->qu_stock_name) !!}">
+							{!! $__t('%1$s per %2$s', '<span class="locale-number locale-number-currency">' . floatval($currentStockEntry->last_price) * floatval($currentStockEntry->product_qu_factor_purchase_to_stock) . '</span>', $currentStockEntry->qu_purchase_name) !!}
 						</span>
 						@endif
 					</td>
@@ -437,8 +437,8 @@
 						<span data-toggle="tooltip"
 							data-trigger="hover click"
 							data-html="true"
-							title="{!! $__t('%1$s per %2$s', '<span class=\'locale-number locale-number-currency\'>' . $currentStockEntry->average_price . '</span>', $currentStockEntry->qu_unit_name) !!}">
-							{!! $__t('%1$s per %2$s', '<span class="locale-number locale-number-currency">' . floatval($currentStockEntry->average_price) * floatval($currentStockEntry->product_qu_factor_purchase_to_stock) . '</span>', $currentStockEntry->qu_purchase_unit_name) !!}
+							title="{!! $__t('%1$s per %2$s', '<span class=\'locale-number locale-number-currency\'>' . $currentStockEntry->average_price . '</span>', $currentStockEntry->qu_stock_name) !!}">
+							{!! $__t('%1$s per %2$s', '<span class="locale-number locale-number-currency">' . floatval($currentStockEntry->average_price) * floatval($currentStockEntry->product_qu_factor_purchase_to_stock) . '</span>', $currentStockEntry->qu_purchase_name) !!}
 						</span>
 						@endif
 					</td>

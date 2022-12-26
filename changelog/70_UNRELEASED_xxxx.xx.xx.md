@@ -14,6 +14,10 @@
 - The product option "Factor purchase to stock quantity unit" was removed
   - => Use normal product specific QU conversions instead, if needed
   - An existing "Factor purchase to stock quantity unit" was automatically migrated to a product specific QU conversion
+- New product option "Default quantity unit consume"
+  - Will be used/selected as the default quantity unit on the consume page
+  - The product's "Quick consume amount" is now displayed related to this quantity unit ("quick consume/open buttons" on the stock overview page)
+  - Defaults to the product's "Quantity unit stock" (so no changed behavior when not configured)
 - Fixed that hiding the "Purchased date" column (table options) on the stock entries page didn't work
 - Fixed that the consumed amount was wrong, when consuming multiple substituted subproducts at once and when multiple/different conversion factors were involved
 
@@ -63,8 +67,10 @@
 
 - ⚠️ **Breaking changes**:
   - The product property `qu_factor_purchase_to_stock` was removed (existing factors were migrated to normal product specific QU conversions, see above)
-  - The endpoint `/stock/products/{productId}` returns a new field/property `qu_conversion_factor_purchase_to_stock` for convenience (contains the conversion factor of the corresponding QU conversion from the product's qu_id_purchase to qu_id_stock)
   - Numbers are now returned as numbers (so technically without quotes around them, were strings for nearly all endpoints before)
+- Endpoint `/stock/products/{productId}`:
+  - Added a new field/property `qu_conversion_factor_purchase_to_stock` for convenience (contains the conversion factor of the corresponding QU conversion from the product's qu_id_purchase to qu_id_stock)
+  - Added a new field/property `default_quantity_unit_consume` (contains the quantity unit object of the product's "Default quantity unit consume")
 - The following entities are now also available via the endpoint `/objects/{entity}` (only listing, no edit)
   - `quantity_unit_conversions_resolved` (returns all final/resolved conversion factors per product and any directly or indirectly related quantity units)
 - The endpoint `/batteries` now also returns the corresponding battery object (as field/property `battery`)

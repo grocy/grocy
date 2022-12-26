@@ -4732,10 +4732,13 @@
 					"product_barcodes": {
 						"$ref": "#/components/schemas/ProductBarcode"
 					},
+					"quantity_unit_stock": {
+						"$ref": "#/components/schemas/QuantityUnit"
+					},
 					"default_quantity_unit_purchase": {
 						"$ref": "#/components/schemas/QuantityUnit"
 					},
-					"quantity_unit_stock": {
+					"default_quantity_unit_consume": {
 						"$ref": "#/components/schemas/QuantityUnit"
 					},
 					"last_purchased": {
