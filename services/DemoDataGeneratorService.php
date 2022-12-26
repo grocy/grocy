@@ -119,7 +119,7 @@ class DemoDataGeneratorService extends BaseService
 				INSERT INTO quantity_unit_conversions (from_qu_id, to_qu_id, factor, product_id) VALUES (3, 8, 200, 18);
 				INSERT INTO quantity_unit_conversions (from_qu_id, to_qu_id, factor) VALUES (13, 8, 1000);
 				INSERT INTO quantity_unit_conversions (from_qu_id, to_qu_id, factor) VALUES (9, 11, 1000);
-				INSERT INTO quantity_unit_conversions (from_qu_id, to_qu_id, factor, product_id) VALUES (3, 2, 10, 5);
+				UPDATE quantity_unit_conversions SET factor = 10 WHERE product_id = 5 AND from_qu_id = 3 AND to_qu_id = 2;
 
 				INSERT INTO shopping_list (note, amount) VALUES ('{$this->__t_sql('Some good snacks')}', 1);
 				INSERT INTO shopping_list (product_id, amount) VALUES (20, 1);
