@@ -99,6 +99,8 @@ $('#save-purchase-button').on('click', function(e)
 						jsonDataBarcode.barcode = GetUriParam("barcode");
 						jsonDataBarcode.product_id = jsonForm.product_id;
 						jsonDataBarcode.shopping_location_id = jsonForm.shopping_location_id;
+						jsonDataBarcode.qu_id = jsonForm.qu_id;
+						jsonDataBarcode.amount = jsonForm.display_amount;
 
 						Grocy.Api.Post('objects/product_barcodes', jsonDataBarcode,
 							function(result)
@@ -361,13 +363,13 @@ if (Grocy.Components.ProductPicker !== undefined)
 
 									if (barcode != null)
 									{
-										if (barcode.amount != null && !barcode.amount.isEmpty())
+										if (barcode.amount != null)
 										{
 											$("#display_amount").val(barcode.amount);
 											$("#display_amount").select();
 										}
 
-										if (barcode.qu_id != null && !barcode.qu_id.isEmpty())
+										if (barcode.qu_id != null)
 										{
 											Grocy.Components.ProductAmountPicker.SetQuantityUnit(barcode.qu_id);
 										}

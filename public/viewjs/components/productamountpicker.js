@@ -17,7 +17,7 @@ Grocy.Components.ProductAmountPicker.Reload = function(productId, destinationQuI
 
 			// Only conversions related to the destination QU are needed
 			// + only add one conversion per to_qu_id (multiple ones can be a result of contradictory definitions = user input bullshit)
-			if (conversion.from_qu_id == destinationQuId && !$('#qu_id option[value="' + conversion.to_qu_id + '"]').length)
+			if ((conversion.from_qu_id == destinationQuId || conversion.to_qu_id == destinationQuId) && !$('#qu_id option[value="' + conversion.to_qu_id + '"]').length)
 			{
 				$("#qu_id").append('<option value="' + conversion.to_qu_id + '" data-qu-factor="' + factor + '" data-qu-name-plural="' + conversion.to_qu_name_plural + '">' + conversion.to_qu_name + '</option>');
 			}
