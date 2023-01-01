@@ -353,6 +353,7 @@
 						@endif
 					</td>
 					<td>
+						<span class="custom-sort d-none">{{$currentStockEntry->value}}</span>
 						<span id="product-{{ $currentStockEntry->product_id }}-value"
 							class="locale-number locale-number-currency">{{ $currentStockEntry->value }}</span>
 					</td>

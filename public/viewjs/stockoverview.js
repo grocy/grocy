@@ -28,7 +28,7 @@ var stockOverviewTable = $('#stock-overview-table').DataTable({
 		{ "type": "html", "targets": 11 },
 		{ "type": "custom-sort", "targets": 12 },
 		{ "type": "num", "targets": 13 },
-		{ "type": "html-num-fmt", "targets": 4 },
+		{ "type": "custom-sort", "targets": 4 },
 		{ "type": "custom-sort", "targets": 18 }
 	].concat($.fn.dataTable.defaults.columnDefs)
 });
