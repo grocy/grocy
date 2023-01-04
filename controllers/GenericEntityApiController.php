@@ -48,10 +48,16 @@ class GenericEntityApiController extends BaseApiController
 
 				$newRow = $this->getDatabase()->{$args['entity']}()->createRow($requestBody);
 				$newRow->save();
-				$success = $newRow->isClean();
+				$newObjectId = $this->getDatabase()->lastInsertId();
+
+				// TODO: This should be better done somehow in StockService
+				if ($args['entity'] == 'products' && boolval($this->getUsersService()->GetUserSetting(GROCY_USER_ID, 'shopping_list_auto_add_below_min_stock_amount')))
+				{
+					$this->getStockService()->AddMissingProductsToShoppingList(intval($this->getUsersService()->GetUserSetting(GROCY_USER_ID, 'shopping_list_auto_add_below_min_stock_amount_list_id')));
+				}
 
 				return $this->ApiResponse($response, [
-					'created_object_id' => $this->getDatabase()->lastInsertId()
+					'created_object_id' => $newObjectId
 				]);
 			}
 			catch (\Exception $ex)
@@ -102,7 +108,6 @@ class GenericEntityApiController extends BaseApiController
 			}
 
 			$row->delete();
-			$success = $row->isClean();
 
 			return $this->EmptyApiResponse($response);
 		}
@@ -158,7 +163,12 @@ class GenericEntityApiController extends BaseApiController
 				}
 
 				$row->update($requestBody);
-				$success = $row->isClean();
+
+				// TODO: This should be better done somehow in StockService
+				if ($args['entity'] == 'products' && boolval($this->getUsersService()->GetUserSetting(GROCY_USER_ID, 'shopping_list_auto_add_below_min_stock_amount')))
+				{
+					$this->getStockService()->AddMissingProductsToShoppingList(intval($this->getUsersService()->GetUserSetting(GROCY_USER_ID, 'shopping_list_auto_add_below_min_stock_amount_list_id')));
+				}
 
 				return $this->EmptyApiResponse($response);
 			}
