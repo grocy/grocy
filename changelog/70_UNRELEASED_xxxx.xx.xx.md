@@ -20,6 +20,7 @@
   - Defaults to the product's "Quantity unit stock" (so no changed behavior when not configured)
 - Changed that when the ingredient option "Only check if any amount is in stock" is enabled, costs and calories are now based on the original entered amount instead of an "virtual" fixed amount of `1`
 - When using the "Add as barcode to existing product" workflow on a purchase transaction, the selected quantity unit and the entered amount is now also added to the new barcode
+- When using the "Add as barcode to existing product" workflow on a purchase or inventory transaction, the entered note is now also added to the new barcode
 - Fixed that hiding the "Purchased date" column (table options) on the stock entries page didn't work
 - Fixed that sorting by the "Value" column on the stock overview page didn't work
 - Fixed that the consumed amount was wrong, when consuming multiple substituted subproducts at once and when multiple/different conversion factors were involved

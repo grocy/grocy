@@ -101,6 +101,7 @@ $('#save-purchase-button').on('click', function(e)
 						jsonDataBarcode.shopping_location_id = jsonForm.shopping_location_id;
 						jsonDataBarcode.qu_id = jsonForm.qu_id;
 						jsonDataBarcode.amount = jsonForm.display_amount;
+						jsonDataBarcode.note = jsonForm.note;
 
 						Grocy.Api.Post('objects/product_barcodes', jsonDataBarcode,
 							function(result)

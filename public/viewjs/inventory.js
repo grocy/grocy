@@ -59,6 +59,7 @@ $('#save-inventory-button').on('click', function(e)
 						jsonDataBarcode.barcode = GetUriParam("barcode");
 						jsonDataBarcode.product_id = jsonForm.product_id;
 						jsonDataBarcode.shopping_location_id = jsonForm.shopping_location_id;
+						jsonDataBarcode.note = jsonForm.note;
 
 						Grocy.Api.Post('objects/product_barcodes', jsonDataBarcode,
 							function(result)
