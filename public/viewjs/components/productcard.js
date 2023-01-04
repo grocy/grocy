@@ -2,11 +2,6 @@ Grocy.Components.ProductCard = {};
 
 Grocy.Components.ProductCard.Refresh = function(productId)
 {
-	if (!$(".productcard").is(":visible"))
-	{
-		return;
-	}
-
 	Grocy.Api.Get('stock/products/' + productId,
 		function(productDetails)
 		{
