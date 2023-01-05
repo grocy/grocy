@@ -4468,6 +4468,9 @@
 					"treat_opened_as_out_of_stock": {
 						"type": "integer"
 					},
+					"auto_reprint_stock_label": {
+						"type": "integer"
+					},
 					"no_own_stock": {
 						"type": "integer"
 					},

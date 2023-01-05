@@ -2359,3 +2359,9 @@ msgstr ""
 
 msgid "Reprint stock entry label"
 msgstr ""
+
+msgid "Auto reprint stock entry label"
+msgstr ""
+
+msgid "When enabled, auto-changing the due date of a stock entry (by opening/freezing/thawing and having corresponding default due days set) will reprint its label"
+msgstr ""

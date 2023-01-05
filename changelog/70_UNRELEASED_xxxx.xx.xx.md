@@ -21,6 +21,9 @@
 - Changed that when the ingredient option "Only check if any amount is in stock" is enabled, costs and calories are now based on the original entered amount instead of an "virtual" fixed amount of `1`
 - When using the "Add as barcode to existing product" workflow on a purchase transaction, the selected quantity unit and the entered amount is now also added to the new barcode
 - When using the "Add as barcode to existing product" workflow on a purchase or inventory transaction, the entered note is now also added to the new barcode
+- New product option "Auto reprint stock entry label"
+  - When enabled, auto-changing the due date of a stock entry (by opening/freezing/thawing and having corresponding default due days set) will reprint its label (only server side label printer WebHooks are supported)
+  - Defaults to disabled, so no changed behavior when not configured
 - Added a new option "Reprint stock entry label" on the stock entry edit page (will print the correspondind stock entry label on save)
   - This option will be automatically set on changing the entry's due date
 - Fixed that hiding the "Purchased date" column (table options) on the stock entries page didn't work

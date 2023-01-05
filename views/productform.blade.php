@@ -521,6 +521,20 @@
 						intval($product->default_stock_label_type) == 2 ) selected="selected" @endif value="2">{{ $__t('Label per unit') }}</option>
 				</select>
 			</div>
+
+			<div class="form-group">
+				<div class="custom-control custom-checkbox">
+					<input @if($mode=='edit'
+						&&
+						$product->auto_reprint_stock_label == 1) checked @endif class="form-check-input custom-control-input" type="checkbox" id="auto_reprint_stock_label" name="auto_reprint_stock_label" value="1">
+					<label class="form-check-label custom-control-label"
+						for="auto_reprint_stock_label">{{ $__t('Auto reprint stock entry label') }}&nbsp;<i class="fa-solid fa-question-circle text-muted"
+							data-toggle="tooltip"
+							data-trigger="hover click"
+							title="{{ $__t('When enabled, auto-changing the due date of a stock entry (by opening/freezing/thawing and having corresponding default due days set) will reprint its label') }}"></i>
+					</label>
+				</div>
+			</div>
 			@endif
 
 			@include('components.userfieldsform', array(
