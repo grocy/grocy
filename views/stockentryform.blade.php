@@ -133,6 +133,7 @@
 				</div>
 			</div>
 
+			@if(GROCY_FEATURE_FLAG_STOCK_PRODUCT_OPENED_TRACKING)
 			<div class="form-group">
 				<div class="custom-control custom-checkbox">
 					<input @if($stockEntry->open == 1) checked @endif class="form-check-input custom-control-input" type="checkbox" id="open" name="open" value="1">
@@ -140,11 +141,25 @@
 						for="open">{{ $__t('Opened') }}</label>
 				</div>
 			</div>
+			@endif
 
 			@include('components.userfieldsform', array(
 			'userfields' => $userfields,
 			'entity' => 'stock'
 			))
+
+			@if(GROCY_FEATURE_FLAG_LABEL_PRINTER)
+			<div class="form-group">
+				<div class="custom-control custom-checkbox">
+					<input class="form-check-input custom-control-input"
+						type="checkbox"
+						id="print-label"
+						value="1">
+					<label class="form-check-label custom-control-label"
+						for="print-label">{{ $__t('Reprint stock entry label') }}</label>
+				</div>
+			</div>
+			@endif
 
 			<button id="save-stockentry-button"
 				class="btn btn-success">{{ $__t('OK') }}</button>

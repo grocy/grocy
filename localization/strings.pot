@@ -2356,3 +2356,6 @@ msgstr ""
 
 msgid "Successfully added the recipe to the meal plan"
 msgstr ""
+
+msgid "Reprint stock entry label"
+msgstr ""

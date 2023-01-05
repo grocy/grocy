@@ -25,10 +25,14 @@
 	jsonData.best_before_date = Grocy.Components.DateTimePicker.GetValue();
 	jsonData.purchased_date = Grocy.Components.DateTimePicker2.GetValue();
 	jsonData.note = jsonForm.note;
+	jsonData.price = price;
+	jsonData.open = $("#open").is(":checked");
+
 	if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
 	{
 		jsonData.shopping_location_id = Grocy.Components.ShoppingLocationPicker.GetValue();
 	}
+
 	if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING)
 	{
 		jsonData.location_id = Grocy.Components.LocationPicker.GetValue();
@@ -37,14 +41,23 @@
 	{
 		jsonData.location_id = 1;
 	}
-	jsonData.price = price;
-
-	jsonData.open = $("#open").is(":checked");
 
 	Grocy.Api.Put("stock/entry/" + Grocy.EditObjectRowId, jsonData,
 		function(result)
 		{
 			Grocy.EditObjectId = result[0].transaction_id;
+
+			if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_LABEL_PRINTER && $("#print-label").is(":checked"))
+			{
+				Grocy.Api.Get('stock/entry/' + result[0].stock_id + '/printlabel', function(labelData)
+				{
+					if (Grocy.Webhooks.labelprinter !== undefined)
+					{
+						Grocy.FrontendHelpers.RunWebhook(Grocy.Webhooks.labelprinter, labelData);
+					}
+				});
+			}
+
 			Grocy.Components.UserfieldsForm.Save(function()
 			{
 				var successMessage = __t('Stock entry successfully updated') + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockBookingEntry(\'' + result.id + '\',\'' + Grocy.EditObjectRowId + '\')"><i class="fa-solid fa-undo"></i> ' + __t("Undo") + '</a>';
@@ -121,6 +134,14 @@ Grocy.Api.Get('stock/products/' + Grocy.EditObjectProductId,
 $("#amount").on("focus", function(e)
 {
 	$(this).select();
+});
+
+Grocy.Components.DateTimePicker.GetInputElement().on('change', function(e)
+{
+	if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_LABEL_PRINTER)
+	{
+		$("#print-label").prop("checked", true);
+	}
 });
 
 Grocy.Components.UserfieldsForm.Load();
