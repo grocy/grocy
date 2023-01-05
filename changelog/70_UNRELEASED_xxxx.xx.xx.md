@@ -22,7 +22,7 @@
 - When using the "Add as barcode to existing product" workflow on a purchase transaction, the selected quantity unit and the entered amount is now also added to the new barcode
 - When using the "Add as barcode to existing product" workflow on a purchase or inventory transaction, the entered note is now also added to the new barcode
 - Added a new option "Reprint stock entry label" on the stock entry edit page (will print the correspondind stock entry label on save)
-  - This option will be automatically set when on changing the due date
+  - This option will be automatically set on changing the entry's due date
 - Fixed that hiding the "Purchased date" column (table options) on the stock entries page didn't work
 - Fixed that sorting by the "Value" column on the stock overview page didn't work
 - Fixed that the consumed amount was wrong, when consuming multiple substituted subproducts at once and when multiple/different conversion factors were involved
