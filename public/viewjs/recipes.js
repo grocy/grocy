@@ -351,6 +351,10 @@ $(".recipe-fullscreen").on('click', function(e)
 	$("body").toggleClass("fullscreen-card");
 	$("#selectedRecipeCard .card-header").toggleClass("fixed-top");
 	$("#selectedRecipeCard .card-body").toggleClass("mt-5");
+	$(".recipe-content-container").toggleClass("row");
+	$(".recipe-content-container .ingredients").toggleClass("tab-pane").toggleClass("col-12 col-md-6 col-xl-4");
+	$(".recipe-content-container .preparation").toggleClass("tab-pane").toggleClass("col-12 col-md-6 col-xl-8");
+	$(".recipe-headline").toggleClass("d-none");
 
 	if ($("body").hasClass("fullscreen-card"))
 	{

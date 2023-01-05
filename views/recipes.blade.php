@@ -428,7 +428,7 @@
 						$recipePositionsFiltered = FindAllObjectsInArrayByPropertyValue($allRecipePositions[$recipe->id], 'recipe_id', $recipe->id);
 						@endphp
 
-						<ul class="nav nav-tabs grocy-tabs mb-3 d-print-none"
+						<ul class="nav nav-tabs grocy-tabs mb-3 d-print-none hide-on-fullscreen-card"
 							role="tablist">
 							@if(count($recipePositionsFiltered) > 0)
 							<li class="nav-item">
@@ -448,12 +448,12 @@
 							@endif
 						</ul>
 
-						<div class="tab-content grocy-tabs p-2 print">
+						<div class="tab-content grocy-tabs p-2 print recipe-content-container">
 							@if(count($recipePositionsFiltered) > 0)
-							<div class="tab-pane active"
+							<div class="tab-pane active ingredients"
 								id="ingredients-{{ $index }}"
 								role="tabpanel">
-								<div class="mb-2 mt-3 d-none d-print-block">
+								<div class="mb-2 d-none d-print-block recipe-headline">
 									<h3 class="mb-0">{{ $__t('Ingredients') }}</h3>
 								</div>
 								<ul class="list-group list-group-flush mb-5">
@@ -535,10 +535,10 @@
 								</ul>
 							</div>
 							@endif
-							<div class="tab-pane @if(count($recipePositionsFiltered) == 0) active @endif"
+							<div class="tab-pane @if(count($recipePositionsFiltered) == 0) active @endif preparation"
 								id="prep-{{ $index }}"
 								role="tabpanel">
-								<div class="mb-2 d-none d-print-block">
+								<div class="mb-2 d-none d-print-block recipe-headline">
 									<h3 class="mb-0">{{ $__t('Preparation') }}</h3>
 								</div>
 								@if(!empty($recipe->description))
