@@ -2514,8 +2514,8 @@ msgstr[1] "%s klusjes moeten vandaag worden gedaan."
 
 msgid "%s battery is due to be charged today"
 msgid_plural "%s batteries are due to be charged today"
-msgstr[0] "%sbatterijen moeten vandaag worden opgeladen"
-msgstr[1] "%sbatterijen moeten vandaag worden opgeladen"
+msgstr[0] "%s batterijen moeten vandaag worden opgeladen"
+msgstr[1] "%s batterijen moeten vandaag worden opgeladen"
 
 msgid "Set to 0 to hide due soon filters/highlighting"
 msgstr "Stel in op 0 om binnenkort vervalt filters/markeringen te verbergen "
