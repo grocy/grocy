@@ -556,7 +556,7 @@
 				</div>
 			</div>
 
-			<div class="form-group">
+			<div class="form-group mb-5">
 				<div class="custom-control custom-checkbox">
 					<input @if($mode=='edit'
 						&&
