@@ -50,8 +50,13 @@ class BaseApiController extends BaseController
 			$data = $this->filter($data, $query['query']);
 		}
 
-		if (isset($query['limit']))
+		if (isset($query['limit']) || isset($query['offset']))
 		{
+			if (!isset($query['limit']))
+			{
+				$query['limit'] = -1;
+			}
+
 			$data = $data->limit(intval($query['limit']), intval($query['offset'] ?? 0));
 		}
 
@@ -101,7 +106,8 @@ class BaseApiController extends BaseController
 				$sqlOrNull = ' OR ' . $matches['field'] . ' IS NULL';
 			}
 
-			switch ($matches['op']) {
+			switch ($matches['op'])
+			{
 				case '=':
 					$data = $data->where($matches['field'] . ' = ?' . $sqlOrNull, $matches['value']);
 					break;
@@ -129,7 +135,6 @@ class BaseApiController extends BaseController
 				case '§':
 					$data = $data->where($matches['field'] . ' REGEXP ?', $matches['value']);
 					break;
-
 			}
 		}
 
