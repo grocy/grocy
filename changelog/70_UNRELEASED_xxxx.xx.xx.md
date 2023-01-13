@@ -26,9 +26,11 @@
   - Defaults to disabled, so no changed behavior when not configured
 - Added a new option "Reprint stock entry label" on the stock entry edit page (will print the correspondind stock entry label on save)
   - This option will be automatically set on changing the entry's due date
+- Changed that for the product's average and last price (and for the price history chart) stock transactions with an empty or `0` price are ignored
 - Fixed that hiding the "Purchased date" column (table options) on the stock entries page didn't work
 - Fixed that sorting by the "Value" column on the stock overview page didn't work
 - Fixed that the consumed amount was wrong, when consuming multiple substituted subproducts at once and when multiple/different conversion factors were involved
+- Fixed that for a product's average price, only currently in-stock items were considered, not already consumed ones
 
 ### Shopping list
 
