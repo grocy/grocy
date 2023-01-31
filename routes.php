@@ -93,6 +93,7 @@ $app->group('', function (RouteCollectorProxy $group) {
 			$group->get('/mealplansections', '\Grocy\Controllers\RecipesController:MealPlanSectionsList');
 			$group->get('/mealplansection/{sectionId}', '\Grocy\Controllers\RecipesController:MealPlanSectionEditForm');
 		}
+		
 		$group->get('/recipessettings', '\Grocy\Controllers\RecipesController:RecipesSettings');
 		$group->get('/recipe/{recipeId}/grocycode', '\Grocy\Controllers\RecipesController:RecipeGrocycodeImage');
 	}
