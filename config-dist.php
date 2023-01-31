@@ -140,6 +140,7 @@ Setting('FEATURE_FLAG_STOCK_PRODUCT_OPENED_TRACKING', true);
 Setting('FEATURE_FLAG_STOCK_PRODUCT_FREEZING', true);
 Setting('FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_FIELD_NUMBER_PAD', true); // Activate the number pad in due date fields on (supported) mobile browsers
 Setting('FEATURE_FLAG_SHOPPINGLIST_MULTIPLE_LISTS', true);
+Setting('FEATURE_FLAG_RECIPES_MEALPLAN', true);
 Setting('FEATURE_FLAG_CHORES_ASSIGNMENTS', true);
 Setting('FEATURE_FLAG_THERMAL_PRINTER', false);
 
