@@ -131,3 +131,7 @@ msgstr ""
 # Ukrainian
 msgid "uk"
 msgstr ""
+
+# Romanian
+msgid "ro_RO"
+msgstr ""

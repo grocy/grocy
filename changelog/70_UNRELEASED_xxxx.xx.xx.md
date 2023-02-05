@@ -74,7 +74,8 @@
 
 ### General
 
-- xxx
+- New translations: (thanks all the translators)
+  - Romanian (demo available at <https://ro.demo.grocy.info>)
 
 ### API
 

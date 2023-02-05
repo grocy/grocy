@@ -1,0 +1,46 @@
+# 
+# Translators:
+# Dorin JOREA <dorin.jorea@gmail.com>, 2020
+# Pwnisher <ciprian420@gmail.com>, 2021
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
+"PO-Revision-Date: 2019-05-01 17:42+0000\n"
+"Last-Translator: Pwnisher <ciprian420@gmail.com>, 2021\n"
+"Language-Team: Romanian (Romania) (https://www.transifex.com/grocy/teams/93189/ro_RO/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ro_RO\n"
+"Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?2:1));\n"
+"X-Domain: grocy/stock_transaction_types\n"
+
+msgid "purchase"
+msgstr "achiziționează"
+
+msgid "transfer_from"
+msgstr "mută-din"
+
+msgid "transfer_to"
+msgstr "mută în"
+
+msgid "consume"
+msgstr "consumă"
+
+msgid "inventory-correction"
+msgstr "corecție a inventarului"
+
+msgid "product-opened"
+msgstr "produs deschis"
+
+msgid "stock-edit-old"
+msgstr "editare stoc vechi"
+
+msgid "stock-edit-new"
+msgstr "editare stoc nou"
+
+msgid "self-production"
+msgstr "producție-proprie"

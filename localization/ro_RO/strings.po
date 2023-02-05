@@ -1,0 +1,2639 @@
+# 
+# Translators:
+# Stefan Petrea <stefan@garage-coding.com>, 2020
+# Pwnisher <ciprian420@gmail.com>, 2021
+# Gabriel Andreescu <gabone01@gmail.com>, 2022
+# Adi B, 2022
+# rathantara Tase, 2022
+# Mădălin Pătrăşcanu <mada.patrascanu@gmail.com>, 2022
+# Marian-Bogdan Muntean, 2022
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
+"PO-Revision-Date: 2019-05-01 17:42+0000\n"
+"Last-Translator: Marian-Bogdan Muntean, 2022\n"
+"Language-Team: Romanian (Romania) (https://www.transifex.com/grocy/teams/93189/ro_RO/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ro_RO\n"
+"Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?2:1));\n"
+"X-Domain: grocy/strings\n"
+
+msgid "Stock overview"
+msgstr "Vizualizare stoc"
+
+msgid "%s product expires"
+msgid_plural "%s products expiring"
+msgstr[0] "%s produs care expiră"
+msgstr[1] "%s produse care expiră"
+msgstr[2] "%s produse care expiră"
+
+msgid "within the next day"
+msgid_plural "within the next %s days"
+msgstr[0] "în următoarea zi"
+msgstr[1] "în următoarele %s zile"
+msgstr[2] "în următoarele %s zile"
+
+msgid "%s product is already expired"
+msgid_plural "%s products are already expired"
+msgstr[0] "%s produs este deja expirat"
+msgstr[1] "%s produse sunt deja expirate"
+msgstr[2] "%s produse sunt deja expirate"
+
+msgid "%s product is overdue"
+msgid_plural "%s products are overdue"
+msgstr[0] "%s produs este învechit"
+msgstr[1] "%s produse sunt învechite"
+msgstr[2] "%s produse sunt învechite"
+
+msgid "%s product is below defined min. stock amount"
+msgid_plural "%s products are below defined min. stock amount"
+msgstr[0] "%s produs este sub stocul minim definit"
+msgstr[1] "%s produse sunt sub stocul minim definit"
+msgstr[2] "%s produse sunt sub stocul minim definit"
+
+msgid "Product"
+msgstr "Produs"
+
+msgid "%s Product"
+msgid_plural "%s Products"
+msgstr[0] "%s Produs"
+msgstr[1] "%s Produse"
+msgstr[2] "%s Produse"
+
+msgid "Amount"
+msgstr "Cantitate"
+
+msgid "Logout"
+msgstr "Deconectare"
+
+msgid "Chores overview"
+msgstr "Activități"
+
+msgid "Batteries overview"
+msgstr "Baterii"
+
+msgid "Purchase"
+msgstr "Cumpără"
+
+msgid "Consume"
+msgstr "Consumă"
+
+msgid "Inventory"
+msgstr "Inventar"
+
+msgid "Shopping list"
+msgstr "Listă de cumpărături"
+
+msgid "Chore tracking"
+msgstr "Monitorizare activități"
+
+msgid "Battery tracking"
+msgstr "Monitorizare baterii"
+
+msgid "Locations"
+msgstr "Locații"
+
+msgid "Stores"
+msgstr "Magazine"
+
+msgid "Quantity units"
+msgstr "Unități cantitative"
+
+msgid "Chores"
+msgstr "Activități"
+
+msgid "Batteries"
+msgstr "Baterii"
+
+msgid "Chore"
+msgstr "Activitate"
+
+msgid "Next estimated tracking"
+msgstr "Următoarea monitorizare estimativă"
+
+msgid "Last tracked"
+msgstr "Ultima monitorizare"
+
+msgid "Battery"
+msgstr "Baterie"
+
+msgid "Last charged"
+msgstr "Ultima încărcare"
+
+msgid "Next planned charge cycle"
+msgstr "Următoarea încărcare planificată"
+
+msgid "Best before"
+msgstr "Dată expirare"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "Product overview"
+msgstr "Prezentare Produs"
+
+msgid "Stock quantity unit"
+msgstr "Unitatea stocului"
+
+msgid "Stock amount"
+msgstr "Cantitatea stocului"
+
+msgid "Last purchased"
+msgstr "Data ultimei achiziții"
+
+msgid "Last used"
+msgstr "Dată ultimei utilizări"
+
+msgid "Spoiled"
+msgstr "Expirat"
+
+msgid "Barcode lookup is disabled"
+msgstr "Identificare pe bază de cod de bare dezactivată"
+
+msgid ""
+"will be added to the list of barcodes for the selected product on submit"
+msgstr ""
+"va fi adăugat în lista codurilor de bare pentru produsul selectat, la "
+"apăsarea Submit"
+
+msgid "New amount"
+msgstr "Cantitate nouă"
+
+msgid "Note"
+msgstr "Notă"
+
+msgid "Tracked time"
+msgstr "Timp monitorizat"
+
+msgid "Chore overview"
+msgstr "Vizualizare activitate"
+
+msgid "Tracked count"
+msgstr "Cantitate monitorizată"
+
+msgid "Battery overview"
+msgstr "Prezentare baterie"
+
+msgid "Charge cycles count"
+msgstr "Număr cicluri de încărcare"
+
+msgid "Create shopping list item"
+msgstr "Creați articol din lista de cumpărături"
+
+msgid "Edit shopping list item"
+msgstr "Editați articol din lista de cumpărături"
+
+msgid "Save"
+msgstr "Salvează"
+
+msgid "Add"
+msgstr "Adaugă"
+
+msgid "Name"
+msgstr "Nume"
+
+msgid "Location"
+msgstr "Locație"
+
+msgid "Min. stock amount"
+msgstr "Stoc minim"
+
+msgid "Description"
+msgstr "Descriere"
+
+msgid "Create product"
+msgstr "Creați un produs"
+
+msgid "Barcode(s)"
+msgstr "Cod(uri) de bare"
+
+msgid "Minimum stock amount"
+msgstr "Stoc minim"
+
+msgid "Default best before days"
+msgstr "Număr implicit de zile până la dată de expirare"
+
+msgid "Default quantity unit purchase"
+msgstr "Achiziție unitară a cantității implicite"
+
+msgid "Quantity unit stock"
+msgstr "Cantitate stoc unitar"
+
+msgid "Create location"
+msgstr "Creare locație"
+
+msgid "Create store"
+msgstr "Creare magazin"
+
+msgid "Create quantity unit"
+msgstr "Creați unitatea de cantitate"
+
+msgid "Period type"
+msgstr "Tip perioadă"
+
+msgid "Period days"
+msgstr "Zilele perioadei"
+
+msgid "Create chore"
+msgstr "Creați activitate"
+
+msgid "Used in"
+msgstr "Folosit în "
+
+msgid "Create battery"
+msgstr "Creați baterie"
+
+msgid "Edit battery"
+msgstr "Modifică baterie"
+
+msgid "Edit chore"
+msgstr "Modifică activitate"
+
+msgid "Edit quantity unit"
+msgstr "Modifică unitate cantitativă"
+
+msgid "Edit product"
+msgstr "Modifică produs"
+
+msgid "Edit location"
+msgstr "Modifică locație"
+
+msgid "Edit store"
+msgstr "Modifică magazin"
+
+msgid "Manage master data"
+msgstr "Gestionează date principale"
+
+msgid "This will apply to added products"
+msgstr "Aceste setări vor fi aplicate produselor adăugate"
+
+msgid "never"
+msgstr "niciodată"
+
+msgid "Add products that are below defined min. stock amount"
+msgstr "Adaugă produse cu stoc sub stocul minim definit"
+
+msgid "Login"
+msgstr "Conectare"
+
+msgid "Username"
+msgstr "Nume utilizator"
+
+msgid "Password"
+msgstr "Parolă"
+
+msgid "Invalid credentials, please try again"
+msgstr "Parolă incorectă, te rugăm încearcă din nou"
+
+msgid "Are you sure to delete battery \"%s\"?"
+msgstr "Sunteți sigur că doriți să ștergeți bateria \"%s\"?"
+
+msgid "Yes"
+msgstr "Da"
+
+msgid "No"
+msgstr "Nu"
+
+msgid "Are you sure to delete chore \"%s\"?"
+msgstr "Sunteți sigur că doriți să ștergeți activitatea \"%s\"?"
+
+msgid "\"%s\" could not be resolved to a product, how do you want to proceed?"
+msgstr "\"%s\" nu a fost regăsit în lista de produse, cum doriți să procedați?"
+
+msgid "Create or assign product"
+msgstr "Creați sau asociați produs"
+
+msgid "Cancel"
+msgstr "Anulează"
+
+msgid "Add as new product"
+msgstr "Adaugă ca produs nou"
+
+msgid "Add as barcode to existing product"
+msgstr "Adaugă ca și cod de bare al unui produs existent"
+
+msgid "Add as new product and prefill barcode"
+msgstr "Adaugă că și produs nou și precompletează codul de bare"
+
+msgid "Are you sure to delete quantity unit \"%s\"?"
+msgstr "Sunteți sigur că doriți ștergerea unității cantitative \"%s\"?"
+
+msgid "Are you sure to delete product \"%s\"?"
+msgstr "Sunteți sigur că doriți ștergerea produsului \"%s\"?"
+
+msgid "Are you sure to delete location \"%s\"?"
+msgstr "Sunteți sigur că doriți ștergerea locației \"%s\"?"
+
+msgid "Are you sure to delete store \"%s\"?"
+msgstr "Sunteți sigur că doriți să ștergeți magazinul \"%s\"?"
+
+msgid "Manage API keys"
+msgstr "Gestionează cheile API"
+
+msgid "REST API browser"
+msgstr "Browser REST API"
+
+msgid "API keys"
+msgstr "Chei API"
+
+msgid "Create new API key"
+msgstr "Creați o nouă cheie API"
+
+msgid "API key"
+msgstr "Cheie API"
+
+msgid "Expires"
+msgstr "Expiră"
+
+msgid "Created"
+msgstr "Creat"
+
+msgid "This product is not in stock"
+msgstr "Acest produs nu este pe stoc"
+
+msgid "This means %s will be added to stock"
+msgstr "Asta înseamnă că %s va fi adăugat la stoc"
+
+msgid "This means %s will be removed from stock"
+msgstr "Asta înseamnă că %s va fi eliminat din stoc"
+
+msgid "Removed %1$s of %2$s from stock"
+msgstr "Eliminat 1%1$s din 2%2$s din stoc"
+
+msgid "About grocy"
+msgstr "Despre grocy"
+
+msgid "Close"
+msgstr "Închide"
+
+msgid "Released on"
+msgstr "Lansat pe"
+
+msgid "Added %1$s of %2$s to stock"
+msgstr "Adăugat %1$s din %2$s în stoc"
+
+msgid "Stock amount of %1$s is now %2$s"
+msgstr "Cantitatea în stoc din %1$s este acum %2$s"
+
+msgid "Tracked execution of chore %1$s on %2$s"
+msgstr "S-a monitorizat execuția sarcinii %1$s la %2$s"
+
+msgid "Tracked charge cycle of battery %1$s on %2$s"
+msgstr "S-a monitorizat ciclul de încărcare a bateriei %1$s la %2$s"
+
+msgid "Consume all %s which are currently in stock"
+msgstr "Consumați toate %s care sunt în prezent în stoc"
+
+msgid "All"
+msgstr "Toate"
+
+msgid "Search"
+msgstr "Căutare"
+
+msgid "Not logged in"
+msgstr "Nu sunteți conectat"
+
+msgid "You have to select a product"
+msgstr "Trebuie să selectați un produs"
+
+msgid "You have to select a chore"
+msgstr "Trebuie să alegi o activitate"
+
+msgid "You have to select a battery"
+msgstr "Trebuie să selectați o baterie"
+
+msgid "A name is required"
+msgstr "Este necesar un nume"
+
+msgid "A location is required"
+msgstr "Este necesară o locație"
+
+msgid "A quantity unit is required"
+msgstr "Este necesară o unitate cantitativă"
+
+msgid "A period type is required"
+msgstr "Este necesar un tip de perioadă"
+
+msgid "A best before date is required"
+msgstr "Este necesară o dată de expirare"
+
+msgid "Settings"
+msgstr "Setări"
+
+msgid "This can only be before now"
+msgstr "Acest lucru poate fi doar înainte de acum"
+
+msgid "Calendar"
+msgstr "Calendar"
+
+msgid "Recipes"
+msgstr "Rețete"
+
+msgid "Edit recipe"
+msgstr "Editează rețetă"
+
+msgid "Ingredients list"
+msgstr "Listă cu ingrediente"
+
+msgid "Add recipe ingredient"
+msgstr "Adăugați ingredientul rețetei"
+
+msgid "Edit recipe ingredient"
+msgstr "Editați ingredientul rețetei"
+
+msgid "Are you sure to delete recipe \"%s\"?"
+msgstr "Sunteți sigur că vreți să ștergeți rețeta \"%s\"?"
+
+msgid "Are you sure to delete recipe ingredient \"%s\"?"
+msgstr "Sunteți sigur că vreți să ștergeți ingredientul \"%s\"?"
+
+msgid "Are you sure to empty shopping list \"%s\"?"
+msgstr "Sunteți sigur că doriți să goliți această listă de cumpărături \"%s\"?"
+
+msgid "Clear list"
+msgstr "Goliți lista"
+
+msgid "Requirements fulfilled"
+msgstr "Cerințe îndeplinite"
+
+msgid "Put missing products on shopping list"
+msgstr "Pune produsele lipsă pe lista de cumpărături"
+
+msgid "Enough in stock"
+msgstr "Stoc suficient"
+
+msgid ""
+"Not enough in stock, %s ingredient missing but already on the shopping list"
+msgid_plural ""
+"Not enough in stock, %s ingredients missing but already on the shopping list"
+msgstr[0] ""
+"Stoc insuficient, lipsește %s ingredient, este deja pe lista de cumpărături"
+msgstr[1] ""
+"Stoc insuficient, lipsesc %s ingrediente, sunt deja pe lista de cumpărături"
+msgstr[2] ""
+"Stoc insuficient, lipsesc %s ingrediente dar sunt deja pe lista de "
+"cumpărături"
+
+msgid "Expand to fullscreen"
+msgstr "Extindeți la ecran complet"
+
+msgid "Ingredients"
+msgstr "Ingrediente"
+
+msgid "Preparation"
+msgstr "Pregătire"
+
+msgid "Recipe"
+msgstr "Rețetă"
+
+msgid "Not enough in stock, %1$s missing, %2$s already on shopping list"
+msgstr "Stoc insuficient, %1$s lipsă, %2$s deja pe lista de cumpărături"
+
+msgid "Show notes"
+msgstr "Arată notiţe"
+
+msgid "Put missing amount on shopping list"
+msgstr "Pune cantitatea lipsă pe lista de cumpărături"
+
+msgid ""
+"Are you sure to put all missing ingredients for recipe \"%s\" on the "
+"shopping list?"
+msgstr ""
+"Ești sigur că vrei să pui toate ingredientele lipsă pentru rețeta \"%s\" pe "
+"lista de cumpărături?"
+
+msgid "Added for recipe %s"
+msgstr "Adăugat pentru rețeta %s"
+
+msgid "Manage users"
+msgstr "Gestionare utilizatori"
+
+msgid "User"
+msgstr "Utilizator"
+
+msgid "Users"
+msgstr "Utilizatori"
+
+msgid "Are you sure to delete user \"%s\"?"
+msgstr "Sunteți sigur că vreți să ștergeți utilizatorul \"%s\"?"
+
+msgid "Create user"
+msgstr "Creează utilizator"
+
+msgid "Edit user"
+msgstr "Modifică utilizator"
+
+msgid "First name"
+msgstr "Prenume"
+
+msgid "Last name"
+msgstr "Nume de familie"
+
+msgid "A username is required"
+msgstr "Este necesar un nume de utilizator"
+
+msgid "Confirm password"
+msgstr "Confirmă parola"
+
+msgid "Passwords do not match"
+msgstr "Parolele nu se potrivesc"
+
+msgid "Change password"
+msgstr "Schimbați parola"
+
+msgid "Done by"
+msgstr "Realizat de"
+
+msgid "Last done by"
+msgstr "Realizat ultima dată de"
+
+msgid "Unknown"
+msgstr "Necunoscut"
+
+msgid "Chores journal"
+msgstr "Jurnal de activități"
+
+msgid "0 means suggestions for the next charge cycle are disabled"
+msgstr ""
+"0 înseamnă că sugestiile pentru următorul ciclu de încărcare sunt "
+"dezactivate"
+
+msgid "Charge cycle interval (days)"
+msgstr "Intervalul ciclului de încărcare (zile)"
+
+msgid "Last price"
+msgstr "Ultimul preț "
+
+msgid "Price history"
+msgstr "Istoric preț"
+
+msgid "No price history available"
+msgstr "Nu este disponibil nici un istoric al prețurilor"
+
+msgid "Price"
+msgstr "Preț"
+
+msgid "Unit"
+msgstr "Unitate"
+
+msgid "%s Unit"
+msgid_plural "%s Units"
+msgstr[0] "%s Unitate"
+msgstr[1] "%s Unităţi"
+msgstr[2] "%s Unităţi"
+
+msgid "%s chore is due to be done"
+msgid_plural "%s chores are due to be done"
+msgstr[0] "%s activitate urmează să fie îndeplinită"
+msgstr[1] "%s activități urmează să fie îndeplinite"
+msgstr[2] "%s activități urmează să fie îndeplinite"
+
+msgid "%s chore is overdue to be done"
+msgid_plural "%s chores are overdue to be done"
+msgstr[0] "%s activitate este întârziată"
+msgstr[1] "%s activități sunt întârziate"
+msgstr[2] "%s activități întârzie să fie făcute"
+
+msgid "%s battery is due to be charged"
+msgid_plural "%s batteries are due to be charged"
+msgstr[0] "%s baterie urmează să fie încărcată"
+msgstr[1] "%s baterii urmează să fie încărcate"
+msgstr[2] "%s baterii urmează să fie încărcate"
+
+msgid "%s battery is overdue to be charged"
+msgid_plural "%s batteries are overdue to be charged"
+msgstr[0] "%s baterie este întârziată pentru a fi încărcată"
+msgstr[1] "%s baterii sunt restante pentru a fi încărcate"
+msgstr[2] "%s baterii sunt restante pentru a fi încărcate"
+
+msgid "in singular form"
+msgstr "La singular"
+
+msgid "Quantity unit"
+msgstr "Unitatea cantitativă"
+
+msgid "Only check if any amount is in stock"
+msgstr "Verificați doar dacă există vreo cantitate în stoc"
+
+msgid ""
+"Are you sure to consume all ingredients needed by recipe \"%s\" (ingredients"
+" marked with \"only check if any amount is in stock\" will be ignored)?"
+msgstr ""
+"Sunteți sigur că veți consuma toate ingredientele necesare rețetei \"%s\" "
+"(ingrediente marcat cu \"verificați doar dacă există vreo cantitate în "
+"stoc\" va fi ignorat)?"
+
+msgid "Removed all ingredients of recipe \"%s\" from stock"
+msgstr "S-au eliminat toate ingredientele rețetei \"%s\" din stoc"
+
+msgid "Consume all ingredients needed by this recipe"
+msgstr "Consumă toate ingredientele necesare acestei rețete"
+
+msgid "Click to show technical details"
+msgstr "Faceți clic pentru a afișa detalii tehnice"
+
+msgid "Error while saving, probably this item already exists"
+msgstr "Eroare în timpul salvării, probabil că acest element există deja"
+
+msgid "Error details"
+msgstr "Detalii eroare"
+
+msgid "Tasks"
+msgstr "Sarcini"
+
+msgid "Show done tasks"
+msgstr "Arată sarcini îndeplinite "
+
+msgid "Task"
+msgstr "Sarcină"
+
+msgid "Due"
+msgstr "Scadent"
+
+msgid "Assigned to"
+msgstr "Atribuit la"
+
+msgid "Mark task \"%s\" as completed"
+msgstr "Marcați sarcina \"%s\" ca finalizată"
+
+msgid "Uncategorized"
+msgstr "Fără categorie"
+
+msgid "Task categories"
+msgstr "Categorii de sarcini"
+
+msgid "Create task"
+msgstr "Creează sarcină"
+
+msgid "A due date is required"
+msgstr "Este necesară o dată a expirării"
+
+msgid "Category"
+msgstr "Categorie"
+
+msgid "Edit task"
+msgstr "Editează sarcină"
+
+msgid "Are you sure to delete task \"%s\"?"
+msgstr "Ești sigur că dorești ștergerea sarcinii \"%s\"?"
+
+msgid "%s task is due to be done"
+msgid_plural "%s tasks are due to be done"
+msgstr[0] "%s sarcină urmează să fie îndeplinită"
+msgstr[1] "%s sarcini urmează să fie îndeplinite"
+msgstr[2] "%s sarcini urmează să fie îndeplinite"
+
+msgid "%s task is overdue to be done"
+msgid_plural "%s tasks are overdue to be done"
+msgstr[0] "%s sarcină este întârziată"
+msgstr[1] "%s sarcini sunt întârziate"
+msgstr[2] "%s sarcini sunt întârziate"
+
+msgid "Edit task category"
+msgstr "Editează categoria sarcinii"
+
+msgid "Create task category"
+msgstr "Crează categoria sarcinii"
+
+msgid "Product groups"
+msgstr "Grupuri de produse"
+
+msgid "Ungrouped"
+msgstr "Negrupat"
+
+msgid "Create product group"
+msgstr "Crează grupă de produse"
+
+msgid "Edit product group"
+msgstr "Modifică grupă de produse"
+
+msgid "Product group"
+msgstr "Grupă de produse"
+
+msgid "Are you sure to delete product group \"%s\"?"
+msgstr "Sigur ștergeți grupul de produse \"%s\"?"
+
+msgid "Stay logged in permanently"
+msgstr "Rămâneți autentificat permanent"
+
+msgid "When not set, you will get logged out at latest after 30 days"
+msgstr "Când nu este setat, veți fi deconectat cel târziu după 30 de zile"
+
+msgid "Status"
+msgstr "Stadiu"
+
+msgid "Below min. stock amount"
+msgstr "Sub min. cantitatea stocului"
+
+msgid "Due soon"
+msgstr "În curând"
+
+msgid "Overdue"
+msgstr "Depășit"
+
+msgid "View settings"
+msgstr "Vezi setări "
+
+msgid "Auto reload on external changes"
+msgstr "Reîncărcare automată la modificări externe"
+
+msgid "Auto enable in time range"
+msgstr "Activare automată în intervalul de timp"
+
+msgid "From"
+msgstr "De la"
+
+msgid "in format"
+msgstr "în format"
+
+msgid "To"
+msgstr "La"
+
+msgid "Time range goes over midnight"
+msgstr "Intervalul de timp depășește miezul nopții"
+
+msgid "Product picture"
+msgstr "Imaginea produsului"
+
+msgid "No file selected"
+msgstr "Nici un fișier selectat"
+
+msgid "Delete"
+msgstr "Șterge"
+
+msgid "Select file"
+msgstr "Selectează fișier"
+
+msgid "Image of product %s"
+msgstr "Imaginea produsului 1%s"
+
+msgid "Deletion not possible"
+msgstr "Ștergerea nu este posibilă"
+
+msgid "Equipment"
+msgstr "Echipament"
+
+msgid "Instruction manual"
+msgstr "Manual de instrucțiuni "
+
+msgid "The selected equipment has no instruction manual"
+msgstr "Echipamentul selectat nu are manual de instrucțiuni"
+
+msgid "Notes"
+msgstr "Notiţe"
+
+msgid "Edit equipment"
+msgstr "Editați echipamentul"
+
+msgid "Create equipment"
+msgstr "Creați echipament"
+
+msgid "The current file will be deleted on save"
+msgstr "Fișierul curent va fi șters la salvare"
+
+msgid "No picture available"
+msgstr "Nici o imagine disponibilă"
+
+msgid "Presets for new products"
+msgstr "Presetări pentru produse noi"
+
+msgid "Included recipes"
+msgstr "Rețete incluse"
+
+msgid "A recipe is required"
+msgstr "Este necesară o rețetă "
+
+msgid "Add included recipe"
+msgstr "Adăugați rețeta inclusă"
+
+msgid "Edit included recipe"
+msgstr "Modifică rețeta inclusă"
+
+msgid "Group"
+msgstr "Grup"
+
+msgid "This will be used as a headline to group ingredients together"
+msgstr "Acesta va fi folosit ca titlu pentru a grupa ingredientele."
+
+msgid "Journal"
+msgstr "Jurnal"
+
+msgid "Stock journal"
+msgstr "Jurnal de stoc"
+
+msgid "Undone on"
+msgstr "Desfăcut pe"
+
+msgid "Batteries journal"
+msgstr "Jurnal de baterii"
+
+msgid "Undo charge cycle"
+msgstr "Anulează ciclu de încărcare"
+
+msgid "Undo chore execution"
+msgstr "Anulează executarea activității"
+
+msgid "Chore execution successfully undone"
+msgstr "Execuția activității anulată cu succes"
+
+msgid "Undo"
+msgstr "Anulează"
+
+msgid "Booking successfully undone"
+msgstr "Rezervare anulată cu succes"
+
+msgid "Charge cycle successfully undone"
+msgstr "Ciclu de încărcare anulat cu succes"
+
+msgid "Disable stock fulfillment checking for this ingredient"
+msgstr "Dezactivați verificarea îndeplinirii stocului pentru acest ingredient"
+
+msgid "Add all list items to stock"
+msgstr "Adăugați toate produsele din listă în stoc"
+
+msgid "Add this item to stock"
+msgstr "Adăugați acest articol în stoc"
+
+msgid "Adding shopping list item %1$s of %2$s"
+msgstr "Se adaugă elementul din lista de cumpărături %1$s din %2$s"
+
+msgid "Use a specific stock item"
+msgstr "Utilizați un anumit articol din stoc"
+
+msgid ""
+"The first item in this list would be picked by the default rule consume rule"
+" (Opened first, then first due first, then first in first out)"
+msgstr ""
+"Primul articol din această listă ar fi ales după regula implicită de "
+"consum(deschis mai întâi, apoi primul scadent, apoi primul intrat, primul "
+"ieşit)"
+
+msgid "Mark %1$s of %2$s as open"
+msgstr "Marcați %1$s din %2$s ca deschis"
+
+msgid "Marked %1$s of %2$s as opened"
+msgstr "Marcat %1$s din %2$s drept deschis"
+
+msgid "Mark as opened"
+msgstr "Marcați ca deschis"
+
+msgid "Not opened"
+msgstr "Nedeschis"
+
+msgid "Opened"
+msgstr "Deschis"
+
+msgid "%s opened"
+msgstr "%s deschis"
+
+msgid "Product due"
+msgstr "Produs în termen"
+
+msgid "Task due"
+msgstr "Sarcină în termen"
+
+msgid "Chore due"
+msgstr "Treburi de făcut"
+
+msgid "Battery charge cycle due"
+msgstr "Ciclul de încărcare a bateriei scade"
+
+msgid "Show clock in header"
+msgstr "Arată ceasul în antet"
+
+msgid "Stock settings"
+msgstr "Setări stoc"
+
+msgid "Shopping list to stock workflow"
+msgstr "Lista de cumpărături pentru fluxul de lucru al stocurilor"
+
+msgid "Skip"
+msgstr "Sări peste"
+
+msgid "Servings"
+msgstr "Porții"
+
+msgid "Costs"
+msgstr "Costuri"
+
+msgid "The ingredients listed here result in this amount of servings"
+msgstr "Ingredientele indicate aici dau acest număr de porții"
+
+msgid "Do not check against the shopping list when adding missing items to it"
+msgstr ""
+"Ignoră produsele deja existente în lista de cumpărături când se adaugă "
+"produse lipsă în ea"
+
+msgid ""
+"By default the amount to be added to the shopping list is \"needed amount - "
+"stock amount - shopping list amount\" - when this is enabled, it is only "
+"checked against the stock amount, not against what is already on the "
+"shopping list"
+msgstr ""
+"În mod implicit, cantitatea care trebuie adăugată în lista de cumpărături "
+"este „cantitatea necesară - cantitatea din stoc - cantitatea din lista de "
+"cumpărături” - când este activ, este verificată doar cantitatea stocului, nu"
+" și ceea ce este deja pe lista de cumpărături"
+
+msgid "Picture"
+msgstr "Imagine"
+
+msgid "Uncheck ingredients to not put them on the shopping list"
+msgstr "Debifați ingredientele pentru a nu le pune pe lista de cumpărături"
+
+msgid "This is for statistical purposes only"
+msgstr "Aceasta este doar în scopuri statistice"
+
+msgid "You have to select a recipe"
+msgstr "Trebuie să alegeți o rețetă"
+
+msgid "Key type"
+msgstr "Tipul de cheie"
+
+msgid "Share/Integrate calendar (iCal)"
+msgstr "Partajare/Integrare calendar (iCal)"
+
+msgid ""
+"Use the following (public) URL to share or integrate the calendar in iCal "
+"format"
+msgstr ""
+"Utilizați următorul URL (public) pentru a partaja sau integra calendarul în "
+"format iCal"
+
+msgid "Enable tare weight handling"
+msgstr "Activați manipularea greutății tare"
+
+msgid ""
+"This is useful e.g. for flour in jars - on purchase/consume/inventory you "
+"always weigh the whole jar, the amount to be posted is then automatically "
+"calculated based on what is in stock and the tare weight defined below"
+msgstr ""
+
+msgid "Tare weight"
+msgstr "Tară masă"
+
+msgid ""
+"Tare weight handling enabled - please weigh the whole container, the amount "
+"to be posted will be automatically calculcated"
+msgstr ""
+
+msgid "You have to select a location"
+msgstr "Trebuie să alegeți o locație"
+
+msgid "You have to select a store"
+msgstr "Trebuie să alegeți un magazin"
+
+msgid "List"
+msgstr "Listă"
+
+msgid "Gallery"
+msgstr "Galerie"
+
+msgid "The current picture will be deleted on save"
+msgstr "Imaginea curentă va fi ștearsă la salvare"
+
+msgid "Journal for this battery"
+msgstr "Jurnalul acestei baterii"
+
+msgid "System info"
+msgstr "Informații de sistem"
+
+msgid "Changelog"
+msgstr "Log de schimbări"
+
+msgid "will be multiplied by a factor of %1$s to get %2$s"
+msgstr ""
+
+msgid "The given date is earlier than today, are you sure?"
+msgstr "Data introdusă este mai devreme decât cea de astăzi, sunteți sigur?"
+
+msgid "Product count"
+msgstr "Număr de produse"
+
+msgid ""
+"Type a new product name or barcode and hit TAB or ENTER to start a workflow"
+msgstr ""
+"Introduceți un nume de produs nou sau cod de bare și apăsați TAB sau ENTER "
+"pentru a începe un flux de lucru."
+
+msgid ""
+"This will be used as the default setting when adding this product as a "
+"recipe ingredient"
+msgstr ""
+"Aceasta va fi utilizată ca setare implicită la adăugarea acestui produs ca "
+"ingredient al unei rețete"
+
+msgid "Add item"
+msgstr "Adaugă produs"
+
+msgid "Selected shopping list"
+msgstr "Lista de cumpărături selectată"
+
+msgid "New shopping list"
+msgstr "Listă de cumpărături nouă"
+
+msgid "Delete shopping list"
+msgstr "Ștergeți lista de cumpărături"
+
+msgid "Chores settings"
+msgstr "Setările activităților"
+
+msgid "Batteries settings"
+msgstr "Setările bateriilor"
+
+msgid "Tasks settings"
+msgstr "Setări de sarcini"
+
+msgid "Create shopping list"
+msgstr "Creați o listă de cumpărături"
+
+msgid "Are you sure to delete shopping list \"%s\"?"
+msgstr "Sunteți sigur/sigură că vreți să ștergeti lista de cumpărături \"%s\"?"
+
+msgid "Average shelf life"
+msgstr "Durata medie de depozitare"
+
+msgid "Spoil rate"
+msgstr "Rata de deteriorare"
+
+msgid "Show more"
+msgstr "Arată mai mult"
+
+msgid "Show less"
+msgstr "Arată mai puţin"
+
+msgid "The amount must be between %1$s and %2$s"
+msgstr ""
+
+msgid "Day of month"
+msgstr "Ziua lunii"
+
+msgid "Monday"
+msgstr "Luni"
+
+msgid "Tuesday"
+msgstr "Marţi"
+
+msgid "Wednesday"
+msgstr "Miercuri"
+
+msgid "Thursday"
+msgstr "Joi"
+
+msgid "Friday"
+msgstr "Vineri"
+
+msgid "Saturday"
+msgstr "Sâmbătă"
+
+msgid "Sunday"
+msgstr "Duminică"
+
+msgid "Configure userfields"
+msgstr "Configurați câmpurile de utilizator"
+
+msgid "Userfields"
+msgstr "Câmpurile de utilizator"
+
+msgid "Entity"
+msgstr "Entitate"
+
+msgid "Caption"
+msgstr "Legendă"
+
+msgid "Type"
+msgstr "Tip"
+
+msgid "Create userfield"
+msgstr "Creați câmpul de utilizator"
+
+msgid "A entity is required"
+msgstr "Este necesară o entitate"
+
+msgid "A caption is required"
+msgstr "Este necesară o legendă"
+
+msgid "A type is required"
+msgstr "Este necesar un tip"
+
+msgid "Show as column in tables"
+msgstr "Afișează ca și coloană în tabele"
+
+msgid "This is required and can only contain letters and numbers"
+msgstr "Acesta este obligatoriu și poate conține numai litere și numere"
+
+msgid "Edit userfield"
+msgstr "Editați câmpul de utilizator"
+
+msgid "Plural forms"
+msgstr "Forme plural"
+
+msgid "One plural form per line, the current language requires"
+msgstr ""
+
+msgid "Plural count"
+msgstr "Numărare la plural"
+
+msgid "Plural rule"
+msgstr "Regulă plural"
+
+msgid "in plural form"
+msgstr "La plural"
+
+msgid "Not enough in stock, %s ingredient missing"
+msgid_plural "Not enough in stock, %s ingredients missing"
+msgstr[0] "Stoc insuficient, lipsește %s ingredient"
+msgstr[1] "Stoc insuficient, lipsesc %s ingrediente"
+msgstr[2] "Stoc insuficient, lipsesc %s ingrediente"
+
+msgid "Not enough in stock, but already on the shopping list"
+msgstr "Stoc insuficient, dar este deja pe lista de cumpărături"
+
+msgid "Not enough in stock"
+msgstr "Stoc insuficient"
+
+msgid "Default location"
+msgstr "Locație implicită"
+
+msgid "Default amount for purchase"
+msgstr "Cantitatea implicită pentru achiziție"
+
+msgid "Default amount for consume"
+msgstr "Cantitatea implicită pentru consum"
+
+msgid "Variable amount"
+msgstr "Cantitate variabilă"
+
+msgid ""
+"When this is not empty, it will be shown instead of the amount entered above"
+" while the amount there will still be used for stock fulfillment checking"
+msgstr ""
+"Când acesta nu este gol, va fi afișat în locul sumei introduse mai sus în "
+"timp ce suma de acolo va fi folosită în continuare pentru verificarea "
+"îndeplinirii stocurilor"
+
+msgid "Track date only"
+msgstr "Numai data urmăririi"
+
+msgid "When enabled only the day of an execution is tracked, not the time"
+msgstr "Când este activată, este urmărită doar ziua unei execuții, nu și ora"
+
+msgid "Consume %1$s of %2$s"
+msgstr "Consumă %1$s din %2$s"
+
+msgid "Meal plan"
+msgstr "Planul de masă"
+
+msgid "%s serving"
+msgid_plural "%s servings"
+msgstr[0] "%s porție "
+msgstr[1] "%s porții "
+msgstr[2] "%s porții "
+
+msgid "Week costs"
+msgstr "Costuri săptămânale"
+
+msgid "Configuration"
+msgstr "Configurare"
+
+msgid "A predefined list of values, one per line"
+msgstr "O listă predefinită de valori, una pe linie"
+
+msgid "Products"
+msgstr "Produse"
+
+msgid "Marked task %s as completed on %s"
+msgstr "Sarcina %s a fost marcată ca finalizată pe %s"
+
+msgid "Booking has subsequent dependent bookings, undo not possible"
+msgstr ""
+"Rezervarea are rezervări ulterioare dependente, anularea nu este posibilă"
+
+msgid "per serving"
+msgstr "per porție  "
+
+msgid "Never"
+msgstr "Niciodată"
+
+msgid "Today"
+msgstr "Astăzi"
+
+msgid "Not all ingredients of recipe \"%s\" are in stock, nothing removed"
+msgstr "Nu toate ingredientele rețetei \"%s\" sunt în stoc, nimic eliminat"
+
+msgid "Undo task"
+msgstr "Anulați sarcina"
+
+msgid "Due date rollover"
+msgstr "Prelungirea termenului"
+
+msgid ""
+"When enabled the chore can never be overdue, the due date will shift forward"
+" each day when due"
+msgstr ""
+"Când este activ, activitatea nu poate fi niciodată întârziată, termenul se "
+"va deplasa înainte în fiecare zi când acesta este atins"
+
+msgid "Location Content Sheet"
+msgstr "Conținutul locațiilor"
+
+msgid "Print"
+msgstr "Imprimă"
+
+msgid "all locations"
+msgstr "toate locațiile"
+
+msgid ""
+"Here you can print a page per location with the current stock, maybe to hang"
+" it there and note the consumed things on it"
+msgstr ""
+"Aici poți imprima o pagină pe locație cu stocul curent, poate să o agăți "
+"acolo și să notezi lucrurile consumate pe ea"
+
+msgid "this location"
+msgstr "această locație "
+
+msgid "Consumed amount"
+msgstr "Cantitate consumată "
+
+msgid "Time of printing"
+msgstr "Data tipăririi"
+
+msgid "Are you sure to delete equipment \"%s\"?"
+msgstr "Ești sigur că dorești ștergerea echipamentului \"%s\"?"
+
+msgid "Parent product"
+msgstr "Produs părinte"
+
+msgid ""
+"Not possible because this product is already used as a parent product in "
+"another product"
+msgstr ""
+"Nu este posibil deoarece acest produs este deja utilizat ca produs părinte "
+"într-un alt produs"
+
+msgid "Default conversions"
+msgstr "Conversii implicite"
+
+msgid "Factor"
+msgstr "Factor"
+
+msgid "1 %s is the same as..."
+msgstr "1 %s este la fel ca..."
+
+msgid "Create QU conversion"
+msgstr "Creați conversie QU"
+
+msgid "Default for QU"
+msgstr "Implicit pentru QU"
+
+msgid "Quantity unit from"
+msgstr "Unitate de cantitate de la"
+
+msgid "Quantity unit to"
+msgstr "Unitate de cantitate la"
+
+msgid "This cannot be equal to %s"
+msgstr "Acesta nu poate fi egal cu %s"
+
+msgid "This means 1 %1$s is the same as %2$s %3$s"
+msgstr "Aceasta înseamnă că 1 %1$s este același cu %2$s %3$s"
+
+msgid "QU conversions"
+msgstr "Conversii QU"
+
+msgid "Override for product"
+msgstr "Suprascriere pentru produs"
+
+msgid "This equals %1$s %2$s"
+msgstr "Aceasta este egală cu %1$s %2$s"
+
+msgid "Edit QU conversion"
+msgstr "Editați conversia QU"
+
+msgid "An assignment type is required"
+msgstr "Este necesar un tip de atribuire"
+
+msgid "Assignment type"
+msgstr "Tipul de atribuire"
+
+msgid ""
+"This means the next execution of this chore is scheduled at the same time "
+"(based on the start date) every day"
+msgid_plural ""
+"This means the next execution of this chore is scheduled at the same time "
+"(based on the start date) every %s days"
+msgstr[0] ""
+"Aceasta înseamnă că următoarea execuție a acestei sarcini este programată în"
+" același timp(pe baza datei de începere) în fiecare zi"
+msgstr[1] ""
+"Aceasta înseamnă că următoarea execuție a acestei sarcini este programată în"
+" același timp(pe baza datei de începere) la fiecare %s zile"
+msgstr[2] ""
+"Aceasta înseamnă că următoarea execuție a acestei sarcini este programată în"
+" același timp(pe baza datei de începere) la fiecare %s zile"
+
+msgid ""
+"This means the next execution of this chore is scheduled %s hour after the "
+"last execution"
+msgid_plural ""
+"This means the next execution of this chore is scheduled %s hours after the "
+"last execution"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+msgid ""
+"This means the next execution of this chore is scheduled every week on the "
+"selected weekdays"
+msgid_plural ""
+"This means the next execution of this chore is scheduled every %s weeks on "
+"the selected weekdays"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+msgid ""
+"This means the next execution of this chore is scheduled on the selected day"
+" every month"
+msgid_plural ""
+"This means the next execution of this chore is scheduled on the selected day"
+" every %s months"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+msgid "This means the next execution of this chore is not scheduled"
+msgstr ""
+"Aceasta înseamnă că următoarea execuție a acestei sarcini nu este programată"
+
+msgid ""
+"This means the next execution of this chore will not be assigned to anyone"
+msgstr ""
+"Aceasta înseamnă că următoarea execuție a acestei sarcini nu va fi atribuită"
+" nimănui"
+
+msgid ""
+"This means the next execution of this chore will be assigned to the one who "
+"executed it least"
+msgstr ""
+"Aceasta înseamnă că următoarea execuție a acestei sarcini va fi atribuită "
+"celui care a executat-o cel mai puțin"
+
+msgid "This means the next execution of this chore will be assigned randomly"
+msgstr ""
+"Aceasta înseamnă că următoarea execuție a acestei sarcini va fi atribuită "
+"aleatoriu"
+
+msgid ""
+"This means the next execution of this chore will be assigned to the next one"
+" in alphabetical order"
+msgstr ""
+"Aceasta înseamnă că următoarea execuție a acestei sarcini va fi atribuită "
+"următorului în ordine alfabetică"
+
+msgid "Assign to"
+msgstr "Atribuie la"
+
+msgid "This assignment type requires that at least one is assigned"
+msgstr "Acest tip de atribuire necesită ca cel puțin unul să fie atribuit"
+
+msgid "%s chore is assigned to me"
+msgid_plural "%s chores are assigned to me"
+msgstr[0] "%s activitate îmi este atribuită mie"
+msgstr[1] "%s activități îmi sunt atribuite mie"
+msgstr[2] "%s activități îmi sunt atribuite mie"
+
+msgid "Assigned to me"
+msgstr "Atribuit mie"
+
+msgid "assigned to %s"
+msgstr "atribuit la %s"
+
+msgid "Assignment"
+msgstr "Atribuire"
+
+msgid "Consume product on chore execution"
+msgstr "Consumă produs la executarea activității"
+
+msgid "Are you sure to delete user field \"%s\"?"
+msgstr ""
+
+msgid "Userentities"
+msgstr ""
+
+msgid "Create userentity"
+msgstr ""
+
+msgid "Show in sidebar menu"
+msgstr "Afișează în meniul lateral"
+
+msgid "Edit userentity"
+msgstr ""
+
+msgid "Edit %s"
+msgstr "Modifică %s"
+
+msgid "Create %s"
+msgstr "Creează %s"
+
+msgid "Are you sure to delete this userobject?"
+msgstr "Sunteți sigur că doriți să ștergeți acest obiect de utilizator?"
+
+msgid "Icon CSS class"
+msgstr ""
+
+msgid "For example"
+msgstr "De exemplu"
+
+msgid "Configure fields"
+msgstr "Configurează câmpuri"
+
+msgid "Quantity unit plural form testing"
+msgstr ""
+
+msgid "Result"
+msgstr "Rezultat"
+
+msgid "Test plural forms"
+msgstr "Verifică forma pluralului"
+
+msgid "Scan a barcode"
+msgstr "Scanează un cod de bare"
+
+msgid "Error while initializing the barcode scanning library"
+msgstr "Eroare la inițializarea bibliotecii de scanare a codurilor de bare"
+
+msgid ""
+"The resulting price of this ingredient will be multiplied by this factor"
+msgstr "Prețul rezultat al acestui ingredient va fi înmulțit cu acest factor"
+
+msgid "Price factor"
+msgstr "Factor de preț"
+
+msgid "Do you find grocy useful?"
+msgstr "Ți se pare util grocy?"
+
+msgid "Say thanks"
+msgstr "Mulțumește "
+
+msgid "Search for recipes containing this product"
+msgstr "Căutați rețete care conțin acest produs"
+
+msgid "Add to shopping list"
+msgstr "Adăugați la lista de cumpărături"
+
+msgid "Added %1$s of %2$s to the shopping list \"%3$s\""
+msgstr ""
+
+msgid "Output"
+msgstr "Ieșire"
+
+msgid "Energy (kcal)"
+msgstr "Energie (kcal)"
+
+msgid "Per stock quantity unit"
+msgstr ""
+
+msgid "Barcode scanner testing"
+msgstr "Testarea cititorului de coduri de bare"
+
+msgid "Expected barcode"
+msgstr "Codul de bare așteptat"
+
+msgid "Scan field"
+msgstr "Câmp de scanare"
+
+msgid "Scanned barcodes"
+msgstr "Coduri de bare scanate"
+
+msgid "Hit"
+msgstr ""
+
+msgid "Miss"
+msgstr ""
+
+msgid "Display recipe"
+msgstr "Afișează rețeta "
+
+msgid "Accumulate sub products min. stock amount"
+msgstr ""
+
+msgid ""
+"If enabled, the min. stock amount of sub products will be accumulated into "
+"this product, means the sub product will never be missing, only this product"
+msgstr ""
+
+msgid "Are you sure to remove this conversion?"
+msgstr "Sunteți sigur că doriți să eliminați această conversie?"
+
+msgid "Unit price"
+msgstr "Preț unitar"
+
+msgid "Total price"
+msgstr "Preț total"
+
+msgid "in %s and based on the purchase quantity unit"
+msgstr ""
+
+msgid "Unlimited"
+msgstr "Nelimitat"
+
+msgid "Clear"
+msgstr ""
+
+msgid "Are you sure to remove the included recipe \"%s\"?"
+msgstr ""
+
+msgid "Period interval"
+msgstr "Interval de timp"
+
+msgid ""
+"This means the next execution of this chore is scheduled every year on the "
+"same day (based on the start date)"
+msgid_plural ""
+"This means the next execution of this chore is scheduled every %s years on "
+"the same day (based on the start date)"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+msgid "Transfer"
+msgstr "Transfer"
+
+msgid "From location"
+msgstr "Din locația "
+
+msgid "To location"
+msgstr "La locația"
+
+msgid "There are no units available at this location"
+msgstr "Nu există unități disponibile în această locație"
+
+msgid "Amount: %1$s; Due on %2$s; Bought on %3$s"
+msgstr ""
+
+msgid "Transfered %1$s of %2$s from %3$s to %4$s"
+msgstr ""
+
+msgid "Stock entries"
+msgstr "Produse pe stoc"
+
+msgid "Best before date"
+msgstr "Termen de valabilitate"
+
+msgid "Purchased date"
+msgstr "Data achiziției"
+
+msgid "Consume all %s for this stock entry"
+msgstr ""
+
+msgid "The amount cannot be lower than %1$s"
+msgstr ""
+
+msgid "Stock entry successfully updated"
+msgstr "Intrarea în stoc actualizată cu succes"
+
+msgid "Edit stock entry"
+msgstr "Editați intrarea în stoc"
+
+msgid ""
+"Camera access is only possible when supported and allowed by your browser "
+"and when grocy is served via a secure (https://) connection"
+msgstr ""
+
+msgid "Keep screen on"
+msgstr ""
+
+msgid "Keep screen on while displaying a \"fullscreen-card\""
+msgstr ""
+
+msgid "A purchased date is required"
+msgstr "Este necesară o dată de achiziție"
+
+msgid ""
+"When a product is selected, one unit (per serving in stock quantity unit) "
+"will be added to stock on consuming this recipe"
+msgstr ""
+
+msgid "Produces product"
+msgstr ""
+
+msgid "This booking cannot be undone"
+msgstr ""
+
+msgid "Booking does not exist or was already undone"
+msgstr ""
+
+msgid "Are you sure to delete API key \"%s\"?"
+msgstr ""
+
+msgid "Add note"
+msgstr "Adăugați notă"
+
+msgid "per day"
+msgstr "pe zi"
+
+msgid "Only undone items"
+msgstr ""
+
+msgid "Add product"
+msgstr "Adaugă produs"
+
+msgid "Consume all ingredients needed by this weeks recipes or products"
+msgstr ""
+"Consumă toate ingredientele necesare pentru rețetele sau produsele din "
+"această săptămână"
+
+msgid "Meal plan recipe"
+msgstr ""
+
+msgid "Meal plan note"
+msgstr ""
+
+msgid "Meal plan product"
+msgstr ""
+
+msgid "Scan mode"
+msgstr ""
+
+msgid "on"
+msgstr "pornit"
+
+msgid "off"
+msgstr "oprit"
+
+msgid ""
+"Scan mode is on but not all required fields could be populated automatically"
+msgstr ""
+
+msgid "Is freezer"
+msgstr ""
+
+msgid "This cannot be the same as the \"From\" location"
+msgstr ""
+
+msgid "Thawed"
+msgstr "Decongelat"
+
+msgid "Frozen"
+msgstr ""
+
+msgid "Are you sure to delete userentity \"%s\"?"
+msgstr ""
+
+msgid "Shopping list settings"
+msgstr "Setările listei de cumpărături"
+
+msgid "Show a month-view calendar"
+msgstr ""
+
+msgid "Desired servings"
+msgstr ""
+
+msgid "Base: %s"
+msgstr "Baza: %s"
+
+msgid "Recipes settings"
+msgstr ""
+
+msgid "Recipe card"
+msgstr ""
+
+msgid "Group ingredients by their product group"
+msgstr ""
+
+msgid "Unknown store"
+msgstr "Magazin necunoscut"
+
+msgid "Store"
+msgstr "Magazin"
+
+msgid "Transaction successfully undone"
+msgstr "Tranzacție anulată"
+
+msgid "Default store"
+msgstr "Magazin predefinit"
+
+msgid "Consume this stock entry"
+msgstr ""
+
+msgid "Mark this stock entry as open"
+msgstr ""
+
+msgid "Mark this item as done"
+msgstr ""
+
+msgid "Edit this item"
+msgstr ""
+
+msgid "Delete this item"
+msgstr "Șterge produs"
+
+msgid "Show an icon if the product is already on the shopping list"
+msgstr "Afișați o pictogramă dacă produsul este deja pe lista de cumpărături"
+
+msgid "Calories"
+msgstr "Calorii"
+
+msgid "means %1$s per %2$s"
+msgstr "înseamnă %1$s per %2$s"
+
+msgid "Create recipe"
+msgstr "Creează rețetă"
+
+msgid "Save & continue to add ingredients and included recipes"
+msgstr "Salvează și continuă să adaugi ingrediente și rețetele incluse"
+
+msgid "Save & continue"
+msgstr "Salvează și continuă"
+
+msgid "Save & return to recipes"
+msgstr "Salvează și întoarce-te la rețete"
+
+msgid "Stock value"
+msgstr "Valoarea stocului"
+
+msgid "Average price"
+msgstr "Preț mediu"
+
+msgid "Active"
+msgstr "Activ"
+
+msgid "Barcodes"
+msgstr "Coduri de bare"
+
+msgid "Barcode"
+msgstr "Cod de bare"
+
+msgid "Create Barcode"
+msgstr "Creează cod de bare"
+
+msgid "Barcode for product"
+msgstr "Cod de bare pentru produs"
+
+msgid "Edit Barcode"
+msgstr "Modifică cod de bare"
+
+msgid ""
+"Based on the prices of the default consume rule (Opened first, then first "
+"due first, then first in first out) for in-stock ingredients and on the last"
+" price for missing ones"
+msgstr ""
+
+msgid "Clear filter"
+msgstr "Șterge filtru"
+
+msgid "Permissions for user %s"
+msgstr "Permisiuni pentru utilizatorul %s"
+
+msgid "Are you sure you want to remove full permissions for yourself?"
+msgstr ""
+
+msgid "Permissions saved"
+msgstr "Permisiuni salvate"
+
+msgid "You are not allowed to view this page"
+msgstr "Nu ești autorizat să vizualizezi această pagină"
+
+msgid "Page not found"
+msgstr "Pagina nu a fost găsită "
+
+msgid "Unauthorized"
+msgstr "Neautorizat"
+
+msgid "Error source"
+msgstr "Sursa erorii"
+
+msgid "Error message"
+msgstr "Mesaj de eroare"
+
+msgid "Stack trace"
+msgstr ""
+
+msgid "Easy error info copy & paste (for reporting)"
+msgstr ""
+
+msgid "This page does not exist"
+msgstr "Această pagină nu există"
+
+msgid "You will be redirected to the default page in %s seconds"
+msgstr ""
+
+msgid "Server error"
+msgstr "Eroare server"
+
+msgid "A server error occured while processing your request"
+msgstr ""
+
+msgid "If you think this is a bug, please report it"
+msgstr "Dacă crezi că aceasta este o eroare, te rugăm să o raportezi"
+
+msgid "Language"
+msgstr "Limba"
+
+msgid "User settings"
+msgstr "Setari utilizator"
+
+msgid "Default"
+msgstr "Implicit"
+
+msgid "Stock journal summary"
+msgstr "Rezumatul jurnalului stocului"
+
+msgid "Journal summary"
+msgstr "Rezumatul jurnalului"
+
+msgid "Consume exact amount"
+msgstr ""
+
+msgid "Value"
+msgstr "Valoare"
+
+msgid "%s total value"
+msgstr "%s valoare totală"
+
+msgid ""
+"Show purchased date on purchase and inventory page (otherwise the purchased "
+"date defaults to today)"
+msgstr ""
+"Afișați data achiziției pe pagina de achiziție și de inventar (în caz "
+"contrar, data achiziției este implicită astăzi)"
+
+msgid "Common"
+msgstr ""
+
+msgid "Decimal places allowed for amounts"
+msgstr ""
+
+msgid "Edit shopping list"
+msgstr "Editați lista de cumpărături"
+
+msgid "Save & continue to add quantity unit conversions & barcodes"
+msgstr ""
+
+msgid "Save & return to products"
+msgstr ""
+
+msgid "Save & continue to add conversions"
+msgstr ""
+
+msgid "Save & return to quantity units"
+msgstr ""
+
+msgid "price"
+msgstr "pret"
+
+msgid "New stock amount"
+msgstr ""
+
+msgid "Price per stock unit"
+msgstr ""
+
+msgid "Table options"
+msgstr "Optiuni tabel"
+
+msgid "This product is currently on a shopping list"
+msgstr "Acest produs se află în prezent pe o listă de cumpărături"
+
+msgid "Undo transaction"
+msgstr "Anulează tranzacția"
+
+msgid "Transaction type"
+msgstr "Tipul tranzacției"
+
+msgid "Transaction time"
+msgstr "Timpul tranzacției"
+
+msgid "Chore journal"
+msgstr "Jurnalul activității"
+
+msgid "Track chore execution"
+msgstr "Înregistrează executarea activității"
+
+msgid "Mark task as completed"
+msgstr ""
+
+msgid "Track charge cycle"
+msgstr ""
+
+msgid "Battery journal"
+msgstr "Jurnalul bateriei"
+
+msgid "This product has a picture"
+msgstr ""
+
+msgid "Consume this stock entry as spoiled"
+msgstr ""
+
+msgid "Configure user permissions"
+msgstr ""
+
+msgid "Show a QR-Code for this API key"
+msgstr ""
+
+msgid ""
+"This is the default quantity unit used when adding this product to the "
+"shopping list"
+msgstr ""
+"Aceasta este unitatea de cantitate implicită utilizată la adăugarea acestui "
+"produs în lista de cumpărături"
+
+msgid ""
+"Show a warning when the due date of the purchased product is earlier than "
+"the next due date in stock"
+msgstr ""
+"Afișeaza un avertisment atunci când termenul produsului achiziționat este "
+"înaintea termenului produsului din stoc"
+
+msgid "This is due earlier than already in-stock items"
+msgstr ""
+
+msgid ""
+"When enabled, after changing/scanning a product and if all fields could be "
+"automatically populated (by product and/or barcode defaults), the "
+"transaction is automatically submitted"
+msgstr ""
+"Când este activat, după modificarea/scanarea unui produs, dacă toate "
+"câmpurile pot fi completate automat (după valorile implicite), tranzacția "
+"este transmisă automat"
+
+msgid "Quick consume amount"
+msgstr ""
+
+msgid ""
+"This amount is used for the \"quick consume/open buttons\" on the stock "
+"overview page (related to quantity unit stock)"
+msgstr ""
+
+msgid "Copy"
+msgstr "Copiaza"
+
+msgid "Are you sure to remove this barcode?"
+msgstr ""
+
+msgid "Due date type"
+msgstr ""
+
+msgid ""
+"Based on the selected type, the highlighting on the stock overview page will"
+" be different"
+msgstr ""
+
+msgid ""
+"Means that the product is maybe still safe to be consumed after its due date"
+" is reached"
+msgstr ""
+"Înseamnă că produsul probabil mai poate fi consumat după ce termenul de "
+"valabilitate a fost atins"
+
+msgid "Expiration date"
+msgstr ""
+
+msgid ""
+"Means that the product is not safe to be consumed after its due date is "
+"reached"
+msgstr ""
+"Înseamnă că produsul nu este recomandat pentru a fi consumat după ce "
+"termenul de valabilitate a fost atins"
+
+msgid ""
+"For purchases this amount of days will be added to today for the due date "
+"suggestion"
+msgstr ""
+"Pentru achiziții, aceaste zile vor fi adăugate la astăzi pentru sugestia "
+"privind termenul de valabilitate"
+
+msgid "-1 means that this product will be never overdue"
+msgstr ""
+
+msgid "Default due days"
+msgstr ""
+
+msgid ""
+"When this product was marked as opened, the due date will be replaced by "
+"today + this amount of days, but only if the resulting date is not after the"
+" original due date (a value of 0 disables this)"
+msgstr ""
+"Când acest produs a fost marcat ca deschis, termenul va fi înlocuit cu "
+"astăzi + acest număr de zile, dar numai dacă termenul rezultat nu este după "
+"termenul inițial (o valoare de 0 dezactivează această funcție)"
+
+msgid "Default due days after opened"
+msgstr ""
+
+msgid ""
+"On moving this product to a freezer location (so when freezing it), the due "
+"date will be replaced by today + this amount of days"
+msgstr ""
+"La congelarea acestui produs, termenul va fi înlocuită cu astăzi + acest "
+"număr de zile"
+
+msgid "Default due days after freezing"
+msgstr ""
+
+msgid ""
+"On moving this product from a freezer location (so when thawing it), the due"
+" date will be replaced by today + this amount of days"
+msgstr ""
+"La decongelarea acestui produs, termenul va fi înlocuit cu astăzi + acest "
+"număr de zile"
+
+msgid "Default due days after thawing"
+msgstr ""
+
+msgid "Next due date"
+msgstr "Urmatorul termen"
+
+msgid "%s product is due"
+msgid_plural "%s products are due"
+msgstr[0] "%s produs se învechește"
+msgstr[1] "%s produse se învechesc"
+msgstr[2] "%s produse se învechesc"
+
+msgid "Due date"
+msgstr "Valabil până la"
+
+msgid "Never overdue"
+msgstr ""
+
+msgid "%s product is expired"
+msgid_plural "%s products are expired"
+msgstr[0] "%s produs este expirat"
+msgstr[1] "%s produse sunt expirate"
+msgstr[2] "%s produse sunt expirate"
+
+msgid "Expired"
+msgstr ""
+
+msgid "Due soon days"
+msgstr ""
+
+msgid "Add overdue/expired products"
+msgstr ""
+
+msgid ""
+"Products with tare weight enabled are currently not supported for transfer"
+msgstr ""
+
+msgid ""
+"This cannot be lower than %1$s or equal %2$s and needs to be a valid number "
+"with max. %3$s decimal places"
+msgstr ""
+
+msgid ""
+"This must be between %1$s and %2$s, cannot equal %3$s and needs to be a "
+"valid number with max. %4$s decimal places"
+msgstr ""
+
+msgid ""
+"This cannot be lower than %1$s and needs to be a valid number with max. %2$s"
+" decimal places"
+msgstr ""
+
+msgid ""
+"This must between %1$s and %2$s and needs to be a valid number with max. "
+"%3$s decimal places"
+msgstr ""
+
+msgid ""
+"Automatically do the booking using the last price and the amount of the "
+"shopping list item, if the product has \"Default due days\" set"
+msgstr ""
+"Efectuați automat rezervarea folosind ultimul preț și cantitatea produsului "
+"din lista de cumpărături, dacă produsul are setat „Termen implicit”"
+
+msgid ""
+"When moving products from/to a freezer location, the products due date is "
+"automatically adjusted according to the product settings"
+msgstr ""
+"La congelarea/decongelarea produselor, termenul este ajustat automat în "
+"funcție de setările produsului"
+
+msgid "This is the internal field name, e. g. for the API"
+msgstr ""
+
+msgid "This is used to display the field on the frontend"
+msgstr ""
+
+msgid "Multiple Userfields will be ordered by that number on the input form"
+msgstr ""
+
+msgid "Sort number"
+msgstr ""
+
+msgid "Download file"
+msgstr ""
+
+msgid "Use the products \"Quick consume amount\""
+msgstr ""
+
+msgid "Disabled"
+msgstr ""
+
+msgid ""
+"This also removes any stock amount, the journal and all other references of "
+"this product - consider disabling it instead, if you want to keep that and "
+"just hide the product."
+msgstr ""
+"Această acțiune elimină, de asemenea, stocul, jurnalul și toate celelalte "
+"referințe ale acestui produs - luați în considerare în schimb dezactivarea "
+"acestuia, dacă doriți doar să ascundeți produsul."
+
+msgid "Show disabled"
+msgstr ""
+
+msgid "Never show on stock overview"
+msgstr ""
+
+msgid "None"
+msgstr ""
+
+msgid "Group by"
+msgstr "Grupeaza ca"
+
+msgid "Ingredient group"
+msgstr ""
+
+msgid "Reset"
+msgstr "Reseteaza"
+
+msgid "Are you sure to reset the table options?"
+msgstr ""
+
+msgid "Hide/view columns"
+msgstr ""
+
+msgid ""
+"A different amount/unit can then be used below while for stock fulfillment "
+"checking it is sufficient when any amount of the product in stock"
+msgstr ""
+
+msgid "Last price (Unit)"
+msgstr ""
+
+msgid "Last price (Total)"
+msgstr "Ultimul pret (Total)"
+
+msgid "Show header"
+msgstr ""
+
+msgid "Group by product group"
+msgstr ""
+
+msgid "Table"
+msgstr "Tabel"
+
+msgid "Layout type"
+msgstr ""
+
+msgid "Merge this product with another one"
+msgstr ""
+
+msgid "Merge products"
+msgstr ""
+
+msgid "Product to keep"
+msgstr ""
+
+msgid "Product to remove"
+msgstr ""
+
+msgid "Error while merging"
+msgstr ""
+
+msgid "After merging, this product will be kept"
+msgstr ""
+
+msgid ""
+"After merging, all occurences of this product will be replaced by the kept "
+"product (means this product will not exist anymore)"
+msgstr ""
+
+msgid "Merge"
+msgstr ""
+
+msgid "Title"
+msgstr "Titlu"
+
+msgid "Link"
+msgstr ""
+
+msgid ""
+"The stock overview page lists all products which are currently in-stock or "
+"below their min. stock amount - enable this to hide this product there "
+"always"
+msgstr ""
+
+msgid "Print options"
+msgstr ""
+
+msgid "A product or a note is required"
+msgstr ""
+
+msgid "grocycode"
+msgstr ""
+
+msgid "Download"
+msgstr ""
+
+# Example: Download *Product* grocycode
+msgid "Download %s grocycode"
+msgstr ""
+
+msgid ""
+"grocycode is a unique referer to this %s in your grocy instance - print it "
+"onto a label and scan it like any other barcode"
+msgstr ""
+
+# Abbreviation for "due date"
+msgid "DD"
+msgstr ""
+
+msgid "Print on label printer"
+msgstr ""
+
+msgid "Default stock entry label"
+msgstr ""
+
+msgid "Stock entry label"
+msgstr ""
+
+msgid "No label"
+msgstr ""
+
+msgid "Single label"
+msgstr ""
+
+msgid "Label per unit"
+msgstr ""
+
+msgid "Error while executing WebHook"
+msgstr ""
+
+# Example: Print *Product* grocycode on label printer
+msgid "Print %s grocycode on label printer"
+msgstr ""
+
+msgid "Open stock entry label in new window"
+msgstr ""
+
+msgid "Thermal printer"
+msgstr ""
+
+msgid "Printing"
+msgstr ""
+
+msgid "Connecting to printer..."
+msgstr ""
+
+msgid "Unable to print"
+msgstr ""
+
+msgid "Only done items"
+msgstr ""
+
+msgid "Show only in-stock products"
+msgstr ""
+
+msgid "Product description"
+msgstr ""
+
+# Example: *3.21 USD* per *Pack*
+msgid "%1$s per %2$s"
+msgstr "%1$s per %2$s"
+
+msgid "Mark this item as undone"
+msgstr ""
+
+msgid "Mandatory"
+msgstr "Obligatoriu"
+
+msgid "Mandatory Userfield"
+msgstr ""
+
+msgid "When enabled, then this field must be filled on the destination form"
+msgstr ""
+
+msgid "In-stock products"
+msgstr ""
+
+msgid "Timestamp"
+msgstr ""
+
+msgid "Should not be frozen"
+msgstr ""
+
+msgid ""
+"When enabled, on moving this product to a freezer location (so when freezing"
+" it), a warning will be shown"
+msgstr ""
+
+msgid "This product shouldn't be frozen"
+msgstr ""
+
+msgid "Copy all meal plan entries of %s"
+msgstr ""
+
+msgid "A date is required"
+msgstr ""
+
+msgid "Day"
+msgstr "Zi"
+
+msgid "Add recipe"
+msgstr "Adauga o reteta"
+
+msgid "Copy this day"
+msgstr "Copiaza aceasta zi"
+
+msgid "Date range"
+msgstr "Interval de date"
+
+msgid "%s month"
+msgid_plural "%s months"
+msgstr[0] "%s luna"
+msgstr[1] "%s luni"
+msgstr[2] "%s luni"
+
+msgid "%s year"
+msgid_plural "%s years"
+msgstr[0] "%s an"
+msgstr[1] "%s ani"
+msgstr[2] "%s ani"
+
+msgid "Display product"
+msgstr ""
+
+msgid "Copy recipe"
+msgstr ""
+
+msgid "Copy of %s"
+msgstr ""
+
+msgid "Add decimal separator automatically for price inputs"
+msgstr ""
+
+msgid ""
+"When enabled, you always have to enter the value including decimal places, "
+"the decimal separator will be automatically added based on the amount of "
+"allowed decimal places"
+msgstr ""
+
+msgid "Stock entry"
+msgstr ""
+
+msgid "Configure sections"
+msgstr ""
+
+msgid "Meal plan sections"
+msgstr ""
+
+msgid "Create meal plan section"
+msgstr ""
+
+msgid "Sections will be ordered by that number on the meal plan"
+msgstr ""
+
+msgid "Edit meal plan section"
+msgstr ""
+
+msgid "Are you sure to delete meal plan section \"%s\"?"
+msgstr ""
+
+msgid "Section"
+msgstr "Sectiune"
+
+msgid "Are you sure to empty the shopping list?"
+msgstr "Ești sigur/sigură că vrei să golești lista de cumpărături?"
+
+msgid "This is the default which will be prefilled on purchase"
+msgstr ""
+
+msgid "Merge chores"
+msgstr "Unește activitățile"
+
+msgid "Chore to keep"
+msgstr "Activitate păstrată"
+
+msgid "After merging, this chore will be kept"
+msgstr "După unire, aceasta activitate va fi păstrată"
+
+msgid "Chore to remove"
+msgstr "Activitate ștearsă"
+
+msgid ""
+"After merging, all occurences of this chore will be replaced by the kept "
+"chore (means this chore will not exist anymore)"
+msgstr ""
+
+msgid "Due today"
+msgstr ""
+
+msgid "%s task is due to be done today"
+msgid_plural "%s tasks are due to be done today"
+msgstr[0] "%s sarcină urmează să fie îndeplinită astăzi"
+msgstr[1] "%s sarcini urmează să fie îndeplinite astăzi"
+msgstr[2] "%s sarcini urmează să fie îndeplinite astăzi"
+
+msgid "%s chore is due to be done today"
+msgid_plural "%s chores are due to be done today"
+msgstr[0] "%s activitate urmează să fie îndeplinită astăzi"
+msgstr[1] "%s activități urmează să fie îndeplinite astăzi"
+msgstr[2] "%s activități urmează să fie îndeplinite astăzi"
+
+msgid "%s battery is due to be charged today"
+msgid_plural "%s batteries are due to be charged today"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+msgid "Set to 0 to hide due soon filters/highlighting"
+msgstr ""
+
+msgid "Save & close"
+msgstr ""
+
+msgid "Save & add another task"
+msgstr ""
+
+msgid "Treat opened as out of stock"
+msgstr ""
+
+msgid ""
+"When enabled, opened items will be counted as missing for calculating if "
+"this product is below its minimum stock amount"
+msgstr ""
+
+msgid "Skipped"
+msgstr ""
+
+msgid "Skip next chore schedule"
+msgstr ""
+
+msgid "Time"
+msgstr ""
+
+msgid "A start date is required"
+msgstr ""
+
+msgid "Start date"
+msgstr ""
+
+msgid "The start date cannot be changed when the chore was once tracked"
+msgstr ""
+
+msgid "Show the recipe list and the recipe side by side"
+msgstr ""
+
+msgid ""
+"This means the next execution of this chore is scheduled dynamically based "
+"on the past average execution frequency"
+msgstr ""
+
+msgid "Average execution frequency"
+msgstr ""
+
+msgid "Reschedule next execution"
+msgstr ""
+
+msgid "This can only be in the future"
+msgstr ""
+
+msgid "Rescheduled"
+msgstr ""
+
+msgid "Due score"
+msgstr ""
+
+msgid ""
+"The higher this number is, the more ingredients currently in stock are due "
+"soon, overdue or already expired"
+msgstr ""
+
+msgid "Disable own stock"
+msgstr ""
+
+msgid ""
+"When enabled, this product can't have own stock, means it will not be "
+"selectable on purchase (useful for parent products which are just used as a "
+"summary/total view of the child products)"
+msgstr ""
+
+msgid "Out of stock items will be shown at the products default location"
+msgstr ""
+
+msgid "Show a little checkbox next to each ingredient to mark it as done"
+msgstr ""
+
+msgid ""
+"The ingredient is crossed out when clicked, the status is not saved, means "
+"reset when the page is reloaded"
+msgstr ""
+
+msgid ""
+"The parent product %1$s is currently not in stock, %2$s is the current next "
+"sub product based on the default consume rule (Opened first, then first due "
+"first, then first in first out)"
+msgstr ""
+
+msgid "Night mode"
+msgstr ""
+
+msgid "On"
+msgstr ""
+
+msgid "Use system setting"
+msgstr ""
+
+msgid "Off"
+msgstr ""
+
+msgid ""
+"Automatically add products that are below their defined min. stock amount to"
+" the shopping list"
+msgstr ""
+
+msgid "Reassigned"
+msgstr ""
+
+msgid "Default value"
+msgstr "Valoare implicita"
+
+msgid "Now / today"
+msgstr "Acum / astazi"
+
+msgid "Add meal plan entry"
+msgstr "Adauga un plan de mancare"
+
+msgid "Edit meal plan entry"
+msgstr ""
+
+msgid "Default consume location"
+msgstr ""
+
+msgid "Stock entries at this location will be consumed first"
+msgstr ""
+
+msgid "Move on open"
+msgstr ""
+
+msgid ""
+"When enabled, on marking this product as opened, the corresponding amount "
+"will be moved to the default consume location"
+msgstr ""
+
+msgid "Moved to %1$s"
+msgstr "Mutat la %1$s"
+
+msgid "Decimal places allowed for prices (input)"
+msgstr ""
+
+msgid "Decimal places allowed for prices (display)"
+msgstr ""
+
+msgid "Clear done items"
+msgstr ""
+
+msgid ""
+"This shows all to this product directly or indirectly related quantity units"
+" and their derived conversion factors"
+msgstr ""
+
+msgid "Show resolved conversions"
+msgstr ""
+
+msgid "QU conversions resolved"
+msgstr ""
+
+msgid "Product specifc QU conversions"
+msgstr ""
+
+msgid "Default quantity unit consume"
+msgstr ""
+
+msgid "This is the default quantity unit used when consuming this product"
+msgstr ""
+
+msgid "Add to meal plan"
+msgstr ""
+
+msgid "Successfully added the recipe to the meal plan"
+msgstr ""
+
+msgid "Reprint stock entry label"
+msgstr ""
+
+msgid "Auto reprint stock entry label"
+msgstr ""
+
+msgid ""
+"When enabled, auto-changing the due date of a stock entry (by "
+"opening/freezing/thawing and having corresponding default due days set) will"
+" reprint its label"
+msgstr ""

@@ -1,0 +1,404 @@
+# 
+# Translators:
+# Pwnisher <ciprian420@gmail.com>, 2021
+# Gabriel Andreescu <gabone01@gmail.com>, 2022
+# rathantara Tase, 2022
+# Mădălin Pătrăşcanu <mada.patrascanu@gmail.com>, 2022
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
+"PO-Revision-Date: 2019-05-01 17:42+0000\n"
+"Last-Translator: Mădălin Pătrăşcanu <mada.patrascanu@gmail.com>, 2022\n"
+"Language-Team: Romanian (Romania) (https://www.transifex.com/grocy/teams/93189/ro_RO/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ro_RO\n"
+"Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?2:1));\n"
+"X-Domain: grocy/demo_data\n"
+
+msgid "Cookies"
+msgstr "Prăjituri"
+
+msgid "Chocolate"
+msgstr "Ciocolată"
+
+msgid "Pantry"
+msgstr "Cămară"
+
+msgid "Candy cupboard"
+msgstr "Bufet dulciuri"
+
+msgid "Tinned food cupboard"
+msgstr "Bufet conserve"
+
+msgid "Fridge"
+msgstr "Frigider"
+
+msgid "Piece"
+msgid_plural "Pieces"
+msgstr[0] "Bucată"
+msgstr[1] "Bucăți"
+msgstr[2] "Bucăți"
+
+msgid "Pack"
+msgid_plural "Packs"
+msgstr[0] "Pachet"
+msgstr[1] "Pachete"
+msgstr[2] "Pachete"
+
+msgid "Glass"
+msgid_plural "Glasses"
+msgstr[0] "Pahar"
+msgstr[1] "Pahare"
+msgstr[2] "Pahare"
+
+msgid "Tin"
+msgid_plural "Tins"
+msgstr[0] "Cutie"
+msgstr[1] "Cutii"
+msgstr[2] "Cutii"
+
+msgid "Can"
+msgid_plural "Cans"
+msgstr[0] "Cană"
+msgstr[1] "Căni"
+msgstr[2] "Căni"
+
+msgid "Bunch"
+msgid_plural "Bunches"
+msgstr[0] "Mănunchi"
+msgstr[1] "Mănunchiuri"
+msgstr[2] "Mănunchiuri"
+
+msgid "Gummy bears"
+msgstr "Jeleuri"
+
+msgid "Crisps"
+msgstr "Chipsuri"
+
+msgid "Eggs"
+msgstr "Ouă"
+
+msgid "Noodles"
+msgstr "Tăiţei"
+
+msgid "Pickles"
+msgstr "Murături"
+
+msgid "Gulash soup"
+msgstr "Supă de gulaș"
+
+msgid "Yogurt"
+msgstr "Iaurt"
+
+msgid "Cheese"
+msgstr "Brânză"
+
+msgid "Cold cuts"
+msgstr "Mezeluri"
+
+msgid "Paprika"
+msgstr "Paprika"
+
+msgid "Cucumber"
+msgstr "Castravete"
+
+msgid "Radish"
+msgstr "Ridiche"
+
+msgid "Tomato"
+msgstr "Roșie"
+
+msgid "Change towels in the bathroom"
+msgstr "Schimbați prosoapele în baie"
+
+msgid "Mop the kitchen floor"
+msgstr "Ștergeți podeaua bucătăriei"
+
+msgid "Warranty ends"
+msgstr "Garanția expiră"
+
+msgid "TV remote control"
+msgstr "Telecomandă TV"
+
+msgid "Alarm clock"
+msgstr "Ceas cu alarmă"
+
+msgid "Heat remote control"
+msgstr "Telecomandă încălzire"
+
+msgid "Take out the trash"
+msgstr "Du gunoiul"
+
+msgid "Some good snacks"
+msgstr "Câteva gustări bune"
+
+msgid "Pizza dough"
+msgstr "Aluat de pizza"
+
+msgid "Sieved tomatoes"
+msgstr "Roșii pasate"
+
+msgid "Salami"
+msgstr "Salam"
+
+msgid "Toast"
+msgstr "Pâine prăjită"
+
+msgid "Minced meat"
+msgstr "Carne tocată"
+
+msgid "Pizza"
+msgstr "Pizza"
+
+msgid "Spaghetti bolognese"
+msgstr "Spaghete bolognese"
+
+msgid "Sandwiches"
+msgstr "Sandvișuri"
+
+msgid "English"
+msgstr "Engleză"
+
+msgid "German"
+msgstr "Germană"
+
+msgid "Italian"
+msgstr "Italiană"
+
+msgid "This is the note content of the recipe ingredient"
+msgstr "Acesta este conținutul notei al ingredientului rețetei"
+
+msgid "Demo User"
+msgstr "Utilizator Demo"
+
+msgid "Gram"
+msgid_plural "Grams"
+msgstr[0] "Gram"
+msgstr[1] "Grame"
+msgstr[2] "Grame"
+
+msgid "Flour"
+msgstr "Făină"
+
+msgid "Pancakes"
+msgstr "Clătite"
+
+msgid "Sugar"
+msgstr "Zahăr"
+
+msgid "Sweets"
+msgstr "Dulciuri"
+
+msgid "Bakery products"
+msgstr "Produse de patiserie"
+
+msgid "Tinned food"
+msgstr "Conserve"
+
+msgid "Butchery products"
+msgstr "Produse de măcelărie"
+
+msgid "Vegetables/Fruits"
+msgstr "Legume/Fructe"
+
+msgid "Refrigerated products"
+msgstr "Produse refrigerate"
+
+msgid "Coffee machine"
+msgstr "Automat de cafea"
+
+msgid "Dishwasher"
+msgstr "Maşină de spălat vasele"
+
+msgid "Liter"
+msgstr "Litru"
+
+msgid "Liters"
+msgstr "Litri"
+
+msgid "Bottle"
+msgstr "Sticlă"
+
+msgid "Bottles"
+msgstr "Sticle"
+
+msgid "Milk"
+msgstr "Lapte"
+
+msgid "Chocolate sauce"
+msgstr "Sos de ciocolată"
+
+msgid "Milliliters"
+msgstr "Mililitri"
+
+msgid "Milliliter"
+msgstr "Mililitru"
+
+msgid "Bottom"
+msgstr "Fund"
+
+msgid "Topping"
+msgstr "Topping"
+
+msgid "French"
+msgstr "Franceză"
+
+msgid "Turkish"
+msgstr "Turcă"
+
+msgid "Spanish"
+msgstr "Spaniolă"
+
+msgid "Russian"
+msgstr "Rusă"
+
+msgid "Vacuum the living room floor"
+msgstr "Aspirați podeaua sufrageriei"
+
+msgid "Clean the litter box"
+msgstr "Curățați cutia de gunoi"
+
+msgid "Change the bed sheets"
+msgstr "Schimba lenjeria de pat"
+
+msgid "Swedish"
+msgstr "Suedeză"
+
+msgid "Polish"
+msgstr "Poloneză"
+
+msgid "Milk Chocolate"
+msgstr "Ciocolată cu lapte"
+
+msgid "Dark Chocolate"
+msgstr "Ciocolată neagră"
+
+msgid "Slice"
+msgid_plural "Slices"
+msgstr[0] "Felie"
+msgstr[1] "Felii"
+msgstr[2] "Felii"
+
+msgid "Example userentity"
+msgstr "Exemplu de utilizator"
+
+msgid "This is an example user entity..."
+msgstr "Acesta este un exemplu de utilizator ..."
+
+msgid "Custom field"
+msgstr "Câmp personalizat"
+
+msgid "Example field value..."
+msgstr "Exemplu de valoare al unui câmp ..."
+
+msgid "Waffle rolls"
+msgstr "Rulouri de vafe"
+
+msgid "Danish"
+msgstr "Daneză"
+
+msgid "Dutch"
+msgstr "Olandeză"
+
+msgid "Norwegian"
+msgstr "Norvegiană"
+
+msgid "Demo"
+msgstr "Demo"
+
+msgid "Stable version"
+msgstr "Versiune stabilă"
+
+msgid "Preview version"
+msgstr "Versiune preview"
+
+msgid "current release"
+msgstr "Versiune curentă"
+
+msgid "not yet released"
+msgstr "Nu a fost încă lansat"
+
+msgid "Portuguese (Brazil)"
+msgstr "Portugheză (Brazilia)"
+
+msgid "This is a note"
+msgstr "Aceasta este o notă"
+
+msgid "Freezer"
+msgstr "Congelator"
+
+msgid "Hungarian"
+msgstr "Maghiară"
+
+msgid "Slovak"
+msgstr "Slovacă"
+
+msgid "Czech"
+msgstr "Cehă"
+
+msgid "Portuguese (Portugal)"
+msgstr "Portugheză (Portugalia)"
+
+# Use a in your country well known supermarket name
+msgid "DemoSupermarket1"
+msgstr "SupermarketDemo1"
+
+# Use a in your country well known supermarket name
+msgid "DemoSupermarket2"
+msgstr "SupermarketDemo2"
+
+msgid "Japanese"
+msgstr "Japoneză"
+
+msgid "Chinese (Taiwan)"
+msgstr "Chineză (Taiwan)"
+
+msgid "Greek"
+msgstr "Greacă"
+
+msgid "Korean"
+msgstr "Coreeană"
+
+msgid "Chinese (China)"
+msgstr "Chineză (China)"
+
+msgid "Hebrew (Israel)"
+msgstr "Ebraică (Israel)"
+
+msgid "Tamil"
+msgstr "Tamilă"
+
+msgid "Finnish"
+msgstr "Finlandeză"
+
+msgid "Breakfast"
+msgstr "Mic dejun"
+
+msgid "Lunch"
+msgstr "Prânz"
+
+msgid "Dinner"
+msgstr "Cină"
+
+msgid "Catalan"
+msgstr "Catalană"
+
+msgid "Slovenian"
+msgstr "Slovenă"
+
+msgid "Lithuanian"
+msgstr "Lituaniană"
+
+msgid "Ukrainian"
+msgstr "Ucraineană"
+
+msgid "Kilogram"
+msgid_plural "Kilograms"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""

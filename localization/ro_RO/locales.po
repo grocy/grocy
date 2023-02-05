@@ -1,0 +1,140 @@
+# 
+# Translators:
+# Gabriel Andreescu <gabone01@gmail.com>, 2022
+# rathantara Tase, 2022
+# Mădălin Pătrăşcanu <mada.patrascanu@gmail.com>, 2022
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
+"PO-Revision-Date: 2020-08-31 19:11+0000\n"
+"Last-Translator: Mădălin Pătrăşcanu <mada.patrascanu@gmail.com>, 2022\n"
+"Language-Team: Romanian (Romania) (https://www.transifex.com/grocy/teams/93189/ro_RO/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ro_RO\n"
+"Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?2:1));\n"
+"X-Domain: grocy/locales\n"
+
+# Czech
+msgid "cs"
+msgstr "Cehă"
+
+# Danish
+msgid "da"
+msgstr "Daneză"
+
+# German
+msgid "de"
+msgstr "Germană"
+
+# Greek
+msgid "el_GR"
+msgstr "Greacă"
+
+# English
+msgid "en"
+msgstr "Engleză"
+
+# English (Great Britain)
+msgid "en_GB"
+msgstr "Engleză (Marea Britanie)"
+
+# Spanish
+msgid "es"
+msgstr "Spaniolă"
+
+# French
+msgid "fr"
+msgstr "Franceză"
+
+# Hungarian
+msgid "hu"
+msgstr "Maghiară"
+
+# Italian
+msgid "it"
+msgstr "Italiană"
+
+# Japanese
+msgid "ja"
+msgstr "Japoneză"
+
+# Korean
+msgid "ko_KR"
+msgstr "Coreeană"
+
+# Dutch
+msgid "nl"
+msgstr "Olandeză"
+
+# Norwegian
+msgid "no"
+msgstr "Norvegiană"
+
+# Polish
+msgid "pl"
+msgstr "Poloneză"
+
+# Portuguese (Brazil)
+msgid "pt_BR"
+msgstr "Portugheză (Brazilia)"
+
+# Portuguese (Portugal)
+msgid "pt_PT"
+msgstr "Portugheză (Portugalia)"
+
+# Russian
+msgid "ru"
+msgstr "Rusă"
+
+# Slovak
+msgid "sk_SK"
+msgstr "Slovacă"
+
+# Slovenian
+msgid "sl"
+msgstr "Slovenă"
+
+# Swedish
+msgid "sv_SE"
+msgstr "Suedeză"
+
+# Turkish
+msgid "tr"
+msgstr "Turcă"
+
+# Chinese (Taiwan)
+msgid "zh_TW"
+msgstr "Chineză (Taiwan)"
+
+# Chinese (China)
+msgid "zh_CN"
+msgstr "Chineză (China)"
+
+# Hebrew (Israel)
+msgid "he_IL"
+msgstr "Ebraică (Israel)"
+
+# Tamil
+msgid "ta"
+msgstr "Tamilă"
+
+# Finnish
+msgid "fi"
+msgstr "Finlandeză"
+
+# Catalan
+msgid "ca"
+msgstr "Catalană"
+
+# Lithuanian
+msgid "lt"
+msgstr "Lituaniană"
+
+# Ukrainian
+msgid "uk"
+msgstr "Ucraineană"
