@@ -46,7 +46,7 @@
 
 ### Meal plan
 
-- xxx
+- Added a new sub feature flag `FEATURE_FLAG_RECIPES_MEALPLAN` to only disable the meal plan if not needed (thanks @webysther)
 
 ### Chores
 
