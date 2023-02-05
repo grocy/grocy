@@ -87,11 +87,15 @@ $app->group('', function (RouteCollectorProxy $group) {
 		$group->get('/recipes', '\Grocy\Controllers\RecipesController:Overview');
 		$group->get('/recipe/{recipeId}', '\Grocy\Controllers\RecipesController:RecipeEditForm');
 		$group->get('/recipe/{recipeId}/pos/{recipePosId}', '\Grocy\Controllers\RecipesController:RecipePosEditForm');
-		$group->get('/mealplan', '\Grocy\Controllers\RecipesController:MealPlan');
-		$group->get('/mealplansections', '\Grocy\Controllers\RecipesController:MealPlanSectionsList');
-		$group->get('/mealplansection/{sectionId}', '\Grocy\Controllers\RecipesController:MealPlanSectionEditForm');
 		$group->get('/recipessettings', '\Grocy\Controllers\RecipesController:RecipesSettings');
 		$group->get('/recipe/{recipeId}/grocycode', '\Grocy\Controllers\RecipesController:RecipeGrocycodeImage');
+
+		if (GROCY_FEATURE_FLAG_RECIPES_MEALPLAN)
+		{
+			$group->get('/mealplan', '\Grocy\Controllers\RecipesController:MealPlan');
+			$group->get('/mealplansections', '\Grocy\Controllers\RecipesController:MealPlanSectionsList');
+			$group->get('/mealplansection/{sectionId}', '\Grocy\Controllers\RecipesController:MealPlanSectionEditForm');
+		}
 	}
 
 	// Chore routes

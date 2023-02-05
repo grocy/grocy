@@ -188,6 +188,7 @@
 						<span class="nav-link-text">{{ $__t('Recipes') }}</span>
 					</a>
 				</li>
+				@if(GROCY_FEATURE_FLAG_RECIPES_MEALPLAN)
 				<li class="nav-item nav-item-sidebar permission-RECIPES_MEALPLAN"
 					data-toggle="tooltip"
 					data-placement="right"
@@ -200,6 +201,7 @@
 						<span class="nav-link-text">{{ $__t('Meal plan') }}</span>
 					</a>
 				</li>
+				@endif
 				@endif
 				@if(GROCY_FEATURE_FLAG_CHORES)
 				<div class="nav-item-divider"></div>
