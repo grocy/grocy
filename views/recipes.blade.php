@@ -388,7 +388,7 @@
 						<div class="row ml-1">
 							@if(!empty($calories) && intval($calories) > 0)
 							<div class="col-4">
-								<label>{{ $__t('Energy (kcal)') }}</label>&nbsp;
+								<label>{{ GROCY_ENERGY_UNIT }}</label>&nbsp;
 								<i class="fa-solid fa-question-circle text-muted d-print-none"
 									data-toggle="tooltip"
 									data-trigger="hover click"

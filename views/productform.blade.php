@@ -478,7 +478,7 @@
 			@php if($mode == 'edit') { $value = $product->calories; } else { $value = 0; } @endphp
 			@include('components.numberpicker', array(
 			'id' => 'calories',
-			'label' => 'Energy (kcal)',
+			'label' => 'Energy',
 			'min' => '0.' . str_repeat('0', $userSettings['stock_decimal_places_amounts']),
 			'decimals' => $userSettings['stock_decimal_places_amounts'],
 			'value' => $value,

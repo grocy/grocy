@@ -47,7 +47,7 @@
 
 ### Meal plan
 
-- Added a new sub feature flag `FEATURE_FLAG_RECIPES_MEALPLAN` to only disable the meal plan if not needed (thanks @webysther)
+- Added a new sub feature flag `FEATURE_FLAG_RECIPES_MEALPLAN` (in `config.php`) to only disable the meal plan if not needed (thanks @webysther)
 
 ### Chores
 
@@ -75,6 +75,7 @@
 
 ### General
 
+- Added a new `config.php` setting `ENERGY_UNIT` to customize the label to display energy values (was fixed `kcal` before and defaults to that, so no changed behavior when not configured)
 - New translations: (thanks all the translators)
   - Romanian (demo available at <https://ro.demo.grocy.info>)
 

@@ -1356,7 +1356,7 @@ msgstr ""
 msgid "Output"
 msgstr ""
 
-msgid "Energy (kcal)"
+msgid "Energy"
 msgstr ""
 
 msgid "Per stock quantity unit"

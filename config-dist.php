@@ -41,6 +41,10 @@ Setting('MEAL_PLAN_FIRST_DAY_OF_WEEK', '');
 // ISO 4217 code of the currency ("USD", "EUR", "GBP", etc.)
 Setting('CURRENCY', 'USD');
 
+// Your preferred unit for energy
+// E.g. "kcal" or "kJ" or something else (doesn't really matter, it's only used to display energy values)
+Setting('ENERGY_UNIT', 'kcal');
+
 // When running grocy in a subdirectory, this should be set to the relative path, otherwise empty
 // It needs to be set to the part (of the URL) AFTER the document root,
 // if URL rewriting is disabled, including index.php
