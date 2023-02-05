@@ -74,12 +74,6 @@ class RecipesService extends BaseService
 			throw new \Exception('Recipe does not exist');
 		}
 
-		$recipeResolved = $this->getDatabase()->recipes_resolved()->where('recipe_id', $recipeId)->fetch();
-		if ($recipeResolved->need_fulfilled == 0)
-		{
-			throw new \Exception('Recipe need is not fulfilled, consuming not possible');
-		}
-
 		$transactionId = uniqid();
 		$recipePositions = $this->getDatabase()->recipes_pos_resolved()->where('recipe_id', $recipeId)->fetchAll();
 
@@ -90,11 +84,11 @@ class RecipesService extends BaseService
 			{
 				if ($recipePosition->only_check_single_unit_in_stock == 0)
 				{
-					$this->getStockService()->ConsumeProduct($recipePosition->product_id, $recipePosition->recipe_amount, false, StockService::TRANSACTION_TYPE_CONSUME, 'default', $recipeId, null, $transactionId, true, true);
+					$this->getStockService()->ConsumeProduct($recipePosition->product_id, $recipePosition->recipe_amount, false, StockService::TRANSACTION_TYPE_CONSUME, 'default', $recipeId, null, $transactionId, true, true, true);
 				}
 			}
 		}
-		catch (Exception $ex)
+		catch (\Exception $ex)
 		{
 			$this->getDatabaseService()->GetDbConnectionRaw()->rollback();
 			throw $ex;
