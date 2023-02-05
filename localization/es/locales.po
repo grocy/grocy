@@ -2,6 +2,7 @@
 # Translators:
 # Alberto Martin <ami232@gmail.com>, 2021
 # GRBaset, 2022
+# Ricardo Verduguez, 2023
 # 
 msgid ""
 msgstr ""
@@ -9,7 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2020-08-31 19:11+0000\n"
-"Last-Translator: GRBaset, 2022\n"
+"Last-Translator: Ricardo Verduguez, 2023\n"
 "Language-Team: Spanish (https://www.transifex.com/grocy/teams/93189/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -96,7 +97,7 @@ msgstr "Eslovaco"
 
 # Slovenian
 msgid "sl"
-msgstr ""
+msgstr "sl"
 
 # Swedish
 msgid "sv_SE"
@@ -132,8 +133,8 @@ msgstr "ca"
 
 # Lithuanian
 msgid "lt"
-msgstr ""
+msgstr "lt"
 
 # Ukrainian
 msgid "uk"
-msgstr ""
+msgstr "uk"

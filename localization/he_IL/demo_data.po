@@ -403,3 +403,10 @@ msgstr "ליטאית"
 
 msgid "Ukrainian"
 msgstr "אוקראינית"
+
+msgid "Kilogram"
+msgid_plural "Kilograms"
+msgstr[0] "קילוגרם"
+msgstr[1] "קילוגרמים"
+msgstr[2] "קילוגרמים"
+msgstr[3] "קילוגרמים"

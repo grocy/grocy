@@ -131,8 +131,8 @@ msgstr "Catalan"
 
 # Lithuanian
 msgid "lt"
-msgstr ""
+msgstr "Lithuanian"
 
 # Ukrainian
 msgid "uk"
-msgstr ""
+msgstr "Ukrainian"

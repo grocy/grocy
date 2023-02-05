@@ -6,6 +6,8 @@
 # Gabor Pilsits <gabor.pilsits@gmail.com>, 2020
 # Gábor Szellő <gabor.szello@gmail.com>, 2020
 # Vad Laszlo, 2021
+# Andras B, 2022
+# rozgonik <rozgonik1@gmail.com>, 2023
 # 
 msgid ""
 msgstr ""
@@ -13,7 +15,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Vad Laszlo, 2021\n"
+"Last-Translator: rozgonik <rozgonik1@gmail.com>, 2023\n"
 "Language-Team: Hungarian (https://www.transifex.com/grocy/teams/93189/hu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -110,10 +112,10 @@ msgid "Tomato"
 msgstr "Paradicsom"
 
 msgid "Change towels in the bathroom"
-msgstr ""
+msgstr "Törülközőcsere a fürdőben"
 
 msgid "Mop the kitchen floor"
-msgstr ""
+msgstr "Konyha felmosása"
 
 msgid "Warranty ends"
 msgstr "Garancia lejár"
@@ -128,7 +130,7 @@ msgid "Heat remote control"
 msgstr "Termosztát"
 
 msgid "Take out the trash"
-msgstr ""
+msgstr "Kivinni a szemetet"
 
 msgid "Some good snacks"
 msgstr "Néhány jó kis nasi"
@@ -253,13 +255,13 @@ msgid "Russian"
 msgstr "Orosz"
 
 msgid "Vacuum the living room floor"
-msgstr ""
+msgstr "Porszívózás a nappaliban"
 
 msgid "Clean the litter box"
-msgstr ""
+msgstr "Szemetes kitisztítása"
 
 msgid "Change the bed sheets"
-msgstr ""
+msgstr "Ágynemű csere"
 
 msgid "Swedish"
 msgstr "Svéd"
@@ -279,10 +281,10 @@ msgstr[0] "Szelet"
 msgstr[1] "Szelet"
 
 msgid "Example userentity"
-msgstr "Példa felhasználóentitás"
+msgstr "Példa egyéni objektum"
 
 msgid "This is an example user entity..."
-msgstr "Ez egy példa felhasználóentitás"
+msgstr "Ez egy példa egyéni objektum"
 
 msgid "Custom field"
 msgstr "Egyéni mező"
@@ -380,13 +382,18 @@ msgid "Dinner"
 msgstr "Vacsora"
 
 msgid "Catalan"
-msgstr ""
+msgstr "Katalán"
 
 msgid "Slovenian"
-msgstr ""
+msgstr "Szlovén"
 
 msgid "Lithuanian"
-msgstr ""
+msgstr "Litván"
 
 msgid "Ukrainian"
-msgstr ""
+msgstr "Ukrán"
+
+msgid "Kilogram"
+msgid_plural "Kilograms"
+msgstr[0] "kilogramm"
+msgstr[1] "kilogramm"

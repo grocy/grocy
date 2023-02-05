@@ -377,3 +377,7 @@ msgstr ""
 
 msgid "Ukrainian"
 msgstr ""
+
+msgid "Kilogram"
+msgid_plural "Kilograms"
+msgstr[0] ""

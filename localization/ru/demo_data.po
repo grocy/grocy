@@ -6,6 +6,7 @@
 # J K <su1ka.box@gmail.com>, 2021
 # Sergey Kodolov, 2021
 # Dmitry Galyshev, 2022
+# Юрий Куклин, 2022
 # 
 msgid ""
 msgstr ""
@@ -13,7 +14,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Dmitry Galyshev, 2022\n"
+"Last-Translator: Юрий Куклин, 2022\n"
 "Language-Team: Russian (https://www.transifex.com/grocy/teams/93189/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -396,13 +397,20 @@ msgid "Dinner"
 msgstr "Ужин"
 
 msgid "Catalan"
-msgstr ""
+msgstr "Каталонский"
 
 msgid "Slovenian"
-msgstr ""
+msgstr "Словенский"
 
 msgid "Lithuanian"
-msgstr ""
+msgstr "Литовский"
 
 msgid "Ukrainian"
 msgstr "Украинский"
+
+msgid "Kilogram"
+msgid_plural "Kilograms"
+msgstr[0] "Килограмм"
+msgstr[1] "Килограмм"
+msgstr[2] "Килограмм"
+msgstr[3] "Килограмм"

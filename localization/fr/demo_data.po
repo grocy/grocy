@@ -400,7 +400,13 @@ msgid "Slovenian"
 msgstr "Slovène"
 
 msgid "Lithuanian"
-msgstr ""
+msgstr "Lituanien"
 
 msgid "Ukrainian"
-msgstr ""
+msgstr "Ukrainien"
+
+msgid "Kilogram"
+msgid_plural "Kilograms"
+msgstr[0] "Kilogramme"
+msgstr[1] "Kilogrammes"
+msgstr[2] "Kilogrammes"

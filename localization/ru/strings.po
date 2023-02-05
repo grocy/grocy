@@ -9,6 +9,7 @@
 # Pavel Pletenev <cpp.create@gmail.com>, 2021
 # Sergey Kodolov, 2022
 # Dmitry Galyshev, 2022
+# Юрий Куклин, 2022
 # 
 msgid ""
 msgstr ""
@@ -16,7 +17,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Dmitry Galyshev, 2022\n"
+"Last-Translator: Юрий Куклин, 2022\n"
 "Language-Team: Russian (https://www.transifex.com/grocy/teams/93189/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -231,9 +232,6 @@ msgstr "Единица измерения для покупок по умолч�
 msgid "Quantity unit stock"
 msgstr "Единица измерения в запасе"
 
-msgid "Factor purchase to stock quantity unit"
-msgstr "Коэффициент пересчёта единиц измерения при покупке и в запасе"
-
 msgid "Create location"
 msgstr "Создать место хранения"
 
@@ -287,10 +285,6 @@ msgstr "никогда"
 
 msgid "Add products that are below defined min. stock amount"
 msgstr "Добавить продукты, которых меньше мин. заданного кол-ва"
-
-msgid "This means 1 %1$s purchased will be converted into %2$s %3$s in stock"
-msgstr ""
-"Означает, что при покупке 1 %1$s  будет пересчитан в %2$s %3$s в запасе"
 
 msgid "Login"
 msgstr "Вход"
@@ -897,6 +891,9 @@ msgid ""
 "The first item in this list would be picked by the default rule consume rule"
 " (Opened first, then first due first, then first in first out)"
 msgstr ""
+"Первый элемент в этом списке будет выбран правилом потребления по умолчанию "
+"(сначала открыт, затем первым должен быть первым, затем первым пришел первым"
+" вышел)"
 
 msgid "Mark %1$s of %2$s as open"
 msgstr "Открыть %1$s %2$s "
@@ -1339,9 +1336,6 @@ msgstr "Означает, что 1 %1$s - это то же, что %2$s%3$s"
 
 msgid "QU conversions"
 msgstr "Преобразование ЕИ"
-
-msgid "Product overrides"
-msgstr "Переопределения продукта"
 
 msgid "Override for product"
 msgstr "Переопределить продукт"
@@ -2698,4 +2692,45 @@ msgid "Decimal places allowed for prices (input)"
 msgstr ""
 
 msgid "Decimal places allowed for prices (display)"
+msgstr ""
+
+msgid "Clear done items"
+msgstr ""
+
+msgid ""
+"This shows all to this product directly or indirectly related quantity units"
+" and their derived conversion factors"
+msgstr ""
+
+msgid "Show resolved conversions"
+msgstr ""
+
+msgid "QU conversions resolved"
+msgstr ""
+
+msgid "Product specifc QU conversions"
+msgstr ""
+
+msgid "Default quantity unit consume"
+msgstr ""
+
+msgid "This is the default quantity unit used when consuming this product"
+msgstr ""
+
+msgid "Add to meal plan"
+msgstr ""
+
+msgid "Successfully added the recipe to the meal plan"
+msgstr ""
+
+msgid "Reprint stock entry label"
+msgstr ""
+
+msgid "Auto reprint stock entry label"
+msgstr ""
+
+msgid ""
+"When enabled, auto-changing the due date of a stock entry (by "
+"opening/freezing/thawing and having corresponding default due days set) will"
+" reprint its label"
 msgstr ""

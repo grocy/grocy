@@ -404,3 +404,10 @@ msgstr "Litevština"
 
 msgid "Ukrainian"
 msgstr "Ukrajinština"
+
+msgid "Kilogram"
+msgid_plural "Kilograms"
+msgstr[0] "kilogram"
+msgstr[1] "kilogramy"
+msgstr[2] "kilogramů"
+msgstr[3] "kilogramů"

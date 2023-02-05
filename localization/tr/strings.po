@@ -212,9 +212,6 @@ msgstr "Varsayılan birim satın alma miktarı"
 msgid "Quantity unit stock"
 msgstr "Miktar birim stoğu"
 
-msgid "Factor purchase to stock quantity unit"
-msgstr "Alımı stok miktar birimle çarp"
-
 msgid "Create location"
 msgstr "Lokasyon oluştur"
 
@@ -268,9 +265,6 @@ msgstr "asla"
 
 msgid "Add products that are below defined min. stock amount"
 msgstr "Tanımlanan min. stok miktarının altındaki ürünleri ekle"
-
-msgid "This means 1 %1$s purchased will be converted into %2$s %3$s in stock"
-msgstr ""
 
 msgid "Login"
 msgstr "Giriş yap"
@@ -1274,9 +1268,6 @@ msgid "This means 1 %1$s is the same as %2$s %3$s"
 msgstr ""
 
 msgid "QU conversions"
-msgstr ""
-
-msgid "Product overrides"
 msgstr ""
 
 msgid "Override for product"
@@ -2512,4 +2503,45 @@ msgid "Decimal places allowed for prices (input)"
 msgstr ""
 
 msgid "Decimal places allowed for prices (display)"
+msgstr ""
+
+msgid "Clear done items"
+msgstr ""
+
+msgid ""
+"This shows all to this product directly or indirectly related quantity units"
+" and their derived conversion factors"
+msgstr ""
+
+msgid "Show resolved conversions"
+msgstr ""
+
+msgid "QU conversions resolved"
+msgstr ""
+
+msgid "Product specifc QU conversions"
+msgstr ""
+
+msgid "Default quantity unit consume"
+msgstr ""
+
+msgid "This is the default quantity unit used when consuming this product"
+msgstr ""
+
+msgid "Add to meal plan"
+msgstr ""
+
+msgid "Successfully added the recipe to the meal plan"
+msgstr ""
+
+msgid "Reprint stock entry label"
+msgstr ""
+
+msgid "Auto reprint stock entry label"
+msgstr ""
+
+msgid ""
+"When enabled, auto-changing the due date of a stock entry (by "
+"opening/freezing/thawing and having corresponding default due days set) will"
+" reprint its label"
 msgstr ""

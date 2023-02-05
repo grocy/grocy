@@ -15,6 +15,7 @@
 # Ryan Monteiro, 2022
 # Fernando Luiz Bonifácio de Oliveira, 2022
 # Webysther Sperandio <webysther@gmail.com>, 2022
+# Marcio Ota, 2023
 # 
 msgid ""
 msgstr ""
@@ -22,7 +23,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Webysther Sperandio <webysther@gmail.com>, 2022\n"
+"Last-Translator: Marcio Ota, 2023\n"
 "Language-Team: Portuguese (Brazil) (https://www.transifex.com/grocy/teams/93189/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -32,7 +33,7 @@ msgstr ""
 "X-Domain: grocy/strings\n"
 
 msgid "Stock overview"
-msgstr "Resumo do estoque"
+msgstr "Resumo do Estoque"
 
 msgid "%s product expires"
 msgid_plural "%s products expiring"
@@ -71,7 +72,7 @@ msgid "%s Product"
 msgid_plural "%s Products"
 msgstr[0] "%s Produtos"
 msgstr[1] "%s Products"
-msgstr[2] "%s Products"
+msgstr[2] "%s Produtos"
 
 msgid "Amount"
 msgstr "Quantidade"
@@ -107,7 +108,7 @@ msgid "Locations"
 msgstr "Localizações"
 
 msgid "Stores"
-msgstr "Lojas"
+msgstr "Fornecedores"
 
 msgid "Quantity units"
 msgstr "Unidades de medida"
@@ -143,7 +144,7 @@ msgid "OK"
 msgstr "OK"
 
 msgid "Product overview"
-msgstr "Visão geral de Produto"
+msgstr "Visão Geral dos Produtos"
 
 msgid "Stock quantity unit"
 msgstr "Unidades de medida do estoque"
@@ -217,7 +218,7 @@ msgid "Create product"
 msgstr "Criar produto"
 
 msgid "Barcode(s)"
-msgstr "Código(s) de Barra"
+msgstr "Código(s) de Barras"
 
 msgid "Minimum stock amount"
 msgstr "Total mínimo de estoque"
@@ -231,14 +232,11 @@ msgstr "Padrão da unidade de medida."
 msgid "Quantity unit stock"
 msgstr "Unidades de medida do estoque"
 
-msgid "Factor purchase to stock quantity unit"
-msgstr "Fator de unidade de compra e estoque"
-
 msgid "Create location"
 msgstr "Criar Localização"
 
 msgid "Create store"
-msgstr "Criar loja"
+msgstr "Novo fornecedor"
 
 msgid "Create quantity unit"
 msgstr "Criar unidade de medida"
@@ -274,7 +272,7 @@ msgid "Edit location"
 msgstr "Editar localização"
 
 msgid "Edit store"
-msgstr "Editar loja"
+msgstr "Editar fornecedor"
 
 msgid "Manage master data"
 msgstr "Gerenciar dados mestres"
@@ -288,10 +286,6 @@ msgstr "nunca"
 msgid "Add products that are below defined min. stock amount"
 msgstr ""
 "Adicionar produtos que estão abaixo da quantidade mínima de estoque definido"
-
-msgid "This means 1 %1$s purchased will be converted into %2$s %3$s in stock"
-msgstr ""
-"Isto significa que 1 %1$s comprado será convertido em %2$s %3$s no estoque"
 
 msgid "Login"
 msgstr "Login"
@@ -345,7 +339,7 @@ msgid "Are you sure to delete location \"%s\"?"
 msgstr "Tem certeza que quer apagar este local \"%s\"?"
 
 msgid "Are you sure to delete store \"%s\"?"
-msgstr "Você tem certeza que deseja apagar a loja \"%s\"?"
+msgstr "Você tem certeza que deseja apagar o fornecedor \"%s\"?"
 
 msgid "Manage API keys"
 msgstr "Organizar Chaves do API"
@@ -1007,7 +1001,7 @@ msgid "You have to select a location"
 msgstr "Você precisa selecionar uma localização"
 
 msgid "You have to select a store"
-msgstr "Necessário Selecionar uma Loja"
+msgstr "Selecione um fornecedor"
 
 msgid "List"
 msgstr "Lista"
@@ -1209,7 +1203,7 @@ msgid "Consume %1$s of %2$s"
 msgstr "Consumir %1$s de %2$s"
 
 msgid "Meal plan"
-msgstr "Plano de refeições"
+msgstr "Plano de Refeições"
 
 msgid "%s serving"
 msgid_plural "%s servings"
@@ -1330,9 +1324,6 @@ msgstr "Isto significa que 1 %1$s é o mesmo que %2$s %3$s "
 
 msgid "QU conversions"
 msgstr "Conversões de medidas"
-
-msgid "Product overrides"
-msgstr "Substituições de produto"
 
 msgid "Override for product"
 msgstr "Substituir pelo produto"
@@ -1561,7 +1552,7 @@ msgid "Are you sure to remove this conversion?"
 msgstr "Você tem certeza que quer remover esta conversão?"
 
 msgid "Unit price"
-msgstr "Unidade de preço"
+msgstr "Preço unitário"
 
 msgid "Total price"
 msgstr "Preço total"
@@ -1685,13 +1676,13 @@ msgstr ""
 "produtos."
 
 msgid "Meal plan recipe"
-msgstr "Receita do Plano de Refeição "
+msgstr "Receita do Plano de Refeições"
 
 msgid "Meal plan note"
-msgstr "Comentário do Plano de Refeição"
+msgstr "Comentário do Plano de Refeições"
 
 msgid "Meal plan product"
-msgstr "Produto do Plano de Refeição"
+msgstr "Produto do Plano de Refeições"
 
 msgid "Scan mode"
 msgstr "Modo Scanner"
@@ -1745,16 +1736,16 @@ msgid "Group ingredients by their product group"
 msgstr "Agrupar ingredientes por grupo de produto"
 
 msgid "Unknown store"
-msgstr "Loja Desconhecida"
+msgstr "Fornecedor desconhecido"
 
 msgid "Store"
-msgstr "Loja"
+msgstr "Fornecedor"
 
 msgid "Transaction successfully undone"
 msgstr "Transação estornada com sucesso"
 
 msgid "Default store"
-msgstr "Loja Padrão"
+msgstr "Fornecedor padrão"
 
 msgid "Consume this stock entry"
 msgstr "Consumir esse item do estoque"
@@ -2221,7 +2212,7 @@ msgid ""
 msgstr ""
 
 msgid "Last price (Unit)"
-msgstr "Último preço  (Unidade)"
+msgstr "Último preço (Unidade)"
 
 msgid "Last price (Total)"
 msgstr "Último preço (Total)"
@@ -2364,7 +2355,7 @@ msgid "Mandatory"
 msgstr "Obrigatório"
 
 msgid "Mandatory Userfield"
-msgstr ""
+msgstr "Campo obrigatório"
 
 msgid "When enabled, then this field must be filled on the destination form"
 msgstr ""
@@ -2644,4 +2635,45 @@ msgid "Decimal places allowed for prices (input)"
 msgstr ""
 
 msgid "Decimal places allowed for prices (display)"
+msgstr ""
+
+msgid "Clear done items"
+msgstr ""
+
+msgid ""
+"This shows all to this product directly or indirectly related quantity units"
+" and their derived conversion factors"
+msgstr ""
+
+msgid "Show resolved conversions"
+msgstr ""
+
+msgid "QU conversions resolved"
+msgstr ""
+
+msgid "Product specifc QU conversions"
+msgstr ""
+
+msgid "Default quantity unit consume"
+msgstr ""
+
+msgid "This is the default quantity unit used when consuming this product"
+msgstr ""
+
+msgid "Add to meal plan"
+msgstr ""
+
+msgid "Successfully added the recipe to the meal plan"
+msgstr ""
+
+msgid "Reprint stock entry label"
+msgstr ""
+
+msgid "Auto reprint stock entry label"
+msgstr ""
+
+msgid ""
+"When enabled, auto-changing the due date of a stock entry (by "
+"opening/freezing/thawing and having corresponding default due days set) will"
+" reprint its label"
 msgstr ""

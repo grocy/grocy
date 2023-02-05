@@ -224,9 +224,6 @@ msgstr "Одиниці вимірювання за замовчуванням"
 msgid "Quantity unit stock"
 msgstr "Кількість у наявності"
 
-msgid "Factor purchase to stock quantity unit"
-msgstr "Можник одиниці покупки до одиниці у наявності"
-
 msgid "Create location"
 msgstr "Створити місце"
 
@@ -280,9 +277,6 @@ msgstr "ніколи"
 
 msgid "Add products that are below defined min. stock amount"
 msgstr "Додати продукти, кількість яких в наявності недостатня"
-
-msgid "This means 1 %1$s purchased will be converted into %2$s %3$s in stock"
-msgstr "Це значає, що 1%1$s при купівлі буде записано як %2$s%3$sв наявності"
 
 msgid "Login"
 msgstr "Логін"
@@ -1322,9 +1316,6 @@ msgstr ""
 
 msgid "QU conversions"
 msgstr "Конверсія одиниць виміру"
-
-msgid "Product overrides"
-msgstr "Перевизначення для продуктів"
 
 msgid "Override for product"
 msgstr "Перевизначити для цього продукту"
@@ -2668,3 +2659,44 @@ msgstr "Кількість знаків після коми у цінах (по�
 
 msgid "Decimal places allowed for prices (display)"
 msgstr "Кількість знаків після коми у цінах (відображення)"
+
+msgid "Clear done items"
+msgstr ""
+
+msgid ""
+"This shows all to this product directly or indirectly related quantity units"
+" and their derived conversion factors"
+msgstr ""
+
+msgid "Show resolved conversions"
+msgstr ""
+
+msgid "QU conversions resolved"
+msgstr ""
+
+msgid "Product specifc QU conversions"
+msgstr ""
+
+msgid "Default quantity unit consume"
+msgstr ""
+
+msgid "This is the default quantity unit used when consuming this product"
+msgstr ""
+
+msgid "Add to meal plan"
+msgstr ""
+
+msgid "Successfully added the recipe to the meal plan"
+msgstr ""
+
+msgid "Reprint stock entry label"
+msgstr ""
+
+msgid "Auto reprint stock entry label"
+msgstr ""
+
+msgid ""
+"When enabled, auto-changing the due date of a stock entry (by "
+"opening/freezing/thawing and having corresponding default due days set) will"
+" reprint its label"
+msgstr ""

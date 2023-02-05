@@ -209,9 +209,6 @@ msgstr "默认数量单位购买"
 msgid "Quantity unit stock"
 msgstr "库存数量单位"
 
-msgid "Factor purchase to stock quantity unit"
-msgstr "库存数量单位"
-
 msgid "Create location"
 msgstr "创建位置"
 
@@ -265,9 +262,6 @@ msgstr "从不"
 
 msgid "Add products that are below defined min. stock amount"
 msgstr "添加低于最低库存数量的商品"
-
-msgid "This means 1 %1$s purchased will be converted into %2$s %3$s in stock"
-msgstr "这意味着购买的1%1$s将转换为%2$s%3$s库存"
 
 msgid "Login"
 msgstr "登录"
@@ -1242,9 +1236,6 @@ msgstr "这意味着1%1$s等于%2$s%3$s"
 
 msgid "QU conversions"
 msgstr "QU转换"
-
-msgid "Product overrides"
-msgstr "产品覆盖"
 
 msgid "Override for product"
 msgstr "覆盖产品"
@@ -2463,3 +2454,44 @@ msgstr "输入价格时的小数位数"
 
 msgid "Decimal places allowed for prices (display)"
 msgstr "输入价格时最多允许显示的小数位数"
+
+msgid "Clear done items"
+msgstr ""
+
+msgid ""
+"This shows all to this product directly or indirectly related quantity units"
+" and their derived conversion factors"
+msgstr ""
+
+msgid "Show resolved conversions"
+msgstr ""
+
+msgid "QU conversions resolved"
+msgstr ""
+
+msgid "Product specifc QU conversions"
+msgstr ""
+
+msgid "Default quantity unit consume"
+msgstr ""
+
+msgid "This is the default quantity unit used when consuming this product"
+msgstr ""
+
+msgid "Add to meal plan"
+msgstr ""
+
+msgid "Successfully added the recipe to the meal plan"
+msgstr ""
+
+msgid "Reprint stock entry label"
+msgstr ""
+
+msgid "Auto reprint stock entry label"
+msgstr ""
+
+msgid ""
+"When enabled, auto-changing the due date of a stock entry (by "
+"opening/freezing/thawing and having corresponding default due days set) will"
+" reprint its label"
+msgstr ""

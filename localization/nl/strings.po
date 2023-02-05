@@ -30,6 +30,8 @@
 # T. van der Nagel, 2022
 # Daan Breur <daanbreur@gmail.com>, 2022
 # Pieter Vantorre, 2022
+# Luc Donderwinkel, 2022
+# vanhoof.tech, 2023
 # 
 msgid ""
 msgstr ""
@@ -37,7 +39,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Pieter Vantorre, 2022\n"
+"Last-Translator: vanhoof.tech, 2023\n"
 "Language-Team: Dutch (https://www.transifex.com/grocy/teams/93189/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -241,9 +243,6 @@ msgstr "Standaard aankoopeenheid"
 msgid "Quantity unit stock"
 msgstr "Voorraadeenheid"
 
-msgid "Factor purchase to stock quantity unit"
-msgstr "Factor van aankoop- naar voorraadeenheid"
-
 msgid "Create location"
 msgstr "Maak een locatie"
 
@@ -297,10 +296,6 @@ msgstr "nooit"
 
 msgid "Add products that are below defined min. stock amount"
 msgstr "Voeg producten toe die onder min. voorraadhoeveelheid zijn"
-
-msgid "This means 1 %1$s purchased will be converted into %2$s %3$s in stock"
-msgstr ""
-"Dit betekent dat 1 gekochte %1$s omgezet zal worden naar %2$s %3$s voorraad"
 
 msgid "Login"
 msgstr "Login"
@@ -885,6 +880,9 @@ msgid ""
 "The first item in this list would be picked by the default rule consume rule"
 " (Opened first, then first due first, then first in first out)"
 msgstr ""
+"Het eerste item in deze lijst zou worden gekozen volgens de standaard "
+"consumptieregel (eerst geopend, daarna eerst vervaldatum, daarna eerst "
+"binnenkomst)"
 
 msgid "Mark %1$s of %2$s as open"
 msgstr "Markeer %1$s %2$s als geopend"
@@ -1332,9 +1330,6 @@ msgstr "Dit betekent dat 1 %1$s hetzelfde is als %2$s%3$s"
 
 msgid "QU conversions"
 msgstr "Hoeveelheidseenheidsconversies"
-
-msgid "Product overrides"
-msgstr "Product overschreden"
 
 msgid "Override for product"
 msgstr "Overschreden van product"
@@ -1816,6 +1811,9 @@ msgid ""
 "due first, then first in first out) for in-stock ingredients and on the last"
 " price for missing ones"
 msgstr ""
+"Gebaseerd op de prijzen van de standaard consumptieregel (eerst geopend, "
+"daarna eerst vervaldatum, daarna eerst binnenkomst) voor voorradige "
+"ingredienten en op de laatste prijs voor ontbrekende ingredienten"
 
 msgid "Clear filter"
 msgstr "Wis filter"
@@ -2268,6 +2266,8 @@ msgid ""
 "After merging, all occurences of this product will be replaced by the kept "
 "product (means this product will not exist anymore)"
 msgstr ""
+"Na het samenvoegen word dit product overal vervangen door het te behouden "
+"product (dit betekent dat dit product niet langer bestaat)"
 
 msgid "Merge"
 msgstr "Samenvoegen"
@@ -2515,7 +2515,7 @@ msgstr[1] "%s klusjes moeten vandaag worden gedaan."
 msgid "%s battery is due to be charged today"
 msgid_plural "%s batteries are due to be charged today"
 msgstr[0] "%sbatterijen moeten vandaag worden opgeladen"
-msgstr[1] "%sbatterijen moeten vandaag worden opgeladen"
+msgstr[1] "%s batterijen moeten vandaag worden opgeladen"
 
 msgid "Set to 0 to hide due soon filters/highlighting"
 msgstr "Stel in op 0 om binnenkort vervalt filters/markeringen te verbergen "
@@ -2540,7 +2540,7 @@ msgid "Skipped"
 msgstr "Overgeslagen"
 
 msgid "Skip next chore schedule"
-msgstr ""
+msgstr "Volgend klusje overslaan"
 
 msgid "Time"
 msgstr "Tijd"
@@ -2553,9 +2553,10 @@ msgstr "Startdatum"
 
 msgid "The start date cannot be changed when the chore was once tracked"
 msgstr ""
+"De startdatum kan niet worden gewijzigd als het klusje eenmaal is uitgevoerd"
 
 msgid "Show the recipe list and the recipe side by side"
-msgstr ""
+msgstr "Toon de receptenlijst en het recept naast elkaar"
 
 msgid ""
 "This means the next execution of this chore is scheduled dynamically based "
@@ -2563,24 +2564,24 @@ msgid ""
 msgstr ""
 
 msgid "Average execution frequency"
-msgstr ""
+msgstr "Gemiddelde uitvoeringsfrequentie"
 
 msgid "Reschedule next execution"
-msgstr ""
+msgstr "Plan de uitvoering opnieuw in"
 
 msgid "This can only be in the future"
-msgstr ""
+msgstr "Dit kan alleen  in de toekomst"
 
 msgid "Rescheduled"
-msgstr ""
+msgstr "Verzet"
 
 msgid "Due score"
-msgstr ""
+msgstr "Moet binnenkort gedaan worden"
 
 msgid ""
 "The higher this number is, the more ingredients currently in stock are due "
 "soon, overdue or already expired"
-msgstr ""
+msgstr "Hoe hoger dit nummer, hoe meer ingrediënten overdatum zijn"
 
 msgid "Disable own stock"
 msgstr "Eigen voorraad uitschakelen"
@@ -2590,23 +2591,37 @@ msgid ""
 "selectable on purchase (useful for parent products which are just used as a "
 "summary/total view of the child products)"
 msgstr ""
+"Wanneer ingeschakeld, kan dit product geen eigen voorraad hebben, wat "
+"betekent dat het niet selecteerbaar is bij aankoop (handig voor "
+"overkoepelende producten die alleen worden gebruikt als "
+"samenvatting/totaaloverzicht van de deelproducten)"
 
 msgid "Out of stock items will be shown at the products default location"
 msgstr ""
+"Artikelen die niet op voorraad zijn, worden weergegeven op de "
+"standaardlocatie van het product"
 
 msgid "Show a little checkbox next to each ingredient to mark it as done"
 msgstr ""
+"Toon een klein selectievakje naast elk ingrediënt om het als klaar te "
+"markeren"
 
 msgid ""
 "The ingredient is crossed out when clicked, the status is not saved, means "
 "reset when the page is reloaded"
 msgstr ""
+"Het ingrediënt wordt doorgestreept wanneer erop wordt geklikt, de status "
+"wordt niet opgeslagen, dit betekent gereset wanneer de pagina opnieuw wordt "
+"geladen"
 
 msgid ""
 "The parent product %1$s is currently not in stock, %2$s is the current next "
 "sub product based on the default consume rule (Opened first, then first due "
 "first, then first in first out)"
 msgstr ""
+"Het bovenliggende product %1$s is momenteel niet op voorraad, %2$s is het "
+"huidige volgende subproduct op basis van de standaard verbruiksregel (eerst "
+"geopend, dan eerst vervallen, dan eerst binnen, eerst uit)"
 
 msgid "Night mode"
 msgstr "Nachtmodus"
@@ -2615,7 +2630,7 @@ msgid "On"
 msgstr "Aan"
 
 msgid "Use system setting"
-msgstr ""
+msgstr "Gebruik systeeminstelling"
 
 msgid "Off"
 msgstr "Uit"
@@ -2624,9 +2639,11 @@ msgid ""
 "Automatically add products that are below their defined min. stock amount to"
 " the shopping list"
 msgstr ""
+"Voeg automatisch producten toe die onder hun gedefinieerde min. "
+"voorraadbedrag toe aan het boodschappenlijstje"
 
 msgid "Reassigned"
-msgstr ""
+msgstr "Opnieuw toegewezen"
 
 msgid "Default value"
 msgstr "Standaardwaarde"
@@ -2635,16 +2652,16 @@ msgid "Now / today"
 msgstr "Nu / vandaag"
 
 msgid "Add meal plan entry"
-msgstr ""
+msgstr "Voeg maaltijdplan onderdeel toe"
 
 msgid "Edit meal plan entry"
-msgstr ""
+msgstr "Pas maaltijdplan onderdeel aan"
 
 msgid "Default consume location"
-msgstr ""
+msgstr "Standaard verbruikslocatie"
 
 msgid "Stock entries at this location will be consumed first"
-msgstr ""
+msgstr "Voorraad op deze locatie wordt als eerste verbruikt"
 
 msgid "Move on open"
 msgstr "Verplaats na openen"
@@ -2653,12 +2670,62 @@ msgid ""
 "When enabled, on marking this product as opened, the corresponding amount "
 "will be moved to the default consume location"
 msgstr ""
+"Indien ingeschakeld, wordt bij het markeren van dit product als geopend de "
+"overeenkomstige hoeveelheid verplaatst naar de standaard verbruikslocatie"
 
 msgid "Moved to %1$s"
-msgstr ""
+msgstr "Verplaatst naar %1$s"
 
 msgid "Decimal places allowed for prices (input)"
-msgstr ""
+msgstr "Aantal decimalen toegestaan voor prijzen (invoer)"
 
 msgid "Decimal places allowed for prices (display)"
+msgstr "Aantal decimalen toegestaan voor prijzen (weergave)"
+
+msgid "Clear done items"
+msgstr "Wis voltooide items"
+
+msgid ""
+"This shows all to this product directly or indirectly related quantity units"
+" and their derived conversion factors"
 msgstr ""
+"Dit toont alle aan dit product direct of indirect gerelateerde "
+"hoeveelheidseenheden en hun afgeleide conversiefactoren"
+
+msgid "Show resolved conversions"
+msgstr ""
+
+msgid "QU conversions resolved"
+msgstr ""
+
+msgid "Product specifc QU conversions"
+msgstr ""
+
+msgid "Default quantity unit consume"
+msgstr "Standaard verbruikte hoeveelheidseenheid"
+
+msgid "This is the default quantity unit used when consuming this product"
+msgstr ""
+"Dit is de standaardhoeveelheidseenheid die wordt gebruikt bij het consumeren"
+" van dit product"
+
+msgid "Add to meal plan"
+msgstr "Toevoegen aan maaltijdplan"
+
+msgid "Successfully added the recipe to the meal plan"
+msgstr "Het recept is succesvol toegevoegd aan het maaltijdplan"
+
+msgid "Reprint stock entry label"
+msgstr "Voorraadinvoeretiket opnieuw afdrukken"
+
+msgid "Auto reprint stock entry label"
+msgstr "Voorraadinvoerlabel automatisch opnieuw afdrukken"
+
+msgid ""
+"When enabled, auto-changing the due date of a stock entry (by "
+"opening/freezing/thawing and having corresponding default due days set) will"
+" reprint its label"
+msgstr ""
+"Indien ingeschakeld, zal het automatisch wijzigen van de vervaldatum van een"
+" voorraaditem (door openen/bevriezen/ontdooien en het instellen van de "
+"bijbehorende standaard vervaldagen) het label opnieuw afdrukken"

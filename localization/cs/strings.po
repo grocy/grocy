@@ -8,7 +8,7 @@
 # Radim Kabeláč <radim.ekk@gmail.com>, 2020
 # Jaroslav Lichtblau <jlichtblau@seznam.cz>, 2020
 # Jarda Tesar <intossh@gmail.com>, 2021
-# Pavel Paseka, 2022
+# Pavel Paseka, 2023
 # 
 msgid ""
 msgstr ""
@@ -16,7 +16,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Pavel Paseka, 2022\n"
+"Last-Translator: Pavel Paseka, 2023\n"
 "Language-Team: Czech (https://www.transifex.com/grocy/teams/93189/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -231,11 +231,6 @@ msgstr "Výchozí měrná jednotka pro nákup"
 msgid "Quantity unit stock"
 msgstr "Měrná jednotka zásoby"
 
-msgid "Factor purchase to stock quantity unit"
-msgstr ""
-"Převodní koeficient (násobek) měrné jednotky nákupu produktu do měrné "
-"jednotky zásob"
-
 msgid "Create location"
 msgstr "Nové umístění"
 
@@ -292,9 +287,6 @@ msgstr "nikdy"
 msgid "Add products that are below defined min. stock amount"
 msgstr "Přidat produkty se stavem pod minimální zásobou"
 
-msgid "This means 1 %1$s purchased will be converted into %2$s %3$s in stock"
-msgstr "Koupě 1 %1$s bude převedena na zásobu %2$s %3$s"
-
 msgid "Login"
 msgstr "Přihlásit se"
 
@@ -338,7 +330,7 @@ msgid "Add as new product and prefill barcode"
 msgstr "Přidat jako nový produkt a předvyplnit čárový kód"
 
 msgid "Are you sure to delete quantity unit \"%s\"?"
-msgstr "Opravdu chcete smazat měrnou jednotku \"%s\"?"
+msgstr "Opravdu chcete smazat měrnou jednotku „%s“?"
 
 msgid "Are you sure to delete product \"%s\"?"
 msgstr "Opravdu chcete smazat produkt „%s“?"
@@ -464,13 +456,13 @@ msgid "Edit recipe ingredient"
 msgstr "Upravit ingredienci"
 
 msgid "Are you sure to delete recipe \"%s\"?"
-msgstr "Opravdu chcete smazat recept \"%s\"?"
+msgstr "Opravdu chcete smazat recept „%s“?"
 
 msgid "Are you sure to delete recipe ingredient \"%s\"?"
-msgstr "Opravdu chcete smazat ingredienci \"%s\"?"
+msgstr "Opravdu chcete smazat ingredienci „%s“?"
 
 msgid "Are you sure to empty shopping list \"%s\"?"
-msgstr "Opravdu chcete vyprázdnit nákupní seznam \"%s\"?"
+msgstr "Opravdu chcete vyprázdnit nákupní seznam „%s“?"
 
 msgid "Clear list"
 msgstr "Vyprázdnit seznam"
@@ -534,7 +526,7 @@ msgid "Users"
 msgstr "Uživatelé"
 
 msgid "Are you sure to delete user \"%s\"?"
-msgstr "Opravdu chcete smazat uživatele \"%s\"?"
+msgstr "Opravdu chcete smazat uživatele „%s“?"
 
 msgid "Create user"
 msgstr "Vytvořit uživatele"
@@ -735,7 +727,7 @@ msgid "Product group"
 msgstr "Skupina produktů"
 
 msgid "Are you sure to delete product group \"%s\"?"
-msgstr "Opravdu chcete smazat skupinu produktů \"%s\"?"
+msgstr "Opravdu chcete smazat skupinu produktů „%s“?"
 
 msgid "Stay logged in permanently"
 msgstr "Zůstat přihlášen"
@@ -1327,11 +1319,8 @@ msgstr "1 %1$s odpovídá %2$s %3$s"
 msgid "QU conversions"
 msgstr "Převod měrných jednotek"
 
-msgid "Product overrides"
-msgstr "Speciální nastavení pro produkt"
-
 msgid "Override for product"
-msgstr "které platí jen pro produkt"
+msgstr "která platí jen pro produkt"
 
 msgid "This equals %1$s %2$s"
 msgstr "To odpovídá %1$s %2$s "
@@ -2728,3 +2717,49 @@ msgstr "Počet desetinných míst při zapisování ceny"
 
 msgid "Decimal places allowed for prices (display)"
 msgstr "Počet desetinných míst při zobrazování ceny"
+
+msgid "Clear done items"
+msgstr "Zrušit všechna zaškrtnutí"
+
+msgid ""
+"This shows all to this product directly or indirectly related quantity units"
+" and their derived conversion factors"
+msgstr ""
+"Zobrazí všechny kombinace přepočtů měrných jednotek jak pro tento produkt "
+"zadaných, tak zděděných"
+
+msgid "Show resolved conversions"
+msgstr "Zobrazit všechny převody"
+
+msgid "QU conversions resolved"
+msgstr "Všechny převody měrných jednotek pro"
+
+msgid "Product specifc QU conversions"
+msgstr "Převody měrných jednotek pro tento produkt"
+
+msgid "Default quantity unit consume"
+msgstr "Výchozí měrná jednotka pro spotřebu"
+
+msgid "This is the default quantity unit used when consuming this product"
+msgstr "Měrná jednotka produktu při kliknutí na tlačítko Spotřebovat"
+
+msgid "Add to meal plan"
+msgstr "Přidat do jídelníčku"
+
+msgid "Successfully added the recipe to the meal plan"
+msgstr "Recept byl přidán do jídelníčku"
+
+msgid "Reprint stock entry label"
+msgstr "Vytisknout nálepku produktu"
+
+msgid "Auto reprint stock entry label"
+msgstr "Vytisknout nálepky pro produkt při změně"
+
+msgid ""
+"When enabled, auto-changing the due date of a stock entry (by "
+"opening/freezing/thawing and having corresponding default due days set) will"
+" reprint its label"
+msgstr ""
+"Pokud se změní datum min. trvanlivosti/použitelnosti změnou jeho stavu "
+"(otevřením, zmražením, rozmrazením) a pokud jsou pro tyto změny stavu "
+"uloženy doby min. trvanlivosti, nálepka produktu se znovu vytiskne."

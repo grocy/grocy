@@ -222,9 +222,6 @@ msgstr "יחידת כמות בררת מחדל לרכישה"
 msgid "Quantity unit stock"
 msgstr "יחידת כמות למלאי"
 
-msgid "Factor purchase to stock quantity unit"
-msgstr "המרת יחידת הכמות ברכישה לכמות במלאי לפי מקדם"
-
 msgid "Create location"
 msgstr "יצירת מיקום"
 
@@ -278,10 +275,6 @@ msgstr "אף פעם לא"
 
 msgid "Add products that are below defined min. stock amount"
 msgstr "להוסיף מוצרים שחסרים מתחת לכמות המלאי המזערית"
-
-msgid "This means 1 %1$s purchased will be converted into %2$s %3$s in stock"
-msgstr ""
-"משמעות הדבר היא של פריט אחד מסוג %1$s ברכישה יומר לכדי %2$s %3$s במלאי"
 
 msgid "Login"
 msgstr "כניסה"
@@ -1306,9 +1299,6 @@ msgstr "משמעות הדבר היא ש־%1$s אחד שקול ל־%2$s %3$s"
 
 msgid "QU conversions"
 msgstr "המרות יחידות כמות"
-
-msgid "Product overrides"
-msgstr "דריסות למוצר"
 
 msgid "Override for product"
 msgstr "דריסה למוצר"
@@ -2666,3 +2656,46 @@ msgstr "מקומות אחרי נקודה עשרונית למחירים (קלט)"
 
 msgid "Decimal places allowed for prices (display)"
 msgstr "מקומות אחרי נקודה עשרונית למחירים (תצוגה)"
+
+msgid "Clear done items"
+msgstr "פינוי פריטים שהושלמו"
+
+msgid ""
+"This shows all to this product directly or indirectly related quantity units"
+" and their derived conversion factors"
+msgstr ""
+"מציג את כל יחידות ההמרה שקשורות למוצר הזה במישרין או בעקיפין  ואת מקדמי "
+"ההמרה הנגזרים שלהם"
+
+msgid "Show resolved conversions"
+msgstr "הצגת דיונים שנפתרו"
+
+msgid "QU conversions resolved"
+msgstr "המרות יחידות כמות נפתרו"
+
+msgid "Product specifc QU conversions"
+msgstr "המרות יחידות כמות נקודתיות למוצר"
+
+msgid "Default quantity unit consume"
+msgstr ""
+
+msgid "This is the default quantity unit used when consuming this product"
+msgstr ""
+
+msgid "Add to meal plan"
+msgstr ""
+
+msgid "Successfully added the recipe to the meal plan"
+msgstr ""
+
+msgid "Reprint stock entry label"
+msgstr ""
+
+msgid "Auto reprint stock entry label"
+msgstr ""
+
+msgid ""
+"When enabled, auto-changing the due date of a stock entry (by "
+"opening/freezing/thawing and having corresponding default due days set) will"
+" reprint its label"
+msgstr ""

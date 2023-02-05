@@ -10,6 +10,7 @@
 # Matti Koskimies <matti@apulanta.fi>, 2021
 # Lauri Niskanen <ape3000@gmail.com>, 2021
 # Markus Laaksonen, 2022
+# 't <trajahan@gmail.com>, 2022
 # 
 msgid ""
 msgstr ""
@@ -17,7 +18,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Markus Laaksonen, 2022\n"
+"Last-Translator: 't <trajahan@gmail.com>, 2022\n"
 "Language-Team: Finnish (https://www.transifex.com/grocy/teams/93189/fi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -219,9 +220,6 @@ msgstr "Oletusostoyksikkö"
 msgid "Quantity unit stock"
 msgstr "Varastoyksikkö"
 
-msgid "Factor purchase to stock quantity unit"
-msgstr "Kerroin ostoyksiköistä varastoyksiköihin"
-
 msgid "Create location"
 msgstr "Luo sijainti"
 
@@ -275,9 +273,6 @@ msgstr "ei koskaan"
 
 msgid "Add products that are below defined min. stock amount"
 msgstr "Lisää tuotteet joita on varastossa alle minimin"
-
-msgid "This means 1 %1$s purchased will be converted into %2$s %3$s in stock"
-msgstr "Tämä tarkoittaa, että 1 %1$s ostettu muutetaan %2$s %3$s varastossa"
 
 msgid "Login"
 msgstr "Kirjaudu"
@@ -858,6 +853,8 @@ msgid ""
 "The first item in this list would be picked by the default rule consume rule"
 " (Opened first, then first due first, then first in first out)"
 msgstr ""
+"Ensimmäinen tämän listan tavara poimittaisiin oletussäännön kulutussäännöllä"
+" (Avattu ensin, ensimmäinen eräpäivä, ensimmäinen ulos). "
 
 msgid "Mark %1$s of %2$s as open"
 msgstr "Merkitse %1$s kpl tuotetta %2$s avatuksi"
@@ -1291,9 +1288,6 @@ msgstr "Tämä tarkoittaa, että 1 %1$s on sama kuin %2$s %3$s"
 msgid "QU conversions"
 msgstr "Yksikkömuunnokset"
 
-msgid "Product overrides"
-msgstr "Tuotteen korvaukset"
-
 msgid "Override for product"
 msgstr "Tuotteen korvaus"
 
@@ -1329,7 +1323,11 @@ msgid_plural ""
 "This means the next execution of this chore is scheduled %s hours after the "
 "last execution"
 msgstr[0] ""
+"Tämä tarkoittaa, että kotityö ajastetaan %s tuntia edellisen suorituksen "
+"jälkeen"
 msgstr[1] ""
+"Tämä tarkoittaa, että seuraava kotityön suorituskerta on määrä suorittaa  %s"
+" tuntia edelllisen suorituksen jälkeen."
 
 msgid ""
 "This means the next execution of this chore is scheduled every week on the "
@@ -2408,22 +2406,22 @@ msgid "Section"
 msgstr "Osio"
 
 msgid "Are you sure to empty the shopping list?"
-msgstr ""
+msgstr "Oletko varma, että haluat tyhjentää ostoslistan?"
 
 msgid "This is the default which will be prefilled on purchase"
 msgstr ""
 
 msgid "Merge chores"
-msgstr ""
+msgstr "Yhdistä kotityöt"
 
 msgid "Chore to keep"
-msgstr ""
+msgstr "Säilytettävä kotityö"
 
 msgid "After merging, this chore will be kept"
-msgstr ""
+msgstr "Tämä kotityö säilytetään yhdistämisen jälkeen"
 
 msgid "Chore to remove"
-msgstr ""
+msgstr "Poistettava kotityö"
 
 msgid ""
 "After merging, all occurences of this chore will be replaced by the kept "
@@ -2538,16 +2536,16 @@ msgid ""
 msgstr ""
 
 msgid "Night mode"
-msgstr ""
+msgstr "Yötila"
 
 msgid "On"
-msgstr ""
+msgstr "Päällä"
 
 msgid "Use system setting"
-msgstr ""
+msgstr "Käytä järjestelmän asetusta"
 
 msgid "Off"
-msgstr ""
+msgstr "Pois"
 
 msgid ""
 "Automatically add products that are below their defined min. stock amount to"
@@ -2590,4 +2588,45 @@ msgid "Decimal places allowed for prices (input)"
 msgstr ""
 
 msgid "Decimal places allowed for prices (display)"
+msgstr ""
+
+msgid "Clear done items"
+msgstr ""
+
+msgid ""
+"This shows all to this product directly or indirectly related quantity units"
+" and their derived conversion factors"
+msgstr ""
+
+msgid "Show resolved conversions"
+msgstr ""
+
+msgid "QU conversions resolved"
+msgstr ""
+
+msgid "Product specifc QU conversions"
+msgstr ""
+
+msgid "Default quantity unit consume"
+msgstr ""
+
+msgid "This is the default quantity unit used when consuming this product"
+msgstr ""
+
+msgid "Add to meal plan"
+msgstr ""
+
+msgid "Successfully added the recipe to the meal plan"
+msgstr ""
+
+msgid "Reprint stock entry label"
+msgstr ""
+
+msgid "Auto reprint stock entry label"
+msgstr ""
+
+msgid ""
+"When enabled, auto-changing the due date of a stock entry (by "
+"opening/freezing/thawing and having corresponding default due days set) will"
+" reprint its label"
 msgstr ""

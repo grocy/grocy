@@ -401,3 +401,10 @@ msgstr ""
 
 msgid "Ukrainian"
 msgstr ""
+
+msgid "Kilogram"
+msgid_plural "Kilograms"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""

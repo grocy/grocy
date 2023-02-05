@@ -14,6 +14,7 @@
 # Fernando Sánchez <fernando.l.sanchez@gmail.com>, 2021
 # Juan José González-Abril, 2021
 # GRBaset, 2022
+# Ricardo Verduguez, 2023
 # 
 msgid ""
 msgstr ""
@@ -21,7 +22,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: GRBaset, 2022\n"
+"Last-Translator: Ricardo Verduguez, 2023\n"
 "Language-Team: Spanish (https://www.transifex.com/grocy/teams/93189/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -231,9 +232,6 @@ msgstr "Unidad de compra predeterminada"
 msgid "Quantity unit stock"
 msgstr "Unidad de inventario"
 
-msgid "Factor purchase to stock quantity unit"
-msgstr "Factor entre unidad de compra y unidad de inventario"
-
 msgid "Create location"
 msgstr "Crear ubicación"
 
@@ -288,11 +286,6 @@ msgstr "nunca"
 msgid "Add products that are below defined min. stock amount"
 msgstr ""
 "Añadir productos que están por debajo del mínimo de existencias definido"
-
-msgid "This means 1 %1$s purchased will be converted into %2$s %3$s in stock"
-msgstr ""
-"Esto quiere decir que 1 %1$s comprado se convertirá en %2$s %3$s en el "
-"inventario"
 
 msgid "Login"
 msgstr "Iniciar sesión"
@@ -890,6 +883,9 @@ msgid ""
 "The first item in this list would be picked by the default rule consume rule"
 " (Opened first, then first due first, then first in first out)"
 msgstr ""
+"El primer artículo de esta lista será seleccionado según la regla "
+"predeterminada (Abiertos primero, luego el próximo en llegar a su fecha "
+"límite y luego el que se adquirió primero)"
 
 msgid "Mark %1$s of %2$s as open"
 msgstr "Marcar %1$s de %2$s como abierto"
@@ -1336,9 +1332,6 @@ msgstr "Esto significa que 1 %1$s equivale a %2$s %3$s"
 
 msgid "QU conversions"
 msgstr "Conversiones de unidades"
-
-msgid "Product overrides"
-msgstr "Conversiones particulares para este producto"
 
 msgid "Override for product"
 msgstr "Conversión particular para el producto"
@@ -1855,6 +1848,9 @@ msgid ""
 "due first, then first in first out) for in-stock ingredients and on the last"
 " price for missing ones"
 msgstr ""
+"Basado en los precios de la regla de consumo por defecto (primero abierto, "
+"primero vencido, primero en entrar, primero en salir) para los ingredientes "
+"en stock y en el último precio para los que faltan."
 
 msgid "Clear filter"
 msgstr "Limpiar filtro"
@@ -2312,6 +2308,8 @@ msgid ""
 "After merging, all occurences of this product will be replaced by the kept "
 "product (means this product will not exist anymore)"
 msgstr ""
+"Tras la fusión, todas las apariciones de este producto serán sustituidas por"
+" el producto conservado (es decir, este producto dejará de existir)."
 
 msgid "Merge"
 msgstr "Combinar"
@@ -2570,142 +2568,218 @@ msgid "Set to 0 to hide due soon filters/highlighting"
 msgstr "Poner 0 para ocultar los filtros/resaltado de fecha límite próxima"
 
 msgid "Save & close"
-msgstr ""
+msgstr "Guardar y Cerrar"
 
 msgid "Save & add another task"
-msgstr ""
+msgstr "Guardar y agregar otra tarea."
 
 msgid "Treat opened as out of stock"
-msgstr ""
+msgstr "Tratar apertura como fuera de stock"
 
 msgid ""
 "When enabled, opened items will be counted as missing for calculating if "
 "this product is below its minimum stock amount"
 msgstr ""
+"Si esta opción está activada, los artículos abiertos se contarán como no "
+"existentes para calcular si este producto está por debajo de su cantidad "
+"mínima de stock."
 
 msgid "Skipped"
-msgstr ""
+msgstr "Omitido"
 
 msgid "Skip next chore schedule"
-msgstr ""
+msgstr "Omitir el siguiente programa de tareas"
 
 msgid "Time"
-msgstr ""
+msgstr "Tiempo"
 
 msgid "A start date is required"
-msgstr ""
+msgstr "Se requiere una fecha de inicio"
 
 msgid "Start date"
-msgstr ""
+msgstr "Fecha de inicio"
 
 msgid "The start date cannot be changed when the chore was once tracked"
 msgstr ""
+"La fecha de inicio no puede modificarse cuando la tarea ya ha sido "
+"registrada."
 
 msgid "Show the recipe list and the recipe side by side"
-msgstr ""
+msgstr "Mostrar la lista de recetas y la receta una al lado de la otra"
 
 msgid ""
 "This means the next execution of this chore is scheduled dynamically based "
 "on the past average execution frequency"
 msgstr ""
+"Esto significa que la próxima ejecución de esta tarea se programa "
+"dinámicamente en función de la frecuencia media de ejecución anterior."
 
 msgid "Average execution frequency"
-msgstr ""
+msgstr "Frecuencia media de ejecución"
 
 msgid "Reschedule next execution"
-msgstr ""
+msgstr "Reprogramar la próxima ejecución"
 
 msgid "This can only be in the future"
-msgstr ""
+msgstr "Esto sólo puede ser en el futuro"
 
 msgid "Rescheduled"
-msgstr ""
+msgstr "Reprogramado"
 
 msgid "Due score"
-msgstr ""
+msgstr "Puntuación"
 
 msgid ""
 "The higher this number is, the more ingredients currently in stock are due "
 "soon, overdue or already expired"
 msgstr ""
+"Cuanto más alto sea este número, más ingredientes en stock habrá pronto, "
+"estarán pendientes o ya habrán caducado."
 
 msgid "Disable own stock"
-msgstr ""
+msgstr "Desactivar stock propio"
 
 msgid ""
 "When enabled, this product can't have own stock, means it will not be "
 "selectable on purchase (useful for parent products which are just used as a "
 "summary/total view of the child products)"
 msgstr ""
+"Cuando está activado, este producto no puede tener stock propio, lo que "
+"significa que no será seleccionable en la compra (útil para los productos "
+"primarios que solo se utilizan como un resumen / vista total de los "
+"subproductos)"
 
 msgid "Out of stock items will be shown at the products default location"
 msgstr ""
+"Los ítems fuera de stock se mostrarán en la ubicación predeterminada del "
+"producto."
 
 msgid "Show a little checkbox next to each ingredient to mark it as done"
 msgstr ""
+"Muestra una pequeña casilla junto a cada ingrediente para marcarlo como "
+"listo"
 
 msgid ""
 "The ingredient is crossed out when clicked, the status is not saved, means "
 "reset when the page is reloaded"
 msgstr ""
+"El ingrediente se tacha al hacer clic, el estado no se guarda, significa que"
+" se restablece al recargar la página."
 
 msgid ""
 "The parent product %1$s is currently not in stock, %2$s is the current next "
 "sub product based on the default consume rule (Opened first, then first due "
 "first, then first in first out)"
 msgstr ""
+"El producto principal %1$s actualmente está fuera de stock, %2$s es el "
+"siguiente subproducto actual según la regla de consumo predeterminada "
+"(Abierto primero, luego primero vencido primero, luego primero en entrar, "
+"primero en salir)"
 
 msgid "Night mode"
-msgstr ""
+msgstr "Modo Nocturno"
 
 msgid "On"
-msgstr ""
+msgstr "Encendido"
 
 msgid "Use system setting"
-msgstr ""
+msgstr "Usar la configuración del sistema"
 
 msgid "Off"
-msgstr ""
+msgstr "Apagado"
 
 msgid ""
 "Automatically add products that are below their defined min. stock amount to"
 " the shopping list"
 msgstr ""
+"Agrega automáticamente productos que están por debajo de su mínimo definido."
+" Cantidad de stock a la lista de la compra"
 
 msgid "Reassigned"
-msgstr ""
+msgstr "Reasignado"
 
 msgid "Default value"
-msgstr ""
+msgstr "Valor predeterminado"
 
 msgid "Now / today"
-msgstr ""
+msgstr "Ahora / Hoy"
 
 msgid "Add meal plan entry"
-msgstr ""
+msgstr "Agregar nueva entrada de menú"
 
 msgid "Edit meal plan entry"
-msgstr ""
+msgstr "Editar entrada del menú"
 
 msgid "Default consume location"
-msgstr ""
+msgstr "Ubicación de consumo predeterminada"
 
 msgid "Stock entries at this location will be consumed first"
-msgstr ""
+msgstr "Las entradas de stock en esta ubicación se consumirán primero"
 
 msgid "Move on open"
-msgstr ""
+msgstr "Mover al abrir"
 
 msgid ""
 "When enabled, on marking this product as opened, the corresponding amount "
 "will be moved to the default consume location"
 msgstr ""
+"Cuando está habilitado, al marcar este producto como abierto, la cantidad "
+"correspondiente se moverá a la ubicación de consumo predeterminada"
 
 msgid "Moved to %1$s"
-msgstr ""
+msgstr "Movido a %1$s"
 
 msgid "Decimal places allowed for prices (input)"
-msgstr ""
+msgstr "Cifras decimales permitidas para precios (entrada)"
 
 msgid "Decimal places allowed for prices (display)"
+msgstr "Cifras decimales permitidas para precios(muestra)"
+
+msgid "Clear done items"
+msgstr "Limpiar elementos completados"
+
+msgid ""
+"This shows all to this product directly or indirectly related quantity units"
+" and their derived conversion factors"
 msgstr ""
+"Muestra todas las unidades de cantidad relacionadas directa o indirectamente"
+" con este producto y sus factores de conversión derivados."
+
+msgid "Show resolved conversions"
+msgstr "Mostrar conversiones resueltas"
+
+msgid "QU conversions resolved"
+msgstr "QU conversiones resueltas "
+
+msgid "Product specifc QU conversions"
+msgstr "QU conversiones de producto específico "
+
+msgid "Default quantity unit consume"
+msgstr "Cantidad de unidades de consumo por defecto"
+
+msgid "This is the default quantity unit used when consuming this product"
+msgstr ""
+"Esta es la unidad de cantidad por defecto utilizada al consumir este "
+"producto"
+
+msgid "Add to meal plan"
+msgstr "Añadir al menú"
+
+msgid "Successfully added the recipe to the meal plan"
+msgstr "Añadido exitosamente al plan de menú"
+
+msgid "Reprint stock entry label"
+msgstr "Reimprimir etiqueta de entrada de stock"
+
+msgid "Auto reprint stock entry label"
+msgstr "Reimprimir etiqueta de entrada de stock automáticamente"
+
+msgid ""
+"When enabled, auto-changing the due date of a stock entry (by "
+"opening/freezing/thawing and having corresponding default due days set) will"
+" reprint its label"
+msgstr ""
+"Si está activada, la modificación automática de la fecha de vencimiento de "
+"una entrada de stock (por apertura/congelación/descongelación y con los "
+"correspondientes días de vencimiento predeterminados) reimprimirá su "
+"etiqueta."

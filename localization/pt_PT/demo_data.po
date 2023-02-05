@@ -397,3 +397,9 @@ msgstr "Lituano"
 
 msgid "Ukrainian"
 msgstr "Ucraniano"
+
+msgid "Kilogram"
+msgid_plural "Kilograms"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
