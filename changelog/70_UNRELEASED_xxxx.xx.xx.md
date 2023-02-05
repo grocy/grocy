@@ -41,6 +41,7 @@
 - Added a new entry "Add to meal plan" in the context/more menu per recipe to directly add a recipe to the meal plan from the recipes page
 - Changed that when a ingredient has a "Variable amount" set, the text entered there now also replaces the unit when displaying the recipe (not only the amount as before)
 - When displaying a recipe in fullscreen mode, the ingredients and preparation is now shown side by side (or below each other on small screens) instead of in tabs
+- When consuming a recipe which has a "Produces product" set and when the product's "Default stock entry label" is configured accordingly, the corresponding label will now be printed on that action (only server side label printer WebHooks are supported)
 - Fixed that hiding the "Requirements fulfilled" column (table options) on the recipes page didn't work
 - Fixed that ingredient costs and calories were wrong when product substitution and unit conversions were involved at the same time
 
