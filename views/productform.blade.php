@@ -495,8 +495,20 @@
 			'min' => $DEFAULT_MIN_AMOUNT,
 			'decimals' => $userSettings['stock_decimal_places_amounts'],
 			'value' => $value,
-			'hint' => $__t('This amount is used for the "quick consume/open buttons" on the stock overview page (related to quantity unit stock)'),
+			'hint' => $__t('This amount is used for the "quick consume button" on the stock overview page (related to quantity unit stock)'),
 			'contextInfoId' => 'quick_consume_qu_info',
+			'additionalCssClasses' => 'locale-number-input locale-number-quantity-amount'
+			))
+			
+			@php if($mode == 'edit') { $value = $product->quick_open_amount; } else { $value = 1; } @endphp
+			@include('components.numberpicker', array(
+			'id' => 'quick_open_amount',
+			'label' => 'Quick open amount',
+			'min' => $DEFAULT_MIN_AMOUNT,
+			'decimals' => $userSettings['stock_decimal_places_amounts'],
+			'value' => $value,
+			'hint' => $__t('This amount is used for the "quick open button" on the stock overview page (related to quantity unit stock)'),
+			'contextInfoId' => 'quick_open_qu_info',
 			'additionalCssClasses' => 'locale-number-input locale-number-quantity-amount'
 			))
 

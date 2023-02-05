@@ -161,6 +161,7 @@ $('.input-group-qu').on('change', function(e)
 {
 	$("#tare_weight_qu_info").text($("#qu_id_stock option:selected").text());
 	$("#quick_consume_qu_info").text($("#qu_id_stock option:selected").text());
+	$("#quick_open_qu_info").text($("#qu_id_stock option:selected").text());
 	$("#energy_qu_info").text(Grocy.EnergyUnit + " / " + $("#qu_id_stock option:selected").text());
 
 	Grocy.FrontendHelpers.ValidateForm('product-form');
@@ -433,6 +434,7 @@ if (Grocy.EditMode == "create" && GetUriParam("copy-of") != undefined)
 			$("#default_best_before_days_after_freezing").val(sourceProduct.default_best_before_days_after_freezing);
 			$("#default_best_before_days_after_thawing").val(sourceProduct.default_best_before_days_after_thawing);
 			$("#quick_consume_amount").val(sourceProduct.quick_consume_amount);
+			$("#quick_open_amount").val(sourceProduct.quick_open_amount);
 
 			Grocy.FrontendHelpers.ValidateForm('product-form');
 		},

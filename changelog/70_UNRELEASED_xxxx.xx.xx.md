@@ -26,6 +26,7 @@
   - Defaults to disabled, so no changed behavior when not configured
 - Added a new option "Reprint stock entry label" on the stock entry edit page (will print the correspondind stock entry label on save)
   - This option will be automatically set on changing the entry's due date
+- The product option "Quick consume amount" (the amount used for the "quick consume/open buttons" on the stock overview page) has been split into another option "Quick open amount", to be able to set different amounts for consume and open (defaults to the "Quick consume amount" per product, so no changed behavior when not configured)
 - Changed that for the product's average and last price (and for the price history chart) stock transactions with an empty or `0` price are ignored
 - Fixed that hiding the "Purchased date" column (table options) on the stock entries page didn't work
 - Fixed that sorting by the "Value" column on the stock overview page didn't work

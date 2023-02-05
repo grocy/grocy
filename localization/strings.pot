@@ -1793,7 +1793,10 @@ msgstr ""
 msgid "Quick consume amount"
 msgstr ""
 
-msgid "This amount is used for the \"quick consume/open buttons\" on the stock overview page (related to quantity unit stock)"
+msgid "This amount is used for the \"quick consume button\" on the stock overview page (related to quantity unit stock)"
+msgstr ""
+
+msgid "This amount is used for the \"quick open button\" on the stock overview page (related to quantity unit stock)"
 msgstr ""
 
 msgid "Copy"
@@ -2364,4 +2367,7 @@ msgid "Auto reprint stock entry label"
 msgstr ""
 
 msgid "When enabled, auto-changing the due date of a stock entry (by opening/freezing/thawing and having corresponding default due days set) will reprint its label"
+msgstr ""
+
+msgid "Quick open amount"
 msgstr ""
