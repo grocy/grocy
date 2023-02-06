@@ -73,6 +73,7 @@
 ### Userfields
 
 - Product group Userfields are now also rendered on the shopping list
+- Fixed that when having e.g. a Userfield for the `stock` entity and using the "Never overdue" shortcut checkbox for the due date on purchase, this Userfield would also be set to the corresponding "never overdue date"
 
 ### General
 

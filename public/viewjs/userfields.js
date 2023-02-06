@@ -76,7 +76,7 @@ $(document).on('click', '.userfield-delete-button', function(e)
 	});
 });
 
-if (GetUriParam("entity")
+if (GetUriParam("entity"))
 {
 	$("#entity-filter").val(GetUriParam("entity"));
 	$("#entity-filter").trigger("change");

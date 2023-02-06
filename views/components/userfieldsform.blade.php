@@ -56,7 +56,7 @@
 	'value' => ''
 	))
 	@elseif($userfield->type == \Grocy\Services\UserfieldsService::USERFIELD_TYPE_DATE)
-	@include('components.datetimepicker', array(
+	@include('components.datetimepicker2', array(
 	'id' => $userfield->name,
 	'label' => $userfield->caption,
 	'noNameAttribute' => true,
@@ -64,13 +64,13 @@
 	'initWithNow' => false,
 	'limitEndToNow' => false,
 	'limitStartToNow' => false,
-	'additionalGroupCssClasses' => 'date-only-datetimepicker',
+	'additionalGroupCssClasses' => 'date-only-datetimepicker2',
 	'isRequired' => $userfield->input_required == 1,
 	'additionalCssClasses' => 'userfield-input',
 	'additionalAttributes' => 'data-userfield-name="' . $userfield->name . '"'
 	))
 	@elseif($userfield->type == \Grocy\Services\UserfieldsService::USERFIELD_TYPE_DATETIME)
-	@include('components.datetimepicker', array(
+	@include('components.datetimepicker2', array(
 	'id' => $userfield->name,
 	'label' => $userfield->caption,
 	'noNameAttribute' => true,
