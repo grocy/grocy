@@ -508,7 +508,7 @@ $(document).on("click", "#print-shopping-list-button", function(e)
 				$(".print-timestamp").text(moment().format("l LT"));
 
 				$("#description-for-print").html($("#description").val());
-				if ($("#description").text().isEmpty())
+				if (!$("#description").text())
 				{
 					$("#description-for-print").parent().addClass("d-print-none");
 				}

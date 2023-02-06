@@ -53,7 +53,7 @@ class GenericEntityApiController extends BaseApiController
 				// TODO: This should be better done somehow in StockService
 				if ($args['entity'] == 'products' && boolval($this->getUsersService()->GetUserSetting(GROCY_USER_ID, 'shopping_list_auto_add_below_min_stock_amount')))
 				{
-					$this->getStockService()->AddMissingProductsToShoppingList(intval($this->getUsersService()->GetUserSetting(GROCY_USER_ID, 'shopping_list_auto_add_below_min_stock_amount_list_id')));
+					$this->getStockService()->AddMissingProductsToShoppingList($this->getUsersService()->GetUserSetting(GROCY_USER_ID, 'shopping_list_auto_add_below_min_stock_amount_list_id'));
 				}
 
 				return $this->ApiResponse($response, [
@@ -167,7 +167,7 @@ class GenericEntityApiController extends BaseApiController
 				// TODO: This should be better done somehow in StockService
 				if ($args['entity'] == 'products' && boolval($this->getUsersService()->GetUserSetting(GROCY_USER_ID, 'shopping_list_auto_add_below_min_stock_amount')))
 				{
-					$this->getStockService()->AddMissingProductsToShoppingList(intval($this->getUsersService()->GetUserSetting(GROCY_USER_ID, 'shopping_list_auto_add_below_min_stock_amount_list_id')));
+					$this->getStockService()->AddMissingProductsToShoppingList($this->getUsersService()->GetUserSetting(GROCY_USER_ID, 'shopping_list_auto_add_below_min_stock_amount_list_id'));
 				}
 
 				return $this->EmptyApiResponse($response);

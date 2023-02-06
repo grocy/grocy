@@ -49,7 +49,7 @@ $("#user-filter").on("change", function()
 
 	choresOverviewTable.column(choresOverviewTable.colReorder.transpose(6)).search(value).draw();
 
-	if (!value.isEmpty())
+	if (value)
 	{
 		UpdateUriParam("user", $("#user-filter option:selected").data("user-id"));
 	}
@@ -152,7 +152,7 @@ $(document).on('click', '.track-chore-button', function(e)
 							$('#chore-' + choreId + '-last-tracked-time').text(trackedTime);
 							$('#chore-' + choreId + '-last-tracked-time-timeago').attr('datetime', trackedTime);
 
-							if (result.next_estimated_execution_time != null && !result.next_estimated_execution_time.isEmpty())
+							if (result.next_estimated_execution_time)
 							{
 								$('#chore-' + choreId + '-next-execution-time').text(result.next_estimated_execution_time);
 								$('#chore-' + choreId + '-next-execution-time-timeago').attr('datetime', result.next_estimated_execution_time);
@@ -264,7 +264,7 @@ function RefreshStatistics()
 					dueSoonCount++;
 				}
 
-				if (parseInt(element.next_execution_assigned_to_user_id) == Grocy.UserId)
+				if (element.next_execution_assigned_to_user_id == Grocy.UserId)
 				{
 					assignedToMeCount++;
 				}
@@ -291,7 +291,7 @@ $(document).on("click", ".reschedule-chore-button", function(e)
 	Grocy.Api.Get("chores/" + choreId, function(choreDetails)
 	{
 		var prefillDate = choreDetails.next_estimated_execution_time || moment().format("YYYY-MM-DD HH:mm:ss");
-		if (choreDetails.chore.rescheduled_date != null && !choreDetails.chore.rescheduled_date.isEmpty())
+		if (choreDetails.chore.rescheduled_date)
 		{
 			prefillDate = choreDetails.chore.rescheduled_date;
 		}
@@ -311,7 +311,7 @@ $(document).on("click", ".reschedule-chore-button", function(e)
 		{
 			choreDetails.chore.next_execution_assigned_to_user_id = "";
 		}
-		if (choreDetails.chore.next_execution_assigned_to_user_id != null && !choreDetails.chore.next_execution_assigned_to_user_id.isEmpty())
+		if (choreDetails.chore.next_execution_assigned_to_user_id)
 		{
 			Grocy.Components.UserPicker.SetId(choreDetails.chore.next_execution_assigned_to_user_id)
 		}

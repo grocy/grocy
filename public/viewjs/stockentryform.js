@@ -15,9 +15,9 @@
 	var jsonForm = $('#stockentry-form').serializeJSON();
 	Grocy.FrontendHelpers.BeginUiBusy("stockentry-form");
 
-	if (!jsonForm.price.toString().isEmpty())
+	if (jsonForm.price)
 	{
-		price = parseFloat(jsonForm.price).toFixed(Grocy.UserSettings.stock_decimal_places_prices_input);
+		price = Number.parseFloat(jsonForm.price).toFixed(Grocy.UserSettings.stock_decimal_places_prices_input);
 	}
 
 	var jsonData = {};

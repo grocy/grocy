@@ -61,7 +61,7 @@
 
 					if (productDetails.product.enable_tare_weight_handling == 1)
 					{
-						var successMessage = __t('Transfered %1$s of %2$s from %3$s to %4$s', Math.abs(jsonForm.amount - parseFloat(productDetails.product.tare_weight)) + " " + __n(jsonForm.amount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural, true), productDetails.product.name, $('option:selected', "#location_id_from").text(), $('option:selected', "#location_id_to").text()) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockTransaction(\'' + bookingResponse[0].transaction_id + '\')"><i class="fa-solid fa-undo"></i> ' + __t("Undo") + '</a>';
+						var successMessage = __t('Transfered %1$s of %2$s from %3$s to %4$s', Math.abs(jsonForm.amount - productDetails.product.tare_weight) + " " + __n(jsonForm.amount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural, true), productDetails.product.name, $('option:selected', "#location_id_from").text(), $('option:selected', "#location_id_to").text()) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockTransaction(\'' + bookingResponse[0].transaction_id + '\')"><i class="fa-solid fa-undo"></i> ' + __t("Undo") + '</a>';
 					}
 					else
 					{
@@ -80,7 +80,7 @@
 						toastr.success(successMessage);
 						Grocy.Components.ProductPicker.FinishFlow();
 
-						if (parseInt($("#location_id_from option:selected").attr("data-is-freezer")) === 0 && parseInt($("#location_id_to option:selected").attr("data-is-freezer")) === 1) // Frozen
+						if ($("#location_id_from option:selected").attr("data-is-freezer") == 0 && $("#location_id_to option:selected").attr("data-is-freezer") == 1) // Frozen
 						{
 							toastr.info('<span>' + __t("Frozen") + "</span> <i class='fa-solid fa-snowflake'></i>");
 
@@ -89,7 +89,7 @@
 								toastr.warning(__t("This product shouldn't be frozen"));
 							}
 						}
-						if (parseInt($("#location_id_from option:selected").attr("data-is-freezer")) === 1 && parseInt($("#location_id_to option:selected").attr("data-is-freezer")) === 0) // Thawed
+						if ($("#location_id_from option:selected").attr("data-is-freezer") == 1 && $("#location_id_to option:selected").attr("data-is-freezer") == 0) // Thawed
 						{
 							toastr.info('<span>' + __t("Thawed") + "</span> <i class='fa-solid fa-fire-alt'></i>");
 						}
@@ -106,7 +106,7 @@
 						$("#location_id_from").find("option").remove().end().append("<option></option>");
 						$("#display_amount").attr("min", Grocy.DefaultMinAmount);
 						$("#display_amount").removeAttr("max");
-						$('#display_amount').val(parseFloat(Grocy.UserSettings.stock_default_transfer_amount));
+						$('#display_amount').val(Grocy.UserSettings.stock_default_transfer_amount);
 						RefreshLocaleNumberInput();
 						$(".input-group-productamountpicker").trigger("change");
 						$("#tare-weight-handling-info").addClass("d-none");
@@ -271,7 +271,7 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 	}
 });
 
-$('#display_amount').val(parseFloat(Grocy.UserSettings.stock_default_transfer_amount));
+$('#display_amount').val(Grocy.UserSettings.stock_default_transfer_amount);
 $(".input-group-productamountpicker").trigger("change");
 Grocy.FrontendHelpers.ValidateForm('transfer-form');
 RefreshLocaleNumberInput();
@@ -316,7 +316,7 @@ $("#location_id_from").on('change', function(e)
 						if ($("#specific_stock_entry option[value='" + stockEntry.stock_id + "']").length == 0)
 						{
 							var noteTxt = "";
-							if (stockEntry.note != null && !stockEntry.note.isEmpty())
+							if (stockEntry.note)
 							{
 								noteTxt = " " + stockEntry.note;
 							}
@@ -333,7 +333,7 @@ $("#location_id_from").on('change', function(e)
 							$("#specific_stock_entry").val(stockId);
 						}
 
-						sumValue = sumValue + parseFloat(stockEntry.amount);
+						sumValue = sumValue + stockEntry.amount;
 					}
 				});
 				$("#display_amount").attr("max", sumValue * $("#qu_id option:selected").attr("data-qu-factor"));
@@ -363,7 +363,7 @@ $("#location_id_to").on('change', function(e)
 
 $("#qu_id").on('change', function(e)
 {
-	$("#display_amount").attr("max", parseFloat($('#display_amount').attr("data-stock-amount")) * $("#qu_id option:selected").attr("data-qu-factor"));
+	$("#display_amount").attr("max", Number.parseFloat($('#display_amount').attr("data-stock-amount")) * $("#qu_id option:selected").attr("data-qu-factor"));
 });
 
 $('#display_amount').on('focus', function(e)
@@ -410,7 +410,7 @@ $("#specific_stock_entry").on("change", function(e)
 				{
 					if (stockEntry.location_id == $("#location_id_from").val() || stockEntry.location_id == "")
 					{
-						sumValue = sumValue + parseFloat(stockEntry.amount);
+						sumValue = sumValue + stockEntry.amount;
 					}
 				});
 				$("#display_amount").attr("max", sumValue * $("#qu_id option:selected").attr("data-qu-factor"));

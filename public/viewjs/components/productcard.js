@@ -21,7 +21,7 @@ Grocy.Components.ProductCard.Refresh = function(productId)
 			{
 				$('#productcard-product-location').text(productDetails.location.name);
 			}
-			$('#productcard-product-spoil-rate').text((parseFloat(productDetails.spoil_rate_percent) / 100).toLocaleString(undefined, { style: "percent" }));
+			$('#productcard-product-spoil-rate').text((productDetails.spoil_rate_percent / 100).toLocaleString(undefined, { style: "percent" }));
 
 			if (productDetails.is_aggregated_amount == 1)
 			{
@@ -44,7 +44,7 @@ Grocy.Components.ProductCard.Refresh = function(productId)
 				$("#productcard-aggregated-amounts").addClass("d-none");
 			}
 
-			if (productDetails.product.description != null && !productDetails.product.description.isEmpty())
+			if (productDetails.product.description)
 			{
 				$("#productcard-product-description-wrapper").removeClass("d-none");
 			}
@@ -57,7 +57,7 @@ Grocy.Components.ProductCard.Refresh = function(productId)
 			{
 				$('#productcard-product-average-shelf-life').text(__t("Unknown"));
 			}
-			else if (parseInt(productDetails.average_shelf_life_days) > 73000) // > 200 years aka forever
+			else if (productDetails.average_shelf_life_days > 73000) // > 200 years aka forever
 			{
 				$('#productcard-product-average-shelf-life').text(__t("Unlimited"));
 			}
@@ -84,8 +84,8 @@ Grocy.Components.ProductCard.Refresh = function(productId)
 
 			if (productDetails.last_price !== null)
 			{
-				$('#productcard-product-last-price').text(__t("%1$s per %2$s", (Number.parseFloat(productDetails.last_price) * Number.parseFloat(productDetails.qu_conversion_factor_purchase_to_stock)).toLocaleString(undefined, { style: "currency", currency: Grocy.Currency, minimumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices_display, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices_display }), productDetails.default_quantity_unit_purchase.name));
-				$('#productcard-product-last-price').attr("data-original-title", __t("%1$s per %2$s", Number.parseFloat(productDetails.last_price).toLocaleString(undefined, { style: "currency", currency: Grocy.Currency, minimumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices_display, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices_display }), productDetails.quantity_unit_stock.name));
+				$('#productcard-product-last-price').text(__t("%1$s per %2$s", (productDetails.last_price * productDetails.qu_conversion_factor_purchase_to_stock).toLocaleString(undefined, { style: "currency", currency: Grocy.Currency, minimumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices_display, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices_display }), productDetails.default_quantity_unit_purchase.name));
+				$('#productcard-product-last-price').attr("data-original-title", __t("%1$s per %2$s", productDetails.last_price.toLocaleString(undefined, { style: "currency", currency: Grocy.Currency, minimumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices_display, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices_display }), productDetails.quantity_unit_stock.name));
 			}
 			else
 			{
@@ -95,8 +95,8 @@ Grocy.Components.ProductCard.Refresh = function(productId)
 
 			if (productDetails.avg_price !== null)
 			{
-				$('#productcard-product-average-price').text(__t("%1$s per %2$s", (Number.parseFloat(productDetails.avg_price) * Number.parseFloat(productDetails.qu_conversion_factor_purchase_to_stock)).toLocaleString(undefined, { style: "currency", currency: Grocy.Currency, minimumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices_display, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices_display }), productDetails.default_quantity_unit_purchase.name));
-				$('#productcard-product-average-price').attr("data-original-title", __t("%1$s per %2$s", Number.parseFloat(productDetails.avg_price).toLocaleString(undefined, { style: "currency", currency: Grocy.Currency, minimumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices_display, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices_display }), productDetails.quantity_unit_stock.name));
+				$('#productcard-product-average-price').text(__t("%1$s per %2$s", (productDetails.avg_price * productDetails.qu_conversion_factor_purchase_to_stock).toLocaleString(undefined, { style: "currency", currency: Grocy.Currency, minimumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices_display, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices_display }), productDetails.default_quantity_unit_purchase.name));
+				$('#productcard-product-average-price').attr("data-original-title", __t("%1$s per %2$s", productDetails.avg_price.toLocaleString(undefined, { style: "currency", currency: Grocy.Currency, minimumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices_display, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices_display }), productDetails.quantity_unit_stock.name));
 			}
 			else
 			{
@@ -104,7 +104,7 @@ Grocy.Components.ProductCard.Refresh = function(productId)
 				$().removeAttr("data-original-title");
 			}
 
-			if (productDetails.product.picture_file_name !== null && !productDetails.product.picture_file_name.isEmpty())
+			if (productDetails.product.picture_file_name)
 			{
 				$("#productcard-product-picture").removeClass("d-none");
 				$("#productcard-product-picture").attr("src", U('/api/files/productpictures/' + btoa(productDetails.product.picture_file_name) + '?force_serve_as=picture&best_fit_width=400'));
@@ -151,7 +151,7 @@ Grocy.Components.ProductCard.Refresh = function(productId)
 									datasets[key] = []
 								}
 								chart.labels.push(moment(dataPoint.date).toDate());
-								datasets[key].push({ x: moment(dataPoint.date).toDate(), y: Number.parseFloat(dataPoint.price) * Number.parseFloat(productDetails.qu_conversion_factor_purchase_to_stock) });
+								datasets[key].push({ x: moment(dataPoint.date).toDate(), y: dataPoint.price * productDetails.qu_conversion_factor_purchase_to_stock });
 
 							});
 							Object.keys(datasets).forEach((key) =>

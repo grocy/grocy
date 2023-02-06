@@ -95,7 +95,7 @@ $('.product-combobox').combobox({
 
 var prefillProduct = GetUriParam('product-name');
 var prefillProduct2 = Grocy.Components.ProductPicker.GetPicker().parent().data('prefill-by-name').toString();
-if (!prefillProduct2.isEmpty())
+if (prefillProduct2)
 {
 	prefillProduct = prefillProduct2;
 }
@@ -120,7 +120,7 @@ if (typeof prefillProduct !== "undefined")
 
 var prefillProductId = GetUriParam("product");
 var prefillProductId2 = Grocy.Components.ProductPicker.GetPicker().parent().data('prefill-by-id').toString();
-if (!prefillProductId2.isEmpty())
+if (prefillProductId2)
 {
 	prefillProductId = prefillProductId2;
 }

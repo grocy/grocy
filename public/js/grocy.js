@@ -257,7 +257,7 @@ __n = function(number, singularForm, pluralForm, isQu = false)
 		}
 	}
 
-	if (pluralForm == null || pluralForm.isEmpty())
+	if (!pluralForm)
 	{
 		pluralForm = singularForm;
 	}
@@ -272,7 +272,7 @@ __n = function(number, singularForm, pluralForm, isQu = false)
 	}
 }
 
-if (!Grocy.ActiveNav.isEmpty())
+if (Grocy.ActiveNav)
 {
 	var menuItem = $('#sidebarResponsive').find("[data-nav-for-page='" + Grocy.ActiveNav + "']");
 	menuItem.addClass('active-page');
@@ -343,7 +343,7 @@ RefreshContextualTimeago = function(rootSelector = "#page-content")
 
 		var timestamp = element.attr("datetime");
 
-		if (timestamp.isEmpty() || timestamp.length < 10)
+		if (!timestamp || timestamp.length < 10)
 		{
 			element.text("")
 			return
@@ -490,7 +490,7 @@ Grocy.FrontendHelpers.DeleteUserSetting = function(settingsKey, reloadPageOnSucc
 		},
 		function(xhr)
 		{
-			if (!xhr.statusText.isEmpty())
+			if (xhr.statusText)
 			{
 				Grocy.FrontendHelpers.ShowGenericError('Error while deleting, please retry', xhr.response)
 			}
@@ -635,36 +635,36 @@ function RefreshLocaleNumberDisplay(rootSelector = "#page-content")
 	$(rootSelector + " .locale-number.locale-number-currency").each(function()
 	{
 		var text = $(this).text();
-		if (isNaN(text) || text.isEmpty())
+		if (!text || Number.isNaN(text))
 		{
 			return;
 		}
 
-		var value = parseFloat(text);
+		var value = Number.parseFloat(text);
 		$(this).text(value.toLocaleString(undefined, { style: "currency", currency: Grocy.Currency, minimumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices_display, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices_display }));
 	});
 
 	$(rootSelector + " .locale-number.locale-number-quantity-amount").each(function()
 	{
 		var text = $(this).text();
-		if (isNaN(text) || text.isEmpty())
+		if (!text || Number.isNaN(text))
 		{
 			return;
 		}
 
-		var value = parseFloat(text);
+		var value = Number.parseFloat(text);
 		$(this).text(value.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_amounts }));
 	});
 
 	$(rootSelector + " .locale-number.locale-number-generic").each(function()
 	{
 		var text = $(this).text();
-		if (isNaN(text) || text.isEmpty())
+		if (!text || Number.isNaN(text))
 		{
 			return;
 		}
 
-		var value = parseFloat(text);
+		var value = Number.parseFloat(text);
 		$(this).text(value.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 }));
 	});
 }
@@ -675,29 +675,29 @@ function RefreshLocaleNumberInput(rootSelector = "#page-content")
 	$(rootSelector + " .locale-number-input.locale-number-currency").each(function()
 	{
 		var value = $(this).val();
-		if (isNaN(value) || value.toString().isEmpty())
+		if (!value || Number.isNaN(value))
 		{
 			return;
 		}
 
-		$(this).val(parseFloat(value).toLocaleString("en", { minimumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices_input, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices_input, useGrouping: false }));
+		$(this).val(Number.parseFloat(value).toLocaleString("en", { minimumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices_input, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices_input, useGrouping: false }));
 	});
 
 	$(rootSelector + " .locale-number-input.locale-number-quantity-amount").each(function()
 	{
 		var value = $(this).val();
-		if (isNaN(value) || value.toString().isEmpty())
+		if (!value || Number.isNaN(value))
 		{
 			return;
 		}
 
-		$(this).val(parseFloat(value).toLocaleString("en", { minimumFractionDigits: 0, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_amounts, useGrouping: false }));
+		$(this).val(Number.parseFloat(value).toLocaleString("en", { minimumFractionDigits: 0, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_amounts, useGrouping: false }));
 	});
 
 	$(rootSelector + " .locale-number-input.locale-number-generic").each(function()
 	{
 		var value = $(this).val();
-		if (isNaN(value) || value.toString().isEmpty())
+		if (!value || Number.isNaN(value))
 		{
 			return;
 		}
@@ -742,11 +742,11 @@ function LoadImagesLazy()
 }
 LoadImagesLazy();
 
-if (!Grocy.CalendarFirstDayOfWeek.isEmpty())
+if (Grocy.CalendarFirstDayOfWeek)
 {
 	moment.updateLocale(moment.locale(), {
 		week: {
-			dow: Grocy.CalendarFirstDayOfWeek
+			dow: Number.parseInt(Grocy.CalendarFirstDayOfWeek)
 		}
 	});
 }
@@ -905,7 +905,7 @@ $.fn.dataTable.ext.type.order["custom-sort-pre"] = function(data)
 	// This here is for a custom column type "custom-sort",
 	// the custom order value needs to be provided in the first child (<span>) of the <td>
 
-	return (parseFloat($(data).get(0).innerText));
+	return (Number.parseFloat($(data).get(0).innerText));
 };
 
 // serializeJSON defaults
@@ -973,6 +973,7 @@ $('.table').on('column-sizing.dt', function(e, settings)
 });
 $('td .dropdown').on('show.bs.dropdown', function(e)
 {
+	console.log("xx");
 	if ($('.dataTables_scrollBody').hasClass("no-force-overflow-visible"))
 	{
 		$('.dataTables_scrollBody').addClass("force-overflow-visible");
@@ -1034,7 +1035,7 @@ $(".change-table-columns-visibility-button").on("click", function(e)
 		var title = headerCell.text();
 		var visible = this.visible();
 
-		if (title.isEmpty() || title.startsWith("Hidden") || headerCell.hasClass("d-none"))
+		if (!title || title.startsWith("Hidden") || headerCell.hasClass("d-none"))
 		{
 			return;
 		}

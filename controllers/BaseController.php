@@ -165,7 +165,7 @@ class BaseController
 		{
 			$this->View->set('permissions', User::PermissionList());
 
-			$decimalPlacesAmounts = intval($this->getUsersService()->GetUserSetting(GROCY_USER_ID, 'stock_decimal_places_amounts'));
+			$decimalPlacesAmounts = $this->getUsersService()->GetUserSetting(GROCY_USER_ID, 'stock_decimal_places_amounts');
 			if ($decimalPlacesAmounts <= 0)
 			{
 				$defaultMinAmount = 1;

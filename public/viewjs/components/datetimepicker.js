@@ -173,7 +173,7 @@ Grocy.Components.DateTimePicker.GetInputElement().on('keyup', function(e)
 	}
 	else if ((value.startsWith("+") || value.startsWith("-")) && (lastCharacter == "d" || lastCharacter == "m" || lastCharacter == "y")) // Shorthand for [+/-]n[d/m/y]
 	{
-		var n = parseInt(value.substring(1, value.length - 1));
+		var n = Number.parseInt(value.substring(1, value.length - 1));
 		if (value.startsWith("-"))
 		{
 			n = n * -1;
@@ -272,7 +272,7 @@ Grocy.Components.DateTimePicker.GetInputElement().on('keyup', function(e)
 		}
 
 		var earlierThanLimit = Grocy.Components.DateTimePicker.GetInputElement().data("earlier-than-limit");
-		if (!earlierThanLimit.isEmpty())
+		if (earlierThanLimit)
 		{
 			if (moment(value).isBefore(moment(earlierThanLimit)))
 			{

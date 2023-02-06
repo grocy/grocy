@@ -19,7 +19,7 @@ $.fn.dataTable.ext.search.push(function(settings, data, dataIndex)
 {
 	var productId = Grocy.Components.ProductPicker.GetValue();
 
-	if ((isNaN(productId) || productId == "" || productId == data[1]))
+	if (!productId || Number.isNaN(productId) || productId == data[1])
 	{
 		return true;
 	}
@@ -71,7 +71,7 @@ $(document).on('click', '.stock-consume-button', function(e)
 	var locationId = $(e.currentTarget).attr('data-location-id');
 	var specificStockEntryId = $(e.currentTarget).attr('data-stock-id');
 	var stockRowId = $(e.currentTarget).attr('data-stockrow-id');
-	var consumeAmount = $(e.currentTarget).attr('data-consume-amount');
+	var consumeAmount = Number.parseFloat($(e.currentTarget).attr('data-consume-amount'));
 
 	var wasSpoiled = $(e.currentTarget).hasClass("stock-consume-button-spoiled");
 
@@ -81,7 +81,7 @@ $(document).on('click', '.stock-consume-button', function(e)
 			Grocy.Api.Get('stock/products/' + productId,
 				function(result)
 				{
-					var toastMessage = __t('Removed %1$s of %2$s from stock', parseFloat(consumeAmount).toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_amounts }) + " " + __n(consumeAmount, result.quantity_unit_stock.name, result.quantity_unit_stock.name_plural, true), result.product.name) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockBookingEntry(' + bookingResponse[0].id + ',' + stockRowId + ')"><i class="fa-solid fa-undo"></i> ' + __t("Undo") + '</a>';
+					var toastMessage = __t('Removed %1$s of %2$s from stock', consumeAmount.toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_amounts }) + " " + __n(consumeAmount, result.quantity_unit_stock.name, result.quantity_unit_stock.name_plural, true), result.product.name) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockBookingEntry(' + bookingResponse[0].id + ',' + stockRowId + ')"><i class="fa-solid fa-undo"></i> ' + __t("Undo") + '</a>';
 					if (wasSpoiled)
 					{
 						toastMessage += " (" + __t("Spoiled") + ")";
@@ -249,13 +249,13 @@ function RefreshStockEntryRow(stockRowId)
 				Grocy.Api.Get("stock/products/" + result.product_id,
 					function(productDetails)
 					{
-						if (result.price == null || result.price.isEmpty())
+						if (!result.price)
 						{
 							result.price = 0;
 						}
 
-						$('#stock-' + stockRowId + '-price').text(__t("%1$s per %2$s", (Number.parseFloat(result.price) * Number.parseFloat(productDetails.qu_conversion_factor_purchase_to_stock)).toLocaleString(undefined, { style: "currency", currency: Grocy.Currency, minimumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices_display, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices_display }), productDetails.default_quantity_unit_purchase.name));
-						$('#stock-' + stockRowId + '-price').attr("data-original-title", __t("%1$s per %2$s", Number.parseFloat(result.price).toLocaleString(undefined, { style: "currency", currency: Grocy.Currency, minimumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices_display, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices_display }), productDetails.quantity_unit_stock.name));
+						$('#stock-' + stockRowId + '-price').text(__t("%1$s per %2$s", (result.price * productDetails.qu_conversion_factor_purchase_to_stock).toLocaleString(undefined, { style: "currency", currency: Grocy.Currency, minimumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices_display, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices_display }), productDetails.default_quantity_unit_purchase.name));
+						$('#stock-' + stockRowId + '-price').attr("data-original-title", __t("%1$s per %2$s", result.price.toLocaleString(undefined, { style: "currency", currency: Grocy.Currency, minimumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices_display, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices_display }), productDetails.quantity_unit_stock.name));
 					},
 					function(xhr)
 					{
@@ -267,7 +267,7 @@ function RefreshStockEntryRow(stockRowId)
 				$('#stock-' + stockRowId + '-purchased-date').text(result.purchased_date);
 				$('#stock-' + stockRowId + '-purchased-date-timeago').attr('datetime', result.purchased_date + ' 23:59:59');
 
-				if (result.shopping_location_id != null && !result.shopping_location_id.isEmpty())
+				if (result.shopping_location_id)
 				{
 					var shoppingLocationName = "";
 					Grocy.Api.Get("objects/shopping_locations/" + result.shopping_location_id,

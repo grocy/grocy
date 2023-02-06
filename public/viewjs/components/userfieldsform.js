@@ -148,7 +148,7 @@ Grocy.Components.UserfieldsForm.Load = function()
 					}
 					else if (input.attr('type') == "file")
 					{
-						if (value != null && !value.isEmpty())
+						if (value)
 						{
 							var fileName = atob(value.split('_')[1]);
 							var fileSrc = value.split('_')[0];
@@ -178,7 +178,7 @@ Grocy.Components.UserfieldsForm.Load = function()
 					}
 					else if (input.attr("data-userfield-type") == "link")
 					{
-						if (value != null && !value.isEmpty())
+						if (value)
 						{
 							var data = JSON.parse(value);
 

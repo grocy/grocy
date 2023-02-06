@@ -1,7 +1,7 @@
 ﻿var firstDay = null;
-if (!Grocy.CalendarFirstDayOfWeek.isEmpty())
+if (Grocy.CalendarFirstDayOfWeek)
 {
-	firstDay = parseInt(Grocy.CalendarFirstDayOfWeek);
+	firstDay = Number.parseInt(Grocy.CalendarFirstDayOfWeek);
 }
 
 var calendar = $("#calendar").fullCalendar({

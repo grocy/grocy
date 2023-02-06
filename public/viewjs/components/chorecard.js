@@ -37,7 +37,7 @@ Grocy.Components.ChoreCard.Refresh = function(choreId)
 			}
 			else
 			{
-				$('#chorecard-average-execution-frequency').text(moment.duration(parseInt(choreDetails.average_execution_frequency_hours) / 24, "days").humanize());
+				$('#chorecard-average-execution-frequency').text(moment.duration(choreDetails.average_execution_frequency_hours / 24, "days").humanize());
 			}
 
 			RefreshContextualTimeago(".chorecard");

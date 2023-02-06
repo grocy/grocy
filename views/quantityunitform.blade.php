@@ -89,7 +89,7 @@
 			<button class="save-quantityunit-button btn btn-info mb-2"
 				data-location="return">{{ $__t('Save & return to quantity units') }}</button>
 
-			@if(intval($pluralCount) > 2)
+			@if($pluralCount > 2)
 			<button id="test-quantityunit-plural-forms-button"
 				class="btn btn-secondary">{{ $__t('Test plural forms') }}</button>
 			@endif

@@ -104,7 +104,7 @@ $('#chore-form input').keydown(function(event)
 var checkboxValues = $("#period_config").val().split(",");
 for (var i = 0; i < checkboxValues.length; i++)
 {
-	if (!checkboxValues[i].isEmpty())
+	if (checkboxValues[i])
 	{
 		$("#" + checkboxValues[i]).prop('checked', true);
 	}

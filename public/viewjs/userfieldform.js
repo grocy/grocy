@@ -16,7 +16,7 @@
 	Grocy.FrontendHelpers.BeginUiBusy("userfield-form");
 
 	var redirectUrl = U("/userfields");
-	if (typeof GetUriParam("entity") !== "undefined" && !GetUriParam("entity").isEmpty())
+	if (GetUriParam("entity"))
 	{
 		redirectUrl = U("/userfields?entity=" + GetUriParam("entity"));
 	}
@@ -113,7 +113,7 @@ $("#type").on("change", function(e)
 
 $('#entity').focus();
 
-if (typeof GetUriParam("entity") !== "undefined" && !GetUriParam("entity").isEmpty())
+if (GetUriParam("entity"))
 {
 	$("#entity").val(GetUriParam("entity"));
 	$("#entity").trigger("change");

@@ -35,7 +35,7 @@ function DisplayEquipment(id)
 			$("#description-tab-content").html(equipmentItem.description);
 			$(".equipment-edit-button").attr("href", U("/equipment/" + equipmentItem.id.toString()));
 
-			if (equipmentItem.instruction_manual_file_name !== null && !equipmentItem.instruction_manual_file_name.isEmpty())
+			if (equipmentItem.instruction_manual_file_name)
 			{
 				var pdfUrl = U('/api/files/equipmentmanuals/' + btoa(equipmentItem.instruction_manual_file_name));
 				$("#selected-equipment-instruction-manual").attr("src", pdfUrl);
@@ -64,7 +64,7 @@ function DisplayEquipment(id)
 						$.each(result, function(key, userfield)
 						{
 							var userfieldFile = equipmentItem.userfields[userfield.name];
-							if (userfieldFile != null && !userfieldFile.isEmpty())
+							if (userfieldFile)
 							{
 								var pdfUrl = U('/files/userfiles/' + userfieldFile);
 								$("#file-userfield-" + userfield.name + "-embed").attr("src", pdfUrl);

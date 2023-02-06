@@ -386,7 +386,7 @@
 						@endphp
 
 						<div class="row ml-1">
-							@if(!empty($calories) && intval($calories) > 0)
+							@if(!empty($calories) && $calories > 0)
 							<div class="col-4">
 								<label>{{ GROCY_ENERGY_UNIT }}</label>&nbsp;
 								<i class="fa-solid fa-question-circle text-muted d-print-none"

@@ -44,7 +44,7 @@ class RecipesService extends BaseService
 					$conversion = $this->getDatabase()->quantity_unit_conversions_resolved()->where('product_id = :1 AND from_qu_id = :2 AND to_qu_id = :3', $recipePosition->product_id, $recipePosition->qu_id, $product->qu_id_stock)->fetch();
 					if ($conversion != null)
 					{
-						$toOrderAmount = $toOrderAmount * floatval($conversion->factor);
+						$toOrderAmount = $toOrderAmount * $conversion->factor;
 					}
 				}
 
@@ -106,7 +106,7 @@ class RecipesService extends BaseService
 		{
 			$product = $this->getDatabase()->products()->where('id = :1', $recipeRow->product_id)->fetch();
 			$recipeResolvedRow = $this->getDatabase()->recipes_resolved()->where('recipe_id = :1', $recipeId)->fetch();
-			$this->getStockService()->AddProduct($recipeRow->product_id, floatval($recipeRow->desired_servings), null, StockService::TRANSACTION_TYPE_SELF_PRODUCTION, date('Y-m-d'), floatval($recipeResolvedRow->costs_per_serving), null, null, $dummyTransactionId, $product->default_stock_label_type, true);
+			$this->getStockService()->AddProduct($recipeRow->product_id, $recipeRow->desired_servings, null, StockService::TRANSACTION_TYPE_SELF_PRODUCTION, date('Y-m-d'), $recipeResolvedRow->costs_per_serving, null, null, $dummyTransactionId, $product->default_stock_label_type, true);
 		}
 	}
 

@@ -192,7 +192,7 @@
 							href="#"
 							data-toggle="tooltip"
 							data-placement="left"
-							title="{{ $__t('Consume %1$s of %2$s', floatval($currentStockEntry->quick_consume_amount_qu_consume) . ' ' . $currentStockEntry->qu_consume_name, $currentStockEntry->product_name) }}"
+							title="{{ $__t('Consume %1$s of %2$s', $currentStockEntry->quick_consume_amount_qu_consume . ' ' . $currentStockEntry->qu_consume_name, $currentStockEntry->product_name) }}"
 							data-product-id="{{ $currentStockEntry->product_id }}"
 							data-product-name="{{ $currentStockEntry->product_name }}"
 							data-product-qu-name="{{ $currentStockEntry->qu_stock_name }}"
@@ -217,7 +217,7 @@
 							href="#"
 							data-toggle="tooltip"
 							data-placement="left"
-							title="{{ $__t('Mark %1$s of %2$s as open', floatval($currentStockEntry->quick_open_amount_qu_consume) . ' ' . $currentStockEntry->qu_consume_name, $currentStockEntry->product_name) }}"
+							title="{{ $__t('Mark %1$s of %2$s as open', $currentStockEntry->quick_open_amount_qu_consume . ' ' . $currentStockEntry->qu_consume_name, $currentStockEntry->product_name) }}"
 							data-product-id="{{ $currentStockEntry->product_id }}"
 							data-product-name="{{ $currentStockEntry->product_name }}"
 							data-product-qu-name="{{ $currentStockEntry->qu_stock_name }}"
@@ -409,7 +409,7 @@
 							data-trigger="hover click"
 							data-html="true"
 							title="{!! $__t('%1$s per %2$s', '<span class=\'locale-number locale-number-currency\'>' . $currentStockEntry->last_price . '</span>', $currentStockEntry->qu_stock_name) !!}">
-							{!! $__t('%1$s per %2$s', '<span class="locale-number locale-number-currency">' . floatval($currentStockEntry->last_price) * floatval($currentStockEntry->product_qu_factor_purchase_to_stock) . '</span>', $currentStockEntry->qu_purchase_name) !!}
+							{!! $__t('%1$s per %2$s', '<span class="locale-number locale-number-currency">' . $currentStockEntry->last_price * $currentStockEntry->product_qu_factor_purchase_to_stock . '</span>', $currentStockEntry->qu_purchase_name) !!}
 						</span>
 						@endif
 					</td>
@@ -439,7 +439,7 @@
 							data-trigger="hover click"
 							data-html="true"
 							title="{!! $__t('%1$s per %2$s', '<span class=\'locale-number locale-number-currency\'>' . $currentStockEntry->average_price . '</span>', $currentStockEntry->qu_stock_name) !!}">
-							{!! $__t('%1$s per %2$s', '<span class="locale-number locale-number-currency">' . floatval($currentStockEntry->average_price) * floatval($currentStockEntry->product_qu_factor_purchase_to_stock) . '</span>', $currentStockEntry->qu_purchase_name) !!}
+							{!! $__t('%1$s per %2$s', '<span class="locale-number locale-number-currency">' . $currentStockEntry->average_price * $currentStockEntry->product_qu_factor_purchase_to_stock . '</span>', $currentStockEntry->qu_purchase_name) !!}
 						</span>
 						@endif
 					</td>

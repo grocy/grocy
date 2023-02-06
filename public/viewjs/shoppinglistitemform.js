@@ -15,7 +15,7 @@ $('#save-shoppinglist-button').on('click', function(e)
 	}
 
 	var jsonData = $('#shoppinglist-form').serializeJSON();
-	var displayAmount = parseFloat(jsonData.display_amount);
+	var displayAmount = Number.parseFloat(jsonData.display_amount);
 	if (!jsonData.product_id)
 	{
 		jsonData.amount = jsonData.display_amount;
@@ -200,7 +200,7 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 					Grocy.Components.ProductAmountPicker.SetQuantityUnit(productDetails.default_quantity_unit_purchase.id);
 				}
 
-				if ($("#display_amount").val().toString().isEmpty())
+				if (!$("#display_amount").val())
 				{
 					$("#display_amount").val(1);
 					$("#display_amount").trigger("change");
@@ -267,7 +267,7 @@ if (GetUriParam("list") !== undefined)
 
 if (GetUriParam("amount") !== undefined)
 {
-	$("#display_amount").val(parseFloat(GetUriParam("amount")));
+	$("#display_amount").val(Number.parseFloat(GetUriParam("amount")));
 	RefreshLocaleNumberInput();
 	$(".input-group-productamountpicker").trigger("change");
 	Grocy.FrontendHelpers.ValidateForm('shoppinglist-form');

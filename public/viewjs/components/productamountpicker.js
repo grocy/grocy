@@ -13,13 +13,11 @@ Grocy.Components.ProductAmountPicker.Reload = function(productId, destinationQuI
 
 		conversionsForProduct.forEach(conversion =>
 		{
-			var factor = parseFloat(conversion.factor);
-
 			// Only conversions related to the destination QU are needed
 			// + only add one conversion per to_qu_id (multiple ones can be a result of contradictory definitions = user input bullshit)
 			if ((conversion.from_qu_id == destinationQuId || conversion.to_qu_id == destinationQuId) && !$('#qu_id option[value="' + conversion.to_qu_id + '"]').length)
 			{
-				$("#qu_id").append('<option value="' + conversion.to_qu_id + '" data-qu-factor="' + factor + '" data-qu-name-plural="' + conversion.to_qu_name_plural + '">' + conversion.to_qu_name + '</option>');
+				$("#qu_id").append('<option value="' + conversion.to_qu_id + '" data-qu-factor="' + conversion.factor + '" data-qu-name-plural="' + conversion.to_qu_name_plural + '">' + conversion.to_qu_name + '</option>');
 			}
 		});
 	}
@@ -94,7 +92,7 @@ $(".input-group-productamountpicker").on("change", function()
 	var destinationAmount = amount / quFactor;
 	var destinationQuName = __n(destinationAmount, $("#qu_id").attr("data-destination-qu-name"), $("#qu_id").attr("data-destination-qu-name-plural"), true);
 
-	if ($("#qu_id").attr("data-destination-qu-name") == selectedQuName || Grocy.Components.ProductAmountPicker.AllowAnyQuEnabled || amount.toString().isEmpty() || selectedQuName.toString().isEmpty())
+	if ($("#qu_id").attr("data-destination-qu-name") == selectedQuName || Grocy.Components.ProductAmountPicker.AllowAnyQuEnabled || !amount || !selectedQuName)
 	{
 		$("#qu-conversion-info").addClass("d-none");
 	}
@@ -104,7 +102,7 @@ $(".input-group-productamountpicker").on("change", function()
 		$("#qu-conversion-info").text(__t("This equals %1$s %2$s", destinationAmount.toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_amounts }), destinationQuName));
 	}
 
-	var n = Number.parseInt(Grocy.UserSettings.stock_decimal_places_amounts);
+	var n = Grocy.UserSettings.stock_decimal_places_amounts;
 	if (n <= 0)
 	{
 		n = 1;

@@ -19,7 +19,7 @@ function RefreshQuPluralTestingResult()
 	var pluralForm = $("#qu_id option:selected").data("plural-form");
 	var amount = $("#amount").val();
 
-	if (singularForm.toString().isEmpty() || amount.toString().isEmpty())
+	if (!singularForm || !amount)
 	{
 		return;
 	}

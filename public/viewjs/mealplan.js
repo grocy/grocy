@@ -2,13 +2,13 @@
 Grocy.IsMealPlanEntryEditAction = false;
 
 var firstDay = null;
-if (!Grocy.CalendarFirstDayOfWeek.isEmpty())
+if (Grocy.CalendarFirstDayOfWeek)
 {
-	firstDay = parseInt(Grocy.CalendarFirstDayOfWeek);
+	firstDay = Number.parseInt(Grocy.CalendarFirstDayOfWeek);
 }
-if (!Grocy.MealPlanFirstDayOfWeek.isEmpty())
+if (Grocy.MealPlanFirstDayOfWeek)
 {
-	firstDay = parseInt(Grocy.MealPlanFirstDayOfWeek);
+	firstDay = Number.parseInt(Grocy.MealPlanFirstDayOfWeek);
 }
 
 $(".calendar").each(function()
@@ -202,7 +202,7 @@ $(".calendar").each(function()
 					</h5> \
 				</div>');
 
-				if (recipe.picture_file_name && !recipe.picture_file_name.isEmpty())
+				if (recipe.picture_file_name)
 				{
 					element.prepend('<div class="mx-auto mb-1"><img data-src="' + U("/api/files/recipepictures/") + btoa(recipe.picture_file_name) + '?force_serve_as=picture&best_fit_width=400" class="img-fluid rounded-circle lazy"></div>')
 				}
@@ -223,20 +223,20 @@ $(".calendar").each(function()
 				element.attr("data-product-details", event.productDetails);
 
 				var productOrderMissingButtonDisabledClasses = "disabled";
-				if (parseFloat(productDetails.stock_amount_aggregated) < parseFloat(mealPlanEntry.product_amount))
+				if (productDetails.stock_amount_aggregated < mealPlanEntry.product_amount)
 				{
 					productOrderMissingButtonDisabledClasses = "";
 				}
 
 				var productConsumeButtonDisabledClasses = "disabled";
-				if (parseFloat(productDetails.stock_amount_aggregated) >= parseFloat(mealPlanEntry.product_amount))
+				if (productDetails.stock_amount_aggregated >= mealPlanEntry.product_amount)
 				{
 					productConsumeButtonDisabledClasses = "";
 				}
 
 				fulfillmentInfoHtml = __t('Not enough in stock');
 				var fulfillmentIconHtml = '<i class="fa-solid fa-times text-danger"></i>';
-				if (parseFloat(productDetails.stock_amount_aggregated) >= parseFloat(mealPlanEntry.product_amount))
+				if (productDetails.stock_amount_aggregated >= mealPlanEntry.product_amount)
 				{
 					var fulfillmentInfoHtml = __t('Enough in stock');
 					var fulfillmentIconHtml = '<i class="fa-solid fa-check text-success"></i>';
@@ -267,13 +267,13 @@ $(".calendar").each(function()
 					<h5 class="d-print-none"> \
 						<a class="ml-1 btn btn-outline-danger btn-xs remove-product-button" href="#" data-toggle="tooltip" title="' + __t("Delete this item") + '"><i class="fa-solid fa-trash"></i></a> \
 						<a class="btn btn-outline-info btn-xs edit-meal-plan-entry-button" href="#" data-toggle="tooltip" title="' + __t("Edit this item") + '"><i class="fa-solid fa-edit"></i></a> \
-						<a class="ml-1 btn btn-outline-success btn-xs product-consume-button ' + productConsumeButtonDisabledClasses + '" href="#" data-toggle="tooltip" title="' + __t("Consume %1$s of %2$s", parseFloat(mealPlanEntry.product_amount).toLocaleString() + ' ' + __n(mealPlanEntry.product_amount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural, true), productDetails.product.name) + '" data-product-id="' + productDetails.product.id.toString() + '" data-product-name="' + productDetails.product.name + '" data-product-amount="' + mealPlanEntry.product_amount + '" data-mealplan-entry-id="' + mealPlanEntry.id.toString() + '"><i class="fa-solid fa-utensils"></i></a> \
+						<a class="ml-1 btn btn-outline-success btn-xs product-consume-button ' + productConsumeButtonDisabledClasses + '" href="#" data-toggle="tooltip" title="' + __t("Consume %1$s of %2$s", mealPlanEntry.product_amount.toLocaleString() + ' ' + __n(mealPlanEntry.product_amount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural, true), productDetails.product.name) + '" data-product-id="' + productDetails.product.id.toString() + '" data-product-name="' + productDetails.product.name + '" data-product-amount="' + mealPlanEntry.product_amount + '" data-mealplan-entry-id="' + mealPlanEntry.id.toString() + '"><i class="fa-solid fa-utensils"></i></a> \
 						' + shoppingListButtonHtml + ' \
 						' + doneButtonHtml + ' \
 					</h5> \
 				</div>');
 
-				if (productDetails.product.picture_file_name && !productDetails.product.picture_file_name.isEmpty())
+				if (productDetails.product.picture_file_name)
 				{
 					element.prepend('<div class="mx-auto mb-1"><img data-src="' + U("/api/files/productpictures/") + btoa(productDetails.product.picture_file_name) + '?force_serve_as=picture&best_fit_width=400" class="img-fluid rounded-circle lazy"></div>')
 				}
@@ -823,7 +823,7 @@ $(document).on('click', '.product-consume-button', function(e)
 	Grocy.FrontendHelpers.BeginUiBusy();
 
 	var productId = $(e.currentTarget).attr('data-product-id');
-	var consumeAmount = parseFloat($(e.currentTarget).attr('data-product-amount'));
+	var consumeAmount = Number.parseFloat($(e.currentTarget).attr('data-product-amount'));
 	var mealPlanEntryId = $(e.currentTarget).attr('data-mealplan-entry-id');
 
 	Grocy.Api.Post('stock/products/' + productId + '/consume', { 'amount': consumeAmount, 'spoiled': false },

@@ -93,11 +93,6 @@ $('.save-product-button').on('click', function(e)
 	jsonData.parent_product_id = parentProductId;
 	Grocy.FrontendHelpers.BeginUiBusy("product-form");
 
-	if (jsonData.parent_product_id.toString().isEmpty())
-	{
-		jsonData.parent_product_id = null;
-	}
-
 	if ($("#product-picture")[0].files.length > 0)
 	{
 		var someRandomStuff = Math.random().toString(36).substring(2, 100) + Math.random().toString(36).substring(2, 100);
@@ -396,7 +391,7 @@ if (Grocy.EditMode == "create" && GetUriParam("copy-of") != undefined)
 			{
 				Grocy.Components.ProductPicker.SetId(sourceProduct.parent_product_id);
 			}
-			if (sourceProduct.description != null && !sourceProduct.description.isEmpty())
+			if (sourceProduct.description)
 			{
 				$("#description").summernote("pasteHTML", sourceProduct.description);
 			}

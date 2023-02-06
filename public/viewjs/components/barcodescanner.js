@@ -166,7 +166,7 @@ Quagga.onDetected(function(result)
 		if (error.error != undefined)
 		{
 			Grocy.Components.BarcodeScanner.DecodedCodesCount++;
-			Grocy.Components.BarcodeScanner.DecodedCodesErrorCount += parseFloat(error.error);
+			Grocy.Components.BarcodeScanner.DecodedCodesErrorCount += Number.parseFloat(error.error);
 		}
 	});
 
@@ -187,7 +187,7 @@ Quagga.onProcessed(function(result)
 	{
 		if (result.boxes)
 		{
-			drawingCtx.clearRect(0, 0, parseInt(drawingCanvas.getAttribute("width")), parseInt(drawingCanvas.getAttribute("height")));
+			drawingCtx.clearRect(0, 0, Number.parseInt(drawingCanvas.getAttribute("width")), Number.parseInt(drawingCanvas.getAttribute("height")));
 			result.boxes.filter(function(box)
 			{
 				return box !== result.box;

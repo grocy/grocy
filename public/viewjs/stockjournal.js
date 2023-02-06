@@ -108,7 +108,7 @@ $(document).on('click', '.undo-stock-booking-button', function(e)
 	var correlationId = $("#stock-booking-" + bookingId + "-row").attr("data-correlation-id");
 
 	var correspondingBookingsRoot = $("#stock-booking-" + bookingId + "-row");
-	if (!correlationId.isEmpty())
+	if (correlationId)
 	{
 		correspondingBookingsRoot = $(".stock-booking-correlation-" + correlationId);
 	}

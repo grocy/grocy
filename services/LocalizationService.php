@@ -44,7 +44,7 @@ class LocalizationService
 	{
 		if ($this->Po->getHeader(Translations::HEADER_PLURAL) !== null)
 		{
-			return $this->Po->getPluralForms()[0];
+			return intval($this->Po->getPluralForms()[0]);
 		}
 		else
 		{

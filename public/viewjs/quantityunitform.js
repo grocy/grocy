@@ -101,7 +101,7 @@
 
 $('#quantityunit-form input').keyup(function(event)
 {
-	if (!$("#name").val().isEmpty())
+	if ($("#name").val())
 	{
 		$("#qu-conversion-headline-info").text(__t('1 %s is the same as...', $("#name").val()));
 	}

@@ -72,7 +72,7 @@ $("#search").on("keyup", Delay(function()
 
 	recipesTables.search(value).draw();
 
-	if (value.isEmpty())
+	if (!value)
 	{
 		RemoveUriParam("search");
 	}
@@ -120,7 +120,7 @@ $("#status-filter").on("change", function()
 		}
 	}
 
-	if (value.isEmpty())
+	if (!value)
 	{
 		RemoveUriParam("status");
 	}

@@ -524,13 +524,13 @@
 					name="default_stock_label_type">
 					<option @if($mode=='edit'
 						&&
-						intval($product->default_stock_label_type) == 0 ) selected="selected" @endif value="0">{{ $__t('No label') }}</option>
+						$product->default_stock_label_type == 0 ) selected="selected" @endif value="0">{{ $__t('No label') }}</option>
 					<option @if($mode=='edit'
 						&&
-						intval($product->default_stock_label_type) == 1 ) selected="selected" @endif value="1">{{ $__t('Single label') }}</option>
+						$product->default_stock_label_type == 1 ) selected="selected" @endif value="1">{{ $__t('Single label') }}</option>
 					<option @if($mode=='edit'
 						&&
-						intval($product->default_stock_label_type) == 2 ) selected="selected" @endif value="2">{{ $__t('Label per unit') }}</option>
+						$product->default_stock_label_type == 2 ) selected="selected" @endif value="2">{{ $__t('Label per unit') }}</option>
 				</select>
 			</div>
 

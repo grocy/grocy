@@ -130,15 +130,15 @@ class StockService extends BaseService
 		{
 			if ($addExactAmount)
 			{
-				$amount = floatval($productDetails->stock_amount) + floatval($productDetails->product->tare_weight) + $amount;
+				$amount = $productDetails->stock_amount + $productDetails->product->tare_weight + $amount;
 			}
 
-			if ($amount <= floatval($productDetails->product->tare_weight) + floatval($productDetails->stock_amount))
+			if ($amount <= $productDetails->product->tare_weight + $productDetails->stock_amount)
 			{
 				throw new \Exception('The amount cannot be lower or equal than the defined tare weight + current stock amount');
 			}
 
-			$amount = $amount - floatval($productDetails->stock_amount) - floatval($productDetails->product->tare_weight);
+			$amount = $amount - $productDetails->stock_amount - $productDetails->product->tare_weight;
 		}
 
 		//Set the default due date, if none is supplied
@@ -153,9 +153,9 @@ class StockService extends BaseService
 				$location = $this->getDatabase()->locations()->where('id', $locationId)->fetch();
 			}
 
-			if (GROCY_FEATURE_FLAG_STOCK_PRODUCT_FREEZING && $locationId !== null && intval($location->is_freezer) === 1 && intval($productDetails->product->default_best_before_days_after_freezing) >= -1)
+			if (GROCY_FEATURE_FLAG_STOCK_PRODUCT_FREEZING && $locationId !== null && $location->is_freezer == 1 && $productDetails->product->default_best_before_days_after_freezing >= -1)
 			{
-				if (intval($productDetails->product->default_best_before_days_after_freezing) == -1)
+				if ($productDetails->product->default_best_before_days_after_freezing == -1)
 				{
 					$bestBeforeDate = date('2999-12-31');
 				}
@@ -164,11 +164,11 @@ class StockService extends BaseService
 					$bestBeforeDate = date('Y-m-d', strtotime('+' . $productDetails->product->default_best_before_days_after_freezing . ' days'));
 				}
 			}
-			elseif (intval($productDetails->product->default_best_before_days) == -1)
+			elseif ($productDetails->product->default_best_before_days == -1)
 			{
 				$bestBeforeDate = date('2999-12-31');
 			}
-			elseif (intval($productDetails->product->default_best_before_days) > 0)
+			elseif ($productDetails->product->default_best_before_days > 0)
 			{
 				$bestBeforeDate = date('Y-m-d', strtotime(date('Y-m-d') . ' + ' . $productDetails->product->default_best_before_days . ' days'));
 			}
@@ -378,14 +378,14 @@ class StockService extends BaseService
 		{
 			if ($consumeExactAmount)
 			{
-				$amount = floatval($productDetails->stock_amount) + floatval($productDetails->product->tare_weight) - $amount;
+				$amount = $productDetails->stock_amount + $productDetails->product->tare_weight - $amount;
 			}
-			if ($amount < floatval($productDetails->product->tare_weight))
+			if ($amount < $productDetails->product->tare_weight)
 			{
 				throw new \Exception('The amount cannot be lower than the defined tare weight');
 			}
 
-			$amount = abs($amount - floatval($productDetails->stock_amount) - floatval($productDetails->product->tare_weight));
+			$amount = abs($amount - $productDetails->stock_amount - $productDetails->product->tare_weight);
 		}
 
 		if ($transactionType === self::TRANSACTION_TYPE_CONSUME || $transactionType === self::TRANSACTION_TYPE_INVENTORY_CORRECTION)
@@ -406,7 +406,7 @@ class StockService extends BaseService
 				$potentialStockEntries = FindAllObjectsInArrayByPropertyValue($potentialStockEntries, 'stock_id', $specificStockEntryId);
 			}
 
-			$productStockAmount = floatval($productDetails->stock_amount_aggregated);
+			$productStockAmount = $productDetails->stock_amount_aggregated;
 			if (round($amount, 2) > round($productStockAmount, 2))
 			{
 				throw new \Exception('Amount to be consumed cannot be > current stock amount (if supplied, at the desired location)');
@@ -431,7 +431,7 @@ class StockService extends BaseService
 					$conversion = $this->getDatabase()->quantity_unit_conversions_resolved()->where('product_id = :1 AND from_qu_id = :2 AND to_qu_id = :3', $stockEntry->product_id, $productDetails->product->qu_id_stock, $subProduct->qu_id_stock)->fetch();
 					if ($conversion != null)
 					{
-						$amount = $amount * floatval($conversion->factor);
+						$amount = $amount * $conversion->factor;
 					}
 				}
 
@@ -465,7 +465,7 @@ class StockService extends BaseService
 					{
 						// A sub product with QU conversions was used
 						// => Convert the rest amount back to be based on the original (parent) product for the next round
-						$amount = $amount / floatval($conversion->factor);
+						$amount = $amount / $conversion->factor;
 					}
 				}
 				else
@@ -502,7 +502,7 @@ class StockService extends BaseService
 
 			if (boolval($this->getUsersService()->GetUserSetting(GROCY_USER_ID, 'shopping_list_auto_add_below_min_stock_amount')))
 			{
-				$this->AddMissingProductsToShoppingList(intval($this->getUsersService()->GetUserSetting(GROCY_USER_ID, 'shopping_list_auto_add_below_min_stock_amount_list_id')));
+				$this->AddMissingProductsToShoppingList($this->getUsersService()->GetUserSetting(GROCY_USER_ID, 'shopping_list_auto_add_below_min_stock_amount_list_id'));
 			}
 
 			return $transactionId;
@@ -749,7 +749,7 @@ class StockService extends BaseService
 		$quStock = $this->getDatabase()->quantity_units($product->qu_id_stock);
 		$quConsume = $this->getDatabase()->quantity_units($product->qu_id_consume);
 		$location = $this->getDatabase()->locations($product->location_id);
-		$averageShelfLifeDays = intval($this->getDatabase()->stock_average_product_shelf_life()->where('id', $productId)->fetch()->average_shelf_life_days);
+		$averageShelfLifeDays = $this->getDatabase()->stock_average_product_shelf_life()->where('id', $productId)->fetch()->average_shelf_life_days;
 		$currentPrice = $this->getDatabase()->products_current_price()->where('product_id', $productId)->fetch()->price;
 
 		$consumeCount = $this->getDatabase()->stock_log()->where('product_id', $productId)->where('transaction_type', self::TRANSACTION_TYPE_CONSUME)->where('undone = 0')->sum('amount') * -1;
@@ -816,7 +816,7 @@ class StockService extends BaseService
 			{
 				throw new \Exception('Invalid grocycode');
 			}
-			return intval($gc->GetId());
+			return $gc->GetId();
 		}
 
 		$potentialProduct = $this->getDatabase()->product_barcodes()->where('barcode = :1 COLLATE NOCASE', $barcode)->fetch();
@@ -825,7 +825,7 @@ class StockService extends BaseService
 			throw new \Exception("No product with barcode $barcode found");
 		}
 
-		return intval($potentialProduct->product_id);
+		return $potentialProduct->product_id;
 	}
 
 	public function GetProductPriceHistory(int $productId)
@@ -931,16 +931,16 @@ class StockService extends BaseService
 
 		if ($productDetails->product->enable_tare_weight_handling == 1)
 		{
-			$containerWeight = floatval($productDetails->product->tare_weight);
+			$containerWeight = $productDetails->product->tare_weight;
 		}
 
-		if ($newAmount == floatval($productDetails->stock_amount) + $containerWeight)
+		if ($newAmount == $productDetails->stock_amount + $containerWeight)
 		{
 			throw new \Exception('The new amount cannot equal the current stock amount');
 		}
-		elseif ($newAmount > floatval($productDetails->stock_amount) + $containerWeight)
+		elseif ($newAmount > $productDetails->stock_amount + $containerWeight)
 		{
-			$bookingAmount = $newAmount - floatval($productDetails->stock_amount);
+			$bookingAmount = $newAmount - $productDetails->stock_amount;
 
 			if ($productDetails->product->enable_tare_weight_handling == 1)
 			{
@@ -972,7 +972,7 @@ class StockService extends BaseService
 		}
 
 		$productDetails = (object) $this->GetProductDetails($productId);
-		$productStockAmountUnopened = floatval($productDetails->stock_amount_aggregated) - floatval($productDetails->stock_amount_opened_aggregated);
+		$productStockAmountUnopened = $productDetails->stock_amount_aggregated - $productDetails->stock_amount_opened_aggregated;
 		$potentialStockEntries = $this->GetProductStockEntries($productId, true, $allowSubproductSubstitution);
 		$product = $this->getDatabase()->products($productId);
 
@@ -1038,7 +1038,7 @@ class StockService extends BaseService
 				$conversion = $this->getDatabase()->quantity_unit_conversions_resolved()->where('product_id = :1 AND from_qu_id = :2 AND to_qu_id = :3', $stockEntry->product_id, $product->qu_id_stock, $subProduct->qu_id_stock)->fetch();
 				if ($conversion != null)
 				{
-					$amount = $amount * floatval($conversion->factor);
+					$amount = $amount * $conversion->factor;
 				}
 			}
 
@@ -1127,7 +1127,7 @@ class StockService extends BaseService
 
 		if (boolval($this->getUsersService()->GetUserSetting(GROCY_USER_ID, 'shopping_list_auto_add_below_min_stock_amount')))
 		{
-			$this->AddMissingProductsToShoppingList(intval($this->getUsersService()->GetUserSetting(GROCY_USER_ID, 'shopping_list_auto_add_below_min_stock_amount_list_id')));
+			$this->AddMissingProductsToShoppingList($this->getUsersService()->GetUserSetting(GROCY_USER_ID, 'shopping_list_auto_add_below_min_stock_amount_list_id'));
 		}
 
 		return $transactionId;
@@ -1142,10 +1142,10 @@ class StockService extends BaseService
 
 		$productRow = $this->getDatabase()->shopping_list()->where('product_id = :1', $productId)->fetch();
 
-		//If no entry was found with for this product, we return gracefully
+		// If no entry was found with for this product, we return gracefully
 		if ($productRow != null && !empty($productRow))
 		{
-			$decimals = intval($this->getUsersService()->GetUserSetting(GROCY_USER_ID, 'stock_decimal_places_amounts'));
+			$decimals = $this->getUsersService()->GetUserSetting(GROCY_USER_ID, 'stock_decimal_places_amounts');
 			$newAmount = $productRow->amount - $amount;
 
 			if ($newAmount < floatval('0.' . str_repeat('0', $decimals - ($decimals <= 0 ? 0 : 1)) . '1'))
@@ -1186,7 +1186,7 @@ class StockService extends BaseService
 				$factor = 1.0;
 				if ($conversion != null)
 				{
-					$factor = floatval($conversion->factor);
+					$factor = $conversion->factor;
 				}
 
 				$amount = round($row->amount * $factor);
@@ -1274,12 +1274,12 @@ class StockService extends BaseService
 		{
 			// Hard fail for now, as we not yet support transferring tare weight enabled products
 			throw new \Exception('Transferring tare weight enabled products is not yet possible');
-			if ($amount < floatval($productDetails->product->tare_weight))
+			if ($amount < $productDetails->product->tare_weight)
 			{
 				throw new \Exception('The amount cannot be lower than the defined tare weight');
 			}
 
-			$amount = abs($amount - floatval($productDetails->stock_amount) - floatval($productDetails->product->tare_weight));
+			$amount = abs($amount - $productDetails->stock_amount - $productDetails->product->tare_weight);
 		}
 
 		$productStockAmountAtFromLocation = $this->getDatabase()->stock()->where('product_id = :1 AND location_id = :2', $productId, $locationIdFrom)->sum('amount');
@@ -1314,7 +1314,7 @@ class StockService extends BaseService
 				$locationTo = $this->getDatabase()->locations()->where('id', $locationIdTo)->fetch();
 
 				// Product was moved from a non-freezer to freezer location -> freeze
-				if (intval($locationFrom->is_freezer) === 0 && intval($locationTo->is_freezer) === 1 && $productDetails->product->default_best_before_days_after_freezing >= -1)
+				if ($locationFrom->is_freezer == 0 && $locationTo->is_freezer == 1 && $productDetails->product->default_best_before_days_after_freezing >= -1)
 				{
 					if ($productDetails->product->default_best_before_days_after_freezing == -1)
 					{
@@ -1327,7 +1327,7 @@ class StockService extends BaseService
 				}
 
 				// Product was moved from a freezer to non-freezer location -> thaw
-				if (intval($locationFrom->is_freezer) === 1 && intval($locationTo->is_freezer) === 0 && $productDetails->product->default_best_before_days_after_thawing > 0)
+				if ($locationFrom->is_freezer == 1 && $locationTo->is_freezer == 0 && $productDetails->product->default_best_before_days_after_thawing > 0)
 				{
 					$newBestBeforeDate = date('Y-m-d', strtotime('+' . $productDetails->product->default_best_before_days_after_thawing . ' days'));
 				}
@@ -1689,7 +1689,7 @@ class StockService extends BaseService
 			$factor = 1.0;
 			if ($conversion != null)
 			{
-				$factor = floatval($conversion->factor);
+				$factor = $conversion->factor;
 			}
 
 			$this->getDatabaseService()->ExecuteDbStatement('UPDATE stock SET product_id = ' . $productIdToKeep . ', amount = amount * ' . $factor . ' WHERE product_id = ' . $productIdToRemove);
