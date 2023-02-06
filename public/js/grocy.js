@@ -971,15 +971,14 @@ $('.table').on('column-sizing.dt', function(e, settings)
 		$('.dataTables_scrollBody').addClass("force-overflow-visible");
 	}
 });
-$('td .dropdown').on('show.bs.dropdown', function(e)
+$(document).on("show.bs.dropdown", "td .dropdown", function(e)
 {
-	console.log("xx");
 	if ($('.dataTables_scrollBody').hasClass("no-force-overflow-visible"))
 	{
 		$('.dataTables_scrollBody').addClass("force-overflow-visible");
 	}
 });
-$("td .dropdown").on('hide.bs.dropdown', function(e)
+$(document).on("hide.bs.dropdown", "td .dropdown", function(e)
 {
 	if ($('.dataTables_scrollBody').hasClass("no-force-overflow-visible"))
 	{
