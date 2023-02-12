@@ -2371,3 +2371,18 @@ msgstr ""
 
 msgid "Quick open amount"
 msgstr ""
+
+msgid "Metrics"
+msgstr ""
+
+msgid "Stock Metrics: Purchases"
+msgstr ""
+
+msgid "by Product"
+msgstr ""
+
+msgid "by Group"
+msgstr ""
+
+msgid "Total"
+msgstr ""

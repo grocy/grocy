@@ -515,6 +515,53 @@ class StockController extends BaseController
 		]);
 	}
 
+	public function StockMetricsPurchases(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	{
+		if (isset($request->getQueryParams()['start_date']) AND isset($request->getQueryParams()['end_date']))
+		{
+			$start_date = $request->getQueryParams()['start_date'];
+			$end_date = $request->getQueryParams()['end_date'];
+			$where = "purchased_date >= '$start_date' AND purchased_date <= '$end_date'";
+		}
+		else
+		{
+			// Default this month
+			$where = "purchased_date >= DATE(DATE('now', 'localtime'), 'start of month')";
+		}
+
+
+		if (isset($request->getQueryParams()['byGroup']))
+		{
+			$sql = "
+			SELECT product_group_id as id, product_group as name, sum(quantity * price) as total
+			FROM product_purchase_history
+			where $where
+			GROUP BY product_group
+			ORDER BY product_group
+			";
+		} else {
+			if (isset($request->getQueryParams()['product_group']) AND $request->getQueryParams()['product_group'] != 'all')
+			{
+				$where = $where . ' AND product_group_id = ' . $request->getQueryParams()['product_group'];
+			}
+
+			$sql = "
+			SELECT product_id as id, product_name as name, product_group_id as group_id, product_group as group_name, sum(quantity * price) as total
+			FROM product_purchase_history
+			WHERE $where
+			GROUP BY product_name
+			ORDER BY product_name
+			";
+		}
+
+		return $this->renderPage($response, 'stockmetricspurchases', [
+			'metrics' =>  $this->getDatabaseService()->ExecuteDbQuery($sql)->fetchAll(\PDO::FETCH_OBJ),
+			'productGroups' => $this->getDatabase()->product_groups()->orderBy('name', 'COLLATE NOCASE'),
+			'selectedGroup' => isset($request->getQueryParams()['product_group']) ?  $request->getQueryParams()['product_group'] : null,
+			'byGroup' => isset($request->getQueryParams()['byGroup']) ? $request->getQueryParams()['byGroup'] : null
+		]);
+	}
+
 	public function Transfer(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
 		return $this->renderPage($response, 'transfer', [

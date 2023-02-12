@@ -40,6 +40,10 @@
 					href="{{ $U('/stockentries') }}">
 					{{ $__t('Stock entries') }}
 				</a>
+				<a class="btn btn-outline-dark responsive-button m-1 mt-md-0 mb-md-0 float-right"
+				   href="{{ $U('/stockmetricspurchases') }}">
+					{{ $__t('Metrics') }}
+				</a>
 				@if(GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING)
 				<a class="btn btn-outline-dark responsive-button m-1 mt-md-0 mb-md-0 float-right"
 					href="{{ $U('/locationcontentsheet') }}">
