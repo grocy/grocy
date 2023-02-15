@@ -168,6 +168,16 @@ chartjs-color@~2.2.0:
     chartjs-color-string "^0.5.0"
     color-convert "^0.5.3"
 
+chartjs-plugin-doughnutlabel@^2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/chartjs-plugin-doughnutlabel/-/chartjs-plugin-doughnutlabel-2.0.3.tgz#0aa19b040dc68e12163e3215a01609cb3e0b5a7b"
+  integrity sha512-it815BZSPggTkyhC3b4BVqDwlySKtzO0kZ11DCUs/nD29DGoj6w5luDu4slczg97ml7VRROHawxlS0HvGEIVdw==
+
+chartjs-plugin-piechart-outlabels@^0.1.4:
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/chartjs-plugin-piechart-outlabels/-/chartjs-plugin-piechart-outlabels-0.1.4.tgz#e97e19a12202d74f9040d9e4641987c9d1e458fc"
+  integrity sha512-IaYkh6ab8nLAvgioQ+BwU0awfMbxwmfO2AeBL+S45VVx9AdObovr9+aE+ShUO2Og96y6eJpCxZGJr4zXB7YnRw==
+
 color-convert@^0.5.3:
   version "0.5.3"
   resolved "https://registry.yarnpkg.com/color-convert/-/color-convert-0.5.3.tgz#bdb6c69ce660fadffe0b0007cc447e1b9f7282bd"
@@ -491,12 +501,7 @@ jquery@3.3.1:
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.3.1.tgz#958ce29e81c9790f31be7792df5d4d95fc57fbca"
   integrity sha512-Ubldcmxp5np52/ENotGxlLe6aGMvmF4R8S6tZjsP6Knsaxd/xp3Zrh50cG93lR6nPXyUFwzN3ZSOQI0wRJNdGg==
 
-jquery@>=1.10:
-  version "3.6.3"
-  resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.6.3.tgz#23ed2ffed8a19e048814f13391a19afcdba160e6"
-  integrity sha512-bZ5Sy3YzKo9Fyc8wH2iIQK4JImJ6R0GWI9kL1/k7Z91ZBNgkRXE6U0JfHIizZbort8ZunhSI3jw9I6253ahKfg==
-
-jquery@>=1.12.0, jquery@>=1.7, jquery@>=1.7.2, jquery@^3.6.0:
+jquery@>=1.10, jquery@>=1.12.0, jquery@>=1.7, jquery@>=1.7.2, jquery@^3.6.0:
   version "3.6.3"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.6.3.tgz#23ed2ffed8a19e048814f13391a19afcdba160e6"
   integrity sha512-bZ5Sy3YzKo9Fyc8wH2iIQK4JImJ6R0GWI9kL1/k7Z91ZBNgkRXE6U0JfHIizZbort8ZunhSI3jw9I6253ahKfg==

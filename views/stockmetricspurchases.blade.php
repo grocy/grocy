@@ -2,7 +2,15 @@
 
 @section('title', $__t('Stock Metrics: Purchases'))
 @section('activeNav', 'stockmetricspurchases')
-@section('viewJsName', 'metrics')
+
+@once
+	@push('componentScripts')
+	<script src="{{ $U('/node_modules/chart.js/dist/Chart.min.js?v=', true) }}{{ $version }}"></script>
+	<script src="{{ $U('/node_modules/chartjs-plugin-doughnutlabel/dist/chartjs-plugin-doughnutlabel.js?v=', true) }}{{ $version }}"></script>
+	<script src="{{ $U('/node_modules/chartjs-plugin-piechart-outlabels/dist/chartjs-plugin-piechart-outlabels.js?v=', true) }}{{ $version}}"></script>
+	<script src="{{ $U('/viewjs/metrics.js', true) }}?v={{ $version }}"></script>
+	@endpush
+@endonce
 
 @section('content')
 <div class="row">
@@ -83,8 +91,8 @@
 </div>
 
 <div class="row mt-2">
-	<div class="col-sm-12 col-md-12 col-xl-12">
-		<div id="metrics-chart" style="height: 400px;"></div>
+	<div id="chart-wrapper" class="col-sm-12 col-md-12 col-xl-12">
+		<canvas id="metrics-chart"></canvas>
 	</div>
 	<div class="col-sm-12 col-md-12 col-xl-12">
 		<table id="metrics-table"

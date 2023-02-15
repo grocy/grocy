@@ -737,7 +737,6 @@
 	<script src="{{ $U('/node_modules/jquery-lazy/jquery.lazy.min.js?v=', true) }}{{ $version }}"></script>
 	<script src="{{ $U('/node_modules/nosleep.js/dist/NoSleep.min.js?v=', true) }}{{ $version }}"></script>
 	<script src="{{ $U('/node_modules/daterangepicker/daterangepicker.js?v=', true) }}{{ $version }}"></script>
-	<script src="{{ $U('/node_modules/canvasjs/dist/jquery.canvasjs.min.js?v=', true) }}{{ $version }}"></script>
 
 	<script src="{{ $U('/js/extensions.js?v=', true) }}{{ $version }}"></script>
 	<script src="{{ $U('/js/grocy.js?v=', true) }}{{ $version }}"></script>

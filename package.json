@@ -13,6 +13,8 @@
 		"bwip-js": "^3.0.1",
 		"canvasjs": "^1.8.3",
 		"chart.js": "^2.8.0",
+		"chartjs-plugin-doughnutlabel": "^2.0.3",
+		"chartjs-plugin-piechart-outlabels": "^0.1.4",
 		"datatables.net": "^1.10.22",
 		"datatables.net-bs4": "^1.10.22",
 		"datatables.net-colreorder": "^1.5.2",

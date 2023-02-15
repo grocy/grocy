@@ -3,36 +3,70 @@
  */
 
 /* Charting */
-var dataPoints = [];
+var labels = [];
+var data = [];
 $("#metrics-table tbody tr").each(function () {
 	var self = $(this);
 	var label = self.find("td:eq(0)").attr('data-chart-label');
 	var value = Number(self.find("td:eq(1)").attr('data-chart-value'));
-	var dataPoint = { label: label, y: parseFloat((Math.round(value * 100) / 100).toFixed(2))};
-	dataPoints.push(dataPoint);
+	labels.push(label);
+	data.push(parseFloat((Math.round(value * 100) / 100).toFixed(2)));
 });
 
-var options = {
-	exportEnabled: true,
-	legend:{
-		horizontalAlign: "center",
-		verticalAlign: "bottom"
-	},
-	data: [{
-		type: "pie",
-		showInLegend: true,
-		toolTipContent: "<b>{label}</b>: ${y} (#percent%)",
-		indexLabel: "{label}",
-		legendText: "{label} (#percent%)",
-		indexLabelPlacement: "outside",
-		valueFormatSTringt: "#,##0.##",
-		dataPoints: dataPoints
-	}]
-};
+function getRandomColor() {
+	var letters = '0123456789ABCDEF'.split('');
+	var color = '#';
+	for (var i = 0; i < 6; i++ ) {
+		color += letters[Math.floor(Math.random() * 16)];
+	}
+	return color;
+}
 
-// needed for recursionCount error
-recursionCount=0;
-$("#metrics-chart").CanvasJSChart(options);
+var colors=[];
+for(let i=0;i<data.length;i++){
+	colors.push('#'+Math.floor(Math.random()*16777215).toString(16));
+}
+
+var metricsChart = new Chart('metrics-chart', {
+	type: 'outlabeledDoughnut',
+	options: {
+		plugins: {
+			outlabels: {
+				text: '%l %p',
+				backgroundColor: "#343a40",
+				color: 'white',
+				stretch: 45,
+				font: {
+					resizable: true,
+					minSize: 12,
+					maxSize: 18
+				}
+			},
+			doughnutlabel: {
+				labels: [
+					{
+						text: 'TBD',
+						font: {
+							size: 30,
+							weight: 'bold',
+						},
+					},
+					{
+						text: 'total',
+					}
+				]
+			}
+		}
+	},
+	data: {
+		labels: labels,
+		datasets: [{
+			data: data,
+			backgroundColor: colors
+		}]
+	}
+});
+
 
 /* DataTables */
 var metricsTable = $('#metrics-table').DataTable({
