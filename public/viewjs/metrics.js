@@ -5,31 +5,51 @@
 /* Charting */
 var labels = [];
 var data = [];
+var totalAmount = 0;
 $("#metrics-table tbody tr").each(function () {
 	var self = $(this);
-	var label = self.find("td:eq(0)").attr('data-chart-label');
-	var value = Number(self.find("td:eq(1)").attr('data-chart-value'));
-	labels.push(label);
-	data.push(parseFloat((Math.round(value * 100) / 100).toFixed(2)));
+	labels.push(self.find("td:eq(0)").attr('data-chart-label'));
+	var itemTotalRaw = parseFloat(self.find("td:eq(1)").attr('data-chart-value'));
+	var itemTotal = parseFloat((Math.round(itemTotalRaw * 100) / 100).toFixed(2));
+	data.push(itemTotal);
+	totalAmount = (parseFloat(totalAmount) + parseFloat(itemTotal)).toFixed(2);
 });
 
-function getRandomColor() {
-	var letters = '0123456789ABCDEF'.split('');
-	var color = '#';
-	for (var i = 0; i < 6; i++ ) {
-		color += letters[Math.floor(Math.random() * 16)];
-	}
-	return color;
-}
-
-var colors=[];
+var backgroundColorChoices=['#6C747C',
+							'#BFB8A4',
+							'#BFADA4',
+							'#4F575E',
+							'#918B78',
+							'#343A40',
+							'#635E4F',
+							'#63554F',
+							'#1A1F24',
+							'#383426',
+							'#382C26',
+							'#121B25',
+							'#383119',
+							'#382319']
+var backgroundColors=[];
+var colorChoiceIndex = 0;
 for(let i=0;i<data.length;i++){
-	colors.push('#'+Math.floor(Math.random()*16777215).toString(16));
+	if ((i + 1) == (backgroundColorChoices.length)){
+		// restart background color choices
+		colorChoiceIndex = 1;
+	}
+	backgroundColors.push(backgroundColorChoices[colorChoiceIndex]);
+	colorChoiceIndex++;
 }
 
 var metricsChart = new Chart('metrics-chart', {
 	type: 'outlabeledDoughnut',
 	options: {
+		legend: {
+			display: false
+		},
+		tooltips: {
+			enabled: false
+		},
+		tooltips: {enabled: false},
 		plugins: {
 			outlabels: {
 				text: '%l %p',
@@ -45,7 +65,7 @@ var metricsChart = new Chart('metrics-chart', {
 			doughnutlabel: {
 				labels: [
 					{
-						text: 'TBD',
+						text: totalAmount,
 						font: {
 							size: 30,
 							weight: 'bold',
@@ -62,7 +82,7 @@ var metricsChart = new Chart('metrics-chart', {
 		labels: labels,
 		datasets: [{
 			data: data,
-			backgroundColor: colors
+			backgroundColor: backgroundColors
 		}]
 	}
 });

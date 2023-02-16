@@ -51,7 +51,7 @@
 
 <div class="row collapse d-md-flex"
 	 id="table-filter-row">
-	<div class="col-sm-12 col-md-6 col-xl-3">
+	<div class="col-sm-12 col-md-6 col-xl-4">
 		<div class="input-group">
 			<div class="input-group-prepend">
 				<span class="input-group-text"><i class="fa-solid fa-clock"></i>&nbsp;{{ $__t('Date range') }}</span>
@@ -60,7 +60,7 @@
 		</div>
 	</div>
 	@if(!$byGroup)
-		<div class="col-sm-12 col-md-6 col-xl-3">
+		<div class="col-sm-12 col-md-6 col-xl-4">
 			<div class="input-group">
 				<div class="input-group-prepend">
 					<span class="input-group-text"><i class="fa-solid fa-filter"></i>&nbsp;{{ $__t('Product group') }}</span>

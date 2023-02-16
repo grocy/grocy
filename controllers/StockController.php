@@ -555,7 +555,7 @@ class StockController extends BaseController
 		}
 
 		return $this->renderPage($response, 'stockmetricspurchases', [
-			'metrics' =>  $this->getDatabaseService()->ExecuteDbQuery($sql)->fetchAll(\PDO::FETCH_OBJ),
+			'metrics' => $this->getDatabaseService()->ExecuteDbQuery($sql)->fetchAll(\PDO::FETCH_OBJ),
 			'productGroups' => $this->getDatabase()->product_groups()->orderBy('name', 'COLLATE NOCASE'),
 			'selectedGroup' => isset($request->getQueryParams()['product_group']) ?  $request->getQueryParams()['product_group'] : null,
 			'byGroup' => isset($request->getQueryParams()['byGroup']) ? $request->getQueryParams()['byGroup'] : null
