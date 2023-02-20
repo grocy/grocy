@@ -41,6 +41,14 @@ grocy is technically a pretty simple PHP application, so the basic notes to get 
 
 Alternatively clone this repository (the `release` branch always references the latest released version) and install Composer and Yarn dependencies manually.
 
+### Frontends
+
+There are multiple frontends awailable
+
+- Webfrontend (default): can also be installed as PWA but without offline capabilities
+- [grocy-android](https://github.com/patzly/grocy-android): android companion app with offline capabilities
+- [Grocy-SwiftUI](https://github.com/supergeorg/Grocy-SwiftUI): IOS companion app
+
 ### Platform support
 
 - PHP 8.1 (with SQLite 3.34.0+)
@@ -177,3 +185,4 @@ There is none. The progress of a specific bug/enhancement is always tracked in t
 ## License
 
 The MIT License (MIT)
+
