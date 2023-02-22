@@ -12,8 +12,9 @@ $("#metrics-table tbody tr").each(function () {
 	var itemTotalRaw = parseFloat(self.find("td:eq(1)").attr('data-chart-value'));
 	var itemTotal = parseFloat((Math.round(itemTotalRaw * 100) / 100).toFixed(2));
 	data.push(itemTotal);
-	totalAmount = (parseFloat(totalAmount) + parseFloat(itemTotal)).toFixed(2);
+	totalAmount = (parseFloat(totalAmount) + parseFloat(itemTotal));
 });
+totalAmount = totalAmount.toLocaleString(undefined, { style: "currency", currency: Grocy.Currency });
 
 var backgroundColorChoices=['#6C747C',
 							'#BFB8A4',
@@ -67,12 +68,12 @@ var metricsChart = new Chart('metrics-chart', {
 					{
 						text: totalAmount,
 						font: {
-							size: 30,
+							size: 24,
 							weight: 'bold',
 						},
 					},
 					{
-						text: 'total',
+						text: __t("Total"),
 					}
 				]
 			}
@@ -100,31 +101,37 @@ metricsTable.columns.adjust().draw();
 /* DateRangePicker */
 const urlParams = new URLSearchParams(window.location.search);
 
-var start_date = moment().startOf("month").format('MM/DD/YYYY');
-var end_date = moment().endOf("month").format('MM/DD/YYYY');
+var start_date = moment().startOf("month").format('YYYY-MM-DD');
+var end_date = moment().endOf("month").format('YYYY-MM-DD');
 
 if (urlParams.get('start_date')) start_date = moment(urlParams.get('start_date')) ;
 if (urlParams.get('end_date')) end_date = moment(urlParams.get('end_date'));
+
+var _ranges = {}
+_ranges[__t("Today")] = [moment(), moment()]
+_ranges[__t("Yesterday")] = [moment().subtract(1, 'days'), moment().subtract(1, 'days')]
+_ranges[__t("Last 7 Days")] = [moment().subtract(6, 'days'), moment()],
+_ranges[__t("Last 14 Days")] = [moment().subtract(13, 'days'), moment()],
+_ranges[__t("Last 30 Days")] = [moment().subtract(29, 'days'), moment()],
+_ranges[__t("This Month")] = [moment().startOf('month'), moment().endOf('month')],
+_ranges[__t("Last Month")] = [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')],
+_ranges[__t("This Year")] = [moment().startOf('year'), moment().endOf('year')],
+_ranges[__t("Last Year")] = [moment().subtract(1, 'year').startOf('year'), moment().subtract(1, 'year').endOf('year')]
 
 $('#daterange-filter').daterangepicker({
 	showDropdowns: true,
 	startDate: start_date,
 	endDate: end_date,
+	showWeekNumbers: Grocy.CalendarShowWeekNumbers,
 	locale: {
-		"format": 'MM/DD/YYYY',
-		"firstDay": 1
+		"format": 'YYYY-MM-DD',
+		"firstDay": Grocy.CalendarFirstDayOfWeek
 	},
-	ranges: {
-		'Today': [moment(), moment()],
-		'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-		'Last 7 Days': [moment().subtract(6, 'days'), moment()],
-		'Last 14 Days': [moment().subtract(13, 'days'), moment()],
-		'Last 30 Days': [moment().subtract(29, 'days'), moment()],
-		'This Month': [moment().startOf('month'), moment().endOf('month')],
-		'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')],
-		'This Year': [moment().startOf('year'), moment().endOf('year')],
-		'Last Year': [moment().subtract(1, 'year').startOf('year'), moment().subtract(1, 'year').endOf('year')]
-	}}, function(start, end, label) {
+	applyLabel: __t("Apply"),
+	cancelLabel: __t("Cancel"),
+	customRangeLabel: __t("Custom Range"),
+	ranges: _ranges
+	}, function(start, end, label) {
 	UpdateUriParam("start_date", start.format('YYYY-MM-DD'));
 	UpdateUriParam("end_date", end.format('YYYY-MM-DD'))
 	window.location.reload();

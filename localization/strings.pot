@@ -2386,3 +2386,33 @@ msgstr ""
 
 msgid "Total"
 msgstr ""
+
+msgid "Apply"
+msgstr ""
+
+msgid "Custom Range"
+msgstr ""
+
+msgid "Yesterday"
+msgstr ""
+
+msgid "Last 7 Days"
+msgstr ""
+
+msgid "Last 14 Days"
+msgstr ""
+
+msgid "Last 30 Days"
+msgstr ""
+
+msgid "This Month"
+msgstr ""
+
+msgid "Last Month"
+msgstr ""
+
+msgid "This Year"
+msgstr ""
+
+msgid "Last Year"
+msgstr ""

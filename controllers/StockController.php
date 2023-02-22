@@ -539,7 +539,9 @@ class StockController extends BaseController
 			GROUP BY product_group
 			ORDER BY product_group
 			";
-		} else {
+		}
+		else
+		{
 			if (isset($request->getQueryParams()['product_group']) AND $request->getQueryParams()['product_group'] != 'all')
 			{
 				$where = $where . ' AND product_group_id = ' . $request->getQueryParams()['product_group'];
