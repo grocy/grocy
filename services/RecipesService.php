@@ -94,19 +94,30 @@ class RecipesService extends BaseService
 				}
 			}
 		}
-		catch (Exception $ex)
+		catch (\Exception $ex)
 		{
 			$this->getDatabaseService()->GetDbConnectionRaw()->rollback();
 			throw $ex;
 		}
 		$this->getDatabaseService()->GetDbConnectionRaw()->commit();
 
-		$recipeRow = $this->getDatabase()->recipes()->where('id = :1', $recipeId)->fetch();
-		if (!empty($recipeRow->product_id))
+		$recipe = $this->getDatabase()->recipes()->where('id = :1', $recipeId)->fetch();
+		$productId = $recipe->product_id;
+		$amount = $recipe->desired_servings;
+		if ($recipe->type == self::RECIPE_TYPE_MEALPLAN_SHADOW)
 		{
-			$product = $this->getDatabase()->products()->where('id = :1', $recipeRow->product_id)->fetch();
+			// Use "Produces product" of the original recipe
+			$mealPlanEntry = $this->getDatabase()->meal_plan()->where('id = :1', explode('#', $recipe->name)[1])->fetch();
+			$recipe = $this->getDatabase()->recipes()->where('id = :1', $mealPlanEntry->recipe_id)->fetch();
+			$productId = $recipe->product_id;
+			$amount = $mealPlanEntry->recipe_servings;
+		}
+
+		if (!empty($productId))
+		{
+			$product = $this->getDatabase()->products()->where('id = :1', $productId)->fetch();
 			$recipeResolvedRow = $this->getDatabase()->recipes_resolved()->where('recipe_id = :1', $recipeId)->fetch();
-			$this->getStockService()->AddProduct($recipeRow->product_id, $recipeRow->desired_servings, null, StockService::TRANSACTION_TYPE_SELF_PRODUCTION, date('Y-m-d'), $recipeResolvedRow->costs_per_serving, null, null, $dummyTransactionId, $product->default_stock_label_type, true);
+			$this->getStockService()->AddProduct($productId, $amount, null, StockService::TRANSACTION_TYPE_SELF_PRODUCTION, date('Y-m-d'), $recipeResolvedRow->costs_per_serving, null, null, $dummyTransactionId, $product->default_stock_label_type, true);
 		}
 	}
 

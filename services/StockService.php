@@ -1702,7 +1702,7 @@ class StockService extends BaseService
 			$this->getDatabaseService()->ExecuteDbStatement('UPDATE shopping_list SET product_id = ' . $productIdToKeep . ', amount = amount * ' . $factor . ' WHERE product_id = ' . $productIdToRemove);
 			$this->getDatabaseService()->ExecuteDbStatement('DELETE FROM products WHERE id = ' . $productIdToRemove);
 		}
-		catch (Exception $ex)
+		catch (\Exception $ex)
 		{
 			$this->getDatabaseService()->GetDbConnectionRaw()->rollback();
 			throw $ex;
@@ -1749,7 +1749,7 @@ class StockService extends BaseService
 					}
 				}
 			}
-			catch (Exception $ex)
+			catch (\Exception $ex)
 			{
 				$this->getDatabaseService()->GetDbConnectionRaw()->rollback();
 				throw $ex;

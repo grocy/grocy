@@ -271,7 +271,7 @@ class ChoresService extends BaseService
 			$this->getDatabaseService()->ExecuteDbStatement('UPDATE chores_log SET chore_id = ' . $choreIdToKeep . ' WHERE chore_id = ' . $choreIdToRemove);
 			$this->getDatabaseService()->ExecuteDbStatement('DELETE FROM chores WHERE id = ' . $choreIdToRemove);
 		}
-		catch (Exception $ex)
+		catch (\Exception $ex)
 		{
 			$this->getDatabaseService()->GetDbConnectionRaw()->rollback();
 			throw $ex;
