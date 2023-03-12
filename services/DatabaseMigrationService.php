@@ -74,7 +74,7 @@ class DatabaseMigrationService extends BaseService
 					$migrationCounter++;
 				}
 			}
-			catch (Exception $ex)
+			catch (\Exception $ex)
 			{
 				$this->getDatabaseService()->GetDbConnectionRaw()->rollback();
 				throw $ex;
