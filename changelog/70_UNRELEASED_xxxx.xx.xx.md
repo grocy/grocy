@@ -49,6 +49,7 @@
 ### Meal plan
 
 - Added a new sub feature flag `FEATURE_FLAG_RECIPES_MEALPLAN` (in `config.php`) to only disable the meal plan if not needed (thanks @webysther)
+- Fixed that consuming a recipe from the meal plan didn't add its "Produces product"-product to stock (if any)
 
 ### Chores
 
