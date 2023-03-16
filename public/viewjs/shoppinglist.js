@@ -355,16 +355,23 @@ $(document).on('click', '.order-listitem-button', function(e)
 	Grocy.Api.Put('objects/shopping_list/' + listItemId, { 'done': done },
 		function()
 		{
+			var statusInfoCell = $("#shoppinglistitem-" + listItemId + "-status-info");
+
 			if (done == 1)
 			{
 				$('#shoppinglistitem-' + listItemId + '-row').addClass("text-muted");
 				$('#shoppinglistitem-' + listItemId + '-row').addClass("text-strike-through");
+				statusInfoCell.text(statusInfoCell.text().replace("xxUNDONExx", "xxDONExx"));
 			}
 			else
 			{
 				$('#shoppinglistitem-' + listItemId + '-row').removeClass("text-muted");
 				$('#shoppinglistitem-' + listItemId + '-row').removeClass("text-strike-through");
+				statusInfoCell.text(statusInfoCell.text().replace("xxDONExx", "xxUNDONExx"));
 			}
+
+			shoppingListTable.rows().invalidate().draw(false);
+			$("#status-filter").trigger("change");
 
 			Grocy.FrontendHelpers.EndUiBusy();
 		},
@@ -374,20 +381,6 @@ $(document).on('click', '.order-listitem-button', function(e)
 			console.error(xhr);
 		}
 	);
-
-
-	var statusInfoCell = $("#shoppinglistitem-" + listItemId + "-status-info");
-	if (done == 1)
-	{
-		statusInfoCell.text(statusInfoCell.text().replace("xxUNDONExx", "xxDONExx"));
-	}
-	else
-	{
-		statusInfoCell.text(statusInfoCell.text().replace("xxDONExx", "xxUNDONExx"));
-	}
-	shoppingListTable.rows().invalidate().draw(false);
-
-	$("#status-filter").trigger("change");
 });
 
 function OnListItemRemoved()
