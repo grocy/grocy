@@ -145,7 +145,7 @@
 							href="#"
 							data-toggle="tooltip"
 							data-placement="left"
-							title="{{ $__t('Track chore execution') }}"
+							title="{{ $__t('Track next chore schedule') }}"
 							data-chore-id="{{ $curentChoreEntry->chore_id }}"
 							data-chore-name="{{ FindObjectInArrayByPropertyValue($chores, 'id', $curentChoreEntry->chore_id)->name }}">
 							<i class="fa-solid fa-play"></i>
@@ -166,7 +166,13 @@
 								<i class="fa-solid fa-ellipsis-v"></i>
 							</button>
 							<div class="table-inline-menu dropdown-menu dropdown-menu-right">
-								<a class="dropdown-item reschedule-chore-button"
+								<a class="dropdown-item track-chore-button now permission-CHORE_TRACK_EXECUTION"
+									data-chore-id="{{ $curentChoreEntry->chore_id }}"
+									type="button"
+									href="#">
+									<span>{{ $__t('Track chore execution now') }}</span>
+								</a>
+								<a class="dropdown-item reschedule-chore-button permission-CHORE_TRACK_EXECUTION"
 									data-chore-id="{{ $curentChoreEntry->chore_id }}"
 									type="button"
 									href="#">

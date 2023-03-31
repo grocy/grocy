@@ -39,9 +39,9 @@
 			'label' => 'Tracked time',
 			'format' => 'YYYY-MM-DD HH:mm:ss',
 			'initWithNow' => true,
-			'limitEndToNow' => true,
+			'limitEndToNow' => false,
 			'limitStartToNow' => false,
-			'invalidFeedback' => $__t('This can only be before now')
+			'invalidFeedback' => $__t('A date is required')
 			))
 
 			@if(GROCY_FEATURE_FLAG_CHORES_ASSIGNMENTS)

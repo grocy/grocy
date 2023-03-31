@@ -1754,7 +1754,7 @@ msgstr ""
 msgid "Chore journal"
 msgstr ""
 
-msgid "Track chore execution"
+msgid "Track next chore schedule"
 msgstr ""
 
 msgid "Mark task as completed"
@@ -2370,4 +2370,7 @@ msgid "When enabled, auto-changing the due date of a stock entry (by opening/fre
 msgstr ""
 
 msgid "Quick open amount"
+msgstr ""
+
+msgid "Track chore execution now"
 msgstr ""
