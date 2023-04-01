@@ -1,20 +1,25 @@
-CREATE VIEW product_purchase_history
+DROP VIEW product_price_history;
+CREATE VIEW product_price_history
 AS
 SELECT
-	1 AS id, -- Dummy, LessQL needs an id column
-	p.id AS product_id,
-	p.name AS product_name,
-	g.id AS product_group_id,
-	g.name AS product_group,
-	s.amount AS quantity,
-	s.price AS price,
-	s.purchased_date AS purchased_date
-FROM product_groups g
-JOIN products p
-	ON p.product_group_id = g.id
-JOIN stock_log s
-	ON s.product_id = p.id
-WHERE s.transaction_type = 'purchase'
-	AND s.undone = 0
-	AND s.price IS NOT NULL
-ORDER BY p.name ASC;
+	sl.product_id AS id, -- Dummy, LessQL needs an id column
+	sl.product_id,
+	sl.price,
+	sl.amount,
+	sl.purchased_date,
+	sl.shopping_location_id
+FROM stock_log sl
+WHERE sl.transaction_type IN ('purchase', 'inventory-correction', 'stock-edit-new')
+	AND sl.undone = 0
+	AND IFNULL(sl.price, 0) > 0
+	AND IFNULL(sl.amount, 0) > 0
+	AND sl.id NOT IN (
+			-- These are edited purchase and inventory-correction rows
+			SELECT sl_origin.id
+			FROM stock_log sl_origin
+			JOIN stock_log sl_edit
+				ON sl_origin.stock_id = sl_edit.stock_id
+				AND sl_edit.transaction_type = 'stock-edit-new'
+				AND sl_edit.id > sl_origin.id
+			WHERE sl_origin.transaction_type IN ('purchase', 'inventory-correction')
+		);

@@ -76,9 +76,7 @@
 				id="product-group-filter">
 				<option value="all">{{ $__t('All') }}</option>
 				@foreach($productGroups as $productGroup)
-				<option @if($selectedGroup==$productGroup->id)
-					selected="selected"
-					@endif
+				<option @if($productGroup->id == $selectedGroup) selected="selected" @endif
 					value="{{ $productGroup->id }}">{{ $productGroup->name }}</option>
 				@endforeach
 			</select>

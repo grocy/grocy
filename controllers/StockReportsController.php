@@ -6,42 +6,58 @@ class StockReportsController extends BaseController
 {
 	public function Spendings(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
 	{
-		if (isset($request->getQueryParams()['start_date']) and isset($request->getQueryParams()['end_date']))
+		if (isset($request->getQueryParams()['start_date']) && isset($request->getQueryParams()['end_date']) && IsIsoDate($request->getQueryParams()['start_date']) && IsIsoDate($request->getQueryParams()['end_date']))
 		{
 			$startDate = $request->getQueryParams()['start_date'];
 			$endDate = $request->getQueryParams()['end_date'];
-			$where = "purchased_date >= '$startDate' AND purchased_date <= '$endDate'";
+			$where = "pph.purchased_date BETWEEN '$startDate' AND '$endDate'";
 		}
 		else
 		{
-			// Default this month
-			$where = "purchased_date >= DATE(DATE('now', 'localtime'), 'start of month')";
+			// Default to this month
+			$where = "pph.purchased_date >= DATE(DATE('now', 'localtime'), 'start of month')";
 		}
 
 
 		if (isset($request->getQueryParams()['byGroup']))
 		{
 			$sql = "
-			SELECT product_group_id as id, product_group as name, sum(quantity * price) as total
-			FROM product_purchase_history
+			SELECT
+				pg.id AS id,
+				pg.name AS name,
+				SUM(pph.amount * pph.price) AS total
+			FROM product_price_history pph
+			JOIN products p
+				ON pph.product_id = p.id
+			JOIN product_groups pg
+				ON p.product_group_id = pg.id
 			WHERE $where
-			GROUP BY product_group
-			ORDER BY product_group
+			GROUP BY pg.id
+			ORDER BY pg.NAME COLLATE NOCASE
 			";
 		}
 		else
 		{
 			if (isset($request->getQueryParams()['product_group']) and $request->getQueryParams()['product_group'] != 'all')
 			{
-				$where = $where . ' AND product_group_id = ' . $request->getQueryParams()['product_group'];
+				$where .= ' AND pg.id = ' . $request->getQueryParams()['product_group'];
 			}
 
 			$sql = "
-			SELECT product_id as id, product_name as name, product_group_id as group_id, product_group as group_name, sum(quantity * price) as total
-			FROM product_purchase_history
+			SELECT
+				p.id AS id,
+				p.name AS name,
+				pg.id AS group_id,
+				pg.name AS group_name,
+				SUM(pph.amount * pph.price) AS total
+			FROM product_price_history pph
+			JOIN products p
+				ON pph.product_id = p.id
+			JOIN product_groups pg
+				ON p.product_group_id = pg.id
 			WHERE $where
-			GROUP BY product_name
-			ORDER BY product_name
+			GROUP BY p.id
+			ORDER BY p.NAME COLLATE NOCASE
 			";
 		}
 
