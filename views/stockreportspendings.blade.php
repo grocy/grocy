@@ -5,8 +5,9 @@
 
 @push('pageScripts')
 <script src="{{ $U('/node_modules/chart.js/dist/Chart.min.js?v=', true) }}{{ $version }}"></script>
+<script src="{{ $U('/node_modules/chartjs-plugin-colorschemes/dist/chartjs-plugin-colorschemes.min.js?v=', true) }}{{ $version}}"></script>
 <script src="{{ $U('/node_modules/chartjs-plugin-doughnutlabel/dist/chartjs-plugin-doughnutlabel.js?v=', true) }}{{ $version }}"></script>
-<script src="{{ $U('/node_modules/chartjs-plugin-piechart-outlabels/dist/chartjs-plugin-piechart-outlabels.js?v=', true) }}{{ $version}}"></script>
+<script src="{{ $U('/node_modules/chartjs-plugin-piechart-outlabels/dist/chartjs-plugin-piechart-outlabels.min.js?v=', true) }}{{ $version}}"></script>
 <script src="{{ $U('/node_modules/daterangepicker/daterangepicker.js?v=', true) }}{{ $version }}"></script>
 @endpush
 
@@ -22,28 +23,33 @@
 			<h2 class="title mr-2 order-0">
 				@yield('title')
 			</h2>
-			<h2 class="mb-0 mr-auto order-3 order-md-1 width-xs-sm-100">
-				<span id="info-current-stock"
-					class="text-muted small"></span>
-			</h2>
-			<button class="btn btn-outline-dark d-md-none mt-2 float-right order-1 order-md-3"
-				type="button"
-				data-toggle="collapse"
-				data-target="#related-links">
-				<i class="fa-solid fa-ellipsis-v"></i>
-			</button>
-			<div class="related-links collapse d-md-flex order-2 width-xs-sm-100"
-				id="related-links">
-				<a class="btn btn-outline-dark responsive-button @if(!$byGroup) active @endif m-1 mt-md-0 mb-md-0 float-right"
-					href="{{ $U('/stockreports/spendings') }}">
-					{{ $__t('by Product') }}
-				</a>
+			<div class="float-right">
+				<button class="btn btn-outline-dark d-md-none mt-2 order-1 order-md-3"
+					type="button"
+					data-toggle="collapse"
+					data-target="#table-filter-row">
+					<i class="fa-solid fa-filter"></i>
+				</button>
+				<button class="btn btn-outline-dark d-md-none mt-2 order-1 order-md-3"
+					type="button"
+					data-toggle="collapse"
+					data-target="#related-links">
+					<i class="fa-solid fa-ellipsis-v"></i>
+				</button>
 			</div>
 			<div class="related-links collapse d-md-flex order-2 width-xs-sm-100"
 				id="related-links">
-				<a class="btn btn-outline-dark responsive-button @if($byGroup) active @endif m-1 mt-md-0 mb-md-0 float-right"
+				<a class="btn btn-link responsive-button m-1 mt-md-0 mb-md-0 @if(!$byGroup) active @endif discrete-link disabled"
+					href="#">
+					{{ $__t('Group by') }}:
+				</a>
+				<a class="btn btn-outline-dark responsive-button m-1 mt-md-0 mb-md-0 float-right @if(!$byGroup) active @endif"
+					href="{{ $U('/stockreports/spendings') }}">
+					{{ $__t('Product') }}
+				</a>
+				<a class="btn btn-outline-dark responsive-button m-1 mt-md-0 mb-md-0 float-right @if($byGroup) active @endif"
 					href="{{ $U('/stockreports/spendings?byGroup=true') }}">
-					{{ $__t('by Group') }}
+					{{ $__t('Product group') }}
 				</a>
 			</div>
 		</div>
@@ -54,16 +60,16 @@
 
 <div class="row collapse d-md-flex"
 	id="table-filter-row">
-	<div class="col-sm-12 col-md-6 col-xl-4">
+	<div class="col-sm-12 col-md-6 col-xl-3">
 		<div class="input-group">
 			<div class="input-group-prepend">
 				<span class="input-group-text"><i class="fa-solid fa-clock"></i>&nbsp;{{ $__t('Date range') }}</span>
-				<input type="text"
-					name="date-filter"
-					id="daterange-filter"
-					class="custom-control custom-select"
-					value="" />
 			</div>
+			<input type="text"
+				name="date-filter"
+				id="daterange-filter"
+				class="custom-control custom-select"
+				value="" />
 		</div>
 	</div>
 	@if(!$byGroup)
@@ -84,7 +90,7 @@
 	</div>
 	@endif
 	<div class="col">
-		<div class="float-right mt-1">
+		<div class="float-right">
 			<button id="clear-filter-button"
 				class="btn btn-sm btn-outline-info"
 				data-toggle="tooltip"
@@ -96,8 +102,7 @@
 </div>
 
 <div class="row mt-2">
-	<div id="chart-wrapper"
-		class="col-sm-12 col-md-12 col-xl-12">
+	<div class="col-sm-12 col-md-12 col-xl-12">
 		<canvas id="metrics-chart"></canvas>
 	</div>
 	<div class="col-sm-12 col-md-12 col-xl-12">

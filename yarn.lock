@@ -163,6 +163,11 @@ chartjs-color@~2.2.0:
     chartjs-color-string "^0.5.0"
     color-convert "^0.5.3"
 
+chartjs-plugin-colorschemes@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/chartjs-plugin-colorschemes/-/chartjs-plugin-colorschemes-0.4.0.tgz#7a310c32411ef0b5135df1f47da4d379e22220f7"
+  integrity sha512-GUAulGFa6igdhi/xF9XopLJknwtXZT0wwEB+e/D4SJcRGY1HdwzX84pVn5BSpnk1idF6RJxZoA7w396R7BOE9A==
+
 chartjs-plugin-doughnutlabel@^2.0.3:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/chartjs-plugin-doughnutlabel/-/chartjs-plugin-doughnutlabel-2.0.3.tgz#0aa19b040dc68e12163e3215a01609cb3e0b5a7b"
@@ -317,9 +322,10 @@ datatables.net@>=1.12.1, datatables.net@^1.10.22:
   dependencies:
     jquery ">=1.7"
 
-daterangepicker@dangrossman/daterangepicker:
+daterangepicker@^3.1.0:
   version "3.1.0"
-  resolved "https://codeload.github.com/dangrossman/daterangepicker/tar.gz/8495717c4007a03fd5dee422f161811fd6140c0e"
+  resolved "https://registry.yarnpkg.com/daterangepicker/-/daterangepicker-3.1.0.tgz#718d606614331df3e774c9aba82ccd8838d45da1"
+  integrity sha512-DxWXvvPq4srWLCqFugqSV+6CBt/CvQ0dnpXhQ3gl0autcIDAruG1PuGG3gC7yPRNytAD1oU1AcUOzaYhOawhTw==
   dependencies:
     jquery ">=1.10"
     moment "^2.9.0"
@@ -496,7 +502,12 @@ jquery@3.3.1:
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.3.1.tgz#958ce29e81c9790f31be7792df5d4d95fc57fbca"
   integrity sha512-Ubldcmxp5np52/ENotGxlLe6aGMvmF4R8S6tZjsP6Knsaxd/xp3Zrh50cG93lR6nPXyUFwzN3ZSOQI0wRJNdGg==
 
-jquery@>=1.10, jquery@>=1.12.0, jquery@>=1.7, jquery@>=1.7.2, jquery@^3.6.0:
+jquery@>=1.10:
+  version "3.6.4"
+  resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.6.4.tgz#ba065c188142100be4833699852bf7c24dc0252f"
+  integrity sha512-v28EW9DWDFpzcD9O5iyJXg3R3+q+mET5JhnjJzQUZMHOv67bpSIHq81GEYpPNZHG+XXHsfSme3nxp/hndKEcsQ==
+
+jquery@>=1.12.0, jquery@>=1.7, jquery@>=1.7.2, jquery@^3.6.0:
   version "3.6.3"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.6.3.tgz#23ed2ffed8a19e048814f13391a19afcdba160e6"
   integrity sha512-bZ5Sy3YzKo9Fyc8wH2iIQK4JImJ6R0GWI9kL1/k7Z91ZBNgkRXE6U0JfHIizZbort8ZunhSI3jw9I6253ahKfg==
