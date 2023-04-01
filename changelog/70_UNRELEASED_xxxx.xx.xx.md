@@ -4,9 +4,11 @@
 
 > _Recommendation: Benchmark tests showed that e.g. unit conversion handling is up to 5 times faster when using a more recent (3.39.4+) SQLite version._
 
-### New feature: xxxx
+### New feature: Stock reports
 
-- xxx
+- New button "Reports" on the stock overview page
+- The first report (more to come) "Spendings" makes it possible to explore (pie chart and table data) the total value spend by product or product group in any time range
+- (Thanks for the initial work on this @raupie)
 
 ### Stock
 
