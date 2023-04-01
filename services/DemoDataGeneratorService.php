@@ -66,7 +66,7 @@ class DemoDataGeneratorService extends BaseService
 				INSERT INTO quantity_units (id, name, name_plural) VALUES (12, '{$this->__n_sql(1, 'Slice', 'Slices')}', '{$this->__n_sql(2, 'Slice', 'Slices')}'); --12
 				DELETE FROM quantity_units WHERE name = '{$this->__t_sql('Kilogram')}';
 				INSERT INTO quantity_units (id, name, name_plural) VALUES (13, '{$this->__n_sql(1, 'Kilogram', 'Kilograms')}', '{$this->__n_sql(2, 'Kilogram', 'Kilograms')}'); --13
-				DELETE FROM quantity_units WHERE name = '{$this->__t_sql('pint')}';
+				DELETE FROM quantity_units WHERE name = '{$this->__t_sql('Pint')}';
 				INSERT INTO quantity_units (id, name, name_plural) VALUES (14, '{$this->__n_sql(1, 'Pint', 'Pints')}', '{$this->__n_sql(2, 'Pint', 'Pint')}'); --14
 
 				INSERT INTO product_groups(name) VALUES ('01 {$this->__t_sql('Sweets')}'); --1
