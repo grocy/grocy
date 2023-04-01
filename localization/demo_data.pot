@@ -388,3 +388,18 @@ msgstr[1] ""
 
 msgid "Romanian"
 msgstr ""
+
+msgid "Pint"
+msgstr ""
+
+msgid "Beverages"
+msgstr ""
+
+msgid "Ice Cream"
+msgstr ""
+
+msgid "Soda"
+msgstr ""
+
+msgid "Beer"
+msgstr ""

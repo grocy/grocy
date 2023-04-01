@@ -66,6 +66,8 @@ class DemoDataGeneratorService extends BaseService
 				INSERT INTO quantity_units (id, name, name_plural) VALUES (12, '{$this->__n_sql(1, 'Slice', 'Slices')}', '{$this->__n_sql(2, 'Slice', 'Slices')}'); --12
 				DELETE FROM quantity_units WHERE name = '{$this->__t_sql('Kilogram')}';
 				INSERT INTO quantity_units (id, name, name_plural) VALUES (13, '{$this->__n_sql(1, 'Kilogram', 'Kilograms')}', '{$this->__n_sql(2, 'Kilogram', 'Kilograms')}'); --13
+				DELETE FROM quantity_units WHERE name = '{$this->__t_sql('Pint')}';
+				INSERT INTO quantity_units (id, name, name_plural) VALUES (14, '{$this->__n_sql(1, 'Pint', 'Pints')}', '{$this->__n_sql(2, 'Pint', 'Pint')}'); --14
 
 				INSERT INTO product_groups(name) VALUES ('01 {$this->__t_sql('Sweets')}'); --1
 				INSERT INTO product_groups(name) VALUES ('02 {$this->__t_sql('Bakery products')}'); --2
@@ -73,13 +75,14 @@ class DemoDataGeneratorService extends BaseService
 				INSERT INTO product_groups(name) VALUES ('04 {$this->__t_sql('Butchery products')}'); --4
 				INSERT INTO product_groups(name) VALUES ('05 {$this->__t_sql('Vegetables/Fruits')}'); --5
 				INSERT INTO product_groups(name) VALUES ('06 {$this->__t_sql('Refrigerated products')}'); --6
+				INSERT INTO product_groups(name) VALUES ('07 {$this->__t_sql('Beverages')}'); --7'
 
 				DELETE FROM sqlite_sequence WHERE name = 'products'; --Just to keep IDs in order as mentioned here...
 				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, min_stock_amount, product_group_id, picture_file_name) VALUES ('{$this->__t_sql('Cookies')}', 4, 3, 3, 8, 1, 'cookies.jpg'); --1
 				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, min_stock_amount, product_group_id, cumulate_min_stock_amount_of_sub_products) VALUES ('{$this->__t_sql('Chocolate')}', 4, 3, 3, 8, 1, 1); --2
 				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, min_stock_amount, product_group_id, picture_file_name) VALUES ('{$this->__t_sql('Gummy bears')}', 4, 3, 3, 8, 1, 'gummybears.jpg'); --3
 				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, min_stock_amount, product_group_id) VALUES ('{$this->__t_sql('Crisps')}', 4, 3, 3, 10, 1); --4
-				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, product_group_id) VALUES ('{$this->__t_sql('Eggs')}', 2, 3, 2, 5); --5
+				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, product_group_id) VALUES ('{$this->__t_sql('Eggs')}', 2, 3, 2, 6); --5
 				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, product_group_id) VALUES ('{$this->__t_sql('Noodles')}', 3, 3, 3, 6); --6
 				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, product_group_id) VALUES ('{$this->__t_sql('Pickles')}', 5, 4, 4, 3); --7
 				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, product_group_id) VALUES ('{$this->__t_sql('Gulash soup')}', 5, 5, 5, 3); --8
@@ -101,6 +104,10 @@ class DemoDataGeneratorService extends BaseService
 				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, product_group_id, parent_product_id) VALUES ('{$this->__t_sql('Milk Chocolate')}', 4, 3, 3, 1, 2); --24
 				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, product_group_id, parent_product_id) VALUES ('{$this->__t_sql('Dark Chocolate')}', 4, 3, 3, 1, 2); --25
 				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, product_group_id) VALUES ('{$this->__t_sql('Waffle rolls')}', 4, 3, 3, 1); --26
+				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, product_group_id) VALUES ('{$this->__t_sql('Ice Cream')}', 6, 14, 14, 1); --27
+				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, product_group_id) VALUES ('{$this->__t_sql('Soda')}', 2, 6, 6, 7); --28
+				INSERT INTO products (name, location_id, qu_id_purchase, qu_id_stock, product_group_id) VALUES ('{$this->__t_sql('Beer')}', 2, 6, 6, 7); --29
+
 				UPDATE products SET calories = 123 WHERE IFNULL(calories, 0) = 0;
 
 				INSERT INTO product_barcodes (product_id, barcode) VALUES (8, '22111968');
@@ -289,6 +296,16 @@ class DemoDataGeneratorService extends BaseService
 			$stockService->AddProduct(24, 2, date('Y-m-d', strtotime('+180 days')), StockService::TRANSACTION_TYPE_PURCHASE, date('Y-m-d', strtotime('-10 days')), $this->RandomPrice(), null, $this->NextSupermarketId(), $stockTransactionId);
 			$stockService->AddProduct(25, 2, date('Y-m-d', strtotime('+180 days')), StockService::TRANSACTION_TYPE_PURCHASE, date('Y-m-d', strtotime('-10 days')), $this->RandomPrice(), null, $this->NextSupermarketId(), $stockTransactionId);
 			$stockService->AddProduct(2, 1, date('Y-m-d', strtotime('+180 days')), StockService::TRANSACTION_TYPE_PURCHASE, date('Y-m-d', strtotime('-10 days')), $this->RandomPrice(), null, $this->NextSupermarketId(), $stockTransactionId);
+			$stockService->AddProduct(27, 1, date('Y-m-d', strtotime('+30 days')), StockService::TRANSACTION_TYPE_PURCHASE, date('Y-m-d', strtotime('now')), $this->RandomPrice(), null, $this->NextSupermarketId(), $stockTransactionId);
+			$stockService->AddProduct(23, 1, date('Y-m-d', strtotime('+60 days')), StockService::TRANSACTION_TYPE_PURCHASE, date('Y-m-d', strtotime('now')), $this->RandomPrice(), null, $this->NextSupermarketId(), $stockTransactionId);
+			$stockService->AddProduct(27, 1, date('Y-m-d', strtotime('+30 days')), StockService::TRANSACTION_TYPE_PURCHASE, date('Y-m-d', strtotime('-2 weeks')), $this->RandomPrice(), null, $this->NextSupermarketId(), $stockTransactionId);
+			$stockService->AddProduct(27, 1, date('Y-m-d', strtotime('+30 days')), StockService::TRANSACTION_TYPE_PURCHASE, date('Y-m-d', strtotime('-3 weeks')), $this->RandomPrice(), null, $this->NextSupermarketId(), $stockTransactionId);
+			$stockService->AddProduct(28, 12, date('Y-m-d', strtotime('+180 days')), StockService::TRANSACTION_TYPE_PURCHASE, date('Y-m-d', strtotime('-1 weeks')), $this->RandomPrice(), null, $this->NextSupermarketId(), $stockTransactionId);
+			$stockService->AddProduct(29, 12, date('Y-m-d', strtotime('+365 days')), StockService::TRANSACTION_TYPE_PURCHASE, date('Y-m-d', strtotime('-2 weeks')), $this->RandomPrice(), null, $this->NextSupermarketId(), $stockTransactionId);
+			$stockService->AddProduct(5, 1, date('Y-m-d', strtotime('+1 days')), StockService::TRANSACTION_TYPE_PURCHASE, date('Y-m-d', strtotime('-1 days')), $this->RandomPrice(), null, $this->NextSupermarketId(), $stockTransactionId);
+			$stockService->AddProduct(1, 12, date('Y-m-d', strtotime('+180 days')), StockService::TRANSACTION_TYPE_PURCHASE, date('Y-m-d', strtotime('-1 days')), $this->RandomPrice(), null, $this->NextSupermarketId(), $stockTransactionId);
+			$stockService->AddProduct(2, 12, date('Y-m-d', strtotime('+365 days')), StockService::TRANSACTION_TYPE_PURCHASE, date('Y-m-d', strtotime('-1 days')), $this->RandomPrice(), null, $this->NextSupermarketId(), $stockTransactionId);
+
 			$stockService->AddMissingProductsToShoppingList();
 			$stockService->OpenProduct(3, 1);
 			$stockService->OpenProduct(6, 1);
