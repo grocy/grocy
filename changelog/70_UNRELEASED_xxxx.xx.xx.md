@@ -53,7 +53,10 @@
 
 ### Chores
 
-- xxx
+- Changed the handling of the tracking buttons on the chores overview page:
+  - The green button now tracks an execution of the corresponding chore on the next scheduled time, rather than for now/today
+  - New context-/more menu option "Track chore execution now" to track an execution for now/today (so the same what the green button did before)
+- Removed the limitation on the chore tracking page that the tracked time couldn't be in the future
 
 ### Calendar
 
