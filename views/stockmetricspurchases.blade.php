@@ -1,16 +1,19 @@
 @extends('layout.default')
 
 @section('title', $__t('Stock Metrics: Purchases'))
-@section('activeNav', 'stockmetricspurchases')
+@section('viewJsName', 'metrics')
 
-@once
-@push('componentScripts')
+@push('pageScripts')
 <script src="{{ $U('/node_modules/chart.js/dist/Chart.min.js?v=', true) }}{{ $version }}"></script>
 <script src="{{ $U('/node_modules/chartjs-plugin-doughnutlabel/dist/chartjs-plugin-doughnutlabel.js?v=', true) }}{{ $version }}"></script>
 <script src="{{ $U('/node_modules/chartjs-plugin-piechart-outlabels/dist/chartjs-plugin-piechart-outlabels.js?v=', true) }}{{ $version}}"></script>
-<script src="{{ $U('/viewjs/metrics.js', true) }}?v={{ $version }}"></script>
+<script src="{{ $U('/node_modules/daterangepicker/daterangepicker.js?v=', true) }}{{ $version }}"></script>
 @endpush
-@endonce
+
+@push('pageStyles')
+<link href="{{ $U('/node_modules/daterangepicker/daterangepicker.css?v=', true) }}{{ $version }}"
+	rel="stylesheet">
+@endpush
 
 @section('content')
 <div class="row">
