@@ -73,29 +73,28 @@ $(".calendar").each(function()
 				</div> \
 			</div>');
 
-			var weekRecipeName = view.start.year().toString() + "-" + ((view.start.week() - 1).toString().padStart(2, "0")).toString();
-			var weekRecipe = FindObjectInArrayByPropertyValue(internalRecipes, "name", weekRecipeName);
-
 			var weekCosts = 0;
 			var weekRecipeOrderMissingButtonHtml = "";
 			var weekRecipeConsumeButtonHtml = "";
 			var weekCostsHtml = "";
 			if (weekRecipe !== null)
 			{
+				var weekRecipeResolved = FindObjectInArrayByPropertyValue(recipesResolved, "recipe_id", weekRecipe.id);
+
 				if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
 				{
-					weekCosts = FindObjectInArrayByPropertyValue(recipesResolved, "recipe_id", weekRecipe.id).costs;
+					weekCosts = weekRecipeResolved.costs;
 					weekCostsHtml = __t("Week costs") + ': <span class="locale-number locale-number-currency">' + weekCosts.toString() + "</span> ";
 				}
 
 				var weekRecipeOrderMissingButtonDisabledClasses = "";
-				if (FindObjectInArrayByPropertyValue(recipesResolved, "recipe_id", weekRecipe.id).need_fulfilled_with_shopping_list == 1)
+				if (weekRecipeResolved.need_fulfilled_with_shopping_list == 1)
 				{
 					weekRecipeOrderMissingButtonDisabledClasses = "disabled";
 				}
 
 				var weekRecipeConsumeButtonDisabledClasses = "";
-				if (FindObjectInArrayByPropertyValue(recipesResolved, "recipe_id", weekRecipe.id).need_fulfilled == 0 || weekCosts == 0)
+				if (weekRecipeResolved.need_fulfilled == 0 || weekCosts == 0)
 				{
 					weekRecipeConsumeButtonDisabledClasses = "disabled";
 				}

@@ -23,7 +23,7 @@ class RecipesController extends BaseController
 			$days = $request->getQueryParams()['days'];
 		}
 
-		$mealPlanWhereTimespan = "day BETWEEN DATE('$start') AND DATE('$start', '+$days days')";
+		$mealPlanWhereTimespan = "day BETWEEN DATE('$start', '-$days days') AND DATE('$start', '+$days days')";
 
 		$recipes = $this->getDatabase()->recipes()->where('type', RecipesService::RECIPE_TYPE_NORMAL)->fetchAll();
 		$events = [];
@@ -64,7 +64,8 @@ class RecipesController extends BaseController
 			'quantityUnits' => $this->getDatabase()->quantity_units()->orderBy('name', 'COLLATE NOCASE'),
 			'quantityUnitConversionsResolved' => $this->getDatabase()->quantity_unit_conversions_resolved(),
 			'mealplanSections' => $this->getDatabase()->meal_plan_sections()->orderBy('sort_number'),
-			'usedMealplanSections' => $this->getDatabase()->meal_plan_sections()->where("id IN (SELECT section_id FROM meal_plan WHERE $mealPlanWhereTimespan)")->orderBy('sort_number')
+			'usedMealplanSections' => $this->getDatabase()->meal_plan_sections()->where("id IN (SELECT section_id FROM meal_plan WHERE $mealPlanWhereTimespan)")->orderBy('sort_number'),
+			'weekRecipe' => $this->getDatabase()->recipes()->where("type = 'mealplan-week' AND name = LTRIM(STRFTIME('%Y-%W', DATE('$start')), '0')")->fetch()
 		]);
 	}
 

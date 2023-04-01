@@ -75,9 +75,10 @@
 
 @section('content')
 <script>
-	var fullcalendarEventSources = {!! json_encode(array($fullcalendarEventSources)) !!}
-	var internalRecipes = {!! json_encode($internalRecipes) !!}
-	var recipesResolved = {!! json_encode($recipesResolved) !!}
+	var fullcalendarEventSources = {!! json_encode(array($fullcalendarEventSources)) !!};
+	var internalRecipes = {!! json_encode($internalRecipes) !!};
+	var recipesResolved = {!! json_encode($recipesResolved) !!};
+	var weekRecipe = {!! json_encode($weekRecipe) !!};
 
 	Grocy.QuantityUnits = {!! json_encode($quantityUnits) !!};
 	Grocy.QuantityUnitConversionsResolved = {!! json_encode($quantityUnitConversionsResolved) !!};
