@@ -71,7 +71,6 @@
 		rel="stylesheet">
 	<link href="{{ $U('/node_modules/bootstrap-select/dist/css/bootstrap-select.min.css?v=', true) }}{{ $version }}"
 		rel="stylesheet">
-
 	<link href="{{ $U('/node_modules/@fontsource/noto-sans/latin.css?v=', true) }}{{ $version }}"
 		rel="stylesheet">
 	<link href="{{ $U('/css/grocy.css?v=', true) }}{{ $version }}"
