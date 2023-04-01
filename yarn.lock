@@ -112,11 +112,6 @@ bwip-js@^3.0.1:
   resolved "https://registry.yarnpkg.com/bwip-js/-/bwip-js-3.2.2.tgz#bef1b5b566519754acd251dbe323a2fe1dc06c9a"
   integrity sha512-70aY2FSRVd1u6q8iXY+HDQDm6598lQt/toSNLrKeQhbmzw75y40Hmg85MTDtVv1NElbRPNtsX9aPuOQVsFuOzA==
 
-canvasjs@^1.8.3:
-  version "1.8.3"
-  resolved "https://registry.yarnpkg.com/canvasjs/-/canvasjs-1.8.3.tgz#181a526bbce09c1909431d9471f808494fe970cf"
-  integrity sha512-60eUT0VjqRgYqdIQcOkXg0Zptfbl4HefA/O51YEf1m/P0uXvE3icI/1KPrXpY9aVxn8gG/BB8DzVoTGCcyBnYg==
-
 caseless@~0.12.0:
   version "0.12.0"
   resolved "https://registry.yarnpkg.com/caseless/-/caseless-0.12.0.tgz#1b681c21ff84033c826543090689420d187151dc"
