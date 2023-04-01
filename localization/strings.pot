@@ -2375,12 +2375,6 @@ msgstr ""
 msgid "Track chore execution now"
 msgstr ""
 
-msgid "Metrics"
-msgstr ""
-
-msgid "Stock Metrics: Purchases"
-msgstr ""
-
 msgid "by Product"
 msgstr ""
 
@@ -2418,4 +2412,13 @@ msgid "This Year"
 msgstr ""
 
 msgid "Last Year"
+msgstr ""
+
+msgid "Reports"
+msgstr ""
+
+msgid "Spendings"
+msgstr ""
+
+msgid "Stock report"
 msgstr ""

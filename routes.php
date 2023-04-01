@@ -56,7 +56,6 @@ $app->group('', function (RouteCollectorProxy $group) {
 		$group->get('/locations', '\Grocy\Controllers\StockController:LocationsList');
 		$group->get('/location/{locationId}', '\Grocy\Controllers\StockController:LocationEditForm');
 		$group->get('/stockjournal', '\Grocy\Controllers\StockController:Journal');
-		$group->get('/stockmetricspurchases', '\Grocy\Controllers\StockController:StockMetricsPurchases');
 		$group->get('/locationcontentsheet', '\Grocy\Controllers\StockController:LocationContentSheet');
 		$group->get('/quantityunitpluraltesting', '\Grocy\Controllers\StockController:QuantityUnitPluralFormTesting');
 		$group->get('/stockjournal/summary', '\Grocy\Controllers\StockController:JournalSummary');
@@ -64,6 +63,8 @@ $app->group('', function (RouteCollectorProxy $group) {
 		$group->get('/stockentry/{entryId}/grocycode', '\Grocy\Controllers\StockController:StockEntryGrocycodeImage');
 		$group->get('/stockentry/{entryId}/label', '\Grocy\Controllers\StockController:StockEntryGrocycodeLabel');
 		$group->get('/quantityunitconversionsresolved', '\Grocy\Controllers\StockController:QuantityUnitConversionsResolved');
+
+		$group->get('/stockreports/spendings', '\Grocy\Controllers\StockReportsController:Spendings');
 	}
 
 	// Stock price tracking

@@ -1,7 +1,7 @@
 @extends('layout.default')
 
-@section('title', $__t('Stock Metrics: Purchases'))
-@section('viewJsName', 'metrics')
+@section('title', $__t('Stock report') . ' / ' . $__t('Spendings'))
+@section('viewJsName', 'stockreportspendings')
 
 @push('pageScripts')
 <script src="{{ $U('/node_modules/chart.js/dist/Chart.min.js?v=', true) }}{{ $version }}"></script>
@@ -35,14 +35,14 @@
 			<div class="related-links collapse d-md-flex order-2 width-xs-sm-100"
 				id="related-links">
 				<a class="btn btn-outline-dark responsive-button @if(!$byGroup) active @endif m-1 mt-md-0 mb-md-0 float-right"
-					href="{{ $U('/stockmetricspurchases') }}">
+					href="{{ $U('/stockreports/spendings') }}">
 					{{ $__t('by Product') }}
 				</a>
 			</div>
 			<div class="related-links collapse d-md-flex order-2 width-xs-sm-100"
 				id="related-links">
 				<a class="btn btn-outline-dark responsive-button @if($byGroup) active @endif m-1 mt-md-0 mb-md-0 float-right"
-					href="{{ $U('/stockmetricspurchases?byGroup=true') }}">
+					href="{{ $U('/stockreports/spendings?byGroup=true') }}">
 					{{ $__t('by Group') }}
 				</a>
 			</div>
