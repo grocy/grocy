@@ -93,9 +93,9 @@ if (GetUriParam("end_date"))
 var ranges = {};
 ranges[__t("Today")] = [moment(), moment()];
 ranges[__t("Yesterday")] = [moment().subtract(1, "days"), moment().subtract(1, "days")];
-ranges[__t("Last %1$s days", "7")] = [moment().subtract(6, "days"), moment()];
-ranges[__t("Last %1$s days", "14")] = [moment().subtract(13, "days"), moment()];
-ranges[__t("Last %1$s days", "30")] = [moment().subtract(29, "days"), moment()];
+ranges[__n(7, "Last %1$s day", "Last %1$s days")] = [moment().subtract(6, "days"), moment()];
+ranges[__n(14, "Last %1$s day", "Last %1$s days")] = [moment().subtract(13, "days"), moment()];
+ranges[__n(30, "Last %1$s day", "Last %1$s days")] = [moment().subtract(29, "days"), moment()];
 ranges[__t("This month")] = [moment().startOf("month"), moment().endOf("month")];
 ranges[__t("Last month")] = [moment().subtract(1, "month").startOf("month"), moment().subtract(1, "month").endOf("month")];
 ranges[__t("This year")] = [moment().startOf("year"), moment().endOf("year")];

@@ -2387,8 +2387,10 @@ msgstr ""
 msgid "Yesterday"
 msgstr ""
 
-msgid "Last %1$s days"
-msgstr ""
+msgid "Last %1$s day"
+msgid_plural "Last %1$s days"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "This month"
 msgstr ""
