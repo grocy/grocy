@@ -71,6 +71,19 @@
 			</select>
 		</div>
 	</div>
+	<div class="col-12 col-md-6 col-xl-3">
+		<div class="input-group">
+			<div class="input-group-prepend">
+				<span class="input-group-text"><i class="fa-solid fa-filter"></i>&nbsp;{{ $__t('Status') }}</span>
+			</div>
+			<select class="custom-control custom-select"
+				id="status-filter">
+				<option value="all">{{ $__t('All') }}</option>
+				<option value="in-stock">{{ $__t('In-stock products') }}</option>
+				<option value="out-of-stock">{{ $__t('Out-of-stock products') }}</option>
+			</select>
+		</div>
+	</div>
 	<div class="col-12 col-md-6 col-xl-2">
 		<div class="form-check custom-control custom-checkbox">
 			<input class="form-check-input custom-control-input"
@@ -79,17 +92,6 @@
 			<label class="form-check-label custom-control-label"
 				for="show-disabled">
 				{{ $__t('Show disabled') }}
-			</label>
-		</div>
-	</div>
-	<div class="col-12 col-md-6 col-xl-2">
-		<div class="form-check custom-control custom-checkbox">
-			<input class="form-check-input custom-control-input"
-				type="checkbox"
-				id="show-only-in-stock">
-			<label class="form-check-label custom-control-label"
-				for="show-only-in-stock">
-				{{ $__t('Show only in-stock products') }}
 			</label>
 		</div>
 	</div>

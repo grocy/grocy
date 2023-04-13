@@ -40,13 +40,19 @@ $("#clear-filter-button").on("click", function()
 	$("#product-group-filter").val("all");
 	productsTable.column(productsTable.colReorder.transpose(6)).search("").draw();
 	productsTable.search("").draw();
-	if ($("#show-disabled").is(":checked") || $("#show-only-in-stock").is(":checked"))
+
+	if ($("#show-disabled").is(":checked"))
 	{
 		$("#show-disabled").prop("checked", false);
-		$("#show-only-in-stock").prop("checked", false);
 		RemoveUriParam("include_disabled");
 		RemoveUriParam("only_in_stock");
 		window.location.reload();
+	}
+
+	if ($("#status-filter").val() != "all")
+	{
+		$("#status-filter").val("all");
+		$("#status-filter").trigger("change");
 	}
 });
 
@@ -109,15 +115,25 @@ $("#show-disabled").change(function()
 	window.location.reload();
 });
 
-$("#show-only-in-stock").change(function()
+$("#status-filter").change(function()
 {
-	if (this.checked)
+	var value = $(this).val();
+
+	if (value == "all")
 	{
 		UpdateUriParam("only_in_stock", "true");
+		RemoveUriParam("only_in_stock");
+		RemoveUriParam("only_out_of_stock");
 	}
-	else
+	else if (value == "out-of-stock")
 	{
 		RemoveUriParam("only_in_stock");
+		UpdateUriParam("only_out_of_stock", "true");
+	}
+	else if (value == "in-stock")
+	{
+		RemoveUriParam("only_out_of_stock");
+		UpdateUriParam("only_in_stock", "true");
 	}
 
 	window.location.reload();

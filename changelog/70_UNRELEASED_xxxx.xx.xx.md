@@ -30,6 +30,7 @@
   - This option will be automatically set on changing the entry's due date
 - The product option "Quick consume amount" (the amount used for the "quick consume/open buttons" on the stock overview page) has been split into another option "Quick open amount", to be able to set different amounts for consume and open (defaults to the "Quick consume amount" per product, so no changed behavior when not configured)
 - Changed that for the product's average and last price (and for the price history chart) stock transactions with an empty or `0` price are ignored
+- Added a filter option to only show currently out-of-stock products on the products list (master data) page
 - Fixed that hiding the "Purchased date" column (table options) on the stock entries page didn't work
 - Fixed that sorting by the "Value" and "Min. stock amount" columns on the stock overview page didn't work
 - Fixed that the consumed amount was wrong, when consuming multiple substituted subproducts at once and when multiple/different conversion factors were involved

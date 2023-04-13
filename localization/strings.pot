@@ -2412,3 +2412,6 @@ msgstr ""
 
 msgid "Stock report"
 msgstr ""
+
+msgid "Out-of-stock products"
+msgstr ""

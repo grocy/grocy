@@ -243,6 +243,10 @@ class StockController extends BaseController
 		{
 			$products = $products->where('id IN (SELECT product_id from stock_current WHERE amount_aggregated > 0)');
 		}
+		if (isset($request->getQueryParams()['only_out_of_stock']))
+		{
+			$products = $products->where('id NOT IN (SELECT product_id from stock_current WHERE amount_aggregated > 0)');
+		}
 
 		$products = $products->orderBy('name', 'COLLATE NOCASE');
 
