@@ -176,3 +176,9 @@ $("#merge-products-save-button").on("click", function(e)
 		}
 	);
 });
+
+$(document).on("click", ".product-name-cell", function(e)
+{
+	Grocy.Components.ProductCard.Refresh($(e.currentTarget).attr("data-product-id"));
+	$("#productcard-modal").modal("show");
+});

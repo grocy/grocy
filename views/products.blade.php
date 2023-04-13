@@ -174,7 +174,8 @@
 							</div>
 						</div>
 					</td>
-					<td>
+					<td class="product-name-cell cursor-link"
+						data-product-id="{{ $product->id }}">
 						{{ $product->name }}
 						@if(!empty($product->picture_file_name))
 						<i class="fa-solid fa-image text-muted"
@@ -279,6 +280,23 @@
 				<button id="merge-products-save-button"
 					type="button"
 					class="btn btn-primary">{{ $__t('OK') }}</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="modal fade"
+	id="productcard-modal"
+	tabindex="-1">
+	<div class="modal-dialog">
+		<div class="modal-content text-center">
+			<div class="modal-body">
+				@include('components.productcard')
+			</div>
+			<div class="modal-footer">
+				<button type="button"
+					class="btn btn-secondary"
+					data-dismiss="modal">{{ $__t('Close') }}</button>
 			</div>
 		</div>
 	</div>
