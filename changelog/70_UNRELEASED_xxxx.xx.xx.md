@@ -32,6 +32,7 @@
 - Changed that for the product's average and last price (and for the price history chart) stock transactions with an empty or `0` price are ignored
 - Added a filter option to only show currently out-of-stock products on the products list (master data) page
 - When clicking the product name on the products list (master data) page, the product card will now be displayed (like on the stock overview page)
+- When using/scanning a product barcode and the purchase or inventory page, the barcode's note will now also be prefilled (if any)
 - Fixed that hiding the "Purchased date" column (table options) on the stock entries page didn't work
 - Fixed that sorting by the "Value" and "Min. stock amount" columns on the stock overview page didn't work
 - Fixed that the consumed amount was wrong, when consuming multiple substituted subproducts at once and when multiple/different conversion factors were involved

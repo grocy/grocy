@@ -357,20 +357,20 @@ if (Grocy.Components.ProductPicker !== undefined)
 						Grocy.Api.Get('objects/product_barcodes?query[]=barcode=' + document.getElementById("product_id").getAttribute("barcode"),
 							function(barcodeResult)
 							{
-								if (barcodeResult != null)
+								if (barcodeResult)
 								{
 									var barcode = barcodeResult[0];
 									$("#purchase-form").attr("data-used-barcode", barcode.id);
 
-									if (barcode != null)
+									if (barcode)
 									{
-										if (barcode.amount != null)
+										if (barcode.amount)
 										{
 											$("#display_amount").val(barcode.amount);
 											$("#display_amount").select();
 										}
 
-										if (barcode.qu_id != null)
+										if (barcode.qu_id)
 										{
 											Grocy.Components.ProductAmountPicker.SetQuantityUnit(barcode.qu_id);
 										}
@@ -384,6 +384,11 @@ if (Grocy.Components.ProductPicker !== undefined)
 										{
 											$("#price").val(barcode.last_price);
 											$("#price-type-total-price").click();
+										}
+
+										if (barcode.note)
+										{
+											$("#note").val(barcode.note);
 										}
 
 										$(".input-group-productamountpicker").trigger("change");

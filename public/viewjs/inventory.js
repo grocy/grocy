@@ -272,21 +272,26 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 					Grocy.Api.Get('objects/product_barcodes?query[]=barcode=' + document.getElementById("product_id").getAttribute("barcode"),
 						function(barcodeResult)
 						{
-							if (barcodeResult != null)
+							if (barcodeResult)
 							{
 								var barcode = barcodeResult[0];
 
-								if (barcode != null)
+								if (barcode)
 								{
-									if (barcode.amount != null)
+									if (barcode.amount)
 									{
 										$("#display_amount").val(barcode.amount);
 										$("#display_amount").select();
 									}
 
-									if (barcode.qu_id != null)
+									if (barcode.qu_id)
 									{
 										Grocy.Components.ProductAmountPicker.SetQuantityUnit(barcode.qu_id);
+									}
+
+									if (barcode.note)
+									{
+										$("#note").val(barcode.note);
 									}
 
 									$(".input-group-productamountpicker").trigger("change");
