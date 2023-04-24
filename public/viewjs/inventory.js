@@ -227,7 +227,7 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 
 				if (productDetails.last_price)
 				{
-					$('#price').val(productDetails.last_price / $("#qu_id option:selected").attr("data-qu-factor"));
+					$('#price').val((productDetails.last_price / Number.parseFloat($("#qu_id option:selected").attr("data-qu-factor"))).toFixed(Grocy.UserSettings.stock_decimal_places_prices_display));
 				}
 				else
 				{
@@ -312,7 +312,7 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 				$(".input-group-productamountpicker").trigger("change");
 				$('#display_amount').focus();
 				$('#display_amount').trigger('keyup');
-				refreshPriceHint();
+				RefreshPriceHint();
 			},
 			function(xhr)
 			{
@@ -322,7 +322,7 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 	}
 });
 
-function refreshPriceHint()
+function RefreshPriceHint()
 {
 	if ($('#amount').val() == 0 || $('#price').val() == 0)
 	{
@@ -338,7 +338,7 @@ function refreshPriceHint()
 			amount -= CurrentProductDetails.product.tare_weight;
 		}
 
-		var price = Number.parseFloat($('#price').val() * $("#qu_id option:selected").attr("data-qu-factor")).toFixed(Grocy.UserSettings.stock_decimal_places_prices_input);
+		var price = Number.parseFloat($('#price').val() * $("#qu_id option:selected").attr("data-qu-factor")).toFixed(Grocy.UserSettings.stock_decimal_places_prices_display);
 		$('#price-hint').text(__t('means %1$s per %2$s', price.toLocaleString(undefined, { style: "currency", currency: Grocy.Currency, minimumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices_display, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices_display }), $("#qu_id").attr("data-destination-qu-name")));
 	}
 	else
@@ -476,7 +476,7 @@ $('#display_amount').on('keyup', function(e)
 					Grocy.Components.DateTimePicker.GetInputElement().removeAttr('required');
 				}
 
-				refreshPriceHint();
+				RefreshPriceHint();
 				Grocy.FrontendHelpers.ValidateForm('inventory-form');
 			},
 			function(xhr)
@@ -485,6 +485,11 @@ $('#display_amount').on('keyup', function(e)
 			}
 		);
 	}
+});
+
+$('#qu_id').on('change', function(e)
+{
+	RefreshPriceHint();
 });
 
 function UndoStockBooking(bookingId)
