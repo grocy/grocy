@@ -851,7 +851,7 @@ class StockService extends BaseService
 		return $returnData;
 	}
 
-	public function GetProductStockEntries($productId, $excludeOpened = false, $allowSubproductSubstitution = false)
+	public function GetProductStockEntries(int $productId, $excludeOpened = false, $allowSubproductSubstitution = false)
 	{
 		$sqlWhereProductId = 'product_id = ' . $productId;
 		if ($allowSubproductSubstitution)
