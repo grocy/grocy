@@ -89,6 +89,10 @@ class GenericEntityApiController extends BaseApiController
 		{
 			User::checkPermission($request, User::PERMISSION_EQUIPMENT);
 		}
+		elseif ($args['entity'] == 'api_keys')
+		{
+			// Always allowed
+		}
 		else
 		{
 			User::checkPermission($request, User::PERMISSION_MASTER_DATA_EDIT);

@@ -5821,9 +5821,7 @@
 			},
 			"ExposedEntityEditRequiresAdmin": {
 				"type": "string",
-				"enum": [
-					"api_keys"
-				]
+				"enum": []
 			},
 			"StockTransactionType": {
 				"type": "string",
