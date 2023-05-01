@@ -63,7 +63,7 @@ class ConfigurationValidator
 	private function checkMealplanFirstDayOfWeek()
 	{
 		if (!(GROCY_MEAL_PLAN_FIRST_DAY_OF_WEEK == '' ||
-			(is_numeric(GROCY_MEAL_PLAN_FIRST_DAY_OF_WEEK) && GROCY_MEAL_PLAN_FIRST_DAY_OF_WEEK >= 0 && GROCY_MEAL_PLAN_FIRST_DAY_OF_WEEK <= 6)))
+			(is_numeric(GROCY_MEAL_PLAN_FIRST_DAY_OF_WEEK) && GROCY_MEAL_PLAN_FIRST_DAY_OF_WEEK >= -1 && GROCY_MEAL_PLAN_FIRST_DAY_OF_WEEK <= 6)))
 		{
 			throw new EInvalidConfig('Invalid value for MEAL_PLAN_FIRST_DAY_OF_WEEK');
 		}

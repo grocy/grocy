@@ -33,6 +33,7 @@ Setting('CALENDAR_SHOW_WEEK_OF_YEAR', true);
 // Set this if you want to have a different start day for the weekly meal plan view,
 // leave empty to use CALENDAR_FIRST_DAY_OF_WEEK (see above)
 // Needs to be a number where Sunday = 0, Monday = 1 and so forth
+// Can also be set to -1 to dynamically start the meal plan week on "today"
 Setting('MEAL_PLAN_FIRST_DAY_OF_WEEK', '');
 
 // To keep it simple: grocy does not handle any currency conversions,

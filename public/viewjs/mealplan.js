@@ -9,6 +9,11 @@ if (Grocy.CalendarFirstDayOfWeek)
 if (Grocy.MealPlanFirstDayOfWeek)
 {
 	firstDay = Number.parseInt(Grocy.MealPlanFirstDayOfWeek);
+
+	if (firstDay == -1)
+	{
+		firstDay = moment().day();
+	}
 }
 
 $(".calendar").each(function()

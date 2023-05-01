@@ -54,6 +54,7 @@
 ### Meal plan
 
 - Added a new sub feature flag `FEATURE_FLAG_RECIPES_MEALPLAN` (in `config.php`) to only disable the meal plan if not needed (thanks @webysther)
+- The `config.php` setting `MEAL_PLAN_FIRST_DAY_OF_WEEK` can now be set to `-1` to dynamically start the meal plan week on _today_
 - Fixed that consuming a recipe from the meal plan didn't add its "Produces product"-product to stock (if any)
 - Fixed that the "Put missing products on shopping list"-button in the header (to put all missing products on the shopping list for a whole week) was missing under certain circumstances (related to locale week numbers and turn of the year)
 
