@@ -754,9 +754,7 @@ $(document).on("keydown", "#servings", function(e)
 
 $(document).on('click', '.recipe-order-missing-button', function(e)
 {
-	// Remove the focus from the current button
-	// to prevent that the tooltip stays until clicked anywhere else
-	document.activeElement.blur();
+	$(".tooltip").tooltip("hide");
 
 	var objectName = $(e.currentTarget).attr('data-recipe-name');
 	var objectId = $(e.currentTarget).attr('data-recipe-id');
@@ -820,9 +818,7 @@ $(document).on('click', '.product-consume-button', function(e)
 {
 	e.preventDefault();
 
-	// Remove the focus from the current button
-	// to prevent that the tooltip stays until clicked anywhere else
-	document.activeElement.blur();
+	$(".tooltip").tooltip("hide");
 
 	Grocy.FrontendHelpers.BeginUiBusy();
 
@@ -868,9 +864,7 @@ $(document).on('click', '.product-consume-button', function(e)
 
 $(document).on('click', '.recipe-consume-button', function(e)
 {
-	// Remove the focus from the current button
-	// to prevent that the tooltip stays until clicked anywhere else
-	document.activeElement.blur();
+	$(".tooltip").tooltip("hide");
 
 	var objectName = $(e.currentTarget).attr('data-recipe-name');
 	var objectId = $(e.currentTarget).attr('data-recipe-id');
@@ -925,9 +919,7 @@ $(document).on('click', '.recipe-consume-button', function(e)
 
 $(document).on("click", ".display-recipe-button", function(e)
 {
-	// Remove the focus from the current button
-	// to prevent that the tooltip stays until clicked anywhere else
-	document.activeElement.blur();
+	$(".tooltip").tooltip("hide");
 
 	var objectId = $(e.currentTarget).attr('data-recipe-id');
 	var servings = $(e.currentTarget).attr('data-mealplan-servings');
@@ -962,9 +954,7 @@ $(document).on("click", ".display-recipe-button", function(e)
 
 $(document).on("click", ".display-product-button", function(e)
 {
-	// Remove the focus from the current button
-	// to prevent that the tooltip stays until clicked anywhere else
-	document.activeElement.blur();
+	$(".tooltip").tooltip("hide");
 
 	Grocy.Components.ProductCard.Refresh($(e.currentTarget).attr('data-product-id'));
 	$("#mealplan-productcard-modal").modal("show");
@@ -974,9 +964,7 @@ $(document).on("click", ".mealplan-entry-done-button", function(e)
 {
 	e.preventDefault();
 
-	// Remove the focus from the current button
-	// to prevent that the tooltip stays until clicked anywhere else
-	document.activeElement.blur();
+	$(".tooltip").tooltip("hide");
 
 	var mealPlanEntryId = $(e.currentTarget).attr("data-mealplan-entry-id");
 	Grocy.Api.Put("objects/meal_plan/" + mealPlanEntryId, { "done": 1 },
@@ -995,9 +983,7 @@ $(document).on("click", ".mealplan-entry-undone-button", function(e)
 {
 	e.preventDefault();
 
-	// Remove the focus from the current button
-	// to prevent that the tooltip stays until clicked anywhere else
-	document.activeElement.blur();
+	$(".tooltip").tooltip("hide");
 
 	var mealPlanEntryId = $(e.currentTarget).attr("data-mealplan-entry-id");
 	Grocy.Api.Put("objects/meal_plan/" + mealPlanEntryId, { "done": 0 },

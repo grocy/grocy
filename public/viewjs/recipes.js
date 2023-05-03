@@ -440,9 +440,7 @@ $(document).on('click', '.ingredient-done-button', function(e)
 {
 	e.preventDefault();
 
-	// Remove the focus from the current button
-	// to prevent that the tooltip stays until clicked anywhere else
-	document.activeElement.blur();
+	$(".tooltip").tooltip("hide");
 
 	$(e.currentTarget).parent().toggleClass("text-strike-through");
 });

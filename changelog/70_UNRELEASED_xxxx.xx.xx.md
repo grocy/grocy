@@ -90,6 +90,7 @@
 
 - Added a new `config.php` setting `ENERGY_UNIT` to customize the label to display energy values (was fixed `kcal` before and defaults to that, so no changed behavior when not configured)
 - Fixed that users were unable to delete their own API keys (when not having the `All permissions` permission)
+- Fixed that button tooltips on some places didn't disappear after clicking the corresponding button
 - New translations: (thanks all the translators)
   - Romanian (demo available at <https://ro.demo.grocy.info>)
 

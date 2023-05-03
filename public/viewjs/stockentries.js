@@ -61,9 +61,7 @@ $(document).on('click', '.stock-consume-button', function(e)
 {
 	e.preventDefault();
 
-	// Remove the focus from the current button
-	// to prevent that the tooltip stays until clicked anywhere else
-	document.activeElement.blur();
+	$(".tooltip").tooltip("hide");
 
 	Grocy.FrontendHelpers.BeginUiBusy();
 
@@ -110,9 +108,7 @@ $(document).on('click', '.product-open-button', function(e)
 {
 	e.preventDefault();
 
-	// Remove the focus from the current button
-	// to prevent that the tooltip stays until clicked anywhere else
-	document.activeElement.blur();
+	$(".tooltip").tooltip("hide");
 
 	Grocy.FrontendHelpers.BeginUiBusy();
 

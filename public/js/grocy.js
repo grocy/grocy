@@ -1233,9 +1233,7 @@ $('[data-toggle="tooltip"][data-html="true"]').on("shown.bs.tooltip", function()
 
 $(document).on("click", "#clear-filter-button", function(e)
 {
-	// Remove the focus from the current button
-	// to prevent that the tooltip stays until clicked anywhere else
-	document.activeElement.blur();
+	$(".tooltip").tooltip("hide");
 });
 
 $(document).on("shown.bs.modal", function(e)
