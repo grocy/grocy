@@ -9,7 +9,7 @@ var calendar = $("#calendar").fullCalendar({
 	"header": {
 		"left": "month,agendaWeek,agendaDay,listWeek",
 		"center": "title",
-		"right": "prev,next"
+		"right": "prev,today,next"
 	},
 	"weekNumbers": Grocy.CalendarShowWeekNumbers,
 	"defaultView": ($(window).width() < 768) ? "agendaDay" : "month",

@@ -68,7 +68,7 @@
 
 ### Calendar
 
-- xxx
+- Added a button to jump to today (between the prev/next buttons, top right corner)
 
 ### Tasks
 
