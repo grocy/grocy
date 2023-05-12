@@ -430,6 +430,7 @@ if (Grocy.EditMode == "create" && GetUriParam("copy-of") != undefined)
 			$("#default_best_before_days_after_thawing").val(sourceProduct.default_best_before_days_after_thawing);
 			$("#quick_consume_amount").val(sourceProduct.quick_consume_amount);
 			$("#quick_open_amount").val(sourceProduct.quick_open_amount);
+			$("#default_consume_location_id").val(sourceProduct.default_consume_location_id);
 
 			Grocy.FrontendHelpers.ValidateForm('product-form');
 		},
