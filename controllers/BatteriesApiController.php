@@ -5,10 +5,12 @@ namespace Grocy\Controllers;
 use Grocy\Controllers\Users\User;
 use Grocy\Helpers\WebhookRunner;
 use Grocy\Helpers\Grocycode;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 
 class BatteriesApiController extends BaseApiController
 {
-	public function BatteryDetails(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function BatteryDetails(Request $request, Response $response, array $args)
 	{
 		try
 		{
@@ -20,12 +22,12 @@ class BatteriesApiController extends BaseApiController
 		}
 	}
 
-	public function Current(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function Current(Request $request, Response $response, array $args)
 	{
 		return $this->FilteredApiResponse($response, $this->getBatteriesService()->GetCurrent(), $request->getQueryParams());
 	}
 
-	public function TrackChargeCycle(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function TrackChargeCycle(Request $request, Response $response, array $args)
 	{
 		User::checkPermission($request, User::PERMISSION_BATTERIES_TRACK_CHARGE_CYCLE);
 
@@ -48,7 +50,7 @@ class BatteriesApiController extends BaseApiController
 		}
 	}
 
-	public function UndoChargeCycle(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function UndoChargeCycle(Request $request, Response $response, array $args)
 	{
 		User::checkPermission($request, User::PERMISSION_BATTERIES_UNDO_CHARGE_CYCLE);
 
@@ -63,7 +65,7 @@ class BatteriesApiController extends BaseApiController
 		}
 	}
 
-	public function BatteryPrintLabel(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function BatteryPrintLabel(Request $request, Response $response, array $args)
 	{
 		try
 		{

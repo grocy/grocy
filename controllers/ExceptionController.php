@@ -17,9 +17,6 @@ class ExceptionController extends BaseApiController
 		$this->app = $app;
 	}
 
-	/**
-	 * @var \Slim\App
-	 */
 	private $app;
 
 	public function __invoke(ServerRequestInterface $request, Throwable $exception, bool $displayErrorDetails, bool $logErrors, bool $logErrorDetails, ?LoggerInterface $logger = null)

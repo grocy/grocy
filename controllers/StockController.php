@@ -4,12 +4,14 @@ namespace Grocy\Controllers;
 
 use Grocy\Helpers\Grocycode;
 use Grocy\Services\RecipesService;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 
 class StockController extends BaseController
 {
 	use GrocycodeTrait;
 
-	public function Consume(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function Consume(Request $request, Response $response, array $args)
 	{
 		return $this->renderPage($response, 'consume', [
 			'products' => $this->getDatabase()->products()->where('active = 1')->where('id IN (SELECT product_id from stock_current WHERE amount_aggregated > 0)')->orderBy('name'),
@@ -21,7 +23,7 @@ class StockController extends BaseController
 		]);
 	}
 
-	public function Inventory(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function Inventory(Request $request, Response $response, array $args)
 	{
 		return $this->renderPage($response, 'inventory', [
 			'products' => $this->getDatabase()->products()->where('active = 1 AND no_own_stock = 0')->orderBy('name', 'COLLATE NOCASE'),
@@ -34,7 +36,7 @@ class StockController extends BaseController
 		]);
 	}
 
-	public function Journal(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function Journal(Request $request, Response $response, array $args)
 	{
 		if (isset($request->getQueryParams()['months']) && filter_var($request->getQueryParams()['months'], FILTER_VALIDATE_INT) !== false)
 		{
@@ -66,7 +68,7 @@ class StockController extends BaseController
 		]);
 	}
 
-	public function LocationContentSheet(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function LocationContentSheet(Request $request, Response $response, array $args)
 	{
 		return $this->renderPage($response, 'locationcontentsheet', [
 			'products' => $this->getDatabase()->products()->where('active = 1')->orderBy('name', 'COLLATE NOCASE'),
@@ -76,7 +78,7 @@ class StockController extends BaseController
 		]);
 	}
 
-	public function LocationEditForm(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function LocationEditForm(Request $request, Response $response, array $args)
 	{
 		if ($args['locationId'] == 'new')
 		{
@@ -95,7 +97,7 @@ class StockController extends BaseController
 		}
 	}
 
-	public function LocationsList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function LocationsList(Request $request, Response $response, array $args)
 	{
 		if (isset($request->getQueryParams()['include_disabled']))
 		{
@@ -113,7 +115,7 @@ class StockController extends BaseController
 		]);
 	}
 
-	public function Overview(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function Overview(Request $request, Response $response, array $args)
 	{
 		$usersService = $this->getUsersService();
 		$nextXDays = $usersService->GetUserSettings(GROCY_USER_ID)['stock_due_soon_days'];
@@ -129,7 +131,7 @@ class StockController extends BaseController
 		]);
 	}
 
-	public function ProductBarcodesEditForm(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function ProductBarcodesEditForm(Request $request, Response $response, array $args)
 	{
 		$product = null;
 		if (isset($request->getQueryParams()['product']))
@@ -163,7 +165,7 @@ class StockController extends BaseController
 		}
 	}
 
-	public function ProductEditForm(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function ProductEditForm(Request $request, Response $response, array $args)
 	{
 		if ($args['productId'] == 'new')
 		{
@@ -205,13 +207,13 @@ class StockController extends BaseController
 		}
 	}
 
-	public function ProductGrocycodeImage(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function ProductGrocycodeImage(Request $request, Response $response, array $args)
 	{
 		$gc = new Grocycode(Grocycode::PRODUCT, $args['productId']);
 		return $this->ServeGrocycodeImage($request, $response, $gc);
 	}
 
-	public function ProductGroupEditForm(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function ProductGroupEditForm(Request $request, Response $response, array $args)
 	{
 		if ($args['productGroupId'] == 'new')
 		{
@@ -230,7 +232,7 @@ class StockController extends BaseController
 		}
 	}
 
-	public function ProductGroupsList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function ProductGroupsList(Request $request, Response $response, array $args)
 	{
 		if (isset($request->getQueryParams()['include_disabled']))
 		{
@@ -249,7 +251,7 @@ class StockController extends BaseController
 		]);
 	}
 
-	public function ProductsList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function ProductsList(Request $request, Response $response, array $args)
 	{
 		$products = $this->getDatabase()->products();
 		if (!isset($request->getQueryParams()['include_disabled']))
@@ -279,7 +281,7 @@ class StockController extends BaseController
 		]);
 	}
 
-	public function Purchase(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function Purchase(Request $request, Response $response, array $args)
 	{
 		return $this->renderPage($response, 'purchase', [
 			'products' => $this->getDatabase()->products()->where('active = 1 AND no_own_stock = 0')->orderBy('name', 'COLLATE NOCASE'),
@@ -292,7 +294,7 @@ class StockController extends BaseController
 		]);
 	}
 
-	public function QuantityUnitConversionEditForm(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function QuantityUnitConversionEditForm(Request $request, Response $response, array $args)
 	{
 		$product = null;
 		if (isset($request->getQueryParams()['product']))
@@ -330,7 +332,7 @@ class StockController extends BaseController
 		}
 	}
 
-	public function QuantityUnitEditForm(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function QuantityUnitEditForm(Request $request, Response $response, array $args)
 	{
 		if ($args['quantityunitId'] == 'new')
 		{
@@ -357,14 +359,14 @@ class StockController extends BaseController
 		}
 	}
 
-	public function QuantityUnitPluralFormTesting(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function QuantityUnitPluralFormTesting(Request $request, Response $response, array $args)
 	{
 		return $this->renderPage($response, 'quantityunitpluraltesting', [
 			'quantityUnits' => $this->getDatabase()->quantity_units()->where('active = 1')->orderBy('name', 'COLLATE NOCASE')
 		]);
 	}
 
-	public function QuantityUnitsList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function QuantityUnitsList(Request $request, Response $response, array $args)
 	{
 		if (isset($request->getQueryParams()['include_disabled']))
 		{
@@ -382,7 +384,7 @@ class StockController extends BaseController
 		]);
 	}
 
-	public function ShoppingList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function ShoppingList(Request $request, Response $response, array $args)
 	{
 		$listId = 1;
 		if (isset($request->getQueryParams()['list']))
@@ -407,7 +409,7 @@ class StockController extends BaseController
 		]);
 	}
 
-	public function ShoppingListEditForm(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function ShoppingListEditForm(Request $request, Response $response, array $args)
 	{
 		if ($args['listId'] == 'new')
 		{
@@ -426,7 +428,7 @@ class StockController extends BaseController
 		}
 	}
 
-	public function ShoppingListItemEditForm(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function ShoppingListItemEditForm(Request $request, Response $response, array $args)
 	{
 		if ($args['itemId'] == 'new')
 		{
@@ -455,14 +457,14 @@ class StockController extends BaseController
 		}
 	}
 
-	public function ShoppingListSettings(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function ShoppingListSettings(Request $request, Response $response, array $args)
 	{
 		return $this->renderPage($response, 'shoppinglistsettings', [
 			'shoppingLists' => $this->getDatabase()->shopping_lists()->orderBy('name', 'COLLATE NOCASE')
 		]);
 	}
 
-	public function ShoppingLocationEditForm(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function ShoppingLocationEditForm(Request $request, Response $response, array $args)
 	{
 		if ($args['shoppingLocationId'] == 'new')
 		{
@@ -481,7 +483,7 @@ class StockController extends BaseController
 		}
 	}
 
-	public function ShoppingLocationsList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function ShoppingLocationsList(Request $request, Response $response, array $args)
 	{
 		if (isset($request->getQueryParams()['include_disabled']))
 		{
@@ -499,7 +501,7 @@ class StockController extends BaseController
 		]);
 	}
 
-	public function StockEntryEditForm(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function StockEntryEditForm(Request $request, Response $response, array $args)
 	{
 		return $this->renderPage($response, 'stockentryform', [
 			'stockEntry' => $this->getDatabase()->stock()->where('id', $args['entryId'])->fetch(),
@@ -510,14 +512,14 @@ class StockController extends BaseController
 		]);
 	}
 
-	public function StockEntryGrocycodeImage(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function StockEntryGrocycodeImage(Request $request, Response $response, array $args)
 	{
 		$stockEntry = $this->getDatabase()->stock()->where('id', $args['entryId'])->fetch();
 		$gc = new Grocycode(Grocycode::PRODUCT, $stockEntry->product_id, [$stockEntry->stock_id]);
 		return $this->ServeGrocycodeImage($request, $response, $gc);
 	}
 
-	public function StockEntryGrocycodeLabel(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function StockEntryGrocycodeLabel(Request $request, Response $response, array $args)
 	{
 		$stockEntry = $this->getDatabase()->stock()->where('id', $args['entryId'])->fetch();
 		return $this->renderPage($response, 'stockentrylabel', [
@@ -526,7 +528,7 @@ class StockController extends BaseController
 		]);
 	}
 
-	public function StockSettings(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function StockSettings(Request $request, Response $response, array $args)
 	{
 		return $this->renderPage($response, 'stocksettings', [
 			'locations' => $this->getDatabase()->locations()->where('active = 1')->orderBy('name', 'COLLATE NOCASE'),
@@ -535,7 +537,7 @@ class StockController extends BaseController
 		]);
 	}
 
-	public function Stockentries(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function Stockentries(Request $request, Response $response, array $args)
 	{
 		$usersService = $this->getUsersService();
 		$nextXDays = $usersService->GetUserSettings(GROCY_USER_ID)['stock_due_soon_days'];
@@ -555,7 +557,7 @@ class StockController extends BaseController
 		]);
 	}
 
-	public function Transfer(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function Transfer(Request $request, Response $response, array $args)
 	{
 		return $this->renderPage($response, 'transfer', [
 			'products' => $this->getDatabase()->products()->where('active = 1')->where('no_own_stock = 0 AND id IN (SELECT product_id from stock_current WHERE amount_aggregated > 0)')->orderBy('name', 'COLLATE NOCASE'),
@@ -566,7 +568,7 @@ class StockController extends BaseController
 		]);
 	}
 
-	public function JournalSummary(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function JournalSummary(Request $request, Response $response, array $args)
 	{
 		$entries = $this->getDatabase()->uihelper_stock_journal_summary();
 		if (isset($request->getQueryParams()['product_id']))
@@ -591,7 +593,7 @@ class StockController extends BaseController
 		]);
 	}
 
-	public function QuantityUnitConversionsResolved(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function QuantityUnitConversionsResolved(Request $request, Response $response, array $args)
 	{
 		$product = null;
 		if (isset($request->getQueryParams()['product']))

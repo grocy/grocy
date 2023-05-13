@@ -8,9 +8,6 @@ class ApiKeyService extends BaseService
 
 	const API_KEY_TYPE_SPECIAL_PURPOSE_CALENDAR_ICAL = 'special-purpose-calendar-ical';
 
-	/**
-	 * @return string
-	 */
 	public function CreateApiKey($keyType = self::API_KEY_TYPE_DEFAULT)
 	{
 		$newApiKey = $this->GenerateApiKey();
@@ -67,9 +64,6 @@ class ApiKeyService extends BaseService
 		return null;
 	}
 
-	/**
-	 * @return boolean
-	 */
 	public function IsValidApiKey($apiKey, $keyType = self::API_KEY_TYPE_DEFAULT)
 	{
 		if ($apiKey === null || empty($apiKey))

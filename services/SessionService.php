@@ -6,9 +6,6 @@ class SessionService extends BaseService
 {
 	const SESSION_COOKIE_NAME = 'grocy_session';
 
-	/**
-	 * @return string
-	 */
 	public function CreateSession($userId, $stayLoggedInPermanently = false)
 	{
 		$newSessionKey = $this->GenerateSessionKey();
@@ -46,9 +43,6 @@ class SessionService extends BaseService
 		return null;
 	}
 
-	/**
-	 * @return boolean
-	 */
 	public function IsValidSession($sessionKey)
 	{
 		if ($sessionKey === null || empty($sessionKey))

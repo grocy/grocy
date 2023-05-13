@@ -4,10 +4,12 @@ namespace Grocy\Controllers;
 
 use Grocy\Services\DatabaseMigrationService;
 use Grocy\Services\DemoDataGeneratorService;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 
 class SystemController extends BaseController
 {
-	public function About(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function About(Request $request, Response $response, array $args)
 	{
 		return $this->renderPage($response, 'about', [
 			'system_info' => $this->getApplicationService()->GetSystemInfo(),
@@ -15,12 +17,12 @@ class SystemController extends BaseController
 		]);
 	}
 
-	public function BarcodeScannerTesting(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function BarcodeScannerTesting(Request $request, Response $response, array $args)
 	{
 		return $this->renderPage($response, 'barcodescannertesting');
 	}
 
-	public function Root(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function Root(Request $request, Response $response, array $args)
 	{
 		// Schema migration is done here
 		$databaseMigrationService = DatabaseMigrationService::getInstance();
@@ -35,14 +37,6 @@ class SystemController extends BaseController
 		return $response->withRedirect($this->AppContainer->get('UrlManager')->ConstructUrl($this->GetEntryPageRelative()));
 	}
 
-	/**
-	 * Get the entry page of the application based on the value of the entry page setting.
-	 *
-	 * We fallback to the about page when no entry page is specified or
-	 * when the specified entry page has been disabled.
-	 *
-	 * @return string
-	 */
 	private function GetEntryPageRelative()
 	{
 		if (defined('GROCY_ENTRY_PAGE'))

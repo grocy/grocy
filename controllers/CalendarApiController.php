@@ -10,10 +10,12 @@ use Eluceo\iCal\Domain\ValueObject\DateTime;
 use Eluceo\iCal\Domain\ValueObject\SingleDay;
 use Eluceo\iCal\Domain\ValueObject\TimeSpan;
 use Eluceo\iCal\Presentation\Factory\CalendarFactory;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 
 class CalendarApiController extends BaseApiController
 {
-	public function Ical(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function Ical(Request $request, Response $response, array $args)
 	{
 		try
 		{
@@ -87,7 +89,7 @@ class CalendarApiController extends BaseApiController
 		}
 	}
 
-	public function IcalSharingLink(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function IcalSharingLink(Request $request, Response $response, array $args)
 	{
 		try
 		{

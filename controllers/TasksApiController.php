@@ -3,15 +3,17 @@
 namespace Grocy\Controllers;
 
 use Grocy\Controllers\Users\User;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 
 class TasksApiController extends BaseApiController
 {
-	public function Current(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function Current(Request $request, Response $response, array $args)
 	{
 		return $this->FilteredApiResponse($response, $this->getTasksService()->GetCurrent(), $request->getQueryParams());
 	}
 
-	public function MarkTaskAsCompleted(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function MarkTaskAsCompleted(Request $request, Response $response, array $args)
 	{
 		User::checkPermission($request, User::PERMISSION_TASKS_MARK_COMPLETED);
 
@@ -35,7 +37,7 @@ class TasksApiController extends BaseApiController
 		}
 	}
 
-	public function UndoTask(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function UndoTask(Request $request, Response $response, array $args)
 	{
 		User::checkPermission($request, User::PERMISSION_TASKS_UNDO_EXECUTION);
 

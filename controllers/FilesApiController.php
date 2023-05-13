@@ -3,11 +3,13 @@
 namespace Grocy\Controllers;
 
 use Grocy\Services\FilesService;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Exception\HttpNotFoundException;
 
 class FilesApiController extends BaseApiController
 {
-	public function DeleteFile(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function DeleteFile(Request $request, Response $response, array $args)
 	{
 		try
 		{
@@ -35,7 +37,7 @@ class FilesApiController extends BaseApiController
 		}
 	}
 
-	public function ServeFile(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function ServeFile(Request $request, Response $response, array $args)
 	{
 		try
 		{
@@ -65,7 +67,7 @@ class FilesApiController extends BaseApiController
 		}
 	}
 
-	public function ShowFile(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function ShowFile(Request $request, Response $response, array $args)
 	{
 		try
 		{
@@ -96,7 +98,7 @@ class FilesApiController extends BaseApiController
 		}
 	}
 
-	public function UploadFile(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function UploadFile(Request $request, Response $response, array $args)
 	{
 		try
 		{
@@ -118,11 +120,6 @@ class FilesApiController extends BaseApiController
 		}
 	}
 
-	/**
-	 * @param string $fileName base64-encoded file-name
-	 * @return false|string the decoded file-name
-	 * @throws \Exception if the file-name is invalid.
-	 */
 	protected function checkFileName(string $fileName)
 	{
 		if (IsValidFileName(base64_decode($fileName)))
@@ -137,12 +134,6 @@ class FilesApiController extends BaseApiController
 		return $fileName;
 	}
 
-	/**
-	 * @param string $group The group the requested files belongs to.
-	 * @param string $fileName The name of the requested file.
-	 * @param array $queryParams Parameter, e.g. for scaling. Optional.
-	 * @return string
-	 */
 	protected function getFilePath(string $group, string $fileName, array $queryParams = [])
 	{
 		$forceServeAs = null;

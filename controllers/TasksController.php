@@ -2,9 +2,12 @@
 
 namespace Grocy\Controllers;
 
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
+
 class TasksController extends BaseController
 {
-	public function Overview(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function Overview(Request $request, Response $response, array $args)
 	{
 		$usersService = $this->getUsersService();
 		$nextXDays = $usersService->GetUserSettings(GROCY_USER_ID)['tasks_due_soon_days'];
@@ -48,7 +51,7 @@ class TasksController extends BaseController
 		]);
 	}
 
-	public function TaskCategoriesList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function TaskCategoriesList(Request $request, Response $response, array $args)
 	{
 		if (isset($request->getQueryParams()['include_disabled']))
 		{
@@ -66,7 +69,7 @@ class TasksController extends BaseController
 		]);
 	}
 
-	public function TaskCategoryEditForm(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function TaskCategoryEditForm(Request $request, Response $response, array $args)
 	{
 		if ($args['categoryId'] == 'new')
 		{
@@ -85,7 +88,7 @@ class TasksController extends BaseController
 		}
 	}
 
-	public function TaskEditForm(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function TaskEditForm(Request $request, Response $response, array $args)
 	{
 		if ($args['taskId'] == 'new')
 		{
@@ -108,7 +111,7 @@ class TasksController extends BaseController
 		}
 	}
 
-	public function TasksSettings(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function TasksSettings(Request $request, Response $response, array $args)
 	{
 		return $this->renderPage($response, 'taskssettings');
 	}

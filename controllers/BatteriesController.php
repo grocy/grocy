@@ -3,12 +3,14 @@
 namespace Grocy\Controllers;
 
 use Grocy\Helpers\Grocycode;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 
 class BatteriesController extends BaseController
 {
 	use GrocycodeTrait;
 
-	public function BatteriesList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function BatteriesList(Request $request, Response $response, array $args)
 	{
 		if (isset($request->getQueryParams()['include_disabled']))
 		{
@@ -26,12 +28,12 @@ class BatteriesController extends BaseController
 		]);
 	}
 
-	public function BatteriesSettings(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function BatteriesSettings(Request $request, Response $response, array $args)
 	{
 		return $this->renderPage($response, 'batteriessettings');
 	}
 
-	public function BatteryEditForm(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function BatteryEditForm(Request $request, Response $response, array $args)
 	{
 		if ($args['batteryId'] == 'new')
 		{
@@ -50,7 +52,7 @@ class BatteriesController extends BaseController
 		}
 	}
 
-	public function Journal(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function Journal(Request $request, Response $response, array $args)
 	{
 		if (isset($request->getQueryParams()['months']) && filter_var($request->getQueryParams()['months'], FILTER_VALIDATE_INT) !== false)
 		{
@@ -75,7 +77,7 @@ class BatteriesController extends BaseController
 		]);
 	}
 
-	public function Overview(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function Overview(Request $request, Response $response, array $args)
 	{
 		$usersService = $this->getUsersService();
 		$nextXDays = $usersService->GetUserSettings(GROCY_USER_ID)['batteries_due_soon_days'];
@@ -110,14 +112,14 @@ class BatteriesController extends BaseController
 		]);
 	}
 
-	public function TrackChargeCycle(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function TrackChargeCycle(Request $request, Response $response, array $args)
 	{
 		return $this->renderPage($response, 'batterytracking', [
 			'batteries' => $this->getDatabase()->batteries()->where('active = 1')->orderBy('name', 'COLLATE NOCASE')
 		]);
 	}
 
-	public function BatteryGrocycodeImage(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function BatteryGrocycodeImage(Request $request, Response $response, array $args)
 	{
 		$gc = new Grocycode(Grocycode::BATTERY, $args['batteryId']);
 		return $this->ServeGrocycodeImage($request, $response, $gc);

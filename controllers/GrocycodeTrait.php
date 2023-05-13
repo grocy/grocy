@@ -3,14 +3,14 @@
 namespace Grocy\Controllers;
 
 use Grocy\Helpers\Grocycode;
-use Psr\Http\Message\ServerRequestInterface;
-use Psr\Http\Message\ResponseInterface;
 use jucksearm\barcode\lib\BarcodeFactory;
 use jucksearm\barcode\lib\DatamatrixFactory;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 
 trait GrocycodeTrait
 {
-	public function ServeGrocycodeImage(ServerRequestInterface $request, ResponseInterface $response, Grocycode $grocycode)
+	public function ServeGrocycodeImage(Request $request, Response $response, Grocycode $grocycode)
 	{
 		$size = $request->getQueryParam('size', null);
 

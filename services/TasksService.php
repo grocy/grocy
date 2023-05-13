@@ -2,9 +2,11 @@
 
 namespace Grocy\Services;
 
+use LessQL\Result
+
 class TasksService extends BaseService
 {
-	public function GetCurrent(): \LessQL\Result
+	public function GetCurrent(): Result
 	{
 		$users = $this->getUsersService()->GetUsersAsDto();
 		$categories = $this->getDatabase()->task_categories()->where('active = 1');

@@ -2,6 +2,8 @@
 
 namespace Grocy\Services;
 
+use LessQL\Result;
+
 class UsersService extends BaseService
 {
 	public function CreateUser(string $username, ?string $firstName, ?string $lastName, string $password, string $pictureFileName = null)
@@ -102,7 +104,7 @@ class UsersService extends BaseService
 		return array_merge($GROCY_DEFAULT_USER_SETTINGS, $settings);
 	}
 
-	public function GetUsersAsDto(): \LessQL\Result
+	public function GetUsersAsDto(): Result
 	{
 		return $this->getDatabase()->users_dto();
 	}

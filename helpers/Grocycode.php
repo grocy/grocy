@@ -27,12 +27,6 @@ class Grocycode
 
 	public const MAGIC = 'grcy';
 
-	/**
-	 * Constructs a new instance of the Grocycode class.
-	 *
-	 * Because php doesn't support overloading, this is a proxy
-	 * to either setFromCode($code) or setFromData($type, $id, $extra_data = []).
-	 */
 	public function __construct(...$args)
 	{
 		$argc = count($args);
@@ -54,9 +48,6 @@ class Grocycode
 		throw new \Exception('No suitable overload found.');
 	}
 
-	/**
-	 * An array that registers all valid grocycode types. Register yours here by appending to this array.
-	 */
 	public static $Items = [self::PRODUCT, self::BATTERY, self::CHORE, self::RECIPE];
 
 	private $type;
@@ -65,13 +56,6 @@ class Grocycode
 
 	private $extra_data = [];
 
-	/**
-	 * Validates a grocycode.
-	 *
-	 * Returns true, if a supplied $code is a valid grocycode, false otherwise.
-	 *
-	 * @return bool
-	 */
 	public static function Validate(string $code)
 	{
 		try
@@ -107,9 +91,6 @@ class Grocycode
 		return implode(':', $arr);
 	}
 
-	/**
-	 * Parses a grocycode.
-	 */
 	private function setFromCode($code)
 	{
 		$parts = array_reverse(explode(':', $code));
@@ -127,9 +108,6 @@ class Grocycode
 		$this->extra_data = array_reverse($parts);
 	}
 
-	/**
-	 * Constructs a grocycode from data.
-	 */
 	private function setFromData($type, $id, $extra_data = [])
 	{
 		if (!is_array($extra_data))

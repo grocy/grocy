@@ -3,10 +3,12 @@
 namespace Grocy\Controllers;
 
 use Grocy\Controllers\Users\User;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 
 class OpenApiController extends BaseApiController
 {
-	public function ApiKeysList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function ApiKeysList(Request $request, Response $response, array $args)
 	{
 		$apiKeys = $this->getDatabase()->api_keys();
 		if (!User::hasPermissions(User::PERMISSION_ADMIN))
@@ -19,14 +21,14 @@ class OpenApiController extends BaseApiController
 		]);
 	}
 
-	public function CreateNewApiKey(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function CreateNewApiKey(Request $request, Response $response, array $args)
 	{
 		$newApiKey = $this->getApiKeyService()->CreateApiKey();
 		$newApiKeyId = $this->getApiKeyService()->GetApiKeyId($newApiKey);
 		return $response->withRedirect($this->AppContainer->get('UrlManager')->ConstructUrl("/manageapikeys?CreatedApiKeyId=$newApiKeyId"));
 	}
 
-	public function DocumentationSpec(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function DocumentationSpec(Request $request, Response $response, array $args)
 	{
 		$spec = $this->getOpenApiSpec();
 
@@ -36,7 +38,8 @@ class OpenApiController extends BaseApiController
 		$spec->info->description = str_replace('PlaceHolderManageApiKeysUrl', $this->AppContainer->get('UrlManager')->ConstructUrl('/manageapikeys'), $spec->info->description);
 		$spec->servers[0]->url = $this->AppContainer->get('UrlManager')->ConstructUrl('/api');
 
-		$spec->components->schemas->ExposedEntity_IncludingUserEntities = clone $spec->components->schemas->StringEnumTemplate;;
+		$spec->components->schemas->ExposedEntity_IncludingUserEntities = clone $spec->components->schemas->StringEnumTemplate;
+		;
 		foreach ($this->getUserfieldsService()->GetEntities() as $userEntity)
 		{
 			array_push($spec->components->schemas->ExposedEntity_IncludingUserEntities->enum, $userEntity);
@@ -87,7 +90,7 @@ class OpenApiController extends BaseApiController
 		return $this->ApiResponse($response, $spec);
 	}
 
-	public function DocumentationUi(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function DocumentationUi(Request $request, Response $response, array $args)
 	{
 		return $this->render($response, 'openapiui');
 	}

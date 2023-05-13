@@ -3,6 +3,7 @@
 namespace Grocy\Controllers;
 
 use LessQL\Result;
+use Psr\Http\Message\ResponseInterface as Response;
 
 class BaseApiController extends BaseController
 {
@@ -14,7 +15,7 @@ class BaseApiController extends BaseController
 
 	protected $OpenApiSpec = null;
 
-	protected function ApiResponse(\Psr\Http\Message\ResponseInterface $response, $data, $cache = false)
+	protected function ApiResponse(Response $response, $data, $cache = false)
 	{
 		if ($cache)
 		{
@@ -25,19 +26,19 @@ class BaseApiController extends BaseController
 		return $response;
 	}
 
-	protected function EmptyApiResponse(\Psr\Http\Message\ResponseInterface $response, $status = 204)
+	protected function EmptyApiResponse(Response $response, $status = 204)
 	{
 		return $response->withStatus($status);
 	}
 
-	protected function GenericErrorResponse(\Psr\Http\Message\ResponseInterface $response, $errorMessage, $status = 400)
+	protected function GenericErrorResponse(Response $response, $errorMessage, $status = 400)
 	{
 		return $response->withStatus($status)->withJson([
 			'error_message' => $errorMessage
 		]);
 	}
 
-	public function FilteredApiResponse(\Psr\Http\Message\ResponseInterface $response, Result $data, array $query)
+	public function FilteredApiResponse(Response $response, Result $data, array $query)
 	{
 		$data = $this->queryData($data, $query);
 		return $this->ApiResponse($response, $data);

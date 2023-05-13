@@ -2,16 +2,19 @@
 
 namespace Grocy\Controllers;
 
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
+
 class GenericEntityController extends BaseController
 {
-	public function UserentitiesList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function UserentitiesList(Request $request, Response $response, array $args)
 	{
 		return $this->renderPage($response, 'userentities', [
 			'userentities' => $this->getDatabase()->userentities()->orderBy('name', 'COLLATE NOCASE')
 		]);
 	}
 
-	public function UserentityEditForm(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function UserentityEditForm(Request $request, Response $response, array $args)
 	{
 		if ($args['userentityId'] == 'new')
 		{
@@ -28,7 +31,7 @@ class GenericEntityController extends BaseController
 		}
 	}
 
-	public function UserfieldEditForm(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function UserfieldEditForm(Request $request, Response $response, array $args)
 	{
 		if ($args['userfieldId'] == 'new')
 		{
@@ -49,7 +52,7 @@ class GenericEntityController extends BaseController
 		}
 	}
 
-	public function UserfieldsList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function UserfieldsList(Request $request, Response $response, array $args)
 	{
 		return $this->renderPage($response, 'userfields', [
 			'userfields' => $this->getUserfieldsService()->GetAllFields(),
@@ -57,7 +60,7 @@ class GenericEntityController extends BaseController
 		]);
 	}
 
-	public function UserobjectEditForm(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function UserobjectEditForm(Request $request, Response $response, array $args)
 	{
 		$userentity = $this->getDatabase()->userentities()->where('name = :1', $args['userentityName'])->fetch();
 
@@ -80,7 +83,7 @@ class GenericEntityController extends BaseController
 		}
 	}
 
-	public function UserobjectsList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function UserobjectsList(Request $request, Response $response, array $args)
 	{
 		$userentity = $this->getDatabase()->userentities()->where('name = :1', $args['userentityName'])->fetch();
 

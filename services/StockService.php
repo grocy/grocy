@@ -1159,12 +1159,6 @@ class StockService extends BaseService
 		}
 	}
 
-	/**
-	 * Returns the shoppinglist as an array with lines for a printer
-	 * @param int $listId ID of shopping list
-	 * @return string[] Returns an array in the format "[amount] [name of product]"
-	 * @throws \Exception
-	 */
 	public function GetShoppinglistInPrintableStrings($listId = 1): array
 	{
 		if (!$this->ShoppingListExists($listId))

@@ -3,12 +3,14 @@
 namespace Grocy\Controllers;
 
 use Grocy\Helpers\Grocycode;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 
 class ChoresController extends BaseController
 {
 	use GrocycodeTrait;
 
-	public function ChoreEditForm(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function ChoreEditForm(Request $request, Response $response, array $args)
 	{
 		$usersService = $this->getUsersService();
 		$users = $usersService->GetUsersAsDto();
@@ -38,7 +40,7 @@ class ChoresController extends BaseController
 		}
 	}
 
-	public function ChoresList(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function ChoresList(Request $request, Response $response, array $args)
 	{
 		if (isset($request->getQueryParams()['include_disabled']))
 		{
@@ -56,12 +58,12 @@ class ChoresController extends BaseController
 		]);
 	}
 
-	public function ChoresSettings(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function ChoresSettings(Request $request, Response $response, array $args)
 	{
 		return $this->renderPage($response, 'choressettings');
 	}
 
-	public function Journal(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function Journal(Request $request, Response $response, array $args)
 	{
 		if (isset($request->getQueryParams()['months']) && filter_var($request->getQueryParams()['months'], FILTER_VALIDATE_INT) !== false)
 		{
@@ -89,7 +91,7 @@ class ChoresController extends BaseController
 		]);
 	}
 
-	public function Overview(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function Overview(Request $request, Response $response, array $args)
 	{
 		$usersService = $this->getUsersService();
 		$nextXDays = $usersService->GetUserSettings(GROCY_USER_ID)['chores_due_soon_days'];
@@ -125,7 +127,7 @@ class ChoresController extends BaseController
 		]);
 	}
 
-	public function TrackChoreExecution(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function TrackChoreExecution(Request $request, Response $response, array $args)
 	{
 		return $this->renderPage($response, 'choretracking', [
 			'chores' => $this->getDatabase()->chores()->where('active = 1')->orderBy('name', 'COLLATE NOCASE'),
@@ -134,7 +136,7 @@ class ChoresController extends BaseController
 		]);
 	}
 
-	public function ChoreGrocycodeImage(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function ChoreGrocycodeImage(Request $request, Response $response, array $args)
 	{
 		$gc = new Grocycode(Grocycode::CHORE, $args['choreId']);
 		return $this->ServeGrocycodeImage($request, $response, $gc);

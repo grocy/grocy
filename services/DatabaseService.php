@@ -3,6 +3,7 @@
 namespace Grocy\Services;
 
 use Grocy\Services\UsersService;
+use LessQL\Database;
 
 class DatabaseService
 {
@@ -12,9 +13,6 @@ class DatabaseService
 
 	private static $instance = null;
 
-	/**
-	 * @return boolean|\PDOStatement
-	 */
 	public function ExecuteDbQuery(string $sql)
 	{
 		$pdo = $this->GetDbConnectionRaw();
@@ -27,9 +25,6 @@ class DatabaseService
 		return false;
 	}
 
-	/**
-	 * @return boolean
-	 */
 	public function ExecuteDbStatement(string $sql)
 	{
 		$pdo = $this->GetDbConnectionRaw();
@@ -47,22 +42,16 @@ class DatabaseService
 		return date('Y-m-d H:i:s', filemtime($this->GetDbFilePath()));
 	}
 
-	/**
-	 * @return \LessQL\Database
-	 */
 	public function GetDbConnection()
 	{
 		if (self::$DbConnection == null)
 		{
-			self::$DbConnection = new \LessQL\Database($this->GetDbConnectionRaw());
+			self::$DbConnection = new Database($this->GetDbConnectionRaw());
 		}
 
 		return self::$DbConnection;
 	}
 
-	/**
-	 * @return \PDO
-	 */
 	public function GetDbConnectionRaw()
 	{
 		if (self::$DbConnectionRaw == null)

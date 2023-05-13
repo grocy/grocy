@@ -72,9 +72,6 @@ class User
 		$this->db = DatabaseService::getInstance()->GetDbConnection();
 	}
 
-	/**
-	 * @var \LessQL\Database|null
-	 */
 	protected $db;
 
 	public static function PermissionList()

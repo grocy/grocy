@@ -3,11 +3,12 @@
 namespace Grocy\Controllers;
 
 use Grocy\Controllers\Users\User;
-use Grocy\Services\StockService;
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 
 class PrintApiController extends BaseApiController
 {
-	public function PrintShoppingListThermal(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function PrintShoppingListThermal(Request $request, Response $response, array $args)
 	{
 		try
 		{

@@ -2,9 +2,12 @@
 
 namespace Grocy\Controllers;
 
+use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
+
 class SystemApiController extends BaseApiController
 {
-	public function GetConfig(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function GetConfig(Request $request, Response $response, array $args)
 	{
 		try
 		{
@@ -31,19 +34,19 @@ class SystemApiController extends BaseApiController
 		}
 	}
 
-	public function GetDbChangedTime(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function GetDbChangedTime(Request $request, Response $response, array $args)
 	{
 		return $this->ApiResponse($response, [
 			'changed_time' => $this->getDatabaseService()->GetDbChangedTime()
 		]);
 	}
 
-	public function GetSystemInfo(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function GetSystemInfo(Request $request, Response $response, array $args)
 	{
 		return $this->ApiResponse($response, $this->getApplicationService()->GetSystemInfo());
 	}
 
-	public function GetSystemTime(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function GetSystemTime(Request $request, Response $response, array $args)
 	{
 		try
 		{
@@ -67,7 +70,7 @@ class SystemApiController extends BaseApiController
 		}
 	}
 
-	public function LogMissingLocalization(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function LogMissingLocalization(Request $request, Response $response, array $args)
 	{
 		if (GROCY_MODE === 'dev')
 		{
@@ -85,7 +88,7 @@ class SystemApiController extends BaseApiController
 		}
 	}
 
-	public function GetLocalizationStrings(\Psr\Http\Message\ServerRequestInterface $request, \Psr\Http\Message\ResponseInterface $response, array $args)
+	public function GetLocalizationStrings(Request $request, Response $response, array $args)
 	{
 		return $this->ApiResponse($response, json_decode($this->getLocalizationService()->GetPoAsJsonString()), true);
 	}
