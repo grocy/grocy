@@ -1034,7 +1034,7 @@ $(".change-table-columns-visibility-button").on("click", function(e)
 		var title = headerCell.text();
 		var visible = this.visible();
 
-		if (!title || title.startsWith("Hidden") || headerCell.hasClass("d-none"))
+		if (!title || title.trim().length == 0 || title.startsWith("Hidden") || headerCell.hasClass("d-none"))
 		{
 			return;
 		}
