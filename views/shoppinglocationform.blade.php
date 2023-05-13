@@ -6,7 +6,7 @@
 @section('title', $__t('Create store'))
 @endif
 
-@section('viewJsName', 'shoppinglocationform')
+@section('viewJsName', 'shoppingLocationform')
 
 @section('content')
 <div class="row">
@@ -25,7 +25,7 @@
 
 		@if($mode == 'edit')
 		<script>
-			Grocy.EditObjectId = {{ $shoppinglocation->id }};
+			Grocy.EditObjectId = {{ $shoppingLocation->id }};
 		</script>
 		@endif
 
@@ -39,8 +39,21 @@
 					required
 					id="name"
 					name="name"
-					value="@if($mode == 'edit'){{ $shoppinglocation->name }}@endif">
+					value="@if($mode == 'edit'){{ $shoppingLocation->name }}@endif">
 				<div class="invalid-feedback">{{ $__t('A name is required') }}</div>
+			</div>
+
+			<div class="form-group">
+				<div class="custom-control custom-checkbox">
+					<input @if($mode=='create'
+						)
+						checked
+						@elseif($mode=='edit'
+						&&
+						$shoppingLocation->active == 1) checked @endif class="form-check-input custom-control-input" type="checkbox" id="active" name="active" value="1">
+					<label class="form-check-label custom-control-label"
+						for="active">{{ $__t('Active') }}</label>
+				</div>
 			</div>
 
 			<div class="form-group">
@@ -48,7 +61,7 @@
 				<textarea class="form-control"
 					rows="2"
 					id="description"
-					name="description">@if($mode == 'edit'){{ $shoppinglocation->description }}@endif</textarea>
+					name="description">@if($mode == 'edit'){{ $shoppingLocation->description }}@endif</textarea>
 			</div>
 
 			@include('components.userfieldsform', array(

@@ -61,3 +61,20 @@ $(document).on('click', '.quantityunit-delete-button', function(e)
 		}
 	});
 });
+
+$("#show-disabled").change(function()
+{
+	if (this.checked)
+	{
+		window.location.href = U('/quantityunits?include_disabled');
+	}
+	else
+	{
+		window.location.href = U('/quantityunits');
+	}
+});
+
+if (GetUriParam('include_disabled'))
+{
+	$("#show-disabled").prop('checked', true);
+}

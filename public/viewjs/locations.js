@@ -61,3 +61,20 @@ $(document).on('click', '.location-delete-button', function(e)
 		}
 	});
 });
+
+$("#show-disabled").change(function()
+{
+	if (this.checked)
+	{
+		window.location.href = U('/locations?include_disabled');
+	}
+	else
+	{
+		window.location.href = U('/locations');
+	}
+});
+
+if (GetUriParam('include_disabled'))
+{
+	$("#show-disabled").prop('checked', true);
+}

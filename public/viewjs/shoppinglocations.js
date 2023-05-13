@@ -61,3 +61,20 @@ $(document).on('click', '.shoppinglocation-delete-button', function(e)
 		}
 	});
 });
+
+$("#show-disabled").change(function()
+{
+	if (this.checked)
+	{
+		window.location.href = U('/shoppinglocations?include_disabled');
+	}
+	else
+	{
+		window.location.href = U('/shoppinglocations');
+	}
+});
+
+if (GetUriParam('include_disabled'))
+{
+	$("#show-disabled").prop('checked', true);
+}

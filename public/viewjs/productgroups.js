@@ -70,3 +70,20 @@ $(window).on("message", function(e)
 		window.location.reload();
 	}
 });
+
+$("#show-disabled").change(function()
+{
+	if (this.checked)
+	{
+		window.location.href = U('/productgroups?include_disabled');
+	}
+	else
+	{
+		window.location.href = U('/productgroups');
+	}
+});
+
+if (GetUriParam('include_disabled'))
+{
+	$("#show-disabled").prop('checked', true);
+}

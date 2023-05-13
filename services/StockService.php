@@ -1772,7 +1772,7 @@ class StockService extends BaseService
 		if (file_exists($path))
 		{
 			require_once $path;
-			return new $pluginName($this->getDatabase()->locations()->fetchAll(), $this->getDatabase()->quantity_units()->fetchAll());
+			return new $pluginName($this->getDatabase()->locations()->where('active = 1')->fetchAll(), $this->getDatabase()->quantity_units()->fetchAll());
 		}
 		else
 		{
@@ -1782,7 +1782,7 @@ class StockService extends BaseService
 
 	private function LocationExists($locationId)
 	{
-		$locationRow = $this->getDatabase()->locations()->where('id = :1', $locationId)->fetch();
+		$locationRow = $this->getDatabase()->locations()->where('id = :1', $locationId)->where('active = 1')->fetch();
 		return $locationRow !== null;
 	}
 

@@ -61,3 +61,20 @@ $(document).on('click', '.task-category-delete-button', function(e)
 		}
 	});
 });
+
+$("#show-disabled").change(function()
+{
+	if (this.checked)
+	{
+		window.location.href = U('/taskcategories?include_disabled');
+	}
+	else
+	{
+		window.location.href = U('/taskcategories');
+	}
+});
+
+if (GetUriParam('include_disabled'))
+{
+	$("#show-disabled").prop('checked', true);
+}

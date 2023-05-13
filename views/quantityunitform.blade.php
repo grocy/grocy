@@ -70,6 +70,19 @@
 			@endif
 
 			<div class="form-group">
+				<div class="custom-control custom-checkbox">
+					<input @if($mode=='create'
+						)
+						checked
+						@elseif($mode=='edit'
+						&&
+						$quantityUnit->active == 1) checked @endif class="form-check-input custom-control-input" type="checkbox" id="active" name="active" value="1">
+					<label class="form-check-label custom-control-label"
+						for="active">{{ $__t('Active') }}</label>
+				</div>
+			</div>
+
+			<div class="form-group">
 				<label for="description">{{ $__t('Description') }}</label>
 				<textarea class="form-control"
 					rows="2"

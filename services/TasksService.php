@@ -7,7 +7,7 @@ class TasksService extends BaseService
 	public function GetCurrent(): \LessQL\Result
 	{
 		$users = $this->getUsersService()->GetUsersAsDto();
-		$categories = $this->getDatabase()->task_categories();
+		$categories = $this->getDatabase()->task_categories()->where('active = 1');
 
 		$tasks = $this->getDatabase()->tasks_current();
 		foreach ($tasks as $task)
