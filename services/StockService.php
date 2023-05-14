@@ -769,7 +769,7 @@ class StockService extends BaseService
 		$quConversionFactorPurchaseToStock = 1.0;
 		if ($product->qu_id_stock != $product->qu_id_purchase)
 		{
-			$conversion = $this->getDatabase()->quantity_unit_conversions()->where('product_id = :1 AND from_qu_id = :2 AND to_qu_id = :3', $product->id, $product->qu_id_purchase, $product->qu_id_stock)->fetch();
+			$conversion = $this->getDatabase()->quantity_unit_conversions_resolved()->where('product_id = :1 AND from_qu_id = :2 AND to_qu_id = :3', $product->id, $product->qu_id_purchase, $product->qu_id_stock)->fetch();
 			if ($conversion != null)
 			{
 				$quConversionFactorPurchaseToStock = $conversion->factor;
