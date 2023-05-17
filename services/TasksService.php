@@ -2,7 +2,7 @@
 
 namespace Grocy\Services;
 
-use LessQL\Result
+use LessQL\Result;
 
 class TasksService extends BaseService
 {
