@@ -857,11 +857,14 @@ $.extend(true, $.fn.dataTable.defaults, {
 						api.rowGroup().dataSrc(rowGroup.dataSrc);
 
 						// Apply fixed order for group column
-						var fixedOrder = {
+						api.order.fixed({
 							pre: [rowGroup.dataSrc, 'asc']
-						};
-
-						api.order.fixed(fixedOrder);
+						});
+					}
+					else
+					{
+						// Remove fixed order
+						api.order.fixed({});
 					}
 				}
 			}
@@ -1202,10 +1205,9 @@ $(document).on("click", ".change-table-columns-rowgroup-toggle", function()
 		dataTable.rowGroup().dataSrc(columnIndex);
 
 		// Apply fixed order for group column
-		var fixedOrder = {
+		dataTable.order.fixed({
 			pre: [columnIndex, 'asc']
-		};
-		dataTable.order.fixed(fixedOrder);
+		});
 	}
 
 	var settingKey = 'datatables_rowGroup_' + dataTable.settings()[0].sTableId;

@@ -1,5 +1,6 @@
 var shoppingListTable = $('#shoppinglist-table').DataTable({
 	'order': [[1, 'asc']],
+	"orderFixed": [[3, 'asc']],
 	'columnDefs': [
 		{ 'orderable': false, 'targets': 0 },
 		{ 'searchable': false, "targets": 0 },
