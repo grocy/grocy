@@ -431,6 +431,19 @@ if (Grocy.EditMode == "create" && GetUriParam("copy-of") != undefined)
 			$("#quick_consume_amount").val(sourceProduct.quick_consume_amount);
 			$("#quick_open_amount").val(sourceProduct.quick_open_amount);
 			$("#default_consume_location_id").val(sourceProduct.default_consume_location_id);
+			if (BoolVal(sourceProduct.no_own_stock))
+			{
+				$("#no_own_stock").prop("checked", true);
+			}
+			if (BoolVal(sourceProduct.hide_on_stock_overview))
+			{
+				$("#hide_on_stock_overview").prop("checked", true);
+			}
+			if (BoolVal(sourceProduct.auto_reprint_stock_label))
+			{
+				$("#auto_reprint_stock_label").prop("checked", true);
+			}
+			$("#default_stock_label_type").val(sourceProduct.default_stock_label_type);
 
 			Grocy.FrontendHelpers.ValidateForm('product-form');
 		},

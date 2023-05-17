@@ -37,7 +37,7 @@
 - Fixed that sorting by the "Value" and "Min. stock amount" columns on the stock overview page didn't work
 - Fixed that the consumed amount was wrong, when consuming multiple substituted subproducts at once and when multiple/different conversion factors were involved
 - Fixed that for a product's average price, only currently in-stock items were considered, not already consumed ones
-- Fixed that when copying a product, the field "Default consume location" was not copied along
+- Fixed that when copying a product, some fields (like "Default consume location" or "Disable own stock) weren't copied along
 
 ### Shopping list
 
