@@ -9,7 +9,11 @@
 ## Give it a try
 
 - Public demo of the latest stable version (`release` branch) &rarr; [https://demo.grocy.info](https://demo.grocy.info)
-- Public demo of the current development version (`master` branch) &rarr; [https://demo-prerelease.grocy.info](https://demo-prerelease.grocy.info)
+- Public demo of the current development version (`master` branch, updated 10 minutes past every hour) &rarr; [https://demo-prerelease.grocy.info](https://demo-prerelease.grocy.info)
+
+## Features
+
+See the website &rarr; <https://grocy.info>
 
 ## Questions / Help / Bug Reports / Feature Requests
 
@@ -155,6 +159,8 @@ See https://grocy.info/#say-thanks for more ideas if you just want to say thanks
 ## Roadmap
 
 There is none. The progress of a specific bug/enhancement is always tracked in the corresponding issue, at least by commit comment references.
+
+[Milestones](https://github.com/grocy/grocy/milestones) are used to indicate in which version the corresponding request was done (`vNEXT` means it will be part of the next release).
 
 ## Screenshots
 
