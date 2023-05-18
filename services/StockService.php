@@ -748,6 +748,7 @@ class StockService extends BaseService
 		$quPurchase = $this->getDatabase()->quantity_units($product->qu_id_purchase);
 		$quStock = $this->getDatabase()->quantity_units($product->qu_id_stock);
 		$quConsume = $this->getDatabase()->quantity_units($product->qu_id_consume);
+		$quPrice = $this->getDatabase()->quantity_units($product->qu_id_price);
 		$location = $this->getDatabase()->locations($product->location_id);
 		$averageShelfLifeDays = $this->getDatabase()->stock_average_product_shelf_life()->where('id', $productId)->fetch()->average_shelf_life_days;
 		$currentPrice = $this->getDatabase()->products_current_price()->where('product_id', $productId)->fetch()->price;
@@ -776,6 +777,16 @@ class StockService extends BaseService
 			}
 		}
 
+		$quConversionFactorPriceToStock = 1.0;
+		if ($product->qu_id_stock != $product->qu_id_price)
+		{
+			$conversion = $this->getDatabase()->quantity_unit_conversions_resolved()->where('product_id = :1 AND from_qu_id = :2 AND to_qu_id = :3', $product->id, $product->qu_id_price, $product->qu_id_stock)->fetch();
+			if ($conversion != null)
+			{
+				$quConversionFactorPriceToStock = $conversion->factor;
+			}
+		}
+
 		return [
 			'product' => $product,
 			'product_barcodes' => $productBarcodes,
@@ -789,6 +800,7 @@ class StockService extends BaseService
 			'quantity_unit_stock' => $quStock,
 			'default_quantity_unit_purchase' => $quPurchase,
 			'default_quantity_unit_consume' => $quConsume,
+			'quantity_unit_price' => $quPrice,
 			'last_price' => $lastPrice,
 			'avg_price' => $avgPrice,
 			'oldest_price' => $currentPrice, // Deprecated
@@ -802,7 +814,8 @@ class StockService extends BaseService
 			'is_aggregated_amount' => $stockCurrentRow->is_aggregated_amount,
 			'has_childs' => $this->getDatabase()->products()->where('parent_product_id = :1', $product->id)->count() !== 0,
 			'default_consume_location' => $defaultConsumeLocation,
-			'qu_conversion_factor_purchase_to_stock' => $quConversionFactorPurchaseToStock
+			'qu_conversion_factor_purchase_to_stock' => $quConversionFactorPurchaseToStock,
+			'qu_conversion_factor_price_to_stock' => $quConversionFactorPriceToStock
 		];
 	}
 

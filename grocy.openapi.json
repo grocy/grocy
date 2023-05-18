@@ -4744,6 +4744,9 @@
 					"default_quantity_unit_consume": {
 						"$ref": "#/components/schemas/QuantityUnit"
 					},
+					"quantity_unit_price": {
+						"$ref": "#/components/schemas/QuantityUnit"
+					},
 					"last_purchased": {
 						"type": "string",
 						"format": "date"
@@ -4801,6 +4804,10 @@
 					"qu_conversion_factor_purchase_to_stock": {
 						"type": "number",
 						"description": "The conversion factor of the corresponding QU conversion from the product's qu_id_purchase to qu_id_stock"
+					},
+					"qu_conversion_factor_price_to_stock": {
+						"type": "number",
+						"description": "The conversion factor of the corresponding QU conversion from the product's qu_id_price to qu_id_stock"
 					}
 				},
 				"example": {
@@ -4845,6 +4852,14 @@
 						"plural_forms": null
 					},
 					"quantity_unit_stock": {
+						"id": "3",
+						"name": "Pack",
+						"description": null,
+						"row_created_timestamp": "2019-05-02 20:12:25",
+						"name_plural": "Packs",
+						"plural_forms": null
+					},
+					"quantity_unit_price": {
 						"id": "3",
 						"name": "Pack",
 						"description": null,

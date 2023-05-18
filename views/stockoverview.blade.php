@@ -422,7 +422,7 @@
 							data-trigger="hover click"
 							data-html="true"
 							title="{!! $__t('%1$s per %2$s', '<span class=\'locale-number locale-number-currency\'>' . $currentStockEntry->last_price . '</span>', $currentStockEntry->qu_stock_name) !!}">
-							{!! $__t('%1$s per %2$s', '<span class="locale-number locale-number-currency">' . $currentStockEntry->last_price * $currentStockEntry->product_qu_factor_purchase_to_stock . '</span>', $currentStockEntry->qu_purchase_name) !!}
+							{!! $__t('%1$s per %2$s', '<span class="locale-number locale-number-currency">' . $currentStockEntry->last_price * $currentStockEntry->product_qu_factor_price_to_stock . '</span>', $currentStockEntry->qu_price_name) !!}
 						</span>
 						@endif
 					</td>
@@ -452,7 +452,7 @@
 							data-trigger="hover click"
 							data-html="true"
 							title="{!! $__t('%1$s per %2$s', '<span class=\'locale-number locale-number-currency\'>' . $currentStockEntry->average_price . '</span>', $currentStockEntry->qu_stock_name) !!}">
-							{!! $__t('%1$s per %2$s', '<span class="locale-number locale-number-currency">' . $currentStockEntry->average_price * $currentStockEntry->product_qu_factor_purchase_to_stock . '</span>', $currentStockEntry->qu_purchase_name) !!}
+							{!! $__t('%1$s per %2$s', '<span class="locale-number locale-number-currency">' . $currentStockEntry->average_price * $currentStockEntry->product_qu_factor_price_to_stock . '</span>', $currentStockEntry->qu_price_name) !!}
 						</span>
 						@endif
 					</td>

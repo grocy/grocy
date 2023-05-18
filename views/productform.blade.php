@@ -389,7 +389,7 @@
 				<i class="fa-solid fa-question-circle text-muted"
 					data-toggle="tooltip"
 					data-trigger="hover click"
-					title="{{ $__t('This is the default quantity unit used when adding this product to the shopping list') }}"></i>
+					title="{{ $__t('This is the default quantity unit used on purchase and when adding this product to the shopping list') }}"></i>
 				<select required
 					class="custom-control custom-select input-group-qu"
 					id="qu_id_purchase"
@@ -419,6 +419,26 @@
 					<option @if($mode=='edit'
 						&&
 						$quantityunit->id == $product->qu_id_consume) selected="selected" @endif value="{{ $quantityunit->id }}">{{ $quantityunit->name }}</option>
+					@endforeach
+				</select>
+				<div class="invalid-feedback">{{ $__t('A quantity unit is required') }}</div>
+			</div>
+
+			<div class="form-group">
+				<label for="qu_id_price">{{ $__t('Quantity unit for prices') }}</label>
+				<i class="fa-solid fa-question-circle text-muted"
+					data-toggle="tooltip"
+					data-trigger="hover click"
+					title="{{ $__t('When displaying prices for this product, they will be related to this quantity unit') }}"></i>
+				<select required
+					class="custom-control custom-select input-group-qu"
+					id="qu_id_price"
+					name="qu_id_price">
+					<option></option>
+					@foreach($referencedQuantityunits as $quantityunit)
+					<option @if($mode=='edit'
+						&&
+						$quantityunit->id == $product->qu_id_price) selected="selected" @endif value="{{ $quantityunit->id }}">{{ $quantityunit->name }}</option>
 					@endforeach
 				</select>
 				<div class="invalid-feedback">{{ $__t('A quantity unit is required') }}</div>
@@ -499,7 +519,7 @@
 			'contextInfoId' => 'quick_consume_qu_info',
 			'additionalCssClasses' => 'locale-number-input locale-number-quantity-amount'
 			))
-			
+
 			@php if($mode == 'edit') { $value = $product->quick_open_amount; } else { $value = 1; } @endphp
 			@include('components.numberpicker', array(
 			'id' => 'quick_open_amount',

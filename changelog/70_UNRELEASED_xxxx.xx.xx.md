@@ -20,6 +20,9 @@
   - Will be used/selected as the default quantity unit on the consume page
   - The product's "Quick consume amount" is now displayed related to this quantity unit ("quick consume/open buttons" on the stock overview page)
   - Defaults to the product's "Quantity unit stock" (so no changed behavior when not configured)
+- New product option "Quantity unit for prices"
+  - Prices are now shown related to this quantity unit (instead of per "Default quantity unit purchase") on the product card, price history chart, stock overiew and stock entries page
+  - Defaults to the product's "Default quantity unit purchase" (so no changed behavior when not configured)
 - Changed that when the ingredient option "Only check if any amount is in stock" is enabled, costs and calories are now based on the original entered amount instead of an "virtual" fixed amount of `1`
 - When using the "Add as barcode to existing product" workflow on a purchase transaction, the selected quantity unit and the entered amount is now also added to the new barcode
 - When using the "Add as barcode to existing product" workflow on a purchase or inventory transaction, the entered note is now also added to the new barcode
@@ -103,6 +106,7 @@
   - Numbers are now returned as numbers (so technically without quotes around them, were strings for nearly all endpoints before)
 - Endpoint `/stock/products/{productId}`:
   - Added a new field/property `qu_conversion_factor_purchase_to_stock` for convenience (contains the conversion factor of the corresponding QU conversion from the product's qu_id_purchase to qu_id_stock)
+  - Added a new field/property `qu_conversion_factor_price_to_stock` for convenience (contains the conversion factor of the corresponding QU conversion from the product's qu_id_price to qu_id_stock)
   - Added a new field/property `default_quantity_unit_consume` (contains the quantity unit object of the product's "Default quantity unit consume")
 - The following entities are now also available via the endpoint `/objects/{entity}` (only listing, no edit)
   - `quantity_unit_conversions_resolved` (returns all final/resolved conversion factors per product and any directly or indirectly related quantity units)

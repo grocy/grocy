@@ -354,10 +354,11 @@ $(document).on('click', '.barcode-delete-button', function(e)
 
 $('#qu_id_stock').change(function(e)
 {
-	// Preset qu_id_purchase and qu_id_consume by qu_id_stock if unset
+	// Preset qu_id_purchase/qu_id_consume/qu_id_price by qu_id_stock if unset
 	var quIdStock = $('#qu_id_stock');
 	var quIdPurchase = $('#qu_id_purchase');
 	var quIdConsume = $('#qu_id_consume');
+	var quIdPrice = $('#qu_id_price');
 
 	if (quIdPurchase[0].selectedIndex === 0 && quIdStock[0].selectedIndex !== 0)
 	{
@@ -367,6 +368,11 @@ $('#qu_id_stock').change(function(e)
 	if (quIdConsume[0].selectedIndex === 0 && quIdStock[0].selectedIndex !== 0)
 	{
 		quIdConsume[0].selectedIndex = quIdStock[0].selectedIndex;
+	}
+
+	if (quIdPrice[0].selectedIndex === 0 && quIdStock[0].selectedIndex !== 0)
+	{
+		quIdPrice[0].selectedIndex = quIdStock[0].selectedIndex;
 	}
 
 	Grocy.FrontendHelpers.ValidateForm('product-form');
