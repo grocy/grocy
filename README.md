@@ -9,7 +9,7 @@
 ## Give it a try
 
 - Public demo of the latest stable version (`release` branch) &rarr; [https://demo.grocy.info](https://demo.grocy.info)
-- Public demo of the current development version (`master` branch, updated 10 minutes past every hour) &rarr; [https://demo-prerelease.grocy.info](https://demo-prerelease.grocy.info)
+- Public demo of the current development version (`master` branch) &rarr; [https://demo-prerelease.grocy.info](https://demo-prerelease.grocy.info)
 
 ## Features
 
