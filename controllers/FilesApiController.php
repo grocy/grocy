@@ -6,6 +6,7 @@ use Grocy\Services\FilesService;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Exception\HttpNotFoundException;
+use Slim\Psr7\Stream;
 
 class FilesApiController extends BaseApiController
 {
@@ -51,10 +52,10 @@ class FilesApiController extends BaseApiController
 
 			if (file_exists($filePath))
 			{
-				$response->write(file_get_contents($filePath));
 				$response = $response->withHeader('Cache-Control', 'max-age=2592000');
 				$response = $response->withHeader('Content-Type', mime_content_type($filePath));
-				return $response->withHeader('Content-Disposition', 'inline; filename="' . $fileName . '"');
+				$response = $response->withHeader('Content-Disposition', 'inline; filename="' . $fileName . '"');
+				return $response->withBody(new Stream(fopen($filePath, 'rb')));
 			}
 			else
 			{
@@ -82,10 +83,10 @@ class FilesApiController extends BaseApiController
 
 			if (file_exists($filePath))
 			{
-				$response->write(file_get_contents($filePath));
 				$response = $response->withHeader('Cache-Control', 'max-age=2592000');
 				$response = $response->withHeader('Content-Type', mime_content_type($filePath));
-				return $response->withHeader('Content-Disposition', 'inline; filename="' . $fileName . '"');
+				$response = $response->withHeader('Content-Disposition', 'inline; filename="' . $fileName . '"');
+				return $response->withBody(new Stream(fopen($filePath, 'rb')));
 			}
 			else
 			{
