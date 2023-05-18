@@ -1,11 +1,15 @@
 # 
+# Translators:
+# Martí Gombau, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2020-08-31 19:11+0000\n"
-"Language-Team: Catalan (https://www.transifex.com/grocy/teams/93189/ca/)\n"
+"Last-Translator: Martí Gombau, 2023\n"
+"Language-Team: Catalan (https://app.transifex.com/grocy/teams/93189/ca/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -15,120 +19,124 @@ msgstr ""
 
 # Czech
 msgid "cs"
-msgstr ""
+msgstr "cs"
 
 # Danish
 msgid "da"
-msgstr ""
+msgstr "da"
 
 # German
 msgid "de"
-msgstr ""
+msgstr "de"
 
 # Greek
 msgid "el_GR"
-msgstr ""
+msgstr "el_GR"
 
 # English
 msgid "en"
-msgstr ""
+msgstr "en"
 
 # English (Great Britain)
 msgid "en_GB"
-msgstr ""
+msgstr "en_GB"
 
 # Spanish
 msgid "es"
-msgstr ""
+msgstr "es"
 
 # French
 msgid "fr"
-msgstr ""
+msgstr "fr"
 
 # Hungarian
 msgid "hu"
-msgstr ""
+msgstr "hu"
 
 # Italian
 msgid "it"
-msgstr ""
+msgstr "lt"
 
 # Japanese
 msgid "ja"
-msgstr ""
+msgstr "ja"
 
 # Korean
 msgid "ko_KR"
-msgstr ""
+msgstr "ko_KR"
 
 # Dutch
 msgid "nl"
-msgstr ""
+msgstr "nl"
 
 # Norwegian
 msgid "no"
-msgstr ""
+msgstr "no"
 
 # Polish
 msgid "pl"
-msgstr ""
+msgstr "pl"
 
 # Portuguese (Brazil)
 msgid "pt_BR"
-msgstr ""
+msgstr "pt_BR"
 
 # Portuguese (Portugal)
 msgid "pt_PT"
-msgstr ""
+msgstr "pt_PT"
 
 # Russian
 msgid "ru"
-msgstr ""
+msgstr "ru"
 
 # Slovak
 msgid "sk_SK"
-msgstr ""
+msgstr "sk_SK"
 
 # Slovenian
 msgid "sl"
-msgstr ""
+msgstr "sl"
 
 # Swedish
 msgid "sv_SE"
-msgstr ""
+msgstr "sv_SE"
 
 # Turkish
 msgid "tr"
-msgstr ""
+msgstr "tr"
 
 # Chinese (Taiwan)
 msgid "zh_TW"
-msgstr ""
+msgstr "zh_TW"
 
 # Chinese (China)
 msgid "zh_CN"
-msgstr ""
+msgstr "zh_CN"
 
 # Hebrew (Israel)
 msgid "he_IL"
-msgstr ""
+msgstr "he_IL"
 
 # Tamil
 msgid "ta"
-msgstr ""
+msgstr "ta"
 
 # Finnish
 msgid "fi"
-msgstr ""
+msgstr "fl"
 
 # Catalan
 msgid "ca"
-msgstr ""
+msgstr "ca"
 
 # Lithuanian
 msgid "lt"
-msgstr ""
+msgstr "it"
 
 # Ukrainian
 msgid "uk"
-msgstr ""
+msgstr "uk"
+
+# Romanian
+msgid "ro_RO"
+msgstr "ro_RO"

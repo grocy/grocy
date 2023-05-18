@@ -6,7 +6,7 @@
 # Matyas Bobek <matyas.bobek@gmail.com>, 2020
 # Adam Kroupa <mavi222@seznam.cz>, 2020
 # Radim Kabeláč <radim.ekk@gmail.com>, 2020
-# Jaroslav Lichtblau <jlichtblau@seznam.cz>, 2020
+# Jaroslav Lichtblau <l10n@lichtblau.cz>, 2020
 # Jarda Tesar <intossh@gmail.com>, 2021
 # Pavel Paseka, 2023
 # 
@@ -17,7 +17,7 @@ msgstr ""
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
 "Last-Translator: Pavel Paseka, 2023\n"
-"Language-Team: Czech (https://www.transifex.com/grocy/teams/93189/cs/)\n"
+"Language-Team: Czech (https://app.transifex.com/grocy/teams/93189/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1533,8 +1533,8 @@ msgstr "Seznam „%3$s” se rozrostl o %1$s produktu %2$s"
 msgid "Output"
 msgstr "Výstup"
 
-msgid "Energy (kcal)"
-msgstr "Energie (kcal)"
+msgid "Energy"
+msgstr "Energetická hodnota"
 
 msgid "Per stock quantity unit"
 msgstr "Na jednotku množství zásob"
@@ -1696,7 +1696,7 @@ msgid "per day"
 msgstr "zítra"
 
 msgid "Only undone items"
-msgstr "produkty, které nejsou v košíku"
+msgstr "nevybrané produkty"
 
 msgid "Add product"
 msgstr "Přidat produkt"
@@ -1978,8 +1978,8 @@ msgstr "Čas transakce"
 msgid "Chore journal"
 msgstr "Deník povinností"
 
-msgid "Track chore execution"
-msgstr "Splnění povinnosti"
+msgid "Track next chore schedule"
+msgstr "Označit následující datum povinnosti jako splněné"
 
 msgid "Mark task as completed"
 msgstr "Označit úkol jako hotový"
@@ -2026,14 +2026,21 @@ msgstr ""
 " produktu – buď ze seznamu produktů nebo z dat u čárového kódu."
 
 msgid "Quick consume amount"
-msgstr "Množství pro „rychle spotřebovat“"
+msgstr "Množství pro tlačítko Spotřebovat"
 
 msgid ""
-"This amount is used for the \"quick consume/open buttons\" on the stock "
-"overview page (related to quantity unit stock)"
+"This amount is used for the \"quick consume button\" on the stock overview "
+"page (related to quantity unit stock)"
 msgstr ""
-"Tento počet je použit pro tlačítko „rychle spotřebovat/otevřít“ na stránce "
-"přehledu zásob. Vztaženo k početní jednotce zásoby."
+"Hodnota množství pro zelené tlačítko Spotřebovat v Přehledu zásob. Vztahuje "
+"se k měrné jednotce zásob."
+
+msgid ""
+"This amount is used for the \"quick open button\" on the stock overview page"
+" (related to quantity unit stock)"
+msgstr ""
+"Hodnota množství pro červené tlačítko Otevřít v Přehledu zásob. Vztahuje se "
+"k měrné jednotce zásob."
 
 msgid "Copy"
 msgstr "Kopírovat"
@@ -2204,7 +2211,7 @@ msgid "Download file"
 msgstr "Stáhnout soubor"
 
 msgid "Use the products \"Quick consume amount\""
-msgstr "Použij množství „rychle spotřebovat“ z parametrů produktu"
+msgstr "Použij množství pro tlačítka Spotřebovat z parametrů produktu"
 
 msgid "Disabled"
 msgstr "Vyřazeno"
@@ -2379,7 +2386,7 @@ msgid "Unable to print"
 msgstr "Nedaří se tisknout"
 
 msgid "Only done items"
-msgstr "produkty v košíku"
+msgstr "vybrané produkty"
 
 msgid "Show only in-stock products"
 msgstr "Zobrazit produkty se zásobou"
@@ -2763,3 +2770,52 @@ msgstr ""
 "Pokud se změní datum min. trvanlivosti/použitelnosti změnou jeho stavu "
 "(otevřením, zmražením, rozmrazením) a pokud jsou pro tyto změny stavu "
 "uloženy doby min. trvanlivosti, nálepka produktu se znovu vytiskne."
+
+msgid "Quick open amount"
+msgstr "Množství pro tlačítko Otevřít"
+
+msgid "Track chore execution now"
+msgstr "Splnění povinnosti s dnešním datem"
+
+msgid "Total"
+msgstr "Součet"
+
+msgid "Apply"
+msgstr "Provést"
+
+msgid "Custom range"
+msgstr "Vlastní rozsah"
+
+msgid "Yesterday"
+msgstr "Včera"
+
+msgid "Last %1$s day"
+msgid_plural "Last %1$s days"
+msgstr[0] "Poslední %1$s den"
+msgstr[1] "Poslední %1$s dny"
+msgstr[2] "Posledních %1$s dní"
+msgstr[3] "Posledních %1$s dní"
+
+msgid "This month"
+msgstr "Tento měsíc"
+
+msgid "Last month"
+msgstr "Minulý měsíc"
+
+msgid "This year"
+msgstr "Letos"
+
+msgid "Last year"
+msgstr "Loni"
+
+msgid "Reports"
+msgstr "Přehledy"
+
+msgid "Spendings"
+msgstr "Výdaje"
+
+msgid "Stock report"
+msgstr "Přehled zásob"
+
+msgid "Out-of-stock products"
+msgstr "Produkty bez zásoby"

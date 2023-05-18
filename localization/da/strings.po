@@ -10,6 +10,7 @@
 # Jesper Donnis, 2021
 # Brian Moos Lindberg <brian@blueeel.dk>, 2022
 # Tobias Østergaard-Jørgensen, 2023
+# hskdk <henrik@skjaerbaek.net>, 2023
 # 
 msgid ""
 msgstr ""
@@ -17,8 +18,8 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Tobias Østergaard-Jørgensen, 2023\n"
-"Language-Team: Danish (https://www.transifex.com/grocy/teams/93189/da/)\n"
+"Last-Translator: hskdk <henrik@skjaerbaek.net>, 2023\n"
+"Language-Team: Danish (https://app.transifex.com/grocy/teams/93189/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -27,7 +28,7 @@ msgstr ""
 "X-Domain: grocy/strings\n"
 
 msgid "Stock overview"
-msgstr "Varebeholdning"
+msgstr "Lagerbeholdning"
 
 msgid "%s product expires"
 msgid_plural "%s products expiring"
@@ -69,7 +70,7 @@ msgid "Logout"
 msgstr "Log ud"
 
 msgid "Chores overview"
-msgstr "Planlagte gøremål"
+msgstr "Oversigt over pligter"
 
 msgid "Batteries overview"
 msgstr "Batterioversigt"
@@ -87,7 +88,7 @@ msgid "Shopping list"
 msgstr "Indkøbsliste"
 
 msgid "Chore tracking"
-msgstr "Registering af gøremål"
+msgstr "Opfølgning af pligter"
 
 msgid "Battery tracking"
 msgstr "Registrering af batterier"
@@ -99,16 +100,16 @@ msgid "Stores"
 msgstr "Butikker"
 
 msgid "Quantity units"
-msgstr "Mængdeenheder"
+msgstr "Måleenheder"
 
 msgid "Chores"
-msgstr "Gøremål"
+msgstr "Pligter"
 
 msgid "Batteries"
 msgstr "Batterier"
 
 msgid "Chore"
-msgstr "Gøremål"
+msgstr "Pligt"
 
 msgid "Next estimated tracking"
 msgstr "Næste forventede registrering"
@@ -166,7 +167,7 @@ msgid "Tracked time"
 msgstr "Tid registreret"
 
 msgid "Chore overview"
-msgstr "Gøremål"
+msgstr "Pligt oversigt"
 
 msgid "Tracked count"
 msgstr "Antal registrerede"
@@ -226,7 +227,7 @@ msgid "Create store"
 msgstr "Opret butik"
 
 msgid "Create quantity unit"
-msgstr "Opret mængdeenhed"
+msgstr "Opret måleenhed"
 
 msgid "Period type"
 msgstr "Periode type"
@@ -235,7 +236,7 @@ msgid "Period days"
 msgstr "Periode dage"
 
 msgid "Create chore"
-msgstr "Opret nyt gøremål"
+msgstr "Opret ny pligt"
 
 msgid "Used in"
 msgstr "Brugt i"
@@ -247,10 +248,10 @@ msgid "Edit battery"
 msgstr "Rediger batteri"
 
 msgid "Edit chore"
-msgstr "Rediger gøremål"
+msgstr "Rediger pligt"
 
 msgid "Edit quantity unit"
-msgstr "Rediger mængdeenhed"
+msgstr "Rediger måleenhed"
 
 msgid "Edit product"
 msgstr "Rediger vare"
@@ -295,7 +296,7 @@ msgid "No"
 msgstr "Nej"
 
 msgid "Are you sure to delete chore \"%s\"?"
-msgstr "Er du sikker på du vil slette gøremålet \"%s\"?"
+msgstr "Er du sikker på du vil slette pligt \"%s\"?"
 
 msgid "\"%s\" could not be resolved to a product, how do you want to proceed?"
 msgstr "\"%s\" kunne ikke findes som vare. Hvordan vil du fortsætte?"
@@ -316,7 +317,7 @@ msgid "Add as new product and prefill barcode"
 msgstr "Tilføj som ny vare og udfyld stregkoden på forhånd"
 
 msgid "Are you sure to delete quantity unit \"%s\"?"
-msgstr "Er du sikker på du vil slette mængdeenheden \"%s\"?"
+msgstr "Er du sikker på du vil slette måleenheden \"%s\"?"
 
 msgid "Are you sure to delete product \"%s\"?"
 msgstr "Er du sikker på du vil slette varen \"%s\"?"
@@ -376,7 +377,7 @@ msgid "Stock amount of %1$s is now %2$s"
 msgstr "Beholdning af %1$s er nu %2$s"
 
 msgid "Tracked execution of chore %1$s on %2$s"
-msgstr "Registreret udførelse af gøremålet %1$s på %2$s"
+msgstr "Registreret udførelse af pligt %1$s på %2$s"
 
 msgid "Tracked charge cycle of battery %1$s on %2$s"
 msgstr "Registreret ladecyklus af batteri %1$s på %2$s"
@@ -397,7 +398,7 @@ msgid "You have to select a product"
 msgstr "Du skal vælge en vare"
 
 msgid "You have to select a chore"
-msgstr "Du skal vælge et gøremål"
+msgstr "Du skal vælge en pligt"
 
 msgid "You have to select a battery"
 msgstr "Du skal vælge et batteri"
@@ -550,7 +551,7 @@ msgid "Unknown"
 msgstr "Ukendt"
 
 msgid "Chores journal"
-msgstr "Gøremål historik"
+msgstr "Pligt historik"
 
 msgid "0 means suggestions for the next charge cycle are disabled"
 msgstr "0 betyder forslag til næste ladecyklus er deaktiveret"
@@ -581,12 +582,12 @@ msgstr[1] "%s Enheder "
 msgid "%s chore is due to be done"
 msgid_plural "%s chores are due to be done"
 msgstr[0] "%s pligt forfalder nu"
-msgstr[1] "%s  gøremål forfalder nu"
+msgstr[1] "%s  pligt(er) forfalder nu"
 
 msgid "%s chore is overdue to be done"
 msgid_plural "%s chores are overdue to be done"
 msgstr[0] "%s pligt er forfalden"
-msgstr[1] "%s gøremål er forfaldne"
+msgstr[1] "%s pligt(er) er forfaldne"
 
 msgid "%s battery is due to be charged"
 msgid_plural "%s batteries are due to be charged"
@@ -602,7 +603,7 @@ msgid "in singular form"
 msgstr "i ental"
 
 msgid "Quantity unit"
-msgstr "Mængdeenhed"
+msgstr "Måleenhed"
 
 msgid "Only check if any amount is in stock"
 msgstr "Marker kun hvis der er lagerbeholdning"
@@ -821,10 +822,10 @@ msgid "Undo charge cycle"
 msgstr "Fortryd ladecyklus"
 
 msgid "Undo chore execution"
-msgstr "Fortryd afslutning af gøremål"
+msgstr "Fortryd afslutning af pligt"
 
 msgid "Chore execution successfully undone"
-msgstr "Udførelsen af gøremålet er nulstillet"
+msgstr "Udførelsen af pligten er nulstillet"
 
 msgid "Undo"
 msgstr "Fortryd"
@@ -880,7 +881,7 @@ msgid "Task due"
 msgstr "Opgave forfalder"
 
 msgid "Chore due"
-msgstr "Gøremålet skal udføres"
+msgstr "Pligt(er) der skal udføres"
 
 msgid "Battery charge cycle due"
 msgstr "Batteri ladecyklus forfalder"
@@ -1028,7 +1029,7 @@ msgid "Delete shopping list"
 msgstr "Slet indkøbsliste"
 
 msgid "Chores settings"
-msgstr "Indstillinger for gøremål"
+msgstr "Indstillinger for pligter"
 
 msgid "Batteries settings"
 msgstr "Batteri-indstillinger"
@@ -1222,8 +1223,8 @@ msgid ""
 "When enabled the chore can never be overdue, the due date will shift forward"
 " each day when due"
 msgstr ""
-"Når aktiveret kan gøremålet aldrig være efter forfaldsdatoen, forfaldsdatoen"
-" rykkes frem for hver dag gøremålet ikke udføres"
+"Når aktiveret kan en pligt aldrig komme efter forfaldsdatoen, forfaldsdatoen"
+" rykkes frem for hver dag pligten ikke udføres"
 
 msgid "Location Content Sheet"
 msgstr "Placeringer"
@@ -1279,10 +1280,10 @@ msgid "Default for QU"
 msgstr "Standard for mængdeenhed"
 
 msgid "Quantity unit from"
-msgstr "Mængdeenhed fra"
+msgstr "Måleenhed fra"
 
 msgid "Quantity unit to"
-msgstr "Mængdeenhed til"
+msgstr "Måleenhed til"
 
 msgid "This cannot be equal to %s"
 msgstr "Dette kan ikke være lig med %s"
@@ -1342,35 +1343,39 @@ msgid_plural ""
 "This means the next execution of this chore is scheduled on the selected day"
 " every %s months"
 msgstr[0] ""
+"Dette betyder at den næste udførelse af denne pligt er planlagt til den "
+"valgte dag, hver måned"
 msgstr[1] ""
+"Dette betyder at den næste udførelse af denne pligt er planlagt til den "
+"valgte dag, hvert %s måned"
 
 msgid "This means the next execution of this chore is not scheduled"
-msgstr "Det betyder at næste udførelse af dette gøremål ikke er planlagt"
+msgstr "Det betyder at næste udførelse af denne pligt ikke er planlagt"
 
 msgid ""
 "This means the next execution of this chore will not be assigned to anyone"
 msgstr ""
-"Det betyder at den næste udførelse af dette gøremål ikke vil blive tildelt "
-"til nogen"
+"Det betyder at den næste udførelse af denne pligt ikke vil blive tildelt til"
+" nogen"
 
 msgid ""
 "This means the next execution of this chore will be assigned to the one who "
 "executed it least"
 msgstr ""
-"Det betyder at næste udførelse af dette gøremål vil blive tildelt til den "
-"som har udført den mindst"
+"Det betyder at næste udførelse af denne pligt vil blive tildelt til den som "
+"har udført den mindst"
 
 msgid "This means the next execution of this chore will be assigned randomly"
 msgstr ""
-"Det betyder at den næste udførelse af dette gøremål vil blive tildelt "
+"Det betyder at den næste udførelse af denne pligt vil blive tildelt "
 "tilfældigt"
 
 msgid ""
 "This means the next execution of this chore will be assigned to the next one"
 " in alphabetical order"
 msgstr ""
-"Det betyder at den næste udførelse af dette gøremål vil blive tildelt til "
-"den næste i alfabetisk rækkefølge"
+"Det betyder at den næste udførelse af denne pligt vil blive tildelt til den "
+"næste i alfabetisk rækkefølge"
 
 msgid "Assign to"
 msgstr "Tildel til"
@@ -1393,7 +1398,7 @@ msgid "Assignment"
 msgstr "Tildelt"
 
 msgid "Consume product on chore execution"
-msgstr "Forbrug vare ved udførsel af gøremål"
+msgstr "Forbrug vare ved udførsel af pligt"
 
 msgid "Are you sure to delete user field \"%s\"?"
 msgstr "Er du sikker på at du vil slette brugerfeltet \"%s\"?"
@@ -1429,7 +1434,7 @@ msgid "Configure fields"
 msgstr "Konfigurer felter"
 
 msgid "Quantity unit plural form testing"
-msgstr "Mængdeenhed flertalsform test"
+msgstr "Måleenhed flertalsform test"
 
 msgid "Result"
 msgstr "Resultat"
@@ -1468,8 +1473,8 @@ msgstr "Tilføjet %1$s af %2$s til indkøbslisten \"%3$s\""
 msgid "Output"
 msgstr "Output"
 
-msgid "Energy (kcal)"
-msgstr "Energi (kcal)"
+msgid "Energy"
+msgstr "Energi"
 
 msgid "Per stock quantity unit"
 msgstr "Per lagerenhed"
@@ -1861,7 +1866,7 @@ msgid "Save & continue to add conversions"
 msgstr "Gem og fortsæt med enheds-omregninger"
 
 msgid "Save & return to quantity units"
-msgstr "Gem & returner til mængde-enheder"
+msgstr "Gem & returner til måleenheder"
 
 msgid "price"
 msgstr "pris"
@@ -1888,10 +1893,10 @@ msgid "Transaction time"
 msgstr "Transaktions-tid"
 
 msgid "Chore journal"
-msgstr "Historik over gøremål"
+msgstr "Historik over pligter"
 
-msgid "Track chore execution"
-msgstr "Gennemførte gøremål, oversigt"
+msgid "Track next chore schedule"
+msgstr ""
 
 msgid "Mark task as completed"
 msgstr "Marker opgave som afsluttet"
@@ -1941,11 +1946,14 @@ msgid "Quick consume amount"
 msgstr "Hurtig nedskrivning af mængde"
 
 msgid ""
-"This amount is used for the \"quick consume/open buttons\" on the stock "
-"overview page (related to quantity unit stock)"
+"This amount is used for the \"quick consume button\" on the stock overview "
+"page (related to quantity unit stock)"
 msgstr ""
-"Denne mængde anvendes af ‘hurtig’ nedskrivningknapperne i lageroversigten, "
-"(bruger lager enheden)."
+
+msgid ""
+"This amount is used for the \"quick open button\" on the stock overview page"
+" (related to quantity unit stock)"
+msgstr ""
 
 msgid "Copy"
 msgstr "Kopier"
@@ -2234,7 +2242,7 @@ msgstr ""
 
 # Abbreviation for "due date"
 msgid "DD"
-msgstr ""
+msgstr "Dato"
 
 msgid "Print on label printer"
 msgstr "Print på labelprinter"
@@ -2255,7 +2263,7 @@ msgid "Label per unit"
 msgstr "Label pr. enhed"
 
 msgid "Error while executing WebHook"
-msgstr ""
+msgstr "Fejl ved afvikling af WebHook"
 
 # Example: Print *Product* grocycode on label printer
 msgid "Print %s grocycode on label printer"
@@ -2287,7 +2295,7 @@ msgstr "Produktbeskrivelse"
 
 # Example: *3.21 USD* per *Pack*
 msgid "%1$s per %2$s"
-msgstr ""
+msgstr "%1$spr %2$s"
 
 msgid "Mark this item as undone"
 msgstr "Marker dette punkt som ufærdigt"
@@ -2322,7 +2330,7 @@ msgid "This product shouldn't be frozen"
 msgstr "Dette produkt bør ikke fryses"
 
 msgid "Copy all meal plan entries of %s"
-msgstr ""
+msgstr "Kopier alle madplans elementer fra %s"
 
 msgid "A date is required"
 msgstr "En dato er påkrævet"
@@ -2359,7 +2367,7 @@ msgid "Copy of %s"
 msgstr "Kopi af %s"
 
 msgid "Add decimal separator automatically for price inputs"
-msgstr ""
+msgstr "Tilføj automatisk decimalseparator ved pris indtastning"
 
 msgid ""
 "When enabled, you always have to enter the value including decimal places, "
@@ -2400,16 +2408,16 @@ msgid "This is the default which will be prefilled on purchase"
 msgstr ""
 
 msgid "Merge chores"
-msgstr "Sammenlæg gøremål"
+msgstr "Sammenlæg pligter"
 
 msgid "Chore to keep"
-msgstr "Gøremål der skal beholdes"
+msgstr "Pligt der beholdes"
 
 msgid "After merging, this chore will be kept"
-msgstr ""
+msgstr "Efter sammenlægning, vil denne pligt blive gemt"
 
 msgid "Chore to remove"
-msgstr "Gøremål der skal fjernes"
+msgstr "Pligt der fjernes"
 
 msgid ""
 "After merging, all occurences of this chore will be replaced by the kept "
@@ -2421,18 +2429,18 @@ msgstr "Forfalder i dag"
 
 msgid "%s task is due to be done today"
 msgid_plural "%s tasks are due to be done today"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%s opgave skal udføres i dag "
+msgstr[1] "%s opgaver skal udføres i dag "
 
 msgid "%s chore is due to be done today"
 msgid_plural "%s chores are due to be done today"
 msgstr[0] "%s gøremål forfalder i dag"
-msgstr[1] "%s gøremål forfalder i dag"
+msgstr[1] "%s pligt(er) der forfalder i dag"
 
 msgid "%s battery is due to be charged today"
 msgid_plural "%s batteries are due to be charged today"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%s batter der skal oplades i dag"
+msgstr[1] "%s batterier der skal oplades i dag"
 
 msgid "Set to 0 to hide due soon filters/highlighting"
 msgstr "Sæt til 0 for at skjule filtre/fremhævninger for snarlig forfald"
@@ -2452,10 +2460,10 @@ msgid ""
 msgstr ""
 
 msgid "Skipped"
-msgstr ""
+msgstr "Oversprunget"
 
 msgid "Skip next chore schedule"
-msgstr ""
+msgstr "spring næste pligt plan over"
 
 msgid "Time"
 msgstr "Tid"
@@ -2478,24 +2486,26 @@ msgid ""
 msgstr ""
 
 msgid "Average execution frequency"
-msgstr ""
+msgstr "Gennemsnitlig udførelses frekvens"
 
 msgid "Reschedule next execution"
-msgstr ""
+msgstr "Genplanlæg næste udførelse"
 
 msgid "This can only be in the future"
-msgstr ""
+msgstr "Dette kan kun være i fremtiden"
 
 msgid "Rescheduled"
-msgstr ""
+msgstr "Genplanlæg"
 
 msgid "Due score"
-msgstr ""
+msgstr "Udløbs score"
 
 msgid ""
 "The higher this number is, the more ingredients currently in stock are due "
 "soon, overdue or already expired"
 msgstr ""
+"Des højere denne værdi at sat, des flere ingredienser pt på lager, vil blive"
+" markeret som skal bruges snart, skal bruges nu, eller udløbet"
 
 msgid "Disable own stock"
 msgstr "Deaktiver egen lagerbeholdning"
@@ -2545,7 +2555,7 @@ msgid ""
 msgstr ""
 
 msgid "Reassigned"
-msgstr ""
+msgstr "Gentildelt"
 
 msgid "Default value"
 msgstr "Standardværdi"
@@ -2554,10 +2564,10 @@ msgid "Now / today"
 msgstr "Nu / i dag"
 
 msgid "Add meal plan entry"
-msgstr ""
+msgstr "Tilføj madplans element"
 
 msgid "Edit meal plan entry"
-msgstr ""
+msgstr "Ret madplans punkt"
 
 msgid "Default consume location"
 msgstr "Standard forbrugsplacering"
@@ -2577,13 +2587,13 @@ msgid "Moved to %1$s"
 msgstr "Flyttet til %1$s"
 
 msgid "Decimal places allowed for prices (input)"
-msgstr ""
+msgstr "Decimaler tilladt for priser (indtastning)"
 
 msgid "Decimal places allowed for prices (display)"
-msgstr ""
+msgstr "Decimaler tilladt for priser (visning)"
 
 msgid "Clear done items"
-msgstr ""
+msgstr "Ryd udførte punkter"
 
 msgid ""
 "This shows all to this product directly or indirectly related quantity units"
@@ -2594,10 +2604,10 @@ msgid "Show resolved conversions"
 msgstr ""
 
 msgid "QU conversions resolved"
-msgstr ""
+msgstr "mængdeenhed konverteringsproblem løst"
 
 msgid "Product specifc QU conversions"
-msgstr ""
+msgstr "Vare specifikke mængdeenhed omregning"
 
 msgid "Default quantity unit consume"
 msgstr ""
@@ -2606,19 +2616,66 @@ msgid "This is the default quantity unit used when consuming this product"
 msgstr ""
 
 msgid "Add to meal plan"
-msgstr ""
+msgstr "Tilføj til madplan"
 
 msgid "Successfully added the recipe to the meal plan"
-msgstr ""
+msgstr "Opskrift tilføjet til Madplan"
 
 msgid "Reprint stock entry label"
 msgstr ""
 
 msgid "Auto reprint stock entry label"
-msgstr ""
+msgstr "Auto genprint lager indtastningslabel"
 
 msgid ""
 "When enabled, auto-changing the due date of a stock entry (by "
 "opening/freezing/thawing and having corresponding default due days set) will"
 " reprint its label"
+msgstr ""
+
+msgid "Quick open amount"
+msgstr ""
+
+msgid "Track chore execution now"
+msgstr ""
+
+msgid "Total"
+msgstr ""
+
+msgid "Apply"
+msgstr ""
+
+msgid "Custom range"
+msgstr ""
+
+msgid "Yesterday"
+msgstr ""
+
+msgid "Last %1$s day"
+msgid_plural "Last %1$s days"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "This month"
+msgstr ""
+
+msgid "Last month"
+msgstr ""
+
+msgid "This year"
+msgstr ""
+
+msgid "Last year"
+msgstr ""
+
+msgid "Reports"
+msgstr ""
+
+msgid "Spendings"
+msgstr ""
+
+msgid "Stock report"
+msgstr ""
+
+msgid "Out-of-stock products"
 msgstr ""

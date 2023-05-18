@@ -1,6 +1,6 @@
 # 
 # Translators:
-# Yaron Shahrabani <sh.yaron@gmail.com>, 2022
+# Yaron Shahrabani <sh.yaron@gmail.com>, 2023
 # 
 msgid ""
 msgstr ""
@@ -8,8 +8,8 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>, 2022\n"
-"Language-Team: Hebrew (Israel) (https://www.transifex.com/grocy/teams/93189/he_IL/)\n"
+"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>, 2023\n"
+"Language-Team: Hebrew (Israel) (https://app.transifex.com/grocy/teams/93189/he_IL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1507,8 +1507,8 @@ msgstr "%1$s מתוך %2$s נוספו לרשימת הקניות „%3$s”"
 msgid "Output"
 msgstr "פלט"
 
-msgid "Energy (kcal)"
-msgstr "אנרגיה (קק״ל)"
+msgid "Energy"
+msgstr "אנרגיה"
 
 msgid "Per stock quantity unit"
 msgstr "יחידת כמות לפי מלאי"
@@ -1940,8 +1940,8 @@ msgstr "זמן העברה"
 msgid "Chore journal"
 msgstr "יומן מטלות"
 
-msgid "Track chore execution"
-msgstr "מעקב אחר ביצוע מטלה"
+msgid "Track next chore schedule"
+msgstr "מעקב תזמון המטלה הבאה"
 
 msgid "Mark task as completed"
 msgstr "סימון המשימה כהושלמה"
@@ -1992,11 +1992,18 @@ msgid "Quick consume amount"
 msgstr "כמות לצריכה מהירה"
 
 msgid ""
-"This amount is used for the \"quick consume/open buttons\" on the stock "
-"overview page (related to quantity unit stock)"
+"This amount is used for the \"quick consume button\" on the stock overview "
+"page (related to quantity unit stock)"
 msgstr ""
-"כמות זו משמשת לטובת „כפתורי צריכה/פתיחה מהירה” על עמוד סקירת המלאי (קשור "
-"לכמות יחידה במלאי)"
+"הכמות הזאת משמשת ל„כפתור צריכה מהירה” בעמוד סקירת המלאי (קשורה ליחידת כמות "
+"במלאי)"
+
+msgid ""
+"This amount is used for the \"quick open button\" on the stock overview page"
+" (related to quantity unit stock)"
+msgstr ""
+"הכמות הזאת משמשת ל„כפתור פתיחה מהירה” בעמוד סקירת המלאי (קשורה ליחידת כמות "
+"במלאי)"
 
 msgid "Copy"
 msgstr "העתקה"
@@ -2677,25 +2684,77 @@ msgid "Product specifc QU conversions"
 msgstr "המרות יחידות כמות נקודתיות למוצר"
 
 msgid "Default quantity unit consume"
-msgstr ""
+msgstr "יחידת כמות צריכה כברירת מחדל"
 
 msgid "This is the default quantity unit used when consuming this product"
-msgstr ""
+msgstr "זאת יחידת הכמות כברירת המחדל שתשמש בצריכת המוצר הזה"
 
 msgid "Add to meal plan"
-msgstr ""
+msgstr "הוספה לתוכנית הארוחות"
 
 msgid "Successfully added the recipe to the meal plan"
-msgstr ""
+msgstr "המתכון נוסף בהצלחה לתוכנית הארוחות"
 
 msgid "Reprint stock entry label"
-msgstr ""
+msgstr "הדפסה מחדש של תווית הכנסה למלאי"
 
 msgid "Auto reprint stock entry label"
-msgstr ""
+msgstr "הדפסה אוטומטית מחדש של תווית הכנסה למלאי"
 
 msgid ""
 "When enabled, auto-changing the due date of a stock entry (by "
 "opening/freezing/thawing and having corresponding default due days set) will"
 " reprint its label"
 msgstr ""
+"כשהאפשרות פעילה, שינוי אוטומטי של תאריך התוקף של רשומת מלאי (על ידי "
+"פתיחה/הקפאה/הפשרה וימים מוגדרים עד סוף תקופת התפוגה) ידפיס את התווית שלו "
+"מחדש"
+
+msgid "Quick open amount"
+msgstr "כמות לפתיחה מהירה"
+
+msgid "Track chore execution now"
+msgstr "מעקב הוצאת המטלה לפועל כעת"
+
+msgid "Total"
+msgstr "סך הכול"
+
+msgid "Apply"
+msgstr "החלה"
+
+msgid "Custom range"
+msgstr "טווח מותאם אישית"
+
+msgid "Yesterday"
+msgstr "אתמול"
+
+msgid "Last %1$s day"
+msgid_plural "Last %1$s days"
+msgstr[0] "היום האחרון"
+msgstr[1] "היומיים האחרונים"
+msgstr[2] "%1$s הימים האחרונים"
+msgstr[3] "%1$s הימים האחרונים"
+
+msgid "This month"
+msgstr "החודש"
+
+msgid "Last month"
+msgstr "חודש שעבר"
+
+msgid "This year"
+msgstr "השנה"
+
+msgid "Last year"
+msgstr "שנה שעברה"
+
+msgid "Reports"
+msgstr "דוחות"
+
+msgid "Spendings"
+msgstr "הוצאות"
+
+msgid "Stock report"
+msgstr "דוח מלאי"
+
+msgid "Out-of-stock products"
+msgstr "מוצרים שנגמרו במלאי"

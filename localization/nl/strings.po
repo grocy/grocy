@@ -40,7 +40,7 @@ msgstr ""
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
 "Last-Translator: vanhoof.tech, 2023\n"
-"Language-Team: Dutch (https://www.transifex.com/grocy/teams/93189/nl/)\n"
+"Language-Team: Dutch (https://app.transifex.com/grocy/teams/93189/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1509,8 +1509,8 @@ msgstr "%1$s %2$s toegevoegd aan boodschappenlijst \"%3$s\""
 msgid "Output"
 msgstr "Uitvoer"
 
-msgid "Energy (kcal)"
-msgstr "Energie (kcal)"
+msgid "Energy"
+msgstr ""
 
 msgid "Per stock quantity unit"
 msgstr "Voorraadhoeveelheidseenheid"
@@ -1945,8 +1945,8 @@ msgstr "Transactietijd"
 msgid "Chore journal"
 msgstr "Klusjesdagboek"
 
-msgid "Track chore execution"
-msgstr "Voer uitvoering klusje in"
+msgid "Track next chore schedule"
+msgstr ""
 
 msgid "Mark task as completed"
 msgstr "Markeer taak als gedaan"
@@ -1999,11 +1999,14 @@ msgid "Quick consume amount"
 msgstr "Snel deze hoeveelheid gebruiken"
 
 msgid ""
-"This amount is used for the \"quick consume/open buttons\" on the stock "
-"overview page (related to quantity unit stock)"
+"This amount is used for the \"quick consume button\" on the stock overview "
+"page (related to quantity unit stock)"
 msgstr ""
-"Dit hoeveelheid wordt gebruikt voor de \"snel verbruiken / openen-knoppen\" "
-"op de voorraadoverzichtspagina (gerelateerd aan aantal eenheidsvoorraad) "
+
+msgid ""
+"This amount is used for the \"quick open button\" on the stock overview page"
+" (related to quantity unit stock)"
+msgstr ""
 
 msgid "Copy"
 msgstr "Kopieer"
@@ -2729,3 +2732,50 @@ msgstr ""
 "Indien ingeschakeld, zal het automatisch wijzigen van de vervaldatum van een"
 " voorraaditem (door openen/bevriezen/ontdooien en het instellen van de "
 "bijbehorende standaard vervaldagen) het label opnieuw afdrukken"
+
+msgid "Quick open amount"
+msgstr ""
+
+msgid "Track chore execution now"
+msgstr ""
+
+msgid "Total"
+msgstr ""
+
+msgid "Apply"
+msgstr ""
+
+msgid "Custom range"
+msgstr ""
+
+msgid "Yesterday"
+msgstr ""
+
+msgid "Last %1$s day"
+msgid_plural "Last %1$s days"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "This month"
+msgstr ""
+
+msgid "Last month"
+msgstr ""
+
+msgid "This year"
+msgstr ""
+
+msgid "Last year"
+msgstr ""
+
+msgid "Reports"
+msgstr ""
+
+msgid "Spendings"
+msgstr ""
+
+msgid "Stock report"
+msgstr ""
+
+msgid "Out-of-stock products"
+msgstr ""

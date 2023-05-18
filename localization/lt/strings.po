@@ -1,6 +1,6 @@
 # 
 # Translators:
-# Vytautas Barkauskas, 2022
+# Vytautas Barkauskas, 2023
 # 
 msgid ""
 msgstr ""
@@ -8,8 +8,8 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Vytautas Barkauskas, 2022\n"
-"Language-Team: Lithuanian (https://www.transifex.com/grocy/teams/93189/lt/)\n"
+"Last-Translator: Vytautas Barkauskas, 2023\n"
+"Language-Team: Lithuanian (https://app.transifex.com/grocy/teams/93189/lt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1533,8 +1533,8 @@ msgstr "Pridėta %1$siš %2$sį pirkinių sąrašą \"%3$s\""
 msgid "Output"
 msgstr "Išėjimas"
 
-msgid "Energy (kcal)"
-msgstr "Maistinė vertė (kcal)"
+msgid "Energy"
+msgstr "Energija"
 
 msgid "Per stock quantity unit"
 msgstr "Pagal atsargų kiekio vienetą"
@@ -1974,8 +1974,8 @@ msgstr "Operacijos laikas"
 msgid "Chore journal"
 msgstr "Namų ruošos žurnalas"
 
-msgid "Track chore execution"
-msgstr "Sekite namų ruošos darbų atlikimą"
+msgid "Track next chore schedule"
+msgstr "Stebėkite sekančia namų ruošos darbų tvarkaraštį"
 
 msgid "Mark task as completed"
 msgstr "Pažymėkite užduotį kaip atliktą"
@@ -2028,11 +2028,18 @@ msgid "Quick consume amount"
 msgstr "Greitas suvartojimo kiekis"
 
 msgid ""
-"This amount is used for the \"quick consume/open buttons\" on the stock "
-"overview page (related to quantity unit stock)"
+"This amount is used for the \"quick consume button\" on the stock overview "
+"page (related to quantity unit stock)"
 msgstr ""
-"Ši suma naudojama atsargų apžvalgos puslapyje esantiems „greito "
-"vartojimo/atidarymo mygtukams“ (susijęs su atsargų kiekio vienetu)"
+"Šis kiekis naudojamas „greito sunaudojimo mygtukui“ atsargų apžvalgos "
+"puslapyje (susijusiu su atsargų kiekio vienetais)"
+
+msgid ""
+"This amount is used for the \"quick open button\" on the stock overview page"
+" (related to quantity unit stock)"
+msgstr ""
+"Ši suma naudojama atsargų apžvalgos puslapyje esančiam „greito atidarymo "
+"mygtukui“ (susijusiam su atsargų kiekio vienetais)"
 
 msgid "Copy"
 msgstr "Kopijuoti"
@@ -2713,42 +2720,96 @@ msgid "Decimal places allowed for prices (display)"
 msgstr "Leidžiamos kainos po kablelio (parodymas)"
 
 msgid "Clear done items"
-msgstr ""
+msgstr "Išvalyti atliktus dalykus"
 
 msgid ""
 "This shows all to this product directly or indirectly related quantity units"
 " and their derived conversion factors"
 msgstr ""
+"Tai rodo visus su šiuo produktu tiesiogiai ar netiesiogiai susijusius kiekio"
+" vienetus ir jų išvestinius perskaičiavimo koeficientus"
 
 msgid "Show resolved conversions"
-msgstr ""
+msgstr "Rodyti užbaigtas konversijas"
 
 msgid "QU conversions resolved"
-msgstr ""
+msgstr "QU konversijos išspręstos"
 
 msgid "Product specifc QU conversions"
-msgstr ""
+msgstr "Konkretaus produkto QU konversijos"
 
 msgid "Default quantity unit consume"
-msgstr ""
+msgstr "Numatytasis suvartojamo kiekio vienetas"
 
 msgid "This is the default quantity unit used when consuming this product"
-msgstr ""
+msgstr "Tai yra numatytasis kiekio vienetas, naudojamas vartojant šį produktą"
 
 msgid "Add to meal plan"
-msgstr ""
+msgstr "Pridėti į mitybos planą"
 
 msgid "Successfully added the recipe to the meal plan"
-msgstr ""
+msgstr "Receptas sėkmingai įtrauktas į mitybos planą"
 
 msgid "Reprint stock entry label"
-msgstr ""
+msgstr "Perspausdinkite atsargų įvedimo etiketę"
 
 msgid "Auto reprint stock entry label"
-msgstr ""
+msgstr "Automatiškai pakartotinai spausdinama atsargų įvedimo etiketė"
 
 msgid ""
 "When enabled, auto-changing the due date of a stock entry (by "
 "opening/freezing/thawing and having corresponding default due days set) will"
 " reprint its label"
+msgstr ""
+"Kai įjungta, automatiškai pakeitus atsargų įvedimo terminą (atidarius / "
+"užšaldant / atšildant ir nustatant atitinkamas numatytas mokėjimo dienas), "
+"etiketė bus išspausdinta iš naujo."
+
+msgid "Quick open amount"
+msgstr "Greitai atidarymo kiekis"
+
+msgid "Track chore execution now"
+msgstr "Stebėkite namų ruošos darbų atlikimą dabar"
+
+msgid "Total"
+msgstr "Iš viso"
+
+msgid "Apply"
+msgstr "Atlikti"
+
+msgid "Custom range"
+msgstr "Individualus diapazonas"
+
+msgid "Yesterday"
+msgstr "Vakar"
+
+msgid "Last %1$s day"
+msgid_plural "Last %1$s days"
+msgstr[0] "Paskutinės %1$s diena"
+msgstr[1] "Paskutinės %1$s dienos"
+msgstr[2] "Paskutinės %1$s dienų"
+msgstr[3] "Paskutinės %1$s dienų"
+
+msgid "This month"
+msgstr "Šis mėnuo"
+
+msgid "Last month"
+msgstr "Paskutinis mėnuo"
+
+msgid "This year"
+msgstr "Šie metai"
+
+msgid "Last year"
+msgstr "Paskutiniai metai"
+
+msgid "Reports"
+msgstr "Ataskaitos"
+
+msgid "Spendings"
+msgstr "Išlaidos"
+
+msgid "Stock report"
+msgstr "Atsargų ataskaita"
+
+msgid "Out-of-stock products"
 msgstr ""

@@ -10,7 +10,7 @@ msgstr ""
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2020-08-31 19:11+0000\n"
 "Last-Translator: rozgonik <rozgonik1@gmail.com>, 2023\n"
-"Language-Team: Hungarian (https://www.transifex.com/grocy/teams/93189/hu/)\n"
+"Language-Team: Hungarian (https://app.transifex.com/grocy/teams/93189/hu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -137,3 +137,7 @@ msgstr "Litván"
 # Ukrainian
 msgid "uk"
 msgstr "Ukrán"
+
+# Romanian
+msgid "ro_RO"
+msgstr ""

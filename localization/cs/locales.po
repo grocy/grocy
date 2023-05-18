@@ -2,7 +2,7 @@
 # Translators:
 # Radim Kabeláč <radim.ekk@gmail.com>, 2020
 # Jarda Tesar <intossh@gmail.com>, 2021
-# Pavel Paseka, 2022
+# Pavel Paseka, 2023
 # 
 msgid ""
 msgstr ""
@@ -10,8 +10,8 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2020-08-31 19:11+0000\n"
-"Last-Translator: Pavel Paseka, 2022\n"
-"Language-Team: Czech (https://www.transifex.com/grocy/teams/93189/cs/)\n"
+"Last-Translator: Pavel Paseka, 2023\n"
+"Language-Team: Czech (https://app.transifex.com/grocy/teams/93189/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -138,3 +138,7 @@ msgstr "Litevština"
 # Ukrainian
 msgid "uk"
 msgstr "Ukrajinština"
+
+# Romanian
+msgid "ro_RO"
+msgstr "Rumunština"

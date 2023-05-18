@@ -4,7 +4,7 @@
 # ppatrickxctw <ppatrickxctw@gmail.com>, 2020
 # richegg Tsai <zxp86021@gmail.com>, 2020
 # 鍾佑豪 <zobuwei@gmail.com>, 2022
-# Alex Li, 2022
+# alexli1205, 2022
 # 
 msgid ""
 msgstr ""
@@ -12,8 +12,8 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Alex Li, 2022\n"
-"Language-Team: Chinese (Taiwan) (https://www.transifex.com/grocy/teams/93189/zh_TW/)\n"
+"Last-Translator: alexli1205, 2022\n"
+"Language-Team: Chinese (Taiwan) (https://app.transifex.com/grocy/teams/93189/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1398,8 +1398,8 @@ msgstr "已將 %2$s 的 %1$s 加入購物清單「%3$s」"
 msgid "Output"
 msgstr "輸出"
 
-msgid "Energy (kcal)"
-msgstr "熱量(大卡)"
+msgid "Energy"
+msgstr ""
 
 msgid "Per stock quantity unit"
 msgstr "每庫存數量單位"
@@ -1811,8 +1811,8 @@ msgstr "處理時間"
 msgid "Chore journal"
 msgstr "家務日誌"
 
-msgid "Track chore execution"
-msgstr "追蹤家務執行"
+msgid "Track next chore schedule"
+msgstr ""
 
 msgid "Mark task as completed"
 msgstr "標記任務為已完成"
@@ -1858,9 +1858,14 @@ msgid "Quick consume amount"
 msgstr "快速消耗數量"
 
 msgid ""
-"This amount is used for the \"quick consume/open buttons\" on the stock "
-"overview page (related to quantity unit stock)"
-msgstr "此數量用於庫存總覽的「快速消耗/開封按鈕」(使用庫存數量單位)"
+"This amount is used for the \"quick consume button\" on the stock overview "
+"page (related to quantity unit stock)"
+msgstr ""
+
+msgid ""
+"This amount is used for the \"quick open button\" on the stock overview page"
+" (related to quantity unit stock)"
+msgstr ""
 
 msgid "Copy"
 msgstr "複製"
@@ -2493,4 +2498,50 @@ msgid ""
 "When enabled, auto-changing the due date of a stock entry (by "
 "opening/freezing/thawing and having corresponding default due days set) will"
 " reprint its label"
+msgstr ""
+
+msgid "Quick open amount"
+msgstr ""
+
+msgid "Track chore execution now"
+msgstr ""
+
+msgid "Total"
+msgstr ""
+
+msgid "Apply"
+msgstr ""
+
+msgid "Custom range"
+msgstr ""
+
+msgid "Yesterday"
+msgstr ""
+
+msgid "Last %1$s day"
+msgid_plural "Last %1$s days"
+msgstr[0] ""
+
+msgid "This month"
+msgstr ""
+
+msgid "Last month"
+msgstr ""
+
+msgid "This year"
+msgstr ""
+
+msgid "Last year"
+msgstr ""
+
+msgid "Reports"
+msgstr ""
+
+msgid "Spendings"
+msgstr ""
+
+msgid "Stock report"
+msgstr ""
+
+msgid "Out-of-stock products"
 msgstr ""
