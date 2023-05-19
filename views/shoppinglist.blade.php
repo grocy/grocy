@@ -345,7 +345,7 @@
 <div class="d-none d-print-block">
 	<div id="print-header">
 		<h1 class="text-center">
-			<img src="{{ $U('/img/grocy_logo.svg?v=', true) }}{{ $version }}"
+			<img src="{{ $U('/img/logo.svg?v=', true) }}{{ $version }}"
 				height="30"
 				class="d-print-flex mx-auto">
 			{{ $__t("Shopping list") }}

@@ -3,7 +3,7 @@
 GROCY_RELEASE_URL=https://releases.grocy.info/latest
 
 
-echo Start updating grocy
+echo Start updating Grocy
 
 set -e
 shopt -s extglob
@@ -32,4 +32,4 @@ rm -f ./grocy-latest.zip > /dev/null
 
 popd > /dev/null
 
-echo Finished updating grocy
+echo Finished updating Grocy

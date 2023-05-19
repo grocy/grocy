@@ -1,7 +1,7 @@
 ---
 name: Bug Report
 about: If you've found something that does not work, please report it to help improve
-  grocy
+  Grocy
 title: 'Bug: '
 labels: bug
 assignees: ''

@@ -190,7 +190,7 @@ $('#chore_id_text_input').on('blur', function(e)
 	var input = $('#chore_id_text_input').val().toString();
 	var possibleOptionElement = [];
 
-	// grocycode handling
+	// Grocycode handling
 	if (input.startsWith("grcy"))
 	{
 		var gc = input.split(":");

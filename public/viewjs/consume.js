@@ -239,7 +239,7 @@ $("#location_id").on('change', function(e)
 	}
 	else
 	{
-		// try to get stock id from grocycode
+		// try to get stock id from Grocycode
 		if ($("#product_id").data("grocycode"))
 		{
 			var gc = $("#product_id").attr("barcode").split(":");

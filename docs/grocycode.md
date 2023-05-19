@@ -1,15 +1,15 @@
-grocycode
+Grocycode
 ==========
 
-grocycode is, in essence, a simple way to reference to arbitrary grocy entities.
-Each grocycode includes a magic, an entitiy identifier, an id and an ordered set of extra data.
-It is supported to be entered anywhere grocy expects one to read a barcode, but can also reference
-grocy-internal properties like specific stock entries, or specific batteries.
+Grocycode is, in essence, a simple way to reference to arbitrary Grocy entities.
+Each Grocycode includes a magic, an entitiy identifier, an id and an ordered set of extra data.
+It is supported to be entered anywhere Grocy expects one to read a barcode, but can also reference
+Grocy-internal properties like specific stock entries, or specific batteries.
 
 Serialization
 ----
 
-There are three mandatory parts in a grocycode:
+There are three mandatory parts in a Grocycode:
 
 1. The magic `grcy`
 2. An entity identifer matching the regular expression `[a-z]+` (that is, lowercase english alphabet without any fancy accents, minimum length 1 character).

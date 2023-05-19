@@ -59,7 +59,7 @@ class PrintService extends BaseService
 		$printer->selectPrintMode(Printer::MODE_DOUBLE_WIDTH);
 		$printer->setTextSize(4, 4);
 		$printer->setReverseColors(true);
-		$printer->text('grocy');
+		$printer->text('Grocy');
 		$printer->setJustification();
 		$printer->setTextSize(1, 1);
 		$printer->setReverseColors(false);

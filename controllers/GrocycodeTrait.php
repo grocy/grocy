@@ -27,7 +27,7 @@ trait GrocycodeTrait
 		if ($isDownload)
 		{
 			$response = $response->withHeader('Content-Type', 'application/octet-stream')
-				->withHeader('Content-Disposition', 'attachment; filename=grocycode.png')
+				->withHeader('Content-Disposition', 'attachment; filename=Grocycode.png')
 				->withHeader('Content-Length', strlen($png))
 				->withHeader('Cache-Control', 'no-cache')
 				->withHeader('Last-Modified', gmdate('D, d M Y H:i:s') . ' GMT');

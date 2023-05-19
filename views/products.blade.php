@@ -127,7 +127,7 @@
 					<th class="allow-grouping">{{ $__t('Quantity unit stock') }}</th>
 					<th class="">{{ $__t('Product group') }}</th>
 					<th class="@if(!GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING) d-none @endif allow-grouping">{{ $__t('Default store') }}</th>
-					<th class="">{{ $__t('grocycode') }}</th>
+					<th class="">{{ $__t('Grocycode') }}</th>
 
 					@include('components.userfields_thead', array(
 					'userfields' => $userfields

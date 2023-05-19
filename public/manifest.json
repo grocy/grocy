@@ -1,0 +1,15 @@
+{
+	"name": "Grocy",
+	"short_name": "Grocy",
+	"icons": [
+		{
+			"src": "./img/icon-1024.png",
+			"sizes": "1024x1024",
+			"type": "image/png"
+		}
+	],
+	"start_url": "../",
+	"background_color": "#6c757d",
+	"theme_color": "#6c757d",
+	"display": "standalone"
+}

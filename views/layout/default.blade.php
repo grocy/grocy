@@ -10,36 +10,15 @@
 	<meta name="robots"
 		content="noindex,nofollow">
 
-	<link rel="apple-touch-icon"
-		sizes="180x180"
-		href="{{ $U('/img/appicons/apple-touch-icon.png?v=', true) }}{{ $version }}">
 	<link rel="icon"
 		type="image/png"
 		sizes="32x32"
-		href="{{ $U('/img/appicons/favicon-32x32.png?v=', true) }}{{ $version }}">
-	<link rel="icon"
-		type="image/png"
-		sizes="16x16"
-		href="{{ $U('/img/appicons/favicon-16x16.png?v=', true) }}{{ $version }}">
+		href="{{ $U('/img/icon-32.png?v=', true) }}{{ $version }}">
 	<link rel="manifest"
-		href="{{ $U('/img/appicons/site.webmanifest?v=', true) }}{{ $version }}">
-	<link rel="mask-icon"
-		href="{{ $U('/img/appicons/safari-pinned-tab.svg?v=', true) }}{{ $version }}"
-		color="#0b024c">
-	<link rel="shortcut icon"
-		href="{{ $U('/img/appicons/favicon.ico?v=', true) }}{{ $version }}">
-	<meta name="apple-mobile-web-app-title"
-		content="grocy">
-	<meta name="application-name"
-		content="grocy">
-	<meta name="msapplication-TileColor"
-		content="#e5e5e5">
-	<meta name="msapplication-config"
-		content="{{ $U('/img/appicons/browserconfig.xml?v=', true) }}{{ $version }}">
-	<meta name="theme-color"
-		content="#ffffff">
+		href="{{ $U('/manifest.json?v=', true) }}{{ $version }}">
 
-	<title>@yield('title') | grocy</title>
+	<title>@yield('title') | Grocy</title>
+
 	<link href="{{ $U('/node_modules/bootstrap/dist/css/bootstrap.min.css?v=', true) }}{{ $version }}"
 		rel="stylesheet">
 	<link href="{{ $U('/node_modules/@fortawesome/fontawesome-free/css/all.min.css?v=', true) }}{{ $version }}"
@@ -120,7 +99,7 @@
 	<nav id="mainNav"
 		class="navbar navbar-expand-lg navbar-light fixed-top">
 		<a class="navbar-brand py-0"
-			href="{{ $U('/') }}"><img src="{{ $U('/img/grocy_logo.svg?v=', true) }}{{ $version }}"
+			href="{{ $U('/') }}"><img src="{{ $U('/img/logo.svg?v=', true) }}{{ $version }}"
 				height="30"></a>
 		<span id="clock-container"
 			class="text-muted font-italic d-none">
@@ -680,7 +659,7 @@
 						<div class="dropdown-divider"></div>
 						<a id="about-dialog-link"
 							class="dropdown-item discrete-link"
-							href="#"><i class="fa-solid fa-info fa-fw"></i>&nbsp;{{ $__t('About grocy') }} (Version {{ $version }})</a>
+							href="#"><i class="fa-solid fa-info fa-fw"></i>&nbsp;{{ $__t('About Grocy') }} (Version {{ $version }})</a>
 					</div>
 				</li>
 			</ul>

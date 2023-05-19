@@ -3,10 +3,10 @@
 namespace Grocy\Helpers;
 
 /**
- * A class that abstracts grocycode.
+ * A class that abstracts Grocycode.
  *
- * grocycode is a simple, easily serializable format to reference
- * stuff within grocy. It consists of n (n ≥ 3) double-colon seperated parts:
+ * Grocycode is a simple, easily serializable format to reference
+ * stuff within Grocy. It consists of n (n ≥ 3) double-colon seperated parts:
  *
  *  1. The magic `grcy`
  *  2. A type identifer, must match `[a-z]+` (i.e. only lowercase ascii, minimum length 1 character)
@@ -96,12 +96,12 @@ class Grocycode
 		$parts = array_reverse(explode(':', $code));
 		if (array_pop($parts) != self::MAGIC)
 		{
-			throw new \Exception('Not a grocycode');
+			throw new \Exception('Not a Grocycode');
 		}
 
 		if (!in_array($this->type = array_pop($parts), self::$Items))
 		{
-			throw new \Exception('Unknown grocycode type');
+			throw new \Exception('Unknown Grocycode type');
 		}
 
 		$this->id = array_pop($parts);
@@ -116,7 +116,7 @@ class Grocycode
 		}
 		if (!in_array($type, self::$Items))
 		{
-			throw new \Exception('Unknown grocycode type');
+			throw new \Exception('Unknown Grocycode type');
 		}
 
 		$this->type = $type;

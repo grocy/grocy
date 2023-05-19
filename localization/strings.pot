@@ -345,7 +345,7 @@ msgstr ""
 msgid "Removed %1$s of %2$s from stock"
 msgstr ""
 
-msgid "About grocy"
+msgid "About Grocy"
 msgstr ""
 
 msgid "Close"
@@ -1338,7 +1338,7 @@ msgstr ""
 msgid "Price factor"
 msgstr ""
 
-msgid "Do you find grocy useful?"
+msgid "Do you find Grocy useful?"
 msgstr ""
 
 msgid "Say thanks"
@@ -1457,7 +1457,7 @@ msgstr ""
 msgid "Edit stock entry"
 msgstr ""
 
-msgid "Camera access is only possible when supported and allowed by your browser and when grocy is served via a secure (https://) connection"
+msgid "Camera access is only possible when supported and allowed by your browser and when Grocy is served via a secure (https://) connection"
 msgstr ""
 
 msgid "Keep screen on"
@@ -2004,17 +2004,17 @@ msgstr ""
 msgid "A product or a note is required"
 msgstr ""
 
-msgid "grocycode"
+msgid "Grocycode"
 msgstr ""
 
 msgid "Download"
 msgstr ""
 
-# Example: Download *Product* grocycode
-msgid "Download %s grocycode"
+# Example: Download *Product* Grocycode
+msgid "Download %s Grocycode"
 msgstr ""
 
-msgid "grocycode is a unique referer to this %s in your grocy instance - print it onto a label and scan it like any other barcode"
+msgid "Grocycode is a unique referer to this %s in your Grocy instance - print it onto a label and scan it like any other barcode"
 msgstr ""
 
 # Abbreviation for "due date"
@@ -2042,8 +2042,8 @@ msgstr ""
 msgid "Error while executing WebHook"
 msgstr ""
 
-# Example: Print *Product* grocycode on label printer
-msgid "Print %s grocycode on label printer"
+# Example: Print *Product* Grocycode on label printer
+msgid "Print %s Grocycode on label printer"
 msgstr ""
 
 msgid "Open stock entry label in new window"

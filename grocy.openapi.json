@@ -1,7 +1,7 @@
 {
 	"openapi": "3.0.0",
 	"info": {
-		"title": "grocy REST API",
+		"title": "Grocy REST API",
 		"description": "Authentication is done via API keys (header *GROCY-API-KEY* or same named query parameter), which you can manage [here](PlaceHolderManageApiKeysUrl).<br>Additionally requests from within the frontend are also valid (via session cookie).",
 		"version": "xxx",
 		"license": {
@@ -60,7 +60,7 @@
 	"paths": {
 		"/system/info": {
 			"get": {
-				"summary": "Returns information about the installed grocy version, PHP runtime and OS",
+				"summary": "Returns information about the installed Grocy version, PHP runtime and OS",
 				"tags": [
 					"System"
 				],
@@ -1550,7 +1550,7 @@
 		},
 		"/stock/entry/{entryId}/printlabel": {
 			"get": {
-				"summary": "Prints the grocycode / stock entry label of the given entry on the configured label printer",
+				"summary": "Prints the Grocycode / stock entry label of the given entry on the configured label printer",
 				"tags": [
 					"Stock"
 				],
@@ -2281,7 +2281,7 @@
 		},
 		"/stock/products/{productId}/printlabel": {
 			"get": {
-				"summary": "Prints the grocycode label of the given product on the configured label printer",
+				"summary": "Prints the Grocycode label of the given product on the configured label printer",
 				"tags": [
 					"Stock"
 				],
@@ -3582,7 +3582,7 @@
 		},
 		"/recipes/{recipeId}/printlabel": {
 			"get": {
-				"summary": "Prints the grocycode label of the given recipe on the configured label printer",
+				"summary": "Prints the Grocycode label of the given recipe on the configured label printer",
 				"tags": [
 					"Recipes"
 				],
@@ -3855,7 +3855,7 @@
 		},
 		"/chores/{choreId}/printlabel": {
 			"get": {
-				"summary": "Prints the grocycode label of the given chore on the configured label printer",
+				"summary": "Prints the Grocycode label of the given chore on the configured label printer",
 				"tags": [
 					"Chores"
 				],
@@ -4120,7 +4120,7 @@
 		},
 		"/batteries/{batteryId}/printlabel": {
 			"get": {
-				"summary": "Prints the grocycode label of the given battery on the configured label printer",
+				"summary": "Prints the Grocycode label of the given battery on the configured label printer",
 				"tags": [
 					"Batteries"
 				],
@@ -4368,7 +4368,7 @@
 						"in": "query",
 						"name": "printHeader",
 						"required": false,
-						"description": "Prints grocy logo if true",
+						"description": "Prints Grocy logo if true",
 						"schema": {
 							"type": "boolean",
 							"default": true

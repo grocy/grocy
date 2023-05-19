@@ -3,22 +3,18 @@
 
 <head>
 	<meta charset="utf-8">
-	<meta http-equiv="x-ua-compatible"
-		content="ie=edge">
 	<meta name="viewport"
-		content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		content="width=device-width, initial-scale=1">
 
 	<meta name="robots"
 		content="noindex,nofollow">
-	<meta name="format-detection"
-		content="telephone=no">
 
-	<meta name="author"
-		content="Bernd Bestel (bernd@berrnd.de)">
 	<link rel="icon"
-		href="{{ $U('/img/grocy_icon.svg?v=', true) }}{{ $version }}">
+		type="image/png"
+		sizes="32x32"
+		href="{{ $U('/img/icon-32.png?v=', true) }}{{ $version }}">
 
-	<title>{{ $__t('REST API browser') }} | grocy</title>
+	<title>{{ $__t('REST API browser') }} | Grocy</title>
 
 	<link href="{{ $U('/node_modules/swagger-ui-dist/swagger-ui.css?v=', true) }}{{ $version }}"
 		rel="stylesheet">
@@ -53,7 +49,6 @@
 			-webkit-box-shadow: none !important;
 			border-bottom: 1px solid rgba(59, 65, 81, 0.3) !important;
 		}
-
 	</style>
 </head>
 

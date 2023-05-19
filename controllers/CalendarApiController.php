@@ -24,7 +24,7 @@ class CalendarApiController extends BaseApiController
 			$maxDate = null;
 
 			$vCalendar = new Calendar();
-			$vCalendar->setProductIdentifier('grocy');
+			$vCalendar->setProductIdentifier('Grocy');
 
 			foreach ($events as $event)
 			{
@@ -81,7 +81,7 @@ class CalendarApiController extends BaseApiController
 
 			$response->write((new CalendarFactory())->createCalendar($vCalendar));
 			$response = $response->withHeader('Content-Type', 'text/calendar; charset=utf-8');
-			return $response->withHeader('Content-Disposition', 'attachment; filename="grocy.ics"');
+			return $response->withHeader('Content-Disposition', 'attachment; filename="Grocy.ics"');
 		}
 		catch (\Exception $ex)
 		{

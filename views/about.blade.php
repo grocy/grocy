@@ -1,6 +1,6 @@
 @extends('layout.default')
 
-@section('title', $__t('About grocy'))
+@section('title', $__t('About Grocy'))
 @section('viewJsName', 'about')
 
 @section('content')
@@ -41,7 +41,7 @@
 				</p>
 
 				<p>
-					{{ $__t('Do you find grocy useful?') }}<br>
+					{{ $__t('Do you find Grocy useful?') }}<br>
 					<a class="btn btn-sm btn-primary text-white mt-1"
 						href="https://grocy.info/#say-thanks"
 						target="_blank">{{ $__t('Say thanks') }} <i class="fa-solid fa-heart"></i></a>
@@ -75,7 +75,7 @@
 		</div>
 
 		<p class="small text-muted">
-			grocy is a project by
+			Grocy is a project by
 			<a href="https://berrnd.de"
 				class="text-dark"
 				target="_blank">Bernd Bestel</a><br>

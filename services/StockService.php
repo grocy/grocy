@@ -821,13 +821,13 @@ class StockService extends BaseService
 
 	public function GetProductIdFromBarcode(string $barcode)
 	{
-		// first, try to parse this as a product grocycode
+		// first, try to parse this as a product Grocycode
 		if (Grocycode::Validate($barcode))
 		{
 			$gc = new Grocycode($barcode);
 			if ($gc->GetType() != Grocycode::PRODUCT)
 			{
-				throw new \Exception('Invalid grocycode');
+				throw new \Exception('Invalid Grocycode');
 			}
 			return $gc->GetId();
 		}

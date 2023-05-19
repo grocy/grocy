@@ -403,7 +403,7 @@
 				</select>
 				<div class="invalid-feedback">{{ $__t('A quantity unit is required') }}</div>
 			</div>
-			
+
 			<div class="form-group">
 				<label for="qu_id_consume">{{ $__t('Default quantity unit consume') }}</label>
 				<i class="fa-solid fa-question-circle text-muted"
@@ -729,11 +729,11 @@
 			<div class="col clearfix">
 				<div class="title-related-links">
 					<h4>
-						<span class="ls-n1">{{ $__t('grocycode') }}</span>
+						<span class="ls-n1">{{ $__t('Grocycode') }}</span>
 						<i class="fa-solid fa-question-circle text-muted"
 							data-toggle="tooltip"
 							data-trigger="hover click"
-							title="{{ $__t('grocycode is a unique referer to this %s in your grocy instance - print it onto a label and scan it like any other barcode', $__t('Product')) }}"></i>
+							title="{{ $__t('Grocycode is a unique referer to this %s in your Grocy instance - print it onto a label and scan it like any other barcode', $__t('Product')) }}"></i>
 					</h4>
 					<p>
 						@if($mode == 'edit')

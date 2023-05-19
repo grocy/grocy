@@ -314,14 +314,14 @@
 								<a class="dropdown-item"
 									type="button"
 									href="{{ $U('/product/' . $currentStockEntry->product_id . '/grocycode?download=true') }}">
-									{!! str_replace('grocycode', '<span class="ls-n1">grocycode</span>', $__t('Download %s grocycode', $__t('Product'))) !!}
+									{!! str_replace('Grocycode', '<span class="ls-n1">Grocycode</span>', $__t('Download %s Grocycode', $__t('Product'))) !!}
 								</a>
 								@if(GROCY_FEATURE_FLAG_LABEL_PRINTER)
 								<a class="dropdown-item product-grocycode-label-print"
 									data-product-id="{{ $currentStockEntry->product_id }}"
 									type="button"
 									href="#">
-									{!! str_replace('grocycode', '<span class="ls-n1">grocycode</span>', $__t('Print %s grocycode on label printer', $__t('Product'))) !!}
+									{!! str_replace('Grocycode', '<span class="ls-n1">Grocycode</span>', $__t('Print %s Grocycode on label printer', $__t('Product'))) !!}
 								</a>
 								@endif
 							</div>

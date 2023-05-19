@@ -36,7 +36,7 @@ Setting('CALENDAR_SHOW_WEEK_OF_YEAR', true);
 // Can also be set to -1 to dynamically start the meal plan week on "today"
 Setting('MEAL_PLAN_FIRST_DAY_OF_WEEK', '');
 
-// To keep it simple: grocy does not handle any currency conversions,
+// To keep it simple: Grocy does not handle any currency conversions,
 // this here is used to format all money values,
 // so doesn't really matter, but needs to be the
 // ISO 4217 code of the currency ("USD", "EUR", "GBP", etc.)
@@ -46,7 +46,7 @@ Setting('CURRENCY', 'USD');
 // E.g. "kcal" or "kJ" or something else (doesn't really matter, it's only used to display energy values)
 Setting('ENERGY_UNIT', 'kcal');
 
-// When running grocy in a subdirectory, this should be set to the relative path, otherwise empty
+// When running Grocy in a subdirectory, this should be set to the relative path, otherwise empty
 // It needs to be set to the part (of the URL) AFTER the document root,
 // if URL rewriting is disabled, including index.php
 // Example with URL Rewriting support:
@@ -105,7 +105,7 @@ Setting('GROCYCODE_TYPE', '1D');
 
 
 // Label printer settings
-Setting('LABEL_PRINTER_WEBHOOK', ''); // The URI that grocy will POST to when asked to print a label
+Setting('LABEL_PRINTER_WEBHOOK', ''); // The URI that Grocy will POST to when asked to print a label
 Setting('LABEL_PRINTER_RUN_SERVER', true); // Whether the webhook will be called server- or client-side
 Setting('LABEL_PRINTER_PARAMS', ['font_family' => 'Source Sans Pro (Regular)']); // Additional parameters supplied to the webhook
 Setting('LABEL_PRINTER_HOOK_JSON', false); // TRUE to use JSON or FALSE to use normal POST request variables

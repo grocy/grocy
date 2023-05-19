@@ -1,7 +1,7 @@
 <div align="center">
-<img alt="Logo" height="50" src="https://raw.githubusercontent.com/grocy/grocy/master/public/img/grocy_logo.svg?sanitize=true" />
+<img alt="Logo" height="50" src="https://raw.githubusercontent.com/grocy/grocy/master/public/img/logo.svg?sanitize=true" />
 <h3>ERP beyond your fridge</h3>
-<h4>grocy is a web-based self-hosted groceries & household management solution for your home<br>Created by <a href="https://github.com/berrnd">@berrnd</a></h4>
+<h4>Grocy is a web-based self-hosted groceries & household management solution for your home<br>Created by <a href="https://github.com/berrnd">@berrnd</a></h4>
 </div>
 
 -----
@@ -20,7 +20,7 @@ See the website &rarr; <https://grocy.info>
 - General help and usage questions &rarr;  [r/grocy subreddit](https://www.reddit.com/r/grocy)
 - Bug Reports and Feature Requests &rarr; [Issue Tracker](https://github.com/grocy/grocy/issues/new/choose)
 
-_Please don't send me private messages or call me regarding grocy help. I check the issue tracker and the subreddit pretty much daily, but don't provide grocy support beyond that._
+_Please don't send me private messages or call me regarding Grocy help. I check the issue tracker and the subreddit pretty much daily, but don't provide any support beyond that._
 
 ## Community contributions
 
@@ -28,13 +28,13 @@ See the website for a list of community contributed Add-ons / Tools. &rarr; [htt
 
 ## How to install
 
-> Checkout [grocy-desktop](https://github.com/grocy/grocy-desktop), if you want to run grocy without having to manage a webserver just like a normal (Windows) desktop application.
+> Checkout [grocy-desktop](https://github.com/grocy/grocy-desktop), if you want to run Grocy without having to manage a webserver just like a normal (Windows) desktop application.
 >
 > Directly download the [latest release](https://releases.grocy.info/latest-desktop) - the installation is nothing more than just clicking 2 times "next".
 
 See the website for some installation guides and troubleshooting help. &rarr; [https://grocy.info/links](https://grocy.info/links)
 
-grocy is technically a pretty simple PHP application, so the basic notes to get it running are:
+Grocy is technically a pretty simple PHP application, so the basic notes to get it running are:
 - Unpack the [latest release](https://releases.grocy.info/latest)
 - Copy `config-dist.php` to `data/config.php` + edit to your needs
 - Ensure that the `data` directory is writable
@@ -62,13 +62,13 @@ See [grocy/grocy-docker](https://github.com/grocy/grocy-docker) or [linuxserver/
 - Empty the `data/viewcache` directory
 - Visit the main route once to apply database migrations ([see below](https://github.com/grocy/grocy#database-migrations))
 
-If you run grocy on Linux, there is also `update.sh` (remember to make the script executable (`chmod +x update.sh`) and ensure that you have `unzip` installed) which does exactly this and additionally creates a backup (`.tgz` archive) of the current installation in `data/backups` (backups older than 60 days will be deleted during the update).
+If you run Grocy on Linux, there is also `update.sh` (remember to make the script executable (`chmod +x update.sh`) and ensure that you have `unzip` installed) which does exactly this and additionally creates a backup (`.tgz` archive) of the current installation in `data/backups` (backups older than 60 days will be deleted during the update).
 
 ## Localization
 
-grocy is fully localizable - the default language is English (integrated into code), a German localization is always maintained by me.
+Grocy is fully localizable - the default language is English (integrated into code), a German localization is always maintained by me.
 
-You can easily help translating grocy on [Transifex](https://www.transifex.com/grocy/grocy/dashboard/) if your language is incomplete or not available yet.
+You can easily help translating Grocy on [Transifex](https://www.transifex.com/grocy/grocy/dashboard/) if your language is incomplete or not available yet.
 
 The default language can be set in `data/config.php`, e. g. `Setting('DEFAULT_LOCALE', 'it');` and there is also a user setting (see the user settings page) to set a different language per user.
 
@@ -92,7 +92,7 @@ See the integrated Swagger UI instance on [/api](https://demo.grocy.info/api).
 
 Some fields (with a barcode icon above) also allow to select a value by scanning a barcode. It works best when your barcode reader prefixes every barcode with a letter which is normally not part of a item name (I use a `$`) and sends a `TAB` after a scan.
 
-Additionally it's also possible to use your device camera to scan a barcode by using the camera button on the right side of the corresponding field (powered by [Quagga2](https://github.com/ericblade/quagga2), totally offline / client-side camera stream processing, please note due to browser security restrictions, this only works when serving grocy via a secure connection (`https://`)). Quick video demo: https://www.youtube.com/watch?v=Y5YH6IJFnfc
+Additionally it's also possible to use your device camera to scan a barcode by using the camera button on the right side of the corresponding field (powered by [Quagga2](https://github.com/ericblade/quagga2), totally offline / client-side camera stream processing, please note due to browser security restrictions, this only works when serving Grocy via a secure connection (`https://`)). Quick video demo: <https://www.youtube.com/watch?v=Y5YH6IJFnfc>
 
 _My personal recommendation: Use a USB barcode laser scanner. They are cheap and work 1000 % better, faster, under any lighting condition and from any angle._
 
@@ -133,7 +133,7 @@ _Please note: Database migrations are supposed to work between releases, not bet
 
 ### Disable certain features
 
-If you don't use certain feature sets of grocy (for example if you don't need "Chores"), there are feature flags per major feature set to hide/disable the related UI elements (see `config-dist.php`).
+If you don't use certain feature sets of Grocy (for example if you don't need "Chores"), there are feature flags per major feature set to hide/disable the related UI elements (see `config-dist.php`).
 
 ### Adding your own CSS or JS without to have to modify the application itself
 
