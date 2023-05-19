@@ -231,10 +231,15 @@ U = function(relativePath)
 	return Grocy.BaseUrl.replace(/\/$/, '') + relativePath;
 }
 
-Grocy.Translator = new Translator(Grocy.LocalizationStrings);
-Grocy.TranslatorQu = new Translator(Grocy.LocalizationStringsQu);
+Grocy.Translator = new window.translator.default(Grocy.LocalizationStrings);
+Grocy.TranslatorQu = new window.translator.default(Grocy.LocalizationStringsQu);
 __t = function(text, ...placeholderValues)
 {
+	if (!text)
+	{
+		return text;
+	}
+
 	if (Grocy.Mode === "dev")
 	{
 		var text2 = text;
@@ -248,6 +253,11 @@ __t = function(text, ...placeholderValues)
 }
 __n = function(number, singularForm, pluralForm, isQu = false)
 {
+	if (!singularForm)
+	{
+		return singularForm;
+	}
+
 	if (Grocy.Mode === "dev")
 	{
 		var singularForm2 = singularForm;

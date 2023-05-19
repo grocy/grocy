@@ -28,10 +28,10 @@
   optionalDependencies:
     fsevents "2.3.2"
 
-"@fontsource/noto-sans@4.5.3":
-  version "4.5.3"
-  resolved "https://registry.yarnpkg.com/@fontsource/noto-sans/-/noto-sans-4.5.3.tgz#124c4475a885257b65fe4167af6615ab1bba477b"
-  integrity sha512-pBKuG/g7pMv1dCJ+x3piXqRfWuE/quPlPYaeGf3FwKUBGZyHl4LvM4bA8YmSlQzoMvH/MhcnvVHBhQ5x0fhseA==
+"@fontsource/noto-sans@^4.5.11":
+  version "4.5.11"
+  resolved "https://registry.yarnpkg.com/@fontsource/noto-sans/-/noto-sans-4.5.11.tgz#9074486d876577f3688f884c7ad6196d6dbea27e"
+  integrity sha512-lBX7FCjIjSrQ+iMuXUuO+mbjbnUsJyZANg/04PgkeeAYe+cwnX81ibbgrAk1F56M6/btIrWQoDjxsK6Sz8KoVQ==
 
 "@fortawesome/fontawesome-free@^6.1.1":
   version "6.2.1"
@@ -87,10 +87,10 @@ bcrypt-pbkdf@^1.0.0:
   dependencies:
     tweetnacl "^0.14.3"
 
-bootbox@^5.3.2:
-  version "5.5.3"
-  resolved "https://registry.yarnpkg.com/bootbox/-/bootbox-5.5.3.tgz#6b32da9c401a22b089e1544797cc9a91f1c35b23"
-  integrity sha512-B4mnm1DYgNHzoNtD7I0L/fixqvya4EEQy5bFF/yNmGI2Eq3WwVVwdfWf3hoF8KS+EaV4f0uIMqtxB1EAZwZPhQ==
+bootbox@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/bootbox/-/bootbox-6.0.0.tgz#a5f1074faab38b881e79e009ea4d625c7e8c536d"
+  integrity sha512-+Calbj1v5UvxAXXDAHfoBlsx63Hcz1JqHaZdJ5EjIcOlkyAbZLCreVScx0Em6ZUvsMCqynuz/3nGDyd9FtFrNQ==
 
 bootstrap-select@^1.13.18:
   version "1.13.18"
@@ -368,12 +368,10 @@ getpass@^0.1.1:
   dependencies:
     assert-plus "^1.0.0"
 
-gettext-translator@2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/gettext-translator/-/gettext-translator-2.1.0.tgz#946047649b7df4ef00522787bb78792667e4de2f"
-  integrity sha512-RD9HifZKtlRtFScA0VWESzLKQxxRmaRU0IFg6cFZgMP0MMgzfHpWO7MipUyRbMxDFm8adbQqCcFLBV47tjT6Ug==
-  dependencies:
-    sprintf-js "^1.0.3"
+gettext-translator@3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/gettext-translator/-/gettext-translator-3.0.1.tgz#6e315a24f2baea56f86a215abb5be0ff2e641baa"
+  integrity sha512-rqCbHfglrIL/Siinsylwc2eAbgrSPvGL5Dofo3WPoCQkxljoafDzw0n91TuTGmaYPkrp8S1fIDxOmX5fkpsNeQ==
 
 gl-matrix@^3.4.3:
   version "3.4.3"
@@ -626,11 +624,6 @@ safer-buffer@^2.0.2, safer-buffer@^2.1.0, safer-buffer@~2.1.0:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/safer-buffer/-/safer-buffer-2.1.2.tgz#44fa161b0187b9549dd84bb91802f9bd8385cd6a"
   integrity sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==
-
-sprintf-js@^1.0.3, sprintf-js@^1.1.2:
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/sprintf-js/-/sprintf-js-1.1.2.tgz#da1765262bf8c0f571749f2ad6c26300207ae673"
-  integrity sha512-VE0SOVEHCk7Qc8ulkWw3ntAzXuqf7S2lvwQaDLRnUeIEaKNQJzV6BwmLKhOqT61aGhfUMrXeaBk+oDGCzvhcug==
 
 sshpk@^1.7.0:
   version "1.17.0"
