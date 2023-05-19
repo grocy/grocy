@@ -99,8 +99,11 @@
 	<nav id="mainNav"
 		class="navbar navbar-expand-lg navbar-light fixed-top">
 		<a class="navbar-brand py-0"
-			href="{{ $U('/') }}"><img src="{{ $U('/img/logo.svg?v=', true) }}{{ $version }}"
-				height="30"></a>
+			href="{{ $U('/') }}">
+			<img src="{{ $U('/img/logo.svg?v=', true) }}{{ $version }}"
+				width="114"
+				height="30">
+		</a>
 		<span id="clock-container"
 			class="text-muted font-italic d-none">
 			<i class="fa-regular fa-clock"></i>

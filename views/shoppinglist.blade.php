@@ -346,6 +346,7 @@
 	<div id="print-header">
 		<h1 class="text-center">
 			<img src="{{ $U('/img/logo.svg?v=', true) }}{{ $version }}"
+				width="114"
 				height="30"
 				class="d-print-flex mx-auto">
 			{{ $__t("Shopping list") }}
