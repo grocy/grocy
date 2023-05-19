@@ -282,63 +282,6 @@ __n = function(number, singularForm, pluralForm, isQu = false)
 	}
 }
 
-if (Grocy.ActiveNav)
-{
-	var menuItem = $('#sidebarResponsive').find("[data-nav-for-page='" + Grocy.ActiveNav + "']");
-	menuItem.addClass('active-page');
-
-	if (menuItem.length)
-	{
-		var parentMenuSelector = menuItem.data("sub-menu-of");
-		if (typeof parentMenuSelector !== "undefined")
-		{
-			$(parentMenuSelector).collapse("show");
-			$(parentMenuSelector).prev(".nav-link-collapse").addClass("active-page");
-
-			$(parentMenuSelector).on("shown.bs.collapse", function(e)
-			{
-				if (!menuItem.isVisibleInViewport(75))
-				{
-					menuItem[0].scrollIntoView();
-				}
-			})
-		}
-		else
-		{
-			if (!menuItem.isVisibleInViewport(75))
-			{
-				menuItem[0].scrollIntoView();
-			}
-		}
-	}
-}
-
-var observer = new MutationObserver(function(mutations)
-{
-	mutations.forEach(function(mutation)
-	{
-		if (mutation.attributeName === "class")
-		{
-			var attributeValue = $(mutation.target).prop(mutation.attributeName);
-			if (attributeValue.contains("sidenav-toggled"))
-			{
-				window.localStorage.setItem("sidebar_state", "collapsed");
-			}
-			else
-			{
-				window.localStorage.setItem("sidebar_state", "expanded");
-			}
-		}
-	});
-});
-observer.observe(document.body, {
-	attributes: true
-});
-if (window.localStorage.getItem("sidebar_state") === "collapsed")
-{
-	$("#sidenavToggler").click();
-}
-
 RefreshContextualTimeago = function(rootSelector = "#page-content")
 {
 	$(rootSelector + " time.timeago").each(function()
