@@ -789,6 +789,9 @@ $(document).on("click", ".show-as-dialog-link", function(e)
 	});
 });
 
+// Init Bootstrap tooltips
+$('[data-toggle="tooltip"]').tooltip()
+
 // Default DataTables initialisation settings
 var collapsedGroups = {};
 $.extend(true, $.fn.dataTable.defaults, {

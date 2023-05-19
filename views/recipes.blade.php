@@ -10,6 +10,24 @@
 		max-height: 250px !important;
 		object-fit: cover !important;
 	}
+
+	@media (min-width: 576px) {
+		.card-columns {
+			column-count: 1;
+		}
+	}
+
+	@media (min-width: 768px) {
+		.card-columns {
+			column-count: 2;
+		}
+	}
+
+	@media (min-width: 1200px) {
+		.card-columns {
+			column-count: 2;
+		}
+	}
 </style>
 @endpush
 
