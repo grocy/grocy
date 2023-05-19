@@ -4,18 +4,11 @@
 
 <head>
 	<meta charset="utf-8">
-	<meta http-equiv="x-ua-compatible"
-		content="ie=edge">
 	<meta name="viewport"
-		content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		content="width=device-width, initial-scale=1">
 
 	<meta name="robots"
 		content="noindex,nofollow">
-	<meta name="format-detection"
-		content="telephone=no">
-
-	<meta name="author"
-		content="Bernd Bestel (bernd@berrnd.de)">
 
 	<link rel="apple-touch-icon"
 		sizes="180x180"
