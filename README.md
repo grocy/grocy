@@ -1,5 +1,5 @@
 <div align="center">
-<img alt="Logo" height="50" src="https://raw.githubusercontent.com/grocy/grocy/master/public/img/logo.svg?sanitize=true" />
+<img alt="Logo" height="60" src="https://raw.githubusercontent.com/grocy/grocy/master/public/img/logo.svg?sanitize=true" />
 <h3>ERP beyond your fridge</h3>
 <h4>Grocy is a web-based self-hosted groceries & household management solution for your home<br>Created by <a href="https://github.com/berrnd">@berrnd</a></h4>
 </div>
