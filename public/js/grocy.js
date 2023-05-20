@@ -249,7 +249,7 @@ __t = function(text, ...placeholderValues)
 		}
 	}
 
-	return Grocy.Translator.__(text, ...placeholderValues)
+	return sprintf(Grocy.Translator.__(text, ...placeholderValues), ...placeholderValues);
 }
 __n = function(number, singularForm, pluralForm, isQu = false)
 {
