@@ -68,6 +68,9 @@ body.fixed-nav {
 #mainNav .navbar-collapse .navbar-nav>.nav-item.dropdown>.nav-link {
 	position: relative;
 	min-width: 45px;
+	max-width: 75%;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 #mainNav .navbar-collapse .navbar-nav>.nav-item.dropdown>.nav-link:after {
@@ -98,6 +101,14 @@ body.fixed-nav {
 @media (min-width: 992px) {
 	#mainNav .navbar-brand {
 		width: 250px;
+	}
+
+	.sidenav-toggled>#mainNav .navbar-brand {
+		width: 130px;
+	}
+
+	#mainNav .navbar-collapse .navbar-nav>.nav-item.dropdown>.nav-link {
+		max-width: 100%;
 	}
 
 	#mainNav .navbar-collapse {
@@ -162,11 +173,26 @@ body.fixed-nav {
 	}
 }
 
+.navbar-nav,
+.navbar-nav .dropdown-item {
+	text-align: center;
+}
+
 #mainNav.fixed-top .sidenav-toggler {
 	display: none;
 }
 
 @media (min-width: 992px) {
+
+	.navbar-nav,
+	.navbar-nav .dropdown-item {
+		text-align: left;
+	}
+
+	.sidenav-toggled .navbar-nav {
+		text-align: center;
+	}
+
 	#mainNav.fixed-top .navbar-sidenav {
 		height: calc(100vh - 112px);
 	}
@@ -306,7 +332,21 @@ body.sidenav-toggled .navbar-sidenav-tooltip.show {
 	color: #adb5bd;
 }
 
+#mainNav {
+	padding-left: 0.25rem;
+	padding-right: 0.25rem;
+}
+
 @media (min-width: 992px) {
+	#mainNav {
+		padding-left: 0.75rem;
+		padding-right: 0;
+	}
+
+	.sidenav-toggled>#mainNav {
+		padding-left: 0.25rem;
+	}
+
 	#mainNav.navbar-dark .navbar-collapse .navbar-sidenav {
 		background: #343a40;
 	}
@@ -426,21 +466,17 @@ body.sidenav-toggled .navbar-sidenav-tooltip.show {
 
 .navbar-sidenav>li:hover,
 .sidenav-second-level>li:hover,
-.navbar-nav .dropdown-item:hover {
+.navbar-nav .dropdown-item:hover,
+.navbar-sidenav>li>a:focus,
+.sidenav-second-level>li>a:focus,
+.navbar-nav .dropdown-item:focus,
+.active-page {
 	box-shadow: inset 5px 0 0 #337ab7 !important;
 	background-color: #d6d6d6 !important;
 }
 
-.navbar-sidenav>li>a:focus,
-.sidenav-second-level>li>a:focus,
-.navbar-nav .dropdown-item:focus {
-	box-shadow: inset 5px 0 0 #ab2230 !important;
-	background-color: #d6d6d6 !important;
-}
-
 .active-page {
-	box-shadow: inset 5px 0 0 #ab2230 !important;
-	background-color: #d6d6d6 !important;
+	color: #337ab7 !important;
 }
 
 .navbar-brand {

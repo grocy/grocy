@@ -662,7 +662,7 @@
 						<div class="dropdown-divider"></div>
 						<a id="about-dialog-link"
 							class="dropdown-item discrete-link"
-							href="#"><i class="fa-solid fa-info fa-fw"></i>&nbsp;{{ $__t('About Grocy') }} (Version {{ $version }})</a>
+							href="#"><i class="fa-solid fa-info fa-fw"></i>&nbsp;{{ $__t('About Grocy') }}</a>
 					</div>
 				</li>
 			</ul>

@@ -21,13 +21,9 @@ a.discrete-link {
 	transition: all 0.3s !important;
 }
 
-a.discrete-link:hover {
-	color: #337ab7 !important;
-	text-decoration: none !important;
-}
-
+a.discrete-link:hover,
 a.discrete-link:focus {
-	color: #ab2230 !important;
+	color: #337ab7 !important;
 	text-decoration: none !important;
 }
 
