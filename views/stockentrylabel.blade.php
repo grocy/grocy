@@ -2,11 +2,11 @@
 
 <head>
 	<title>{{ $product->name }}</title>
-	<link href="{{ $U('/node_modules/@fontsource/noto-sans/latin.css?v=', true) }}{{ $version }}"
+	<link href="{{ $U('/node_modules/@fontsource/open-sans/latin.css?v=', true) }}{{ $version }}"
 		rel="stylesheet">
 	<style>
 		body {
-			font-family: 'Noto Sans', sans-serif;
+			font-family: 'Open Sans', sans-serif;
 		}
 
 		img {
@@ -22,7 +22,6 @@
 			display: inline-block;
 			font-weight: bold;
 		}
-
 	</style>
 </head>
 

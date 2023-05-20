@@ -28,10 +28,10 @@
   optionalDependencies:
     fsevents "2.3.2"
 
-"@fontsource/noto-sans@^4.5.11":
-  version "4.5.11"
-  resolved "https://registry.yarnpkg.com/@fontsource/noto-sans/-/noto-sans-4.5.11.tgz#9074486d876577f3688f884c7ad6196d6dbea27e"
-  integrity sha512-lBX7FCjIjSrQ+iMuXUuO+mbjbnUsJyZANg/04PgkeeAYe+cwnX81ibbgrAk1F56M6/btIrWQoDjxsK6Sz8KoVQ==
+"@fontsource/open-sans@^4.5.14":
+  version "4.5.14"
+  resolved "https://registry.yarnpkg.com/@fontsource/open-sans/-/open-sans-4.5.14.tgz#b3e1665c0b3fdfc1f030ded2843749e3cf3a5900"
+  integrity sha512-mBXIIETBlW8q/ocuUN0hyGow2iuf75hQEHQt8R/RJ/HcphVbLg8KB7pHYGbFGDqs75W+SWvTC7JkVeAjT65BuQ==
 
 "@fortawesome/fontawesome-free@^6.1.1":
   version "6.2.1"
