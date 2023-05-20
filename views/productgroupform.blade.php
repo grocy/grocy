@@ -6,8 +6,6 @@
 @section('title', $__t('Create product group'))
 @endif
 
-@section('viewJsName', 'productgroupform')
-
 @section('content')
 <div class="row">
 	<div class="col">

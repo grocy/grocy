@@ -1,8 +1,6 @@
 @extends('layout.default')
 
 @section('title', $__t('Batteries overview'))
-@section('activeNav', 'batteriesoverview')
-@section('viewJsName', 'batteriesoverview')
 
 @push('pageStyles')
 <link href="{{ $U('/node_modules/animate.css/animate.min.css?v=', true) }}{{ $version }}"

@@ -1,8 +1,6 @@
 @extends('layout.default')
 
 @section('title', $__t('Inventory'))
-@section('activeNav', 'inventory')
-@section('viewJsName', 'inventory')
 
 @section('content')
 <script>

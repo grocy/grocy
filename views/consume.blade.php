@@ -1,8 +1,6 @@
 @extends('layout.default')
 
 @section('title', $__t('Consume'))
-@section('activeNav', 'consume')
-@section('viewJsName', 'consume')
 
 @push('pageScripts')
 <script src="{{ $U('/js/grocy_uisound.js?v=', true) }}{{ $version }}"></script>

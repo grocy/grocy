@@ -6,8 +6,6 @@
 @section('title', $__t('Create equipment'))
 @endif
 
-@section('viewJsName', 'equipmentform')
-
 @section('content')
 <div class="row">
 	<div class="col">

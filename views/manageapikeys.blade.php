@@ -1,8 +1,6 @@
 @extends('layout.default')
 
 @section('title', $__t('API keys'))
-@section('activeNav', '')
-@section('viewJsName', 'manageapikeys')
 
 @push('pageScripts')
 <script src="{{ $U('/node_modules/bwip-js/dist/bwip-js-min.js?v=', true) }}{{ $version }}"></script>

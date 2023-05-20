@@ -6,8 +6,6 @@
 @section('title', $__t('Create shopping list item'))
 @endif
 
-@section('viewJsName', 'shoppinglistitemform')
-
 @section('content')
 <script>
 	Grocy.QuantityUnits = {!! json_encode($quantityUnits) !!};

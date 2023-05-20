@@ -2,8 +2,6 @@
 
 @section('title', $__t('Tasks settings'))
 
-@section('viewJsName', 'taskssettings')
-
 @section('content')
 <div class="row">
 	<div class="col">

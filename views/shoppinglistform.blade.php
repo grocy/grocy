@@ -6,8 +6,6 @@
 @section('title', $__t('Create shopping list'))
 @endif
 
-@section('viewJsName', 'shoppinglistform')
-
 @section('content')
 <div class="row">
 	<div class="col">

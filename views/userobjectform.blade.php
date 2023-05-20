@@ -6,8 +6,6 @@
 @section('title', $__t('Create %s', $userentity->caption))
 @endif
 
-@section('viewJsName', 'userobjectform')
-
 @section('content')
 <div class="row">
 	<div class="col">

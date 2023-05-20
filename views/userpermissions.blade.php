@@ -1,8 +1,6 @@
 @extends('layout.default')
 
 @section('title', $__t('Permissions for user %s', GetUserDisplayName($user)))
-@section('activeNav', '')
-@section('viewJsName', 'userpermissions')
 
 @push('pageScripts')
 <script>
@@ -15,7 +13,6 @@
 	ul {
 		list-style-type: none;
 	}
-
 </style>
 @endpush
 

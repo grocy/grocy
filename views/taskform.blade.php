@@ -6,8 +6,6 @@
 @section('title', $__t('Create task'))
 @endif
 
-@section('viewJsName', 'taskform')
-
 @section('content')
 <div class="row">
 	<div class="col">

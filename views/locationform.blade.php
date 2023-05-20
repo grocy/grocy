@@ -6,8 +6,6 @@
 @section('title', $__t('Create location'))
 @endif
 
-@section('viewJsName', 'locationform')
-
 @section('content')
 <div class="row">
 	<div class="col">

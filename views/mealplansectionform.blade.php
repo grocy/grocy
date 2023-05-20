@@ -6,8 +6,6 @@
 @section('title', $__t('Create meal plan section'))
 @endif
 
-@section('viewJsName', 'mealplansectionform')
-
 @section('content')
 <div class="row">
 	<div class="col">

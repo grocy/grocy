@@ -6,8 +6,6 @@
 @section('title', $__t('Create chore'))
 @endif
 
-@section('viewJsName', 'choreform')
-
 @section('content')
 <div class="row">
 	<div class="col">

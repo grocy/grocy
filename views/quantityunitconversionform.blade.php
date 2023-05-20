@@ -6,8 +6,6 @@
 @section('title', $__t('Create QU conversion'))
 @endif
 
-@section('viewJsName', 'quantityunitconversionform')
-
 @section('content')
 <div class="row">
 	<div class="col">

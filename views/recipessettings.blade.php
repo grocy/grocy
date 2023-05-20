@@ -2,8 +2,6 @@
 
 @section('title', $__t('Recipes settings'))
 
-@section('viewJsName', 'recipessettings')
-
 @section('content')
 <div class="row">
 	<div class="col">

@@ -1,8 +1,6 @@
 @extends('layout.default')
 
 @section('title', $__t('Recipes'))
-@section('activeNav', 'recipes')
-@section('viewJsName', 'recipes')
 
 @push('pageStyles')
 <style>

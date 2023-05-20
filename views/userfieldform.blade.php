@@ -6,8 +6,6 @@
 @section('title', $__t('Create userfield'))
 @endif
 
-@section('viewJsName', 'userfieldform')
-
 @section('content')
 <div class="row">
 	<div class="col">

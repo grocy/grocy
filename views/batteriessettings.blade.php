@@ -2,8 +2,6 @@
 
 @section('title', $__t('Batteries settings'))
 
-@section('viewJsName', 'batteriessettings')
-
 @section('content')
 <div class="row">
 	<div class="col">

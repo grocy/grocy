@@ -6,8 +6,6 @@
 @section('title', $__t('Create battery'))
 @endif
 
-@section('viewJsName', 'batteryform')
-
 @section('content')
 <div class="row">
 	<div class="col">

@@ -6,8 +6,6 @@
 @section('title', $__t('Create Barcode'))
 @endif
 
-@section('viewJsName', 'productbarcodeform')
-
 @section('content')
 <script>
 	Grocy.QuantityUnits = {!! json_encode($quantityUnits) !!};

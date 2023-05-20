@@ -2,8 +2,6 @@
 
 @section('title', $__t('QU conversions resolved'))
 
-@section('viewJsName', 'quantityunitconversionsresolved')
-
 @section('content')
 <div class="row">
 	<div class="col">

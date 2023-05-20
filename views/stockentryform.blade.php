@@ -1,7 +1,6 @@
 @extends('layout.default')
 
 @section('title', $__t('Edit stock entry'))
-@section('viewJsName', 'stockentryform')
 
 @section('content')
 <script>

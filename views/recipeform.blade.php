@@ -6,8 +6,6 @@
 @section('title', $__t('Create recipe'))
 @endif
 
-@section('viewJsName', 'recipeform')
-
 @section('content')
 <div class="row">
 	<div class="col">

@@ -1,8 +1,6 @@
 @extends('layout.default')
 
 @section('title', $__t('Stock journal'))
-@section('activeNav', 'stockjournal')
-@section('viewJsName', 'stockjournal')
 
 @section('content')
 <div class="title-related-links">

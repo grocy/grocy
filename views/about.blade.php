@@ -1,7 +1,6 @@
 @extends('layout.default')
 
 @section('title', $__t('About Grocy'))
-@section('viewJsName', 'about')
 
 @section('content')
 <div class="row">

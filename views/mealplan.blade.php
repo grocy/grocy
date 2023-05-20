@@ -1,8 +1,6 @@
 @extends('layout.default')
 
 @section('title', $__t('Meal plan'))
-@section('activeNav', 'mealplan')
-@section('viewJsName', 'mealplan')
 
 @push('pageScripts')
 <script src="{{ $U('/node_modules/fullcalendar/dist/fullcalendar.min.js?v=', true) }}{{ $version }}"></script>

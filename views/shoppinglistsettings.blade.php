@@ -2,8 +2,6 @@
 
 @section('title', $__t('Shopping list settings'))
 
-@section('viewJsName', 'shoppinglistsettings')
-
 @section('content')
 <div class="row">
 	<div class="col">

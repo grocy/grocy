@@ -1,8 +1,6 @@
 @extends('layout.default')
 
 @section('title', $__t('Transfer'))
-@section('activeNav', 'transfer')
-@section('viewJsName', 'transfer')
 
 @section('content')
 <script>

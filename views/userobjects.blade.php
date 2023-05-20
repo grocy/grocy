@@ -1,8 +1,6 @@
 @extends('layout.default')
 
 @section('title', $userentity->caption)
-@section('activeNav', 'userentity-' . $userentity->name)
-@section('viewJsName', 'userobjects')
 
 @section('content')
 <div class="row">

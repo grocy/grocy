@@ -6,8 +6,6 @@
 @section('title', $__t('Create store'))
 @endif
 
-@section('viewJsName', 'shoppingLocationform')
-
 @section('content')
 <div class="row">
 	<div class="col">

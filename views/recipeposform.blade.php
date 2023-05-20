@@ -6,8 +6,6 @@
 @section('title', $__t('Add recipe ingredient'))
 @endif
 
-@section('viewJsName', 'recipeposform')
-
 @section('content')
 <script>
 	Grocy.DefaultMinAmount = '{{$DEFAULT_MIN_AMOUNT}}';

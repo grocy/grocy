@@ -1,7 +1,6 @@
 @extends('layout.default')
 
 @section('title', $__t('Stock entries'))
-@section('viewJsName', 'stockentries')
 
 @push('pageStyles')
 <link href="{{ $U('/node_modules/animate.css/animate.min.css?v=', true) }}{{ $version }}"

@@ -2,8 +2,6 @@
 
 @section('title', $__t('Quantity unit plural form testing'))
 
-@section('viewJsName', 'quantityunitpluraltesting')
-
 @push('pageStyles')
 <link href="{{ $U('/node_modules/animate.css/animate.min.css?v=', true) }}{{ $version }}"
 	rel="stylesheet">

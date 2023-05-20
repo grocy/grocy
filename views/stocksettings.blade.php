@@ -2,8 +2,6 @@
 
 @section('title', $__t('Stock settings'))
 
-@section('viewJsName', 'stocksettings')
-
 @section('content')
 <div class="row">
 	<div class="col">

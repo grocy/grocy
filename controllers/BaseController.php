@@ -114,7 +114,7 @@ class BaseController
 		return UsersService::getInstance();
 	}
 
-	protected function render($response, $page, $data = [])
+	protected function render($response, $viewName, $data = [])
 	{
 		$container = $this->AppContainer;
 
@@ -159,8 +159,8 @@ class BaseController
 				unset($constants[$constant]);
 			}
 		}
-
 		$this->View->set('featureFlags', $constants);
+
 		if (GROCY_AUTHENTICATED)
 		{
 			$this->View->set('permissions', User::PermissionList());
@@ -177,10 +177,12 @@ class BaseController
 			$this->View->set('DEFAULT_MIN_AMOUNT', $defaultMinAmount);
 		}
 
-		return $this->View->render($response, $page, $data);
+		$this->View->set('viewName', $viewName);
+
+		return $this->View->render($response, $viewName, $data);
 	}
 
-	protected function renderPage($response, $page, $data = [])
+	protected function renderPage($response, $viewName, $data = [])
 	{
 		$this->View->set('userentitiesForSidebar', $this->getDatabase()->userentities()->where('show_in_sidebar_menu = 1')->orderBy('name'));
 		try
@@ -200,7 +202,7 @@ class BaseController
 			// Happens when database is not initialised or migrated...
 		}
 
-		return $this->render($response, $page, $data);
+		return $this->render($response, $viewName, $data);
 	}
 
 	private static $htmlPurifierInstance = null;

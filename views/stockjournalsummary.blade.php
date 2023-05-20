@@ -1,8 +1,6 @@
 @extends('layout.default')
 
 @section('title', $__t('Stock journal summary'))
-@section('activeNav', '')
-@section('viewJsName', 'stockjournalsummary')
 
 @section('content')
 <div class="row">

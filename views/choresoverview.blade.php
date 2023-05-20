@@ -1,8 +1,6 @@
 @extends('layout.default')
 
 @section('title', $__t('Chores overview'))
-@section('activeNav', 'choresoverview')
-@section('viewJsName', 'choresoverview')
 
 @push('pageStyles')
 <link href="{{ $U('/node_modules/animate.css/animate.min.css?v=', true) }}{{ $version }}"

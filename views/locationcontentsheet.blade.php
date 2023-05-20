@@ -1,7 +1,6 @@
 @extends('layout.default')
 
 @section('title', $__t('Location Content Sheet'))
-@section('viewJsName', 'locationcontentsheet')
 
 @push('pageStyles')
 <style>

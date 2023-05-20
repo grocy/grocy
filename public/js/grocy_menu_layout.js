@@ -33,33 +33,12 @@ if (window.localStorage.getItem("sidebar_state") === "collapsed")
 	$("#sidenavToggler").click();
 }
 
-if (Grocy.ActiveNav)
+// Make sure the current active menu item is visible
+var activeMenuItem = $("li.active-page");
+if (activeMenuItem.length > 0)
 {
-	var menuItem = $('#sidebarResponsive').find("[data-nav-for-page='" + Grocy.ActiveNav + "']");
-	if (menuItem)
+	if (!activeMenuItem.isVisibleInViewport(75))
 	{
-		menuItem.addClass('active-page');
-
-		var parentMenuSelector = menuItem.data("sub-menu-of");
-		if (parentMenuSelector)
-		{
-			$(parentMenuSelector).collapse("show");
-			$(parentMenuSelector).prev(".nav-link-collapse").addClass("active-page");
-
-			$(parentMenuSelector).on("shown.bs.collapse", function(e)
-			{
-				if (!menuItem.isVisibleInViewport(75))
-				{
-					menuItem[0].scrollIntoView();
-				}
-			})
-		}
-		else
-		{
-			if (!menuItem.isVisibleInViewport(75))
-			{
-				menuItem[0].scrollIntoView();
-			}
-		}
+		activeMenuItem[0].scrollIntoView();
 	}
 }

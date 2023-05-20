@@ -1,8 +1,6 @@
 @extends('layout.default')
 
 @section('title', $__t('Product groups'))
-@section('activeNav', 'productgroups')
-@section('viewJsName', 'productgroups')
 
 @section('content')
 <div class="row">

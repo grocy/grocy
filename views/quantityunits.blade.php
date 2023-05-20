@@ -1,8 +1,6 @@
 @extends('layout.default')
 
 @section('title', $__t('Quantity units'))
-@section('activeNav', 'quantityunits')
-@section('viewJsName', 'quantityunits')
 
 @section('content')
 <div class="row">

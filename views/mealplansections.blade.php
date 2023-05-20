@@ -1,8 +1,6 @@
 @extends('layout.default')
 
 @section('title', $__t('Meal plan sections'))
-@section('activeNav', 'mealplansections')
-@section('viewJsName', 'mealplansections')
 
 @section('content')
 <div class="row">

@@ -1,8 +1,6 @@
 @extends('layout.default')
 
 @section('title', $__t('Chore tracking'))
-@section('activeNav', 'choretracking')
-@section('viewJsName', 'choretracking')
 
 @section('content')
 <div class="row">

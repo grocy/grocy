@@ -65,7 +65,7 @@
 		Grocy.Mode = '{{ GROCY_MODE }}';
 		Grocy.BaseUrl = '{{ $U('/') }}';
 		Grocy.CurrentUrlRelative = "/" + window.location.href.split('?')[0].replace(Grocy.BaseUrl, "");
-		Grocy.ActiveNav = '@yield('activeNav', '')';
+		Grocy.View = '{{ $viewName }}';
 		Grocy.Currency = '{{ GROCY_CURRENCY }}';
 		Grocy.EnergyUnit = '{{ GROCY_ENERGY_UNIT }}';
 		Grocy.CalendarFirstDayOfWeek = '{{ GROCY_CALENDAR_FIRST_DAY_OF_WEEK }}';
@@ -126,11 +126,10 @@
 			<ul class="navbar-nav navbar-sidenav">
 
 				@if(GROCY_FEATURE_FLAG_STOCK)
-				<li class="nav-item nav-item-sidebar"
+				<li class="nav-item nav-item-sidebar @if($viewName == 'stockoverview') active-page @endif"
 					data-toggle="tooltip"
 					data-placement="right"
-					title="{{ $__t('Stock overview') }}"
-					data-nav-for-page="stockoverview">
+					title="{{ $__t('Stock overview') }}">
 					<a class="nav-link discrete-link"
 						href="{{ $U('/stockoverview') }}">
 						<i class="fa-solid fa-box"></i>
@@ -139,11 +138,10 @@
 				</li>
 				@endif
 				@if(GROCY_FEATURE_FLAG_SHOPPINGLIST)
-				<li class="nav-item nav-item-sidebar"
+				<li class="nav-item nav-item-sidebar @if($viewName == 'shoppinglist') active-page @endif"
 					data-toggle="tooltip"
 					data-placement="right"
-					title="{{ $__t('Shopping list') }}"
-					data-nav-for-page="shoppinglist">
+					title="{{ $__t('Shopping list') }}">
 					<a class="nav-link discrete-link"
 						href="{{ $U('/shoppinglist') }}">
 						<i class="fa-solid fa-shopping-cart"></i>
@@ -153,11 +151,10 @@
 				@endif
 				@if(GROCY_FEATURE_FLAG_RECIPES)
 				<div class="nav-item-divider"></div>
-				<li class="nav-item nav-item-sidebar permission-RECIPES"
+				<li class="nav-item nav-item-sidebar permission-RECIPES @if($viewName == 'recipes') active-page @endif"
 					data-toggle="tooltip"
 					data-placement="right"
-					title="{{ $__t('Recipes') }}"
-					data-nav-for-page="recipes">
+					title="{{ $__t('Recipes') }}">
 					<a class="nav-link discrete-link"
 						href="{{ $U('/recipes') }}">
 						<i class="fa-solid fa-pizza-slice"></i>
@@ -165,11 +162,10 @@
 					</a>
 				</li>
 				@if(GROCY_FEATURE_FLAG_RECIPES_MEALPLAN)
-				<li class="nav-item nav-item-sidebar permission-RECIPES_MEALPLAN"
+				<li class="nav-item nav-item-sidebar permission-RECIPES_MEALPLAN @if($viewName == 'mealplan') active-page @endif"
 					data-toggle="tooltip"
 					data-placement="right"
-					title="{{ $__t('Meal plan') }}"
-					data-nav-for-page="mealplan">
+					title="{{ $__t('Meal plan') }}">
 					<a id="meal-plan-nav-link"
 						class="nav-link discrete-link"
 						href="{{ $U('/mealplan') }}">
@@ -181,11 +177,10 @@
 				@endif
 				@if(GROCY_FEATURE_FLAG_CHORES)
 				<div class="nav-item-divider"></div>
-				<li class="nav-item nav-item-sidebar"
+				<li class="nav-item nav-item-sidebar @if($viewName == 'choresoverview') active-page @endif"
 					data-toggle="tooltip"
 					data-placement="right"
-					title="{{ $__t('Chores overview') }}"
-					data-nav-for-page="choresoverview">
+					title="{{ $__t('Chores overview') }}">
 					<a class="nav-link discrete-link"
 						href="{{ $U('/choresoverview') }}">
 						<i class="fa-solid fa-home"></i>
@@ -194,11 +189,10 @@
 				</li>
 				@endif
 				@if(GROCY_FEATURE_FLAG_TASKS)
-				<li class="nav-item nav-item-sidebar"
+				<li class="nav-item nav-item-sidebar @if($viewName == 'tasks') active-page @endif"
 					data-toggle="tooltip"
 					data-placement="right"
-					title="{{ $__t('Tasks') }}"
-					data-nav-for-page="tasks">
+					title="{{ $__t('Tasks') }}">
 					<a class="nav-link discrete-link"
 						href="{{ $U('/tasks') }}">
 						<i class="fa-solid fa-tasks"></i>
@@ -207,11 +201,10 @@
 				</li>
 				@endif
 				@if(GROCY_FEATURE_FLAG_BATTERIES)
-				<li class="nav-item nav-item-sidebar"
+				<li class="nav-item nav-item-sidebar @if($viewName == 'batteriesoverview') active-page @endif"
 					data-toggle="tooltip"
 					data-placement="right"
-					title="{{ $__t('Batteries overview') }}"
-					data-nav-for-page="batteriesoverview">
+					title="{{ $__t('Batteries overview') }}">
 					<a class="nav-link discrete-link"
 						href="{{ $U('/batteriesoverview') }}">
 						<i class="fa-solid fa-battery-half"></i>
@@ -220,25 +213,25 @@
 				</li>
 				@endif
 				@if(GROCY_FEATURE_FLAG_EQUIPMENT)
-				<li class="nav-item nav-item-sidebar permission-EQUIPMENT"
+				<li class="nav-item nav-item-sidebar permission-EQUIPMENT @if($viewName == 'equipment') active-page @endif"
 					data-toggle="tooltip"
 					data-placement="right"
-					title="{{ $__t('Equipment') }}"
-					data-nav-for-page="equipment">
-					<a class="nav-link discrete-link"
-						href="{{ $U('/equipment') }}">
-						<i class="fa-solid fa-toolbox"></i>
-						<span class="nav-link-text">{{ $__t('Equipment') }}</span>
+					title="{{ $__t('Equipment') }}"">
+					<a class="
+					nav-link
+					discrete-link"
+					href="{{ $U('/equipment') }}">
+					<i class="fa-solid fa-toolbox"></i>
+					<span class="nav-link-text">{{ $__t('Equipment') }}</span>
 					</a>
 				</li>
 				@endif
 				@if(GROCY_FEATURE_FLAG_CALENDAR)
 				<div class="nav-item-divider"></div>
-				<li class="nav-item nav-item-sidebar permission-CALENDAR"
+				<li class="nav-item nav-item-sidebar permission-CALENDAR @if($viewName == 'calendar') active-page @endif"
 					data-toggle="tooltip"
 					data-placement="right"
-					title="{{ $__t('Calendar') }}"
-					data-nav-for-page="calendar">
+					title="{{ $__t('Calendar') }}">
 					<a class="nav-link discrete-link"
 						href="{{ $U('/calendar') }}">
 						<i class="fa-solid fa-calendar-days"></i>
@@ -249,22 +242,20 @@
 
 				@if(GROCY_FEATURE_FLAG_STOCK)
 				<div class="nav-item-divider"></div>
-				<li class="nav-item nav-item-sidebar permission-STOCK_PURCHASE"
+				<li class="nav-item nav-item-sidebar permission-STOCK_PURCHASE @if($viewName == 'purchase') active-page @endif"
 					data-toggle="tooltip"
 					data-placement="right"
-					title="{{ $__t('Purchase') }}"
-					data-nav-for-page="purchase">
+					title="{{ $__t('Purchase') }}">
 					<a class="nav-link discrete-link"
 						href="{{ $U('/purchase') }}">
 						<i class="fa-solid fa-cart-plus"></i>
 						<span class="nav-link-text">{{ $__t('Purchase') }}</span>
 					</a>
 				</li>
-				<li class="nav-item nav-item-sidebar permission-STOCK_CONSUME"
+				<li class="nav-item nav-item-sidebar permission-STOCK_CONSUME @if($viewName == 'consume') active-page @endif"
 					data-toggle="tooltip"
 					data-placement="right"
-					title="{{ $__t('Consume') }}"
-					data-nav-for-page="consume">
+					title="{{ $__t('Consume') }}">
 					<a class="nav-link discrete-link"
 						href="{{ $U('/consume') }}">
 						<i class="fa-solid fa-utensils"></i>
@@ -272,11 +263,10 @@
 					</a>
 				</li>
 				@if(GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING)
-				<li class="nav-item nav-item-sidebar permission-STOCK_TRANSFER"
+				<li class="nav-item nav-item-sidebar permission-STOCK_TRANSFER @if($viewName == 'transfer') active-page @endif"
 					data-toggle="tooltip"
 					data-placement="right"
-					title="{{ $__t('Transfer') }}"
-					data-nav-for-page="transfer">
+					title="{{ $__t('Transfer') }}">
 					<a class="nav-link discrete-link"
 						href="{{ $U('/transfer') }}">
 						<i class="fa-solid fa-exchange-alt"></i>
@@ -284,11 +274,10 @@
 					</a>
 				</li>
 				@endif
-				<li class="nav-item nav-item-sidebar permission-STOCK_INVENTORY"
+				<li class="nav-item nav-item-sidebar permission-STOCK_INVENTORY @if($viewName == 'inventory') active-page @endif"
 					data-toggle="tooltip"
 					data-placement="right"
-					title="{{ $__t('Inventory') }}"
-					data-nav-for-page="inventory">
+					title="{{ $__t('Inventory') }}">
 					<a class="nav-link discrete-link"
 						href="{{ $U('/inventory') }}">
 						<i class="fa-solid fa-list"></i>
@@ -297,11 +286,10 @@
 				</li>
 				@endif
 				@if(GROCY_FEATURE_FLAG_CHORES)
-				<li class="nav-item nav-item-sidebar permission-CHORE_TRACK_EXECUTION"
+				<li class="nav-item nav-item-sidebar permission-CHORE_TRACK_EXECUTION @if($viewName == 'choretracking') active-page @endif"
 					data-toggle="tooltip"
 					data-placement="right"
-					title="{{ $__t('Chore tracking') }}"
-					data-nav-for-page="choretracking">
+					title="{{ $__t('Chore tracking') }}">
 					<a class="nav-link discrete-link"
 						href="{{ $U('/choretracking') }}">
 						<i class="fa-solid fa-play"></i>
@@ -310,11 +298,10 @@
 				</li>
 				@endif
 				@if(GROCY_FEATURE_FLAG_BATTERIES)
-				<li class="nav-item nav-item-sidebar permission-BATTERIES_TRACK_CHARGE_CYCLE"
+				<li class="nav-item nav-item-sidebar permission-BATTERIES_TRACK_CHARGE_CYCLE @if($viewName == 'batterytracking') active-page @endif"
 					data-toggle="tooltip"
 					data-placement="right"
-					title="{{ $__t('Battery tracking') }}"
-					data-nav-for-page="batterytracking">
+					title="{{ $__t('Battery tracking') }}">
 					<a class="nav-link discrete-link"
 						href="{{ $U('/batterytracking') }}">
 						<i class="fa-solid fa-car-battery"></i>
@@ -327,36 +314,41 @@
 				@foreach($userentitiesForSidebar as $userentity)
 				@if($firstUserentity)
 				<div class="nav-item-divider"></div>
+				@php $firstUserentity = false; @endphp
 				@endif
-				<li class="nav-item nav-item-sidebar"
+				<li class="nav-item nav-item-sidebar @if($viewName == 'userobjects' && $__env->yieldContent('title') == $userentity->caption) active-page @endif"
 					data-toggle="tooltip"
 					data-placement="right"
-					title="{{ $userentity->caption }}"
-					data-nav-for-page="userentity-{{ $userentity->name }}">
+					title="{{ $userentity->caption }}">
 					<a class="nav-link discrete-link"
 						href="{{ $U('/userobjects/' . $userentity->name) }}">
 						<i class="{{ $userentity->icon_css_class }}"></i>
 						<span class="nav-link-text">{{ $userentity->caption }}</span>
 					</a>
 				</li>
-				@php if ($firstUserentity) { $firstUserentity = false; } @endphp
 				@endforeach
 
+				@php
+				$masterDataViews = [
+				'products', 'locations', 'shoppinglocations', 'quantityunits',
+				'productgroups', 'chores', 'batteries', 'taskcategories',
+				'userfields', 'userentities'
+				]
+				@endphp
 				<div class="nav-item-divider"></div>
 				<li class="nav-item nav-item-sidebar"
 					data-toggle="tooltip"
 					data-placement="right"
 					title="{{ $__t('Manage master data') }}">
-					<a class="nav-link nav-link-collapse collapsed discrete-link"
+					<a class="nav-link nav-link-collapse discrete-link @if(!in_array($viewName, $masterDataViews)) collapsed @else active-page @endif"
 						data-toggle="collapse"
-						href="#top-nav-manager-master-data">
+						href="#sub-nav-manage-master-data">
 						<i class="fa-solid fa-table"></i>
 						<span class="nav-link-text">{{ $__t('Manage master data') }}</span>
 					</a>
-					<ul id="top-nav-manager-master-data"
-						class="sidenav-second-level collapse">
-						<li data-nav-for-page="products"
-							data-sub-menu-of="#top-nav-manager-master-data">
+					<ul id="sub-nav-manage-master-data"
+						class="sidenav-second-level collapse @if(in_array($viewName, $masterDataViews)) show @endif">
+						<li class="@if($viewName == 'products') active-page @endif">
 							<a class="nav-link discrete-link"
 								href="{{ $U('/products') }}">
 								<span class="nav-link-text">{{ $__t('Products') }}</span>
@@ -364,8 +356,7 @@
 						</li>
 						@if(GROCY_FEATURE_FLAG_STOCK)
 						@if(GROCY_FEATURE_FLAG_STOCK_LOCATION_TRACKING)
-						<li data-nav-for-page="locations"
-							data-sub-menu-of="#top-nav-manager-master-data">
+						<li class="@if($viewName == 'locations') active-page @endif">
 							<a class="nav-link discrete-link"
 								href="{{ $U('/locations') }}">
 								<span class="nav-link-text">{{ $__t('Locations') }}</span>
@@ -373,8 +364,7 @@
 						</li>
 						@endif
 						@if(GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
-						<li data-nav-for-page="shoppinglocations"
-							data-sub-menu-of="#top-nav-manager-master-data">
+						<li class="@if($viewName == 'shoppinglocations') active-page @endif">
 							<a class="nav-link discrete-link"
 								href="{{ $U('/shoppinglocations') }}">
 								<span class="nav-link-text">{{ $__t('Stores') }}</span>
@@ -382,23 +372,20 @@
 						</li>
 						@endif
 						@endif
-						<li data-nav-for-page="quantityunits"
-							data-sub-menu-of="#top-nav-manager-master-data">
+						<li class="@if($viewName == 'quantityunits') active-page @endif">
 							<a class="nav-link discrete-link"
 								href="{{ $U('/quantityunits') }}">
 								<span class="nav-link-text">{{ $__t('Quantity units') }}</span>
 							</a>
 						</li>
-						<li data-nav-for-page="productgroups"
-							data-sub-menu-of="#top-nav-manager-master-data">
+						<li class="@if($viewName == 'productgroups') active-page @endif">
 							<a class="nav-link discrete-link"
 								href="{{ $U('/productgroups') }}">
 								<span class="nav-link-text">{{ $__t('Product groups') }}</span>
 							</a>
 						</li>
 						@if(GROCY_FEATURE_FLAG_CHORES)
-						<li data-nav-for-page="chores"
-							data-sub-menu-of="#top-nav-manager-master-data">
+						<li class="@if($viewName == 'chores') active-page @endif">
 							<a class="nav-link discrete-link"
 								href="{{ $U('/chores') }}">
 								<span class="nav-link-text">{{ $__t('Chores') }}</span>
@@ -406,8 +393,7 @@
 						</li>
 						@endif
 						@if(GROCY_FEATURE_FLAG_BATTERIES)
-						<li data-nav-for-page="batteries"
-							data-sub-menu-of="#top-nav-manager-master-data">
+						<li class="@if($viewName == 'batteries') active-page @endif">
 							<a class="nav-link discrete-link"
 								href="{{ $U('/batteries') }}">
 								<span class="nav-link-text">{{ $__t('Batteries') }}</span>
@@ -415,23 +401,20 @@
 						</li>
 						@endif
 						@if(GROCY_FEATURE_FLAG_TASKS)
-						<li data-nav-for-page="taskcategories"
-							data-sub-menu-of="#top-nav-manager-master-data">
+						<li class="@if($viewName == 'taskcategories') active-page @endif">
 							<a class="nav-link discrete-link"
 								href="{{ $U('/taskcategories') }}">
 								<span class="nav-link-text">{{ $__t('Task categories') }}</span>
 							</a>
 						</li>
 						@endif
-						<li data-nav-for-page="userfields"
-							data-sub-menu-of="#top-nav-manager-master-data">
+						<li class="@if($viewName == 'userfields') active-page @endif">
 							<a class="nav-link discrete-link"
 								href="{{ $U('/userfields') }}">
 								<span class="nav-link-text">{{ $__t('Userfields') }}</span>
 							</a>
 						</li>
-						<li data-nav-for-page="userentities"
-							data-sub-menu-of="#top-nav-manager-master-data">
+						<li class="@if($viewName == 'userentities') active-page @endif">
 							<a class="nav-link discrete-link"
 								href="{{ $U('/userentities') }}">
 								<span class="nav-link-text">{{ $__t('Userentities') }}</span>
@@ -716,9 +699,10 @@
 	<script src="{{ $U('/js/grocy_wakelockhandling.js?v=', true) }}{{ $version }}"></script>
 	<script src="{{ $U('/js/grocy_nightmode.js?v=', true) }}{{ $version }}"></script>
 	<script src="{{ $U('/js/grocy_clock.js?v=', true) }}{{ $version }}"></script>
+
 	@stack('pageScripts')
 	@stack('componentScripts')
-	@hasSection('viewJsName')<script src="{{ $U('/viewjs', true) }}/@yield('viewJsName').js?v={{ $version }}"></script>@endif
+	<script src="{{ $U('/viewjs/' . $viewName . '.js?v=', true) }}{{ $version }}"></script>
 
 	@if(file_exists(GROCY_DATAPATH . '/custom_js.html'))
 	@php include GROCY_DATAPATH . '/custom_js.html' @endphp

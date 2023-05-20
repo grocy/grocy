@@ -6,8 +6,6 @@
 @section('title', $__t('Create product'))
 @endif
 
-@section('viewJsName', 'productform')
-
 @section('content')
 <div class="row">
 	<div class="col">
@@ -146,7 +144,7 @@
 						$location->id == $product->default_consume_location_id) selected="selected" @endif value="{{ $location->id }}">{{ $location->name }}</option>
 					@endforeach
 				</select>
-				
+
 				@if(GROCY_FEATURE_FLAG_STOCK_PRODUCT_OPENED_TRACKING)
 				<div class="custom-control custom-checkbox">
 					<input @if($mode=='edit'
@@ -161,7 +159,7 @@
 					</label>
 				</div>
 				@endif
-				
+
 			</div>
 			@else
 			<input type="hidden"

@@ -2,8 +2,6 @@
 
 @section('title', $__t('Chores settings'))
 
-@section('viewJsName', 'choressettings')
-
 @section('content')
 <div class="row">
 	<div class="col">

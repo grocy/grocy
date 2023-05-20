@@ -1,7 +1,6 @@
 @extends('layout.default')
 
 @section('title', $__t('Stock report') . ' / ' . $__t('Spendings'))
-@section('viewJsName', 'stockreportspendings')
 
 @push('pageScripts')
 <script src="{{ $U('/node_modules/chart.js/dist/Chart.min.js?v=', true) }}{{ $version }}"></script>

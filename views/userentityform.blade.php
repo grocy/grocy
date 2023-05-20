@@ -6,8 +6,6 @@
 @section('title', $__t('Create userentity'))
 @endif
 
-@section('viewJsName', 'userentityform')
-
 @section('content')
 <div class="row">
 	<div class="col">

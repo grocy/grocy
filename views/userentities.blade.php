@@ -1,8 +1,6 @@
 @extends('layout.default')
 
 @section('title', $__t('Userentities'))
-@section('activeNav', 'userentities')
-@section('viewJsName', 'userentities')
 
 @section('content')
 <div class="row">
