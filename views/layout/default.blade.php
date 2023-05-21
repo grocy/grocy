@@ -241,13 +241,11 @@
 				<li class="nav-item nav-item-sidebar permission-EQUIPMENT @if($viewName == 'equipment') active-page @endif"
 					data-toggle="tooltip"
 					data-placement="right"
-					title="{{ $__t('Equipment') }}"">
-					<a class="
-					nav-link
-					discrete-link"
-					href="{{ $U('/equipment') }}">
-					<i class="fa-solid fa-toolbox"></i>
-					<span class="nav-link-text">{{ $__t('Equipment') }}</span>
+					title="{{ $__t('Equipment') }}">
+					<a class="nav-link discrete-link"
+						href="{{ $U('/equipment') }}">
+						<i class="fa-solid fa-toolbox"></i>
+						<span class="nav-link-text">{{ $__t('Equipment') }}</span>
 					</a>
 				</li>
 				@endif
