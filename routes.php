@@ -43,109 +43,79 @@ $app->group('', function (RouteCollectorProxy $group) {
 	$group->get('/product/{productId}/grocycode', '\Grocy\Controllers\StockController:ProductGrocycodeImage');
 
 	// Stock handling routes
-	if (GROCY_FEATURE_FLAG_STOCK)
-	{
-		$group->get('/stockoverview', '\Grocy\Controllers\StockController:Overview');
-		$group->get('/stockentries', '\Grocy\Controllers\StockController:Stockentries');
-		$group->get('/purchase', '\Grocy\Controllers\StockController:Purchase');
-		$group->get('/consume', '\Grocy\Controllers\StockController:Consume');
-		$group->get('/transfer', '\Grocy\Controllers\StockController:Transfer');
-		$group->get('/inventory', '\Grocy\Controllers\StockController:Inventory');
-		$group->get('/stockentry/{entryId}', '\Grocy\Controllers\StockController:StockEntryEditForm');
-		$group->get('/stocksettings', '\Grocy\Controllers\StockController:StockSettings');
-		$group->get('/locations', '\Grocy\Controllers\StockController:LocationsList');
-		$group->get('/location/{locationId}', '\Grocy\Controllers\StockController:LocationEditForm');
-		$group->get('/stockjournal', '\Grocy\Controllers\StockController:Journal');
-		$group->get('/locationcontentsheet', '\Grocy\Controllers\StockController:LocationContentSheet');
-		$group->get('/quantityunitpluraltesting', '\Grocy\Controllers\StockController:QuantityUnitPluralFormTesting');
-		$group->get('/stockjournal/summary', '\Grocy\Controllers\StockController:JournalSummary');
-		$group->get('/productbarcodes/{productBarcodeId}', '\Grocy\Controllers\StockController:ProductBarcodesEditForm');
-		$group->get('/stockentry/{entryId}/grocycode', '\Grocy\Controllers\StockController:StockEntryGrocycodeImage');
-		$group->get('/stockentry/{entryId}/label', '\Grocy\Controllers\StockController:StockEntryGrocycodeLabel');
-		$group->get('/quantityunitconversionsresolved', '\Grocy\Controllers\StockController:QuantityUnitConversionsResolved');
-
-		$group->get('/stockreports/spendings', '\Grocy\Controllers\StockReportsController:Spendings');
-	}
+	$group->get('/stockoverview', '\Grocy\Controllers\StockController:Overview');
+	$group->get('/stockentries', '\Grocy\Controllers\StockController:Stockentries');
+	$group->get('/purchase', '\Grocy\Controllers\StockController:Purchase');
+	$group->get('/consume', '\Grocy\Controllers\StockController:Consume');
+	$group->get('/transfer', '\Grocy\Controllers\StockController:Transfer');
+	$group->get('/inventory', '\Grocy\Controllers\StockController:Inventory');
+	$group->get('/stockentry/{entryId}', '\Grocy\Controllers\StockController:StockEntryEditForm');
+	$group->get('/stocksettings', '\Grocy\Controllers\StockController:StockSettings');
+	$group->get('/locations', '\Grocy\Controllers\StockController:LocationsList');
+	$group->get('/location/{locationId}', '\Grocy\Controllers\StockController:LocationEditForm');
+	$group->get('/stockjournal', '\Grocy\Controllers\StockController:Journal');
+	$group->get('/locationcontentsheet', '\Grocy\Controllers\StockController:LocationContentSheet');
+	$group->get('/quantityunitpluraltesting', '\Grocy\Controllers\StockController:QuantityUnitPluralFormTesting');
+	$group->get('/stockjournal/summary', '\Grocy\Controllers\StockController:JournalSummary');
+	$group->get('/productbarcodes/{productBarcodeId}', '\Grocy\Controllers\StockController:ProductBarcodesEditForm');
+	$group->get('/stockentry/{entryId}/grocycode', '\Grocy\Controllers\StockController:StockEntryGrocycodeImage');
+	$group->get('/stockentry/{entryId}/label', '\Grocy\Controllers\StockController:StockEntryGrocycodeLabel');
+	$group->get('/quantityunitconversionsresolved', '\Grocy\Controllers\StockController:QuantityUnitConversionsResolved');
+	$group->get('/stockreports/spendings', '\Grocy\Controllers\StockReportsController:Spendings');
 
 	// Stock price tracking
-	if (GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
-	{
-		$group->get('/shoppinglocations', '\Grocy\Controllers\StockController:ShoppingLocationsList');
-		$group->get('/shoppinglocation/{shoppingLocationId}', '\Grocy\Controllers\StockController:ShoppingLocationEditForm');
-	}
+	$group->get('/shoppinglocations', '\Grocy\Controllers\StockController:ShoppingLocationsList');
+	$group->get('/shoppinglocation/{shoppingLocationId}', '\Grocy\Controllers\StockController:ShoppingLocationEditForm');
 
 	// Shopping list routes
-	if (GROCY_FEATURE_FLAG_SHOPPINGLIST)
-	{
-		$group->get('/shoppinglist', '\Grocy\Controllers\StockController:ShoppingList');
-		$group->get('/shoppinglistitem/{itemId}', '\Grocy\Controllers\StockController:ShoppingListItemEditForm');
-		$group->get('/shoppinglist/{listId}', '\Grocy\Controllers\StockController:ShoppingListEditForm');
-		$group->get('/shoppinglistsettings', '\Grocy\Controllers\StockController:ShoppingListSettings');
-	}
+	$group->get('/shoppinglist', '\Grocy\Controllers\StockController:ShoppingList');
+	$group->get('/shoppinglistitem/{itemId}', '\Grocy\Controllers\StockController:ShoppingListItemEditForm');
+	$group->get('/shoppinglist/{listId}', '\Grocy\Controllers\StockController:ShoppingListEditForm');
+	$group->get('/shoppinglistsettings', '\Grocy\Controllers\StockController:ShoppingListSettings');
 
 	// Recipe routes
-	if (GROCY_FEATURE_FLAG_RECIPES)
-	{
-		$group->get('/recipes', '\Grocy\Controllers\RecipesController:Overview');
-		$group->get('/recipe/{recipeId}', '\Grocy\Controllers\RecipesController:RecipeEditForm');
-		$group->get('/recipe/{recipeId}/pos/{recipePosId}', '\Grocy\Controllers\RecipesController:RecipePosEditForm');
-		$group->get('/recipessettings', '\Grocy\Controllers\RecipesController:RecipesSettings');
-		$group->get('/recipe/{recipeId}/grocycode', '\Grocy\Controllers\RecipesController:RecipeGrocycodeImage');
+	$group->get('/recipes', '\Grocy\Controllers\RecipesController:Overview');
+	$group->get('/recipe/{recipeId}', '\Grocy\Controllers\RecipesController:RecipeEditForm');
+	$group->get('/recipe/{recipeId}/pos/{recipePosId}', '\Grocy\Controllers\RecipesController:RecipePosEditForm');
+	$group->get('/recipessettings', '\Grocy\Controllers\RecipesController:RecipesSettings');
+	$group->get('/recipe/{recipeId}/grocycode', '\Grocy\Controllers\RecipesController:RecipeGrocycodeImage');
 
-		if (GROCY_FEATURE_FLAG_RECIPES_MEALPLAN)
-		{
-			$group->get('/mealplan', '\Grocy\Controllers\RecipesController:MealPlan');
-			$group->get('/mealplansections', '\Grocy\Controllers\RecipesController:MealPlanSectionsList');
-			$group->get('/mealplansection/{sectionId}', '\Grocy\Controllers\RecipesController:MealPlanSectionEditForm');
-		}
-	}
+	// Meal plan routes
+	$group->get('/mealplan', '\Grocy\Controllers\RecipesController:MealPlan');
+	$group->get('/mealplansections', '\Grocy\Controllers\RecipesController:MealPlanSectionsList');
+	$group->get('/mealplansection/{sectionId}', '\Grocy\Controllers\RecipesController:MealPlanSectionEditForm');
 
 	// Chore routes
-	if (GROCY_FEATURE_FLAG_CHORES)
-	{
-		$group->get('/choresoverview', '\Grocy\Controllers\ChoresController:Overview');
-		$group->get('/choretracking', '\Grocy\Controllers\ChoresController:TrackChoreExecution');
-		$group->get('/choresjournal', '\Grocy\Controllers\ChoresController:Journal');
-		$group->get('/chores', '\Grocy\Controllers\ChoresController:ChoresList');
-		$group->get('/chore/{choreId}', '\Grocy\Controllers\ChoresController:ChoreEditForm');
-		$group->get('/choressettings', '\Grocy\Controllers\ChoresController:ChoresSettings');
-		$group->get('/chore/{choreId}/grocycode', '\Grocy\Controllers\ChoresController:ChoreGrocycodeImage');
-	}
+	$group->get('/choresoverview', '\Grocy\Controllers\ChoresController:Overview');
+	$group->get('/choretracking', '\Grocy\Controllers\ChoresController:TrackChoreExecution');
+	$group->get('/choresjournal', '\Grocy\Controllers\ChoresController:Journal');
+	$group->get('/chores', '\Grocy\Controllers\ChoresController:ChoresList');
+	$group->get('/chore/{choreId}', '\Grocy\Controllers\ChoresController:ChoreEditForm');
+	$group->get('/choressettings', '\Grocy\Controllers\ChoresController:ChoresSettings');
+	$group->get('/chore/{choreId}/grocycode', '\Grocy\Controllers\ChoresController:ChoreGrocycodeImage');
 
 	// Battery routes
-	if (GROCY_FEATURE_FLAG_BATTERIES)
-	{
-		$group->get('/batteriesoverview', '\Grocy\Controllers\BatteriesController:Overview');
-		$group->get('/batterytracking', '\Grocy\Controllers\BatteriesController:TrackChargeCycle');
-		$group->get('/batteriesjournal', '\Grocy\Controllers\BatteriesController:Journal');
-		$group->get('/batteries', '\Grocy\Controllers\BatteriesController:BatteriesList');
-		$group->get('/battery/{batteryId}', '\Grocy\Controllers\BatteriesController:BatteryEditForm');
-		$group->get('/batteriessettings', '\Grocy\Controllers\BatteriesController:BatteriesSettings');
-		$group->get('/battery/{batteryId}/grocycode', '\Grocy\Controllers\BatteriesController:BatteryGrocycodeImage');
-	}
+	$group->get('/batteriesoverview', '\Grocy\Controllers\BatteriesController:Overview');
+	$group->get('/batterytracking', '\Grocy\Controllers\BatteriesController:TrackChargeCycle');
+	$group->get('/batteriesjournal', '\Grocy\Controllers\BatteriesController:Journal');
+	$group->get('/batteries', '\Grocy\Controllers\BatteriesController:BatteriesList');
+	$group->get('/battery/{batteryId}', '\Grocy\Controllers\BatteriesController:BatteryEditForm');
+	$group->get('/batteriessettings', '\Grocy\Controllers\BatteriesController:BatteriesSettings');
+	$group->get('/battery/{batteryId}/grocycode', '\Grocy\Controllers\BatteriesController:BatteryGrocycodeImage');
 
 	// Task routes
-	if (GROCY_FEATURE_FLAG_TASKS)
-	{
-		$group->get('/tasks', '\Grocy\Controllers\TasksController:Overview');
-		$group->get('/task/{taskId}', '\Grocy\Controllers\TasksController:TaskEditForm');
-		$group->get('/taskcategories', '\Grocy\Controllers\TasksController:TaskCategoriesList');
-		$group->get('/taskcategory/{categoryId}', '\Grocy\Controllers\TasksController:TaskCategoryEditForm');
-		$group->get('/taskssettings', '\Grocy\Controllers\TasksController:TasksSettings');
-	}
+	$group->get('/tasks', '\Grocy\Controllers\TasksController:Overview');
+	$group->get('/task/{taskId}', '\Grocy\Controllers\TasksController:TaskEditForm');
+	$group->get('/taskcategories', '\Grocy\Controllers\TasksController:TaskCategoriesList');
+	$group->get('/taskcategory/{categoryId}', '\Grocy\Controllers\TasksController:TaskCategoryEditForm');
+	$group->get('/taskssettings', '\Grocy\Controllers\TasksController:TasksSettings');
 
 	// Equipment routes
-	if (GROCY_FEATURE_FLAG_EQUIPMENT)
-	{
-		$group->get('/equipment', '\Grocy\Controllers\EquipmentController:Overview');
-		$group->get('/equipment/{equipmentId}', '\Grocy\Controllers\EquipmentController:EditForm');
-	}
+	$group->get('/equipment', '\Grocy\Controllers\EquipmentController:Overview');
+	$group->get('/equipment/{equipmentId}', '\Grocy\Controllers\EquipmentController:EditForm');
 
 	// Calendar routes
-	if (GROCY_FEATURE_FLAG_CALENDAR)
-	{
-		$group->get('/calendar', '\Grocy\Controllers\CalendarController:Overview');
-	}
+	$group->get('/calendar', '\Grocy\Controllers\CalendarController:Overview');
 
 	// OpenAPI routes
 	$group->get('/api', '\Grocy\Controllers\OpenApiController:DocumentationUi');

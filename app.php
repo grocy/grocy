@@ -102,5 +102,7 @@ $errorMiddleware->setDefaultErrorHandler(
 
 $app->add(new CorsMiddleware($app->getResponseFactory()));
 
+$app->getRouteCollector()->setCacheFile(GROCY_DATAPATH . '/viewcache/route_cache.php');
+
 ob_clean(); // No response output before here
 $app->run();
