@@ -1,3 +1,5 @@
+@php require_frontend_packages(['bootstrap-combobox']); @endphp
+
 @once
 @push('componentScripts')
 <script src="{{ $U('/viewjs/components/productpicker.js', true) }}?v={{ $version }}"></script>

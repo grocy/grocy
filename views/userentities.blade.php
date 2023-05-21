@@ -1,3 +1,5 @@
+@php require_frontend_packages(['datatables']); @endphp
+
 @extends('layout.default')
 
 @section('title', $__t('Userentities'))

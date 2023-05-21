@@ -1,11 +1,8 @@
+@php require_frontend_packages(['datatables', 'animatecss']); @endphp
+
 @extends('layout.default')
 
 @section('title', $__t('Chores overview'))
-
-@push('pageStyles')
-<link href="{{ $U('/node_modules/animate.css/animate.min.css?v=', true) }}{{ $version }}"
-	rel="stylesheet">
-@endpush
 
 @section('content')
 <div class="row">

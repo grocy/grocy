@@ -1,3 +1,5 @@
+@php require_frontend_packages(['bootstrap-select']); @endphp
+
 @once
 @push('componentScripts')
 <script src="{{ $U('/viewjs/components/userfieldsform.js', true) }}?v={{ $version }}"></script>

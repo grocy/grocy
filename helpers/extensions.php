@@ -253,3 +253,12 @@ function string_ends_with($haystack, $needle)
 
 	return (substr($haystack, -$length) === $needle);
 }
+
+global $GROCY_REQUIRED_FRONTEND_PACKAGES;
+$GROCY_REQUIRED_FRONTEND_PACKAGES = [];
+function require_frontend_packages(array $packages)
+{
+	global $GROCY_REQUIRED_FRONTEND_PACKAGES;
+
+	$GROCY_REQUIRED_FRONTEND_PACKAGES = array_unique(array_merge($GROCY_REQUIRED_FRONTEND_PACKAGES, $packages));
+}

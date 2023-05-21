@@ -1,11 +1,8 @@
+@php require_frontend_packages(['animatecss']); @endphp
+
 @extends('layout.default')
 
 @section('title', $__t('Barcode scanner testing'))
-
-@push('pageScripts')
-<link href="{{ $U('/node_modules/animate.css/animate.min.css?v=', true) }}{{ $version }}"
-	rel="stylesheet">
-@endpush
 
 @section('content')
 <div class="row">

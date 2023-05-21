@@ -95,6 +95,7 @@
 - Like already possible for products/chores/batteries, locations, stores, quantity units, product groups and task categories can now be disabled to keep them for existing references without deleting them, but to hide them everywhere for selections and so on (new option "Active")
 - Added a new `config.php` setting `ENERGY_UNIT` to customize the label to display energy values (was fixed `kcal` before and defaults to that, so no changed behavior when not configured)
 - New logo and "Grocy" is now officially spelled with a capital initial letter (before everything was lowercase)
+- Various frontend performance enhancements
 - Fixed that users were unable to delete their own API keys (when not having the `All permissions` permission)
 - Fixed that button tooltips on some places didn't disappear after clicking the corresponding button
 - New translations: (thanks all the translators)

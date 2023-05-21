@@ -1,14 +1,10 @@
 @if (!GROCY_FEATURE_FLAG_DISABLE_BROWSER_BARCODE_CAMERA_SCANNING)
 
+@php require_frontend_packages(['quagga2']); @endphp
+
 @once
 @push('componentScripts')
 <script src="{{ $U('/viewjs/components/barcodescanner.js', true) }}?v={{ $version }}"></script>
-@endpush
-@endonce
-
-@once
-@push('pageScripts')
-<script src="{{ $U('/node_modules/@ericblade/quagga2/dist/quagga.min.js?v=', true) }}{{ $version }}"></script>
 @endpush
 @endonce
 
@@ -25,7 +21,6 @@
 	.combobox-container #barcodescanner-start-button {
 		margin-right: 36px !important;
 	}
-
 </style>
 @endpush
 

@@ -1,15 +1,8 @@
+@php require_frontend_packages(['datatables', 'animatecss', 'bwipjs']); @endphp
+
 @extends('layout.default')
 
 @section('title', $__t('API keys'))
-
-@push('pageScripts')
-<script src="{{ $U('/node_modules/bwip-js/dist/bwip-js-min.js?v=', true) }}{{ $version }}"></script>
-@endpush
-
-@push('pageStyles')
-<link href="{{ $U('/node_modules/animate.css/animate.min.css?v=', true) }}{{ $version }}"
-	rel="stylesheet">
-@endpush
 
 @section('content')
 <div class="row">

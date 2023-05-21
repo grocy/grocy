@@ -1,3 +1,5 @@
+@php require_frontend_packages(['bootstrap-select']); @endphp
+
 @extends('layout.default')
 
 @if($mode == 'edit')

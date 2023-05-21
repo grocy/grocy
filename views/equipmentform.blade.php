@@ -1,3 +1,5 @@
+@php require_frontend_packages(['summernote']); @endphp
+
 @extends('layout.default')
 
 @if($mode == 'edit')

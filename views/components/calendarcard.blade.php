@@ -1,3 +1,5 @@
+@php require_frontend_packages(['tempusdominus']); @endphp
+
 @once
 @push('componentScripts')
 <script src="{{ $U('/viewjs/components/calendarcard.js', true) }}?v={{ $version }}"></script>

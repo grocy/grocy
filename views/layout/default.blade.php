@@ -1,3 +1,5 @@
+@php global $GROCY_REQUIRED_FRONTEND_PACKAGES; @endphp
+
 <!DOCTYPE html>
 <html lang="{{ GROCY_LOCALE }}"
 	dir="{{ $dir }}">
@@ -6,7 +8,6 @@
 	<meta charset="utf-8">
 	<meta name="viewport"
 		content="width=device-width, initial-scale=1">
-
 	<meta name="robots"
 		content="noindex,nofollow">
 
@@ -19,12 +20,24 @@
 
 	<title>@yield('title') | Grocy</title>
 
+	<link href="{{ $U('/node_modules/@fontsource/open-sans/latin.css?v=', true) }}{{ $version }}"
+		rel="stylesheet">
 	<link href="{{ $U('/node_modules/bootstrap/dist/css/bootstrap.min.css?v=', true) }}{{ $version }}"
 		rel="stylesheet">
 	<link href="{{ $U('/node_modules/@fortawesome/fontawesome-free/css/all.min.css?v=', true) }}{{ $version }}"
 		rel="stylesheet">
+	<link href="{{ $U('/node_modules/toastr/build/toastr.min.css?v=', true) }}{{ $version }}"
+		rel="stylesheet">
+
+	@if(in_array('bootstrap-combobox', $GROCY_REQUIRED_FRONTEND_PACKAGES))
 	<link href="{{ $U('/node_modules/@danielfarrell/bootstrap-combobox/css/bootstrap-combobox.css?v=', true) }}{{ $version }}"
 		rel="stylesheet">
+	@endif
+	@if(in_array('bootstrap-select', $GROCY_REQUIRED_FRONTEND_PACKAGES))
+	<link href="{{ $U('/node_modules/bootstrap-select/dist/css/bootstrap-select.min.css?v=', true) }}{{ $version }}"
+		rel="stylesheet">
+	@endif
+	@if(in_array('datatables', $GROCY_REQUIRED_FRONTEND_PACKAGES))
 	<link href="{{ $U('/node_modules/datatables.net-bs4/css/dataTables.bootstrap4.min.css?v=', true) }}{{ $version }}"
 		rel="stylesheet">
 	<link href="{{ $U('/node_modules/datatables.net-colreorder-bs4/css/colReorder.bootstrap4.min.css?v=', true) }}{{ $version }}"
@@ -33,16 +46,28 @@
 		rel="stylesheet">
 	<link href="{{ $U('/node_modules/datatables.net-select-bs4/css/select.bootstrap4.min.css?v=', true) }}{{ $version }}"
 		rel="stylesheet">
-	<link href="{{ $U('/node_modules/toastr/build/toastr.min.css?v=', true) }}{{ $version }}"
-		rel="stylesheet">
+	@endif
+	@if(in_array('tempusdominus', $GROCY_REQUIRED_FRONTEND_PACKAGES))
 	<link href="{{ $U('/node_modules/tempusdominus-bootstrap-4/build/css/tempusdominus-bootstrap-4.min.css?v=', true) }}{{ $version }}"
 		rel="stylesheet">
+	@endif
+	@if(in_array('summernote', $GROCY_REQUIRED_FRONTEND_PACKAGES))
 	<link href="{{ $U('/node_modules/summernote/dist/summernote-bs4.css?v=', true) }}{{ $version }}"
 		rel="stylesheet">
-	<link href="{{ $U('/node_modules/bootstrap-select/dist/css/bootstrap-select.min.css?v=', true) }}{{ $version }}"
+	@endif
+	@if(in_array('animatecss', $GROCY_REQUIRED_FRONTEND_PACKAGES))
+	<link href="{{ $U('/node_modules/animate.css/animate.min.css?v=', true) }}{{ $version }}"
 		rel="stylesheet">
-	<link href="{{ $U('/node_modules/@fontsource/open-sans/latin.css?v=', true) }}{{ $version }}"
+	@endif
+	@if(in_array('fullcalendar', $GROCY_REQUIRED_FRONTEND_PACKAGES))
+	<link href="{{ $U('/node_modules/fullcalendar/dist/fullcalendar.min.css?v=', true) }}{{ $version }}"
 		rel="stylesheet">
+	@endif
+	@if(in_array('daterangepicker', $GROCY_REQUIRED_FRONTEND_PACKAGES))
+	<link href="{{ $U('/node_modules/daterangepicker/daterangepicker.css?v=', true) }}{{ $version }}"
+		rel="stylesheet">
+	@endif
+
 	<link href="{{ $U('/css/grocy_menu_layout.css?v=', true) }}{{ $version }}"
 		rel="stylesheet">
 	<link href="{{ $U('/css/grocy.css?v=', true) }}{{ $version }}"
@@ -670,7 +695,16 @@
 	<script src="{{ $U('/node_modules/jquery-serializejson/jquery.serializejson.min.js?v=', true) }}{{ $version }}"></script>
 	<script src="{{ $U('/node_modules/moment/min/moment.min.js?v=', true) }}{{ $version }}"></script>
 	@if(!empty($__t('moment_locale') && $__t('moment_locale') != 'x'))<script src="{{ $U('/node_modules', true) }}/moment/locale/{{ $__t('moment_locale') }}.js?v={{ $version }}"></script>@endif
+	<script src="{{ $U('/node_modules/toastr/build/toastr.min.js?v=', true) }}{{ $version }}"></script>
+	<script src="{{ $U('/node_modules/sprintf-js/dist/sprintf.min.js?v=', true) }}{{ $version }}"></script>
+	<script src="{{ $U('/node_modules/gettext-translator/dist/translator.js?v=', true) }}{{ $version }}"></script>
+	<script src="{{ $U('/node_modules/jquery-lazy/jquery.lazy.min.js?v=', true) }}{{ $version }}"></script>
+	<script src="{{ $U('/node_modules/nosleep.js/dist/NoSleep.min.js?v=', true) }}{{ $version }}"></script>
+
+	@if(in_array('bootstrap-combobox', $GROCY_REQUIRED_FRONTEND_PACKAGES))
 	<script src="{{ $U('/node_modules/@danielfarrell/bootstrap-combobox/js/bootstrap-combobox.js?v=', true) }}{{ $version }}"></script>
+	@endif
+	@if(in_array('datatables', $GROCY_REQUIRED_FRONTEND_PACKAGES))
 	<script src="{{ $U('/node_modules/datatables.net/js/jquery.dataTables.min.js?v=', true) }}{{ $version }}"></script>
 	<script src="{{ $U('/node_modules/datatables.net-bs4/js/dataTables.bootstrap4.js?v=', true) }}{{ $version }}"></script>
 	<script src="{{ $U('/node_modules/datatables.net-colreorder/js/dataTables.colReorder.min.js?v=', true) }}{{ $version }}"></script>
@@ -681,16 +715,37 @@
 	<script src="{{ $U('/node_modules/datatables.net-rowgroup-bs4/js/rowGroup.bootstrap4.min.js?v=', true) }}{{ $version }}"></script>
 	<script src="{{ $U('/node_modules/datatables.net-select/js/dataTables.select.min.js?v=', true) }}{{ $version }}"></script>
 	<script src="{{ $U('/node_modules/datatables.net-select-bs4/js/select.bootstrap4.min.js?v=', true) }}{{ $version }}"></script>
-	<script src="{{ $U('/node_modules/toastr/build/toastr.min.js?v=', true) }}{{ $version }}"></script>
+	@endif
+	@if(in_array('tempusdominus', $GROCY_REQUIRED_FRONTEND_PACKAGES))
 	<script src="{{ $U('/node_modules/tempusdominus-bootstrap-4/build/js/tempusdominus-bootstrap-4.min.js?v=', true) }}{{ $version }}"></script>
-	<script src="{{ $U('/node_modules/sprintf-js/dist/sprintf.min.js?v=', true) }}{{ $version }}"></script>
-	<script src="{{ $U('/node_modules/gettext-translator/dist/translator.js?v=', true) }}{{ $version }}"></script>
+	@endif
+	@if(in_array('summernote', $GROCY_REQUIRED_FRONTEND_PACKAGES))
 	<script src="{{ $U('/node_modules/summernote/dist/summernote-bs4.js?v=', true) }}{{ $version }}"></script>
 	@if(!empty($__t('summernote_locale') && $__t('summernote_locale') != 'x'))<script src="{{ $U('/node_modules', true) }}/summernote/dist/lang/summernote-{{ $__t('summernote_locale') }}.js?v={{ $version }}"></script>@endif
+	@endif
+	@if(in_array('bootstrap-select', $GROCY_REQUIRED_FRONTEND_PACKAGES))
 	<script src="{{ $U('/node_modules/bootstrap-select/dist/js/bootstrap-select.min.js?v=', true) }}{{ $version }}"></script>
 	@if(!empty($__t('bootstrap-select_locale') && $__t('bootstrap-select_locale') != 'x'))<script src="{{ $U('/node_modules', true) }}/bootstrap-select/dist/js/i18n/defaults-{{ $__t('bootstrap-select_locale') }}.js?v={{ $version }}"></script>@endif
-	<script src="{{ $U('/node_modules/jquery-lazy/jquery.lazy.min.js?v=', true) }}{{ $version }}"></script>
-	<script src="{{ $U('/node_modules/nosleep.js/dist/NoSleep.min.js?v=', true) }}{{ $version }}"></script>
+	@endif
+	@if(in_array('fullcalendar', $GROCY_REQUIRED_FRONTEND_PACKAGES))
+	<script src="{{ $U('/node_modules/fullcalendar/dist/fullcalendar.min.js?v=', true) }}{{ $version }}"></script>
+	@if(!empty($__t('fullcalendar_locale') && $__t('fullcalendar_locale') != 'x'))<script src="{{ $U('/node_modules', true) }}/fullcalendar/dist/locale/{{ $__t('fullcalendar_locale') }}.js?v={{ $version }}"></script>@endif
+	@endif
+	@if(in_array('daterangepicker', $GROCY_REQUIRED_FRONTEND_PACKAGES))
+	<script src="{{ $U('/node_modules/daterangepicker/daterangepicker.js?v=', true) }}{{ $version }}"></script>
+	@endif
+	@if(in_array('quagga2', $GROCY_REQUIRED_FRONTEND_PACKAGES))
+	<script src="{{ $U('/node_modules/@ericblade/quagga2/dist/quagga.min.js?v=', true) }}{{ $version }}"></script>
+	@endif
+	@if(in_array('bwipjs', $GROCY_REQUIRED_FRONTEND_PACKAGES))
+	<script src="{{ $U('/node_modules/bwip-js/dist/bwip-js-min.js?v=', true) }}{{ $version }}"></script>
+	@endif
+	@if(in_array('chartjs', $GROCY_REQUIRED_FRONTEND_PACKAGES))
+	<script src="{{ $U('/node_modules/chart.js/dist/Chart.min.js?v=', true) }}{{ $version }}"></script>
+	<script src="{{ $U('/node_modules/chartjs-plugin-colorschemes/dist/chartjs-plugin-colorschemes.min.js?v=', true) }}{{ $version}}"></script>
+	<script src="{{ $U('/node_modules/chartjs-plugin-doughnutlabel/dist/chartjs-plugin-doughnutlabel.js?v=', true) }}{{ $version }}"></script>
+	<script src="{{ $U('/node_modules/chartjs-plugin-piechart-outlabels/dist/chartjs-plugin-piechart-outlabels.min.js?v=', true) }}{{ $version}}"></script>
+	@endif
 
 	<script src="{{ $U('/js/extensions.js?v=', true) }}{{ $version }}"></script>
 	<script src="{{ $U('/js/grocy_menu_layout.js?v=', true) }}{{ $version }}"></script>
@@ -699,6 +754,13 @@
 	<script src="{{ $U('/js/grocy_wakelockhandling.js?v=', true) }}{{ $version }}"></script>
 	<script src="{{ $U('/js/grocy_nightmode.js?v=', true) }}{{ $version }}"></script>
 	<script src="{{ $U('/js/grocy_clock.js?v=', true) }}{{ $version }}"></script>
+
+	@if(in_array('datatables', $GROCY_REQUIRED_FRONTEND_PACKAGES))
+	<script src="{{ $U('/js/grocy_datatables.js?v=', true) }}{{ $version }}"></script>
+	@endif
+	@if(in_array('summernote', $GROCY_REQUIRED_FRONTEND_PACKAGES))
+	<script src="{{ $U('/js/grocy_summernote.js?v=', true) }}{{ $version }}"></script>
+	@endif
 
 	@stack('pageScripts')
 	@stack('componentScripts')

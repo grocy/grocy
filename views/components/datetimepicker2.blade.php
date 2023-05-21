@@ -1,3 +1,5 @@
+@php require_frontend_packages(['tempusdominus']); @endphp
+
 @once
 @push('componentScripts')
 <script src="{{ $U('/viewjs/components/datetimepicker2.js', true) }}?v={{ $version }}"></script>

@@ -1,19 +1,8 @@
+@php require_frontend_packages(['datatables', 'daterangepicker', 'chartjs']); @endphp
+
 @extends('layout.default')
 
 @section('title', $__t('Stock report') . ' / ' . $__t('Spendings'))
-
-@push('pageScripts')
-<script src="{{ $U('/node_modules/chart.js/dist/Chart.min.js?v=', true) }}{{ $version }}"></script>
-<script src="{{ $U('/node_modules/chartjs-plugin-colorschemes/dist/chartjs-plugin-colorschemes.min.js?v=', true) }}{{ $version}}"></script>
-<script src="{{ $U('/node_modules/chartjs-plugin-doughnutlabel/dist/chartjs-plugin-doughnutlabel.js?v=', true) }}{{ $version }}"></script>
-<script src="{{ $U('/node_modules/chartjs-plugin-piechart-outlabels/dist/chartjs-plugin-piechart-outlabels.min.js?v=', true) }}{{ $version}}"></script>
-<script src="{{ $U('/node_modules/daterangepicker/daterangepicker.js?v=', true) }}{{ $version }}"></script>
-@endpush
-
-@push('pageStyles')
-<link href="{{ $U('/node_modules/daterangepicker/daterangepicker.css?v=', true) }}{{ $version }}"
-	rel="stylesheet">
-@endpush
 
 @section('content')
 <div class="row">

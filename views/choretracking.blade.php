@@ -1,3 +1,5 @@
+@php require_frontend_packages(['bootstrap-combobox']); @endphp
+
 @extends('layout.default')
 
 @section('title', $__t('Chore tracking'))

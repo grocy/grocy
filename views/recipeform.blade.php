@@ -1,3 +1,5 @@
+@php require_frontend_packages(['datatables', 'summernote']); @endphp
+
 @extends('layout.default')
 
 @if($mode == 'edit')

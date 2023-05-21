@@ -1,15 +1,11 @@
+@php require_frontend_packages(['datatables', 'summernote', 'animatecss', 'bwipjs']); @endphp
+
 @extends('layout.default')
 
 @section('title', $__t('Shopping list'))
 
 @push('pageScripts')
-<script src="{{ $U('/node_modules/bwip-js/dist/bwip-js-min.js?v=', true) }}{{ $version }}"></script>
 <script src="{{ $U('/viewjs/purchase.js?v=', true) }}{{ $version }}"></script>
-@endpush
-
-@push('pageStyles')
-<link href="{{ $U('/node_modules/animate.css/animate.min.css?v=', true) }}{{ $version }}"
-	rel="stylesheet">
 @endpush
 
 @section('content')
@@ -270,12 +266,14 @@
 						{{ $listItem->default_shopping_location_name }}
 					</td>
 					<td>
+						@if($listItem->product_barcodes != null)
 						@foreach(explode(',', $listItem->product_barcodes) as $barcode)
 						@if(!empty($barcode))
 						<img class="barcode img-fluid pr-2"
 							data-barcode="{{ $barcode }}">
 						@endif
 						@endforeach
+						@endif
 					</td>
 
 					@include('components.userfields_tbody', array(
