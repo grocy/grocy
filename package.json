@@ -28,7 +28,6 @@
 		"fullcalendar": "^3.10.1",
 		"gettext-translator": "3.0.1",
 		"jquery": "^3.6.0",
-		"jquery-lazy": "^1.7.11",
 		"jquery-serializejson": "^2.9.0",
 		"moment": "^2.27.0",
 		"nosleep.js": "^0.12.0",

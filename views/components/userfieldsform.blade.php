@@ -203,8 +203,8 @@
 		</div>
 		<img src=""
 			alt="{{ $userfield->name }}"
-			class="userfield-current-file userfield-file-show d-none lazy mt-1 discrete-link"
-			data-uf-name="{{ $userfield->name }}" />
+			class="userfield-current-file userfield-file-show d-none mt-1 discrete-link"
+			loading="lazy" />
 	</div>
 	@endif
 

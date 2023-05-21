@@ -1156,19 +1156,12 @@ jpeg-js@^0.4.1:
   resolved "https://registry.yarnpkg.com/jpeg-js/-/jpeg-js-0.4.4.tgz#a9f1c6f1f9f0fa80cdb3484ed9635054d28936aa"
   integrity sha512-WZzeDOEtTOBK4Mdsar0IqEU5sMr3vSV2RqkAIzUEV2BHnUfKGyswWFPFwK5EeDo93K3FohSHbLAjj0s1Wzd+dg==
 
-jquery-lazy@^1.7.11:
-  version "1.7.11"
-  resolved "https://registry.yarnpkg.com/jquery-lazy/-/jquery-lazy-1.7.11.tgz#f4146501ba64cad95cc5c20f184ac1b1d3712fe5"
-  integrity sha512-jNAOMwfgf+lYaOCc/atBVjbOzAIRW5BUyjQ4b4jJPkQM6I0zGZd4m/Y73ekfAlrQQDg3/Dge3YNhW7Cqjgi0UA==
-  dependencies:
-    jquery ">=1.7.2"
-
 jquery-serializejson@^2.9.0:
   version "2.9.0"
   resolved "https://registry.yarnpkg.com/jquery-serializejson/-/jquery-serializejson-2.9.0.tgz#03e3764e3a4b42c1c5aae9f93d7f19320c5f35a6"
   integrity sha512-xR7rjl0tRKIVioV5lOkOSv7K8BHMvGzYzC7Ech1iAYuZiYf0ksEpLC8OqjA5VApXf/qn/49O9hTmW70+/EA0vA==
 
-jquery@>=1.10, jquery@>=1.12.0, jquery@>=1.7, jquery@>=1.7.2, jquery@^3.6.0:
+jquery@>=1.10, jquery@>=1.12.0, jquery@>=1.7, jquery@^3.6.0:
   version "3.7.0"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.7.0.tgz#fe2c01a05da500709006d8790fe21c8a39d75612"
   integrity sha512-umpJ0/k8X0MvD1ds0P9SfowREz2LenHsQaxSohMZ5OMNEU2r0tf8pdeEFTHMFxWVxKNyU9rTtK3CWzUCTKJUeQ==

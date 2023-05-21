@@ -198,7 +198,7 @@ $("#test-quantityunit-plural-forms-button").on("click", function(e)
 	$("#save-quantityunit-button").click();
 
 	bootbox.alert({
-		message: '<iframe height="400px" class="embed-responsive" src="' + U("/quantityunitpluraltesting?embedded&qu=") + Grocy.EditObjectId.toString() + '"></iframe>',
+		message: '<iframe height="400px" class="embed-responsive" src="' + U("/quantityunitpluraltesting?embedded&qu=") + Grocy.EditObjectId.toString() + '" loading="lazy"></iframe>',
 		closeButton: false,
 		size: "large",
 		callback: function(result)

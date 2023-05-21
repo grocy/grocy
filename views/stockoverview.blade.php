@@ -436,8 +436,8 @@
 					</td>
 					<td>
 						@if(!empty($currentStockEntry->product_picture_file_name))
-						<img data-src="{{ $U('/api/files/productpictures/' . base64_encode($currentStockEntry->product_picture_file_name) . '?force_serve_as=picture&best_fit_width=64&best_fit_height=64') }}"
-							class="lazy">
+						<img src="{{ $U('/api/files/productpictures/' . base64_encode($currentStockEntry->product_picture_file_name) . '?force_serve_as=picture&best_fit_width=64&best_fit_height=64') }}"
+							loading="lazy">
 						@endif
 					</td>
 					<td class="@if(!GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING) d-none @endif">

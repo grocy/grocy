@@ -322,7 +322,8 @@
 			<div class="modal-body">
 				<iframe id="shopping-list-stock-add-workflow-purchase-form-frame"
 					class="embed-responsive"
-					src=""></iframe>
+					src=""
+					loading="lazy"></iframe>
 			</div>
 			<div class="modal-footer">
 				<span id="shopping-list-stock-add-workflow-purchase-item-count"

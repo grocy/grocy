@@ -208,7 +208,7 @@ $(".calendar").each(function()
 
 				if (recipe.picture_file_name)
 				{
-					element.prepend('<div class="mx-auto mb-1"><img data-src="' + U("/api/files/recipepictures/") + btoa(recipe.picture_file_name) + '?force_serve_as=picture&best_fit_width=400" class="img-fluid rounded-circle lazy"></div>')
+					element.prepend('<div class="mx-auto mb-1"><img src="' + U("/api/files/recipepictures/") + btoa(recipe.picture_file_name) + '?force_serve_as=picture&best_fit_width=400" class="img-fluid rounded-circle" loading="lazy"></div>')
 				}
 			}
 			else if (event.type == "product")
@@ -279,7 +279,7 @@ $(".calendar").each(function()
 
 				if (productDetails.product.picture_file_name)
 				{
-					element.prepend('<div class="mx-auto mb-1"><img data-src="' + U("/api/files/productpictures/") + btoa(productDetails.product.picture_file_name) + '?force_serve_as=picture&best_fit_width=400" class="img-fluid rounded-circle lazy"></div>')
+					element.prepend('<div class="mx-auto mb-1"><img src="' + U("/api/files/productpictures/") + btoa(productDetails.product.picture_file_name) + '?force_serve_as=picture&best_fit_width=400" class="img-fluid rounded-circle" loading="lazy"></div>')
 				}
 			}
 			else if (event.type == "note")
@@ -352,7 +352,6 @@ $(".calendar").each(function()
 				});
 
 				RefreshLocaleNumberDisplay();
-				LoadImagesLazy();
 				$('[data-toggle="tooltip"]').tooltip();
 
 				if (!Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK)
@@ -929,7 +928,7 @@ $(document).on("click", ".display-recipe-button", function(e)
 		function(result)
 		{
 			bootbox.dialog({
-				message: '<iframe height="650px" class="embed-responsive" src="' + U("/recipes?embedded&recipe=") + objectId + '#fullscreen"></iframe>',
+				message: '<iframe height="650px" class="embed-responsive" src="' + U("/recipes?embedded&recipe=") + objectId + '#fullscreen" loading="lazy"></iframe>',
 				size: 'extra-large',
 				backdrop: true,
 				closeButton: false,

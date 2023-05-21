@@ -323,7 +323,8 @@
 					<p>
 						@if($mode == 'edit')
 						<img src="{{ $U('/chore/' . $chore->id . '/grocycode?size=60') }}"
-							class="float-lg-left">
+							class="float-lg-left"
+							loading="lazy">
 						@endif
 					</p>
 					<p>

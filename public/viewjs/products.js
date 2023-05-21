@@ -10,7 +10,6 @@
 });
 $('#products-table tbody').removeClass("d-none");
 productsTable.columns.adjust().draw();
-LoadImagesLazy();
 
 $("#search").on("keyup", Delay(function()
 {

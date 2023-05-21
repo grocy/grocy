@@ -6,8 +6,15 @@ $("textarea.wysiwyg-editor").summernote({
 		{
 			// Summernote workaround: Make images responsive
 			// By adding the "img-fluid" class to the img tag
-			$img = $('<img>').attr({ src: url, class: "img-fluid" })
+			$img = $('<img>').attr({ src: url, class: "img-fluid", loading: "lazy" })
 			$(this).summernote("insertNode", $img[0]);
 		}
 	}
+});
+
+// Summernote workaround: Make embeds responsive
+// By wrapping any embeded video in a container with class "embed-responsive"
+$(".note-video-clip").each(function()
+{
+	$(this).parent().html('<div class="embed-responsive embed-responsive-16by9">' + $(this).wrap("<p/>").parent().html() + "</div>");
 });

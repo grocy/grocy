@@ -63,7 +63,6 @@ $("a[data-toggle='tab']").on("shown.bs.tab", function(e)
 {
 	var tabId = $(e.target).attr("id");
 	window.localStorage.setItem("recipes_last_tab_id", tabId);
-	LoadImagesLazy();
 });
 
 $("#search").on("keyup", Delay(function()
@@ -293,7 +292,7 @@ recipesTables.on('select', function(e, dt, type, indexes)
 		else
 		{
 			bootbox.dialog({
-				message: '<iframe height="650px" class="embed-responsive" src="' + U("/recipes?embedded&recipe=") + selectedRecipeId + '#fullscreen"></iframe>',
+				message: '<iframe height="650px" class="embed-responsive" src="' + U("/recipes?embedded&recipe=") + selectedRecipeId + '#fullscreen" loading="lazy"></iframe>',
 				size: 'extra-large',
 				backdrop: true,
 				closeButton: false,
@@ -325,7 +324,7 @@ $(".recipe-gallery-item").on("click", function(e)
 	else
 	{
 		bootbox.dialog({
-			message: '<iframe height="650px" class="embed-responsive" src="' + U("/recipes?embedded&recipe=") + selectedRecipeId + '#fullscreen"></iframe>',
+			message: '<iframe height="650px" class="embed-responsive" src="' + U("/recipes?embedded&recipe=") + selectedRecipeId + '#fullscreen" loading="lazy"></iframe>',
 			size: 'extra-large',
 			backdrop: true,
 			closeButton: false,
@@ -418,8 +417,6 @@ if (window.location.hash === "#fullscreen")
 {
 	$("#selectedRecipeToggleFullscreenButton").click();
 }
-
-LoadImagesLazy();
 
 $(document).on('click', '.recipe-grocycode-label-print', function(e)
 {

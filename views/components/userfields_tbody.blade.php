@@ -44,9 +44,9 @@ $excludeFieldTypes = [];
 	<a class="show-as-dialog-link"
 		href="{{ $U('/files/userfiles/'. $userfieldObject->value . '?force_serve_as=picture') }}">
 		<img src="{{ $U('/files/userfiles/'. $userfieldObject->value . '?force_serve_as=picture&best_fit_width=32&best_fit_height=32') }}"
-			class="lazy"
 			title="{{ base64_decode(explode('_', $userfieldObject->value)[1]) }}"
-			alt="{{ base64_decode(explode('_', $userfieldObject->value)[1]) }}">
+			alt="{{ base64_decode(explode('_', $userfieldObject->value)[1]) }}"
+			loading="lazy">
 	</a>
 	@else
 	{{ $userfieldObject->value }}

@@ -35,7 +35,6 @@ var stockOverviewTable = $('#stock-overview-table').DataTable({
 
 $('#stock-overview-table tbody').removeClass("d-none");
 stockOverviewTable.columns.adjust().draw();
-LoadImagesLazy();
 
 $("#location-filter").on("change", function()
 {

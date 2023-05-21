@@ -738,7 +738,8 @@
 					<p>
 						@if($mode == 'edit')
 						<img src="{{ $U('/product/' . $product->id . '/grocycode?size=60') }}"
-							class="float-lg-left">
+							class="float-lg-left"
+							loading="lazy">
 						@endif
 					</p>
 					<p>
@@ -869,8 +870,9 @@
 				</div>
 				@if($mode == "edit" && !empty($product->picture_file_name))
 				<img id="current-product-picture"
-					data-src="{{ $U('/api/files/productpictures/' . base64_encode($product->picture_file_name) . '?force_serve_as=picture&best_fit_width=400') }}"
-					class="img-fluid img-thumbnail mt-2 lazy mb-5">
+					src="{{ $U('/api/files/productpictures/' . base64_encode($product->picture_file_name) . '?force_serve_as=picture&best_fit_width=400') }}"
+					class="img-fluid img-thumbnail mt-2 mb-5"
+					loading="lazy">
 				<p id="delete-current-product-picture-on-save-hint"
 					class="form-text text-muted font-italic d-none mb-5">{{ $__t('The current picture will be deleted on save') }}</p>
 				@else

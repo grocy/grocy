@@ -159,8 +159,9 @@
 		</div>
 		@if(!empty($user->picture_file_name))
 		<img id="current-user-picture"
-			data-src="{{ $U('/api/files/userpictures/' . base64_encode($user->picture_file_name) . '?force_serve_as=picture&best_fit_width=400') }}"
-			class="img-fluid img-thumbnail mt-2 lazy mb-5">
+			src="{{ $U('/api/files/userpictures/' . base64_encode($user->picture_file_name) . '?force_serve_as=picture&best_fit_width=400') }}"
+			class="img-fluid img-thumbnail mt-2 mb-5"
+			loading="lazy">
 		<p id="delete-current-user-picture-on-save-hint"
 			class="form-text text-muted font-italic d-none mb-5">{{ $__t('The current picture will be deleted on save') }}</p>
 		@else

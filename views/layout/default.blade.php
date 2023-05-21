@@ -466,7 +466,8 @@
 						<i class="fa-solid fa-user"></i>
 						@else
 						<img class="rounded-circle"
-							src="{{ $U('/files/userpictures/' . base64_encode(GROCY_USER_PICTURE_FILE_NAME) . '_' . base64_encode(GROCY_USER_PICTURE_FILE_NAME) . '?force_serve_as=picture&best_fit_width=32&best_fit_height=32') }}">
+							src="{{ $U('/files/userpictures/' . base64_encode(GROCY_USER_PICTURE_FILE_NAME) . '_' . base64_encode(GROCY_USER_PICTURE_FILE_NAME) . '?force_serve_as=picture&best_fit_width=32&best_fit_height=32') }}"
+							loading="lazy">
 						@endif
 						{{ GROCY_USER_USERNAME }}
 					</a>
@@ -666,9 +667,8 @@
 						<a class="dropdown-item discrete-link"
 							href="{{ $U('/barcodescannertesting') }}"><i class="fa-solid fa-barcode"></i>&nbsp;{{ $__t('Barcode scanner testing') }}</a>
 						<div class="dropdown-divider"></div>
-						<a id="about-dialog-link"
-							class="dropdown-item discrete-link"
-							href="#"><i class="fa-solid fa-info fa-fw"></i>&nbsp;{{ $__t('About Grocy') }}</a>
+						<a class="dropdown-item discrete-link show-as-dialog-link"
+							href="{{ $U('/about?embedded') }}"><i class="fa-solid fa-info fa-fw"></i>&nbsp;{{ $__t('About Grocy') }}</a>
 					</div>
 				</li>
 			</ul>
@@ -696,7 +696,6 @@
 	<script src="{{ $U('/node_modules/toastr/build/toastr.min.js?v=', true) }}{{ $version }}"></script>
 	<script src="{{ $U('/node_modules/sprintf-js/dist/sprintf.min.js?v=', true) }}{{ $version }}"></script>
 	<script src="{{ $U('/node_modules/gettext-translator/dist/translator.js?v=', true) }}{{ $version }}"></script>
-	<script src="{{ $U('/node_modules/jquery-lazy/jquery.lazy.min.js?v=', true) }}{{ $version }}"></script>
 	<script src="{{ $U('/node_modules/nosleep.js/dist/NoSleep.min.js?v=', true) }}{{ $version }}"></script>
 
 	@if(in_array('bootstrap-combobox', $GROCY_REQUIRED_FRONTEND_PACKAGES))

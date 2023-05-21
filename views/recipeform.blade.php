@@ -326,8 +326,9 @@
 				</div>
 				@if(!empty($recipe->picture_file_name))
 				<img id="current-recipe-picture"
-					data-src="{{ $U('/api/files/recipepictures/' . base64_encode($recipe->picture_file_name) . '?force_serve_as=picture&best_fit_width=400') }}"
-					class="img-fluid img-thumbnail mt-2 lazy mb-5">
+					src="{{ $U('/api/files/recipepictures/' . base64_encode($recipe->picture_file_name) . '?force_serve_as=picture&best_fit_width=400') }}"
+					class="img-fluid img-thumbnail mt-2 mb-5"
+					loading="lazy">
 				<p id="delete-current-recipe-picture-on-save-hint"
 					class="form-text text-muted font-italic d-none mb-5">{{ $__t('The current picture will be deleted on save') }}</p>
 				@else
@@ -350,7 +351,8 @@
 					<p>
 						@if($mode == 'edit')
 						<img src="{{ $U('/recipe/' . $recipe->id . '/grocycode?size=60') }}"
-							class="float-lg-left">
+							class="float-lg-left"
+							loading="lazy">
 						@endif
 					</p>
 					<p>

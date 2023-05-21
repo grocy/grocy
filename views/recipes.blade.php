@@ -257,8 +257,9 @@
 						<div id="RecipeGalleryCard-{{ $recipe->id }}"
 							class="card recipe-card">
 							@if(!empty($recipe->picture_file_name))
-							<img data-src="{{ $U('/api/files/recipepictures/' . base64_encode($recipe->picture_file_name) . '?force_serve_as=picture&best_fit_width=400') }}"
-								class="card-img-top lazy">
+							<img src="{{ $U('/api/files/recipepictures/' . base64_encode($recipe->picture_file_name) . '?force_serve_as=picture&best_fit_width=400') }}"
+								class="card-img-top"
+								loading="lazy">
 							@endif
 							<div class="card-body text-center">
 								<h5 class="card-title mb-1">{{ $recipe->name }}</h5>
@@ -323,8 +324,9 @@
 					id="recipe-{{ $index + 1 }}"
 					role="tabpanel">
 					@if(!empty($recipe->picture_file_name))
-					<img class="card-img-top lazy"
-						src="{{ $U('/api/files/recipepictures/' . base64_encode($recipe->picture_file_name) . '?force_serve_as=picture') }}">
+					<img class="card-img-top"
+						src="{{ $U('/api/files/recipepictures/' . base64_encode($recipe->picture_file_name) . '?force_serve_as=picture') }}"
+						loading="lazy">
 					@endif
 					<div class="card-body">
 						<div class="shadow p-4 mb-5 bg-white rounded mt-n5 d-print-none @if(empty($recipe->picture_file_name)) d-none @endif">

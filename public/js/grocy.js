@@ -583,15 +583,6 @@ if (window.location.hash)
 	$(window.location.hash).addClass("p-2 border border-info rounded");
 }
 
-$("#about-dialog-link").on("click", function()
-{
-	bootbox.alert({
-		message: '<iframe height="400px" class="embed-responsive" src="' + U("/about?embedded") + '"></iframe>',
-		closeButton: false,
-		size: "large"
-	});
-});
-
 function RefreshLocaleNumberDisplay(rootSelector = "#page-content")
 {
 	$(rootSelector + " .locale-number.locale-number-currency").each(function()
@@ -674,22 +665,6 @@ $(document).on("click", ".easy-link-copy-textbox", function()
 	$(this).select();
 });
 
-// Summernote workaround: Make embeds responsive
-// By wrapping any embeded video in a container with class "embed-responsive"
-$(".note-video-clip").each(function()
-{
-	$(this).parent().html('<div class="embed-responsive embed-responsive-16by9">' + $(this).wrap("<p/>").parent().html() + "</div>");
-});
-
-function LoadImagesLazy()
-{
-	$(".lazy:visible").Lazy({
-		enableThrottle: true,
-		throttle: 500
-	});
-}
-LoadImagesLazy();
-
 if (Grocy.CalendarFirstDayOfWeek)
 {
 	moment.updateLocale(moment.locale(), {
@@ -720,7 +695,7 @@ $(document).on("click", ".show-as-dialog-link", function(e)
 	var link = $(e.currentTarget).attr("href");
 
 	bootbox.dialog({
-		message: '<iframe height="650px" class="embed-responsive" src="' + link + '"></iframe>',
+		message: '<iframe height="650px" class="embed-responsive" src="' + link + '" loading="lazy"></iframe>',
 		size: 'large',
 		backdrop: true,
 		closeButton: false,
@@ -738,7 +713,7 @@ $(document).on("click", ".show-as-dialog-link", function(e)
 });
 
 // Init Bootstrap tooltips
-$('[data-toggle="tooltip"]').tooltip()
+$('[data-toggle="tooltip"]').tooltip();
 
 // serializeJSON defaults
 $.serializeJSON.defaultOptions.checkboxUncheckedValue = "0";
@@ -750,6 +725,7 @@ $(Grocy.UserPermissions).each(function(index, item)
 		$('.permission-' + item.permission_name).addClass('disabled').addClass('not-allowed');
 	}
 });
+
 $('a.link-return').not(".btn").each(function()
 {
 	var base = $(this).data('href');
@@ -762,8 +738,7 @@ $('a.link-return').not(".btn").each(function()
 		$(this).attr('href', base + '?returnto=' + encodeURIComponent(Grocy.CurrentUrlRelative));
 	}
 
-})
-
+});
 $(document).on("click", "a.btn.link-return", function(e)
 {
 	e.preventDefault();

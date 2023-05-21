@@ -212,8 +212,8 @@
 						@endif
 					</td>
 					<td>
-						<img data-src="{{ $U('/product/' . $product->id . '/grocycode?size=25') }}"
-							class="lazy">
+						<img src="{{ $U('/product/' . $product->id . '/grocycode?size=25') }}"
+							loading="lazy">
 					</td>
 
 					@include('components.userfields_tbody', array(

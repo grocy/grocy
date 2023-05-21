@@ -159,7 +159,6 @@ Grocy.Components.UserfieldsForm.Load = function()
 							formGroup.find('.userfield-file-show').removeClass('d-none');
 							formGroup.find('img.userfield-current-file')
 								.attr('src', U('/files/userfiles/' + value + '?force_serve_as=picture&best_fit_width=250&best_fit_height=250'));
-							LoadImagesLazy();
 
 							formGroup.find('.userfield-file-delete').click(
 								function()
@@ -240,7 +239,6 @@ Grocy.Components.UserfieldsForm.Clear = function()
 					formGroup.find('.userfield-file-show').removeClass('d-none');
 					formGroup.find('img.userfield-current-file')
 						.attr('src', U('/files/userfiles/' + value + '?force_serve_as=picture&best_fit_width=250&best_fit_height=250'));
-					LoadImagesLazy();
 
 					formGroup.find('.userfield-file-delete').click(
 						function()
