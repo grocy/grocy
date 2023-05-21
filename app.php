@@ -1,7 +1,8 @@
 <?php
 
-use Grocy\Controllers\LoginController;
+use Grocy\Controllers\ExceptionController;
 use Grocy\Helpers\UrlManager;
+use Grocy\Middleware\LocaleMiddleware;
 use Grocy\Middleware\CorsMiddleware;
 use Psr\Container\ContainerInterface as Container;
 use Slim\Factory\AppFactory;
@@ -84,7 +85,7 @@ if (!empty(GROCY_BASE_PATH))
 
 if (GROCY_MODE === 'production' || GROCY_MODE === 'dev')
 {
-	$app->add(new \Grocy\Middleware\LocaleMiddleware($container));
+	$app->add(new LocaleMiddleware($container));
 }
 else
 {
@@ -97,7 +98,7 @@ $app->add(new $authMiddlewareClass($container, $app->getResponseFactory()));
 $app->addRoutingMiddleware();
 $errorMiddleware = $app->addErrorMiddleware(true, false, false);
 $errorMiddleware->setDefaultErrorHandler(
-	new \Grocy\Controllers\ExceptionController($app, $container)
+	new ExceptionController($app, $container)
 );
 
 $app->add(new CorsMiddleware($app->getResponseFactory()));
