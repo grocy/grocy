@@ -539,7 +539,7 @@
 					data-toggle="tooltip"
 					data-trigger="hover click"
 					title="{{ $__t('This is the default which will be prefilled on purchase') }}"></i>
-				<select class="form-control"
+				<select class="custom-control custom-select"
 					id="default_stock_label_type"
 					name="default_stock_label_type">
 					<option @if($mode=='edit'

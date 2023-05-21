@@ -116,7 +116,7 @@
 						data-trigger="hover click"
 						title="{{ $__t('This will apply to added products') }}"></i>
 				</label>
-				<select class="form-control"
+				<select class="custom-control custom-select"
 					id="stock_label_type"
 					name="stock_label_type">
 					<option value="0">{{ $__t('No label') }}</option>
