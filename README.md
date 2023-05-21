@@ -160,7 +160,7 @@ See https://grocy.info/#say-thanks for more ideas if you just want to say thanks
 
 There is none. The progress of a specific bug/enhancement is always tracked in the corresponding issue, at least by commit comment references.
 
-[Milestones](https://github.com/grocy/grocy/milestones) are used to indicate in which version the corresponding request was done (`vNEXT` means it will be part of the next release).
+[Milestones](https://github.com/grocy/grocy/milestones) are used to indicate in which version the corresponding request was done (`vNEXT` means it's currently planned to do that for the next release).
 
 ## Screenshots
 
