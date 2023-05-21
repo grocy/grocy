@@ -271,6 +271,7 @@
 									<span class="dropdown-item-icon"><i class="fa-solid fa-list"></i></span> <span class="dropdown-item-text">{{ $__t('Inventory') }}</span>
 								</a>
 								@if(GROCY_FEATURE_FLAG_RECIPES)
+								<div class="dropdown-divider"></div>
 								<a class="dropdown-item"
 									type="button"
 									href="{{ $U('/recipes?search=') }}{{ $currentStockEntry->product_name }}">

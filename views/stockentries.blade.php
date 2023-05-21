@@ -178,7 +178,6 @@
 									href="{{ $U('/inventory?embedded&product=' . $stockEntry->product_id ) }}">
 									<i class="fa-solid fa-list"></i> {{ $__t('Inventory') }}
 								</a>
-								<div class="dropdown-divider"></div>
 								<a class="dropdown-item stock-consume-button stock-consume-button-spoiled"
 									type="button"
 									href="#"
@@ -192,6 +191,7 @@
 									{{ $__t('Consume this stock entry as spoiled', '1 ' . FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $stockEntry->product_id)->qu_id_stock)->name, FindObjectInArrayByPropertyValue($products, 'id', $stockEntry->product_id)->name) }}
 								</a>
 								@if(GROCY_FEATURE_FLAG_RECIPES)
+								<div class="dropdown-divider"></div>
 								<a class="dropdown-item"
 									type="button"
 									href="{{ $U('/recipes?search=') }}{{ FindObjectInArrayByPropertyValue($products, 'id', $stockEntry->product_id)->name }}">
