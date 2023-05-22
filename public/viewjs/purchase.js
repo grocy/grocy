@@ -721,14 +721,17 @@ function ScanModeSubmit(singleUnit = true)
 	}
 }
 
-$("#stock_label_type, #amount").on("change", function(e)
+if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_LABEL_PRINTER)
 {
-	if ($("#stock_label_type").val() == 2)
+	$("#stock_label_type, #amount").on("change", function(e)
 	{
-		$("#stock-entry-label-info").text(__n(Number.parseFloat($("#amount").val()), "This means 1 label will be printed", "This means %1$s labels will be printed"));
-	}
-	else
-	{
-		$("#stock-entry-label-info").text("");
-	}
-});
+		if ($("#stock_label_type").val() == 2)
+		{
+			$("#stock-entry-label-info").text(__n(Number.parseFloat($("#amount").val()), "This means 1 label will be printed", "This means %1$s labels will be printed"));
+		}
+		else
+		{
+			$("#stock-entry-label-info").text("");
+		}
+	});
+}
