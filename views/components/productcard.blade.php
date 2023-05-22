@@ -45,10 +45,10 @@
 				class="locale-number locale-number-quantity-amount"></span> <span id="productcard-product-stock-qu-name"></span>
 		</span>
 		<span id="productcard-product-stock-opened-amount"
-			class="small font-italic locale-number locale-number-quantity-amount"></span>
+			class="small font-italic"></span>
 		<span id="productcard-aggregated-amounts"
 			class="pl-2 text-secondary d-none"><i class="fa-solid fa-custom-sigma-sign"></i> <span id="productcard-product-stock-amount-aggregated"
-				class="locale-number locale-number-quantity-amount"></span> <span id="productcard-product-stock-qu-name-aggregated"></span> <span id="productcard-product-stock-opened-amount-aggregated locale-number locale-number-quantity-amount"
+				class="locale-number locale-number-quantity-amount"></span> <span id="productcard-product-stock-qu-name-aggregated"></span> <span id="productcard-product-stock-opened-amount-aggregated"
 				class="small font-italic"></span></span><br>
 
 		@if(GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
