@@ -152,9 +152,7 @@ In embedded mode, settings can be overridden by text files in `data/settingoverr
 
 ## Contributing / Say Thanks
 
-Any help is more than appreciated. Feel free to pick any open unassigned issue and submit a pull request, but please leave a short comment or assign the issue yourself, to avoid working on the same thing.
-
-See https://grocy.info/#say-thanks for more ideas if you just want to say thanks.
+Any help is welcome, feel free to contribute anything which comes to your mind or see <<https://grocy.info/#say-thanks> > if you just want to say thanks.
 
 ## Roadmap
 
