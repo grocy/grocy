@@ -2421,3 +2421,8 @@ msgstr ""
 
 msgid "When displaying prices for this product, they will be related to this quantity unit"
 msgstr ""
+
+msgid "This means 1 label will be printed"
+msgid_plural "This means %1$s labels will be printed"
+msgstr[0] ""
+msgstr[1] ""

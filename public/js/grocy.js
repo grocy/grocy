@@ -283,11 +283,11 @@ __n = function(number, singularForm, pluralForm, isQu = false)
 
 	if (isQu)
 	{
-		return sprintf(Grocy.TranslatorQu.n__(singularForm, pluralForm, number, number), number.toString());
+		return sprintf(Grocy.TranslatorQu.n__(singularForm, pluralForm, number, number), number.toLocaleString());
 	}
 	else
 	{
-		return sprintf(Grocy.Translator.n__(singularForm, pluralForm, number, number), number.toString());
+		return sprintf(Grocy.Translator.n__(singularForm, pluralForm, number, number), number.toLocaleString());
 	}
 }
 

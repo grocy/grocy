@@ -13,6 +13,11 @@ Grocy.Components.ProductAmountPicker.Reload = function(productId, destinationQuI
 
 		conversionsForProduct.forEach(conversion =>
 		{
+			if (conversion.to_qu_id == destinationQuId)
+			{
+				conversion.factor = 1;
+			}
+
 			// Only conversions related to the destination QU are needed
 			// + only add one conversion per to_qu_id (multiple ones can be a result of contradictory definitions = user input bullshit)
 			if ((conversion.from_qu_id == destinationQuId || conversion.to_qu_id == destinationQuId) && !$('#qu_id option[value="' + conversion.to_qu_id + '"]').length)
@@ -108,7 +113,7 @@ $(".input-group-productamountpicker").on("change", function()
 		n = 1;
 	}
 
-	$("#amount").val(destinationAmount.toFixed(n).replace(/0*$/g, ''));
+	$("#amount").val(destinationAmount.toFixed(n).replace(/0*$/g, '')).trigger("change");
 });
 
 $("#display_amount").on("keyup", function()

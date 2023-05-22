@@ -340,6 +340,7 @@ if (Grocy.Components.ProductPicker !== undefined)
 					if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_LABEL_PRINTER)
 					{
 						$("#stock_label_type").val(productDetails.product.default_stock_label_type);
+						$("#stock_label_type").trigger("change");
 					}
 
 					$("#display_amount").focus();
@@ -719,3 +720,15 @@ function ScanModeSubmit(singleUnit = true)
 		}
 	}
 }
+
+$("#stock_label_type, #amount").on("change", function(e)
+{
+	if ($("#stock_label_type").val() == 2)
+	{
+		$("#stock-entry-label-info").text(__n(Number.parseFloat($("#amount").val()), "This means 1 label will be printed", "This means %1$s labels will be printed"));
+	}
+	else
+	{
+		$("#stock-entry-label-info").text("");
+	}
+});

@@ -123,7 +123,8 @@
 					<option value="1">{{ $__t('Single label') }}</option>
 					<option value="2">{{ $__t('Label per unit') }}</option>
 				</select>
-				<div class="invalid-feedback">{{ $__t('A quantity unit is required') }}</div>
+				<div id="stock-entry-label-info"
+					class="form-text text-info"></div>
 			</div>
 			@endif
 
