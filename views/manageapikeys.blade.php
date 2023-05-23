@@ -1,4 +1,4 @@
-@php require_frontend_packages(['datatables', 'animatecss', 'bwipjs']); @endphp
+@php require_frontend_packages(['datatables', 'bwipjs']); @endphp
 
 @extends('layout.default')
 
