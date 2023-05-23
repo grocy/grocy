@@ -8,15 +8,16 @@ class ApiKeyService extends BaseService
 
 	const API_KEY_TYPE_SPECIAL_PURPOSE_CALENDAR_ICAL = 'special-purpose-calendar-ical';
 
-	public function CreateApiKey($keyType = self::API_KEY_TYPE_DEFAULT)
+	public function CreateApiKey(string $keyType = self::API_KEY_TYPE_DEFAULT, string $description = null)
 	{
 		$newApiKey = $this->GenerateApiKey();
 
 		$apiKeyRow = $this->getDatabase()->api_keys()->createRow([
 			'api_key' => $newApiKey,
 			'user_id' => GROCY_USER_ID,
-			'expires' => '2999-12-31 23:59:59', // Default is that API keys expire never
-			'key_type' => $keyType
+			'expires' => '2999-12-31 23:59:59', // Default is that API keys never expire
+			'key_type' => $keyType,
+			'description' => $description
 		]);
 		$apiKeyRow->save();
 

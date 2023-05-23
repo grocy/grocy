@@ -2,6 +2,7 @@
 
 namespace Grocy\Controllers;
 
+use Grocy\Services\ApiKeyService;
 use Eluceo\iCal\Domain\Entity\Calendar;
 use Eluceo\iCal\Domain\Entity\Event;
 use Eluceo\iCal\Domain\Entity\TimeZone;
@@ -94,7 +95,7 @@ class CalendarApiController extends BaseApiController
 		try
 		{
 			return $this->ApiResponse($response, [
-				'url' => $this->AppContainer->get('UrlManager')->ConstructUrl('/api/calendar/ical?secret=' . $this->getApiKeyService()->GetOrCreateApiKey(\Grocy\Services\ApiKeyService::API_KEY_TYPE_SPECIAL_PURPOSE_CALENDAR_ICAL))
+				'url' => $this->AppContainer->get('UrlManager')->ConstructUrl('/api/calendar/ical?secret=' . $this->getApiKeyService()->GetOrCreateApiKey(ApiKeyService::API_KEY_TYPE_SPECIAL_PURPOSE_CALENDAR_ICAL))
 			]);
 		}
 		catch (\Exception $ex)

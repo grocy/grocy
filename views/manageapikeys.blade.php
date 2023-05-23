@@ -4,6 +4,14 @@
 
 @section('title', $__t('API keys'))
 
+@push('pageStyles')
+<style>
+	.modal-body {
+		text-align: center;
+	}
+</style>
+@endpush
+
 @section('content')
 <div class="row">
 	<div class="col">
@@ -25,8 +33,9 @@
 			</div>
 			<div class="related-links collapse d-md-flex order-2 width-xs-sm-100"
 				id="related-links">
-				<a class="btn btn-primary responsive-button m-1 mt-md-0 mb-md-0 float-right"
-					href="{{ $U('/manageapikeys/new') }}">
+				<a id="add-api-key-button"
+					class="btn btn-primary responsive-button m-1 mt-md-0 mb-md-0 float-right"
+					href="#">
 					{{ $__t('Add') }}
 				</a>
 			</div>
@@ -74,6 +83,7 @@
 							data-table-selector="#apikeys-table"
 							href="#"><i class="fa-solid fa-eye"></i></a>
 					</th>
+					<th>{{ $__t('Description') }}</th>
 					<th>{{ $__t('API key') }}</th>
 					<th class="allow-grouping">{{ $__t('User') }}</th>
 					<th>{{ $__t('Expires') }}</th>
@@ -84,12 +94,12 @@
 			</thead>
 			<tbody class="d-none">
 				@foreach($apiKeys as $apiKey)
-				<tr id="apiKeyRow_{{ $apiKey->id }}">
+				<tr class="@if($apiKey->id == $selectedKeyId) table-primary @endif">
 					<td class="fit-content border-right">
 						<a class="btn btn-danger btn-sm apikey-delete-button"
 							href="#"
 							data-apikey-id="{{ $apiKey->id }}"
-							data-apikey-apikey="{{ $apiKey->api_key }}"
+							data-apikey-key="{{ $apiKey->api_key }}"
 							data-toggle="tooltip"
 							title="{{ $__t('Delete this item') }}">
 							<i class="fa-solid fa-trash"></i>
@@ -98,10 +108,14 @@
 							href="#"
 							data-apikey-key="{{ $apiKey->api_key }}"
 							data-apikey-type="{{ $apiKey->key_type }}"
+							data-apikey-description="{{ $apiKey->description }}"
 							data-toggle="tooltip"
 							title="{{ $__t('Show a QR-Code for this API key') }}">
 							<i class="fa-solid fa-qrcode"></i>
 						</a>
+					</td>
+					<td>
+						{{ $apiKey->description }}
 					</td>
 					<td>
 						{{ $apiKey->api_key }}
@@ -131,6 +145,34 @@
 				@endforeach
 			</tbody>
 		</table>
+	</div>
+</div>
+
+<div class="modal fade"
+	id="add-api-key-modal"
+	tabindex="-1">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title w-100">{{ $__t('Create new API key') }}</h4>
+			</div>
+			<div class="modal-body">
+				<div class="form-group">
+					<label for="name">{{ $__t('Name') }}</label>
+					<input type="text"
+						class="form-control"
+						id="description"
+						name="description">
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button"
+					class="btn btn-secondary"
+					data-dismiss="modal">{{ $__t('Cancel') }}</button>
+				<button id="new-api-key-button"
+					class="btn btn-primary">{{ $__t('OK') }}</button>
+			</div>
+		</div>
 	</div>
 </div>
 @stop

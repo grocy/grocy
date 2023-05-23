@@ -3,6 +3,7 @@
 namespace Grocy\Controllers;
 
 use Grocy\Controllers\Users\User;
+use Grocy\Services\ApiKeyService;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
@@ -10,22 +11,36 @@ class OpenApiController extends BaseApiController
 {
 	public function ApiKeysList(Request $request, Response $response, array $args)
 	{
+		$selectedKeyId = -1;
+		if (isset($request->getQueryParams()['key']) && filter_var($request->getQueryParams()['key'], FILTER_VALIDATE_INT))
+		{
+			$selectedKeyId = $request->getQueryParams()['key'];
+		}
+
 		$apiKeys = $this->getDatabase()->api_keys();
 		if (!User::hasPermissions(User::PERMISSION_ADMIN))
 		{
 			$apiKeys = $apiKeys->where('user_id', GROCY_USER_ID);
 		}
+
 		return $this->renderPage($response, 'manageapikeys', [
 			'apiKeys' => $apiKeys,
-			'users' => $this->getDatabase()->users()
+			'users' => $this->getDatabase()->users(),
+			'selectedKeyId' => $selectedKeyId
 		]);
 	}
 
 	public function CreateNewApiKey(Request $request, Response $response, array $args)
 	{
-		$newApiKey = $this->getApiKeyService()->CreateApiKey();
+		$description = null;
+		if (isset($request->getQueryParams()['description']))
+		{
+			$description = $request->getQueryParams()['description'];
+		}
+
+		$newApiKey = $this->getApiKeyService()->CreateApiKey(ApiKeyService::API_KEY_TYPE_DEFAULT, $description);
 		$newApiKeyId = $this->getApiKeyService()->GetApiKeyId($newApiKey);
-		return $response->withRedirect($this->AppContainer->get('UrlManager')->ConstructUrl("/manageapikeys?CreatedApiKeyId=$newApiKeyId"));
+		return $response->withRedirect($this->AppContainer->get('UrlManager')->ConstructUrl("/manageapikeys?key=$newApiKeyId"));
 	}
 
 	public function DocumentationSpec(Request $request, Response $response, array $args)

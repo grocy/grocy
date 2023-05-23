@@ -478,12 +478,12 @@ $("#add-recipe-modal").on("shown.bs.modal", function(e)
 	}
 
 	Grocy.Components.RecipePicker.GetInputElement().focus();
-})
+});
 
 $("#add-note-modal").on("shown.bs.modal", function(e)
 {
 	$("#note").focus();
-})
+});
 
 $("#add-product-modal").on("shown.bs.modal", function(e)
 {
@@ -493,12 +493,12 @@ $("#add-product-modal").on("shown.bs.modal", function(e)
 	}
 
 	Grocy.Components.ProductPicker.GetInputElement().focus();
-})
+});
 
 $("#copy-day-modal").on("shown.bs.modal", function(e)
 {
 	Grocy.Components.DateTimePicker2.GetInputElement().focus();
-})
+});
 
 $(document).on("click", ".remove-recipe-button, .remove-note-button, .remove-product-button", function(e)
 {

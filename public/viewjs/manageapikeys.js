@@ -1,5 +1,5 @@
 ﻿var apiKeysTable = $('#apikeys-table').DataTable({
-	'order': [[4, 'desc']],
+	'order': [[6, 'desc']],
 	'columnDefs': [
 		{ 'orderable': false, 'targets': 0 },
 		{ 'searchable': false, "targets": 0 }
@@ -7,12 +7,6 @@
 });
 $('#apikeys-table tbody').removeClass("d-none");
 apiKeysTable.columns.adjust().draw();
-
-var createdApiKeyId = GetUriParam('CreatedApiKeyId');
-if (createdApiKeyId !== undefined)
-{
-	animateCSS("#apiKeyRow_" + createdApiKeyId, "pulse");
-}
 
 $("#search").on("keyup", Delay(function()
 {
@@ -33,8 +27,9 @@ $("#clear-filter-button").on("click", function()
 
 $(document).on('click', '.apikey-delete-button', function(e)
 {
-	var objectName = $(e.currentTarget).attr('data-apikey-apikey');
-	var objectId = $(e.currentTarget).attr('data-apikey-id');
+	var button = $(e.currentTarget);
+	var objectName = button.attr('data-apikey-key');
+	var objectId = button.attr('data-apikey-id');
 
 	bootbox.confirm({
 		message: __t('Are you sure to delete API key "%s"?', objectName),
@@ -68,23 +63,36 @@ $(document).on('click', '.apikey-delete-button', function(e)
 	});
 });
 
-function QrCodeForApiKey(apiKeyType, apiKey)
+$(".apikey-show-qr-button").on("click", function()
 {
-	var content = U('/api') + '|' + apiKey;
-	if (apiKeyType === 'special-purpose-calendar-ical')
+	var button = $(this);
+	var apiKey = button.data("apikey-key");
+	var apiKeyType = button.data("apikey-type");
+	var apiKeyDescription = button.data("apikey-description");
+
+	var content = U("/api") + "|" + apiKey;
+	if (apiKeyType === "special-purpose-calendar-ical")
 	{
-		content = U('/api/calendar/ical?secret=' + apiKey);
+		content = U("/api/calendar/ical?secret=" + apiKey);
 	}
 
-	return QrCodeImgHtml(content);
-}
-
-$('.apikey-show-qr-button').on('click', function()
-{
-	var qrcodeHtml = QrCodeForApiKey($(this).data('apikey-type'), $(this).data('apikey-key'));
 	bootbox.alert({
-		title: __t('API key'),
-		message: "<p class='text-center'>" + qrcodeHtml + "</p>",
+		message: "<h1>" + __t("API key") + "</h1><h2 class='text-muted'>" + apiKeyDescription + "</h2><p><hr>" + QrCodeImgHtml(content) + "</p>",
 		closeButton: false
 	});
-})
+});
+
+$("#add-api-key-button").on("click", function(e)
+{
+	$("#add-api-key-modal").modal("show");
+});
+
+$("#add-api-key-modal").on("shown.bs.modal", function(e)
+{
+	$("#description").focus();
+});
+
+$("#new-api-key-button").on("click", function(e)
+{
+	window.location.href = U("/manageapikeys/new?description=" + encodeURIComponent($("#description").val()));
+});
