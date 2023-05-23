@@ -174,7 +174,7 @@
 							</div>
 						</div>
 					</td>
-					<td class="product-name-cell cursor-link"
+					<td class="productcard-trigger cursor-link"
 						data-product-id="{{ $product->id }}">
 						{{ $product->name }}
 						@if(!empty($product->picture_file_name))
@@ -285,20 +285,7 @@
 	</div>
 </div>
 
-<div class="modal fade"
-	id="productcard-modal"
-	tabindex="-1">
-	<div class="modal-dialog">
-		<div class="modal-content text-center">
-			<div class="modal-body">
-				@include('components.productcard')
-			</div>
-			<div class="modal-footer">
-				<button type="button"
-					class="btn btn-secondary"
-					data-dismiss="modal">{{ $__t('Close') }}</button>
-			</div>
-		</div>
-	</div>
-</div>
+@include('components.productcard', [
+'asModal' => true
+])
 @stop

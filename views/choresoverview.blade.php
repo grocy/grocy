@@ -174,7 +174,7 @@
 									<span>{{ $__t('Reschedule next execution') }}</span>
 								</a>
 								<div class="dropdown-divider"></div>
-								<a class="dropdown-item chore-name-cell"
+								<a class="dropdown-item chorecard-trigger"
 									data-chore-id="{{ $curentChoreEntry->chore_id }}"
 									type="button"
 									href="#">
@@ -207,7 +207,7 @@
 							</div>
 						</div>
 					</td>
-					<td class="chore-name-cell cursor-link"
+					<td class="chorecard-trigger cursor-link"
 						data-chore-id="{{ $curentChoreEntry->chore_id }}">
 						{{ FindObjectInArrayByPropertyValue($chores, 'id', $curentChoreEntry->chore_id)->name }}
 					</td>
@@ -286,22 +286,9 @@
 	</div>
 </div>
 
-<div class="modal fade"
-	id="choresoverview-chorecard-modal"
-	tabindex="-1">
-	<div class="modal-dialog">
-		<div class="modal-content text-center">
-			<div class="modal-body">
-				@include('components.chorecard')
-			</div>
-			<div class="modal-footer">
-				<button type="button"
-					class="btn btn-secondary"
-					data-dismiss="modal">{{ $__t('Close') }}</button>
-			</div>
-		</div>
-	</div>
-</div>
+@include('components.chorecard', [
+'asModal' => true
+])
 
 <div class="modal fade"
 	id="reschedule-chore-modal"

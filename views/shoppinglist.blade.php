@@ -227,7 +227,7 @@
 							<i class="fa-solid fa-box"></i>
 						</a>
 					</td>
-					<td class="product-name-cell cursor-link"
+					<td class="productcard-trigger cursor-link"
 						data-product-id="{{ $listItem->product_id }}">
 						@if(!empty($listItem->product_id)) {{ $listItem->product_name }}<br>@endif<em>{!! nl2br($listItem->note ?? '') !!}</em>
 					</td>
@@ -426,20 +426,8 @@
 		</div>
 	</div>
 </div>
-<div class="modal fade"
-	id="shoppinglist-productcard-modal"
-	tabindex="-1">
-	<div class="modal-dialog">
-		<div class="modal-content text-center">
-			<div class="modal-body">
-				@include('components.productcard')
-			</div>
-			<div class="modal-footer">
-				<button type="button"
-					class="btn btn-secondary"
-					data-dismiss="modal">{{ $__t('Close') }}</button>
-			</div>
-		</div>
-	</div>
-</div>
+
+@include('components.productcard', [
+'asModal' => true
+])
 @stop

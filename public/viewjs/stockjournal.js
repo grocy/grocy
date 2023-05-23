@@ -144,9 +144,3 @@ $(document).on('click', '.product-grocycode-label-print', function(e)
 		}
 	});
 });
-
-$(document).on("click", ".product-name-cell", function(e)
-{
-	Grocy.Components.ProductCard.Refresh($(e.currentTarget).attr("data-product-id"));
-	$("#stockjournal-productcard-modal").modal("show");
-});

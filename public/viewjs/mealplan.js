@@ -264,7 +264,7 @@ $(".calendar").each(function()
 
 				element.html('\
 				<div> \
-					<h5 class="text-truncate mb-1 cursor-link display-product-button ' + additionalTitleCssClasses + '" data-toggle="tooltip" title="' + __t("Display product") + '" data-product-id="' + productDetails.product.id.toString() + '">' + productDetails.product.name + '</h5> \
+					<h5 class="text-truncate mb-1 cursor-link productcard-trigger ' + additionalTitleCssClasses + '" data-toggle="tooltip" title="' + __t("Display product") + '" data-product-id="' + productDetails.product.id.toString() + '">' + productDetails.product.name + '</h5> \
 					<h5 class="small text-truncate mb-1"><span class="locale-number locale-number-quantity-amount">' + mealPlanEntry.product_amount + "</span> " + __n(mealPlanEntry.product_amount, productDetails.quantity_unit_stock.name, productDetails.quantity_unit_stock.name_plural, true) + '</h5> \
 					<h5 class="small timeago-contextual text-truncate mb-1">' + fulfillmentIconHtml + " " + fulfillmentInfoHtml + '</h5> \
 					' + costsAndCaloriesPerServing + ' \
@@ -949,14 +949,6 @@ $(document).on("click", ".display-recipe-button", function(e)
 			console.error(xhr);
 		}
 	);
-});
-
-$(document).on("click", ".display-product-button", function(e)
-{
-	$(".tooltip").tooltip("hide");
-
-	Grocy.Components.ProductCard.Refresh($(e.currentTarget).attr('data-product-id'));
-	$("#mealplan-productcard-modal").modal("show");
 });
 
 $(document).on("click", ".mealplan-entry-done-button", function(e)

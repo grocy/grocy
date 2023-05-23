@@ -151,12 +151,6 @@ $(document).on('click', '.product-open-button', function(e)
 	);
 });
 
-$(document).on("click", ".stock-name-cell", function(e)
-{
-	Grocy.Components.ProductCard.Refresh($(e.currentTarget).attr("data-stock-id"));
-	$("#stockentry-productcard-modal").modal("show");
-});
-
 $(document).on('click', '.stockentry-grocycode-label-print', function(e)
 {
 	e.preventDefault();
@@ -337,9 +331,3 @@ function UndoStockBookingEntry(bookingId, stockRowId)
 		}
 	);
 };
-
-$(document).on("click", ".product-name-cell", function(e)
-{
-	Grocy.Components.ProductCard.Refresh($(e.currentTarget).attr("data-product-id"));
-	$("#productcard-modal").modal("show");
-});

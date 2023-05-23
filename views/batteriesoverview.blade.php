@@ -129,7 +129,7 @@
 								<i class="fa-solid fa-ellipsis-v"></i>
 							</button>
 							<div class="table-inline-menu dropdown-menu dropdown-menu-right">
-								<a class="dropdown-item battery-name-cell"
+								<a class="dropdown-item batterycard-trigger"
 									data-battery-id="{{ $currentBatteryEntry->battery_id }}"
 									type="button"
 									href="#">
@@ -162,7 +162,7 @@
 							</div>
 						</div>
 					</td>
-					<td class="battery-name-cell cursor-link"
+					<td class="batterycard-trigger cursor-link"
 						data-battery-id="{{ $currentBatteryEntry->battery_id }}">
 						{{ FindObjectInArrayByPropertyValue($batteries, 'id', $currentBatteryEntry->battery_id)->name }}
 					</td>
@@ -204,20 +204,7 @@
 	</div>
 </div>
 
-<div class="modal fade"
-	id="batteriesoverview-batterycard-modal"
-	tabindex="-1">
-	<div class="modal-dialog">
-		<div class="modal-content text-center">
-			<div class="modal-body">
-				@include('components.batterycard')
-			</div>
-			<div class="modal-footer">
-				<button type="button"
-					class="btn btn-secondary"
-					data-dismiss="modal">{{ $__t('Close') }}</button>
-			</div>
-		</div>
-	</div>
-</div>
+@include('components.batterycard', [
+'asModal' => true
+])
 @stop

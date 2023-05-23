@@ -229,12 +229,6 @@ $(document).on('click', '.product-open-button', function(e)
 	);
 });
 
-$(document).on("click", ".product-name-cell", function(e)
-{
-	Grocy.Components.ProductCard.Refresh($(e.currentTarget).attr("data-product-id"));
-	$("#stockoverview-productcard-modal").modal("show");
-});
-
 function RefreshStatistics()
 {
 	Grocy.Api.Get('stock',

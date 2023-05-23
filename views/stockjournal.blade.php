@@ -217,7 +217,7 @@
 								</a>
 								@endif
 								<div class="dropdown-divider"></div>
-								<a class="dropdown-item product-name-cell"
+								<a class="dropdown-item productcard-trigger"
 									data-product-id="{{ $stockLogEntry->product_id }}"
 									type="button"
 									href="#">
@@ -256,7 +256,7 @@
 							</div>
 						</div>
 					</td>
-					<td class="product-name-cell cursor-link"
+					<td class="productcard-trigger cursor-link"
 						data-product-id="{{ $stockLogEntry->product_id }}">
 						<span class="name-anchor @if($stockLogEntry->undone == 1) text-strike-through @endif">{{ $stockLogEntry->product_name }}</span>
 						@if($stockLogEntry->undone == 1)
@@ -301,20 +301,7 @@
 	</div>
 </div>
 
-<div class="modal fade"
-	id="stockjournal-productcard-modal"
-	tabindex="-1">
-	<div class="modal-dialog">
-		<div class="modal-content text-center">
-			<div class="modal-body">
-				@include('components.productcard')
-			</div>
-			<div class="modal-footer">
-				<button type="button"
-					class="btn btn-secondary"
-					data-dismiss="modal">{{ $__t('Close') }}</button>
-			</div>
-		</div>
-	</div>
-</div>
+@include('components.productcard', [
+'asModal' => true
+])
 @stop

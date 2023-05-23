@@ -356,20 +356,7 @@
 	</div>
 </div>
 
-<div class="modal fade"
-	id="mealplan-productcard-modal"
-	tabindex="-1">
-	<div class="modal-dialog">
-		<div class="modal-content text-center">
-			<div class="modal-body">
-				@include('components.productcard')
-			</div>
-			<div class="modal-footer">
-				<button type="button"
-					class="btn btn-secondary"
-					data-dismiss="modal">{{ $__t('Close') }}</button>
-			</div>
-		</div>
-	</div>
-</div>
+@include('components.productcard', [
+'asModal' => true
+])
 @stop

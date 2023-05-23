@@ -24,3 +24,9 @@ Grocy.Components.BatteryCard.Refresh = function(batteryId)
 		}
 	);
 };
+
+$(document).on("click", ".batterycard-trigger", function(e)
+{
+	Grocy.Components.BatteryCard.Refresh($(e.currentTarget).attr("data-battery-id"));
+	$("#batterycard-modal").modal("show");
+});

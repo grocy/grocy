@@ -210,12 +210,6 @@ $(document).on('click', '.track-chore-button', function(e)
 	);
 });
 
-$(document).on("click", ".chore-name-cell", function(e)
-{
-	Grocy.Components.ChoreCard.Refresh($(e.currentTarget).attr("data-chore-id"));
-	$("#choresoverview-chorecard-modal").modal("show");
-});
-
 $(document).on('click', '.chore-grocycode-label-print', function(e)
 {
 	e.preventDefault();

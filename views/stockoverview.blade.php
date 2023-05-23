@@ -279,7 +279,7 @@
 								</a>
 								@endif
 								<div class="dropdown-divider"></div>
-								<a class="dropdown-item product-name-cell"
+								<a class="dropdown-item productcard-trigger"
 									data-product-id="{{ $currentStockEntry->product_id }}"
 									type="button"
 									href="#">
@@ -323,7 +323,7 @@
 							</div>
 						</div>
 					</td>
-					<td class="product-name-cell cursor-link"
+					<td class="productcard-trigger cursor-link"
 						data-product-id="{{ $currentStockEntry->product_id }}">
 						{{ $currentStockEntry->product_name }}
 						<span class="d-none">{{ $currentStockEntry->product_barcodes }}</span>
@@ -428,7 +428,7 @@
 					<td>
 						{!! $currentStockEntry->product_description !!}
 					</td>
-					<td class="product-name-cell cursor-link"
+					<td class="productcard-trigger cursor-link"
 						data-product-id="{{ $currentStockEntry->parent_product_id }}">
 						{{ $currentStockEntry->parent_product_name }}
 					</td>
@@ -465,20 +465,7 @@
 	</div>
 </div>
 
-<div class="modal fade"
-	id="stockoverview-productcard-modal"
-	tabindex="-1">
-	<div class="modal-dialog">
-		<div class="modal-content text-center">
-			<div class="modal-body">
-				@include('components.productcard')
-			</div>
-			<div class="modal-footer">
-				<button type="button"
-					class="btn btn-secondary"
-					data-dismiss="modal">{{ $__t('Close') }}</button>
-			</div>
-		</div>
-	</div>
-</div>
+@include('components.productcard', [
+'asModal' => true
+])
 @stop

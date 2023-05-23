@@ -48,3 +48,9 @@ Grocy.Components.ChoreCard.Refresh = function(choreId)
 		}
 	);
 };
+
+$(document).on("click", ".chorecard-trigger", function(e)
+{
+	Grocy.Components.ChoreCard.Refresh($(e.currentTarget).attr("data-chore-id"));
+	$("#chorecard-modal").modal("show");
+});

@@ -265,3 +265,13 @@ $("#productcard-product-description").on("hidden.bs.collapse", function()
 {
 	$(".expandable-text").find("a[data-toggle='collapse']").text(__t("Show more"));
 })
+
+$(document).on("click", ".productcard-trigger", function(e)
+{
+	var productId = $(e.currentTarget).attr("data-product-id");
+	if (productId != "")
+	{
+		Grocy.Components.ProductCard.Refresh(productId);
+		$("#productcard-modal").modal("show");
+	}
+});

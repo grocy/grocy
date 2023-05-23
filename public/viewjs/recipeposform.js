@@ -58,8 +58,6 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 
 	if (productId)
 	{
-		Grocy.Components.ProductCard.Refresh(productId);
-
 		Grocy.Api.Get('stock/products/' + productId,
 			function(productDetails)
 			{
