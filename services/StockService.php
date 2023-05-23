@@ -627,24 +627,25 @@ class StockService extends BaseService
 		return $pluginOutput;
 	}
 
-	public function GetCurrentStock($includeNotInStockButMissingProducts = false)
+	private $CurrentStockCache = null;
+
+	public function GetCurrentStock()
 	{
-		$sql = 'SELECT * FROM stock_current';
-		if ($includeNotInStockButMissingProducts)
+		if ($this->CurrentStockCache == null)
 		{
-			$sql = 'SELECT * FROM stock_current WHERE best_before_date IS NOT NULL UNION SELECT id, 0, 0, 0, 0, null, 0, 0, 0 FROM stock_missing_products WHERE id NOT IN (SELECT product_id FROM stock_current)';
+			$sql = 'SELECT * FROM stock_current';
+			$currentStockMapped = $this->getDatabaseService()->ExecuteDbQuery($sql)->fetchAll(\PDO::FETCH_GROUP | \PDO::FETCH_OBJ);
+			$relevantProducts = $this->getDatabase()->products()->where('id IN (SELECT product_id FROM (' . $sql . ') x)');
+			foreach ($relevantProducts as $product)
+			{
+				$currentStockMapped[$product->id][0]->product_id = $product->id;
+				$currentStockMapped[$product->id][0]->product = $product;
+			}
+
+			$this->CurrentStockCache = array_column($currentStockMapped, 0);
 		}
 
-		$currentStockMapped = $this->getDatabaseService()->ExecuteDbQuery($sql)->fetchAll(\PDO::FETCH_GROUP | \PDO::FETCH_OBJ);
-
-		$relevantProducts = $this->getDatabase()->products()->where('id IN (SELECT product_id FROM (' . $sql . ') x)');
-		foreach ($relevantProducts as $product)
-		{
-			$currentStockMapped[$product->id][0]->product_id = $product->id;
-			$currentStockMapped[$product->id][0]->product = $product;
-		}
-
-		return array_column($currentStockMapped, 0);
+		return $this->CurrentStockCache;
 	}
 
 	public function GetCurrentStockLocationContent($includeOutOfStockProductsAtTheDefaultLocation = false)
@@ -672,7 +673,7 @@ class StockService extends BaseService
 
 	public function GetDueProducts(int $days = 5, bool $excludeOverdue = false)
 	{
-		$currentStock = $this->GetCurrentStock(false);
+		$currentStock = $this->GetCurrentStock();
 		$currentStock = FindAllObjectsInArrayByPropertyValue($currentStock, 'best_before_date', date('Y-m-d 23:59:59', strtotime("+$days days")), '<');
 
 		if ($excludeOverdue)
@@ -685,7 +686,7 @@ class StockService extends BaseService
 
 	public function GetExpiredProducts()
 	{
-		$currentStock = $this->GetCurrentStock(false);
+		$currentStock = $this->GetCurrentStock();
 		$currentStock = FindAllObjectsInArrayByPropertyValue($currentStock, 'best_before_date', date('Y-m-d 23:59:59', strtotime('-1 days')), '<');
 		$currentStock = FindAllObjectsInArrayByPropertyValue($currentStock, 'due_type', 2);
 
