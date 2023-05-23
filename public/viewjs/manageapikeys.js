@@ -77,7 +77,7 @@ $(".apikey-show-qr-button").on("click", function()
 	}
 
 	bootbox.alert({
-		message: "<h1>" + __t("API key") + "</h1><h2 class='text-muted'>" + apiKeyDescription + "</h2><p><hr>" + QrCodeImgHtml(content) + "</p>",
+		message: "<div class='text-center'><h1>" + __t("API key") + "</h1><h2 class='text-muted'>" + apiKeyDescription + "</h2><p><hr>" + QrCodeImgHtml(content) + "</p></div>",
 		closeButton: false
 	});
 });

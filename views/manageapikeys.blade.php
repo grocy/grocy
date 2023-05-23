@@ -4,14 +4,6 @@
 
 @section('title', $__t('API keys'))
 
-@push('pageStyles')
-<style>
-	.modal-body {
-		text-align: center;
-	}
-</style>
-@endpush
-
 @section('content')
 <div class="row">
 	<div class="col">
@@ -158,7 +150,7 @@
 			</div>
 			<div class="modal-body">
 				<div class="form-group">
-					<label for="name">{{ $__t('Name') }}</label>
+					<label for="name">{{ $__t('Description') }}</label>
 					<input type="text"
 						class="form-control"
 						id="description"
