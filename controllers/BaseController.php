@@ -120,7 +120,6 @@ class BaseController
 
 		$versionInfo = $this->getApplicationService()->GetInstalledVersion();
 		$this->View->set('version', $versionInfo->Version);
-		$this->View->set('releaseDate', $versionInfo->ReleaseDate);
 
 		$localizationService = $this->getLocalizationService();
 		$this->View->set('__t', function (string $text, ...$placeholderValues) use ($localizationService) {

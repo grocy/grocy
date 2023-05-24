@@ -27,16 +27,16 @@
 			<div class="tab-pane show active"
 				id="system-info">
 				<p>
-					Version <code>{{ $version }}</code><br>
-					{{ $__t('Released on') }} <code>{{ $releaseDate }}</code> <time class="timeago timeago-contextual"
-						datetime="{{ $releaseDate }}"></time>
+					Version <code>{{ $versionInfo->Version }}</code><br>
+					{{ $__t('Released on') }} <code>{{ $versionInfo->ReleaseDate }}</code> <time class="timeago timeago-contextual"
+						datetime="{{ $versionInfo->ReleaseDate }}"></time>
 				</p>
 
 				<p>
-					PHP Version <code>{{ $system_info['php_version'] }}</code><br>
-					SQLite Version <code>{{ $system_info['sqlite_version'] }}</code><br>
-					OS <code>{{ $system_info['os'] }}</code><br>
-					Client <code>{{ $system_info['client'] }}</code>
+					PHP Version <code>{{ $systemInfo['php_version'] }}</code><br>
+					SQLite Version <code>{{ $systemInfo['sqlite_version'] }}</code><br>
+					OS <code>{{ $systemInfo['os'] }}</code><br>
+					Client <code>{{ $systemInfo['client'] }}</code>
 				</p>
 
 				<p>

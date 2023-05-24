@@ -12,7 +12,8 @@ class SystemController extends BaseController
 	public function About(Request $request, Response $response, array $args)
 	{
 		return $this->renderPage($response, 'about', [
-			'system_info' => $this->getApplicationService()->GetSystemInfo(),
+			'systemInfo' => $this->getApplicationService()->GetSystemInfo(),
+			'versionInfo' => $this->getApplicationService()->GetInstalledVersion(),
 			'changelog' => $this->getApplicationService()->GetChangelog()
 		]);
 	}

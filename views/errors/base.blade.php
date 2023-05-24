@@ -36,7 +36,7 @@ Stack trace:
 
 System info:
 ```
-{!! json_encode($system_info, JSON_PRETTY_PRINT) !!}
+{!! json_encode($systemInfo, JSON_PRETTY_PRINT) !!}
 ```
 			</textarea>
 		</div>
