@@ -26,9 +26,9 @@ class PrerequisiteChecker
 
 	private function checkForComposer()
 	{
-		if (!file_exists(__DIR__ . '/../vendor/autoload.php'))
+		if (!file_exists(__DIR__ . '/../packages/autoload.php'))
 		{
-			throw new ERequirementNotMet('/vendor/autoload.php not found. Have you run Composer?');
+			throw new ERequirementNotMet('/packages/autoload.php not found. Have you run Composer?');
 		}
 	}
 

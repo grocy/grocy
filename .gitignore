@@ -1,5 +1,5 @@
-/public/node_modules
-/vendor
-/.release
 embedded.txt
 .DS_Store
+/.release
+/packages
+/public/packages

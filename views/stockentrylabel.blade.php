@@ -2,7 +2,7 @@
 
 <head>
 	<title>{{ $product->name }}</title>
-	<link href="{{ $U('/node_modules/@fontsource/open-sans/latin.css?v=', true) }}{{ $version }}"
+	<link href="{{ $U('/packages/@fontsource/open-sans/latin.css?v=', true) }}{{ $version }}"
 		rel="stylesheet">
 	<style>
 		body {

@@ -1,7 +1,7 @@
 <?php
 
 $finder = PhpCsFixer\Finder::create()
-	->exclude(['vendor'])
+	->exclude(['packages'])
 	->ignoreVCSIgnored(true)
 	->files()->name('*.php')
 	->in(__DIR__)
