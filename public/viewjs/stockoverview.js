@@ -236,7 +236,7 @@ function RefreshStatistics()
 		{
 			if (!Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
 			{
-				$("#info-current-stock").text(__n(result.length, '%s Product', '%s Products'));
+				$("#info-current-stock").text(__n(result.filter(x => !BoolVal(x.product.hide_on_stock_overview)).length, '%s Product', '%s Products'));
 			}
 			else
 			{
@@ -245,7 +245,8 @@ function RefreshStatistics()
 				{
 					valueSum += element.value;
 				});
-				$("#info-current-stock").text(__n(result.length, '%s Product', '%s Products') + ", " + __t('%s total value', valueSum.toLocaleString(undefined, { style: "currency", currency: Grocy.Currency })));
+
+				$("#info-current-stock").text(__n(result.filter(x => !BoolVal(x.product.hide_on_stock_overview)).length, '%s Product', '%s Products') + ", " + __t('%s total value', valueSum.toLocaleString(undefined, { style: "currency", currency: Grocy.Currency })));
 			}
 		},
 		function(xhr)

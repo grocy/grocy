@@ -43,6 +43,7 @@
 - Fixed that the consumed amount was wrong, when consuming multiple substituted subproducts at once and when multiple/different conversion factors were involved
 - Fixed that for a product's average price, only currently in-stock items were considered, not already consumed ones
 - Fixed that when copying a product, some fields (like "Default consume location" or "Disable own stock) weren't copied along
+- Fixed that the total product count on the stock overview page also included products with "Never show on stock overview" enabled
 
 ### Shopping list
 
