@@ -429,9 +429,12 @@ body.sidenav-toggled .navbar-sidenav-tooltip.show {
 }
 
 .navbar-sidenav {
-	overflow-x: hidden;
-	overflow-y: overlay;
+	overflow: hidden;
 	border-top: 2px solid !important;
+}
+
+.navbar-sidenav:hover {
+	overflow-y: auto;
 }
 
 .navbar-sidenav,
@@ -531,12 +534,6 @@ body.embedded.fixed-nav {
 
 body.fixed-nav {
 	padding-top: 54px;
-}
-
-/* Fixes smooth scrolling on iOS */
-#sidebarResponsive,
-.fullscreen {
-	-webkit-overflow-scrolling: touch;
 }
 
 @media print {
