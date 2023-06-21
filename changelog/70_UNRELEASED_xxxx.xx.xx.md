@@ -115,5 +115,6 @@
   - Added a new field/property `default_quantity_unit_consume` (contains the quantity unit object of the product's "Default quantity unit consume")
 - The following entities are now also available via the endpoint `/objects/{entity}` (only listing, no edit)
   - `quantity_unit_conversions_resolved` (returns all final/resolved conversion factors per product and any directly or indirectly related quantity units)
+  - `recipes_pos_resolved` (returns stock fulfilment information for all recipe ingredients)
 - The endpoint `/batteries` now also returns the corresponding battery object (as field/property `battery`)
 - API keys can now have a description (to e.g. track where the corresponding key is used)

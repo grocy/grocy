@@ -5800,7 +5800,8 @@
 					"meal_plan_sections",
 					"products_last_purchased",
 					"products_average_price",
-					"quantity_unit_conversions_resolved"
+					"quantity_unit_conversions_resolved",
+					"recipes_pos_resolved"
 				]
 			},
 			"ExposedEntityNoListing": {
@@ -5819,7 +5820,8 @@
 					"chores_log",
 					"products_last_purchased",
 					"products_average_price",
-					"quantity_unit_conversions_resolved"
+					"quantity_unit_conversions_resolved",
+					"recipes_pos_resolved"
 				]
 			},
 			"ExposedEntityNoDelete": {
@@ -5831,7 +5833,8 @@
 					"chores_log",
 					"products_last_purchased",
 					"products_average_price",
-					"quantity_unit_conversions_resolved"
+					"quantity_unit_conversions_resolved",
+					"recipes_pos_resolved"
 				]
 			},
 			"ExposedEntityEditRequiresAdmin": {
