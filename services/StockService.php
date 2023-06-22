@@ -892,7 +892,7 @@ class StockService extends BaseService
 		return FindAllObjectsInArrayByPropertyValue($stockEntries, 'location_id', $locationId);
 	}
 
-	public function GetProductStockLocations($productId, $allowSubproductSubstitution = false)
+	public function GetProductStockLocations(int $productId, $allowSubproductSubstitution = false)
 	{
 		$sqlWhereProductId = 'product_id = ' . $productId;
 		if ($allowSubproductSubstitution)
