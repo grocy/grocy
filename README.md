@@ -31,6 +31,8 @@ See the website for a list of community contributed Add-ons / Tools. &rarr; [htt
 > Checkout [grocy-desktop](https://github.com/grocy/grocy-desktop), if you want to run Grocy without having to manage a webserver just like a normal (Windows) desktop application.
 >
 > Directly download the [latest release](https://releases.grocy.info/latest-desktop) - the installation is nothing more than just clicking 2 times "next".
+>
+> Grocy's web app is also available on [PikaPods](https://www.pikapods.com/pods?run=grocy) for 1-click deployment. Includes regular updates, EU and US regions, backups and your own domain.
 
 See the website for some installation guides and troubleshooting help. &rarr; [https://grocy.info/links](https://grocy.info/links)
 
