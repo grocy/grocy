@@ -349,8 +349,8 @@ msgstr "これは%sが在庫から削除されるという意味です"
 msgid "Removed %1$s of %2$s from stock"
 msgstr "在庫から %2$s の %1$s を削除しました"
 
-msgid "About grocy"
-msgstr "grocy について"
+msgid "About Grocy"
+msgstr ""
 
 msgid "Close"
 msgstr "閉じる"
@@ -1379,8 +1379,8 @@ msgstr ""
 msgid "Price factor"
 msgstr "単位系数"
 
-msgid "Do you find grocy useful?"
-msgstr "grocy が便利だと思いますか?"
+msgid "Do you find Grocy useful?"
+msgstr ""
 
 msgid "Say thanks"
 msgstr "お礼する"
@@ -1505,7 +1505,7 @@ msgstr "在庫エントリーを編集"
 
 msgid ""
 "Camera access is only possible when supported and allowed by your browser "
-"and when grocy is served via a secure (https://) connection"
+"and when Grocy is served via a secure (https://) connection"
 msgstr ""
 
 msgid "Keep screen on"
@@ -1835,8 +1835,8 @@ msgid "Show a QR-Code for this API key"
 msgstr ""
 
 msgid ""
-"This is the default quantity unit used when adding this product to the "
-"shopping list"
+"This is the default quantity unit used on purchase and when adding this "
+"product to the shopping list"
 msgstr ""
 
 msgid ""
@@ -2107,18 +2107,18 @@ msgstr ""
 msgid "A product or a note is required"
 msgstr ""
 
-msgid "grocycode"
+msgid "Grocycode"
 msgstr ""
 
 msgid "Download"
 msgstr ""
 
-# Example: Download *Product* grocycode
-msgid "Download %s grocycode"
+# Example: Download *Product* Grocycode
+msgid "Download %s Grocycode"
 msgstr ""
 
 msgid ""
-"grocycode is a unique referer to this %s in your grocy instance - print it "
+"Grocycode is a unique referer to this %s in your Grocy instance - print it "
 "onto a label and scan it like any other barcode"
 msgstr ""
 
@@ -2147,8 +2147,8 @@ msgstr ""
 msgid "Error while executing WebHook"
 msgstr ""
 
-# Example: Print *Product* grocycode on label printer
-msgid "Print %s grocycode on label printer"
+# Example: Print *Product* Grocycode on label printer
+msgid "Print %s Grocycode on label printer"
 msgstr ""
 
 msgid "Open stock entry label in new window"
@@ -2544,3 +2544,15 @@ msgstr ""
 
 msgid "Out-of-stock products"
 msgstr ""
+
+msgid "Quantity unit for prices"
+msgstr ""
+
+msgid ""
+"When displaying prices for this product, they will be related to this "
+"quantity unit"
+msgstr ""
+
+msgid "This means 1 label will be printed"
+msgid_plural "This means %1$s labels will be printed"
+msgstr[0] ""

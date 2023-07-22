@@ -357,8 +357,8 @@ msgstr "This means %s will be removed from stock"
 msgid "Removed %1$s of %2$s from stock"
 msgstr "Removed %1$s of %2$s from stock"
 
-msgid "About grocy"
-msgstr "About grocy"
+msgid "About Grocy"
+msgstr ""
 
 msgid "Close"
 msgstr "Close"
@@ -1437,8 +1437,8 @@ msgstr ""
 msgid "Price factor"
 msgstr "Price factor"
 
-msgid "Do you find grocy useful?"
-msgstr "Do you find grocy useful?"
+msgid "Do you find Grocy useful?"
+msgstr ""
 
 msgid "Say thanks"
 msgstr "Say thanks"
@@ -1564,10 +1564,8 @@ msgstr "Edit stock entry"
 
 msgid ""
 "Camera access is only possible when supported and allowed by your browser "
-"and when grocy is served via a secure (https://) connection"
+"and when Grocy is served via a secure (https://) connection"
 msgstr ""
-"Camera access is only possible when supported and allowed by your browser "
-"and when grocy is served via a secure (https://) connection"
 
 msgid "Keep screen on"
 msgstr "Keep screen on"
@@ -1901,11 +1899,9 @@ msgid "Show a QR-Code for this API key"
 msgstr "Show a QR-Code for this API key"
 
 msgid ""
-"This is the default quantity unit used when adding this product to the "
-"shopping list"
+"This is the default quantity unit used on purchase and when adding this "
+"product to the shopping list"
 msgstr ""
-"This is the default quantity unit used when adding this product to the "
-"shopping list"
 
 msgid ""
 "Show a warning when the due date of the purchased product is earlier than "
@@ -2218,22 +2214,20 @@ msgstr "Print options"
 msgid "A product or a note is required"
 msgstr "A product or a note is required"
 
-msgid "grocycode"
-msgstr "grocycode"
+msgid "Grocycode"
+msgstr ""
 
 msgid "Download"
 msgstr "Download"
 
-# Example: Download *Product* grocycode
-msgid "Download %s grocycode"
-msgstr "Download %s grocycode"
+# Example: Download *Product* Grocycode
+msgid "Download %s Grocycode"
+msgstr ""
 
 msgid ""
-"grocycode is a unique referer to this %s in your grocy instance - print it "
+"Grocycode is a unique referer to this %s in your Grocy instance - print it "
 "onto a label and scan it like any other barcode"
 msgstr ""
-"grocycode is a unique referer to this %s in your grocy instance - print it "
-"onto a label and scan it like any other barcode"
 
 # Abbreviation for "due date"
 msgid "DD"
@@ -2260,9 +2254,9 @@ msgstr "Label per unit"
 msgid "Error while executing WebHook"
 msgstr "Error while executing WebHook"
 
-# Example: Print *Product* grocycode on label printer
-msgid "Print %s grocycode on label printer"
-msgstr "Print %s grocycode on label printer"
+# Example: Print *Product* Grocycode on label printer
+msgid "Print %s Grocycode on label printer"
+msgstr ""
 
 msgid "Open stock entry label in new window"
 msgstr "Open stock entry label in new window"
@@ -2668,3 +2662,16 @@ msgstr ""
 
 msgid "Out-of-stock products"
 msgstr ""
+
+msgid "Quantity unit for prices"
+msgstr ""
+
+msgid ""
+"When displaying prices for this product, they will be related to this "
+"quantity unit"
+msgstr ""
+
+msgid "This means 1 label will be printed"
+msgid_plural "This means %1$s labels will be printed"
+msgstr[0] ""
+msgstr[1] ""

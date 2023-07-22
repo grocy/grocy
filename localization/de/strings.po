@@ -358,8 +358,8 @@ msgstr "Das bedeutet %s wird aus dem Bestand entfernt"
 msgid "Removed %1$s of %2$s from stock"
 msgstr "%1$s %2$s aus dem Bestand entfernt"
 
-msgid "About grocy"
-msgstr "Über grocy"
+msgid "About Grocy"
+msgstr "Über Grocy"
 
 msgid "Close"
 msgstr "Schließen"
@@ -1485,8 +1485,8 @@ msgstr ""
 msgid "Price factor"
 msgstr "Preisfaktor"
 
-msgid "Do you find grocy useful?"
-msgstr "Findest du grocy nützlich?"
+msgid "Do you find Grocy useful?"
+msgstr "Findest du Grocy nützlich?"
 
 msgid "Say thanks"
 msgstr "Sag Danke"
@@ -1618,10 +1618,10 @@ msgstr "Bestandseintrag bearbeiten"
 
 msgid ""
 "Camera access is only possible when supported and allowed by your browser "
-"and when grocy is served via a secure (https://) connection"
+"and when Grocy is served via a secure (https://) connection"
 msgstr ""
 "Der Kamerazugriff ist nur möglich, wenn dein Browser dies unterstützt und "
-"zulässt und wenn auf grocy über eine sichere Verbindung (https://) "
+"zulässt und wenn auf Grocy über eine sichere Verbindung (https://) "
 "zugegriffen wird"
 
 msgid "Keep screen on"
@@ -1965,11 +1965,11 @@ msgid "Show a QR-Code for this API key"
 msgstr "Einen QR-Code für diesen API-Schlüssel anzeigen"
 
 msgid ""
-"This is the default quantity unit used when adding this product to the "
-"shopping list"
+"This is the default quantity unit used on purchase and when adding this "
+"product to the shopping list"
 msgstr ""
-"Dies ist die Standardmengeneinheit, die beim Hinzufügen dieses Produkts zum "
-"Einkaufszettel verwendet wird"
+"Dies ist die Standardmengeneinheit, die beim Einkauf und beim Hinzufügen "
+"dieses Produkts zum Einkaufszettel verwendet wird"
 
 msgid ""
 "Show a warning when the due date of the purchased product is earlier than "
@@ -2296,21 +2296,21 @@ msgstr "Druckoptionen"
 msgid "A product or a note is required"
 msgstr "Ein Produkt oder eine Notiz ist erforderlich"
 
-msgid "grocycode"
-msgstr "grocycode"
+msgid "Grocycode"
+msgstr "Grocycode"
 
 msgid "Download"
 msgstr "Herunterladen"
 
-# Example: Download *Product* grocycode
-msgid "Download %s grocycode"
-msgstr "%s grocycode herunterladen"
+# Example: Download *Product* Grocycode
+msgid "Download %s Grocycode"
+msgstr "%s Grocycode herunterladen"
 
 msgid ""
-"grocycode is a unique referer to this %s in your grocy instance - print it "
+"Grocycode is a unique referer to this %s in your Grocy instance - print it "
 "onto a label and scan it like any other barcode"
 msgstr ""
-"grocycode ist eine eindeutige Referenz zu diesem/dieser %s in dieser grocy "
+"Grocycode ist eine eindeutige Referenz zu diesem/dieser %s in dieser Grocy "
 "Instanz - ausgedruckt kann er wie jeder andere Barcode gescannt werden"
 
 # Abbreviation for "due date"
@@ -2338,9 +2338,9 @@ msgstr "Ein Etikett pro Einheit"
 msgid "Error while executing WebHook"
 msgstr "Fehler beim Aufruf des WebHooks"
 
-# Example: Print *Product* grocycode on label printer
-msgid "Print %s grocycode on label printer"
-msgstr "%s grocycode auf Etikettendrucker drucken"
+# Example: Print *Product* Grocycode on label printer
+msgid "Print %s Grocycode on label printer"
+msgstr "%s Grocycode auf Etikettendrucker drucken"
 
 msgid "Open stock entry label in new window"
 msgstr "Bestandseintragsetikett in neuem Fenster öffnen"
@@ -2780,3 +2780,18 @@ msgstr "Bestandsbericht"
 
 msgid "Out-of-stock products"
 msgstr "Nicht vorrätige Produkte"
+
+msgid "Quantity unit for prices"
+msgstr "Mengeneinheit für Preise"
+
+msgid ""
+"When displaying prices for this product, they will be related to this "
+"quantity unit"
+msgstr ""
+"Wenn Preise für dieses Produkt angezeigt werden, beziehen sie sich auf diese"
+" Mengeneinheit"
+
+msgid "This means 1 label will be printed"
+msgid_plural "This means %1$s labels will be printed"
+msgstr[0] "Dies bedeutet 1 Bestandseintragsetikett wird gedruckt"
+msgstr[1] "Dies bedeutet %1$s Bestandseintragsetiketten werden gedruckt"

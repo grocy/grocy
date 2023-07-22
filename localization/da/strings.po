@@ -361,8 +361,8 @@ msgstr "Dette betyder at %s bliver fjernet fra beholdningen"
 msgid "Removed %1$s of %2$s from stock"
 msgstr "Fjerede %1$s af %2$s fra beholdningen"
 
-msgid "About grocy"
-msgstr "Om grocy"
+msgid "About Grocy"
+msgstr ""
 
 msgid "Close"
 msgstr "Luk"
@@ -1455,8 +1455,8 @@ msgstr "Prisen for denne ingrediens vil blive ganget med denne faktor"
 msgid "Price factor"
 msgstr "Prisfaktor"
 
-msgid "Do you find grocy useful?"
-msgstr "Er grocy brugbart?"
+msgid "Do you find Grocy useful?"
+msgstr ""
 
 msgid "Say thanks"
 msgstr "Sig tak"
@@ -1582,10 +1582,8 @@ msgstr "Rediger lagerpostering"
 
 msgid ""
 "Camera access is only possible when supported and allowed by your browser "
-"and when grocy is served via a secure (https://) connection"
+"and when Grocy is served via a secure (https://) connection"
 msgstr ""
-"Kamera adgang er kun muligt når det er supporteret og tilladt af din browser"
-" og når grocy tilgås beskyttet med (https://) forbindelse"
 
 msgid "Keep screen on"
 msgstr "Hold skærmen tændt"
@@ -1920,9 +1918,9 @@ msgid "Show a QR-Code for this API key"
 msgstr "Vis QR kode for API nøglen"
 
 msgid ""
-"This is the default quantity unit used when adding this product to the "
-"shopping list"
-msgstr "Dette er standard indkøbs enheden når en vare tilføjes indkøbslisten."
+"This is the default quantity unit used on purchase and when adding this "
+"product to the shopping list"
+msgstr ""
 
 msgid ""
 "Show a warning when the due date of the purchased product is earlier than "
@@ -2223,22 +2221,20 @@ msgstr "Udskrifts-muligheder"
 msgid "A product or a note is required"
 msgstr "Der behøves en vare eller en note"
 
-msgid "grocycode"
-msgstr "grocycode"
+msgid "Grocycode"
+msgstr ""
 
 msgid "Download"
 msgstr "Download"
 
-# Example: Download *Product* grocycode
-msgid "Download %s grocycode"
-msgstr "Download %s grocycode"
+# Example: Download *Product* Grocycode
+msgid "Download %s Grocycode"
+msgstr ""
 
 msgid ""
-"grocycode is a unique referer to this %s in your grocy instance - print it "
+"Grocycode is a unique referer to this %s in your Grocy instance - print it "
 "onto a label and scan it like any other barcode"
 msgstr ""
-"grocycode er en unik reference til %s i din grocy installation - print den "
-"på en label og skan den som enhver anden stregkode"
 
 # Abbreviation for "due date"
 msgid "DD"
@@ -2265,9 +2261,9 @@ msgstr "Label pr. enhed"
 msgid "Error while executing WebHook"
 msgstr "Fejl ved afvikling af WebHook"
 
-# Example: Print *Product* grocycode on label printer
-msgid "Print %s grocycode on label printer"
-msgstr "Print %s grocycode på labelprinter"
+# Example: Print *Product* Grocycode on label printer
+msgid "Print %s Grocycode on label printer"
+msgstr ""
 
 msgid "Open stock entry label in new window"
 msgstr ""
@@ -2679,3 +2675,16 @@ msgstr ""
 
 msgid "Out-of-stock products"
 msgstr ""
+
+msgid "Quantity unit for prices"
+msgstr ""
+
+msgid ""
+"When displaying prices for this product, they will be related to this "
+"quantity unit"
+msgstr ""
+
+msgid "This means 1 label will be printed"
+msgid_plural "This means %1$s labels will be printed"
+msgstr[0] ""
+msgstr[1] ""

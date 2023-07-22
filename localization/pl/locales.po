@@ -5,6 +5,7 @@
 # Tomasz Wieczorek <tomek12-96@o2.pl>, 2022
 # Hans Müller, 2022
 # Michał G, 2022
+# Oskar Sawaryn, 2023
 # 
 msgid ""
 msgstr ""
@@ -12,7 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2020-08-31 19:11+0000\n"
-"Last-Translator: Michał G, 2022\n"
+"Last-Translator: Oskar Sawaryn, 2023\n"
 "Language-Team: Polish (https://app.transifex.com/grocy/teams/93189/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -143,4 +144,4 @@ msgstr "Ukrainian"
 
 # Romanian
 msgid "ro_RO"
-msgstr ""
+msgstr "Rumuński"

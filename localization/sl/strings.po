@@ -363,8 +363,8 @@ msgstr "To pomeni %s bo izbrisan iz zaloge"
 msgid "Removed %1$s of %2$s from stock"
 msgstr "Izbrisan %1$s količine %2$s iz zaloge"
 
-msgid "About grocy"
-msgstr "O grocy"
+msgid "About Grocy"
+msgstr ""
 
 msgid "Close"
 msgstr "Zapri"
@@ -1459,8 +1459,8 @@ msgstr "Končna cena te sestavine bo pomnožena s tem faktorjem"
 msgid "Price factor"
 msgstr "Faktor cene"
 
-msgid "Do you find grocy useful?"
-msgstr "Ali se ti zdi grocy uporaben?"
+msgid "Do you find Grocy useful?"
+msgstr ""
 
 msgid "Say thanks"
 msgstr "Zahvali se"
@@ -1588,7 +1588,7 @@ msgstr "Uredi zapis zaloge"
 
 msgid ""
 "Camera access is only possible when supported and allowed by your browser "
-"and when grocy is served via a secure (https://) connection"
+"and when Grocy is served via a secure (https://) connection"
 msgstr ""
 
 msgid "Keep screen on"
@@ -1920,11 +1920,9 @@ msgid "Show a QR-Code for this API key"
 msgstr "Pokaži QR-kodo za ta API ključ"
 
 msgid ""
-"This is the default quantity unit used when adding this product to the "
-"shopping list"
+"This is the default quantity unit used on purchase and when adding this "
+"product to the shopping list"
 msgstr ""
-"To je privzeta enota količine za dodajanje tega izdelka na nakupovalni "
-"seznam"
 
 msgid ""
 "Show a warning when the due date of the purchased product is earlier than "
@@ -2202,18 +2200,18 @@ msgstr "Možnosti tiskanja"
 msgid "A product or a note is required"
 msgstr "Izdelek ali opomba je obvezen"
 
-msgid "grocycode"
+msgid "Grocycode"
 msgstr ""
 
 msgid "Download"
 msgstr "Naloži"
 
-# Example: Download *Product* grocycode
-msgid "Download %s grocycode"
-msgstr "Naloži %s grocycode"
+# Example: Download *Product* Grocycode
+msgid "Download %s Grocycode"
+msgstr ""
 
 msgid ""
-"grocycode is a unique referer to this %s in your grocy instance - print it "
+"Grocycode is a unique referer to this %s in your Grocy instance - print it "
 "onto a label and scan it like any other barcode"
 msgstr ""
 
@@ -2242,9 +2240,9 @@ msgstr "Nalepka na enoto"
 msgid "Error while executing WebHook"
 msgstr ""
 
-# Example: Print *Product* grocycode on label printer
-msgid "Print %s grocycode on label printer"
-msgstr "Natisni %s grocycode na tiskalniku nalepk"
+# Example: Print *Product* Grocycode on label printer
+msgid "Print %s Grocycode on label printer"
+msgstr ""
 
 msgid "Open stock entry label in new window"
 msgstr "Odpri nalepko vnosa zaloge v novem oknu"
@@ -2660,3 +2658,18 @@ msgstr ""
 
 msgid "Out-of-stock products"
 msgstr ""
+
+msgid "Quantity unit for prices"
+msgstr ""
+
+msgid ""
+"When displaying prices for this product, they will be related to this "
+"quantity unit"
+msgstr ""
+
+msgid "This means 1 label will be printed"
+msgid_plural "This means %1$s labels will be printed"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""

@@ -8,6 +8,7 @@
 # Francisco Norton Brandão, 2022
 # Jorge Araújo, 2022
 # João Queirós, 2022
+# Cesar Veloso, 2023
 # 
 msgid ""
 msgstr ""
@@ -15,7 +16,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: João Queirós, 2022\n"
+"Last-Translator: Cesar Veloso, 2023\n"
 "Language-Team: Portuguese (Portugal) (https://app.transifex.com/grocy/teams/93189/pt_PT/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -369,8 +370,8 @@ msgstr "Isto significa que %s será removido do stock"
 msgid "Removed %1$s of %2$s from stock"
 msgstr "Removidos %1$s de %2$s do stock"
 
-msgid "About grocy"
-msgstr "Acerca do grocy"
+msgid "About Grocy"
+msgstr "Sobre o Grocy"
 
 msgid "Close"
 msgstr "Fechar"
@@ -941,6 +942,10 @@ msgid ""
 "checked against the stock amount, not against what is already on the "
 "shopping list"
 msgstr ""
+"Por padrão, a quantidade a ser adicionada à lista de compras é \"quantidade "
+"necessária\" , \"quantidade em stock\" , \"quantidade na lista de compras\" "
+"- quando isto está ativado, só é feita a verificação contra a \"quantidade "
+"em stock\", não contra o que já estava na lista de compras."
 
 msgid "Picture"
 msgstr "Imagem"
@@ -1207,7 +1212,7 @@ msgid "Products"
 msgstr "Produtos"
 
 msgid "Marked task %s as completed on %s"
-msgstr ""
+msgstr "Marcar tarefa \"%s\" como concluída em %s"
 
 msgid "Booking has subsequent dependent bookings, undo not possible"
 msgstr ""
@@ -1465,14 +1470,14 @@ msgstr ""
 msgid "Price factor"
 msgstr "Fator preço"
 
-msgid "Do you find grocy useful?"
-msgstr "Você acha grocy útil?"
+msgid "Do you find Grocy useful?"
+msgstr ""
 
 msgid "Say thanks"
 msgstr "Diga obrigado"
 
 msgid "Search for recipes containing this product"
-msgstr ""
+msgstr "Procurar receitas com este produto"
 
 msgid "Add to shopping list"
 msgstr "Adicione à lista de compras"
@@ -1484,7 +1489,7 @@ msgid "Output"
 msgstr "Resultado"
 
 msgid "Energy"
-msgstr ""
+msgstr "Energia"
 
 msgid "Per stock quantity unit"
 msgstr "Unidade de medida por stock"
@@ -1593,7 +1598,7 @@ msgstr "Editar entrada de stock"
 
 msgid ""
 "Camera access is only possible when supported and allowed by your browser "
-"and when grocy is served via a secure (https://) connection"
+"and when Grocy is served via a secure (https://) connection"
 msgstr ""
 
 msgid "Keep screen on"
@@ -1930,11 +1935,9 @@ msgid "Show a QR-Code for this API key"
 msgstr ""
 
 msgid ""
-"This is the default quantity unit used when adding this product to the "
-"shopping list"
+"This is the default quantity unit used on purchase and when adding this "
+"product to the shopping list"
 msgstr ""
-"Esta é a unidade de quantidade predefinida utilizada quando se adiciona este"
-" produto à lista de compras"
 
 msgid ""
 "Show a warning when the due date of the purchased product is earlier than "
@@ -2208,18 +2211,18 @@ msgstr ""
 msgid "A product or a note is required"
 msgstr "É necessário um produto ou uma nota"
 
-msgid "grocycode"
+msgid "Grocycode"
 msgstr ""
 
 msgid "Download"
 msgstr ""
 
-# Example: Download *Product* grocycode
-msgid "Download %s grocycode"
+# Example: Download *Product* Grocycode
+msgid "Download %s Grocycode"
 msgstr ""
 
 msgid ""
-"grocycode is a unique referer to this %s in your grocy instance - print it "
+"Grocycode is a unique referer to this %s in your Grocy instance - print it "
 "onto a label and scan it like any other barcode"
 msgstr ""
 
@@ -2248,8 +2251,8 @@ msgstr ""
 msgid "Error while executing WebHook"
 msgstr ""
 
-# Example: Print *Product* grocycode on label printer
-msgid "Print %s grocycode on label printer"
+# Example: Print *Product* Grocycode on label printer
+msgid "Print %s Grocycode on label printer"
 msgstr ""
 
 msgid "Open stock entry label in new window"
@@ -2675,3 +2678,17 @@ msgstr ""
 
 msgid "Out-of-stock products"
 msgstr ""
+
+msgid "Quantity unit for prices"
+msgstr ""
+
+msgid ""
+"When displaying prices for this product, they will be related to this "
+"quantity unit"
+msgstr ""
+
+msgid "This means 1 label will be printed"
+msgid_plural "This means %1$s labels will be printed"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""

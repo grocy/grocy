@@ -12,6 +12,7 @@
 # A A <transifex@stardestroyer.se>, 2020
 # Robert Johansson, 2022
 # Eduard Kapoun, 2022
+# Eric Andersson, 2023
 # 
 msgid ""
 msgstr ""
@@ -19,7 +20,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Eduard Kapoun, 2022\n"
+"Last-Translator: Eric Andersson, 2023\n"
 "Language-Team: Swedish (Sweden) (https://app.transifex.com/grocy/teams/93189/sv_SE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -364,7 +365,7 @@ msgstr "Detta betyder att %s kommer att tas bort från lager"
 msgid "Removed %1$s of %2$s from stock"
 msgstr "Tog bort %1$s  %2$s från lagret"
 
-msgid "About grocy"
+msgid "About Grocy"
 msgstr "Om grocy"
 
 msgid "Close"
@@ -724,7 +725,7 @@ msgid "Due soon"
 msgstr "Förfaller snart"
 
 msgid "Overdue"
-msgstr "Försenad"
+msgstr "Förfallen"
 
 msgid "View settings"
 msgstr "Visa inställningar"
@@ -861,6 +862,8 @@ msgid ""
 "The first item in this list would be picked by the default rule consume rule"
 " (Opened first, then first due first, then first in first out)"
 msgstr ""
+"Det första objektet i denna lista skulle plockas av standardregeln som är "
+"\"Öppnad först, sedan första förfallodag först, sedan först in först ut\""
 
 msgid "Mark %1$s of %2$s as open"
 msgstr "Markera %1$s av %2$s som öppna"
@@ -881,7 +884,7 @@ msgid "%s opened"
 msgstr "%s öppnade"
 
 msgid "Product due"
-msgstr ""
+msgstr "Produkt förfaller"
 
 msgid "Task due"
 msgstr "Uppgift förfallen"
@@ -1301,7 +1304,7 @@ msgid "Override for product"
 msgstr "Företräde för produkt"
 
 msgid "This equals %1$s %2$s"
-msgstr ""
+msgstr "Det motsvarar %1$s %2$s"
 
 msgid "Edit QU conversion"
 msgstr "Redigera konvertering för mängdenhet"
@@ -1451,8 +1454,8 @@ msgstr "Priset för denna ingrediens kommer att multipliceras med denna faktor"
 msgid "Price factor"
 msgstr "Prisfaktor"
 
-msgid "Do you find grocy useful?"
-msgstr "Tycker du att grocy är användbart?"
+msgid "Do you find Grocy useful?"
+msgstr ""
 
 msgid "Say thanks"
 msgstr "Tacka"
@@ -1578,10 +1581,8 @@ msgstr "Redigera lagerpost"
 
 msgid ""
 "Camera access is only possible when supported and allowed by your browser "
-"and when grocy is served via a secure (https://) connection"
+"and when Grocy is served via a secure (https://) connection"
 msgstr ""
-"Åtkomst till kamera kan bara ske när det stöds och är tillåtet av din "
-"webbläsare och när grocy visas via en krypterad anslutning (https://)"
 
 msgid "Keep screen on"
 msgstr "Behåll skärm på"
@@ -1918,8 +1919,8 @@ msgid "Show a QR-Code for this API key"
 msgstr "Visa en QR-kod för denna API-nyckel"
 
 msgid ""
-"This is the default quantity unit used when adding this product to the "
-"shopping list"
+"This is the default quantity unit used on purchase and when adding this "
+"product to the shopping list"
 msgstr ""
 "Standard kvantitetsenhet som använd när denna produkt läggs till i "
 "inköpslistan"
@@ -1989,7 +1990,7 @@ msgstr ""
 " för datumstämpel"
 
 msgid "-1 means that this product will be never overdue"
-msgstr ""
+msgstr "-1 betyder att denna produkt aldrig löper ut"
 
 msgid "Default due days"
 msgstr "Standard datumstämpel"
@@ -1999,6 +2000,8 @@ msgid ""
 "today + this amount of days, but only if the resulting date is not after the"
 " original due date (a value of 0 disables this)"
 msgstr ""
+"När den här produkten markeras som öppnad ersätts bäst före-datumet med "
+"dagens datum + detta antal dagar (ange 0 för att inaktivera detta)."
 
 msgid "Default due days after opened"
 msgstr "Standard datumstämpel efter öppnandet"
@@ -2202,18 +2205,18 @@ msgstr "Utskriftsinställningar"
 msgid "A product or a note is required"
 msgstr "En produkt eller anteckning krävs"
 
-msgid "grocycode"
-msgstr "grocykod"
+msgid "Grocycode"
+msgstr ""
 
 msgid "Download"
 msgstr "Ladda ner"
 
-# Example: Download *Product* grocycode
-msgid "Download %s grocycode"
-msgstr "Ladda ner %s grocykod"
+# Example: Download *Product* Grocycode
+msgid "Download %s Grocycode"
+msgstr ""
 
 msgid ""
-"grocycode is a unique referer to this %s in your grocy instance - print it "
+"Grocycode is a unique referer to this %s in your Grocy instance - print it "
 "onto a label and scan it like any other barcode"
 msgstr ""
 
@@ -2242,8 +2245,8 @@ msgstr "Etikett per enhet"
 msgid "Error while executing WebHook"
 msgstr ""
 
-# Example: Print *Product* grocycode on label printer
-msgid "Print %s grocycode on label printer"
+# Example: Print *Product* Grocycode on label printer
+msgid "Print %s Grocycode on label printer"
 msgstr ""
 
 msgid "Open stock entry label in new window"
@@ -2485,9 +2488,13 @@ msgid ""
 "selectable on purchase (useful for parent products which are just used as a "
 "summary/total view of the child products)"
 msgstr ""
+"När aktiverad kan denna produkt inte ha eget lager, vilket innebär att den "
+"inte kommer att kunna väljas vid inköp (användbart för huvudprodukter som "
+"endast används som en summering/totalvy av underprodukterna)"
 
 msgid "Out of stock items will be shown at the products default location"
 msgstr ""
+"Produkter som är slut i lager kommer att visas på produktens standardplats"
 
 msgid "Show a little checkbox next to each ingredient to mark it as done"
 msgstr ""
@@ -2510,7 +2517,7 @@ msgid "On"
 msgstr ""
 
 msgid "Use system setting"
-msgstr ""
+msgstr "Använd systeminställningar"
 
 msgid "Off"
 msgstr ""
@@ -2519,6 +2526,8 @@ msgid ""
 "Automatically add products that are below their defined min. stock amount to"
 " the shopping list"
 msgstr ""
+"Lägg automatiskt till produkter som ligger under deras definierade minsta "
+"lagermängd i inköpslistan"
 
 msgid "Reassigned"
 msgstr ""
@@ -2579,7 +2588,7 @@ msgid "Default quantity unit consume"
 msgstr ""
 
 msgid "This is the default quantity unit used when consuming this product"
-msgstr ""
+msgstr "Standard kvantitetsenhet som använd när denna produkt konsumeras"
 
 msgid "Add to meal plan"
 msgstr ""
@@ -2609,13 +2618,13 @@ msgid "Total"
 msgstr ""
 
 msgid "Apply"
-msgstr ""
+msgstr "Tillämpa"
 
 msgid "Custom range"
 msgstr ""
 
 msgid "Yesterday"
-msgstr ""
+msgstr "Igår"
 
 msgid "Last %1$s day"
 msgid_plural "Last %1$s days"
@@ -2623,16 +2632,16 @@ msgstr[0] ""
 msgstr[1] ""
 
 msgid "This month"
-msgstr ""
+msgstr "Den här månaden"
 
 msgid "Last month"
-msgstr ""
+msgstr "Förra månaden"
 
 msgid "This year"
-msgstr ""
+msgstr "Det här året"
 
 msgid "Last year"
-msgstr ""
+msgstr "Förra året"
 
 msgid "Reports"
 msgstr ""
@@ -2645,3 +2654,18 @@ msgstr ""
 
 msgid "Out-of-stock products"
 msgstr ""
+
+msgid "Quantity unit for prices"
+msgstr ""
+
+msgid ""
+"When displaying prices for this product, they will be related to this "
+"quantity unit"
+msgstr ""
+"När priser visas för denna produkt kommer de att relateras till denna "
+"kvantitetsenhet"
+
+msgid "This means 1 label will be printed"
+msgid_plural "This means %1$s labels will be printed"
+msgstr[0] ""
+msgstr[1] ""

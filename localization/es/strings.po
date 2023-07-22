@@ -15,6 +15,7 @@
 # Juan José González-Abril, 2021
 # GRBaset, 2022
 # Ricardo Verduguez, 2023
+# Jose Manuel Ruiz, 2023
 # 
 msgid ""
 msgstr ""
@@ -22,7 +23,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Ricardo Verduguez, 2023\n"
+"Last-Translator: Jose Manuel Ruiz, 2023\n"
 "Language-Team: Spanish (https://app.transifex.com/grocy/teams/93189/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -375,8 +376,8 @@ msgstr "Quiere decir que %s será eliminado del inventario"
 msgid "Removed %1$s of %2$s from stock"
 msgstr "Eliminado del inventario %1$s de %2$s"
 
-msgid "About grocy"
-msgstr "Acerca de Grocy"
+msgid "About Grocy"
+msgstr "Sobre Grocy"
 
 msgid "Close"
 msgstr "Cerrar"
@@ -1522,7 +1523,7 @@ msgstr ""
 msgid "Price factor"
 msgstr "Factor del precio"
 
-msgid "Do you find grocy useful?"
+msgid "Do you find Grocy useful?"
 msgstr "¿Le resulta útil Grocy?"
 
 msgid "Say thanks"
@@ -1541,7 +1542,7 @@ msgid "Output"
 msgstr "Salida"
 
 msgid "Energy"
-msgstr ""
+msgstr "Energía"
 
 msgid "Per stock quantity unit"
 msgstr "Por unidad por inventario"
@@ -1659,7 +1660,7 @@ msgstr "Modificar entrada de inventario"
 
 msgid ""
 "Camera access is only possible when supported and allowed by your browser "
-"and when grocy is served via a secure (https://) connection"
+"and when Grocy is served via a secure (https://) connection"
 msgstr ""
 "El acceso a la cámara solo es posible cuando su navegador lo permite y "
 "cuando se accede a grocy a través de una conexión segura (https://)"
@@ -2006,11 +2007,9 @@ msgid "Show a QR-Code for this API key"
 msgstr "Mostrar un código QR para esta clave de API"
 
 msgid ""
-"This is the default quantity unit used when adding this product to the "
-"shopping list"
+"This is the default quantity unit used on purchase and when adding this "
+"product to the shopping list"
 msgstr ""
-"Esta es la unidad de cantidad predeterminada al añadir este producto a la "
-"lista de la compra"
 
 msgid ""
 "Show a warning when the due date of the purchased product is earlier than "
@@ -2338,23 +2337,20 @@ msgstr "Opciones de impresión"
 msgid "A product or a note is required"
 msgstr "Hace falta un producto o una nota"
 
-msgid "grocycode"
-msgstr "grocycode"
+msgid "Grocycode"
+msgstr ""
 
 msgid "Download"
 msgstr "Descargar"
 
-# Example: Download *Product* grocycode
-msgid "Download %s grocycode"
-msgstr "Descargar %s grocycode"
+# Example: Download *Product* Grocycode
+msgid "Download %s Grocycode"
+msgstr "Descargado %s de Grocy"
 
 msgid ""
-"grocycode is a unique referer to this %s in your grocy instance - print it "
+"Grocycode is a unique referer to this %s in your Grocy instance - print it "
 "onto a label and scan it like any other barcode"
 msgstr ""
-"grocycode es una referencia única a este %s en tu interfaz de grocy - "
-"imprímalo en un una etiqueta y escanéelo como cualquier otro código de "
-"barras"
 
 # Abbreviation for "due date"
 msgid "DD"
@@ -2381,9 +2377,9 @@ msgstr "Etiqueta por unidad"
 msgid "Error while executing WebHook"
 msgstr "Error al ejecutar WebHook"
 
-# Example: Print *Product* grocycode on label printer
-msgid "Print %s grocycode on label printer"
-msgstr "Imprimir grocycode de %s en impresora de etiquetas"
+# Example: Print *Product* Grocycode on label printer
+msgid "Print %s Grocycode on label printer"
+msgstr ""
 
 msgid "Open stock entry label in new window"
 msgstr "Abrir etiqueta de entrada de inventario en una ventana nueva"
@@ -2794,16 +2790,16 @@ msgid "Track chore execution now"
 msgstr ""
 
 msgid "Total"
-msgstr ""
+msgstr "Total"
 
 msgid "Apply"
-msgstr ""
+msgstr "Aplicar"
 
 msgid "Custom range"
-msgstr ""
+msgstr "Rango personalizado"
 
 msgid "Yesterday"
-msgstr ""
+msgstr "Ayer"
 
 msgid "Last %1$s day"
 msgid_plural "Last %1$s days"
@@ -2812,25 +2808,39 @@ msgstr[1] ""
 msgstr[2] ""
 
 msgid "This month"
-msgstr ""
+msgstr "Este mes"
 
 msgid "Last month"
-msgstr ""
+msgstr "Último mes"
 
 msgid "This year"
-msgstr ""
+msgstr "Este año"
 
 msgid "Last year"
-msgstr ""
+msgstr "Último año"
 
 msgid "Reports"
-msgstr ""
+msgstr "Informes"
 
 msgid "Spendings"
 msgstr ""
 
 msgid "Stock report"
-msgstr ""
+msgstr "Inventario"
 
 msgid "Out-of-stock products"
+msgstr "Productos sin existencias"
+
+msgid "Quantity unit for prices"
 msgstr ""
+
+msgid ""
+"When displaying prices for this product, they will be related to this "
+"quantity unit"
+msgstr ""
+
+msgid "This means 1 label will be printed"
+msgid_plural "This means %1$s labels will be printed"
+msgstr[0] "Esto significa que 1 etiqueta será impresa"
+msgstr[1] "Esto significa que %1$s etiqueta será impresa"
+msgstr[2] "Esto significa que %1$s etiquetas serán impresas"

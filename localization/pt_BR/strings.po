@@ -46,7 +46,7 @@ msgid "within the next day"
 msgid_plural "within the next %s days"
 msgstr[0] "amanhã"
 msgstr[1] "nos próximos %s dias"
-msgstr[2] "para os próximos %s dias"
+msgstr[2] "nos próximos %s dias"
 
 msgid "%s product is already expired"
 msgid_plural "%s products are already expired"
@@ -100,7 +100,7 @@ msgid "Shopping list"
 msgstr "Lista de Compras"
 
 msgid "Chore tracking"
-msgstr "Monitorar atividade doméstica"
+msgstr "Monitorar ativ. doméstica"
 
 msgid "Battery tracking"
 msgstr "Monitorar baterias"
@@ -174,7 +174,7 @@ msgid "New amount"
 msgstr "Novo total"
 
 msgid "Note"
-msgstr "Observações"
+msgstr "Notas"
 
 msgid "Tracked time"
 msgstr "Registo de tempo"
@@ -375,8 +375,8 @@ msgstr "Significa que %s será removido do estoque"
 msgid "Removed %1$s of %2$s from stock"
 msgstr "Removido %1$s de %2$s do estoque"
 
-msgid "About grocy"
-msgstr "Sobre o grocy"
+msgid "About Grocy"
+msgstr "Sobre o Grocy"
 
 msgid "Close"
 msgstr "Fechar"
@@ -406,7 +406,7 @@ msgid "Search"
 msgstr "Procurar"
 
 msgid "Not logged in"
-msgstr "Não logado"
+msgstr "Não conectado"
 
 msgid "You have to select a product"
 msgstr "Você precisa selecionar um produto"
@@ -507,7 +507,7 @@ msgid "Not enough in stock, %1$s missing, %2$s already on shopping list"
 msgstr "Estoque insuficiente, %1$s faltando, %2$s já na lista de compras"
 
 msgid "Show notes"
-msgstr "Exibir observações"
+msgstr "Exibir notas"
 
 msgid "Put missing amount on shopping list"
 msgstr "Colocar a quantidade faltante na lista de compras"
@@ -613,13 +613,13 @@ msgstr[2] "%s atrasadas"
 
 msgid "%s battery is due to be charged"
 msgid_plural "%s batteries are due to be charged"
-msgstr[0] "%s precisa ser carregada em breve"
-msgstr[1] "%s precisam ser carregadas em breve"
-msgstr[2] "%s precisam ser carregadas em breve"
+msgstr[0] "%s precisa ser carregada"
+msgstr[1] "%s precisam ser carregadas"
+msgstr[2] "%s precisam ser carregadas"
 
 msgid "%s battery is overdue to be charged"
 msgid_plural "%s batteries are overdue to be charged"
-msgstr[0] "%s precisa ser carregadas"
+msgstr[0] "%s precisa ser carregada"
 msgstr[1] "%s precisam ser carregadas"
 msgstr[2] "%s precisam ser carregadas"
 
@@ -731,10 +731,10 @@ msgid "Are you sure to delete product group \"%s\"?"
 msgstr "Você tem certeza que deseja remover o grupo \"%s\"?"
 
 msgid "Stay logged in permanently"
-msgstr "Permanecer logado permanentemente"
+msgstr "Permanecer conectado permanentemente"
 
 msgid "When not set, you will get logged out at latest after 30 days"
-msgstr "Quando não marcado, você será deslogado após 30 dias"
+msgstr "Quando não marcado, você será desconectado após 30 dias"
 
 msgid "Status"
 msgstr "Situação"
@@ -797,7 +797,7 @@ msgid "The selected equipment has no instruction manual"
 msgstr "O aparelho selecionado não tem manual de instrução"
 
 msgid "Notes"
-msgstr "Observações"
+msgstr "Nota"
 
 msgid "Edit equipment"
 msgstr "Editar eletrodoméstico"
@@ -882,8 +882,8 @@ msgid ""
 " (Opened first, then first due first, then first in first out)"
 msgstr ""
 "O primeiro item nesta lista seria escolhido pela regra de consumo de regra "
-"padrão (Aberto primeiro, depois primeiro a expirar, depois primeiro a entrar"
-" primeiro a sair)"
+"padrão (Aberto primeiro, próximo a vencer, depois primeiro a entrar é o "
+"primeiro a sair)"
 
 msgid "Mark %1$s of %2$s as open"
 msgstr "Marcar %1$s de %2$s como aberto"
@@ -913,7 +913,7 @@ msgid "Chore due"
 msgstr "Ativ."
 
 msgid "Battery charge cycle due"
-msgstr "Vencimento do ciclo de carga"
+msgstr "Vence carga"
 
 msgid "Show clock in header"
 msgstr "Exibir relógio no cabeçalho"
@@ -1204,7 +1204,7 @@ msgid "Consume %1$s of %2$s"
 msgstr "Consumir %1$s de %2$s"
 
 msgid "Meal plan"
-msgstr "Dieta"
+msgstr "Plano Alimentar"
 
 msgid "%s serving"
 msgid_plural "%s servings"
@@ -1512,8 +1512,8 @@ msgstr "O preço resultante desde ingrediente será multiplicado por esse fator"
 msgid "Price factor"
 msgstr "Fator de preço"
 
-msgid "Do you find grocy useful?"
-msgstr "Você achou que o Grocy é útil?"
+msgid "Do you find Grocy useful?"
+msgstr "Você achou o Grocy útil? "
 
 msgid "Say thanks"
 msgstr "Dizer obrigado"
@@ -1534,7 +1534,7 @@ msgid "Energy"
 msgstr "Energia"
 
 msgid "Per stock quantity unit"
-msgstr "Quantidade de calorias"
+msgstr "Unidade por estoque"
 
 msgid "Barcode scanner testing"
 msgstr "Teste do leitor de códigos de barra"
@@ -1648,11 +1648,10 @@ msgstr "Editar item no estoque"
 
 msgid ""
 "Camera access is only possible when supported and allowed by your browser "
-"and when grocy is served via a secure (https://) connection"
+"and when Grocy is served via a secure (https://) connection"
 msgstr ""
-"O acesso para a câmera só é possível quando suportado e autorizado pelo seu "
-"Navegador e quando o grocy está trafegando por uma conexão segura "
-"(https://)."
+"O acesso à câmera só é possível quando suportado e permitido pelo seu "
+"navegador e quando o Grocy é possui uma conexão segura (https://)"
 
 msgid "Keep screen on"
 msgstr "Mantenha a tela ligada"
@@ -1684,16 +1683,16 @@ msgid "Are you sure to delete API key \"%s\"?"
 msgstr "Tem certeza que gostaria de remover a chave de API \"%s\"?"
 
 msgid "Add note"
-msgstr "Adicionar observação"
+msgstr "Adicionar nota"
 
 msgid "per day"
 msgstr "Diário"
 
 msgid "Only undone items"
-msgstr "Somente Itens incompletos"
+msgstr "Somente Itens faltantes"
 
 msgid "Add product"
-msgstr "Adicionar Produto"
+msgstr "Adicionar produto"
 
 msgid "Consume all ingredients needed by this weeks recipes or products"
 msgstr ""
@@ -1701,13 +1700,13 @@ msgstr ""
 "produtos."
 
 msgid "Meal plan recipe"
-msgstr "Receita da Dieta"
+msgstr "Receita do plano alimentar"
 
 msgid "Meal plan note"
-msgstr "Observação da dieta"
+msgstr "Dieta"
 
 msgid "Meal plan product"
-msgstr "Produto da Dieta"
+msgstr "Receita"
 
 msgid "Scan mode"
 msgstr "Modo Scanner"
@@ -1743,7 +1742,7 @@ msgid "Shopping list settings"
 msgstr "Configurações da Lista de Compras"
 
 msgid "Show a month-view calendar"
-msgstr "Visualizar agenda em formato \"Mês Completo\""
+msgstr "Mostrar agenda mensal"
 
 msgid "Desired servings"
 msgstr "Porções desejadas"
@@ -1770,22 +1769,22 @@ msgid "Transaction successfully undone"
 msgstr "Transação desfeita com sucesso"
 
 msgid "Default store"
-msgstr "Estabelecimento padráo"
+msgstr "Estabelecimento padrão"
 
 msgid "Consume this stock entry"
 msgstr "Consumir esse item do estoque"
 
 msgid "Mark this stock entry as open"
-msgstr "Marcar esse item do estoque como Aberto"
+msgstr "Marcar como aberto"
 
 msgid "Mark this item as done"
-msgstr "Marcar item como Concluído"
+msgstr "Selecionar item"
 
 msgid "Edit this item"
-msgstr "Editar esse item"
+msgstr "Editar item"
 
 msgid "Delete this item"
-msgstr "Remover esse item"
+msgstr "Remover item"
 
 msgid "Show an icon if the product is already on the shopping list"
 msgstr "Mostrar ícone se já estiver lista de compras"
@@ -1837,7 +1836,7 @@ msgid ""
 "due first, then first in first out) for in-stock ingredients and on the last"
 " price for missing ones"
 msgstr ""
-"Com base nos preços da regra de consumo padrão (aberto primeiro, primeiro a "
+"Com base nos preços da regra de consumo padrão (aberto primeiro, próximo a "
 "vencer, primeiro a entrar é o primeiro a sair) para ingredientes em estoque "
 "e no último preço para os que faltam"
 
@@ -1974,7 +1973,7 @@ msgid "Track next chore schedule"
 msgstr "Acompanhe o cronograma da próxima atividade"
 
 msgid "Mark task as completed"
-msgstr "Marcas as tarefas como concluída"
+msgstr "Marcar a tarefa como concluída"
 
 msgid "Track charge cycle"
 msgstr "Rastrear ciclo de recarga"
@@ -1995,11 +1994,11 @@ msgid "Show a QR-Code for this API key"
 msgstr "Mostrar um QR-Code para esta chave API"
 
 msgid ""
-"This is the default quantity unit used when adding this product to the "
-"shopping list"
+"This is the default quantity unit used on purchase and when adding this "
+"product to the shopping list"
 msgstr ""
-"Esta será a unidade de medida padrão utilizada quando se adicionar este "
-"produto à lista de compras"
+"Esta é a unidade padrão usada na compra e quando adicionar este produto à "
+"lista de compras"
 
 msgid ""
 "Show a warning when the due date of the purchased product is earlier than "
@@ -2081,7 +2080,7 @@ msgid "-1 means that this product will be never overdue"
 msgstr "-1 significa que este produto não tem vencimento"
 
 msgid "Default due days"
-msgstr "Dias de validade padrão"
+msgstr "Dias de validade (padrão)"
 
 msgid ""
 "When this product was marked as opened, the due date will be replaced by "
@@ -2093,7 +2092,7 @@ msgstr ""
 "posterior à validade original (o valor de 0 desativa isto)"
 
 msgid "Default due days after opened"
-msgstr "Dias de validade depois de aberto."
+msgstr "Dias de validade depois de aberto (padrão)"
 
 msgid ""
 "On moving this product to a freezer location (so when freezing it), the due "
@@ -2103,7 +2102,7 @@ msgstr ""
 "lo), a data de validade será substituída por hoje + esta quantidade de dias"
 
 msgid "Default due days after freezing"
-msgstr "Dias de validade padrão após colocar no freezer"
+msgstr "Dias de validade após colocar no congelador (padrão)"
 
 msgid ""
 "On moving this product from a freezer location (so when thawing it), the due"
@@ -2114,7 +2113,7 @@ msgstr ""
 "quantidade de dias"
 
 msgid "Default due days after thawing"
-msgstr "Dias de validade padrão após descongelar"
+msgstr "Dias de validade após descongelar (padrão)"
 
 msgid "Next due date"
 msgstr "Validade"
@@ -2133,12 +2132,12 @@ msgstr "Nunca vence"
 
 msgid "%s product is expired"
 msgid_plural "%s products are expired"
-msgstr[0] "%s produto estragou"
+msgstr[0] "%s produto estragado"
 msgstr[1] "%s produtos estragados"
 msgstr[2] "%s produtos estragados"
 
 msgid "Expired"
-msgstr "Vencido"
+msgstr "Estragado"
 
 msgid "Due soon days"
 msgstr "Vence nos próximos dias"
@@ -2185,7 +2184,7 @@ msgid ""
 "shopping list item, if the product has \"Default due days\" set"
 msgstr ""
 "Faça automaticamente a reserva usando o último preço e o valor do item da "
-"lista de compras, se o produto tiver \"Dias de validade padrão\" definido"
+"lista de compras, se o produto tiver \"Dias de validade (padrão)\" definido"
 
 msgid ""
 "When moving products from/to a freezer location, the products due date is "
@@ -2207,7 +2206,7 @@ msgstr ""
 "entrada"
 
 msgid "Sort number"
-msgstr "Número de classificação"
+msgstr "Ordem"
 
 msgid "Download file"
 msgstr "Baixar arquivo"
@@ -2324,24 +2323,24 @@ msgid "Print options"
 msgstr "Opções de impressão"
 
 msgid "A product or a note is required"
-msgstr "É necessário um produto ou uma observação"
+msgstr "É necessário um produto ou uma nota"
 
-msgid "grocycode"
-msgstr "grocycode"
+msgid "Grocycode"
+msgstr "Grocycode"
 
 msgid "Download"
 msgstr "Baixar"
 
-# Example: Download *Product* grocycode
-msgid "Download %s grocycode"
-msgstr "Baixar grocycode de %s"
+# Example: Download *Product* Grocycode
+msgid "Download %s Grocycode"
+msgstr "Baixar Grocycode de  %s "
 
 msgid ""
-"grocycode is a unique referer to this %s in your grocy instance - print it "
+"Grocycode is a unique referer to this %s in your Grocy instance - print it "
 "onto a label and scan it like any other barcode"
 msgstr ""
-"grocycode é um referencial único para este %s em seu aplicativo grocy. "
-"Imprima-o em uma etiqueta e o digitalize como qualquer outro código de "
+"Grocycode é um referencial exclusivo para este %s em sua instância Grocy - "
+"imprima-o em uma etiqueta e digitalize-o como qualquer outro código de "
 "barras"
 
 # Abbreviation for "due date"
@@ -2369,9 +2368,9 @@ msgstr "Etiqueta por unidade"
 msgid "Error while executing WebHook"
 msgstr "Erro ao executar WebHook"
 
-# Example: Print *Product* grocycode on label printer
-msgid "Print %s grocycode on label printer"
-msgstr "Imprimir grocycode de %s na impressora de etiqueta"
+# Example: Print *Product* Grocycode on label printer
+msgid "Print %s Grocycode on label printer"
+msgstr "Imprimir Grocycode %s na impressora de etiquetas"
 
 msgid "Open stock entry label in new window"
 msgstr "Abrir etiqueta de entrada de estoque em uma nova janela"
@@ -2389,7 +2388,7 @@ msgid "Unable to print"
 msgstr "Não foi possível imprimir"
 
 msgid "Only done items"
-msgstr "Somente Itens marcados"
+msgstr "Somente Itens selecionados"
 
 msgid "Show only in-stock products"
 msgstr "Somente em estoque"
@@ -2402,7 +2401,7 @@ msgid "%1$s per %2$s"
 msgstr "%1$s por %2$s"
 
 msgid "Mark this item as undone"
-msgstr "Marcar este item como desfeito"
+msgstr "Desmarcar"
 
 msgid "Mandatory"
 msgstr "Obrigatório"
@@ -2434,7 +2433,7 @@ msgid "This product shouldn't be frozen"
 msgstr "Este produto não deve ser congelado"
 
 msgid "Copy all meal plan entries of %s"
-msgstr "Copie todas as entradas da dieta de %s"
+msgstr "Copie todas as entradas do plano alimentar de %s"
 
 msgid "A date is required"
 msgstr "Data é necessária"
@@ -2491,19 +2490,19 @@ msgid "Configure sections"
 msgstr "Configurar seções"
 
 msgid "Meal plan sections"
-msgstr "Seções do plano da dieta"
+msgstr "Seções do plano do plano alimentar"
 
 msgid "Create meal plan section"
-msgstr "Criar dieta"
+msgstr "Criar plano alimentar"
 
 msgid "Sections will be ordered by that number on the meal plan"
-msgstr "As seções serão ordenadas por esse número na dieta"
+msgstr "As seções serão ordenadas por esse número no plano alimentar"
 
 msgid "Edit meal plan section"
-msgstr "Editar seção da dieta"
+msgstr "Editar seção do plano alimentar"
 
 msgid "Are you sure to delete meal plan section \"%s\"?"
-msgstr "Tem certeza que deseja remover a seção da dieta \"%s\"?"
+msgstr "Tem certeza que deseja remover a seção do plano alimentar \"%s\"?"
 
 msgid "Section"
 msgstr "Seção"
@@ -2555,7 +2554,7 @@ msgstr[1] "%s devem ser carregadas hoje"
 msgstr[2] "%s devem ser carregadas hoje"
 
 msgid "Set to 0 to hide due soon filters/highlighting"
-msgstr "Defina como 0 para ocultar filtros/destaques atribuídos em breve"
+msgstr "Defina como 0 para ocultar filtros/destaques para prazos próximos"
 
 msgid "Save & close"
 msgstr "Salvar e fechar"
@@ -2659,8 +2658,8 @@ msgid ""
 "first, then first in first out)"
 msgstr ""
 "O produto-pai %1$s está esgotado atualmente no estoque. %2$s é o próximo "
-"subproduto atual com base na regra de consumo padrão (aberto primeiro, "
-"primeiro a vencer primeiro e primeiro a entrar primeiro a sair)"
+"subproduto atual com base na regra de consumo padrão ((aberto primeiro, "
+"próximo a vencer, primeiro a entrar é o primeiro a sair)"
 
 msgid "Night mode"
 msgstr "Modo noturno"
@@ -2691,10 +2690,10 @@ msgid "Now / today"
 msgstr "Agora / Hoje"
 
 msgid "Add meal plan entry"
-msgstr "Adicionar entrada da dieta"
+msgstr "Adicionar entrada do plano alimentar"
 
 msgid "Edit meal plan entry"
-msgstr "Edita entrada do plano da dieta"
+msgstr "Edita entrada do plano alimentar"
 
 msgid "Default consume location"
 msgstr "Localização padrão para consumo"
@@ -2722,7 +2721,7 @@ msgid "Decimal places allowed for prices (display)"
 msgstr "Casas decimais permitidas para preços (visualização)"
 
 msgid "Clear done items"
-msgstr "Excluir itens marcados"
+msgstr "Excluir itens selecionados"
 
 msgid ""
 "This shows all to this product directly or indirectly related quantity units"
@@ -2749,10 +2748,10 @@ msgid "This is the default quantity unit used when consuming this product"
 msgstr "Esta é a unidade de quantidade padrão usada ao consumir este produto"
 
 msgid "Add to meal plan"
-msgstr "Adicionar à dieta"
+msgstr "Adicionar ao plano alimentar"
 
 msgid "Successfully added the recipe to the meal plan"
-msgstr "Adicionada com sucesso a receita à dieta"
+msgstr "Receita adicionada com sucesso ao plano alimentar"
 
 msgid "Reprint stock entry label"
 msgstr "Reimprimir etiqueta de entrada de estoque"
@@ -2767,7 +2766,7 @@ msgid ""
 msgstr ""
 "Quando ativado, a alteração automática da data de validade de uma entrada de"
 " estoque (abrindo/congelando/descongelando e estando o campo 'Dias de "
-"validade padrão' definido) reimprimirá sua etiqueta"
+"validade (padrão)' definido) reimprimirá sua etiqueta"
 
 msgid "Quick open amount"
 msgstr "Valor de abertura rápida"
@@ -2816,3 +2815,19 @@ msgstr "Relatório de estoque"
 
 msgid "Out-of-stock products"
 msgstr "Produtos fora de estoque"
+
+msgid "Quantity unit for prices"
+msgstr "Unidade para preços"
+
+msgid ""
+"When displaying prices for this product, they will be related to this "
+"quantity unit"
+msgstr ""
+"Ao exibir os preços deste produto, eles serão relacionados a esta unidade de"
+" quantidade"
+
+msgid "This means 1 label will be printed"
+msgid_plural "This means %1$s labels will be printed"
+msgstr[0] "Significa que 1 etiqueta será impressa"
+msgstr[1] "Significa que %1$s etiquetas serão impressas"
+msgstr[2] "Significa que %1$s etiquetas serão impressas"

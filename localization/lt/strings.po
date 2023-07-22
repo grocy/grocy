@@ -365,8 +365,8 @@ msgstr "Tai reiškia, kad %s bus pašalintas iš sandėlio"
 msgid "Removed %1$s of %2$s from stock"
 msgstr "Pašalintas %1$s iš %2$s sandėlio"
 
-msgid "About grocy"
-msgstr "Apie grocy"
+msgid "About Grocy"
+msgstr "Apie Grocy"
 
 msgid "Close"
 msgstr "Uždaryti"
@@ -1515,8 +1515,8 @@ msgstr "Klaida inicijuojant brūkšninio kodo nuskaitymo biblioteką"
 msgid "Price factor"
 msgstr "Kainos faktorius"
 
-msgid "Do you find grocy useful?"
-msgstr "Ar manote, kad grocy naudingas?"
+msgid "Do you find Grocy useful?"
+msgstr "Ar Grocy jums naudinga?"
 
 msgid "Say thanks"
 msgstr "Sakyk ačiū"
@@ -1654,10 +1654,10 @@ msgstr "Redaguoti sandėlio įrašą"
 
 msgid ""
 "Camera access is only possible when supported and allowed by your browser "
-"and when grocy is served via a secure (https://) connection"
+"and when Grocy is served via a secure (https://) connection"
 msgstr ""
-"Prieiga prie fotoaparato galima tik tada, kai ją palaiko ir leidžia jūsų "
-"naršyklė, o Grocy teikiamas saugiu (https://) ryšiu"
+"Prieiga prie fotoaparato galima tik tada, kai palaiko ir leidžia jūsų "
+"naršyklė ir kai Grocy aptarnaujamas saugiu (https://) ryšiu"
 
 msgid "Keep screen on"
 msgstr "Laikykite ekraną įjungtą"
@@ -1999,11 +1999,11 @@ msgid "Show a QR-Code for this API key"
 msgstr "Parodykite šio API rakto QR kodą"
 
 msgid ""
-"This is the default quantity unit used when adding this product to the "
-"shopping list"
+"This is the default quantity unit used on purchase and when adding this "
+"product to the shopping list"
 msgstr ""
-"Tai numatytasis kiekio vienetas, naudojamas įtraukiant šią prekę į pirkinių "
-"sąrašą"
+"Tai numatytasis kiekio vienetas, naudojamas perkant ir įtraukiant šį "
+"produktą į pirkinių sąrašą"
 
 msgid ""
 "Show a warning when the due date of the purchased product is earlier than "
@@ -2323,21 +2323,21 @@ msgstr "Spausdinimo parinktys"
 msgid "A product or a note is required"
 msgstr "Reikalingas produktas arba pastaba"
 
-msgid "grocycode"
-msgstr "grocykodas"
+msgid "Grocycode"
+msgstr "Grocycode"
 
 msgid "Download"
 msgstr "Atsisiųsti"
 
-# Example: Download *Product* grocycode
-msgid "Download %s grocycode"
-msgstr "Parsisiųsti %sgrocykodą"
+# Example: Download *Product* Grocycode
+msgid "Download %s Grocycode"
+msgstr "Atsisiųskite %s grocycode"
 
 msgid ""
-"grocycode is a unique referer to this %s in your grocy instance - print it "
+"Grocycode is a unique referer to this %s in your Grocy instance - print it "
 "onto a label and scan it like any other barcode"
 msgstr ""
-"grocykodas yra unikali nuoroda į šį %s jūsų grocy egzemplioriuje – "
+"Grocy kodas yra unikali nuoroda į tai %s jūsų Grocy egzemplioriuje – "
 "atspausdinkite jį ant etiketės ir nuskaitykite kaip bet kurį kitą brūkšninį "
 "kodą"
 
@@ -2366,9 +2366,9 @@ msgstr "Etiketė vienam vienetui"
 msgid "Error while executing WebHook"
 msgstr "Klaida vykdant WebHook"
 
-# Example: Print *Product* grocycode on label printer
-msgid "Print %s grocycode on label printer"
-msgstr "Spausdinkite %s grocycode ant etikečių spausdintuvo"
+# Example: Print *Product* Grocycode on label printer
+msgid "Print %s Grocycode on label printer"
+msgstr "Spausdinkite Grocycode su etikečių spausdintuvo"
 
 msgid "Open stock entry label in new window"
 msgstr "Atidaryti atsargų įrašo etiketę naujame lange"
@@ -2812,4 +2812,20 @@ msgid "Stock report"
 msgstr "Atsargų ataskaita"
 
 msgid "Out-of-stock products"
+msgstr "Prekės, kurių nebėra sandėlyje"
+
+msgid "Quantity unit for prices"
+msgstr "Kiekio vienetas kainoms"
+
+msgid ""
+"When displaying prices for this product, they will be related to this "
+"quantity unit"
 msgstr ""
+"Kai pateikiamos šios prekės kainos, jos bus susietos su šiuo kiekio vienetu"
+
+msgid "This means 1 label will be printed"
+msgid_plural "This means %1$s labels will be printed"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""

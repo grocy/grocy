@@ -7,6 +7,7 @@
 # Xuesong, 2022
 # Weicheng Ao, 2022
 # 冠南 胡, 2023
+# foo bar, 2023
 # 
 msgid ""
 msgstr ""
@@ -14,7 +15,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: 冠南 胡, 2023\n"
+"Last-Translator: foo bar, 2023\n"
 "Language-Team: Chinese (China) (https://app.transifex.com/grocy/teams/93189/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -351,8 +352,8 @@ msgstr "这意味着%s将从库存中删除"
 msgid "Removed %1$s of %2$s from stock"
 msgstr "从库存的%2$s中删除%1$s"
 
-msgid "About grocy"
-msgstr "关于grocy"
+msgid "About Grocy"
+msgstr "关于Grocy"
 
 msgid "Close"
 msgstr "关闭"
@@ -595,7 +596,7 @@ msgid "Removed all ingredients of recipe \"%s\" from stock"
 msgstr "从库存中移除食谱“%s”中所有的食材"
 
 msgid "Consume all ingredients needed by this recipe"
-msgstr "食用此食谱所需的所有成分 "
+msgstr "消耗此食谱所需的所有成分 "
 
 msgid "Click to show technical details"
 msgstr "单击此处显示技术细节"
@@ -1108,7 +1109,7 @@ msgid "Default amount for purchase"
 msgstr "默认购买数量"
 
 msgid "Default amount for consume"
-msgstr "默认消费数量"
+msgstr "默认消耗数量"
 
 msgid "Variable amount"
 msgstr "可变数量"
@@ -1383,8 +1384,8 @@ msgstr "这种成分的最终价格将乘以这个系数"
 msgid "Price factor"
 msgstr "价格系数"
 
-msgid "Do you find grocy useful?"
-msgstr "你觉得grocy有用吗?"
+msgid "Do you find Grocy useful?"
+msgstr "Grocy对您有帮助吗？"
 
 msgid "Say thanks"
 msgstr "表示感谢"
@@ -1423,7 +1424,7 @@ msgid "Hit"
 msgstr "命中"
 
 msgid "Miss"
-msgstr "女士"
+msgstr "未命中"
 
 msgid "Display recipe"
 msgstr "显示食谱"
@@ -1496,7 +1497,7 @@ msgid "Purchased date"
 msgstr "购买日"
 
 msgid "Consume all %s for this stock entry"
-msgstr "使用这个库存条目的所有%s"
+msgstr "消耗这个库存条目的所有%s"
 
 msgid "The amount cannot be lower than %1$s"
 msgstr "数量不能低于%1$s"
@@ -1509,8 +1510,8 @@ msgstr "编辑库存条目"
 
 msgid ""
 "Camera access is only possible when supported and allowed by your browser "
-"and when grocy is served via a secure (https://) connection"
-msgstr "只有当您的浏览器支持和允许并通过安全(https://)连接提供grocy服务时，才有可能访问摄像头"
+"and when Grocy is served via a secure (https://) connection"
+msgstr "只有当您的浏览器支持和允许并通过安全(https://)连接提供grocy服务时，才有可能启用摄像头"
 
 msgid "Keep screen on"
 msgstr "保持唤醒"
@@ -1551,7 +1552,7 @@ msgid "Add product"
 msgstr "添加产品"
 
 msgid "Consume all ingredients needed by this weeks recipes or products"
-msgstr "食用本星期食谱或产品所需的所有原料"
+msgstr "消耗本星期食谱或产品所需的所有原料"
 
 msgid "Meal plan recipe"
 msgstr "膳食计划菜谱"
@@ -1839,9 +1840,9 @@ msgid "Show a QR-Code for this API key"
 msgstr "显示此API密钥的QR码"
 
 msgid ""
-"This is the default quantity unit used when adding this product to the "
-"shopping list"
-msgstr "这是将此产品添加到购物清单时使用的默认数量单位"
+"This is the default quantity unit used on purchase and when adding this "
+"product to the shopping list"
+msgstr "这是购买此产品和将此产品加入购物清单时所使用的默认数量单位"
 
 msgid ""
 "Show a warning when the due date of the purchased product is earlier than "
@@ -2111,20 +2112,20 @@ msgstr "打印选项"
 msgid "A product or a note is required"
 msgstr "需要一件产品或一张便条"
 
-msgid "grocycode"
-msgstr "grocy码"
+msgid "Grocycode"
+msgstr ""
 
 msgid "Download"
 msgstr "下载"
 
-# Example: Download *Product* grocycode
-msgid "Download %s grocycode"
-msgstr "下载%sgrocycode"
+# Example: Download *Product* Grocycode
+msgid "Download %s Grocycode"
+msgstr ""
 
 msgid ""
-"grocycode is a unique referer to this %s in your grocy instance - print it "
+"Grocycode is a unique referer to this %s in your Grocy instance - print it "
 "onto a label and scan it like any other barcode"
-msgstr "Grocycode是在你的grocy实例中对这个%s的唯一引用——将它打印到标签上，并像其他条码一样扫描它  "
+msgstr ""
 
 # Abbreviation for "due date"
 msgid "DD"
@@ -2151,9 +2152,9 @@ msgstr "标签单位"
 msgid "Error while executing WebHook"
 msgstr "执行WebHook时出错"
 
-# Example: Print *Product* grocycode on label printer
-msgid "Print %s grocycode on label printer"
-msgstr "在标签打印机上打印%sgrocycode"
+# Example: Print *Product* Grocycode on label printer
+msgid "Print %s Grocycode on label printer"
+msgstr ""
 
 msgid "Open stock entry label in new window"
 msgstr "‎在新窗口中打开‎‎股票库存输入标签‎"
@@ -2440,18 +2441,18 @@ msgid "Edit meal plan entry"
 msgstr "编辑膳食计划条目"
 
 msgid "Default consume location"
-msgstr "默认使用位置"
+msgstr "默认消耗/食用位置"
 
 msgid "Stock entries at this location will be consumed first"
 msgstr "这个位置的库存条目将首先被消费  "
 
 msgid "Move on open"
-msgstr "继续开放"
+msgstr "开封时移动到默认使用位置"
 
 msgid ""
 "When enabled, on marking this product as opened, the corresponding amount "
 "will be moved to the default consume location"
-msgstr "‎启用后，在将此‎‎产品‎‎标记为已打开时，相应数量的产品将移动到默认消耗位置‎"
+msgstr "勾选后，在将此‎‎产品‎‎标记为已开封时，相应数量的产品将移动到默认使用位置‎"
 
 msgid "Moved to %1$s"
 msgstr "移动到%1$s"
@@ -2548,3 +2549,15 @@ msgstr "库存报告"
 
 msgid "Out-of-stock products"
 msgstr "缺货产品"
+
+msgid "Quantity unit for prices"
+msgstr ""
+
+msgid ""
+"When displaying prices for this product, they will be related to this "
+"quantity unit"
+msgstr ""
+
+msgid "This means 1 label will be printed"
+msgid_plural "This means %1$s labels will be printed"
+msgstr[0] ""

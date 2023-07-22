@@ -4,6 +4,7 @@
 # Andrea Raineri, 2022
 # Moltivie Denied <major2015usa@gmail.com>, 2022
 # Martino Falorni, 2023
+# Davide Casella, 2023
 # 
 msgid ""
 msgstr ""
@@ -11,7 +12,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2020-08-31 19:11+0000\n"
-"Last-Translator: Martino Falorni, 2023\n"
+"Last-Translator: Davide Casella, 2023\n"
 "Language-Team: Italian (https://app.transifex.com/grocy/teams/93189/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -142,4 +143,4 @@ msgstr "Regno Unito"
 
 # Romanian
 msgid "ro_RO"
-msgstr ""
+msgstr "Rumeno"

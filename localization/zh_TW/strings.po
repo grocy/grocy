@@ -349,8 +349,8 @@ msgstr "這代表 %s 將從庫存中刪除"
 msgid "Removed %1$s of %2$s from stock"
 msgstr "從庫存的 %2$s 中刪除 %1$s"
 
-msgid "About grocy"
-msgstr "關於 grocy"
+msgid "About Grocy"
+msgstr ""
 
 msgid "Close"
 msgstr "結束"
@@ -1380,8 +1380,8 @@ msgstr "此食材的價格將被乘以此係數"
 msgid "Price factor"
 msgstr "價格係數"
 
-msgid "Do you find grocy useful?"
-msgstr "您覺得 grocy 有用嗎？"
+msgid "Do you find Grocy useful?"
+msgstr ""
 
 msgid "Say thanks"
 msgstr "表示感謝"
@@ -1506,8 +1506,8 @@ msgstr "編輯庫存條目"
 
 msgid ""
 "Camera access is only possible when supported and allowed by your browser "
-"and when grocy is served via a secure (https://) connection"
-msgstr "只有在瀏覽器支援且使用安全(https://)連線時才能在允許下使用相機"
+"and when Grocy is served via a secure (https://) connection"
+msgstr ""
 
 msgid "Keep screen on"
 msgstr "螢幕恆亮"
@@ -1836,9 +1836,9 @@ msgid "Show a QR-Code for this API key"
 msgstr "顯示此 API 金鑰的 QR-Code"
 
 msgid ""
-"This is the default quantity unit used when adding this product to the "
-"shopping list"
-msgstr "此為將物品加入購物清單時的預設數量單位"
+"This is the default quantity unit used on purchase and when adding this "
+"product to the shopping list"
+msgstr ""
 
 msgid ""
 "Show a warning when the due date of the purchased product is earlier than "
@@ -2108,20 +2108,20 @@ msgstr "列印選項"
 msgid "A product or a note is required"
 msgstr "物品或備註為必填項目"
 
-msgid "grocycode"
-msgstr "GrocyCode"
+msgid "Grocycode"
+msgstr ""
 
 msgid "Download"
 msgstr "下載"
 
-# Example: Download *Product* grocycode
-msgid "Download %s grocycode"
-msgstr "下載%sGrocyCode"
+# Example: Download *Product* Grocycode
+msgid "Download %s Grocycode"
+msgstr ""
 
 msgid ""
-"grocycode is a unique referer to this %s in your grocy instance - print it "
+"Grocycode is a unique referer to this %s in your Grocy instance - print it "
 "onto a label and scan it like any other barcode"
-msgstr "GrocyCode是在您的Grocy執行個體中對此%s的唯一參照，在被列印到標籤上之後可以像其他條碼一樣掃描它"
+msgstr ""
 
 # Abbreviation for "due date"
 msgid "DD"
@@ -2148,9 +2148,9 @@ msgstr "單位標籤"
 msgid "Error while executing WebHook"
 msgstr "執行WebHook時發生錯誤"
 
-# Example: Print *Product* grocycode on label printer
-msgid "Print %s grocycode on label printer"
-msgstr "在標籤機上列印%s的GrocyCode"
+# Example: Print *Product* Grocycode on label printer
+msgid "Print %s Grocycode on label printer"
+msgstr ""
 
 msgid "Open stock entry label in new window"
 msgstr "在新分頁中開啟庫存條目標籤"
@@ -2545,3 +2545,15 @@ msgstr ""
 
 msgid "Out-of-stock products"
 msgstr ""
+
+msgid "Quantity unit for prices"
+msgstr ""
+
+msgid ""
+"When displaying prices for this product, they will be related to this "
+"quantity unit"
+msgstr ""
+
+msgid "This means 1 label will be printed"
+msgid_plural "This means %1$s labels will be printed"
+msgstr[0] ""

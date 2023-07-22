@@ -361,8 +361,8 @@ msgstr "Tämä tarkoittaa, että %s poistetaan varastosta"
 msgid "Removed %1$s of %2$s from stock"
 msgstr "Poistettiin %1$s tuotetta %2$s varastosta "
 
-msgid "About grocy"
-msgstr "Tietoja grocysta"
+msgid "About Grocy"
+msgstr ""
 
 msgid "Close"
 msgstr "Sulje"
@@ -1452,8 +1452,8 @@ msgstr "Tämän ainesosan lopullinen hinta kerrotaan tällä kertoimella "
 msgid "Price factor"
 msgstr "Hintakerroin"
 
-msgid "Do you find grocy useful?"
-msgstr "Pidätkö grocyä hyödyllisenä?"
+msgid "Do you find Grocy useful?"
+msgstr ""
 
 msgid "Say thanks"
 msgstr "Kiitä"
@@ -1579,10 +1579,8 @@ msgstr "Muokkaa varastomerkintää"
 
 msgid ""
 "Camera access is only possible when supported and allowed by your browser "
-"and when grocy is served via a secure (https://) connection"
+"and when Grocy is served via a secure (https://) connection"
 msgstr ""
-"Kameran käyttö on mahdollista vain, kun se on tuettuna ja sallittuna "
-"selaimessasi ja kun grocy-yhteys on turvallinen (https://)"
 
 msgid "Keep screen on"
 msgstr "Pidä näyttö päällä"
@@ -1920,10 +1918,9 @@ msgid "Show a QR-Code for this API key"
 msgstr "Näytä QR-koodi tälle API-tunnukselle"
 
 msgid ""
-"This is the default quantity unit used when adding this product to the "
-"shopping list"
+"This is the default quantity unit used on purchase and when adding this "
+"product to the shopping list"
 msgstr ""
-"Tätä yksikköä käytetään oletuksena, kun tätä tuotetta lisätään ostoslistalle"
 
 msgid ""
 "Show a warning when the due date of the purchased product is earlier than "
@@ -2232,22 +2229,20 @@ msgstr "Tulostusasetukset"
 msgid "A product or a note is required"
 msgstr "Tuote tai merkintä vaaditaan"
 
-msgid "grocycode"
-msgstr "grocykoodi"
+msgid "Grocycode"
+msgstr ""
 
 msgid "Download"
 msgstr "Lataa"
 
-# Example: Download *Product* grocycode
-msgid "Download %s grocycode"
-msgstr "Lataa %s grocykoodi"
+# Example: Download *Product* Grocycode
+msgid "Download %s Grocycode"
+msgstr ""
 
 msgid ""
-"grocycode is a unique referer to this %s in your grocy instance - print it "
+"Grocycode is a unique referer to this %s in your Grocy instance - print it "
 "onto a label and scan it like any other barcode"
 msgstr ""
-"grocykoodi on uniikki tunniste tätä %s varten grocy instanssissasi - tulosta"
-" se tarralle ja skannaa se kuin mikä tahansa muukin viivakoodi"
 
 # Abbreviation for "due date"
 msgid "DD"
@@ -2274,9 +2269,9 @@ msgstr ""
 msgid "Error while executing WebHook"
 msgstr "Virhe suorittaessa WebHook-avainta"
 
-# Example: Print *Product* grocycode on label printer
-msgid "Print %s grocycode on label printer"
-msgstr "Tulosta %s grocykoodi tarratulostimella"
+# Example: Print *Product* Grocycode on label printer
+msgid "Print %s Grocycode on label printer"
+msgstr ""
 
 msgid "Open stock entry label in new window"
 msgstr ""
@@ -2680,3 +2675,16 @@ msgstr ""
 
 msgid "Out-of-stock products"
 msgstr ""
+
+msgid "Quantity unit for prices"
+msgstr ""
+
+msgid ""
+"When displaying prices for this product, they will be related to this "
+"quantity unit"
+msgstr ""
+
+msgid "This means 1 label will be printed"
+msgid_plural "This means %1$s labels will be printed"
+msgstr[0] ""
+msgstr[1] ""

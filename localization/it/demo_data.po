@@ -5,6 +5,7 @@
 # Antonino Ursino <ninus_@libero.it>, 2022
 # Andrea Raineri, 2022
 # Moltivie Denied <major2015usa@gmail.com>, 2022
+# Davide Casella, 2023
 # 
 msgid ""
 msgstr ""
@@ -12,7 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Moltivie Denied <major2015usa@gmail.com>, 2022\n"
+"Last-Translator: Davide Casella, 2023\n"
 "Language-Team: Italian (https://app.transifex.com/grocy/teams/93189/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -400,24 +401,24 @@ msgstr "Ucraina"
 
 msgid "Kilogram"
 msgid_plural "Kilograms"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Kilogrammo"
+msgstr[1] "Kilogrammi"
+msgstr[2] "Kilogrammi"
 
 msgid "Romanian"
-msgstr ""
+msgstr "Rumeno"
 
 msgid "Pint"
-msgstr ""
+msgstr "Pinta"
 
 msgid "Beverages"
-msgstr ""
+msgstr "Bevande"
 
 msgid "Ice Cream"
-msgstr ""
+msgstr "Gelato"
 
 msgid "Soda"
-msgstr ""
+msgstr "Bibita"
 
 msgid "Beer"
-msgstr ""
+msgstr "Birra"

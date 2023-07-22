@@ -363,8 +363,8 @@ msgstr "המשמעות היא הסרה של %s מהמלאי"
 msgid "Removed %1$s of %2$s from stock"
 msgstr "%1$s מתוך %2$s הוסרו מהמלאי"
 
-msgid "About grocy"
-msgstr "על אודות grocy"
+msgid "About Grocy"
+msgstr "על Grocy"
 
 msgid "Close"
 msgstr "סגירה"
@@ -1489,8 +1489,8 @@ msgstr "המחיר שיתקבל לרכיב זה יוכפל במקדם הזה"
 msgid "Price factor"
 msgstr "מקדם מחיר"
 
-msgid "Do you find grocy useful?"
-msgstr "grocy שימושי בעיניך?"
+msgid "Do you find Grocy useful?"
+msgstr "Grocy שימושי לדעתך?"
 
 msgid "Say thanks"
 msgstr "להגיד תודה"
@@ -1628,10 +1628,10 @@ msgstr "עריכת רשומת מלאי"
 
 msgid ""
 "Camera access is only possible when supported and allowed by your browser "
-"and when grocy is served via a secure (https://) connection"
+"and when Grocy is served via a secure (https://) connection"
 msgstr ""
-"הגישה למצלמה אפשרית רק כשיש תמיכה ולדפדפן שלך יש הרשאה וכאשר grocy מוגש דרך "
-"חיבור מאובטח (https://‎)."
+"הגישה למצלמה אפשרית רק כשיש תמיכה והסכמה על ידי הדפדפן שלך וכאשר Grocy פועל "
+"דרך חיבור מאובטח (https://‎)"
 
 msgid "Keep screen on"
 msgstr "להשאיר את המסך פעיל"
@@ -1965,10 +1965,9 @@ msgid "Show a QR-Code for this API key"
 msgstr "להציג קוד QR עבור מפתח API זה"
 
 msgid ""
-"This is the default quantity unit used when adding this product to the "
-"shopping list"
-msgstr ""
-"זאת יחידת הכמות כבררת מחדל בה נעשה שימוש בעת הוספת המוצר הזה לרשימת הקניות"
+"This is the default quantity unit used on purchase and when adding this "
+"product to the shopping list"
+msgstr "זאת כמות ברירת המחדל שמשמשת לרכישה ובעת הוספת המוצר הזה לרשימת הקניות"
 
 msgid ""
 "Show a warning when the due date of the purchased product is earlier than "
@@ -2277,22 +2276,20 @@ msgstr "אפשרויות הדפסה"
 msgid "A product or a note is required"
 msgstr "נדרש מוצר או הערה"
 
-msgid "grocycode"
-msgstr "קוד grocy"
+msgid "Grocycode"
+msgstr ""
 
 msgid "Download"
 msgstr "הורדה"
 
-# Example: Download *Product* grocycode
-msgid "Download %s grocycode"
-msgstr "הורדת קוד grocy של %s"
+# Example: Download *Product* Grocycode
+msgid "Download %s Grocycode"
+msgstr ""
 
 msgid ""
-"grocycode is a unique referer to this %s in your grocy instance - print it "
+"Grocycode is a unique referer to this %s in your Grocy instance - print it "
 "onto a label and scan it like any other barcode"
 msgstr ""
-"קוד grocy הוא ייחוס ייחודי עבור %s בעותק ה־grocy שלך - יש להדפיס אותו על "
-"תווית ולסרוק אותו כמו כל ברקוד אחד."
 
 # Abbreviation for "due date"
 msgid "DD"
@@ -2319,9 +2316,9 @@ msgstr "תווית לכל יחידה"
 msgid "Error while executing WebHook"
 msgstr "שגיאה בהפעלת התליית רשת"
 
-# Example: Print *Product* grocycode on label printer
-msgid "Print %s grocycode on label printer"
-msgstr "הדפסת קוד grocy של %s במדפסת מדבקות"
+# Example: Print *Product* Grocycode on label printer
+msgid "Print %s Grocycode on label printer"
+msgstr ""
 
 msgid "Open stock entry label in new window"
 msgstr "פתיחת תווית רשומת מלאי בחלון חדש"
@@ -2758,3 +2755,18 @@ msgstr "דוח מלאי"
 
 msgid "Out-of-stock products"
 msgstr "מוצרים שנגמרו במלאי"
+
+msgid "Quantity unit for prices"
+msgstr "יחידת כמות למחירים"
+
+msgid ""
+"When displaying prices for this product, they will be related to this "
+"quantity unit"
+msgstr "בעת הצגת מחירים למוצר הזה, הם יהיו קשורים ליחידת כמות זו"
+
+msgid "This means 1 label will be printed"
+msgid_plural "This means %1$s labels will be printed"
+msgstr[0] "משמעות הדבר היא שתודפס תווית אחת"
+msgstr[1] "משמעות הדבר היא שתודפסנה %1$s תוויות"
+msgstr[2] "משמעות הדבר היא שתודפסנה %1$s תוויות"
+msgstr[3] "משמעות הדבר היא שתודפסנה %1$s תוויות"

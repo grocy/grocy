@@ -8,8 +8,8 @@
 # Niels Tholenaar <info@123quality.nl>, 2019
 # Kees van Nieuwenhuijzen <kees@vannieuwenhuijzen.com>, 2019
 # BodingClockchian <joost_nl@live.nl>, 2020
-# gggg <bashankamp@gmail.com>, 2020
 # Bastien Van Houdt <bastienvanhoudt@gmail.com>, 2020
+# gggg <bashankamp@gmail.com>, 2020
 # D. Polders <zigurana@gmail.com>, 2020
 # crnh <corne@haasjes.nu>, 2020
 # Sigi 789 <ssigi333lvl3@outlook.com>, 2020
@@ -384,8 +384,8 @@ msgstr "%s zal worden verwijderd uit de voorraad"
 msgid "Removed %1$s of %2$s from stock"
 msgstr "%1$s %2$s verwijderd uit de voorraad"
 
-msgid "About grocy"
-msgstr "Over grocy"
+msgid "About Grocy"
+msgstr ""
 
 msgid "Close"
 msgstr "Sluit"
@@ -1491,8 +1491,8 @@ msgstr ""
 msgid "Price factor"
 msgstr "Prijsfactor"
 
-msgid "Do you find grocy useful?"
-msgstr "Vind je grocy handig?"
+msgid "Do you find Grocy useful?"
+msgstr ""
 
 msgid "Say thanks"
 msgstr "Zeg bedankt"
@@ -1621,10 +1621,8 @@ msgstr "Bewerk voorraad item"
 
 msgid ""
 "Camera access is only possible when supported and allowed by your browser "
-"and when grocy is served via a secure (https://) connection"
+"and when Grocy is served via a secure (https://) connection"
 msgstr ""
-"Cameratoegang is alleen mogelijk als uw browser dit ondersteunt en toelaat "
-"en wanneer u verbindt met grocy via een beveiligde verbinding (https://)."
 
 msgid "Keep screen on"
 msgstr "Houd scherm aan"
@@ -1970,11 +1968,9 @@ msgid "Show a QR-Code for this API key"
 msgstr "Toon een QR-code voor deze API-sleutel"
 
 msgid ""
-"This is the default quantity unit used when adding this product to the "
-"shopping list"
+"This is the default quantity unit used on purchase and when adding this "
+"product to the shopping list"
 msgstr ""
-"Dit is de standaard hoeveelheid die word gebruikt bij het toevoegen van dit "
-"product aan de boodschappenlijst"
 
 msgid ""
 "Show a warning when the due date of the purchased product is earlier than "
@@ -2296,22 +2292,20 @@ msgstr "Printopties"
 msgid "A product or a note is required"
 msgstr "Een product of notitie is nodig"
 
-msgid "grocycode"
-msgstr "grocycode"
+msgid "Grocycode"
+msgstr ""
 
 msgid "Download"
 msgstr "Download"
 
-# Example: Download *Product* grocycode
-msgid "Download %s grocycode"
-msgstr "Download %s grocycode"
+# Example: Download *Product* Grocycode
+msgid "Download %s Grocycode"
+msgstr ""
 
 msgid ""
-"grocycode is a unique referer to this %s in your grocy instance - print it "
+"Grocycode is a unique referer to this %s in your Grocy instance - print it "
 "onto a label and scan it like any other barcode"
 msgstr ""
-"grocycode is een unieke referentie naar de %s in je grocy installatie - "
-"print het op een label en scan het net als elke andere barcode"
 
 # Abbreviation for "due date"
 msgid "DD"
@@ -2338,9 +2332,9 @@ msgstr "Label per eenheid"
 msgid "Error while executing WebHook"
 msgstr "Fout tijdens het uitvoeren van WebHook"
 
-# Example: Print *Product* grocycode on label printer
-msgid "Print %s grocycode on label printer"
-msgstr "Print %s grocycode op een label printer"
+# Example: Print *Product* Grocycode on label printer
+msgid "Print %s Grocycode on label printer"
+msgstr ""
 
 msgid "Open stock entry label in new window"
 msgstr "Open voorraad invoer label in een nieuw venster"
@@ -2779,3 +2773,16 @@ msgstr ""
 
 msgid "Out-of-stock products"
 msgstr ""
+
+msgid "Quantity unit for prices"
+msgstr ""
+
+msgid ""
+"When displaying prices for this product, they will be related to this "
+"quantity unit"
+msgstr ""
+
+msgid "This means 1 label will be printed"
+msgid_plural "This means %1$s labels will be printed"
+msgstr[0] ""
+msgstr[1] ""

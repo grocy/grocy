@@ -375,8 +375,8 @@ msgstr "Означает, что %s будет убран из запаса"
 msgid "Removed %1$s of %2$s from stock"
 msgstr "Убрано %1$s из %2$s из запаса"
 
-msgid "About grocy"
-msgstr "О grocy"
+msgid "About Grocy"
+msgstr ""
 
 msgid "Close"
 msgstr "Закрыть"
@@ -1534,8 +1534,8 @@ msgstr "Полная цена этого ингредиента будет ум�
 msgid "Price factor"
 msgstr "Коэффициент цены"
 
-msgid "Do you find grocy useful?"
-msgstr "Вы находите grocy полезным?"
+msgid "Do you find Grocy useful?"
+msgstr ""
 
 msgid "Say thanks"
 msgstr "Сказать спасибо"
@@ -1666,11 +1666,8 @@ msgstr "Редактировать запас"
 
 msgid ""
 "Camera access is only possible when supported and allowed by your browser "
-"and when grocy is served via a secure (https://) connection"
+"and when Grocy is served via a secure (https://) connection"
 msgstr ""
-"Доступ к камере возможен только тогда, когда это поддерживается и разрешено "
-"вашим браузером и когда grocy обслуживается через безопасное (https://) "
-"соединение."
 
 msgid "Keep screen on"
 msgstr "Держать экран включенным"
@@ -2007,11 +2004,9 @@ msgid "Show a QR-Code for this API key"
 msgstr "Показать QR-код для этого API ключа"
 
 msgid ""
-"This is the default quantity unit used when adding this product to the "
-"shopping list"
+"This is the default quantity unit used on purchase and when adding this "
+"product to the shopping list"
 msgstr ""
-"Настройка единицы измерения по умолчанию, при добавлении данного продукта в "
-"список покупок."
 
 msgid ""
 "Show a warning when the due date of the purchased product is earlier than "
@@ -2314,22 +2309,20 @@ msgstr "Параметры печати"
 msgid "A product or a note is required"
 msgstr "Необходим продукт или заметка"
 
-msgid "grocycode"
-msgstr "grocy-код"
+msgid "Grocycode"
+msgstr ""
 
 msgid "Download"
 msgstr "Скачать"
 
-# Example: Download *Product* grocycode
-msgid "Download %s grocycode"
-msgstr "Скачать grocy-код для %s"
+# Example: Download *Product* Grocycode
+msgid "Download %s Grocycode"
+msgstr ""
 
 msgid ""
-"grocycode is a unique referer to this %s in your grocy instance - print it "
+"Grocycode is a unique referer to this %s in your Grocy instance - print it "
 "onto a label and scan it like any other barcode"
 msgstr ""
-"grocy-код является идентификатором этой %s в вашей системе - распечатайте "
-"его, наклейте и сканируйте как обычный штрих-код"
 
 # Abbreviation for "due date"
 msgid "DD"
@@ -2356,9 +2349,9 @@ msgstr ""
 msgid "Error while executing WebHook"
 msgstr ""
 
-# Example: Print *Product* grocycode on label printer
-msgid "Print %s grocycode on label printer"
-msgstr "Распечатать %s grocy-код на принтере"
+# Example: Print *Product* Grocycode on label printer
+msgid "Print %s Grocycode on label printer"
+msgstr ""
 
 msgid "Open stock entry label in new window"
 msgstr ""
@@ -2786,3 +2779,18 @@ msgstr ""
 
 msgid "Out-of-stock products"
 msgstr ""
+
+msgid "Quantity unit for prices"
+msgstr ""
+
+msgid ""
+"When displaying prices for this product, they will be related to this "
+"quantity unit"
+msgstr ""
+
+msgid "This means 1 label will be printed"
+msgid_plural "This means %1$s labels will be printed"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""

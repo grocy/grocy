@@ -18,6 +18,7 @@
 # Marcin Lewandowski <email.marcina.lewandowskiego@gmail.com>, 2022
 # Kamila Frej, 2022
 # Michał G, 2022
+# Oskar Sawaryn, 2023
 # 
 msgid ""
 msgstr ""
@@ -25,7 +26,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Michał G, 2022\n"
+"Last-Translator: Oskar Sawaryn, 2023\n"
 "Language-Team: Polish (https://app.transifex.com/grocy/teams/93189/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -382,8 +383,8 @@ msgstr "To znaczy, że %s zostanie usunięty ze stanu"
 msgid "Removed %1$s of %2$s from stock"
 msgstr "%2$s - %1$s - usunięto z zapasów"
 
-msgid "About grocy"
-msgstr "O grocy"
+msgid "About Grocy"
+msgstr ""
 
 msgid "Close"
 msgstr "Zamknij"
@@ -1533,8 +1534,8 @@ msgstr "Cena tego składnika zostanie pomnożona przez ten współczynnik"
 msgid "Price factor"
 msgstr "Współczynnik ceny"
 
-msgid "Do you find grocy useful?"
-msgstr "Uważasz że grocy jest przydatne?"
+msgid "Do you find Grocy useful?"
+msgstr ""
 
 msgid "Say thanks"
 msgstr "Podziękuj"
@@ -1552,7 +1553,7 @@ msgid "Output"
 msgstr "Wynik wyjściowy"
 
 msgid "Energy"
-msgstr ""
+msgstr "Energia"
 
 msgid "Per stock quantity unit"
 msgstr "Na jednostkę ilości zakupów"
@@ -1673,11 +1674,8 @@ msgstr "Edytuj pozycję zapasu"
 
 msgid ""
 "Camera access is only possible when supported and allowed by your browser "
-"and when grocy is served via a secure (https://) connection"
+"and when Grocy is served via a secure (https://) connection"
 msgstr ""
-"Dostęp do kamery jest możliwy jedynie jeżeli jest wspierany i twoja "
-"przeglądarka na niego zezwala. Dodatkowo gorcy musi być dostępne za "
-"pośrednictwem bezpiecznego połączenia (https://)"
 
 msgid "Keep screen on"
 msgstr "Nie wygaszaj ekranu"
@@ -2016,11 +2014,9 @@ msgid "Show a QR-Code for this API key"
 msgstr "Pokaż kod QR dla tego klucza API"
 
 msgid ""
-"This is the default quantity unit used when adding this product to the "
-"shopping list"
+"This is the default quantity unit used on purchase and when adding this "
+"product to the shopping list"
 msgstr ""
-"To jest domyślna jednostka używana podczas dodawania tego produktu do listy "
-"zakupów"
 
 msgid ""
 "Show a warning when the due date of the purchased product is earlier than "
@@ -2342,22 +2338,20 @@ msgstr "Opcje wydruku"
 msgid "A product or a note is required"
 msgstr "Produkty lub notatka jest wymagana"
 
-msgid "grocycode"
-msgstr "grocykod"
+msgid "Grocycode"
+msgstr ""
 
 msgid "Download"
 msgstr "Pobierz"
 
-# Example: Download *Product* grocycode
-msgid "Download %s grocycode"
-msgstr "Pobierz grocykod %s"
+# Example: Download *Product* Grocycode
+msgid "Download %s Grocycode"
+msgstr ""
 
 msgid ""
-"grocycode is a unique referer to this %s in your grocy instance - print it "
+"Grocycode is a unique referer to this %s in your Grocy instance - print it "
 "onto a label and scan it like any other barcode"
 msgstr ""
-"grocykod to unikalne oznaczenie tego %s w Twojej instancji grocy - wydrukuj "
-"go na etykietę i skanuj, jak dowolny inny kod kreskowy"
 
 # Abbreviation for "due date"
 msgid "DD"
@@ -2384,9 +2378,9 @@ msgstr "Etykieta na jednostkę"
 msgid "Error while executing WebHook"
 msgstr "Błąd podczas wykonywania webhooka"
 
-# Example: Print *Product* grocycode on label printer
-msgid "Print %s grocycode on label printer"
-msgstr "Wydrukuj grocykod %s na drukarce etykiet"
+# Example: Print *Product* Grocycode on label printer
+msgid "Print %s Grocycode on label printer"
+msgstr ""
 
 msgid "Open stock entry label in new window"
 msgstr "Utwórz etykietę wpisu zapasu w nowym oknie"
@@ -2790,13 +2784,13 @@ msgid "Total"
 msgstr ""
 
 msgid "Apply"
-msgstr ""
+msgstr "Zastosuj"
 
 msgid "Custom range"
 msgstr ""
 
 msgid "Yesterday"
-msgstr ""
+msgstr "Wczoraj"
 
 msgid "Last %1$s day"
 msgid_plural "Last %1$s days"
@@ -2806,10 +2800,10 @@ msgstr[2] ""
 msgstr[3] ""
 
 msgid "This month"
-msgstr ""
+msgstr "W tym miesiącu"
 
 msgid "Last month"
-msgstr ""
+msgstr "W zeszłym miesiącu"
 
 msgid "This year"
 msgstr ""
@@ -2828,3 +2822,18 @@ msgstr ""
 
 msgid "Out-of-stock products"
 msgstr ""
+
+msgid "Quantity unit for prices"
+msgstr ""
+
+msgid ""
+"When displaying prices for this product, they will be related to this "
+"quantity unit"
+msgstr ""
+
+msgid "This means 1 label will be printed"
+msgid_plural "This means %1$s labels will be printed"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""

@@ -362,8 +362,8 @@ msgstr "Ez azt jelenti, %s el lesz távolítva a készletből"
 msgid "Removed %1$s of %2$s from stock"
 msgstr "%1$s %2$s készletről levéve"
 
-msgid "About grocy"
-msgstr "Grocyról"
+msgid "About Grocy"
+msgstr ""
 
 msgid "Close"
 msgstr "Bezár"
@@ -1475,8 +1475,8 @@ msgstr "Ennyivel lesz megszorozva a hozzávaló végső ára"
 msgid "Price factor"
 msgstr "Ár szorzó"
 
-msgid "Do you find grocy useful?"
-msgstr "Hasznosnak találod a Grocyt?"
+msgid "Do you find Grocy useful?"
+msgstr ""
 
 msgid "Say thanks"
 msgstr "Köszönd meg"
@@ -1608,11 +1608,8 @@ msgstr "Készlet bejegyzés szerkesztése"
 
 msgid ""
 "Camera access is only possible when supported and allowed by your browser "
-"and when grocy is served via a secure (https://) connection"
+"and when Grocy is served via a secure (https://) connection"
 msgstr ""
-"Kamera hozzáférés csak akkor lehetséges, ha azt a böngésződ támogatja és "
-"engedélyezi, valamint ha grocy biztonságos kapcsolaton keresztül (https://) "
-"van kiszolgálva"
 
 msgid "Keep screen on"
 msgstr "Kijelző ébren tartása"
@@ -1953,11 +1950,9 @@ msgid "Show a QR-Code for this API key"
 msgstr "Mutasson QR-kódot ehhez az API kulcshoz"
 
 msgid ""
-"This is the default quantity unit used when adding this product to the "
-"shopping list"
+"This is the default quantity unit used on purchase and when adding this "
+"product to the shopping list"
 msgstr ""
-"Ez az alapértelmezett mennyiségi egység, amivel a termék a bevásárlólistára "
-"kerül"
 
 msgid ""
 "Show a warning when the due date of the purchased product is earlier than "
@@ -2270,23 +2265,20 @@ msgstr "Nyomtatási beállítások"
 msgid "A product or a note is required"
 msgstr "Termék vagy jegyzet szükséges"
 
-msgid "grocycode"
-msgstr "Grocy kód"
+msgid "Grocycode"
+msgstr ""
 
 msgid "Download"
 msgstr "Letöltés"
 
-# Example: Download *Product* grocycode
-msgid "Download %s grocycode"
-msgstr "%s Grocy kód letöltés"
+# Example: Download *Product* Grocycode
+msgid "Download %s Grocycode"
+msgstr ""
 
 msgid ""
-"grocycode is a unique referer to this %s in your grocy instance - print it "
+"Grocycode is a unique referer to this %s in your Grocy instance - print it "
 "onto a label and scan it like any other barcode"
 msgstr ""
-"A Grocy kód egy egyedi vonalkód, amely a(z) %s Grocy-n belüli egyértelmű "
-"azonosítására szolgál - nyomtasd ki egy címkére és használd úgy, mint "
-"bármely más vonalkódot"
 
 # Abbreviation for "due date"
 msgid "DD"
@@ -2313,9 +2305,9 @@ msgstr "Mennyiségenkénti címke"
 msgid "Error while executing WebHook"
 msgstr "Webhook hívási hiba"
 
-# Example: Print *Product* grocycode on label printer
-msgid "Print %s grocycode on label printer"
-msgstr "%s Grocy kód címkenyomtatóra küldés"
+# Example: Print *Product* Grocycode on label printer
+msgid "Print %s Grocycode on label printer"
+msgstr ""
 
 msgid "Open stock entry label in new window"
 msgstr "Készletbejegyzés címkéjének megnyitása új lapon"
@@ -2748,3 +2740,16 @@ msgstr ""
 
 msgid "Out-of-stock products"
 msgstr ""
+
+msgid "Quantity unit for prices"
+msgstr ""
+
+msgid ""
+"When displaying prices for this product, they will be related to this "
+"quantity unit"
+msgstr ""
+
+msgid "This means 1 label will be printed"
+msgid_plural "This means %1$s labels will be printed"
+msgstr[0] ""
+msgstr[1] ""

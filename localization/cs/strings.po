@@ -374,8 +374,8 @@ msgstr "Zásoba se zmenší o %s"
 msgid "Removed %1$s of %2$s from stock"
 msgstr "Zásoba se snížila o %1$s produktu %2$s"
 
-msgid "About grocy"
-msgstr "O grocy"
+msgid "About Grocy"
+msgstr "Co je Grocy"
 
 msgid "Close"
 msgstr "Zavřít"
@@ -1107,7 +1107,7 @@ msgid "Sunday"
 msgstr "Neděle"
 
 msgid "Configure userfields"
-msgstr "Nastavit uživatelská pole"
+msgstr "Upravit uživatelská pole"
 
 msgid "Userfields"
 msgstr "Uživatelská pole"
@@ -1360,7 +1360,7 @@ msgid_plural ""
 "This means the next execution of this chore is scheduled %s hours after the "
 "last execution"
 msgstr[0] ""
-"Příští provedení této povinnosti má být za 1 hodinu po jejím předchozím "
+"Příští provedení této povinnosti má být za hodinu po jejím předchozím "
 "provedením."
 msgstr[1] ""
 "Příští provedení této povinnosti má být za %s hodiny po jejím předchozím "
@@ -1489,7 +1489,7 @@ msgid "For example"
 msgstr "Například"
 
 msgid "Configure fields"
-msgstr "Nastavit pole"
+msgstr "Upravit pole"
 
 msgid "Quantity unit plural form testing"
 msgstr "Zobrazení tvarů množných čísel měrných jednotek"
@@ -1515,8 +1515,8 @@ msgstr ""
 msgid "Price factor"
 msgstr "Násobek ceny ingredience"
 
-msgid "Do you find grocy useful?"
-msgstr "Líbí se vám grocy?"
+msgid "Do you find Grocy useful?"
+msgstr "Je pro vás Grocy užitečný?"
 
 msgid "Say thanks"
 msgstr "Poděkujte za aplikaci"
@@ -1655,10 +1655,10 @@ msgstr "Upravit zásobu"
 
 msgid ""
 "Camera access is only possible when supported and allowed by your browser "
-"and when grocy is served via a secure (https://) connection"
+"and when Grocy is served via a secure (https://) connection"
 msgstr ""
-"Přístup ke kameře je možný pouze když je podporována a povolena prohlížečem "
-"a když server Grocy komunikuje přes zabezpečené připojení (https://)"
+"Přístup ke kameře musí být ve vašem internetovém prohlížeči možný a zapnutý."
+" Navíc musí Grocy běžet na zabezpečeném severu (https://)."
 
 msgid "Keep screen on"
 msgstr "Nevypínat displej automaticky"
@@ -1997,15 +1997,17 @@ msgid "Consume this stock entry as spoiled"
 msgstr "Označit tuto zásobu jako zkaženou"
 
 msgid "Configure user permissions"
-msgstr "Nastavit uživatelská oprávnění"
+msgstr "Upravit uživatelská oprávnění"
 
 msgid "Show a QR-Code for this API key"
 msgstr "Zobrazit QR kód pro tento API klíč"
 
 msgid ""
-"This is the default quantity unit used when adding this product to the "
-"shopping list"
-msgstr "Měrná jednotka produktu při jeho přidání do nákupního seznamu"
+"This is the default quantity unit used on purchase and when adding this "
+"product to the shopping list"
+msgstr ""
+"Výchozí množstevní jednotka pro akci Nakoupit a pro vkládání produktu do "
+"nákupního seznamu"
 
 msgid ""
 "Show a warning when the due date of the purchased product is earlier than "
@@ -2235,7 +2237,7 @@ msgid "None"
 msgstr "Žádného"
 
 msgid "Group by"
-msgstr "Seskupovat podle sloupce"
+msgstr "Seskupovat podle"
 
 msgid "Ingredient group"
 msgstr "Skupina ingrediencí"
@@ -2323,22 +2325,22 @@ msgstr "Nastavení tisku"
 msgid "A product or a note is required"
 msgstr "Vložte jméno produktu, NEBO jen poznámku"
 
-msgid "grocycode"
+msgid "Grocycode"
 msgstr "Grocycode"
 
 msgid "Download"
 msgstr "Stáhnout"
 
-# Example: Download *Product* grocycode
-msgid "Download %s grocycode"
-msgstr "Stáhnout %s grocycode"
+# Example: Download *Product* Grocycode
+msgid "Download %s Grocycode"
+msgstr "Stáhnout Grocycode pro %s"
 
 msgid ""
-"grocycode is a unique referer to this %s in your grocy instance - print it "
+"Grocycode is a unique referer to this %s in your Grocy instance - print it "
 "onto a label and scan it like any other barcode"
 msgstr ""
-"Grocycode je identifikátor pro tento %s ve vaší instalaci systému Grocy. "
-"Můžete si ho vytisknout a pak používat stejně jako ostatní čárové kódy."
+"Grocycode je totéž jako čárový kód z obalu produktu. Označuje produkt %s ve "
+"vaší databázi. Můžete si jej vytisknout a používat jako ostatní čárové kódy."
 
 # Abbreviation for "due date"
 msgid "DD"
@@ -2366,9 +2368,9 @@ msgstr "Každé balení produktu bude mít svůj řádek a vytisknutou nálepku"
 msgid "Error while executing WebHook"
 msgstr "Chyba při spuštění WebHook"
 
-# Example: Print *Product* grocycode on label printer
-msgid "Print %s grocycode on label printer"
-msgstr "Tisk Grocycode pro %s na tiskárně nálepek"
+# Example: Print *Product* Grocycode on label printer
+msgid "Print %s Grocycode on label printer"
+msgstr "Vytisknout Grocycode pro %s"
 
 msgid "Open stock entry label in new window"
 msgstr "Otevřít nálepku s čárovým kódem v nové záložce"
@@ -2723,10 +2725,10 @@ msgid "Decimal places allowed for prices (input)"
 msgstr "Počet desetinných míst při zapisování ceny"
 
 msgid "Decimal places allowed for prices (display)"
-msgstr "Počet desetinných míst při zobrazování ceny"
+msgstr "Počet desetinných míst pro zobrazení ceny"
 
 msgid "Clear done items"
-msgstr "Zrušit všechna zaškrtnutí"
+msgstr "Smazat všechna zaškrtnutá"
 
 msgid ""
 "This shows all to this product directly or indirectly related quantity units"
@@ -2819,3 +2821,18 @@ msgstr "Přehled zásob"
 
 msgid "Out-of-stock products"
 msgstr "Produkty bez zásoby"
+
+msgid "Quantity unit for prices"
+msgstr "Množstevní jednotka pro ceny"
+
+msgid ""
+"When displaying prices for this product, they will be related to this "
+"quantity unit"
+msgstr "Zobrazované ceny produktu budou odpovídat této množstevní jednotce"
+
+msgid "This means 1 label will be printed"
+msgid_plural "This means %1$s labels will be printed"
+msgstr[0] "Vytiskne se 1nálepka"
+msgstr[1] "Vytisknou se %1$s nálepky"
+msgstr[2] "Vytiskne se %1$s nálepek"
+msgstr[3] "Vytiskne se %1$s nálepek"
