@@ -102,6 +102,7 @@
 - Fixed that users were unable to delete their own API keys (when not having the `All permissions` permission)
 - Fixed that button tooltips on some places didn't disappear after clicking the corresponding button
 - New translations: (thanks all the translators)
+  - Estonian (demo available at <https://et.demo.grocy.info>)
   - Romanian (demo available at <https://ro.demo.grocy.info>)
 
 ### API

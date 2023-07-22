@@ -1,0 +1,138 @@
+# 
+# Translators:
+# Lauri Lepik, 2023
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
+"PO-Revision-Date: 2020-08-29 16:33+0000\n"
+"Last-Translator: Lauri Lepik, 2023\n"
+"Language-Team: Estonian (Estonia) (https://app.transifex.com/grocy/teams/93189/et_EE/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: et_EE\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Domain: grocy/permissions\n"
+
+# All permissions
+msgid "ADMIN"
+msgstr "ADMIN"
+
+# Create users
+msgid "USERS_CREATE"
+msgstr "KASUTAJA_LOO"
+
+# Edit users (including passwords)
+msgid "USERS_EDIT"
+msgstr "KASUTAJA_MUUDA"
+
+# Show users
+msgid "USERS_READ"
+msgstr "KASUTAJA_LOE"
+
+# Edit own user data / change own password
+msgid "USERS_EDIT_SELF"
+msgstr "KASUTAJA_MUUDA_ENNAST"
+
+# Undo charge cycle
+msgid "BATTERIES_UNDO_CHARGE_CYCLE"
+msgstr "PATAREID_VÕTA_TAGASI_PATAREI_TÜKKEL"
+
+# Track charge cycle
+msgid "BATTERIES_TRACK_CHARGE_CYCLE"
+msgstr "PATAREID_JÄLGI_PATAREI_TSÜKLIT"
+
+# Track execution
+msgid "CHORE_TRACK_EXECUTION"
+msgstr "KODUSED_TÖÖD_JÄLGI_TEGEMIST"
+
+# Undo execution
+msgid "CHORE_UNDO_EXECUTION"
+msgstr "KODUSED_TÖÖD_VÕTA_TAGASI_TEGEMINE"
+
+# Edit master data
+msgid "MASTER_DATA_EDIT"
+msgstr "PEA_ANDMETE_MUUTMINE"
+
+# Undo execution
+msgid "TASKS_UNDO_EXECUTION"
+msgstr "ÜLESANDED_VÕTA_TAGASI_TEGEMINE"
+
+# Mark completed
+msgid "TASKS_MARK_COMPLETED"
+msgstr "ÜLESANDED_MÄRGI_TEHTUKS"
+
+# Edit stock entries
+msgid "STOCK_EDIT"
+msgstr "TOOTED_MUUDA"
+
+# Transfer
+msgid "STOCK_TRANSFER"
+msgstr "TOOTED_VII_ÜLE"
+
+# Inventory
+msgid "STOCK_INVENTORY"
+msgstr "TOOTED_LAOSEIS"
+
+# Consume
+msgid "STOCK_CONSUME"
+msgstr "TOOTED_TARBI"
+
+# Open products
+msgid "STOCK_OPEN"
+msgstr "TOOTED_AVATUD"
+
+# Purchase
+msgid "STOCK_PURCHASE"
+msgstr "TOOTED_OSTA"
+
+# Add items
+msgid "SHOPPINGLIST_ITEMS_ADD"
+msgstr "OSTUNIMEKIRI_ESE_LISA"
+
+# Remove items
+msgid "SHOPPINGLIST_ITEMS_DELETE"
+msgstr "OSTUNIMEKIRI_ESE_EEMALDA"
+
+# User management
+msgid "USERS"
+msgstr "KASUTAJAD"
+
+# Stock
+msgid "STOCK"
+msgstr "TOOTED"
+
+# Shopping list
+msgid "SHOPPINGLIST"
+msgstr "OSTUNIMEKIRI"
+
+# Chores
+msgid "CHORES"
+msgstr "KODUSED_TÖÖD"
+
+# Batteries
+msgid "BATTERIES"
+msgstr "PATAREID"
+
+# Tasks
+msgid "TASKS"
+msgstr "ÜLESANDED"
+
+# Recipes
+msgid "RECIPES"
+msgstr "RETSEPTID"
+
+# Equipment
+msgid "EQUIPMENT"
+msgstr "SEADMED"
+
+# Calendar
+msgid "CALENDAR"
+msgstr "KALENDER"
+
+# Meal plan
+msgid "RECIPES_MEALPLAN"
+msgstr "RETSEPTID_TOIDUPLAAN"

@@ -1,0 +1,70 @@
+# 
+# Translators:
+# Lauri Lepik, 2023
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
+"PO-Revision-Date: 2019-05-01 17:43+0000\n"
+"Last-Translator: Lauri Lepik, 2023\n"
+"Language-Team: Estonian (Estonia) (https://app.transifex.com/grocy/teams/93189/et_EE/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: et_EE\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Domain: grocy/userfield_types\n"
+
+# Text (single line)
+msgid "text-single-line"
+msgstr "tekst-üks-rida"
+
+# Text (multi line)
+msgid "text-multi-line"
+msgstr "tekst-mitu-rida"
+
+# Number (integral)
+msgid "number-integral"
+msgstr "number-terviklik"
+
+# Number (decimal)
+msgid "number-decimal"
+msgstr "number-kümnend"
+
+# Date (without time)
+msgid "date"
+msgstr "kuupäev"
+
+# Date & time
+msgid "datetime"
+msgstr "kuupäevkell"
+
+# Checkbox
+msgid "checkbox"
+msgstr "märkekast"
+
+# Select list (a single item can be selected)
+msgid "preset-list"
+msgstr "eelseadistatud-nimekiri"
+
+# Select list (multiple items can be selected)
+msgid "preset-checklist"
+msgstr "eelseadistatud-märkenimekiri"
+
+# Link
+msgid "link"
+msgstr "link"
+
+# Link (with title)
+msgid "link-with-title"
+msgstr "link-tiitliga"
+
+# File
+msgid "file"
+msgstr "fail"
+
+# Image
+msgid "image"
+msgstr "pilt"

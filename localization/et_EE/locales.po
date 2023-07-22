@@ -1,0 +1,142 @@
+# 
+# Translators:
+# Lauri Lepik, 2023
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
+"PO-Revision-Date: 2020-08-31 19:11+0000\n"
+"Last-Translator: Lauri Lepik, 2023\n"
+"Language-Team: Estonian (Estonia) (https://app.transifex.com/grocy/teams/93189/et_EE/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: et_EE\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Domain: grocy/locales\n"
+
+# Czech
+msgid "cs"
+msgstr "Tšehhi keel"
+
+# Danish
+msgid "da"
+msgstr "Taani keel"
+
+# German
+msgid "de"
+msgstr "Saksa keel"
+
+# Greek
+msgid "el_GR"
+msgstr "Kreeka keel"
+
+# English
+msgid "en"
+msgstr "Inglise keel"
+
+# English (Great Britain)
+msgid "en_GB"
+msgstr "Ingise keel (Suurbritannia)"
+
+# Spanish
+msgid "es"
+msgstr "Hispaania keel"
+
+# French
+msgid "fr"
+msgstr "Prantsuse keel"
+
+# Hungarian
+msgid "hu"
+msgstr "Ungari keel"
+
+# Italian
+msgid "it"
+msgstr "Itaalia keel"
+
+# Japanese
+msgid "ja"
+msgstr "Jaapani keel"
+
+# Korean
+msgid "ko_KR"
+msgstr "Korea keel"
+
+# Dutch
+msgid "nl"
+msgstr "Hollandi keel"
+
+# Norwegian
+msgid "no"
+msgstr "Norra keel"
+
+# Polish
+msgid "pl"
+msgstr "Poola keel"
+
+# Portuguese (Brazil)
+msgid "pt_BR"
+msgstr "Portugali keel (Brasiilia)"
+
+# Portuguese (Portugal)
+msgid "pt_PT"
+msgstr "Portugali keel (Portugal)"
+
+# Russian
+msgid "ru"
+msgstr "Vene keel"
+
+# Slovak
+msgid "sk_SK"
+msgstr "Slovakkia keel"
+
+# Slovenian
+msgid "sl"
+msgstr "Sloveenia keel"
+
+# Swedish
+msgid "sv_SE"
+msgstr "Rootsi keel"
+
+# Turkish
+msgid "tr"
+msgstr "Türgi keel"
+
+# Chinese (Taiwan)
+msgid "zh_TW"
+msgstr "Hiina keel (Taiwan)"
+
+# Chinese (China)
+msgid "zh_CN"
+msgstr "Hiina keel (Hiina)"
+
+# Hebrew (Israel)
+msgid "he_IL"
+msgstr "Heebera keel (Israel)"
+
+# Tamil
+msgid "ta"
+msgstr "Tamiili keel"
+
+# Finnish
+msgid "fi"
+msgstr "Soome keel"
+
+# Catalan
+msgid "ca"
+msgstr "Kataloonia keel"
+
+# Lithuanian
+msgid "lt"
+msgstr "Leedu keel"
+
+# Ukrainian
+msgid "uk"
+msgstr "Ukraina keel"
+
+# Romanian
+msgid "ro_RO"
+msgstr "Rumeenia keel"

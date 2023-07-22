@@ -1,0 +1,2743 @@
+# 
+# Translators:
+# Mario Loik <mariomobla@gmail.com>, 2020
+# Lauri Lepik, 2023
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
+"PO-Revision-Date: 2019-05-01 17:42+0000\n"
+"Last-Translator: Lauri Lepik, 2023\n"
+"Language-Team: Estonian (Estonia) (https://app.transifex.com/grocy/teams/93189/et_EE/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: et_EE\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Domain: grocy/strings\n"
+
+msgid "Stock overview"
+msgstr "Varude ülevaade"
+
+msgid "%s product expires"
+msgid_plural "%s products expiring"
+msgstr[0] "%s toode aegumas"
+msgstr[1] "%s toodet aegumas"
+
+msgid "within the next day"
+msgid_plural "within the next %s days"
+msgstr[0] "järgmise päeva jooksul"
+msgstr[1] "järgmise %späeva jooksul"
+
+msgid "%s product is already expired"
+msgid_plural "%s products are already expired"
+msgstr[0] "%s toode on juba aegunud"
+msgstr[1] "%s toodet on juba aegunud"
+
+msgid "%s product is overdue"
+msgid_plural "%s products are overdue"
+msgstr[0] "%s toode on üle aja"
+msgstr[1] "%s toodet on üle aja"
+
+msgid "%s product is below defined min. stock amount"
+msgid_plural "%s products are below defined min. stock amount"
+msgstr[0] "%s toode on alla määratud minimaalse koguse"
+msgstr[1] "%s toodet on alla määratud minimaalse koguse"
+
+msgid "Product"
+msgstr "Toote"
+
+msgid "%s Product"
+msgid_plural "%s Products"
+msgstr[0] "%s Toode"
+msgstr[1] "%s Toodet"
+
+msgid "Amount"
+msgstr "Kogus"
+
+msgid "Logout"
+msgstr "Logi välja"
+
+msgid "Chores overview"
+msgstr "Kodutööde ülevaade"
+
+msgid "Batteries overview"
+msgstr "Patareide Ülevaade"
+
+msgid "Purchase"
+msgstr "Ostude Sissekanne"
+
+msgid "Consume"
+msgstr "Tarbi"
+
+msgid "Inventory"
+msgstr "Tooted"
+
+msgid "Shopping list"
+msgstr "Ostunimekiri"
+
+msgid "Chore tracking"
+msgstr "Kodutööde jälgimine"
+
+msgid "Battery tracking"
+msgstr "Patareide jälgimine"
+
+msgid "Locations"
+msgstr "Asukohad"
+
+msgid "Stores"
+msgstr "Poed"
+
+msgid "Quantity units"
+msgstr "Koguse ühikud"
+
+msgid "Chores"
+msgstr "Kodutööd"
+
+msgid "Batteries"
+msgstr "Patareid"
+
+msgid "Chore"
+msgstr "Kodutöö"
+
+msgid "Next estimated tracking"
+msgstr "Järgmine eeldatav jälgimine"
+
+msgid "Last tracked"
+msgstr "Viimati jälgitud"
+
+msgid "Battery"
+msgstr "Patarei"
+
+msgid "Last charged"
+msgstr "Viimati laetud"
+
+msgid "Next planned charge cycle"
+msgstr "Järgmine plaanitud laadimistsükkel"
+
+msgid "Best before"
+msgstr "Parim enne"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "Product overview"
+msgstr "Toote ülevaade"
+
+msgid "Stock quantity unit"
+msgstr "Koguse ühik"
+
+msgid "Stock amount"
+msgstr "Kogus"
+
+msgid "Last purchased"
+msgstr "Viimati ostetud"
+
+msgid "Last used"
+msgstr "Viimati kasutatud"
+
+msgid "Spoiled"
+msgstr "Riknenud"
+
+msgid "Barcode lookup is disabled"
+msgstr "Ribakoodi otsing on keelatud"
+
+msgid ""
+"will be added to the list of barcodes for the selected product on submit"
+msgstr "lisatakse toote ribakoodide nimekirja"
+
+msgid "New amount"
+msgstr "Uus kogus"
+
+msgid "Note"
+msgstr "Märge"
+
+msgid "Tracked time"
+msgstr "Jälgitud aeg"
+
+msgid "Chore overview"
+msgstr "Kodutöö ülevaade"
+
+msgid "Tracked count"
+msgstr "Jälgitud arv"
+
+msgid "Battery overview"
+msgstr "Patarei ülevaade"
+
+msgid "Charge cycles count"
+msgstr "Laadimistsüklite arv"
+
+msgid "Create shopping list item"
+msgstr "Loo ostunimekirja ese"
+
+msgid "Edit shopping list item"
+msgstr "Muuda ostunimekirja eset"
+
+msgid "Save"
+msgstr "Salvesta"
+
+msgid "Add"
+msgstr "Lisa"
+
+msgid "Name"
+msgstr "Nimi"
+
+msgid "Location"
+msgstr "Asukoht"
+
+msgid "Min. stock amount"
+msgstr "Minimaalne kogus"
+
+msgid "Description"
+msgstr "Kirjeldus"
+
+msgid "Create product"
+msgstr "Loo toode"
+
+msgid "Barcode(s)"
+msgstr "Ribakood(id)"
+
+msgid "Minimum stock amount"
+msgstr "Minimaalne kogus"
+
+msgid "Default best before days"
+msgstr "Vaikimisi parim enne"
+
+msgid "Default quantity unit purchase"
+msgstr "Vaikimisi kogusühiku ost"
+
+msgid "Quantity unit stock"
+msgstr "Kogusühiku kogus"
+
+msgid "Create location"
+msgstr "Loo asukoht"
+
+msgid "Create store"
+msgstr "Loo pood"
+
+msgid "Create quantity unit"
+msgstr "Loo koguseühik"
+
+msgid "Period type"
+msgstr "Perioodi tüüp"
+
+msgid "Period days"
+msgstr "Periood päevad"
+
+msgid "Create chore"
+msgstr "Loo kodutöö"
+
+msgid "Used in"
+msgstr "Kasutatud asjas"
+
+msgid "Create battery"
+msgstr "Loo patarei"
+
+msgid "Edit battery"
+msgstr "Muuda patareid"
+
+msgid "Edit chore"
+msgstr "Muuda kodutööd"
+
+msgid "Edit quantity unit"
+msgstr "Muuda koguse ühikut"
+
+msgid "Edit product"
+msgstr "Muuda toodet"
+
+msgid "Edit location"
+msgstr "Muuda asukohta"
+
+msgid "Edit store"
+msgstr "Muuda poodi"
+
+msgid "Manage master data"
+msgstr "Muuda peaandmeid"
+
+msgid "This will apply to added products"
+msgstr "See kohandub uutele toodetele"
+
+msgid "never"
+msgstr "mitte kunagi"
+
+msgid "Add products that are below defined min. stock amount"
+msgstr "Lisa tooted, mis on alla määratud minimaalse koguse"
+
+msgid "Login"
+msgstr "Logi sisse"
+
+msgid "Username"
+msgstr "Kasutajanimi"
+
+msgid "Password"
+msgstr "Parool"
+
+msgid "Invalid credentials, please try again"
+msgstr "Vigane mandaat, palun proovi uuesti"
+
+msgid "Are you sure to delete battery \"%s\"?"
+msgstr "Kas oled kindel, et tahad kustutada patareid \"%s\"?"
+
+msgid "Yes"
+msgstr "Jah"
+
+msgid "No"
+msgstr "Ei"
+
+msgid "Are you sure to delete chore \"%s\"?"
+msgstr "Kas oled kindel, et tahad kustutada kodutööd \"%s\"?"
+
+msgid "\"%s\" could not be resolved to a product, how do you want to proceed?"
+msgstr "\"%s\" ei saanud tootele lisada, kuidas tahad edasi käituda?"
+
+msgid "Create or assign product"
+msgstr "Loo või määra toode"
+
+msgid "Cancel"
+msgstr "Tühista"
+
+msgid "Add as new product"
+msgstr "Lisa kui uus toode"
+
+msgid "Add as barcode to existing product"
+msgstr "Lisa kui olemasoleva toote ribakood"
+
+msgid "Add as new product and prefill barcode"
+msgstr "Lisa kui uus toode ja selle ribakood"
+
+msgid "Are you sure to delete quantity unit \"%s\"?"
+msgstr "Kas oled kindel, et tahad kustutada koguseühikut \"%s\"?"
+
+msgid "Are you sure to delete product \"%s\"?"
+msgstr "Kas oled kindel, et tahad kustutada toodet \"%s\"?"
+
+msgid "Are you sure to delete location \"%s\"?"
+msgstr "Kas oled kindel, et tahad kustutada asukohta \"%s\"?"
+
+msgid "Are you sure to delete store \"%s\"?"
+msgstr "Kas oled kindel, et tahad kustutada poodi \"%s\"?"
+
+msgid "Manage API keys"
+msgstr "Halda API võtmeid"
+
+msgid "REST API browser"
+msgstr "REST API brauser"
+
+msgid "API keys"
+msgstr "API võtmed"
+
+msgid "Create new API key"
+msgstr "Loo uus API võti"
+
+msgid "API key"
+msgstr "API võti"
+
+msgid "Expires"
+msgstr "Kehtiv kuni"
+
+msgid "Created"
+msgstr "Loodud"
+
+msgid "This product is not in stock"
+msgstr "Seda toodet pole varudes"
+
+msgid "This means %s will be added to stock"
+msgstr "See tähendab, et %s lisatakse varudesse"
+
+msgid "This means %s will be removed from stock"
+msgstr "See tähendab, et %s eemaldatakse varudest"
+
+msgid "Removed %1$s of %2$s from stock"
+msgstr "Eemaldasin %1$s %2$s varudest"
+
+msgid "About Grocy"
+msgstr "Grocy-st"
+
+msgid "Close"
+msgstr "Sulge"
+
+msgid "Released on"
+msgstr "Avaldatud"
+
+msgid "Added %1$s of %2$s to stock"
+msgstr "Lisasin %1$s %2$s varudesse"
+
+msgid "Stock amount of %1$s is now %2$s"
+msgstr "%1$s kogus varudes on nüüd %2$s"
+
+msgid "Tracked execution of chore %1$s on %2$s"
+msgstr "Jälgisin kodutöö %1$s tegemist kuupäeval%2$s"
+
+msgid "Tracked charge cycle of battery %1$s on %2$s"
+msgstr "Jälgisin patarei %1$s laadimistsüklit kuupäeval%2$s"
+
+msgid "Consume all %s which are currently in stock"
+msgstr "Tarbi kõik varudes olev %s"
+
+msgid "All"
+msgstr "Kõik"
+
+msgid "Search"
+msgstr "Otsi"
+
+msgid "Not logged in"
+msgstr "Pole sisse logitud"
+
+msgid "You have to select a product"
+msgstr "Pead valime toote"
+
+msgid "You have to select a chore"
+msgstr "Pead valima kodutöö"
+
+msgid "You have to select a battery"
+msgstr "Pead valima patarei"
+
+msgid "A name is required"
+msgstr "Nimi on nõutud"
+
+msgid "A location is required"
+msgstr "Asukoht on nõutud"
+
+msgid "A quantity unit is required"
+msgstr "Kogusühik on nõutud"
+
+msgid "A period type is required"
+msgstr "Perioodi tüüp on nõutud"
+
+msgid "A best before date is required"
+msgstr "Parim enne on nõutud"
+
+msgid "Settings"
+msgstr "Seaded"
+
+msgid "This can only be before now"
+msgstr "See saab olla vaid enne praegust"
+
+msgid "Calendar"
+msgstr "Kalender"
+
+msgid "Recipes"
+msgstr "Retseptid"
+
+msgid "Edit recipe"
+msgstr "Muuda retsepti"
+
+msgid "Ingredients list"
+msgstr "Koostisosade nimekiri"
+
+msgid "Add recipe ingredient"
+msgstr "Lisa retsepti koostisosa"
+
+msgid "Edit recipe ingredient"
+msgstr "Muuda retsepti koostisosa"
+
+msgid "Are you sure to delete recipe \"%s\"?"
+msgstr "Kas oled kindel, et tahad kustutada retsepti \"%s\"?"
+
+msgid "Are you sure to delete recipe ingredient \"%s\"?"
+msgstr "Kas oled kindel, et tahad kustutada retsepti koostisosa \"%s\"?"
+
+msgid "Are you sure to empty shopping list \"%s\"?"
+msgstr "Kas oled kindel, et tahad tühjendada ostunimekirja \"%s\"?"
+
+msgid "Clear list"
+msgstr "Tühjenda nimekiri"
+
+msgid "Requirements fulfilled"
+msgstr "Nõuded täidetud"
+
+msgid "Put missing products on shopping list"
+msgstr "Pane puuduvad tooted ostunimekirja"
+
+msgid "Enough in stock"
+msgstr "Varudes on piisavalt"
+
+msgid ""
+"Not enough in stock, %s ingredient missing but already on the shopping list"
+msgid_plural ""
+"Not enough in stock, %s ingredients missing but already on the shopping list"
+msgstr[0] ""
+"Varudes pole piisavalt, %s koostisosa on puudu, kuid see on juba "
+"ostunimekirjas"
+msgstr[1] ""
+"Varudes pole piisavalt, %s koostisosa on puudu, kuid need on juba "
+"ostunimekirjas"
+
+msgid "Expand to fullscreen"
+msgstr "Täisekraanile"
+
+msgid "Ingredients"
+msgstr "Koostisosad"
+
+msgid "Preparation"
+msgstr "Valmistamine"
+
+msgid "Recipe"
+msgstr "Retsept"
+
+msgid "Not enough in stock, %1$s missing, %2$s already on shopping list"
+msgstr "Varudes pole piisavalt, %1$s puudu, %2$s on juba ostunimekirjas"
+
+msgid "Show notes"
+msgstr "Näita märkusi"
+
+msgid "Put missing amount on shopping list"
+msgstr "Pane puuduv kogus ostunimekirja"
+
+msgid ""
+"Are you sure to put all missing ingredients for recipe \"%s\" on the "
+"shopping list?"
+msgstr ""
+"Kas oled kindel, et tahad panna kõik retsepti \"%s\" jaoks puuduvad "
+"koostisosad ostunimekirja?"
+
+msgid "Added for recipe %s"
+msgstr "Lisatud retsepti %s jaoks"
+
+msgid "Manage users"
+msgstr "Halda kasutajaid"
+
+msgid "User"
+msgstr "Kasutaja"
+
+msgid "Users"
+msgstr "Kasutajad"
+
+msgid "Are you sure to delete user \"%s\"?"
+msgstr "Kas oled kindel, et tahad kustutada kasutaja \"%s\"?"
+
+msgid "Create user"
+msgstr "Loo kasutaja"
+
+msgid "Edit user"
+msgstr "Muuda kasutajat"
+
+msgid "First name"
+msgstr "Eesnimi"
+
+msgid "Last name"
+msgstr "Perekonnanimi"
+
+msgid "A username is required"
+msgstr "Kasutajanimi on nõutud"
+
+msgid "Confirm password"
+msgstr "Kinnita parool"
+
+msgid "Passwords do not match"
+msgstr "Paroolid ei kattu"
+
+msgid "Change password"
+msgstr "Muuda parooli"
+
+msgid "Done by"
+msgstr "Valmis ajaks"
+
+msgid "Last done by"
+msgstr "Viimati tehtud ajaks"
+
+msgid "Unknown"
+msgstr "Tundmatu"
+
+msgid "Chores journal"
+msgstr "Kodutööde päevik"
+
+msgid "0 means suggestions for the next charge cycle are disabled"
+msgstr "0 tähendab, et soovitused järgmise laadimistsükli jaoks on keelatud"
+
+msgid "Charge cycle interval (days)"
+msgstr "Laadimistsükli intervall (päevad)"
+
+msgid "Last price"
+msgstr "Viimane hind"
+
+msgid "Price history"
+msgstr "Hinna ajalugu"
+
+msgid "No price history available"
+msgstr "Hinna ajalugu pole saadaval"
+
+msgid "Price"
+msgstr "Hind"
+
+msgid "Unit"
+msgstr "Ühik"
+
+msgid "%s Unit"
+msgid_plural "%s Units"
+msgstr[0] "%s Ühik"
+msgstr[1] "%s Ühikut"
+
+msgid "%s chore is due to be done"
+msgid_plural "%s chores are due to be done"
+msgstr[0] "%s kodutööd tuleb teha"
+msgstr[1] "%s kodutööd tuleb teha"
+
+msgid "%s chore is overdue to be done"
+msgid_plural "%s chores are overdue to be done"
+msgstr[0] "%s kodutöö on hilinenud"
+msgstr[1] "%s kodutööd on hilinenud"
+
+msgid "%s battery is due to be charged"
+msgid_plural "%s batteries are due to be charged"
+msgstr[0] "%s patarei vajab peatselt vahetust"
+msgstr[1] "%s patareid vajab peatselt vahetust"
+
+msgid "%s battery is overdue to be charged"
+msgid_plural "%s batteries are overdue to be charged"
+msgstr[0] "%s patarei vajab vahetust"
+msgstr[1] "%s patareid vajab vahetust"
+
+msgid "in singular form"
+msgstr "üksikus vormis"
+
+msgid "Quantity unit"
+msgstr "Koguseühik"
+
+msgid "Only check if any amount is in stock"
+msgstr "Kontrolli ainult, kas mingi kogus on varudes"
+
+msgid ""
+"Are you sure to consume all ingredients needed by recipe \"%s\" (ingredients"
+" marked with \"only check if any amount is in stock\" will be ignored)?"
+msgstr ""
+"Kas oled kindel, et tarbida kõik koostisosad, mida vajab retsept \"%s\" "
+"(koostisi, mis on märgitud \"Kontrolli ainult, kas mingi kogus on varudes\","
+" ignoreeritakse)?"
+
+msgid "Removed all ingredients of recipe \"%s\" from stock"
+msgstr "Eemaldasin kõik retsepti \"%s\" koostisosad varudest"
+
+msgid "Consume all ingredients needed by this recipe"
+msgstr "Tarbi kõik selle retsepti poolt vajalikud koostisosad"
+
+msgid "Click to show technical details"
+msgstr "Vajuta, et näidata tehnilisi detaile"
+
+msgid "Error while saving, probably this item already exists"
+msgstr "Salvestamise viga, ese võib juba eksisteerida"
+
+msgid "Error details"
+msgstr "Veadetailid"
+
+msgid "Tasks"
+msgstr "Ülesanded"
+
+msgid "Show done tasks"
+msgstr "Näita tehtud ülesandeid"
+
+msgid "Task"
+msgstr "Ülesanne"
+
+msgid "Due"
+msgstr "Tähtaeg"
+
+msgid "Assigned to"
+msgstr "Määratud isikule"
+
+msgid "Mark task \"%s\" as completed"
+msgstr "Märgi ülesanne \"%s\" tehtuks"
+
+msgid "Uncategorized"
+msgstr "Kategoriseerimata"
+
+msgid "Task categories"
+msgstr "Ülesannete kategooriad"
+
+msgid "Create task"
+msgstr "Loo ülesanne"
+
+msgid "A due date is required"
+msgstr "Tähtaeg on nõutud"
+
+msgid "Category"
+msgstr "Kategooria"
+
+msgid "Edit task"
+msgstr "Muuda ülesannet"
+
+msgid "Are you sure to delete task \"%s\"?"
+msgstr "Kas oled kindel, et tahad kustutada ülesannet \"%s\"?"
+
+msgid "%s task is due to be done"
+msgid_plural "%s tasks are due to be done"
+msgstr[0] "%s ülesanne vajab peatselt tegemist"
+msgstr[1] "%s ülesannet vajab peatselt tegemist"
+
+msgid "%s task is overdue to be done"
+msgid_plural "%s tasks are overdue to be done"
+msgstr[0] "%s ülesanne on üle tähtaja"
+msgstr[1] "%s ülesanne on üle tähtaja"
+
+msgid "Edit task category"
+msgstr "Muuda ülesande kategooriat"
+
+msgid "Create task category"
+msgstr "Loo ülesande kategooria"
+
+msgid "Product groups"
+msgstr "Tootegrupid"
+
+msgid "Ungrouped"
+msgstr "Grupitamata"
+
+msgid "Create product group"
+msgstr "Loo tootegrupp"
+
+msgid "Edit product group"
+msgstr "Muuda tootegruppi"
+
+msgid "Product group"
+msgstr "Tootegrupp"
+
+msgid "Are you sure to delete product group \"%s\"?"
+msgstr "Kas oled kindel, et tahad kustutada tootegruppi \"%s\"?"
+
+msgid "Stay logged in permanently"
+msgstr "Jää alati sisselogituks"
+
+msgid "When not set, you will get logged out at latest after 30 days"
+msgstr "Kui on märkimata, logitakse sind välja vähemalt 30 päeva pärast"
+
+msgid "Status"
+msgstr "Staatus"
+
+msgid "Below min. stock amount"
+msgstr "Alla minimaalse koguse"
+
+msgid "Due soon"
+msgstr "Vajab tegemist"
+
+msgid "Overdue"
+msgstr "Üle aja"
+
+msgid "View settings"
+msgstr "Vaate seaded"
+
+msgid "Auto reload on external changes"
+msgstr "Automaatne lehe värskendamine välistel muutustel"
+
+msgid "Auto enable in time range"
+msgstr "Automaatne lubamine ajavahemikus"
+
+msgid "From"
+msgstr "Alates"
+
+msgid "in format"
+msgstr "formaadis"
+
+msgid "To"
+msgstr "Kuni"
+
+msgid "Time range goes over midnight"
+msgstr "Ajavahemik läheb üle kesköö"
+
+msgid "Product picture"
+msgstr "Tootepilt"
+
+msgid "No file selected"
+msgstr "Faili pole valitud"
+
+msgid "Delete"
+msgstr "Kustuta"
+
+msgid "Select file"
+msgstr "Vali fail"
+
+msgid "Image of product %s"
+msgstr "Toote %s pilt"
+
+msgid "Deletion not possible"
+msgstr "Kustutamine pole võimalik"
+
+msgid "Equipment"
+msgstr "Tehnika"
+
+msgid "Instruction manual"
+msgstr "Juhend"
+
+msgid "The selected equipment has no instruction manual"
+msgstr "Valitud tehnikal pole juhendit"
+
+msgid "Notes"
+msgstr "Märkmed"
+
+msgid "Edit equipment"
+msgstr "Muuda tehnikat"
+
+msgid "Create equipment"
+msgstr "Loo tehnika"
+
+msgid "The current file will be deleted on save"
+msgstr "Praegune fail kustutatakse salvestamisel"
+
+msgid "No picture available"
+msgstr "Pilti pole saadaval"
+
+msgid "Presets for new products"
+msgstr "Vaikesätted uutele toodetele"
+
+msgid "Included recipes"
+msgstr "Retseptid mis sisaldavad"
+
+msgid "A recipe is required"
+msgstr "Retsept on nõutud"
+
+msgid "Add included recipe"
+msgstr "Lisa retsept mis sisaldab"
+
+msgid "Edit included recipe"
+msgstr "Muuda retsepti mis sisaldab"
+
+msgid "Group"
+msgstr "Grupp"
+
+msgid "This will be used as a headline to group ingredients together"
+msgstr "Seda kasutatakse sildina, et ühendada koostisosad kokku"
+
+msgid "Journal"
+msgstr "Päevik"
+
+msgid "Stock journal"
+msgstr "Varude päevik"
+
+msgid "Undone on"
+msgstr "Tagasi võetud kuupäeval"
+
+msgid "Batteries journal"
+msgstr "Patareide päevik"
+
+msgid "Undo charge cycle"
+msgstr "Laadimistsükli tagasivõtmine"
+
+msgid "Undo chore execution"
+msgstr "Kodutöö tegemise tagasivõtmine"
+
+msgid "Chore execution successfully undone"
+msgstr "Kodutöö tegemine edukalt tühistatud"
+
+msgid "Undo"
+msgstr "Võta tagasi"
+
+msgid "Booking successfully undone"
+msgstr "Broneering edukalt tagasivõetud"
+
+msgid "Charge cycle successfully undone"
+msgstr "Laadimistsükkel edukalt tagasivõetud"
+
+msgid "Disable stock fulfillment checking for this ingredient"
+msgstr "Keela varude olemasolu kontroll selle koostisosa jaoks"
+
+msgid "Add all list items to stock"
+msgstr "Lisa kõik nimekirja esemed varudesse"
+
+msgid "Add this item to stock"
+msgstr "Lisa see toode varudesse"
+
+msgid "Adding shopping list item %1$s of %2$s"
+msgstr "Lisan toote %1$s %2$s-st ostunimekirja"
+
+msgid "Use a specific stock item"
+msgstr "Tarbi kindalt varudes olevat toodet"
+
+msgid ""
+"The first item in this list would be picked by the default rule consume rule"
+" (Opened first, then first due first, then first in first out)"
+msgstr ""
+"Selle loendi esimese üksuse valib vaikereegli tarbimise reegel (kõigepealt "
+"avatatud, seejärel esmalt tähtaeg, seejärel esimesena sisse esimesena välja)"
+
+msgid "Mark %1$s of %2$s as open"
+msgstr "Märgi %1$s %2$s-st avatuks"
+
+msgid "Marked %1$s of %2$s as opened"
+msgstr "Märkisin %1$s %2$s-st avatuks"
+
+msgid "Mark as opened"
+msgstr "Märgi avatuks"
+
+msgid "Not opened"
+msgstr "Avamata"
+
+msgid "Opened"
+msgstr "Avatud"
+
+msgid "%s opened"
+msgstr "%s avatud"
+
+msgid "Product due"
+msgstr "Toote parim enne"
+
+msgid "Task due"
+msgstr "Ülesande tähtaeg"
+
+msgid "Chore due"
+msgstr "Kodutöö tähtaeg"
+
+msgid "Battery charge cycle due"
+msgstr "Patarei laadimistsükli tähtaeg"
+
+msgid "Show clock in header"
+msgstr "Näita pealdises kella"
+
+msgid "Stock settings"
+msgstr "Varude seaded"
+
+msgid "Shopping list to stock workflow"
+msgstr "Ostunimekiri varude töövoogu"
+
+msgid "Skip"
+msgstr "Jäta vahele"
+
+msgid "Servings"
+msgstr "Serveeringut"
+
+msgid "Costs"
+msgstr "Hind"
+
+msgid "The ingredients listed here result in this amount of servings"
+msgstr "Siin loetletud koostisosad annavad sellise koguse portsjoneid"
+
+msgid "Do not check against the shopping list when adding missing items to it"
+msgstr ""
+"Ära kontrolli puuduvate toodete lisamisel ostunimekirjas olevate toodete "
+"vastu"
+
+msgid ""
+"By default the amount to be added to the shopping list is \"needed amount - "
+"stock amount - shopping list amount\" - when this is enabled, it is only "
+"checked against the stock amount, not against what is already on the "
+"shopping list"
+msgstr ""
+"Vaikimisi, kogus lisatud ostunimekirja on \"vajatud kogus - varude kogus - "
+"ostunimekirja kogus\" - kui see on lubatud, kontrollitakse seda vastu varude"
+" kogust, mitte ostunimekirjas oleva"
+
+msgid "Picture"
+msgstr "Pilt"
+
+msgid "Uncheck ingredients to not put them on the shopping list"
+msgstr "Eemalda märge koostisosadelt, et neid mitte ostunimekirja panna"
+
+msgid "This is for statistical purposes only"
+msgstr "See on ainult statistilistel eesmärkidel"
+
+msgid "You have to select a recipe"
+msgstr "Pead valima retsepti"
+
+msgid "Key type"
+msgstr "Võtme tüüp"
+
+msgid "Share/Integrate calendar (iCal)"
+msgstr "Jaga/Integreeri kalender (iCal)"
+
+msgid ""
+"Use the following (public) URL to share or integrate the calendar in iCal "
+"format"
+msgstr ""
+"Kasuta järgnevat (avalikku) URLi, et jagada või integreerida kalender iCal "
+"formaadis"
+
+msgid "Enable tare weight handling"
+msgstr "Luba taara raskuse arvestamine"
+
+msgid ""
+"This is useful e.g. for flour in jars - on purchase/consume/inventory you "
+"always weigh the whole jar, the amount to be posted is then automatically "
+"calculated based on what is in stock and the tare weight defined below"
+msgstr ""
+"See on kasulik nt. purkides oleva jahu puhul - "
+"ostmisel/tarbimisel/inventuuril kaalud alati kogu purgi, postitatav kogus "
+"arvutatakse siis automaatselt laos oleva ja allpool määratletud taara kaalu "
+"järgi."
+
+msgid "Tare weight"
+msgstr "Taara raskus"
+
+msgid ""
+"Tare weight handling enabled - please weigh the whole container, the amount "
+"to be posted will be automatically calculcated"
+msgstr ""
+"Taara raskuse arvestamine lubatud - palun kaalu kogu konteiner, postitatav "
+"summa arvutatakse automaatselt"
+
+msgid "You have to select a location"
+msgstr "Pead valima asukoha"
+
+msgid "You have to select a store"
+msgstr "Pead valima poe"
+
+msgid "List"
+msgstr "Nimekiri"
+
+msgid "Gallery"
+msgstr "Galerii"
+
+msgid "The current picture will be deleted on save"
+msgstr "Praegune pilt kustutatakse salvestamisel"
+
+msgid "Journal for this battery"
+msgstr "Selle patarei päevik"
+
+msgid "System info"
+msgstr "Süsteemiinfo"
+
+msgid "Changelog"
+msgstr "Muutuste nimekiri"
+
+msgid "will be multiplied by a factor of %1$s to get %2$s"
+msgstr "korrutatakse %1$s-ga, et saada %2$s"
+
+msgid "The given date is earlier than today, are you sure?"
+msgstr "Esitatud kuupäev on tänasest varasem, kas oled kindel?"
+
+msgid "Product count"
+msgstr "Toote arv"
+
+msgid ""
+"Type a new product name or barcode and hit TAB or ENTER to start a workflow"
+msgstr ""
+"Sisesta uus tootenimi või ribakood ja vajuta TAB või ENTER, et alustata "
+"töövoog"
+
+msgid ""
+"This will be used as the default setting when adding this product as a "
+"recipe ingredient"
+msgstr "Seda kasutatakse vaikesättena, kui seda toodet kasutatakse retseptis"
+
+msgid "Add item"
+msgstr "Lisa toode"
+
+msgid "Selected shopping list"
+msgstr "Valitud ostunimekiri"
+
+msgid "New shopping list"
+msgstr "Uus ostunimekiri"
+
+msgid "Delete shopping list"
+msgstr "Kustuta ostunimekiri"
+
+msgid "Chores settings"
+msgstr "Kodutööde seaded"
+
+msgid "Batteries settings"
+msgstr "Patareide seaded"
+
+msgid "Tasks settings"
+msgstr "Ülesannete seaded"
+
+msgid "Create shopping list"
+msgstr "Loo ostunimekiri"
+
+msgid "Are you sure to delete shopping list \"%s\"?"
+msgstr "Kas oled kindel, et tahad kustutada ostunimekirja \"%s\"?"
+
+msgid "Average shelf life"
+msgstr "Keskmine säilivusaeg"
+
+msgid "Spoil rate"
+msgstr "Riknemismäär"
+
+msgid "Show more"
+msgstr "Näita rohkem"
+
+msgid "Show less"
+msgstr "Näita vähem"
+
+msgid "The amount must be between %1$s and %2$s"
+msgstr "Kogus peab olema vahemikus %1$s ja %2$s"
+
+msgid "Day of month"
+msgstr "Kuupäev"
+
+msgid "Monday"
+msgstr "Esmaspäev"
+
+msgid "Tuesday"
+msgstr "Teisipäev"
+
+msgid "Wednesday"
+msgstr "Kolmapäev"
+
+msgid "Thursday"
+msgstr "Neljapäev"
+
+msgid "Friday"
+msgstr "Reede"
+
+msgid "Saturday"
+msgstr "Laupäev"
+
+msgid "Sunday"
+msgstr "Pühapäev"
+
+msgid "Configure userfields"
+msgstr "Kasutajaväljade seaded"
+
+msgid "Userfields"
+msgstr "Kasutajaväljad"
+
+msgid "Entity"
+msgstr "Üksus"
+
+msgid "Caption"
+msgstr "Pealkiri"
+
+msgid "Type"
+msgstr "Tüüp"
+
+msgid "Create userfield"
+msgstr "Loo kasutajaväli"
+
+msgid "A entity is required"
+msgstr "Üksus on nõutud"
+
+msgid "A caption is required"
+msgstr "Pealkiri on nõutud"
+
+msgid "A type is required"
+msgstr "Tüüp on nõutud"
+
+msgid "Show as column in tables"
+msgstr "Kuva tabelites veergudena"
+
+msgid "This is required and can only contain letters and numbers"
+msgstr "See on nõutud ja saab sisaldada ainult tähti ja numbreid"
+
+msgid "Edit userfield"
+msgstr "Muuda kasutajavälja"
+
+msgid "Plural forms"
+msgstr "Mitmuse vormid"
+
+msgid "One plural form per line, the current language requires"
+msgstr "Üks mitmuse vorm rea kohta, praegune keel nõuab"
+
+msgid "Plural count"
+msgstr "Mitmuste arv"
+
+msgid "Plural rule"
+msgstr "Mitmuse reegel"
+
+msgid "in plural form"
+msgstr "mitmuse vormis"
+
+msgid "Not enough in stock, %s ingredient missing"
+msgid_plural "Not enough in stock, %s ingredients missing"
+msgstr[0] "Pole piisavalt varusid, %s koostisosa puudu"
+msgstr[1] "Pole piisavalt varusid, %s koostisosa puudu"
+
+msgid "Not enough in stock, but already on the shopping list"
+msgstr "Pole piisavalt varusid, kuid puuduvad on juba lisatud ostunimekirja"
+
+msgid "Not enough in stock"
+msgstr "Pole piisavalt varusid"
+
+msgid "Default location"
+msgstr "Vaikimisi asukoht"
+
+msgid "Default amount for purchase"
+msgstr "Vaikimisi kogus ostmiseks"
+
+msgid "Default amount for consume"
+msgstr "Vaikimisi kogus tarbimiseks"
+
+msgid "Variable amount"
+msgstr "Muutuja kogus"
+
+msgid ""
+"When this is not empty, it will be shown instead of the amount entered above"
+" while the amount there will still be used for stock fulfillment checking"
+msgstr ""
+"Kui see pole tühi, kuvatakse see ülal sisestatud summa asemel, samas kui "
+"seal olevat summat kasutatakse endiselt laoseisu kontrollimiseks"
+
+msgid "Track date only"
+msgstr "Jälgi ainult kuupäeva"
+
+msgid "When enabled only the day of an execution is tracked, not the time"
+msgstr "Kui lubatud, siis salvestatakse ainult tegemise päeva, mitte aega"
+
+msgid "Consume %1$s of %2$s"
+msgstr "Tarbi %1$s %2$s-st"
+
+msgid "Meal plan"
+msgstr "Toituplaan"
+
+msgid "%s serving"
+msgid_plural "%s servings"
+msgstr[0] "%s serveering"
+msgstr[1] "%s serveeringut"
+
+msgid "Week costs"
+msgstr "Nädala kulud"
+
+msgid "Configuration"
+msgstr "Seadistus"
+
+msgid "A predefined list of values, one per line"
+msgstr "Eelseadistatud nimekiri väärtustest, üks rea kohta"
+
+msgid "Products"
+msgstr "Tooted"
+
+msgid "Marked task %s as completed on %s"
+msgstr "Märgitud ülesanne %s lõpetatuks kuupäeval %s"
+
+msgid "Booking has subsequent dependent bookings, undo not possible"
+msgstr ""
+"Broneeringul on järgnevad sõltuvad broneeringud, tagasivõtmine ei ole "
+"võimalik"
+
+msgid "per serving"
+msgstr "serveeringu kohta"
+
+msgid "Never"
+msgstr "Mitte kunagi"
+
+msgid "Today"
+msgstr "Täna"
+
+msgid "Not all ingredients of recipe \"%s\" are in stock, nothing removed"
+msgstr ""
+"Mitte kõiki retsepti \"%s\" koostisosasid pole varudes, midagi ei eemaldatud"
+
+msgid "Undo task"
+msgstr "Võta ülesanne tagasi"
+
+msgid "Due date rollover"
+msgstr "Tähtaja edasilükkamine"
+
+msgid ""
+"When enabled the chore can never be overdue, the due date will shift forward"
+" each day when due"
+msgstr ""
+"Kui see on sisse lülitatud, ei saa majapidamistööde tähtaeg kunagi hilineda,"
+" nihkub tähtaeg iga päev ettepoole"
+
+msgid "Location Content Sheet"
+msgstr "Asukoha Toodete Leht"
+
+msgid "Print"
+msgstr "Prindi"
+
+msgid "all locations"
+msgstr "kõik asukohad"
+
+msgid ""
+"Here you can print a page per location with the current stock, maybe to hang"
+" it there and note the consumed things on it"
+msgstr ""
+"Siit saab välja printida lehekülje iga asukoha kohta hetke laoseisuga, võib-"
+"olla selle sinna riputamiseks ja tarbitud asjade märkimiseks"
+
+msgid "this location"
+msgstr "see asukoht"
+
+msgid "Consumed amount"
+msgstr "Tarbitud kogus"
+
+msgid "Time of printing"
+msgstr "Printimise aeg"
+
+msgid "Are you sure to delete equipment \"%s\"?"
+msgstr "Kas oled kindel, et tahad kustutada tehnikat \"%s\"?"
+
+msgid "Parent product"
+msgstr "Peatoode"
+
+msgid ""
+"Not possible because this product is already used as a parent product in "
+"another product"
+msgstr ""
+"Pole võimalik, kuna seda toodet kasutatakse juba teises tootes peatootena"
+
+msgid "Default conversions"
+msgstr "Vaikekonversioonid"
+
+msgid "Factor"
+msgstr "Faktor"
+
+msgid "1 %s is the same as..."
+msgstr "1 %s on sama mis ..."
+
+msgid "Create QU conversion"
+msgstr "Loo QU konversioon"
+
+msgid "Default for QU"
+msgstr "Vaikimisi QU jaoks"
+
+msgid "Quantity unit from"
+msgstr "Koguse ühik alates"
+
+msgid "Quantity unit to"
+msgstr "Koguse ühik kuni"
+
+msgid "This cannot be equal to %s"
+msgstr "See ei saa võrduda arvuga %s"
+
+msgid "This means 1 %1$s is the same as %2$s %3$s"
+msgstr "See tähendab, et 1 %1$s on sama mis %2$s %3$s"
+
+msgid "QU conversions"
+msgstr "QU konversioonid"
+
+msgid "Override for product"
+msgstr "Kirjuta toote jaoks üle"
+
+msgid "This equals %1$s %2$s"
+msgstr "See võrdub %1$s %2$s"
+
+msgid "Edit QU conversion"
+msgstr "Muuda QU konversiooni"
+
+msgid "An assignment type is required"
+msgstr "Kodutöö tüüp on nõutav"
+
+msgid "Assignment type"
+msgstr "Kodutöö tüüp"
+
+msgid ""
+"This means the next execution of this chore is scheduled at the same time "
+"(based on the start date) every day"
+msgid_plural ""
+"This means the next execution of this chore is scheduled at the same time "
+"(based on the start date) every %s days"
+msgstr[0] ""
+"See tähendab, et selle kodutöö järgmine sooritamine on planeeritud iga päev "
+"samal ajal (alguskuupäeva alusel)."
+msgstr[1] ""
+"See tähendab, et selle kodutöö järgmine sooritamine on planeeritud igal "
+"%s-ll päeval samal ajal (alguskuupäeva alusel)."
+
+msgid ""
+"This means the next execution of this chore is scheduled %s hour after the "
+"last execution"
+msgid_plural ""
+"This means the next execution of this chore is scheduled %s hours after the "
+"last execution"
+msgstr[0] ""
+"See tähendab, et selle kodutöö järgmine täitmine on kavandatud %s tunni "
+"jooksul pärast viimast täitmist"
+msgstr[1] ""
+"See tähendab, et selle kodutöö järgmine täitmine on kavandatud %s tunni "
+"jooksul pärast viimast täitmist"
+
+msgid ""
+"This means the next execution of this chore is scheduled every week on the "
+"selected weekdays"
+msgid_plural ""
+"This means the next execution of this chore is scheduled every %s weeks on "
+"the selected weekdays"
+msgstr[0] ""
+"See tähendab, et selle kodutöö järgmine sooritamine on planeeritud iga "
+"nädala tagant valitud tööpäevadel"
+msgstr[1] ""
+"See tähendab, et selle kodutöö järgmine sooritamine on planeeritud iga %s "
+"nädala tagant valitud tööpäevadel"
+
+msgid ""
+"This means the next execution of this chore is scheduled on the selected day"
+" every month"
+msgid_plural ""
+"This means the next execution of this chore is scheduled on the selected day"
+" every %s months"
+msgstr[0] ""
+"See tähendab, et selle kodutöö järgmine sooritamine on planeeritud iga kuu "
+"valitud päevale"
+msgstr[1] ""
+"See tähendab, et selle kodutöö järgmine sooritamine on planeeritud iga %s "
+"kuu valitud päevale"
+
+msgid "This means the next execution of this chore is not scheduled"
+msgstr "See tähendab, et selle kodutöö järgmist korda ei ole plaanitud"
+
+msgid ""
+"This means the next execution of this chore will not be assigned to anyone"
+msgstr "See tähendab, et selle kodutöö järgmist korda ei määrata kellelegi"
+
+msgid ""
+"This means the next execution of this chore will be assigned to the one who "
+"executed it least"
+msgstr ""
+"See tähendab, et selle kodutöö järgmine sooritamine määratakse sellele, kes "
+"seda kõige viimasena tegi"
+
+msgid "This means the next execution of this chore will be assigned randomly"
+msgstr ""
+"See tähendab, et selle kodutöö järgmine täitmine määratakse juhuslikult"
+
+msgid ""
+"This means the next execution of this chore will be assigned to the next one"
+" in alphabetical order"
+msgstr ""
+"See tähendab, et selle kodutöö järgmine täitmine määratakse järgmisele "
+"tähestikulises järjekorras"
+
+msgid "Assign to"
+msgstr "Määra isikule"
+
+msgid "This assignment type requires that at least one is assigned"
+msgstr ""
+"See kodutöö tüüp nõuab, et vähemalt üks isik on sellega tegelemiseks "
+"määratud"
+
+msgid "%s chore is assigned to me"
+msgid_plural "%s chores are assigned to me"
+msgstr[0] "%s kodutöö on määratud mulle"
+msgstr[1] "%s kodutööd on määratud mulle"
+
+msgid "Assigned to me"
+msgstr "Minule määratud"
+
+msgid "assigned to %s"
+msgstr "määratud %s-le"
+
+msgid "Assignment"
+msgstr "Kodutöö"
+
+msgid "Consume product on chore execution"
+msgstr "Tarbi toode kodutöö tegemisel"
+
+msgid "Are you sure to delete user field \"%s\"?"
+msgstr "Kas oled kindel, et tahad kustutada kasutajavälja \"%s\"?"
+
+msgid "Userentities"
+msgstr "Kasutajaolemid"
+
+msgid "Create userentity"
+msgstr "Loo kasutajaolem"
+
+msgid "Show in sidebar menu"
+msgstr "Näita külgriba menüüs"
+
+msgid "Edit userentity"
+msgstr "Muuda kasutajaolemit"
+
+msgid "Edit %s"
+msgstr "Muuda %s"
+
+msgid "Create %s"
+msgstr "Loo %s"
+
+msgid "Are you sure to delete this userobject?"
+msgstr "Kas oled kindel, et tahad seda kasutajaobjekti kustutada?"
+
+msgid "Icon CSS class"
+msgstr "Ikooni CSS klass"
+
+msgid "For example"
+msgstr "Näiteks"
+
+msgid "Configure fields"
+msgstr "Seadista välju"
+
+msgid "Quantity unit plural form testing"
+msgstr "Koguseühiku mitmuse vormi testimine"
+
+msgid "Result"
+msgstr "Tulem"
+
+msgid "Test plural forms"
+msgstr "Testi mitmuse vorme"
+
+msgid "Scan a barcode"
+msgstr "Skanni ribakood"
+
+msgid "Error while initializing the barcode scanning library"
+msgstr "Viga vöötkoodi skannimise teegi käivitamisel"
+
+msgid ""
+"The resulting price of this ingredient will be multiplied by this factor"
+msgstr "Selle koostisosa hind korrutatakse selle teguriga"
+
+msgid "Price factor"
+msgstr "Hinna faktor"
+
+msgid "Do you find Grocy useful?"
+msgstr "Kas leiad, et Grocy on kasulik?"
+
+msgid "Say thanks"
+msgstr "Ütle Aitäh"
+
+msgid "Search for recipes containing this product"
+msgstr "Otsi retsepte, mis sisaldavad seda toodet"
+
+msgid "Add to shopping list"
+msgstr "Lisa ostunimekirja"
+
+msgid "Added %1$s of %2$s to the shopping list \"%3$s\""
+msgstr "Lisasin %1$s %2$s-st ostunimekirja \"%3$s\""
+
+msgid "Output"
+msgstr "Väljund"
+
+msgid "Energy"
+msgstr "Energia"
+
+msgid "Per stock quantity unit"
+msgstr "Laokoguseühiku kohta"
+
+msgid "Barcode scanner testing"
+msgstr "Ribakoodi skanneri testimine"
+
+msgid "Expected barcode"
+msgstr "Eeldatud ribakood"
+
+msgid "Scan field"
+msgstr "Skanneeri välja"
+
+msgid "Scanned barcodes"
+msgstr "Skanneeritud ribakoodid"
+
+msgid "Hit"
+msgstr "Pihtas"
+
+msgid "Miss"
+msgstr "Mööda"
+
+msgid "Display recipe"
+msgstr "Näita retsepti"
+
+msgid "Accumulate sub products min. stock amount"
+msgstr "Kogu alamtoodete minimaalne kogus"
+
+msgid ""
+"If enabled, the min. stock amount of sub products will be accumulated into "
+"this product, means the sub product will never be missing, only this product"
+msgstr ""
+"Kui see on lubatud, siis minimaalne kogus alamtoodet kogutakse kokku selle "
+"toote alla, mis tähendab, et alamtoode ei kao kunagi, vaid ainult see toode"
+
+msgid "Are you sure to remove this conversion?"
+msgstr "Kas oled kindel, et tahad eemalda seda konversiooni?"
+
+msgid "Unit price"
+msgstr "Ühiku hind"
+
+msgid "Total price"
+msgstr "Koguhind"
+
+msgid "in %s and based on the purchase quantity unit"
+msgstr "%s-s ja ostukoguse ühiku alusel"
+
+msgid "Unlimited"
+msgstr "Piiramatu"
+
+msgid "Clear"
+msgstr "Puhasta"
+
+msgid "Are you sure to remove the included recipe \"%s\"?"
+msgstr "Kas oled kindel, et tahad kustutada sisaldavat retsepti \"%s\"?"
+
+msgid "Period interval"
+msgstr "Perioodi intervaal"
+
+msgid ""
+"This means the next execution of this chore is scheduled every year on the "
+"same day (based on the start date)"
+msgid_plural ""
+"This means the next execution of this chore is scheduled every %s years on "
+"the same day (based on the start date)"
+msgstr[0] ""
+"See tähendab, et selle kodutöö järgmine sooritamine on kavandatud iga aasta "
+"samal päeval (alguskuupäeva alusel)"
+msgstr[1] ""
+"See tähendab, et selle kodutöö järgmine sooritamine on kavandatud iga %s "
+"aasta samal päeval (alguskuupäeva alusel)"
+
+msgid "Transfer"
+msgstr "Üleviimine"
+
+msgid "From location"
+msgstr "Asukohast"
+
+msgid "To location"
+msgstr "Asukohta"
+
+msgid "There are no units available at this location"
+msgstr "Selles asukohas pole ühikuid saadaval"
+
+msgid "Amount: %1$s; Due on %2$s; Bought on %3$s"
+msgstr "Kogus: %1$s; Parim Enne %2$s; Ostetud %3$s"
+
+msgid "Transfered %1$s of %2$s from %3$s to %4$s"
+msgstr "Viidud üle %1$s %2$s-st, %3$s-st %4$s-sse"
+
+msgid "Stock entries"
+msgstr "Tooted"
+
+msgid "Best before date"
+msgstr "Parim enne kuupäev"
+
+msgid "Purchased date"
+msgstr "Ostetud kuupäev"
+
+msgid "Consume all %s for this stock entry"
+msgstr "Tarbi kõik %s selle varude sisendi jaoks"
+
+msgid "The amount cannot be lower than %1$s"
+msgstr "Kogus ei saa olla väiksem kui %1$s"
+
+msgid "Stock entry successfully updated"
+msgstr "Toode edukalt uuendatud"
+
+msgid "Edit stock entry"
+msgstr "Muuda toodet"
+
+msgid ""
+"Camera access is only possible when supported and allowed by your browser "
+"and when Grocy is served via a secure (https://) connection"
+msgstr ""
+"Juurdepääs kaamerale on võimalik ainult siis, kui teie brauser seda toetab "
+"ja lubab ning kui Grocyt teenindatakse turvalise (https://) ühenduse kaudu"
+
+msgid "Keep screen on"
+msgstr "Hoia ekraan sees"
+
+msgid "Keep screen on while displaying a \"fullscreen-card\""
+msgstr "Hoia ekraan sees, kui näidatakse \"täisekraani-kaarti\""
+
+msgid "A purchased date is required"
+msgstr "Ostukuupäev on nõutud"
+
+msgid ""
+"When a product is selected, one unit (per serving in stock quantity unit) "
+"will be added to stock on consuming this recipe"
+msgstr ""
+"Kui toode on valitud, lisatakse selle retsepti tarbimisel varudele üks ühik "
+"(portsjoni kohta laos oleva koguse ühiku kohta)"
+
+msgid "Produces product"
+msgstr "Toodab toodet"
+
+msgid "This booking cannot be undone"
+msgstr "Seda broneeringut ei saa tagasi võtta"
+
+msgid "Booking does not exist or was already undone"
+msgstr "Broneeringut ei eksisteeri või on juba tagasivõetud"
+
+msgid "Are you sure to delete API key \"%s\"?"
+msgstr "Kas oled kindel, et tahad kustutada API võtit \"%s\"?"
+
+msgid "Add note"
+msgstr "Lisa märge"
+
+msgid "per day"
+msgstr "päevas"
+
+msgid "Only undone items"
+msgstr "Ainult tegemata tooted"
+
+msgid "Add product"
+msgstr "Lisa toode"
+
+msgid "Consume all ingredients needed by this weeks recipes or products"
+msgstr ""
+"Tarbi kõik koostisosad, mida selle nädala retseptid või tooted vajavad"
+
+msgid "Meal plan recipe"
+msgstr "Toituplaani retsept"
+
+msgid "Meal plan note"
+msgstr "Toiduplaani märge"
+
+msgid "Meal plan product"
+msgstr "Toiduplaani toode"
+
+msgid "Scan mode"
+msgstr "Skanneerimise Režiim"
+
+msgid "on"
+msgstr "sees"
+
+msgid "off"
+msgstr "väljas"
+
+msgid ""
+"Scan mode is on but not all required fields could be populated automatically"
+msgstr ""
+"Skannimisrežiim on sisse lülitatud, kuid kõiki kohustuslikke välju ei saanud"
+" automaatselt täita"
+
+msgid "Is freezer"
+msgstr "On külmik"
+
+msgid "This cannot be the same as the \"From\" location"
+msgstr "See ei saa olla sama kui \"Asukohast\""
+
+msgid "Thawed"
+msgstr "Sulatatud"
+
+msgid "Frozen"
+msgstr "Sügavkülmutatud"
+
+msgid "Are you sure to delete userentity \"%s\"?"
+msgstr "Kas oled kindel, et tahad kustutada kasutajaolemit \"%s\"?"
+
+msgid "Shopping list settings"
+msgstr "Ostunimekirja seaded"
+
+msgid "Show a month-view calendar"
+msgstr "Näita kuuvaate kalendrit"
+
+msgid "Desired servings"
+msgstr "Soovitud serveeringuid"
+
+msgid "Base: %s"
+msgstr "Alus: %s"
+
+msgid "Recipes settings"
+msgstr "Retseptide seaded"
+
+msgid "Recipe card"
+msgstr "Retseptikaart"
+
+msgid "Group ingredients by their product group"
+msgstr "Grupita koostisosasid nende toodete grupi järgi"
+
+msgid "Unknown store"
+msgstr "Tundmatu pood"
+
+msgid "Store"
+msgstr "Pood"
+
+msgid "Transaction successfully undone"
+msgstr "Tehing edukalt tühistatud"
+
+msgid "Default store"
+msgstr "Vaikimisi pood"
+
+msgid "Consume this stock entry"
+msgstr "Tarbi see toode"
+
+msgid "Mark this stock entry as open"
+msgstr "Märgi see toode avatuks"
+
+msgid "Mark this item as done"
+msgstr "Märgi see ese tehtuks"
+
+msgid "Edit this item"
+msgstr "Muuda eset"
+
+msgid "Delete this item"
+msgstr "Kustuta see ese"
+
+msgid "Show an icon if the product is already on the shopping list"
+msgstr "Näita ikooni, kui toode on juba ostunimekirjas"
+
+msgid "Calories"
+msgstr "Kaloreid"
+
+msgid "means %1$s per %2$s"
+msgstr "tähendab %1$s %2$s kohta "
+
+msgid "Create recipe"
+msgstr "Loo retsept"
+
+msgid "Save & continue to add ingredients and included recipes"
+msgstr "Salvesta & jätka, et lisada koostisosasid ja sisaldavaid retsepte"
+
+msgid "Save & continue"
+msgstr "Salvesta & jätka"
+
+msgid "Save & return to recipes"
+msgstr "Salvesta & naase retseptide juurde"
+
+msgid "Stock value"
+msgstr "Toote väärtus"
+
+msgid "Average price"
+msgstr "Keskmine hind"
+
+msgid "Active"
+msgstr "Aktiivne"
+
+msgid "Barcodes"
+msgstr "Ribakoodid"
+
+msgid "Barcode"
+msgstr "Ribakood"
+
+msgid "Create Barcode"
+msgstr "Loo Ribakood"
+
+msgid "Barcode for product"
+msgstr "Toote Ribakood"
+
+msgid "Edit Barcode"
+msgstr "Muuda Ribakoodi"
+
+msgid ""
+"Based on the prices of the default consume rule (Opened first, then first "
+"due first, then first in first out) for in-stock ingredients and on the last"
+" price for missing ones"
+msgstr ""
+"Põhineb laos olevate koostisosade puhul vaikimisi tarbimise reegli "
+"(Kõigepealt avatud, siis esmalt tähtaeg, siis esimene sisse - esimene välja)"
+" hindadel ja puuduvate koostisosade puhul viimasel hinnal"
+
+msgid "Clear filter"
+msgstr "Puhasta filter"
+
+msgid "Permissions for user %s"
+msgstr "Kasutaja %s load"
+
+msgid "Are you sure you want to remove full permissions for yourself?"
+msgstr "Kas oled kindel, et tahad eemaldada endalt kõik load?"
+
+msgid "Permissions saved"
+msgstr "Load salvestatud"
+
+msgid "You are not allowed to view this page"
+msgstr "Sul pole luba seda lehte vaadata"
+
+msgid "Page not found"
+msgstr "Lehte ei leitud"
+
+msgid "Unauthorized"
+msgstr "Luba puudub"
+
+msgid "Error source"
+msgstr "Vea allikas"
+
+msgid "Error message"
+msgstr "Veateade"
+
+msgid "Stack trace"
+msgstr "Stack trace"
+
+msgid "Easy error info copy & paste (for reporting)"
+msgstr "Lihtne vea info kopeerija & kleepija (teatamiseks)"
+
+msgid "This page does not exist"
+msgstr "Seda lehte pole olemas"
+
+msgid "You will be redirected to the default page in %s seconds"
+msgstr "Sind suunatakse vaikelehele %s sekundi pärast"
+
+msgid "Server error"
+msgstr "Serveri viga"
+
+msgid "A server error occured while processing your request"
+msgstr "Esines serveri viga su päringu töötlemisel"
+
+msgid "If you think this is a bug, please report it"
+msgstr "Kui arvad, et see on viga, palun teata sellest"
+
+msgid "Language"
+msgstr "Keel"
+
+msgid "User settings"
+msgstr "Kasutajaseaded"
+
+msgid "Default"
+msgstr "Vaikimisi"
+
+msgid "Stock journal summary"
+msgstr "Varude päeviku kokkuvõte"
+
+msgid "Journal summary"
+msgstr "Päeviku kokkuvõte"
+
+msgid "Consume exact amount"
+msgstr "Tarbi täpset kogust"
+
+msgid "Value"
+msgstr "Väärtus"
+
+msgid "%s total value"
+msgstr "%s täisväärtus"
+
+msgid ""
+"Show purchased date on purchase and inventory page (otherwise the purchased "
+"date defaults to today)"
+msgstr ""
+"Kuva ostukuupäev ostu- ja varuseisulehel (muidu on ostukuupäevaks vaikimisi "
+"tänane)"
+
+msgid "Common"
+msgstr "Harilik"
+
+msgid "Decimal places allowed for amounts"
+msgstr "Lubatud komakohti koguste jaoks"
+
+msgid "Edit shopping list"
+msgstr "Muuda ostunimekirja"
+
+msgid "Save & continue to add quantity unit conversions & barcodes"
+msgstr "Salvesta & jätka kogusühikute konversiooni & ribakoodi lisamisega"
+
+msgid "Save & return to products"
+msgstr "Salvesta & naase toodete juurde"
+
+msgid "Save & continue to add conversions"
+msgstr "Salvesta & jätka konversioonide lisamisega"
+
+msgid "Save & return to quantity units"
+msgstr "Salvesta & naase kogusühikute juurde"
+
+msgid "price"
+msgstr "hind"
+
+msgid "New stock amount"
+msgstr "Uus toote kogus"
+
+msgid "Price per stock unit"
+msgstr "Hind tooteühiku kohta"
+
+msgid "Table options"
+msgstr "Laua valikud"
+
+msgid "This product is currently on a shopping list"
+msgstr "See toode on hetkel ostunimekirjas"
+
+msgid "Undo transaction"
+msgstr "Võta tehing tagasi"
+
+msgid "Transaction type"
+msgstr "Tehingu tüüp"
+
+msgid "Transaction time"
+msgstr "Tehingu kellaaeg"
+
+msgid "Chore journal"
+msgstr "Kodutööde päevik"
+
+msgid "Track next chore schedule"
+msgstr "Jälgi järgmist kodutööde plaani"
+
+msgid "Mark task as completed"
+msgstr "Märgi ülesanne tehtuks"
+
+msgid "Track charge cycle"
+msgstr "Jälgi laadimistsüklit"
+
+msgid "Battery journal"
+msgstr "Patarei päevik"
+
+msgid "This product has a picture"
+msgstr "Sellel tootel on pilt"
+
+msgid "Consume this stock entry as spoiled"
+msgstr "Tarbi see toode kui raiskunud"
+
+msgid "Configure user permissions"
+msgstr "Seadista kasutaja lubasid"
+
+msgid "Show a QR-Code for this API key"
+msgstr "Näita selle API võtme QR-koodi"
+
+msgid ""
+"This is the default quantity unit used on purchase and when adding this "
+"product to the shopping list"
+msgstr ""
+"See on vaikekoguse ühik, mida kasutatakse ostmisel ja selle toote "
+"ostunimekirja lisamisel"
+
+msgid ""
+"Show a warning when the due date of the purchased product is earlier than "
+"the next due date in stock"
+msgstr ""
+"Näita hoiatust, kui osetud eseme parim enne on varasem kui varudes oleva "
+"parim enne"
+
+msgid "This is due earlier than already in-stock items"
+msgstr "Selle toote parim enne on varasem, kui varudes olevate toodetel"
+
+msgid ""
+"When enabled, after changing/scanning a product and if all fields could be "
+"automatically populated (by product and/or barcode defaults), the "
+"transaction is automatically submitted"
+msgstr ""
+"Kui see on sisse lülitatud, esitatakse tehing pärast toote "
+"muutmist/skaneerimist ja kui kõiki välju saab automaatselt täita (toote "
+"ja/või vöötkoodi vaikeseadete järgi)"
+
+msgid "Quick consume amount"
+msgstr "Kiirtarbimise kogus"
+
+msgid ""
+"This amount is used for the \"quick consume button\" on the stock overview "
+"page (related to quantity unit stock)"
+msgstr ""
+"Seda summat kasutatakse varude ülevaate lehel \"kiirtarbimise nupu\" jaoks "
+"(seoses koguseühiku laoseisuga)"
+
+msgid ""
+"This amount is used for the \"quick open button\" on the stock overview page"
+" (related to quantity unit stock)"
+msgstr ""
+"Seda summat kasutatakse varude ülevaate lehel oleva \"kiiravamise nupu\" "
+"jaoks (seoses koguseühiku laoseisuga)"
+
+msgid "Copy"
+msgstr "Kopeeri"
+
+msgid "Are you sure to remove this barcode?"
+msgstr "Kas oled kindel, et tahad seda ribakoodi eemaldada?"
+
+msgid "Due date type"
+msgstr "Tähtaja tüüp"
+
+msgid ""
+"Based on the selected type, the highlighting on the stock overview page will"
+" be different"
+msgstr ""
+"Sõltuvalt valitud tüübist on varude ülevaate lehel esiletõstmine erinev"
+
+msgid ""
+"Means that the product is maybe still safe to be consumed after its due date"
+" is reached"
+msgstr ""
+"Tähendab, et toode on võib-olla siiski ohutu tarbimiseks pärast selle "
+"tähtpäeva saabumist"
+
+msgid "Expiration date"
+msgstr "Kõlblik kuni"
+
+msgid ""
+"Means that the product is not safe to be consumed after its due date is "
+"reached"
+msgstr ""
+"Tähendab, et toodet ei ole pärast selle tähtpäeva saabumist ohutu tarbida"
+
+msgid ""
+"For purchases this amount of days will be added to today for the due date "
+"suggestion"
+msgstr ""
+"Ostude puhul lisatakse tähtpäeva soovituse jaoks see päevade arv tänasele "
+"päevale"
+
+msgid "-1 means that this product will be never overdue"
+msgstr "-1 tähendab, et selle toode ei rikne"
+
+msgid "Default due days"
+msgstr "Vaikimisi tähtaja päevi"
+
+msgid ""
+"When this product was marked as opened, the due date will be replaced by "
+"today + this amount of days, but only if the resulting date is not after the"
+" original due date (a value of 0 disables this)"
+msgstr ""
+"Kui see toode märgitakse avatuks, asendatakse tähtaeg tänasega + selle "
+"päevade arvuga, kuid ainult siis, kui tulemuseks olev kuupäev ei ole hilisem"
+" kui algne tähtaeg (väärtus 0 keelab selle)"
+
+msgid "Default due days after opened"
+msgstr "Vaikimisi tähtaeg pärast avamist"
+
+msgid ""
+"On moving this product to a freezer location (so when freezing it), the due "
+"date will be replaced by today + this amount of days"
+msgstr ""
+"Selle toote sügavkülmikusse teisaldamisel (seega selle külmutamisel) "
+"asendatakse tähtaeg tänasega + see arv päevi"
+
+msgid "Default due days after freezing"
+msgstr "Vaikimisi maksetähtaeg päeva pärast külmutamist"
+
+msgid ""
+"On moving this product from a freezer location (so when thawing it), the due"
+" date will be replaced by today + this amount of days"
+msgstr ""
+"Selle toote sügavkülmast teisaldamisel (seega selle sulatamisel) asendatakse"
+" tähtaeg tänasega + selle päevade arvuga"
+
+msgid "Default due days after thawing"
+msgstr "Vaikimisi tähtaeg pärast sulatamist"
+
+msgid "Next due date"
+msgstr "Järgmine tähtaeg"
+
+msgid "%s product is due"
+msgid_plural "%s products are due"
+msgstr[0] "%s toode on üle aja"
+msgstr[1] "%s toodet on üle aja"
+
+msgid "Due date"
+msgstr "Tähtaeg"
+
+msgid "Never overdue"
+msgstr "Mitte kunagi üle aja"
+
+msgid "%s product is expired"
+msgid_plural "%s products are expired"
+msgstr[0] "%s toode on riknenud"
+msgstr[1] "%s toodet on riknenud"
+
+msgid "Expired"
+msgstr "Riknenud"
+
+msgid "Due soon days"
+msgstr "Päevi enne tähtaega "
+
+msgid "Add overdue/expired products"
+msgstr "Lisa aegunud/riknenud tooted"
+
+msgid ""
+"Products with tare weight enabled are currently not supported for transfer"
+msgstr "Tooteid taara kaaluga ei toetata praegu ülekandmist"
+
+msgid ""
+"This cannot be lower than %1$s or equal %2$s and needs to be a valid number "
+"with max. %3$s decimal places"
+msgstr ""
+"See ei saa olla väiksem, kui %1$s, või võrdne%2$s-ga ja peab olema number "
+"maksimaalselt %3$s komakohaga"
+
+msgid ""
+"This must be between %1$s and %2$s, cannot equal %3$s and needs to be a "
+"valid number with max. %4$s decimal places"
+msgstr ""
+"See peab olema vahemikus %1$s kuni %2$s, ei saa olla võrdne %3$s-ga ja peab "
+"olema number maksimaalselt %4$s komakohaga"
+
+msgid ""
+"This cannot be lower than %1$s and needs to be a valid number with max. %2$s"
+" decimal places"
+msgstr ""
+"See ei saa olla väiksem kui %1$s ja peab olema number maksimaalselt %2$s "
+"komakohaga"
+
+msgid ""
+"This must between %1$s and %2$s and needs to be a valid number with max. "
+"%3$s decimal places"
+msgstr ""
+"See peab olema vahemikus %1$s kuni %2$s ja peab olema number maksimaalselt "
+"%3$s komakohaga"
+
+msgid ""
+"Automatically do the booking using the last price and the amount of the "
+"shopping list item, if the product has \"Default due days\" set"
+msgstr ""
+"Tehke broneering automaatselt, kasutades ostunimekirja kauba viimast hinda "
+"ja summat, kui tootele on määratud \"Vaikimisi tähtpäevad\""
+
+msgid ""
+"When moving products from/to a freezer location, the products due date is "
+"automatically adjusted according to the product settings"
+msgstr ""
+"Toodete teisaldamisel sügavkülmiku asukohast/sügavkülmikusse reguleeritakse "
+"toodete tähtaeg automaatselt vastavalt toote seadetele"
+
+msgid "This is the internal field name, e. g. for the API"
+msgstr "See on sisene välja nimi, nt API jaoks"
+
+msgid "This is used to display the field on the frontend"
+msgstr "Seda kasutatakse lehel välja näitamiseks"
+
+msgid "Multiple Userfields will be ordered by that number on the input form"
+msgstr "Mitu kasutajavälja järjestatakse selle numbri järgi sisestusvormil"
+
+msgid "Sort number"
+msgstr "Sorteeri number"
+
+msgid "Download file"
+msgstr "Lae fail alla"
+
+msgid "Use the products \"Quick consume amount\""
+msgstr "Kasuta toote \"kiirtarbimise kogus\""
+
+msgid "Disabled"
+msgstr "Keelatud"
+
+msgid ""
+"This also removes any stock amount, the journal and all other references of "
+"this product - consider disabling it instead, if you want to keep that and "
+"just hide the product."
+msgstr ""
+"See eemaldab ka kogu varukoguse, päeviku ja kõik muud selle toote viited – "
+"kaaluge selle asemel selle keelamist, kui soovite toote alles jätta ja selle"
+" lihtsalt peita."
+
+msgid "Show disabled"
+msgstr "Näitamine keelatud"
+
+msgid "Never show on stock overview"
+msgstr "Ärge kunagi kuvage varude ülevaates"
+
+msgid "None"
+msgstr "Puudub"
+
+msgid "Group by"
+msgstr "Grupita"
+
+msgid "Ingredient group"
+msgstr "Koostisosade grupp"
+
+msgid "Reset"
+msgstr "Nulli"
+
+msgid "Are you sure to reset the table options?"
+msgstr "Kas sa oled kindel, et tahad nullida laua valikud?"
+
+msgid "Hide/view columns"
+msgstr "Peida/kuva veerud"
+
+msgid ""
+"A different amount/unit can then be used below while for stock fulfillment "
+"checking it is sufficient when any amount of the product in stock"
+msgstr ""
+"Allpool saab kasutada teistsugust kogust/ühikut, samas kui varude "
+"kontrollimiseks piisab, kui on mis tahes kogus toodet"
+
+msgid "Last price (Unit)"
+msgstr "Viimane hind (Üksus)"
+
+msgid "Last price (Total)"
+msgstr "Viimane hind (Kokku)"
+
+msgid "Show header"
+msgstr "Näita pealdist"
+
+msgid "Group by product group"
+msgstr "Grupita toote grupi järgi"
+
+msgid "Table"
+msgstr "Laud"
+
+msgid "Layout type"
+msgstr "Paigutuse tüüp"
+
+msgid "Merge this product with another one"
+msgstr "Ühendage see toode teise tootega"
+
+msgid "Merge products"
+msgstr "Ühenda tooted"
+
+msgid "Product to keep"
+msgstr "Toode mida hoida"
+
+msgid "Product to remove"
+msgstr "Toode millest lahti saada"
+
+msgid "Error while merging"
+msgstr "Ühendamise viga"
+
+msgid "After merging, this product will be kept"
+msgstr "Peale ühendamist, see toode hoitakse alles"
+
+msgid ""
+"After merging, all occurences of this product will be replaced by the kept "
+"product (means this product will not exist anymore)"
+msgstr ""
+"Pärast ühendamist asendatakse kõik selle toote esinemised allesjäänud "
+"tootega (see tähendab, et seda toodet enam ei eksisteeri)"
+
+msgid "Merge"
+msgstr "Ühenda"
+
+msgid "Title"
+msgstr "Pealkiri"
+
+msgid "Link"
+msgstr "Link"
+
+msgid ""
+"The stock overview page lists all products which are currently in-stock or "
+"below their min. stock amount - enable this to hide this product there "
+"always"
+msgstr ""
+"Varude ülevaate lehel on loetletud kõik tooted, mis on hetkel varudes või "
+"alla nende minimaalse koguse  – lubage see, et see toode seal alati peita"
+
+msgid "Print options"
+msgstr "Printimise valikud"
+
+msgid "A product or a note is required"
+msgstr "Toode või märge on kohustuslik"
+
+msgid "Grocycode"
+msgstr "Grocykood"
+
+msgid "Download"
+msgstr "Lae alla"
+
+# Example: Download *Product* Grocycode
+msgid "Download %s Grocycode"
+msgstr "Lae alla %s Grocykood"
+
+msgid ""
+"Grocycode is a unique referer to this %s in your Grocy instance - print it "
+"onto a label and scan it like any other barcode"
+msgstr ""
+"Grocykood on unikaalne suunaja sellele %s sinu Grocy seadistuses - prindi "
+"see etiketile ja skaneeri seda nagu igat teist ribakoodi"
+
+# Abbreviation for "due date"
+msgid "DD"
+msgstr "KK"
+
+msgid "Print on label printer"
+msgstr "Prindi etiketi printeril"
+
+msgid "Default stock entry label"
+msgstr "Vaikimisi toote silt"
+
+msgid "Stock entry label"
+msgstr "Toote silt"
+
+msgid "No label"
+msgstr "Silt puutub"
+
+msgid "Single label"
+msgstr "Üks etikett"
+
+msgid "Label per unit"
+msgstr "Etikett ühiku kohta"
+
+msgid "Error while executing WebHook"
+msgstr "Viga WebHooki käivitamisel"
+
+# Example: Print *Product* Grocycode on label printer
+msgid "Print %s Grocycode on label printer"
+msgstr "Prindi %s Grocykood etiketi printeril"
+
+msgid "Open stock entry label in new window"
+msgstr "Ava toote silt uues aknas"
+
+msgid "Thermal printer"
+msgstr "Termoprinter"
+
+msgid "Printing"
+msgstr "Printimine"
+
+msgid "Connecting to printer..."
+msgstr "Ühendan printeriga..."
+
+msgid "Unable to print"
+msgstr "Ei saa printida"
+
+msgid "Only done items"
+msgstr "Ainult valmis esemed"
+
+msgid "Show only in-stock products"
+msgstr "Näita ainult varudes olevaid tooteid"
+
+msgid "Product description"
+msgstr "Tootekirjeldus"
+
+# Example: *3.21 USD* per *Pack*
+msgid "%1$s per %2$s"
+msgstr "%1$s %2$s kohta"
+
+msgid "Mark this item as undone"
+msgstr "Märgi see ese kui tegemata"
+
+msgid "Mandatory"
+msgstr "Kohustuslik"
+
+msgid "Mandatory Userfield"
+msgstr "Kohustuslik Kasutajaväli"
+
+msgid "When enabled, then this field must be filled on the destination form"
+msgstr ""
+"Kui lubatud siis peab see väli olema täidetud kohaletoimetamise vormil"
+
+msgid "In-stock products"
+msgstr "Varudes olevad tooted"
+
+msgid "Timestamp"
+msgstr "Ajamärge"
+
+msgid "Should not be frozen"
+msgstr "Ei peaks olema sügavkülmutatud"
+
+msgid ""
+"When enabled, on moving this product to a freezer location (so when freezing"
+" it), a warning will be shown"
+msgstr ""
+"Kui see on lubatud, kuvatakse selle toote sügavkülmikusse viimisel (seega "
+"selle külmutamisel) hoiatus"
+
+msgid "This product shouldn't be frozen"
+msgstr "Seda toodet ei peaks sügavkülmutama"
+
+msgid "Copy all meal plan entries of %s"
+msgstr "Kopeeri kõik %s toiduplaanid"
+
+msgid "A date is required"
+msgstr "Kuupäev on kohustuslik"
+
+msgid "Day"
+msgstr "Päev"
+
+msgid "Add recipe"
+msgstr "Lisa retsept"
+
+msgid "Copy this day"
+msgstr "Kopeeri see päev"
+
+msgid "Date range"
+msgstr "Päevavahemik"
+
+msgid "%s month"
+msgid_plural "%s months"
+msgstr[0] "%s kuu"
+msgstr[1] "%s kuud"
+
+msgid "%s year"
+msgid_plural "%s years"
+msgstr[0] "%s aasta"
+msgstr[1] "%s aastat"
+
+msgid "Display product"
+msgstr "Näita toodet"
+
+msgid "Copy recipe"
+msgstr "Kopeeri retsept"
+
+msgid "Copy of %s"
+msgstr "%s Koopia"
+
+msgid "Add decimal separator automatically for price inputs"
+msgstr "Lisage hinnasisendite jaoks automaatselt kümnendkoha eraldaja"
+
+msgid ""
+"When enabled, you always have to enter the value including decimal places, "
+"the decimal separator will be automatically added based on the amount of "
+"allowed decimal places"
+msgstr ""
+"Kui see on lubatud, peate alati sisestama väärtuse koos kümnendkohtadega, "
+"kümnendkoha eraldaja lisatakse automaatselt lubatud kümnendkohtade arvu "
+"alusel"
+
+msgid "Stock entry"
+msgstr "Toode"
+
+msgid "Configure sections"
+msgstr "Sektsioonide seadistamine"
+
+msgid "Meal plan sections"
+msgstr "Toiduplaani sektsioon"
+
+msgid "Create meal plan section"
+msgstr "Loo toiduplaani sektsioon"
+
+msgid "Sections will be ordered by that number on the meal plan"
+msgstr "Sektsioonid järjestatakse selle numbri järgi toiduplaanis"
+
+msgid "Edit meal plan section"
+msgstr "Muuda toiduplaani sektsiooni"
+
+msgid "Are you sure to delete meal plan section \"%s\"?"
+msgstr "Kas oled kindel, et tahad kustutada toiduplaani sekstiooni \"%s\"?"
+
+msgid "Section"
+msgstr "Sektsioon"
+
+msgid "Are you sure to empty the shopping list?"
+msgstr "Kas oled kindel, et tahad tühjendada ostunimekirja?"
+
+msgid "This is the default which will be prefilled on purchase"
+msgstr "See on vaikeseade, mis eeltäidetakse ostmisel"
+
+msgid "Merge chores"
+msgstr "Ühenda kodutööd"
+
+msgid "Chore to keep"
+msgstr "Kodutöö mida alles hoida"
+
+msgid "After merging, this chore will be kept"
+msgstr "Peale ühendamist, jääb see kodutöö alles"
+
+msgid "Chore to remove"
+msgstr "Kodutöö, mida eemaldada"
+
+msgid ""
+"After merging, all occurences of this chore will be replaced by the kept "
+"chore (means this chore will not exist anymore)"
+msgstr ""
+"Pärast ühendamist asendatakse selle kodutöö kõik esinemised allesjäänud "
+"tööga (tähendab, et seda kodutööd enam ei eksisteeri)"
+
+msgid "Due today"
+msgstr "Täna teha"
+
+msgid "%s task is due to be done today"
+msgid_plural "%s tasks are due to be done today"
+msgstr[0] "%s ülesanne tuleb täna ära teha"
+msgstr[1] "%s ülesannet tuleb täna vaja ära teha"
+
+msgid "%s chore is due to be done today"
+msgid_plural "%s chores are due to be done today"
+msgstr[0] "%s kodutöö tuleb täna ära teha"
+msgstr[1] "%s kodutööd tuleb täna ära teha"
+
+msgid "%s battery is due to be charged today"
+msgid_plural "%s batteries are due to be charged today"
+msgstr[0] "%s patareid tuleb täna täis laadida"
+msgstr[1] "%s patareid tuleb täna täis laadida"
+
+msgid "Set to 0 to hide due soon filters/highlighting"
+msgstr ""
+"Varsti tähtaegsete filtrite/esiletõstmise peitmiseks määrake väärtusele 0"
+
+msgid "Save & close"
+msgstr "Salvesta & sulge"
+
+msgid "Save & add another task"
+msgstr "Salvesta & lisa teine ülesanne"
+
+msgid "Treat opened as out of stock"
+msgstr "Määra avatud tooted kui ostas"
+
+msgid ""
+"When enabled, opened items will be counted as missing for calculating if "
+"this product is below its minimum stock amount"
+msgstr ""
+"Kui see on lubatud, loetakse avatud kaubad puuduvateks, et arvutada, kas see"
+" toode on alla selle minimaalse laokoguse"
+
+msgid "Skipped"
+msgstr "Vahele jäetud"
+
+msgid "Skip next chore schedule"
+msgstr "Jäta järgmine töögraafik vahele"
+
+msgid "Time"
+msgstr "Aeg"
+
+msgid "A start date is required"
+msgstr "Alguskuupäev on kohustuslik"
+
+msgid "Start date"
+msgstr "Alguskuupäev"
+
+msgid "The start date cannot be changed when the chore was once tracked"
+msgstr "Alguskuupäeva ei saa muuta, kui kodutööd kunagi jälgiti"
+
+msgid "Show the recipe list and the recipe side by side"
+msgstr "Näita retseptide nimekirja ja retsepti kõrvuti"
+
+msgid ""
+"This means the next execution of this chore is scheduled dynamically based "
+"on the past average execution frequency"
+msgstr ""
+"See tähendab, et selle töö järgmine täitmine planeeritakse dünaamiliselt, "
+"tuginedes varasemale keskmisele täitmissagedusele"
+
+msgid "Average execution frequency"
+msgstr "Keskmine ülesannete sagedus"
+
+msgid "Reschedule next execution"
+msgstr "Ajastage järgmine ülesanne ümber"
+
+msgid "This can only be in the future"
+msgstr "See saab olla vaid tulevikus"
+
+msgid "Rescheduled"
+msgstr "Ümber ajastatud"
+
+msgid "Due score"
+msgstr "Tulev skoor"
+
+msgid ""
+"The higher this number is, the more ingredients currently in stock are due "
+"soon, overdue or already expired"
+msgstr ""
+"Mida suurem see arv on, seda rohkem on praegu laos olevaid koostisosi varsti"
+" aegumas, tähtaja ületanud või juba aegunud"
+
+msgid "Disable own stock"
+msgstr "Keela toote laoseis"
+
+msgid ""
+"When enabled, this product can't have own stock, means it will not be "
+"selectable on purchase (useful for parent products which are just used as a "
+"summary/total view of the child products)"
+msgstr ""
+"Kui see on lubatud, ei saa sellel tootel olla oma laoseisu, mis tähendab, et"
+" seda ei saa ostmisel valida (kasulik põhitoodete puhul, mida kasutatakse "
+"ainult alamtoodete kokkuvõtte/koguvaatena)"
+
+msgid "Out of stock items will be shown at the products default location"
+msgstr "Varudest otsas olevad kaubad kuvatakse toote vaikeasukohas"
+
+msgid "Show a little checkbox next to each ingredient to mark it as done"
+msgstr ""
+"Näidake iga koostisosa kõrval väikest märkeruutu, et märkida see valmis"
+
+msgid ""
+"The ingredient is crossed out when clicked, the status is not saved, means "
+"reset when the page is reloaded"
+msgstr ""
+"Klõpsamisel kriipsutatakse koostisosa läbi, olekut ei salvestata, tähendab "
+"lähtestamist lehe uuesti laadimisel"
+
+msgid ""
+"The parent product %1$s is currently not in stock, %2$s is the current next "
+"sub product based on the default consume rule (Opened first, then first due "
+"first, then first in first out)"
+msgstr ""
+"Põhitoode %1$s on hetkel otsas, %2$s on praegune järgmine alamtoode, mis "
+"põhineb vaikimisi tarbimise reeglil (avatatud kõigepealt, seejärel esimene "
+"tähtaeg, siis esimene sisse esimene välja)"
+
+msgid "Night mode"
+msgstr "Öörežiim"
+
+msgid "On"
+msgstr "Sees"
+
+msgid "Use system setting"
+msgstr "Kasuta süsteemi seadeid"
+
+msgid "Off"
+msgstr "Väljas"
+
+msgid ""
+"Automatically add products that are below their defined min. stock amount to"
+" the shopping list"
+msgstr ""
+"Automaatselt lisa tooted ostunimekirja, mis on alla nende määratud "
+"minimaalkoguse"
+
+msgid "Reassigned"
+msgstr "Ümber määratud"
+
+msgid "Default value"
+msgstr "Vaikeväärtus"
+
+msgid "Now / today"
+msgstr "Praegu / täna"
+
+msgid "Add meal plan entry"
+msgstr "Lisa toiduplaani kirje"
+
+msgid "Edit meal plan entry"
+msgstr "Muuda toiduplaani kirjet"
+
+msgid "Default consume location"
+msgstr "Vaikimisi tarbimisasukoht"
+
+msgid "Stock entries at this location will be consumed first"
+msgstr "Tooted selles asukohas tarbitakse esmajärgus"
+
+msgid "Move on open"
+msgstr "Liiguta avamisel"
+
+msgid ""
+"When enabled, on marking this product as opened, the corresponding amount "
+"will be moved to the default consume location"
+msgstr ""
+"Kui see on lubatud, teisaldatakse selle toote avatuks märkimisel vastav "
+"kogus vaikimisi tarbimise asukohta"
+
+msgid "Moved to %1$s"
+msgstr "Liigutatud kohta %1$s"
+
+msgid "Decimal places allowed for prices (input)"
+msgstr "Komakohti lubatud hindadele (sisend)"
+
+msgid "Decimal places allowed for prices (display)"
+msgstr "Komakohti lubatud hindadele (nähtav)"
+
+msgid "Clear done items"
+msgstr "Tühjendage tehtud üksused"
+
+msgid ""
+"This shows all to this product directly or indirectly related quantity units"
+" and their derived conversion factors"
+msgstr ""
+"See näitab kõiki selle tootega otseselt või kaudselt seotud koguseühikuid ja"
+" nendest tuletatud teisendustegureid"
+
+msgid "Show resolved conversions"
+msgstr "Näita lahendatud konversioone"
+
+msgid "QU conversions resolved"
+msgstr "QU konversioone lahendatud"
+
+msgid "Product specifc QU conversions"
+msgstr "Tootele omased QU konversioonid"
+
+msgid "Default quantity unit consume"
+msgstr "Vaikimisi tarbitav kogusühik"
+
+msgid "This is the default quantity unit used when consuming this product"
+msgstr "See on selle toote tarbimisel kasutatav vaikekoguse ühik"
+
+msgid "Add to meal plan"
+msgstr "Lisa toiduplaani"
+
+msgid "Successfully added the recipe to the meal plan"
+msgstr "Edukalt lisasin retsepti toiduplaanile"
+
+msgid "Reprint stock entry label"
+msgstr "Prindi uuesti toote etikett"
+
+msgid "Auto reprint stock entry label"
+msgstr "Automaatselt prindi uuesti toote etikett"
+
+msgid ""
+"When enabled, auto-changing the due date of a stock entry (by "
+"opening/freezing/thawing and having corresponding default due days set) will"
+" reprint its label"
+msgstr ""
+"Kui see on lubatud, prindib sissekande tähtpäeva automaatne muutmine "
+"(avades/külmutades/sulatades ja määrates vastavad vaiketähtpäevad) selle "
+"etiketti uuesti"
+
+msgid "Quick open amount"
+msgstr "Kiiravamise kogus"
+
+msgid "Track chore execution now"
+msgstr "Jälgi kodutööde tegemist praegu"
+
+msgid "Total"
+msgstr "Kokku"
+
+msgid "Apply"
+msgstr "Rakenda"
+
+msgid "Custom range"
+msgstr "Kohandatud vahemik"
+
+msgid "Yesterday"
+msgstr "Eile"
+
+msgid "Last %1$s day"
+msgid_plural "Last %1$s days"
+msgstr[0] "Viimasel %1$s päeval"
+msgstr[1] "Viimasel %1$s päeval"
+
+msgid "This month"
+msgstr "Sellel kuul"
+
+msgid "Last month"
+msgstr "Eelmisel kuul"
+
+msgid "This year"
+msgstr "Sellel aastal"
+
+msgid "Last year"
+msgstr "Eelmisel aastal"
+
+msgid "Reports"
+msgstr "Aruanded"
+
+msgid "Spendings"
+msgstr "Kulutused"
+
+msgid "Stock report"
+msgstr "Varude aruanne"
+
+msgid "Out-of-stock products"
+msgstr "Otsas tooted"
+
+msgid "Quantity unit for prices"
+msgstr "Kogusühik hinna jaoks"
+
+msgid ""
+"When displaying prices for this product, they will be related to this "
+"quantity unit"
+msgstr "Selle toote hindade kuvamisel on need seotud selle koguseühikuga"
+
+msgid "This means 1 label will be printed"
+msgid_plural "This means %1$s labels will be printed"
+msgstr[0] "See tähendab, et prinditakse üks etikett"
+msgstr[1] "See tähendab, et prinditakse %1$s etiketti"
