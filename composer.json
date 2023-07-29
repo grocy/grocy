@@ -4,7 +4,7 @@
 		"slim/slim": "^4.0",
 		"slim/psr7": "^1.0",
 		"slim/http": "^1.0",
-		"php-di/php-di": "^6.0",
+		"php-di/php-di": "^7.0.3",
 		"berrnd/slim-blade-view": "^1.0.0",
 		"morris/lessql": "dev-php81",
 		"gettext/gettext": "dev-php81",

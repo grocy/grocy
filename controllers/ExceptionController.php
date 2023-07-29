@@ -2,6 +2,7 @@
 
 namespace Grocy\Controllers;
 
+use DI\Container;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Log\LoggerInterface;
 use Slim\Exception\HttpException;
@@ -11,7 +12,7 @@ use Throwable;
 
 class ExceptionController extends BaseApiController
 {
-	public function __construct(\Slim\App $app, \DI\Container $container)
+	public function __construct(\Slim\App $app, Container $container)
 	{
 		parent::__construct($container);
 		$this->app = $app;

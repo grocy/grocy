@@ -3,13 +3,14 @@
 namespace Grocy\Middleware;
 
 use Grocy\Services\ApiKeyService;
+use DI\Container;
 use Psr\Http\Message\ResponseFactoryInterface;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Routing\RouteContext;
 
 class ApiKeyAuthMiddleware extends AuthMiddleware
 {
-	public function __construct(\DI\Container $container, ResponseFactoryInterface $responseFactory)
+	public function __construct(Container $container, ResponseFactoryInterface $responseFactory)
 	{
 		parent::__construct($container, $responseFactory);
 		$this->ApiKeyHeaderName = $this->AppContainer->get('ApiKeyHeaderName');

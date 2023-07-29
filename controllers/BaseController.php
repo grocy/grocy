@@ -18,10 +18,11 @@ use Grocy\Services\StockService;
 use Grocy\Services\TasksService;
 use Grocy\Services\UserfieldsService;
 use Grocy\Services\UsersService;
+use DI\Container;
 
 class BaseController
 {
-	public function __construct(\DI\Container $container)
+	public function __construct(Container $container)
 	{
 		$this->AppContainer = $container;
 		$this->View = $container->get('view');
