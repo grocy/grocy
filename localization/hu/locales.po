@@ -141,3 +141,7 @@ msgstr "Ukrán"
 # Romanian
 msgid "ro_RO"
 msgstr ""
+
+# Estonian
+msgid "et_EE"
+msgstr ""

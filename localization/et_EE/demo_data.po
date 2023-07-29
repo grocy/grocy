@@ -409,3 +409,6 @@ msgstr "Karastusjook"
 
 msgid "Beer"
 msgstr "Õlu"
+
+msgid "Estonian"
+msgstr ""

@@ -429,3 +429,6 @@ msgstr "Soda"
 
 msgid "Beer"
 msgstr "Pivo"
+
+msgid "Estonian"
+msgstr ""

@@ -421,3 +421,6 @@ msgstr "Refrigerante"
 
 msgid "Beer"
 msgstr "Cerveja"
+
+msgid "Estonian"
+msgstr ""

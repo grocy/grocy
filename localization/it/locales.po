@@ -144,3 +144,7 @@ msgstr "Regno Unito"
 # Romanian
 msgid "ro_RO"
 msgstr "Rumeno"
+
+# Estonian
+msgid "et_EE"
+msgstr ""

@@ -404,3 +404,6 @@ msgstr "苏打水"
 
 msgid "Beer"
 msgstr "啤酒"
+
+msgid "Estonian"
+msgstr ""

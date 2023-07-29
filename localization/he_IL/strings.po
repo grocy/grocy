@@ -2277,19 +2277,21 @@ msgid "A product or a note is required"
 msgstr "נדרש מוצר או הערה"
 
 msgid "Grocycode"
-msgstr ""
+msgstr "קוד Grocy"
 
 msgid "Download"
 msgstr "הורדה"
 
 # Example: Download *Product* Grocycode
 msgid "Download %s Grocycode"
-msgstr ""
+msgstr "הורדת קוד ה־Grocy של %s"
 
 msgid ""
 "Grocycode is a unique referer to this %s in your Grocy instance - print it "
 "onto a label and scan it like any other barcode"
 msgstr ""
+"קוד Grocy הוא ייחוס ייחודי עבור %s בעותק ה־Grocy שלך - יש להדפיס אותו על "
+"תווית ולסרוק אותו כמו כל ברקוד אחד."
 
 # Abbreviation for "due date"
 msgid "DD"
@@ -2318,7 +2320,7 @@ msgstr "שגיאה בהפעלת התליית רשת"
 
 # Example: Print *Product* Grocycode on label printer
 msgid "Print %s Grocycode on label printer"
-msgstr ""
+msgstr "הדפסת קוד ה־Grocy של %s במדפסת מדבקות"
 
 msgid "Open stock entry label in new window"
 msgstr "פתיחת תווית רשומת מלאי בחלון חדש"

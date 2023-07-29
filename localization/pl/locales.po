@@ -145,3 +145,7 @@ msgstr "Ukrainian"
 # Romanian
 msgid "ro_RO"
 msgstr "Rumuński"
+
+# Estonian
+msgid "et_EE"
+msgstr ""

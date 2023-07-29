@@ -428,3 +428,6 @@ msgstr "משקה מוגז"
 
 msgid "Beer"
 msgstr "בירה"
+
+msgid "Estonian"
+msgstr "אסטונית"

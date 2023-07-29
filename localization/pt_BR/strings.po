@@ -397,7 +397,7 @@ msgid "Tracked charge cycle of battery %1$s on %2$s"
 msgstr "Acompanhamento do ciclo de carga de bateria %1$s de %2$s"
 
 msgid "Consume all %s which are currently in stock"
-msgstr "Consumir todos os %s os quais estão atualmente em estoque"
+msgstr "Consumir todos os %s que estão em estoque"
 
 msgid "All"
 msgstr "Todos"
@@ -1991,7 +1991,7 @@ msgid "Configure user permissions"
 msgstr "Configurar permissões de usuário"
 
 msgid "Show a QR-Code for this API key"
-msgstr "Mostrar um QR-Code para esta chave API"
+msgstr "Mostrar um QR Code para esta chave API"
 
 msgid ""
 "This is the default quantity unit used on purchase and when adding this "
@@ -2742,10 +2742,10 @@ msgstr ""
 "Conversões de unidade de quant específicas de um produto"
 
 msgid "Default quantity unit consume"
-msgstr "Unidade de quantidade padrão consumida"
+msgstr "Unidade padrão de consumo"
 
 msgid "This is the default quantity unit used when consuming this product"
-msgstr "Esta é a unidade de quantidade padrão usada ao consumir este produto"
+msgstr "Esta é a unidade padrão usada ao consumir este produto"
 
 msgid "Add to meal plan"
 msgstr "Adicionar ao plano alimentar"

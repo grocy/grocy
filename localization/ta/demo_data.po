@@ -408,3 +408,6 @@ msgstr ""
 
 msgid "Beer"
 msgstr ""
+
+msgid "Estonian"
+msgstr ""

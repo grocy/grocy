@@ -433,3 +433,6 @@ msgstr "Газировка"
 
 msgid "Beer"
 msgstr "Пиво"
+
+msgid "Estonian"
+msgstr ""

@@ -427,3 +427,6 @@ msgstr "Gazuotas vanduo"
 
 msgid "Beer"
 msgstr "Alus"
+
+msgid "Estonian"
+msgstr "Estija"

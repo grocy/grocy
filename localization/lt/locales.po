@@ -140,3 +140,7 @@ msgstr "uk"
 # Romanian
 msgid "ro_RO"
 msgstr "ro_RO"
+
+# Estonian
+msgid "et_EE"
+msgstr "et_EE"

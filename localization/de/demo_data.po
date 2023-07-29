@@ -408,3 +408,6 @@ msgstr "Limo"
 
 msgid "Beer"
 msgstr "Bier"
+
+msgid "Estonian"
+msgstr "Estnisch"
