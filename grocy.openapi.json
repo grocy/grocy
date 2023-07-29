@@ -1,5 +1,5 @@
 {
-	"openapi": "3.0.0",
+	"openapi": "3.1.0",
 	"info": {
 		"title": "Grocy REST API",
 		"description": "Authentication is done via API keys (header *GROCY-API-KEY* or same named query parameter), which you can manage [here](PlaceHolderManageApiKeysUrl).<br>Additionally requests from within the frontend are also valid (via session cookie).",
