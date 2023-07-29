@@ -243,6 +243,8 @@ class ChoresService extends BaseService
 			'undone' => 1,
 			'undone_timestamp' => date('Y-m-d H:i:s')
 		]);
+
+		$this->CalculateNextExecutionAssignment($logRow->chore_id);
 	}
 
 	public function MergeChores(int $choreIdToKeep, int $choreIdToRemove)
