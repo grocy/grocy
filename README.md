@@ -28,7 +28,7 @@ See the website for a list of community contributed Add-ons / Tools. &rarr; [htt
 
 ## How to install
 
-> Checkout [grocy-desktop](https://github.com/grocy/grocy-desktop), if you want to run Grocy without having to manage a webserver just like a normal (Windows) desktop application.
+> Checkout [Grocy Desktop](https://github.com/grocy/grocy-desktop), if you want to run Grocy without having to manage a webserver just like a normal (Windows) desktop application.
 >
 > Directly download the [latest release](https://releases.grocy.info/latest-desktop) - the installation is nothing more than just clicking 2 times "next".
 
@@ -146,7 +146,7 @@ When the `MODE` setting is set to `dev`, `demo` or `prerelease`, the application
 
 ### Embedded mode
 
-When the file `embedded.txt` exists, it must contain a valid and writable path which will be used as the data directory instead of `data` and authentication will be disabled (used in [grocy-desktop](https://github.com/grocy/grocy-desktop)).
+When the file `embedded.txt` exists, it must contain a valid and writable path which will be used as the data directory instead of `data` and authentication will be disabled (used in [Grocy Desktop](https://github.com/grocy/grocy-desktop)).
 
 In embedded mode, settings can be overridden by text files in `data/settingoverrides`, the file name must be `<SettingName>.txt` (e. g. `BASE_URL.txt`) and the content must be the setting value (normally one single line).
 
