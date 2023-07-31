@@ -4,7 +4,7 @@ AS
 	Returns stock_id's which have been edited manually
 */
 SELECT DISTINCT sl_add.stock_id
-fROM stock_log sl_add
+FROM stock_log sl_add
 JOIN stock_log sl_edit
 	ON sl_add.stock_id = sl_edit.stock_id
 	AND sl_edit.transaction_type = 'stock-edit-new'
