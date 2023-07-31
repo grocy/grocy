@@ -40,8 +40,9 @@ INSERT INTO quantity_unit_conversions
 	(from_qu_id, to_qu_id, factor, product_id)
 SELECT p.qu_id_purchase, p.qu_id_stock, IFNULL(p.qu_factor_purchase_to_stock, 1.0), p.id
 FROM products p
-WHERE p.qu_id_stock != qu_id_purchase
-	AND NOT EXISTS(SELECT 1 FROM quantity_unit_conversions WHERE product_id = p.id AND from_qu_id = p.qu_id_stock AND to_qu_id = p.qu_id_purchase);
+WHERE p.qu_id_stock != p.qu_id_purchase
+	AND NOT EXISTS(SELECT 1 FROM quantity_unit_conversions WHERE product_id = p.id AND from_qu_id = p.qu_id_stock AND to_qu_id = p.qu_id_purchase)
+	AND NOT EXISTS(SELECT 1 FROM quantity_unit_conversions WHERE product_id = p.id AND from_qu_id = p.qu_id_purchase AND to_qu_id = p.qu_id_stock);
 
 -- ALTER TABLE DROP COLUMN is only available in SQLite >= 3.35.0 (we require 3.34.0 as of now), so can't be used
 PRAGMA legacy_alter_table = ON;
