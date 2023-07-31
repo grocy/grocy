@@ -21,7 +21,7 @@
 
 ### Meal plan
 
-- xxx
+- Fixed that the meal plan did initially not display the current week when the settings `MEAL_PLAN_FIRST_DAY_OF_WEEK` and `CALENDAR_FIRST_DAY_OF_WEEK` were set to different values
 
 ### Chores
 

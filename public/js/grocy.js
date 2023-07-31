@@ -668,8 +668,8 @@ $(document).on("click", ".easy-link-copy-textbox", function()
 if (Grocy.CalendarFirstDayOfWeek)
 {
 	moment.updateLocale(moment.locale(), {
-		week: {
-			dow: Number.parseInt(Grocy.CalendarFirstDayOfWeek)
+		"week": {
+			"dow": Number.parseInt(Grocy.CalendarFirstDayOfWeek)
 		}
 	});
 }
@@ -771,18 +771,6 @@ $(window).on("message", function(e)
 		window.location.reload();
 	}
 });
-
-if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_RECIPES)
-{
-	if ($(window).width() < 768)
-	{
-		$("#meal-plan-nav-link").attr("href", $("#meal-plan-nav-link").attr("href") + "?start=" + moment().format("YYYY-MM-DD") + "&days=0");
-	}
-	else
-	{
-		$("#meal-plan-nav-link").attr("href", $("#meal-plan-nav-link").attr("href") + "?start=" + moment().startOf("week").format("YYYY-MM-DD"));
-	}
-}
 
 $('[data-toggle="tooltip"][data-html="true"]').on("shown.bs.tooltip", function()
 {
