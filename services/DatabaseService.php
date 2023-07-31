@@ -29,9 +29,18 @@ class DatabaseService
 	{
 		$pdo = $this->GetDbConnectionRaw();
 
+		if (GROCY_MODE === 'dev')
+		{
+			$logFilePath = GROCY_DATAPATH . '/sql.log';
+			if (file_exists($logFilePath))
+			{
+				file_put_contents($logFilePath, $sql . PHP_EOL, FILE_APPEND);
+			}
+		}
+
 		if ($pdo->exec($sql) === false)
 		{
-			throw new Exception($pdo->errorInfo());
+			throw new \Exception($pdo->errorInfo());
 		}
 
 		return true;
@@ -47,6 +56,17 @@ class DatabaseService
 		if (self::$DbConnection == null)
 		{
 			self::$DbConnection = new Database($this->GetDbConnectionRaw());
+		}
+
+		if (GROCY_MODE === 'dev')
+		{
+			$logFilePath = GROCY_DATAPATH . '/sql.log';
+			if (file_exists($logFilePath))
+			{
+				self::$DbConnection->setQueryCallback(function ($query, $params) use ($logFilePath) {
+					file_put_contents($logFilePath, $query . ' #### ' . implode(';', $params) . PHP_EOL, FILE_APPEND);
+				});
+			}
 		}
 
 		return self::$DbConnection;

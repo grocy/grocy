@@ -509,7 +509,7 @@ class StockService extends BaseService
 		}
 		else
 		{
-			throw new Exception("Transaction type $transactionType is not valid (StockService.ConsumeProduct)");
+			throw new \Exception("Transaction type $transactionType is not valid (StockService.ConsumeProduct)");
 		}
 	}
 

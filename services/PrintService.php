@@ -3,7 +3,6 @@
 namespace Grocy\Services;
 
 use DateTime;
-use Exception;
 use Mike42\Escpos\PrintConnectors\NetworkPrintConnector;
 use Mike42\Escpos\PrintConnectors\FilePrintConnector;
 use Mike42\Escpos\Printer;
@@ -15,7 +14,7 @@ class PrintService extends BaseService
 		$printer = self::getPrinterHandle();
 		if ($printer === false)
 		{
-			throw new Exception('Unable to connect to printer');
+			throw new \Exception('Unable to connect to printer');
 		}
 
 		if ($printHeader)
