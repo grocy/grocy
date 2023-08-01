@@ -38,6 +38,28 @@ class SystemController extends BaseController
 		return $response->withRedirect($this->AppContainer->get('UrlManager')->ConstructUrl($this->GetEntryPageRelative()));
 	}
 
+	public function Manifest(Request $request, Response $response, array $args)
+	{
+		$data = explode('#', base64_decode($request->getQueryParams()['data']));
+
+		$manifest = [
+			'name' => $data[0] . ' | Grocy',
+			'short_name' => $data[0] . ' | Grocy',
+			'icons' => [[
+				'src' => './img/icon-1024.png',
+				'sizes'=> '1024x1024',
+				'type' => 'image/png'
+			]],
+			'start_url' => $data[1],
+			'background_color' => '#333131',
+			'theme_color' => '#333131',
+			'display' => 'standalone'
+		];
+
+		$response->getBody()->write(json_encode($manifest));
+		return $response->withHeader('Content-Type', 'application/json');
+	}
+
 	private function GetEntryPageRelative()
 	{
 		if (defined('GROCY_ENTRY_PAGE'))

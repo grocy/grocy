@@ -16,7 +16,7 @@
 		sizes="32x32"
 		href="{{ $U('/img/icon-32.png?v=', true) }}{{ $version }}">
 	<link rel="manifest"
-		href="{{ $U('/manifest.json?v=', true) }}{{ $version }}">
+		href="{{ $U('/manifest') . '?data=' . base64_encode($__env->yieldContent('title') . '#' . $U($_SERVER['REQUEST_URI'])) }}">
 
 	<title>@yield('title') | Grocy</title>
 

@@ -9,6 +9,7 @@ $app->group('', function (RouteCollectorProxy $group) {
 	// System routes
 	$group->get('/', '\Grocy\Controllers\SystemController:Root')->setName('root');
 	$group->get('/about', '\Grocy\Controllers\SystemController:About');
+	$group->get('/manifest', '\Grocy\Controllers\SystemController:Manifest');
 	$group->get('/barcodescannertesting', '\Grocy\Controllers\SystemController:BarcodeScannerTesting');
 
 	// Login routes
