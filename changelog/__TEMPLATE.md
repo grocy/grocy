@@ -2,6 +2,8 @@
 
 > ❗ xxxImportant upgrade informationXXX
 
+> 💡 xxxMinor upgrade informationXXX
+
 ### New feature: xxxx
 
 - xxx

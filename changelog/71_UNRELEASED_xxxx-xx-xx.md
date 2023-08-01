@@ -2,6 +2,8 @@
 
 > ❗ xxxImportant upgrade informationXXX
 
+> 💡 PHP 8.2 is from now on (additionally to PHP 8.1) supported.
+
 ### New feature: xxxx
 
 - xxx

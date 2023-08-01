@@ -30,6 +30,8 @@ class BaseController
 
 	protected $AppContainer;
 
+	private $View;
+
 	protected function getApiKeyService()
 	{
 		return ApiKeyService::getInstance();

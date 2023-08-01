@@ -6,7 +6,7 @@
 		"slim/http": "^1.0",
 		"php-di/php-di": "^7.0.3",
 		"berrnd/slim-blade-view": "^1.0.0",
-		"morris/lessql": "dev-php81",
+		"morris/lessql": "dev-php82",
 		"gettext/gettext": "dev-php81",
 		"eluceo/ical": "^2.2.0",
 		"erusev/parsedown": "^1.7",

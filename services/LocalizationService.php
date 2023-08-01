@@ -17,6 +17,8 @@ class LocalizationService
 
 	protected $Po;
 
+	protected $PoQu;
+
 	protected $Pot;
 
 	protected $PotMain;
@@ -24,6 +26,8 @@ class LocalizationService
 	protected $Translator;
 
 	protected $TranslatorQu;
+
+	protected $Culture;
 
 	private static $instanceMap = [];
 

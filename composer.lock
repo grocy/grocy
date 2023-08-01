@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b8846213f297473589e188b118440eb9",
+    "content-hash": "ffa5545aaf16f26d4916e4c9f2eee408",
     "packages": [
         {
             "name": "berrnd/slim-blade-view",
@@ -1809,16 +1809,16 @@
         },
         {
             "name": "morris/lessql",
-            "version": "dev-php81",
+            "version": "dev-php82",
             "source": {
                 "type": "git",
                 "url": "https://github.com/berrnd/lessql.git",
-                "reference": "210577d9f36ec7cf4b9347e45713ddb3596e49e1"
+                "reference": "6e119fcf0e8145cd9b5e22fe030e147655acc4e3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/berrnd/lessql/zipball/210577d9f36ec7cf4b9347e45713ddb3596e49e1",
-                "reference": "210577d9f36ec7cf4b9347e45713ddb3596e49e1",
+                "url": "https://api.github.com/repos/berrnd/lessql/zipball/6e119fcf0e8145cd9b5e22fe030e147655acc4e3",
+                "reference": "6e119fcf0e8145cd9b5e22fe030e147655acc4e3",
                 "shasum": ""
             },
             "require": {
@@ -1861,9 +1861,9 @@
                 "sql"
             ],
             "support": {
-                "source": "https://github.com/berrnd/lessql/tree/php81"
+                "source": "https://github.com/berrnd/lessql/tree/php82"
             },
-            "time": "2022-12-10T13:56:17+00:00"
+            "time": "2023-08-01T19:13:22+00:00"
         },
         {
             "name": "nesbot/carbon",

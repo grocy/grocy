@@ -47,7 +47,7 @@ Alternatively clone this repository (the `release` branch always references the 
 
 ### Platform support
 
-- PHP 8.1 (with SQLite 3.34.0+)
+- PHP 8.1 or 8.2 (with SQLite 3.34.0+)
 - Required PHP extensions: `fileinfo`, `pdo_sqlite`, `gd`, `ctype`, `json`, `intl`, `zlib`, `mbstring`
 - _Recommendation: Benchmark tests showed that e.g. unit conversion handling is up to 5 times faster when using a more recent (3.39.4+) SQLite version._
 
