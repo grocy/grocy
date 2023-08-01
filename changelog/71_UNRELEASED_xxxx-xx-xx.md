@@ -8,7 +8,7 @@
 
 ### Stock
 
-- Fixed performance issues related to the stock overview and purchase/consume/inventory/transfer page
+- Fixed performance issues affecting the stock overview, shopping list and purchase/consume/inventory/transfer pages
 - Fixed that the upgrade failed when having improperly defined product specific quantity unit conversions
 
 ### Shopping list
