@@ -8,9 +8,7 @@ use LessQL\Database;
 class DatabaseService
 {
 	private static $DbConnection = null;
-
 	private static $DbConnectionRaw = null;
-
 	private static $instance = null;
 
 	public function ExecuteDbQuery(string $sql)
@@ -63,7 +61,8 @@ class DatabaseService
 			$logFilePath = GROCY_DATAPATH . '/sql.log';
 			if (file_exists($logFilePath))
 			{
-				self::$DbConnection->setQueryCallback(function ($query, $params) use ($logFilePath) {
+				self::$DbConnection->setQueryCallback(function ($query, $params) use ($logFilePath)
+				{
 					file_put_contents($logFilePath, $query . ' #### ' . implode(';', $params) . PHP_EOL, FILE_APPEND);
 				});
 			}
@@ -80,12 +79,14 @@ class DatabaseService
 			$pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
 			$pdo->setAttribute(\PDO::ATTR_ORACLE_NULLS, \PDO::NULL_EMPTY_STRING);
 
-			$pdo->sqliteCreateFunction('regexp', function ($pattern, $value) {
+			$pdo->sqliteCreateFunction('regexp', function ($pattern, $value)
+			{
 				mb_regex_encoding('UTF-8');
 				return (false !== mb_ereg($pattern, $value)) ? 1 : 0;
 			});
 
-			$pdo->sqliteCreateFunction('grocy_user_setting', function ($value) {
+			$pdo->sqliteCreateFunction('grocy_user_setting', function ($value)
+			{
 				$usersService = new UsersService();
 				return $usersService->GetUserSetting(GROCY_USER_ID, $value);
 			});

@@ -8,21 +8,13 @@ use Grocy\Helpers\WebhookRunner;
 class StockService extends BaseService
 {
 	const TRANSACTION_TYPE_CONSUME = 'consume';
-
 	const TRANSACTION_TYPE_INVENTORY_CORRECTION = 'inventory-correction';
-
 	const TRANSACTION_TYPE_PRODUCT_OPENED = 'product-opened';
-
 	const TRANSACTION_TYPE_PURCHASE = 'purchase';
-
 	const TRANSACTION_TYPE_SELF_PRODUCTION = 'self-production';
-
 	const TRANSACTION_TYPE_STOCK_EDIT_NEW = 'stock-edit-new';
-
 	const TRANSACTION_TYPE_STOCK_EDIT_OLD = 'stock-edit-old';
-
 	const TRANSACTION_TYPE_TRANSFER_FROM = 'transfer_from';
-
 	const TRANSACTION_TYPE_TRANSFER_TO = 'transfer_to';
 
 	public function AddMissingProductsToShoppingList($listId = 1)
@@ -121,7 +113,7 @@ class StockService extends BaseService
 			throw new \Exception('Product does not exist or is inactive');
 		}
 
-		$productDetails = (object) $this->GetProductDetails($productId);
+		$productDetails = (object)$this->GetProductDetails($productId);
 
 		// Tare weight handling
 		// The given amount is the new total amount including the container weight (gross)
@@ -369,7 +361,7 @@ class StockService extends BaseService
 			throw new \Exception('Location does not exist');
 		}
 
-		$productDetails = (object) $this->GetProductDetails($productId);
+		$productDetails = (object)$this->GetProductDetails($productId);
 
 		// Tare weight handling
 		// The given amount is the new total amount including the container weight (gross)
@@ -915,7 +907,7 @@ class StockService extends BaseService
 			throw new \Exception('Product does not exist or is inactive');
 		}
 
-		$productDetails = (object) $this->GetProductDetails($productId);
+		$productDetails = (object)$this->GetProductDetails($productId);
 
 		if ($price === null)
 		{
@@ -979,7 +971,7 @@ class StockService extends BaseService
 			throw new \Exception('Product does not exist or is inactive');
 		}
 
-		$productDetails = (object) $this->GetProductDetails($productId);
+		$productDetails = (object)$this->GetProductDetails($productId);
 		$productStockAmountUnopened = $productDetails->stock_amount_aggregated - $productDetails->stock_amount_opened_aggregated;
 		$potentialStockEntries = $this->GetProductStockEntries($productId, true, $allowSubproductSubstitution);
 		$product = $this->getDatabase()->products($productId);
@@ -1270,7 +1262,7 @@ class StockService extends BaseService
 		// Tare weight handling
 		// The given amount is the new total amount including the container weight (gross)
 		// The amount to be posted needs to be the absolute value of the given amount - stock amount - tare weight
-		$productDetails = (object) $this->GetProductDetails($productId);
+		$productDetails = (object)$this->GetProductDetails($productId);
 
 		if ($productDetails->product->enable_tare_weight_handling == 1)
 		{

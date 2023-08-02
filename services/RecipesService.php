@@ -7,11 +7,8 @@ use LessQL\Result;
 class RecipesService extends BaseService
 {
 	const RECIPE_TYPE_MEALPLAN_DAY = 'mealplan-day'; // A recipe per meal plan day => name = YYYY-MM-DD
-
 	const RECIPE_TYPE_MEALPLAN_WEEK = 'mealplan-week'; // A recipe per meal plan week => name = YYYY-WW (week number)
-
 	const RECIPE_TYPE_MEALPLAN_SHADOW = 'mealplan-shadow'; // A recipe per meal plan recipe (for separated stock fulfillment checking) => name = YYYY-MM-DD#<meal_plan.id>
-
 	const RECIPE_TYPE_NORMAL = 'normal'; // Normal / manually created recipes
 
 	public function AddNotFulfilledProductsToShoppingList($recipeId, $excludedProductIds = null)

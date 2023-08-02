@@ -11,7 +11,6 @@ abstract class BaseBarcodeLookupPlugin
 	}
 
 	protected $Locations;
-
 	protected $QuantityUnits;
 
 	final public function Lookup($barcode)

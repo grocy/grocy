@@ -5,29 +5,17 @@ namespace Grocy\Services;
 class UserfieldsService extends BaseService
 {
 	const USERFIELD_TYPE_CHECKBOX = 'checkbox';
-
 	const USERFIELD_TYPE_DATE = 'date';
-
 	const USERFIELD_TYPE_DATETIME = 'datetime';
-
 	const USERFIELD_TYPE_DECIMAL_NUMBER = 'number-decimal';
-
 	const USERFIELD_TYPE_FILE = 'file';
-
 	const USERFIELD_TYPE_IMAGE = 'image';
-
 	const USERFIELD_TYPE_INTEGRAL_NUMBER = 'number-integral';
-
 	const USERFIELD_TYPE_LINK = 'link';
-
 	const USERFIELD_TYPE_LINK_WITH_TITLE = 'link-with-title';
-
 	const USERFIELD_TYPE_PRESET_CHECKLIST = 'preset-checklist';
-
 	const USERFIELD_TYPE_PRESET_LIST = 'preset-list';
-
 	const USERFIELD_TYPE_SINGLE_LINE_TEXT = 'text-single-line';
-
 	const USERFIELD_TYPE_SINGLE_MULTILINE_TEXT = 'text-multi-line';
 
 	protected $OpenApiSpec = null;

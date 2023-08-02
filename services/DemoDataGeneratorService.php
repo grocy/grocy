@@ -10,7 +10,6 @@ class DemoDataGeneratorService extends BaseService
 	}
 
 	protected $LocalizationService;
-
 	private $LastSupermarketId = 1;
 
 	public function PopulateDemoData()

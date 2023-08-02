@@ -51,7 +51,8 @@ class UsersController extends BaseController
 	public function UserSettings(Request $request, Response $response, array $args)
 	{
 		return $this->renderPage($response, 'usersettings', [
-			'languages' => array_filter(scandir(__DIR__ . '/../localization'), function ($item) {
+			'languages' => array_filter(scandir(__DIR__ . '/../localization'), function ($item)
+			{
 				if ($item == '.' || $item == '..')
 				{
 					return false;

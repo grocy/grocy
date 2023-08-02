@@ -16,11 +16,11 @@ trait GrocycodeTrait
 
 		if (GROCY_GROCYCODE_TYPE == '2D')
 		{
-			$png = (new DatamatrixFactory())->setCode((string) $grocycode)->setSize($size)->getDatamatrixPngData();
+			$png = (new DatamatrixFactory())->setCode((string)$grocycode)->setSize($size)->getDatamatrixPngData();
 		}
 		else
 		{
-			$png = (new BarcodeFactory())->setType('C128')->setCode((string) $grocycode)->setHeight($size)->getBarcodePngData();
+			$png = (new BarcodeFactory())->setType('C128')->setCode((string)$grocycode)->setHeight($size)->getBarcodePngData();
 		}
 
 		$isDownload = $request->getQueryParam('download', false);

@@ -18,13 +18,9 @@ namespace Grocy\Helpers;
 class Grocycode
 {
 	public const PRODUCT = 'p';
-
 	public const BATTERY = 'b';
-
 	public const CHORE = 'c';
-
 	public const RECIPE = 'r';
-
 	public const MAGIC = 'grcy';
 
 	public function __construct(...$args)
@@ -49,11 +45,8 @@ class Grocycode
 	}
 
 	public static $Items = [self::PRODUCT, self::BATTERY, self::CHORE, self::RECIPE];
-
 	private $type;
-
 	private $id;
-
 	private $extra_data = [];
 
 	public static function Validate(string $code)

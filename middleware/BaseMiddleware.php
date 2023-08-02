@@ -8,7 +8,6 @@ use DI\Container;
 class BaseMiddleware
 {
 	protected $AppContainer;
-
 	protected $ApplicationService;
 
 	public function __construct(Container $container)

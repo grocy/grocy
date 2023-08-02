@@ -33,7 +33,8 @@ class ApplicationService extends BaseService
 		}
 
 		// Sort changelog items to have the changelog descending by newest version
-		usort($changelogItems, function ($a, $b) {
+		usort($changelogItems, function ($a, $b)
+		{
 			if ($a['release_number'] == $b['release_number'])
 			{
 				return 0;

@@ -8,9 +8,7 @@ use Psr\Http\Message\ResponseInterface as Response;
 class BaseApiController extends BaseController
 {
 	const PATTERN_FIELD = '[A-Za-z_][A-Za-z0-9_]+';
-
 	const PATTERN_OPERATOR = '!?((>=)|(<=)|=|~|<|>|(§))';
-
 	const PATTERN_VALUE = '[A-Za-z\p{L}\p{M}0-9*_.$#^| -\\\]+';
 
 	protected $OpenApiSpec = null;
