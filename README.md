@@ -142,7 +142,7 @@ If you don't use certain feature sets of Grocy (for example if you don't need "C
 
 ### Demo mode
 
-When the `MODE` setting is set to `dev`, `demo` or `prerelease`, the application will work in a demo mode which means authentication is disabled and some demo data will be generated during the database schema migration.
+When the `MODE` setting is set to `dev`, `demo` or `prerelease`, the application will work in a demo mode which means authentication is disabled and some demo data will be generated during the database schema migration (pass the query parameter `nodemodata`, e.g. `https://grocy.example.com/?nodemodata` to skip that).
 
 ### Embedded mode
 

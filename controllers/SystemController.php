@@ -32,7 +32,7 @@ class SystemController extends BaseController
 		if (GROCY_MODE === 'dev' || GROCY_MODE === 'demo' || GROCY_MODE === 'prerelease')
 		{
 			$demoDataGeneratorService = DemoDataGeneratorService::getInstance();
-			$demoDataGeneratorService->PopulateDemoData();
+			$demoDataGeneratorService->PopulateDemoData(isset($request->getQueryParams()['nodemodata']));
 		}
 
 		return $response->withRedirect($this->AppContainer->get('UrlManager')->ConstructUrl($this->GetEntryPageRelative()));

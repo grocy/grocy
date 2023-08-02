@@ -14,8 +14,9 @@
 // The settings defined here below
 
 // Either "production", "dev", "demo" or "prerelease"
-// When not "production", authentication will be disabled and
-// demo data will be populated during database migrations
+// When not "production", the application will work in a demo mode which means
+// authentication is disabled and some demo data will be generated during the database schema migration
+// (pass the query parameter "nodemodata", e.g. https://grocy.example.com/?nodemodata to skip that)
 Setting('MODE', 'production');
 
 // The directory name of one of the available localization folders
