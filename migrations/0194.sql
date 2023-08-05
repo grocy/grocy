@@ -3,13 +3,14 @@ AS
 /*
 	Returns stock_id's which have been edited manually
 */
-SELECT DISTINCT sl_add.stock_id
+SELECT sl_add.stock_id
 FROM stock_log sl_add
 JOIN stock_log sl_edit
 	ON sl_add.stock_id = sl_edit.stock_id
 	AND sl_edit.transaction_type = 'stock-edit-new'
 WHERE sl_add.transaction_type IN ('purchase', 'inventory-correction', 'self-production')
-	AND sl_add.amount > 0;
+	AND sl_add.amount > 0
+GROUP BY sl_add.stock_id;
 
 DROP VIEW stock_average_product_shelf_life;
 CREATE VIEW stock_average_product_shelf_life
