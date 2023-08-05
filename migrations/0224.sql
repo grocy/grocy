@@ -130,4 +130,4 @@ WHERE sl.undone = 0
 		OR (sl.transaction_type = 'stock-edit-new' AND sl.stock_id IN (SELECT stock_id FROM stock_edited_entries) AND sl.id IN (SELECT stock_log_id_of_newest_edited_entry FROM stock_edited_entries))
 	)
 	AND IFNULL(sl.price, 0) > 0
-	AND IFNULL(sl.amount, 0) > 0
+	AND IFNULL(sl.amount, 0) > 0;
