@@ -23,12 +23,11 @@ LEFT JOIN (
 			sl_p.product_id,
 			JULIANDAY(sl_p.best_before_date) - JULIANDAY(sl_p.purchased_date) AS shelf_life_days
 		FROM stock_log sl_p
-		WHERE (
-			(sl_p.transaction_type IN ('purchase', 'inventory-correction', 'self-production') AND sl_p.stock_id NOT IN (SELECT stock_id FROM stock_edited_entries))
-			OR (sl_p.transaction_type = 'stock-edit-new' AND sl_p.stock_id IN (SELECT stock_id FROM stock_edited_entries))
+		WHERE sl_p.undone = 0
+			AND (
+				(sl_p.transaction_type IN ('purchase', 'inventory-correction', 'self-production') AND sl_p.stock_id NOT IN (SELECT stock_id FROM stock_edited_entries))
+				OR (sl_p.transaction_type = 'stock-edit-new' AND sl_p.stock_id IN (SELECT stock_id FROM stock_edited_entries))
 			)
-			AND sl_p.undone = 0
-
 	) x
 	ON p.id = x.product_id
 GROUP BY p.id;

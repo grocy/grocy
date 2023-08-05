@@ -29,7 +29,7 @@ class StockReportsController extends BaseController
 				pg.id AS id,
 				pg.name AS name,
 				SUM(pph.amount * pph.price) AS total
-			FROM product_price_history pph
+			FROM products_price_history pph
 			JOIN products p
 				ON pph.product_id = p.id
 			JOIN product_groups pg
@@ -53,7 +53,7 @@ class StockReportsController extends BaseController
 				pg.id AS group_id,
 				pg.name AS group_name,
 				SUM(pph.amount * pph.price) AS total
-			FROM product_price_history pph
+			FROM products_price_history pph
 			JOIN products p
 				ON pph.product_id = p.id
 			JOIN product_groups pg

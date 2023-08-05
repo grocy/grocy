@@ -838,7 +838,7 @@ class StockService extends BaseService
 		$returnData = [];
 		$shoppingLocations = $this->getDatabase()->shopping_locations();
 
-		$rows = $this->getDatabase()->product_price_history()->where('product_id = :1', $productId)->orderBy('purchased_date', 'DESC');
+		$rows = $this->getDatabase()->products_price_history()->where('product_id = :1', $productId)->orderBy('purchased_date', 'DESC');
 		foreach ($rows as $row)
 		{
 			$returnData[] = [
