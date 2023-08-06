@@ -43,8 +43,8 @@ class SystemController extends BaseController
 		$data = explode('#', base64_decode($request->getQueryParams()['data']));
 
 		$manifest = [
-			'name' => $data[0] . ' | Grocy',
-			'short_name' => $data[0] . ' | Grocy',
+			'name' => 'Grocy ' . $data[0],
+			'short_name' => 'Grocy ' . $data[0],
 			'icons' => [[
 				'src' => './img/icon-1024.png',
 				'sizes'=> '1024x1024',
