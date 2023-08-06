@@ -16,7 +16,7 @@
 
 ### Shopping list
 
-- xxx
+- Changed that prices on the shopping list (table columns "Last price (Unit)" and "Last price (Total)") are now related to the selected quantity unit (instead of to the product's QU stock as before)
 
 ### Recipes
 

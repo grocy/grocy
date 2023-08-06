@@ -163,8 +163,8 @@ AS
 SELECT
 	sl.*,
 	p.name AS product_name,
-	plp.price AS last_price_unit,
-	plp.price * sl.amount AS last_price_total,
+	plp.price * IFNULL(quc.factor, 1.0) AS last_price_unit,
+	plp.price * (sl.amount / IFNULL(quc.factor, 1.0)) * IFNULL(quc.factor, 1.0) AS last_price_total,
 	st.name AS default_shopping_location_name,
 	qu.name AS qu_name,
 	qu.name_plural AS qu_name_plural,
@@ -182,6 +182,10 @@ LEFT JOIN quantity_units qu
 	ON sl.qu_id = qu.id
 LEFT JOIN product_groups pg
 	ON p.product_group_id = pg.id
+LEFT JOIN cache__quantity_unit_conversions_resolved quc
+	ON p.id = quc.product_id
+	AND sl.qu_id = quc.from_qu_id
+	AND p.qu_id_stock = quc.to_qu_id
 LEFT JOIN product_barcodes_comma_separated pbcs
 	ON sl.product_id = pbcs.product_id;
 
