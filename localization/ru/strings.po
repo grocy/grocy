@@ -7,9 +7,9 @@
 # unwarkz <git@unwar.kz>, 2021
 # J K <su1ka.box@gmail.com>, 2021
 # Pavel Pletenev <cpp.create@gmail.com>, 2021
-# Sergey Kodolov, 2022
 # Dmitry Galyshev, 2022
 # Юрий Куклин, 2022
+# Sergey Kodolov, 2023
 # 
 msgid ""
 msgstr ""
@@ -17,7 +17,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Юрий Куклин, 2022\n"
+"Last-Translator: Sergey Kodolov, 2023\n"
 "Language-Team: Russian (https://app.transifex.com/grocy/teams/93189/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -376,7 +376,7 @@ msgid "Removed %1$s of %2$s from stock"
 msgstr "Убрано %1$s из %2$s из запаса"
 
 msgid "About Grocy"
-msgstr ""
+msgstr "О Grocy"
 
 msgid "Close"
 msgstr "Закрыть"
@@ -1535,7 +1535,7 @@ msgid "Price factor"
 msgstr "Коэффициент цены"
 
 msgid "Do you find Grocy useful?"
-msgstr ""
+msgstr "Вы находите Grocy полезным?"
 
 msgid "Say thanks"
 msgstr "Сказать спасибо"
@@ -1553,7 +1553,7 @@ msgid "Output"
 msgstr "Вывод"
 
 msgid "Energy"
-msgstr ""
+msgstr "Энергетическая ценность"
 
 msgid "Per stock quantity unit"
 msgstr "На единицу измерения в запасе"
@@ -1668,6 +1668,9 @@ msgid ""
 "Camera access is only possible when supported and allowed by your browser "
 "and when Grocy is served via a secure (https://) connection"
 msgstr ""
+"Доступ к камере возможен только тогда, когда это поддерживается и разрешено "
+"вашим браузером и когда Grocy обслуживается через безопасное (https://) "
+"соединение."
 
 msgid "Keep screen on"
 msgstr "Держать экран включенным"
@@ -1874,16 +1877,16 @@ msgid "Unauthorized"
 msgstr "Не авторизированы"
 
 msgid "Error source"
-msgstr ""
+msgstr "Источник ошибок"
 
 msgid "Error message"
 msgstr "Сообщение об ошибке"
 
 msgid "Stack trace"
-msgstr ""
+msgstr "Трассировки стека"
 
 msgid "Easy error info copy & paste (for reporting)"
-msgstr ""
+msgstr "Простое копирование и вставка информации об ошибках (для отчетности)"
 
 msgid "This page does not exist"
 msgstr "Эта страница не существует"
