@@ -38,7 +38,7 @@ class RecipesService extends BaseService
 				// => Do the unit conversion here (if any)
 				if ($recipePosition->only_check_single_unit_in_stock == 1)
 				{
-					$conversion = $this->getDatabase()->quantity_unit_conversions_resolved()->where('product_id = :1 AND from_qu_id = :2 AND to_qu_id = :3', $recipePosition->product_id, $recipePosition->qu_id, $product->qu_id_stock)->fetch();
+					$conversion = $this->getDatabase()->cache__quantity_unit_conversions_resolved()->where('product_id = :1 AND from_qu_id = :2 AND to_qu_id = :3', $recipePosition->product_id, $recipePosition->qu_id, $product->qu_id_stock)->fetch();
 					if ($conversion != null)
 					{
 						$toOrderAmount = $toOrderAmount * $conversion->factor;

@@ -64,7 +64,7 @@ class RecipesController extends BaseController
 			'recipesResolved' => $this->getRecipesService()->GetRecipesResolved("recipe_id IN (SELECT recipe_id FROM meal_plan_internal_recipe_relation WHERE $mealPlanWhereTimespan)"),
 			'products' => $this->getDatabase()->products()->orderBy('name', 'COLLATE NOCASE'),
 			'quantityUnits' => $this->getDatabase()->quantity_units()->orderBy('name', 'COLLATE NOCASE'),
-			'quantityUnitConversionsResolved' => $this->getDatabase()->quantity_unit_conversions_resolved(),
+			'quantityUnitConversionsResolved' => $this->getDatabase()->cache__quantity_unit_conversions_resolved(),
 			'mealplanSections' => $this->getDatabase()->meal_plan_sections()->orderBy('sort_number'),
 			'usedMealplanSections' => $this->getDatabase()->meal_plan_sections()->where("id IN (SELECT section_id FROM meal_plan WHERE $mealPlanWhereTimespan)")->orderBy('sort_number'),
 			'weekRecipe' => $this->getDatabase()->recipes()->where("type = 'mealplan-week' AND name = LTRIM(STRFTIME('%Y-%W', DATE('$start')), '0')")->fetch()
@@ -107,7 +107,7 @@ class RecipesController extends BaseController
 			'quantityUnits' => $this->getDatabase()->quantity_units(),
 			'userfields' => $this->getUserfieldsService()->GetFields('recipes'),
 			'userfieldValues' => $this->getUserfieldsService()->GetAllValues('recipes'),
-			'quantityUnitConversionsResolved' => $this->getDatabase()->quantity_unit_conversions_resolved(),
+			'quantityUnitConversionsResolved' => $this->getDatabase()->cache__quantity_unit_conversions_resolved(),
 			'selectedRecipeTotalCosts' => $totalCosts,
 			'selectedRecipeTotalCalories' => $totalCalories,
 			'mealplanSections' => $this->getDatabase()->meal_plan_sections()->orderBy('sort_number')
@@ -162,7 +162,7 @@ class RecipesController extends BaseController
 			'recipes' => $this->getDatabase()->recipes()->where('type', RecipesService::RECIPE_TYPE_NORMAL)->orderBy('name', 'COLLATE NOCASE'),
 			'recipeNestings' => $this->getDatabase()->recipes_nestings()->where('recipe_id', $recipeId),
 			'userfields' => $this->getUserfieldsService()->GetFields('recipes'),
-			'quantityUnitConversionsResolved' => $this->getDatabase()->quantity_unit_conversions_resolved()
+			'quantityUnitConversionsResolved' => $this->getDatabase()->cache__quantity_unit_conversions_resolved()
 		]);
 	}
 
@@ -176,7 +176,7 @@ class RecipesController extends BaseController
 				'recipePos' => new \stdClass(),
 				'products' => $this->getDatabase()->products()->where('active = 1')->orderBy('name', 'COLLATE NOCASE'),
 				'quantityUnits' => $this->getDatabase()->quantity_units()->orderBy('name', 'COLLATE NOCASE'),
-				'quantityUnitConversionsResolved' => $this->getDatabase()->quantity_unit_conversions_resolved()
+				'quantityUnitConversionsResolved' => $this->getDatabase()->cache__quantity_unit_conversions_resolved()
 			]);
 		}
 		else
@@ -187,7 +187,7 @@ class RecipesController extends BaseController
 				'recipePos' => $this->getDatabase()->recipes_pos($args['recipePosId']),
 				'products' => $this->getDatabase()->products()->orderBy('name', 'COLLATE NOCASE'),
 				'quantityUnits' => $this->getDatabase()->quantity_units()->orderBy('name', 'COLLATE NOCASE'),
-				'quantityUnitConversionsResolved' => $this->getDatabase()->quantity_unit_conversions_resolved()
+				'quantityUnitConversionsResolved' => $this->getDatabase()->cache__quantity_unit_conversions_resolved()
 			]);
 		}
 	}

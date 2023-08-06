@@ -420,7 +420,7 @@ class StockService extends BaseService
 				{
 					// A sub product will be used -> use QU conversions
 					$subProduct = $this->getDatabase()->products($stockEntry->product_id);
-					$conversion = $this->getDatabase()->quantity_unit_conversions_resolved()->where('product_id = :1 AND from_qu_id = :2 AND to_qu_id = :3', $stockEntry->product_id, $productDetails->product->qu_id_stock, $subProduct->qu_id_stock)->fetch();
+					$conversion = $this->getDatabase()->cache__quantity_unit_conversions_resolved()->where('product_id = :1 AND from_qu_id = :2 AND to_qu_id = :3', $stockEntry->product_id, $productDetails->product->qu_id_stock, $subProduct->qu_id_stock)->fetch();
 					if ($conversion != null)
 					{
 						$amount = $amount * $conversion->factor;
@@ -711,7 +711,7 @@ class StockService extends BaseService
 			$stockCurrentRow->is_aggregated_amount = 0;
 		}
 
-		$productLastPurchased = $this->getDatabase()->products_last_purchased()->where('product_id', $productId)->fetch();
+		$productLastPurchased = $this->getDatabase()->cache__products_last_purchased()->where('product_id', $productId)->fetch();
 		$lastPurchasedDate = null;
 		$lastPrice = null;
 		$lastShoppingLocation = null;
@@ -721,7 +721,7 @@ class StockService extends BaseService
 			$lastPurchasedDate = $productLastPurchased->purchased_date;
 			$lastPrice = $productLastPurchased->price;
 			$lastShoppingLocation = $productLastPurchased->shopping_location_id;
-			$avgPriceRow = $this->getDatabase()->products_average_price()->where('product_id', $productId)->fetch();
+			$avgPriceRow = $this->getDatabase()->cache__products_average_price()->where('product_id', $productId)->fetch();
 			if ($avgPriceRow)
 			{
 				$avgPrice = $avgPriceRow->price;
@@ -757,7 +757,7 @@ class StockService extends BaseService
 		$quConversionFactorPurchaseToStock = 1.0;
 		if ($product->qu_id_stock != $product->qu_id_purchase)
 		{
-			$conversion = $this->getDatabase()->quantity_unit_conversions_resolved()->where('product_id = :1 AND from_qu_id = :2 AND to_qu_id = :3', $product->id, $product->qu_id_purchase, $product->qu_id_stock)->fetch();
+			$conversion = $this->getDatabase()->cache__quantity_unit_conversions_resolved()->where('product_id = :1 AND from_qu_id = :2 AND to_qu_id = :3', $product->id, $product->qu_id_purchase, $product->qu_id_stock)->fetch();
 			if ($conversion != null)
 			{
 				$quConversionFactorPurchaseToStock = $conversion->factor;
@@ -767,7 +767,7 @@ class StockService extends BaseService
 		$quConversionFactorPriceToStock = 1.0;
 		if ($product->qu_id_stock != $product->qu_id_price)
 		{
-			$conversion = $this->getDatabase()->quantity_unit_conversions_resolved()->where('product_id = :1 AND from_qu_id = :2 AND to_qu_id = :3', $product->id, $product->qu_id_price, $product->qu_id_stock)->fetch();
+			$conversion = $this->getDatabase()->cache__quantity_unit_conversions_resolved()->where('product_id = :1 AND from_qu_id = :2 AND to_qu_id = :3', $product->id, $product->qu_id_price, $product->qu_id_stock)->fetch();
 			if ($conversion != null)
 			{
 				$quConversionFactorPriceToStock = $conversion->factor;
@@ -1035,7 +1035,7 @@ class StockService extends BaseService
 			{
 				// A sub product will be used -> use QU conversions
 				$subProduct = $this->getDatabase()->products($stockEntry->product_id);
-				$conversion = $this->getDatabase()->quantity_unit_conversions_resolved()->where('product_id = :1 AND from_qu_id = :2 AND to_qu_id = :3', $stockEntry->product_id, $product->qu_id_stock, $subProduct->qu_id_stock)->fetch();
+				$conversion = $this->getDatabase()->cache__quantity_unit_conversions_resolved()->where('product_id = :1 AND from_qu_id = :2 AND to_qu_id = :3', $stockEntry->product_id, $product->qu_id_stock, $subProduct->qu_id_stock)->fetch();
 				if ($conversion != null)
 				{
 					$amount = $amount * $conversion->factor;
@@ -1175,7 +1175,7 @@ class StockService extends BaseService
 			if ($isValidProduct)
 			{
 				$product = $this->getDatabase()->products()->where('id = :1', $row->product_id)->fetch();
-				$conversion = $this->getDatabase()->quantity_unit_conversions_resolved()->where('product_id = :1 AND from_qu_id = :2 AND to_qu_id = :3', $product->id, $product->qu_id_stock, $row->qu_id)->fetch();
+				$conversion = $this->getDatabase()->cache__quantity_unit_conversions_resolved()->where('product_id = :1 AND from_qu_id = :2 AND to_qu_id = :3', $product->id, $product->qu_id_stock, $row->qu_id)->fetch();
 
 				$factor = 1.0;
 				if ($conversion != null)
@@ -1679,7 +1679,7 @@ class StockService extends BaseService
 		{
 			$productToKeep = $this->getDatabase()->products($productIdToKeep);
 			$productToRemove = $this->getDatabase()->products($productIdToRemove);
-			$conversion = $this->getDatabase()->quantity_unit_conversions_resolved()->where('product_id = :1 AND from_qu_id = :2 AND to_qu_id = :3', $productToRemove->id, $productToRemove->qu_id_stock, $productToKeep->qu_id_stock)->fetch();
+			$conversion = $this->getDatabase()->cache__quantity_unit_conversions_resolved()->where('product_id = :1 AND from_qu_id = :2 AND to_qu_id = :3', $productToRemove->id, $productToRemove->qu_id_stock, $productToKeep->qu_id_stock)->fetch();
 			$factor = 1.0;
 			if ($conversion != null)
 			{

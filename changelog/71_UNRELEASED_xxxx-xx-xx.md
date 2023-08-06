@@ -10,7 +10,7 @@
 
 ### Stock
 
-- Fixed performance issues affecting the stock overview, shopping list and purchase/consume/inventory/transfer pages
+- Fixed performance issues affecting all places where quantity unit conversions / prices are involved
 - Fixed that the upgrade failed when having improperly defined product specific quantity unit conversions
 - Fixed that edited stock entries were not considered in some cases (affecting the product's last price, average price, the price history and the stock reports)
 

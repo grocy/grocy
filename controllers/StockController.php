@@ -19,7 +19,7 @@ class StockController extends BaseController
 			'recipes' => $this->getDatabase()->recipes()->where('type', RecipesService::RECIPE_TYPE_NORMAL)->orderBy('name', 'COLLATE NOCASE'),
 			'locations' => $this->getDatabase()->locations()->orderBy('name', 'COLLATE NOCASE'),
 			'quantityUnits' => $this->getDatabase()->quantity_units()->orderBy('name', 'COLLATE NOCASE'),
-			'quantityUnitConversionsResolved' => $this->getDatabase()->quantity_unit_conversions_resolved()
+			'quantityUnitConversionsResolved' => $this->getDatabase()->cache__quantity_unit_conversions_resolved()
 		]);
 	}
 
@@ -31,7 +31,7 @@ class StockController extends BaseController
 			'shoppinglocations' => $this->getDatabase()->shopping_locations()->where('active = 1')->orderBy('name', 'COLLATE NOCASE'),
 			'locations' => $this->getDatabase()->locations()->where('active = 1')->orderBy('name', 'COLLATE NOCASE'),
 			'quantityUnits' => $this->getDatabase()->quantity_units()->orderBy('name', 'COLLATE NOCASE'),
-			'quantityUnitConversionsResolved' => $this->getDatabase()->quantity_unit_conversions_resolved(),
+			'quantityUnitConversionsResolved' => $this->getDatabase()->cache__quantity_unit_conversions_resolved(),
 			'userfields' => $this->getUserfieldsService()->GetFields('stock')
 		]);
 	}
@@ -147,7 +147,7 @@ class StockController extends BaseController
 				'product' => $product,
 				'shoppinglocations' => $this->getDatabase()->shopping_locations()->where('active = 1')->orderBy('name', 'COLLATE NOCASE'),
 				'quantityUnits' => $this->getDatabase()->quantity_units()->orderBy('name', 'COLLATE NOCASE'),
-				'quantityUnitConversionsResolved' => $this->getDatabase()->quantity_unit_conversions_resolved(),
+				'quantityUnitConversionsResolved' => $this->getDatabase()->cache__quantity_unit_conversions_resolved(),
 				'userfields' => $this->getUserfieldsService()->GetFields('product_barcodes')
 			]);
 		}
@@ -159,7 +159,7 @@ class StockController extends BaseController
 				'product' => $product,
 				'shoppinglocations' => $this->getDatabase()->shopping_locations()->where('active = 1')->orderBy('name', 'COLLATE NOCASE'),
 				'quantityUnits' => $this->getDatabase()->quantity_units()->orderBy('name', 'COLLATE NOCASE'),
-				'quantityUnitConversionsResolved' => $this->getDatabase()->quantity_unit_conversions_resolved(),
+				'quantityUnitConversionsResolved' => $this->getDatabase()->cache__quantity_unit_conversions_resolved(),
 				'userfields' => $this->getUserfieldsService()->GetFields('product_barcodes')
 			]);
 		}
@@ -192,8 +192,8 @@ class StockController extends BaseController
 				'locations' => $this->getDatabase()->locations()->where('active = 1')->orderBy('name', 'COLLATE NOCASE'),
 				'barcodes' => $this->getDatabase()->product_barcodes()->orderBy('barcode'),
 				'quantityunits' => $this->getDatabase()->quantity_units()->where('active = 1')->orderBy('name', 'COLLATE NOCASE'),
-				'quantityunitsStock' => $this->getDatabase()->quantity_units()->where('id IN (SELECT to_qu_id FROM quantity_unit_conversions_resolved WHERE product_id = :1) OR NOT EXISTS(SELECT 1 FROM stock_log WHERE product_id = :1)', $product->id)->orderBy('name', 'COLLATE NOCASE'),
-				'referencedQuantityunits' => $this->getDatabase()->quantity_units()->where('active = 1')->where('id IN (SELECT to_qu_id FROM quantity_unit_conversions_resolved WHERE product_id = :1)', $product->id)->orderBy('name', 'COLLATE NOCASE'),
+				'quantityunitsStock' => $this->getDatabase()->quantity_units()->where('id IN (SELECT to_qu_id FROM cache__quantity_unit_conversions_resolved WHERE product_id = :1) OR NOT EXISTS(SELECT 1 FROM stock_log WHERE product_id = :1)', $product->id)->orderBy('name', 'COLLATE NOCASE'),
+				'referencedQuantityunits' => $this->getDatabase()->quantity_units()->where('active = 1')->where('id IN (SELECT to_qu_id FROM cache__quantity_unit_conversions_resolved WHERE product_id = :1)', $product->id)->orderBy('name', 'COLLATE NOCASE'),
 				'shoppinglocations' => $this->getDatabase()->shopping_locations()->where('active = 1')->orderBy('name', 'COLLATE NOCASE'),
 				'productgroups' => $this->getDatabase()->product_groups()->where('active = 1')->orderBy('name', 'COLLATE NOCASE'),
 				'userfields' => $this->getUserfieldsService()->GetFields('products'),
@@ -289,7 +289,7 @@ class StockController extends BaseController
 			'shoppinglocations' => $this->getDatabase()->shopping_locations()->where('active = 1')->orderBy('name', 'COLLATE NOCASE'),
 			'locations' => $this->getDatabase()->locations()->where('active = 1')->orderBy('name', 'COLLATE NOCASE'),
 			'quantityUnits' => $this->getDatabase()->quantity_units()->where('active = 1')->orderBy('name', 'COLLATE NOCASE'),
-			'quantityUnitConversionsResolved' => $this->getDatabase()->quantity_unit_conversions_resolved(),
+			'quantityUnitConversionsResolved' => $this->getDatabase()->cache__quantity_unit_conversions_resolved(),
 			'userfields' => $this->getUserfieldsService()->GetFields('stock')
 		]);
 	}
@@ -399,7 +399,7 @@ class StockController extends BaseController
 			'missingProducts' => $this->getStockService()->GetMissingProducts(),
 			'shoppingLists' => $this->getDatabase()->shopping_lists()->orderBy('name', 'COLLATE NOCASE'),
 			'selectedShoppingListId' => $listId,
-			'quantityUnitConversionsResolved' => $this->getDatabase()->quantity_unit_conversions_resolved(),
+			'quantityUnitConversionsResolved' => $this->getDatabase()->cache__quantity_unit_conversions_resolved(),
 			'productUserfields' => $this->getUserfieldsService()->GetFields('products'),
 			'productUserfieldValues' => $this->getUserfieldsService()->GetAllValues('products'),
 			'productGroupUserfields' => $this->getUserfieldsService()->GetFields('product_groups'),
@@ -438,7 +438,7 @@ class StockController extends BaseController
 				'shoppingLists' => $this->getDatabase()->shopping_lists()->orderBy('name', 'COLLATE NOCASE'),
 				'mode' => 'create',
 				'quantityUnits' => $this->getDatabase()->quantity_units()->where('active = 1')->orderBy('name', 'COLLATE NOCASE'),
-				'quantityUnitConversionsResolved' => $this->getDatabase()->quantity_unit_conversions_resolved(),
+				'quantityUnitConversionsResolved' => $this->getDatabase()->cache__quantity_unit_conversions_resolved(),
 				'userfields' => $this->getUserfieldsService()->GetFields('shopping_list')
 			]);
 		}
@@ -451,7 +451,7 @@ class StockController extends BaseController
 				'shoppingLists' => $this->getDatabase()->shopping_lists()->orderBy('name', 'COLLATE NOCASE'),
 				'mode' => 'edit',
 				'quantityUnits' => $this->getDatabase()->quantity_units()->where('active = 1')->orderBy('name', 'COLLATE NOCASE'),
-				'quantityUnitConversionsResolved' => $this->getDatabase()->quantity_unit_conversions_resolved(),
+				'quantityUnitConversionsResolved' => $this->getDatabase()->cache__quantity_unit_conversions_resolved(),
 				'userfields' => $this->getUserfieldsService()->GetFields('shopping_list')
 			]);
 		}
@@ -564,7 +564,7 @@ class StockController extends BaseController
 			'barcodes' => $this->getDatabase()->product_barcodes_comma_separated(),
 			'locations' => $this->getDatabase()->locations()->where('active = 1')->orderBy('name', 'COLLATE NOCASE'),
 			'quantityUnits' => $this->getDatabase()->quantity_units()->where('active = 1')->orderBy('name', 'COLLATE NOCASE'),
-			'quantityUnitConversionsResolved' => $this->getDatabase()->quantity_unit_conversions_resolved()
+			'quantityUnitConversionsResolved' => $this->getDatabase()->cache__quantity_unit_conversions_resolved()
 		]);
 	}
 
@@ -599,11 +599,11 @@ class StockController extends BaseController
 		if (isset($request->getQueryParams()['product']))
 		{
 			$product = $this->getDatabase()->products($request->getQueryParams()['product']);
-			$quantityUnitConversionsResolved = $this->getDatabase()->quantity_unit_conversions_resolved()->where('product_id', $product->id);
+			$quantityUnitConversionsResolved = $this->getDatabase()->cache__quantity_unit_conversions_resolved()->where('product_id', $product->id);
 		}
 		else
 		{
-			$quantityUnitConversionsResolved = $this->getDatabase()->quantity_unit_conversions_resolved()->where('product_id IS NULL');
+			$quantityUnitConversionsResolved = $this->getDatabase()->cache__quantity_unit_conversions_resolved()->where('product_id IS NULL');
 		}
 
 		return $this->renderPage($response, 'quantityunitconversionsresolved', [

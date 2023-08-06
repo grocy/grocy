@@ -115,7 +115,6 @@ AS (
 	JOIN default_conversions s
 		ON c.path LIKE ('%/' || s.from_qu_id || '/' || s.to_qu_id || '/%') -- the conversion has been used as part of another path ...
 	WHERE NOT EXISTS(SELECT 1 FROM conversion_factors ci WHERE ci.product_id = c.product_id AND ci.from_qu_id = s.from_qu_id AND ci.to_qu_id = s.to_qu_id) -- ... and is itself new
-
 )
 
 SELECT DISTINCT
@@ -135,6 +134,5 @@ JOIN quantity_units qu_from
 JOIN quantity_units qu_to
 	ON c.to_qu_id = qu_to.id
 GROUP BY product_id, from_qu_id, to_qu_id
-WINDOW win
-	AS (PARTITION BY product_id, from_qu_id, to_qu_id ORDER BY depth ASC)
+WINDOW win AS (PARTITION BY product_id, from_qu_id, to_qu_id ORDER BY depth ASC)
 ORDER BY product_id, from_qu_id, to_qu_id;
