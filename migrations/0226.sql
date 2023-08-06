@@ -31,6 +31,7 @@ FROM products_last_purchased;
 
 CREATE TRIGGER stock_log_INS AFTER INSERT ON stock_log
 BEGIN
+	-- Update products_average_price cache
 	INSERT OR REPLACE INTO cache__products_average_price
 		(product_id, price)
 	SELECT product_id, price
