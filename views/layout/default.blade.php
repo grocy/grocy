@@ -15,8 +15,12 @@
 		type="image/png"
 		sizes="32x32"
 		href="{{ $U('/img/icon-32.png?v=', true) }}{{ $version }}">
+
+	@if (GROCY_AUTHENTICATED)
 	<link rel="manifest"
+		crossorigin="use-credentials"
 		href="{{ $U('/manifest') . '?data=' . base64_encode($__env->yieldContent('title') . '#' . $U($_SERVER['REQUEST_URI'])) }}">
+	@endif
 
 	<title>@yield('title') | Grocy</title>
 
