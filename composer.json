@@ -7,7 +7,7 @@
 		"php-di/php-di": "^7.0.3",
 		"berrnd/slim-blade-view": "^1.0.0",
 		"morris/lessql": "dev-php82",
-		"gettext/gettext": "dev-php81",
+		"gettext/gettext": "^4.8.10",
 		"eluceo/ical": "^2.2.0",
 		"erusev/parsedown": "^1.7",
 		"gumlet/php-image-resize": "^2.0",
@@ -20,10 +20,6 @@
 		{
 			"type": "vcs",
 			"url": "https://github.com/berrnd/lessql"
-		},
-		{
-			"type": "vcs",
-			"url": "https://github.com/berrnd/Gettext"
 		}
 	],
 	"autoload": {

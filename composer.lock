@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ffa5545aaf16f26d4916e4c9f2eee408",
+    "content-hash": "a350f5bd26aac82f0c126778cc8a1d29",
     "packages": [
         {
             "name": "berrnd/slim-blade-view",
@@ -442,16 +442,16 @@
         },
         {
             "name": "gettext/gettext",
-            "version": "dev-php81",
+            "version": "v4.8.10",
             "source": {
                 "type": "git",
-                "url": "https://github.com/berrnd/Gettext.git",
-                "reference": "505003f167881bd01b5991ee7762592b244e827e"
+                "url": "https://github.com/php-gettext/Gettext.git",
+                "reference": "9fd2cf8230e36fbed87d36b7da9a47441fc27270"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/berrnd/Gettext/zipball/505003f167881bd01b5991ee7762592b244e827e",
-                "reference": "505003f167881bd01b5991ee7762592b244e827e",
+                "url": "https://api.github.com/repos/php-gettext/Gettext/zipball/9fd2cf8230e36fbed87d36b7da9a47441fc27270",
+                "reference": "9fd2cf8230e36fbed87d36b7da9a47441fc27270",
                 "shasum": ""
             },
             "require": {
@@ -478,17 +478,7 @@
                     "Gettext\\": "src"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "Gettext\\Tests\\": "tests"
-                }
-            },
-            "scripts": {
-                "test": [
-                    "phpunit",
-                    "phpcs"
-                ]
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -503,9 +493,9 @@
             "description": "PHP gettext manager",
             "homepage": "https://github.com/oscarotero/Gettext",
             "keywords": [
+                "JS",
                 "gettext",
                 "i18n",
-                "js",
                 "mo",
                 "po",
                 "translation"
@@ -513,23 +503,23 @@
             "support": {
                 "email": "oom@oscarotero.com",
                 "issues": "https://github.com/oscarotero/Gettext/issues",
-                "source": "https://github.com/berrnd/Gettext/tree/php81"
+                "source": "https://github.com/php-gettext/Gettext/tree/v4.8.10"
             },
             "funding": [
                 {
-                    "type": "github",
-                    "url": "https://github.com/oscarotero"
+                    "url": "https://paypal.me/oscarotero",
+                    "type": "custom"
                 },
                 {
-                    "type": "patreon",
-                    "url": "https://www.patreon.com/misteroom"
+                    "url": "https://github.com/oscarotero",
+                    "type": "github"
                 },
                 {
-                    "type": "custom",
-                    "url": "https://paypal.me/oscarotero"
+                    "url": "https://www.patreon.com/misteroom",
+                    "type": "patreon"
                 }
             ],
-            "time": "2022-12-10T14:11:03+00:00"
+            "time": "2023-08-10T14:26:38+00:00"
         },
         {
             "name": "gettext/languages",
@@ -3671,8 +3661,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "morris/lessql": 20,
-        "gettext/gettext": 20
+        "morris/lessql": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
