@@ -21,6 +21,7 @@ SELECT
 		FROM stock_log sli_consumed
 		WHERE sli_consumed.stock_id = x.stock_id
 			AND sli_consumed.transaction_type IN ('consume', 'inventory-correction')
+			AND sli_consumed.id < x.stock_log_id_of_newest_edited_entry
 			AND sli_consumed.amount < 0
 			AND sli_consumed.undone = 0), 0) AS edited_origin_amount
 FROM (
