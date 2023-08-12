@@ -7,7 +7,22 @@ AS
 SELECT
 	x.stock_id,
 	x.stock_log_id_of_newest_edited_entry,
-	(SELECT amount FROM stock_log sli WHERE sli.id = x.stock_log_id_of_newest_edited_entry) - IFNULL((SELECT SUM(amount) FROM stock_log sli_consumed WHERE sli_consumed.stock_id = x.stock_id AND sli_consumed.transaction_type IN ('consume', 'inventory-correction') AND sli_consumed.amount < 0 AND sli_consumed.undone = 0), 0) AS edited_origin_amount
+
+	-- When an origin entry was edited, the new origin amount is the one of the newest "stock-edit-new" + all
+	-- previous consume transactions (mind that consume transaction amounts are negative, hence here - instead of +)
+	(
+		SELECT amount
+		FROM stock_log sli
+		WHERE sli.id = x.stock_log_id_of_newest_edited_entry
+	)
+	-
+	IFNULL((
+		SELECT SUM(amount)
+		FROM stock_log sli_consumed
+		WHERE sli_consumed.stock_id = x.stock_id
+			AND sli_consumed.transaction_type IN ('consume', 'inventory-correction')
+			AND sli_consumed.amount < 0
+			AND sli_consumed.undone = 0), 0) AS edited_origin_amount
 FROM (
 	SELECT
 		sl_add.stock_id,
@@ -38,8 +53,8 @@ FROM (
 ) sl
 WHERE sl.undone = 0
 	AND (
-		(sl.transaction_type IN ('purchase', 'inventory-correction', 'self-production') AND sl.stock_id NOT IN (SELECT stock_id FROM stock_edited_entries))
-		OR (sl.transaction_type = 'stock-edit-new' AND sl.stock_id IN (SELECT stock_id FROM stock_edited_entries) AND sl.id IN (SELECT stock_log_id_of_newest_edited_entry FROM stock_edited_entries))
+		(sl.transaction_type IN ('purchase', 'inventory-correction', 'self-production') AND sl.stock_id NOT IN (SELECT stock_id FROM stock_edited_entries)) -- Unedited origin entries
+		OR (sl.transaction_type = 'stock-edit-new' AND sl.id IN (SELECT stock_log_id_of_newest_edited_entry FROM stock_edited_entries)) -- Edited origin entries => take the newest "stock-edit-new" one
 	)
 	AND IFNULL(sl.price, 0) > 0
 	AND IFNULL(sl.amount, 0) > 0
@@ -69,8 +84,8 @@ FROM (
 ) sl
 WHERE sl.undone = 0
 	AND (
-		(sl.transaction_type IN ('purchase', 'inventory-correction', 'self-production') AND sl.stock_id NOT IN (SELECT stock_id FROM stock_edited_entries))
-		OR (sl.transaction_type = 'stock-edit-new' AND sl.stock_id IN (SELECT stock_id FROM stock_edited_entries) AND sl.id IN (SELECT stock_log_id_of_newest_edited_entry FROM stock_edited_entries))
+		(sl.transaction_type IN ('purchase', 'inventory-correction', 'self-production') AND sl.stock_id NOT IN (SELECT stock_id FROM stock_edited_entries)) -- Unedited origin entries
+		OR (sl.transaction_type = 'stock-edit-new' AND sl.id IN (SELECT stock_log_id_of_newest_edited_entry FROM stock_edited_entries)) -- Edited origin entries => take the newest "stock-edit-new" one
 	)
 	AND IFNULL(sl.price, 0) > 0
 	AND IFNULL(sl.amount, 0) > 0;
