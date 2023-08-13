@@ -117,9 +117,10 @@ $(document).on('click', '.product-open-button', function(e)
 	var productQuName = $(e.currentTarget).attr('data-product-qu-name');
 	var specificStockEntryId = $(e.currentTarget).attr('data-stock-id');
 	var stockRowId = $(e.currentTarget).attr('data-stockrow-id');
+	var openAmount = Number.parseFloat($(e.currentTarget).attr('data-open-amount'));
 	var button = $(e.currentTarget);
 
-	Grocy.Api.Post('stock/products/' + productId + '/open', { 'amount': 1, 'stock_entry_id': specificStockEntryId },
+	Grocy.Api.Post('stock/products/' + productId + '/open', { 'amount': openAmount, 'stock_entry_id': specificStockEntryId },
 		function(bookingResponse)
 		{
 			Grocy.Api.Get('stock/products/' + productId,

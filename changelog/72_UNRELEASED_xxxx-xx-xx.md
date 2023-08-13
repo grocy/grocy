@@ -10,6 +10,7 @@
 
 ### Stock
 
+- Fixed that the "Mark this stock entry as open"-button on the stock entries page opened always one unit instead of the whole stock entry
 - Fixed that edited stock entries were not considered in some cases (affecting the product's average price and the stock reports)
 
 ### Shopping list

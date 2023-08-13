@@ -130,7 +130,8 @@
 							data-product-name="{{ FindObjectInArrayByPropertyValue($products, 'id', $stockEntry->product_id)->name }}"
 							data-product-qu-name="{{ FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $stockEntry->product_id)->qu_id_stock)->name }}"
 							data-stock-id="{{ $stockEntry->stock_id }}"
-							data-stockrow-id="{{ $stockEntry->id }}">
+							data-stockrow-id="{{ $stockEntry->id }}"
+							data-open-amount="{{ $stockEntry->amount }}">
 							<i class="fa-solid fa-box-open"></i>
 						</a>
 						@endif
