@@ -21,29 +21,17 @@ class StockReportsController extends BaseController
 			$where = "pph.purchased_date >= DATE(DATE('now', 'localtime'), 'start of month')";
 		}
 
-
-		if (isset($request->getQueryParams()['byGroup']))
+		$groupBy = 'product';
+		if (isset($request->getQueryParams()['group-by']) && in_array($request->getQueryParams()['group-by'], ['product', 'productgroup', 'store']))
 		{
-			$sql = "
-			SELECT
-				pg.id AS id,
-				pg.name AS name,
-				SUM(pph.amount * pph.price) AS total
-			FROM products_price_history pph
-			JOIN products p
-				ON pph.product_id = p.id
-			JOIN product_groups pg
-				ON p.product_group_id = pg.id
-			WHERE $where
-			GROUP BY pg.id
-			ORDER BY pg.NAME COLLATE NOCASE
-			";
+			$groupBy = $request->getQueryParams()['group-by'];
 		}
-		else
+
+		if ($groupBy == 'product')
 		{
-			if (isset($request->getQueryParams()['product_group']) and $request->getQueryParams()['product_group'] != 'all')
+			if (isset($request->getQueryParams()['product-group']) and $request->getQueryParams()['product-group'] != 'all')
 			{
-				$where .= ' AND pg.id = ' . $request->getQueryParams()['product_group'];
+				$where .= ' AND pg.id = ' . $request->getQueryParams()['product-group'];
 			}
 
 			$sql = "
@@ -59,16 +47,50 @@ class StockReportsController extends BaseController
 			JOIN product_groups pg
 				ON p.product_group_id = pg.id
 			WHERE $where
-			GROUP BY p.id
-			ORDER BY p.NAME COLLATE NOCASE
+			GROUP BY p.id, p.name, pg.id, pg.name
+			ORDER BY p.name COLLATE NOCASE
+			";
+		}
+		elseif ($groupBy == 'productgroup')
+		{
+			$sql = "
+			SELECT
+				pg.id AS id,
+				pg.name AS name,
+				SUM(pph.amount * pph.price) AS total
+			FROM products_price_history pph
+			JOIN products p
+				ON pph.product_id = p.id
+			JOIN product_groups pg
+				ON p.product_group_id = pg.id
+			WHERE $where
+			GROUP BY pg.id, pg.name
+			ORDER BY pg.name COLLATE NOCASE
+			";
+		}
+		elseif ($groupBy == 'store')
+		{
+			$sql = "
+			SELECT
+				sl.id AS id,
+				sl.name AS name,
+				SUM(pph.amount * pph.price) AS total
+			FROM products_price_history pph
+			JOIN products p
+				ON pph.product_id = p.id
+			LEFT JOIN shopping_locations sl
+				ON pph.shopping_location_id = sl.id
+			WHERE $where
+			GROUP BY sl.id, sl.name
+			ORDER BY sl.NAME COLLATE NOCASE
 			";
 		}
 
 		return $this->renderPage($response, 'stockreportspendings', [
 			'metrics' => $this->getDatabaseService()->ExecuteDbQuery($sql)->fetchAll(\PDO::FETCH_OBJ),
 			'productGroups' => $this->getDatabase()->product_groups()->where('active = 1')->orderBy('name', 'COLLATE NOCASE'),
-			'selectedGroup' => isset($request->getQueryParams()['product_group']) ? $request->getQueryParams()['product_group'] : null,
-			'byGroup' => isset($request->getQueryParams()['byGroup']) ? $request->getQueryParams()['byGroup'] : null
+			'selectedGroup' => isset($request->getQueryParams()['product-group']) ? $request->getQueryParams()['product-group'] : null,
+			'groupBy' => $groupBy
 		]);
 	}
 }

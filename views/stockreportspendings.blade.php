@@ -27,17 +27,21 @@
 			</div>
 			<div class="related-links collapse d-md-flex order-2 width-xs-sm-100"
 				id="related-links">
-				<a class="btn btn-link responsive-button m-1 mt-md-0 mb-md-0 @if(!$byGroup) active @endif discrete-link disabled"
+				<a class="btn btn-link responsive-button m-1 mt-md-0 mb-md-0 discrete-link disabled"
 					href="#">
 					{{ $__t('Group by') }}:
 				</a>
-				<a class="btn btn-outline-dark responsive-button m-1 mt-md-0 mb-md-0 float-right @if(!$byGroup) active @endif"
-					href="{{ $U('/stockreports/spendings') }}">
+				<a class="btn btn-outline-dark responsive-button m-1 mt-md-0 mb-md-0 float-right @if($groupBy == 'product') active @endif"
+					href="{{ $U('/stockreports/spendings?group-by=product') }}">
 					{{ $__t('Product') }}
 				</a>
-				<a class="btn btn-outline-dark responsive-button m-1 mt-md-0 mb-md-0 float-right @if($byGroup) active @endif"
-					href="{{ $U('/stockreports/spendings?byGroup=true') }}">
+				<a class="btn btn-outline-dark responsive-button m-1 mt-md-0 mb-md-0 float-right @if($groupBy == 'productgroup') active @endif"
+					href="{{ $U('/stockreports/spendings?group-by=productgroup') }}">
 					{{ $__t('Product group') }}
+				</a>
+				<a class="btn btn-outline-dark responsive-button m-1 mt-md-0 mb-md-0 float-right @if($groupBy == 'store') active @endif"
+					href="{{ $U('/stockreports/spendings?group-by=store') }}">
+					{{ $__t('Store') }}
 				</a>
 			</div>
 		</div>
@@ -60,7 +64,7 @@
 				value="" />
 		</div>
 	</div>
-	@if(!$byGroup)
+	@if($groupBy == 'product')
 	<div class="col-sm-12 col-md-6 col-xl-4">
 		<div class="input-group">
 			<div class="input-group-prepend">
@@ -100,7 +104,7 @@
 				<tr>
 					<th>{{ $__t('Name') }}</th>
 					<th>{{ $__t('Total') }}</th>
-					@if(!$byGroup)
+					@if($groupBy == 'product')
 					<th>{{ $__t('Product group') }}</th>
 					@endif
 				</tr>
@@ -115,7 +119,7 @@
 						data-order="{{ $metric->total }}">
 						<span class="locale-number locale-number-currency">{{ $metric->total }}</span>
 					</td>
-					@if(!$byGroup)
+					@if($groupBy == 'product')
 					<td>
 						{{ $metric->group_name }}
 					</td>

@@ -134,12 +134,12 @@ $("#clear-filter-button").on("click", function()
 {
 	RemoveUriParam("start_date");
 	RemoveUriParam("end_date");
-	RemoveUriParam("product_group");
+	RemoveUriParam("product-group");
 	window.location.reload();
 });
 
 $("#product-group-filter").on("change", function()
 {
-	UpdateUriParam("product_group", $(this).val());
+	UpdateUriParam("product-group", $(this).val());
 	window.location.reload();
 });
