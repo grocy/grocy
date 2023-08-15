@@ -585,77 +585,90 @@ if (window.location.hash)
 
 function RefreshLocaleNumberDisplay(rootSelector = "#page-content")
 {
-	$(rootSelector + " .locale-number.locale-number-currency").each(function()
+	$(rootSelector + " .locale-number.locale-number-currency:not('.number-parsing-done')").each(function()
 	{
-		var text = $(this).text();
+		var element = $(this);
+		var text = element.text();
 		if (!text || Number.isNaN(text))
 		{
 			return;
 		}
 
 		var value = Number.parseFloat(text);
-		$(this).text(value.toLocaleString(undefined, { style: "currency", currency: Grocy.Currency, minimumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices_display, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices_display }));
+		element.text(value.toLocaleString(undefined, { style: "currency", currency: Grocy.Currency, minimumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices_display, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices_display }));
+		element.addClass("number-parsing-done");
 	});
 
-	$(rootSelector + " .locale-number.locale-number-quantity-amount").each(function()
+	$(rootSelector + " .locale-number.locale-number-quantity-amount:not('.number-parsing-done')").each(function()
 	{
-		var text = $(this).text();
+		var element = $(this);
+		var text = element.text();
 		if (!text || Number.isNaN(text))
 		{
 			return;
 		}
 
 		var value = Number.parseFloat(text);
-		$(this).text(value.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_amounts }));
+		element.text(value.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_amounts }));
+		element.addClass("number-parsing-done");
 	});
 
-	$(rootSelector + " .locale-number.locale-number-generic").each(function()
+	$(rootSelector + " .locale-number.locale-number-generic:not('.number-parsing-done')").each(function()
 	{
-		var text = $(this).text();
+		var element = $(this);
+		var text = element.text();
 		if (!text || Number.isNaN(text))
 		{
 			return;
 		}
 
 		var value = Number.parseFloat(text);
-		$(this).text(value.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 }));
+		element.text(value.toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 0 }));
+		element.addClass("number-parsing-done");
 	});
 }
 RefreshLocaleNumberDisplay();
+$(document).on("DOMSubtreeModified", ".locale-number", function()
+{
+	$(this).removeClass("number-parsing-done");
+});
 
 function RefreshLocaleNumberInput(rootSelector = "#page-content")
 {
 	$(rootSelector + " .locale-number-input.locale-number-currency").each(function()
 	{
-		var value = $(this).val();
+		var element = $(this);
+		var value = element.val();
 		if (!value || Number.isNaN(value))
 		{
 			return;
 		}
 
-		$(this).val(Number.parseFloat(value).toLocaleString("en", { minimumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices_input, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices_input, useGrouping: false }));
+		element.val(Number.parseFloat(value).toLocaleString("en", { minimumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices_input, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices_input, useGrouping: false }));
 	});
 
 	$(rootSelector + " .locale-number-input.locale-number-quantity-amount").each(function()
 	{
-		var value = $(this).val();
+		var element = $(this);
+		var value = element.val();
 		if (!value || Number.isNaN(value))
 		{
 			return;
 		}
 
-		$(this).val(Number.parseFloat(value).toLocaleString("en", { minimumFractionDigits: 0, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_amounts, useGrouping: false }));
+		element.val(Number.parseFloat(value).toLocaleString("en", { minimumFractionDigits: 0, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_amounts, useGrouping: false }));
 	});
 
 	$(rootSelector + " .locale-number-input.locale-number-generic").each(function()
 	{
-		var value = $(this).val();
+		var element = $(this);
+		var value = element.val();
 		if (!value || Number.isNaN(value))
 		{
 			return;
 		}
 
-		$(this).val(value.toLocaleString("en", { minimumFractionDigits: 0, maximumFractionDigits: 2, useGrouping: false }));
+		element.val(value.toLocaleString("en", { minimumFractionDigits: 0, maximumFractionDigits: 2, useGrouping: false }));
 	});
 }
 RefreshLocaleNumberInput();
