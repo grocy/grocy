@@ -906,9 +906,8 @@ $(document).on('click', '.recipe-consume-button', function(e)
 					},
 					function(xhr)
 					{
-						toastr.warning(__t('Not all ingredients of recipe "%s" are in stock, nothing removed', objectName));
 						Grocy.FrontendHelpers.EndUiBusy();
-						console.error(xhr);
+						Grocy.FrontendHelpers.ShowGenericError("A server error occured while processing your request", xhr.response);
 					}
 				);
 			}
