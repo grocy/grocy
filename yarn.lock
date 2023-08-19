@@ -29,9 +29,9 @@
     fsevents "2.3.2"
 
 "@fontsource/open-sans@^5.0.0":
-  version "5.0.8"
-  resolved "https://registry.yarnpkg.com/@fontsource/open-sans/-/open-sans-5.0.8.tgz#d2a38bec673e1c5f8115fa8066aa93117d12225d"
-  integrity sha512-d3Shc6QHoZMzZIL6m4M/geyK0EXHqLvUm9fmlkr1L/AEWgIasoLEBMKEdMczV2e66SHYAYKagIsBwfWnVhmPGQ==
+  version "5.0.9"
+  resolved "https://registry.yarnpkg.com/@fontsource/open-sans/-/open-sans-5.0.9.tgz#e5d6216cd32f3489940f5348945b11c65191d5a6"
+  integrity sha512-u3P37qsYLuYTkQjevTInS8cwvhZznS08jauNkbzzyFBLSLogEdHqLmP/PyE8Bnrff+hVguA5WwtWThiy1m4Eaw==
 
 "@fortawesome/fontawesome-free@^6.1.1":
   version "6.4.2"
@@ -654,9 +654,9 @@ summernote@^0.8.18:
   integrity sha512-W9RhjQjsn+b1s9xiJQgJbCiYGJaDAc9CdEqXo+D13WuStG8lCdtKaO5AiNiSSMJsQJN2EfGSwbBQt+SFE2B8Kw==
 
 swagger-ui-dist@^5.2.0:
-  version "5.3.1"
-  resolved "https://registry.yarnpkg.com/swagger-ui-dist/-/swagger-ui-dist-5.3.1.tgz#ae76a74136152d790b06a8b71ca389cac35ab78f"
-  integrity sha512-El78OvXp9zMasfPrshtkW1CRx8AugAKoZuGGOTW+8llJzOV1RtDJYqQRz/6+2OakjeWWnZuRlN2Qj1Y0ilux3w==
+  version "5.4.2"
+  resolved "https://registry.yarnpkg.com/swagger-ui-dist/-/swagger-ui-dist-5.4.2.tgz#ff7b936bdfc84673a1823a0f05f3a933ba7ccd4c"
+  integrity sha512-vT5QxP/NOr9m4gLZl+SpavWI3M9Fdh30+Sdw9rEtZbkqNmNNEPhjXas2xTD9rsJYYdLzAiMfwXvtooWH3xbLJA==
 
 tempusdominus-bootstrap-4@^5.39.2:
   version "5.39.2"
