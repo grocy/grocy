@@ -656,10 +656,8 @@
 							class="dropdown-item discrete-link link-return">
 							<i class="fa-solid fa-user-cog"></i> {{ $__t('User settings') }}
 						</a>
-						@if(!GROCY_IS_EMBEDDED_INSTALL && !GROCY_DISABLE_AUTH)
 						<a class="dropdown-item discrete-link permission-USERS_READ"
 							href="{{ $U('/users') }}"><i class="fa-solid fa-users"></i>&nbsp;{{ $__t('Manage users') }}</a>
-						@endif
 						<div class="dropdown-divider"></div>
 						@if(!GROCY_DISABLE_AUTH)
 						<a class="dropdown-item discrete-link"

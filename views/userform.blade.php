@@ -63,6 +63,7 @@
 					value="@if($mode == 'edit'){{ $user->last_name }}@endif">
 			</div>
 
+			@if(!GROCY_IS_EMBEDDED_INSTALL && !GROCY_DISABLE_AUTH)
 			@if(!defined('GROCY_EXTERNALLY_MANAGED_AUTHENTICATION'))
 			@if($mode == 'edit')
 			<div class="form-group mb-1">
@@ -114,6 +115,7 @@
 				name="password_confirm"
 				id="password_confirm"
 				value="x">
+			@endif
 			@endif
 
 			@include('components.userfieldsform', array(
