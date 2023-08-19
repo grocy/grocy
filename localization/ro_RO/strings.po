@@ -1224,9 +1224,6 @@ msgstr "Niciodată"
 msgid "Today"
 msgstr "Astăzi"
 
-msgid "Not all ingredients of recipe \"%s\" are in stock, nothing removed"
-msgstr "Nu toate ingredientele rețetei \"%s\" sunt în stoc, nimic eliminat"
-
 msgid "Undo task"
 msgstr "Anulați sarcina"
 

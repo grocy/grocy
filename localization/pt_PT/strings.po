@@ -1226,11 +1226,6 @@ msgstr "Nunca"
 msgid "Today"
 msgstr "Hoje"
 
-msgid "Not all ingredients of recipe \"%s\" are in stock, nothing removed"
-msgstr ""
-"Nem todos os ingredientes da receita \"%s\" estão em stock, nada foi "
-"removido"
-
 msgid "Undo task"
 msgstr "Desfazer tarefa"
 

@@ -8,6 +8,7 @@
 # Weicheng Ao, 2022
 # 冠南 胡, 2023
 # foo bar, 2023
+# 石磊, 2023
 # 
 msgid ""
 msgstr ""
@@ -15,7 +16,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: foo bar, 2023\n"
+"Last-Translator: 石磊, 2023\n"
 "Language-Team: Chinese (China) (https://app.transifex.com/grocy/teams/93189/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -45,17 +46,17 @@ msgstr[0] "%s件产品过期"
 
 msgid "%s product is below defined min. stock amount"
 msgid_plural "%s products are below defined min. stock amount"
-msgstr[0] "%s产品低于定义的最小库存"
+msgstr[0] "%s件产品低于定义的最小库存"
 
 msgid "Product"
 msgstr "产品"
 
 msgid "%s Product"
 msgid_plural "%s Products"
-msgstr[0] "%s产品"
+msgstr[0] "%s件产品"
 
 msgid "Amount"
-msgstr "总量"
+msgstr "数量"
 
 msgid "Logout"
 msgstr "注销"
@@ -67,7 +68,7 @@ msgid "Batteries overview"
 msgstr "电池总览"
 
 msgid "Purchase"
-msgstr "购买"
+msgstr "采购"
 
 msgid "Consume"
 msgstr "消耗"
@@ -103,7 +104,7 @@ msgid "Chore"
 msgstr "家务"
 
 msgid "Next estimated tracking"
-msgstr "接下来预测追踪"
+msgstr "预计下次跟踪时间"
 
 msgid "Last tracked"
 msgstr "上次记录时间"
@@ -130,7 +131,7 @@ msgid "Stock quantity unit"
 msgstr "库存数量单位"
 
 msgid "Stock amount"
-msgstr "库存总量"
+msgstr "库存数量"
 
 msgid "Last purchased"
 msgstr "上次购买时间"
@@ -149,10 +150,10 @@ msgid ""
 msgstr "提交时加入所选商品的条形码清单"
 
 msgid "New amount"
-msgstr "新增总量"
+msgstr "新增数量"
 
 msgid "Note"
-msgstr "便签"
+msgstr "备注"
 
 msgid "Tracked time"
 msgstr "记录时间"
@@ -170,7 +171,7 @@ msgid "Charge cycles count"
 msgstr "充电周期次数"
 
 msgid "Create shopping list item"
-msgstr "创建购物清单条目"
+msgstr "新建购物清单条目"
 
 msgid "Edit shopping list item"
 msgstr "编辑购物清单条目"
@@ -200,25 +201,25 @@ msgid "Barcode(s)"
 msgstr "条形码"
 
 msgid "Minimum stock amount"
-msgstr "最小库存总量"
+msgstr "最小库存数量"
 
 msgid "Default best before days"
 msgstr "默认最好早于"
 
 msgid "Default quantity unit purchase"
-msgstr "默认购买数量单位"
+msgstr "默认采购数量单位"
 
 msgid "Quantity unit stock"
 msgstr "库存数量单位"
 
 msgid "Create location"
-msgstr "创建位置"
+msgstr "新建位置"
 
 msgid "Create store"
-msgstr "创建商店"
+msgstr "新建商店"
 
 msgid "Create quantity unit"
-msgstr "创建数量单位"
+msgstr "新建数量单位"
 
 msgid "Period type"
 msgstr "周期类型"
@@ -227,13 +228,13 @@ msgid "Period days"
 msgstr "周期天数"
 
 msgid "Create chore"
-msgstr "创建家务"
+msgstr "新建家务"
 
 msgid "Used in"
 msgstr "使用于"
 
 msgid "Create battery"
-msgstr "创建电池"
+msgstr "新建电池"
 
 msgid "Edit battery"
 msgstr "编辑电池"
@@ -242,7 +243,7 @@ msgid "Edit chore"
 msgstr "编辑家务"
 
 msgid "Edit quantity unit"
-msgstr "修改数量单位"
+msgstr "编辑数量单位"
 
 msgid "Edit product"
 msgstr "编辑产品"
@@ -251,7 +252,7 @@ msgid "Edit location"
 msgstr "编辑位置"
 
 msgid "Edit store"
-msgstr "修改商店"
+msgstr "编辑商店"
 
 msgid "Manage master data"
 msgstr "管理主数据"
@@ -260,7 +261,7 @@ msgid "This will apply to added products"
 msgstr "这将应用于新增商品"
 
 msgid "never"
-msgstr "从不"
+msgstr "永不"
 
 msgid "Add products that are below defined min. stock amount"
 msgstr "添加低于最低库存数量的商品"
@@ -281,7 +282,7 @@ msgid "Are you sure to delete battery \"%s\"?"
 msgstr "确定删除电池%s吗？"
 
 msgid "Yes"
-msgstr "确定"
+msgstr "是"
 
 msgid "No"
 msgstr "否"
@@ -320,19 +321,19 @@ msgid "Are you sure to delete store \"%s\"?"
 msgstr "确定删除商店%s"
 
 msgid "Manage API keys"
-msgstr "管理API 秘钥"
+msgstr "管理API 密钥"
 
 msgid "REST API browser"
-msgstr "‎REST API 浏览器‎"
+msgstr "浏览REST API"
 
 msgid "API keys"
-msgstr "API 秘钥"
+msgstr "API 密钥"
 
 msgid "Create new API key"
-msgstr "创建新API 秘钥"
+msgstr "新建API密钥"
 
 msgid "API key"
-msgstr "API 秘钥"
+msgstr "API 密钥"
 
 msgid "Expires"
 msgstr "过期"
@@ -395,7 +396,7 @@ msgid "You have to select a battery"
 msgstr "请选择一个电池"
 
 msgid "A name is required"
-msgstr "请填写名字"
+msgstr "请填写名称"
 
 msgid "A location is required"
 msgstr "请填写位置"
@@ -419,25 +420,25 @@ msgid "Calendar"
 msgstr "日历"
 
 msgid "Recipes"
-msgstr "食谱"
+msgstr "菜谱"
 
 msgid "Edit recipe"
-msgstr "编辑食谱"
+msgstr "编辑菜谱"
 
 msgid "Ingredients list"
-msgstr "成分表"
+msgstr "配料表"
 
 msgid "Add recipe ingredient"
-msgstr "添加食谱食材"
+msgstr "新增菜谱配料"
 
 msgid "Edit recipe ingredient"
-msgstr "编辑食谱成分"
+msgstr "编辑菜谱配料"
 
 msgid "Are you sure to delete recipe \"%s\"?"
-msgstr "确定删除食谱 %s"
+msgstr "您确定要删除菜谱“%s”吗？"
 
 msgid "Are you sure to delete recipe ingredient \"%s\"?"
-msgstr "您确定要删除食谱成分\"%s\"吗?"
+msgstr "您确定要删除菜谱配料“%s”吗?"
 
 msgid "Are you sure to empty shopping list \"%s\"?"
 msgstr "你确定要清空购物清单“%s”吗？"
@@ -449,7 +450,7 @@ msgid "Requirements fulfilled"
 msgstr "满足要求"
 
 msgid "Put missing products on shopping list"
-msgstr "将缺失的产品列在购物清单上"
+msgstr "将缺少的产品加入购物清单"
 
 msgid "Enough in stock"
 msgstr "库存充足"
@@ -470,7 +471,7 @@ msgid "Preparation"
 msgstr "预备"
 
 msgid "Recipe"
-msgstr "食谱"
+msgstr "菜谱"
 
 msgid "Not enough in stock, %1$s missing, %2$s already on shopping list"
 msgstr "库存不足，缺少 %1$s，%2$s 已经在购物清单中 "
@@ -484,10 +485,10 @@ msgstr "将丢失的数量列在购物单上"
 msgid ""
 "Are you sure to put all missing ingredients for recipe \"%s\" on the "
 "shopping list?"
-msgstr "确定要将食谱“%s”中所缺少的食材都列在购物单上吗?"
+msgstr "您确定要将菜谱“%s”中缺少的全部配料加入采购清单吗？"
 
 msgid "Added for recipe %s"
-msgstr "已添加到食谱%s"
+msgstr "已添加到菜谱%s"
 
 msgid "Manage users"
 msgstr "管理用户"
@@ -544,7 +545,7 @@ msgid "Charge cycle interval (days)"
 msgstr "充电周期间隔(天)"
 
 msgid "Last price"
-msgstr "最后的价格"
+msgstr "最近价格"
 
 msgid "Price history"
 msgstr "价格历史"
@@ -590,13 +591,13 @@ msgstr "只检查是否有任何数量的库存"
 msgid ""
 "Are you sure to consume all ingredients needed by recipe \"%s\" (ingredients"
 " marked with \"only check if any amount is in stock\" will be ignored)?"
-msgstr "您确定要消耗食谱“%s”中所需的所有成分（标有“仅检查库存量”的成分将被忽略）吗？"
+msgstr "您确定要消耗菜谱“%s”中需要的全部配料吗（忽略被标记为“仅检查是否有库存”的配料）？"
 
 msgid "Removed all ingredients of recipe \"%s\" from stock"
-msgstr "从库存中移除食谱“%s”中所有的食材"
+msgstr "已从库存中移除菜谱“%s”中的全部配料"
 
 msgid "Consume all ingredients needed by this recipe"
-msgstr "消耗此食谱所需的所有成分 "
+msgstr "消耗此菜谱所需的所有配料"
 
 msgid "Click to show technical details"
 msgstr "单击此处显示技术细节"
@@ -763,16 +764,16 @@ msgid "Presets for new products"
 msgstr "新产品预设"
 
 msgid "Included recipes"
-msgstr "随附的食谱"
+msgstr "关联菜谱"
 
 msgid "A recipe is required"
-msgstr "请填写食谱"
+msgstr "请填写菜谱"
 
 msgid "Add included recipe"
-msgstr "添加随附的食谱"
+msgstr "添加关联菜谱"
 
 msgid "Edit included recipe"
-msgstr "编辑关联食谱"
+msgstr "编辑关联菜谱"
 
 msgid "Group"
 msgstr "组"
@@ -811,7 +812,7 @@ msgid "Charge cycle successfully undone"
 msgstr "充电周期取消成功"
 
 msgid "Disable stock fulfillment checking for this ingredient"
-msgstr "禁用此成分的需求库存检查"
+msgstr "禁用此配料的库存需求检查"
 
 msgid "Add all list items to stock"
 msgstr "将所有列表项添加到库存"
@@ -879,7 +880,7 @@ msgid "Costs"
 msgstr "费用"
 
 msgid "The ingredients listed here result in this amount of servings"
-msgstr "这里列出的成分导致份量如此"
+msgstr "配料可以制作的份数"
 
 msgid "Do not check against the shopping list when adding missing items to it"
 msgstr "当把缺少的东西添加到购物清单时，不核对清单"
@@ -903,7 +904,7 @@ msgid "This is for statistical purposes only"
 msgstr "仅作统计用途"
 
 msgid "You have to select a recipe"
-msgstr "你必须选择一个食谱"
+msgstr "请选择一个菜谱"
 
 msgid "Key type"
 msgstr "密钥类型"
@@ -973,7 +974,7 @@ msgstr "键入新产品名称或条形码，然后按TAB或ENTER键启动工作�
 msgid ""
 "This will be used as the default setting when adding this product as a "
 "recipe ingredient"
-msgstr "当添加此产品作为食谱成分时，这将用作默认设置"
+msgstr "当添加此产品作为菜谱配料时，这将作为默认设置"
 
 msgid "Add item"
 msgstr "添加项目"
@@ -997,7 +998,7 @@ msgid "Tasks settings"
 msgstr "任务设置"
 
 msgid "Create shopping list"
-msgstr "创建购物清单"
+msgstr "新建购物清单"
 
 msgid "Are you sure to delete shopping list \"%s\"?"
 msgstr "确认要删除购物清单 “%s” 吗？"
@@ -1106,7 +1107,7 @@ msgid "Default location"
 msgstr "默认位置"
 
 msgid "Default amount for purchase"
-msgstr "默认购买数量"
+msgstr "默认采购数量"
 
 msgid "Default amount for consume"
 msgstr "默认消耗数量"
@@ -1129,7 +1130,7 @@ msgid "Consume %1$s of %2$s"
 msgstr "消费%2$s中的%1$s"
 
 msgid "Meal plan"
-msgstr "膳食计划"
+msgstr "饮食计划"
 
 msgid "%s serving"
 msgid_plural "%s servings"
@@ -1157,13 +1158,10 @@ msgid "per serving"
 msgstr "每餐份"
 
 msgid "Never"
-msgstr "从不"
+msgstr "永不"
 
 msgid "Today"
 msgstr "今天"
-
-msgid "Not all ingredients of recipe \"%s\" are in stock, nothing removed"
-msgstr "并不是所有的食谱“%s”的成分在库存，没有删除"
 
 msgid "Undo task"
 msgstr "撤销任务"
@@ -1235,13 +1233,13 @@ msgid "This cannot be equal to %s"
 msgstr "这不能等于 %s"
 
 msgid "This means 1 %1$s is the same as %2$s %3$s"
-msgstr "这意味着1%1$s等于%2$s%3$s"
+msgstr "1%1$s等同于%2$s%3$s"
 
 msgid "QU conversions"
 msgstr "单位转换"
 
 msgid "Override for product"
-msgstr "覆盖产品"
+msgstr "涵盖产品"
 
 msgid "This equals %1$s %2$s"
 msgstr "这等于%1$s%2$s"
@@ -1379,7 +1377,7 @@ msgstr "初始化条形码扫描库时出错"
 
 msgid ""
 "The resulting price of this ingredient will be multiplied by this factor"
-msgstr "这种成分的最终价格将乘以这个系数"
+msgstr "此配料的的最终价格将乘以此系数"
 
 msgid "Price factor"
 msgstr "价格系数"
@@ -1391,7 +1389,7 @@ msgid "Say thanks"
 msgstr "表示感谢"
 
 msgid "Search for recipes containing this product"
-msgstr "搜索含有此产品的食谱"
+msgstr "搜索含有此产品的菜谱"
 
 msgid "Add to shopping list"
 msgstr "加入购物清单"
@@ -1427,7 +1425,7 @@ msgid "Miss"
 msgstr "未命中"
 
 msgid "Display recipe"
-msgstr "显示食谱"
+msgstr "显示菜谱"
 
 msgid "Accumulate sub products min. stock amount"
 msgstr "累积子产品的最小库存数量"
@@ -1456,7 +1454,7 @@ msgid "Clear"
 msgstr "清除"
 
 msgid "Are you sure to remove the included recipe \"%s\"?"
-msgstr "您确定要删除随附的食谱“%s”吗？"
+msgstr "您确定要删除关联菜谱“%s”吗？"
 
 msgid "Period interval"
 msgstr "时间间隔"
@@ -1470,7 +1468,7 @@ msgid_plural ""
 msgstr[0] "这意味着该任务的下一次执行将安排在每%s年的同一天(基于开始日期)  "
 
 msgid "Transfer"
-msgstr "迁移"
+msgstr "转移"
 
 msgid "From location"
 msgstr "起点位置"
@@ -1482,7 +1480,7 @@ msgid "There are no units available at this location"
 msgstr "这个地方没有可用的单元"
 
 msgid "Amount: %1$s; Due on %2$s; Bought on %3$s"
-msgstr "数额:%1$s;截止期:%2$s;购买日:%3$s"
+msgstr "数量：%1$s；截止日期：%2$s；采购日期：%3$s"
 
 msgid "Transfered %1$s of %2$s from %3$s to %4$s"
 msgstr "将%2$s中的%1$s从%3$s转移到%4$s"
@@ -1494,7 +1492,7 @@ msgid "Best before date"
 msgstr "保质期"
 
 msgid "Purchased date"
-msgstr "购买日"
+msgstr "采购日期"
 
 msgid "Consume all %s for this stock entry"
 msgstr "消耗这个库存条目的所有%s"
@@ -1520,7 +1518,7 @@ msgid "Keep screen on while displaying a \"fullscreen-card\""
 msgstr "在显示“全屏幕卡”时保持屏幕打开"
 
 msgid "A purchased date is required"
-msgstr "购买日期是必需的"
+msgstr "采购日期为必填项"
 
 msgid ""
 "When a product is selected, one unit (per serving in stock quantity unit) "
@@ -1552,16 +1550,16 @@ msgid "Add product"
 msgstr "添加产品"
 
 msgid "Consume all ingredients needed by this weeks recipes or products"
-msgstr "消耗本星期食谱或产品所需的所有原料"
+msgstr "消耗本星期菜谱或产品中所需的全部配料"
 
 msgid "Meal plan recipe"
-msgstr "膳食计划菜谱"
+msgstr "饮食计划菜谱"
 
 msgid "Meal plan note"
-msgstr "膳食计划报告"
+msgstr "饮食计划备注"
 
 msgid "Meal plan product"
-msgstr "膳食计划产品"
+msgstr "饮食计划产品"
 
 msgid "Scan mode"
 msgstr "扫描模式"
@@ -1604,13 +1602,13 @@ msgid "Base: %s"
 msgstr "基础：%s"
 
 msgid "Recipes settings"
-msgstr "配方设置"
+msgstr "菜谱设置"
 
 msgid "Recipe card"
-msgstr "食谱卡"
+msgstr "菜谱卡片"
 
 msgid "Group ingredients by their product group"
-msgstr "按产品组对成分进行分组"
+msgstr "按产品组对配料进行分组"
 
 msgid "Unknown store"
 msgstr "未知商店"
@@ -1649,25 +1647,25 @@ msgid "means %1$s per %2$s"
 msgstr "每%2$s，%1$s财产"
 
 msgid "Create recipe"
-msgstr "创建配方"
+msgstr "新建菜谱"
 
 msgid "Save & continue to add ingredients and included recipes"
-msgstr "保存并继续添加配料和包括食谱"
+msgstr "保存并继续添加配料和关联菜谱"
 
 msgid "Save & continue"
 msgstr "保存并继续"
 
 msgid "Save & return to recipes"
-msgstr "保存并返回食谱"
+msgstr "保存并返回菜谱"
 
 msgid "Stock value"
-msgstr "库存量"
+msgstr "库存金额"
 
 msgid "Average price"
 msgstr "平均价格"
 
 msgid "Active"
-msgstr "有效的"
+msgstr "启用"
 
 msgid "Barcodes"
 msgstr "条形码"
@@ -1691,7 +1689,7 @@ msgid ""
 msgstr "根据库存原料的默认消费规则(先开、先到期、先进先出)的价格，缺货原料的最后价格  "
 
 msgid "Clear filter"
-msgstr "清除过滤器"
+msgstr "清除筛选"
 
 msgid "Permissions for user %s"
 msgstr "%s用户的权限"
@@ -1757,15 +1755,15 @@ msgid "Consume exact amount"
 msgstr "消费确切数额"
 
 msgid "Value"
-msgstr "值"
+msgstr "价值"
 
 msgid "%s total value"
-msgstr "%s总值"
+msgstr "总价值%s"
 
 msgid ""
 "Show purchased date on purchase and inventory page (otherwise the purchased "
 "date defaults to today)"
-msgstr "在购买和库存页面显示购买日期(否则购买日期默认为今天)"
+msgstr "在采购页面和库存页面显示采购日期（否则采购日期默认为当天）"
 
 msgid "Common"
 msgstr "通用"
@@ -1842,7 +1840,7 @@ msgstr "显示此API密钥的QR码"
 msgid ""
 "This is the default quantity unit used on purchase and when adding this "
 "product to the shopping list"
-msgstr "这是购买此产品和将此产品加入购物清单时所使用的默认数量单位"
+msgstr "这是采购此产品和将此产品加入购物清单时所使用的默认数量单位"
 
 msgid ""
 "Show a warning when the due date of the purchased product is earlier than "
@@ -1901,45 +1899,45 @@ msgstr "指产品过期后食用不安全"
 msgid ""
 "For purchases this amount of days will be added to today for the due date "
 "suggestion"
-msgstr "对于购买，这个天数将增加到今天的到期日建议"
+msgstr "建议截止日期，是从采购之日起加上此天数。"
 
 msgid "-1 means that this product will be never overdue"
 msgstr "-1表示该产品永远不会过期"
 
 msgid "Default due days"
-msgstr "默认到期日"
+msgstr "默认过期天数"
 
 msgid ""
 "When this product was marked as opened, the due date will be replaced by "
 "today + this amount of days, but only if the resulting date is not after the"
 " original due date (a value of 0 disables this)"
-msgstr "当该产品被标记为打开时，到期日将被替换为今天+此天数，但只有当结果日期不在原始到期日之后(值为0时禁用此功能)  "
+msgstr "本产品开封后，截止日期替换为开封日期加上此天数，但前提是新生成的日期不在原截止日期之后（值0将禁用此功能）"
 
 msgid "Default due days after opened"
-msgstr "开封后默认到期日"
+msgstr "开封后默认过期天数"
 
 msgid ""
 "On moving this product to a freezer location (so when freezing it), the due "
 "date will be replaced by today + this amount of days"
-msgstr "将本产品移至冷藏室时（因此将其冷冻时），到期日将替换为今天+该天数"
+msgstr "本产品放入冰箱时（即冷冻时），截止日期替换为冷冻日期加上此天数"
 
 msgid "Default due days after freezing"
-msgstr "冻结后默认到期日"
+msgstr "冷藏后默认过期天数"
 
 msgid ""
 "On moving this product from a freezer location (so when thawing it), the due"
 " date will be replaced by today + this amount of days"
-msgstr "当将产品从冷冻室移出时(解冻时)，到期日将改为今天+这个天数"
+msgstr "本产品从冰箱取出时（即解冻时），截止日期替换为解冻日期加上此天数"
 
 msgid "Default due days after thawing"
-msgstr "解冻后默认到期日"
+msgstr "解冻后默认过期天数"
 
 msgid "Next due date"
 msgstr "下一个到期日"
 
 msgid "%s product is due"
 msgid_plural "%s products are due"
-msgstr[0] "%s产品到期"
+msgstr[0] "%s件产品到期"
 
 msgid "Due date"
 msgstr "截止日期"
@@ -1949,7 +1947,7 @@ msgstr "永不逾期"
 
 msgid "%s product is expired"
 msgid_plural "%s products are expired"
-msgstr[0] "%s产品已过期"
+msgstr[0] "%s件产品已过期"
 
 msgid "Expired"
 msgstr "已过期"
@@ -1977,12 +1975,12 @@ msgstr "该值必须在%1$s和%2$s之间，不能等于%3$s，并且必须是有
 msgid ""
 "This cannot be lower than %1$s and needs to be a valid number with max. %2$s"
 " decimal places"
-msgstr "此数字不能小于%1$s，并且必须是一个有效数字，最大值%2$s为小数位"
+msgstr "此数字不能小于%1$s，并且最多%2$s位小数位"
 
 msgid ""
 "This must between %1$s and %2$s and needs to be a valid number with max. "
 "%3$s decimal places"
-msgstr "此数字必须在%1$s和%2$s之间，并且必须是一个有效数字，最大值%3$s为小数位"
+msgstr "此数字必须在%1$s和%2$s之间，并且最多%3$s位小数位"
 
 msgid ""
 "Automatically do the booking using the last price and the amount of the "
@@ -2010,7 +2008,7 @@ msgid "Download file"
 msgstr "下载文件"
 
 msgid "Use the products \"Quick consume amount\""
-msgstr "使用产品“快速消费量”"
+msgstr "使用产品的“快速消耗数量”"
 
 msgid "Disabled"
 msgstr "禁用"
@@ -2028,13 +2026,13 @@ msgid "Never show on stock overview"
 msgstr "不在库存总览显示"
 
 msgid "None"
-msgstr "没有"
+msgstr "无"
 
 msgid "Group by"
 msgstr "分组依据"
 
 msgid "Ingredient group"
-msgstr "成分组"
+msgstr "配料分组"
 
 msgid "Reset"
 msgstr "重置"
@@ -2104,7 +2102,7 @@ msgid ""
 "The stock overview page lists all products which are currently in-stock or "
 "below their min. stock amount - enable this to hide this product there "
 "always"
-msgstr "库存总览页面列出了当前有库存或低于其最低库存的所有产品。库存量-启用此功能可将其始终隐藏在此处"
+msgstr "库存总览页面列出了当前在库或低于最小库存量的所有产品。启用此功能始终隐藏此产品"
 
 msgid "Print options"
 msgstr "打印选项"
@@ -2113,19 +2111,19 @@ msgid "A product or a note is required"
 msgstr "需要一件产品或一张便条"
 
 msgid "Grocycode"
-msgstr ""
+msgstr "Grocycode"
 
 msgid "Download"
 msgstr "下载"
 
 # Example: Download *Product* Grocycode
 msgid "Download %s Grocycode"
-msgstr ""
+msgstr "下载%sGrocycode"
 
 msgid ""
 "Grocycode is a unique referer to this %s in your Grocy instance - print it "
 "onto a label and scan it like any other barcode"
-msgstr ""
+msgstr "Grocycode是Grocy实例中此%s的唯一引用，可以像其他条形码一样打印和扫描。"
 
 # Abbreviation for "due date"
 msgid "DD"
@@ -2154,7 +2152,7 @@ msgstr "执行WebHook时出错"
 
 # Example: Print *Product* Grocycode on label printer
 msgid "Print %s Grocycode on label printer"
-msgstr ""
+msgstr "打印%sGrocycode"
 
 msgid "Open stock entry label in new window"
 msgstr "‎在新窗口中打开‎‎股票库存输入标签‎"
@@ -2214,16 +2212,16 @@ msgid "This product shouldn't be frozen"
 msgstr "‎本‎‎产品‎‎不应冷冻‎"
 
 msgid "Copy all meal plan entries of %s"
-msgstr "复制所有%s的膳食计划"
+msgstr "复制全部%s的饮食计划条目"
 
 msgid "A date is required"
-msgstr "需要一个日期"
+msgstr "请填写日期"
 
 msgid "Day"
-msgstr "日"
+msgstr "日期"
 
 msgid "Add recipe"
-msgstr "添加食谱"
+msgstr "添加菜谱"
 
 msgid "Copy this day"
 msgstr "复制这一天"
@@ -2243,7 +2241,7 @@ msgid "Display product"
 msgstr "显示产品"
 
 msgid "Copy recipe"
-msgstr "复制食谱"
+msgstr "复制菜谱"
 
 msgid "Copy of %s"
 msgstr "复制%s"
@@ -2264,19 +2262,19 @@ msgid "Configure sections"
 msgstr "‎配置部件"
 
 msgid "Meal plan sections"
-msgstr "‎膳食计划部件"
+msgstr "‎饮食计划条目"
 
 msgid "Create meal plan section"
-msgstr "‎创建膳食计划部件"
+msgstr "新增饮食计划条目"
 
 msgid "Sections will be ordered by that number on the meal plan"
-msgstr "‎各部件将按膳食计划中的该数字订购‎"
+msgstr "‎在饮食计划表单上，各条目按照该编号进行排序"
 
 msgid "Edit meal plan section"
-msgstr "编辑膳食计划部分"
+msgstr "编辑饮食计划条目"
 
 msgid "Are you sure to delete meal plan section \"%s\"?"
-msgstr "你确定要删除膳食计划\"%s\"吗?"
+msgstr "您确定要删除饮食计划\"%s\"吗?"
 
 msgid "Section"
 msgstr "‎部件"
@@ -2329,7 +2327,7 @@ msgid "Save & add another task"
 msgstr "保存并添加另一个任务"
 
 msgid "Treat opened as out of stock"
-msgstr "一开封即扣除库存"
+msgstr "开封后核减库存"
 
 msgid ""
 "When enabled, opened items will be counted as missing for calculating if "
@@ -2355,7 +2353,7 @@ msgid "The start date cannot be changed when the chore was once tracked"
 msgstr "一旦跟踪了家务，就不能更改开始日期  "
 
 msgid "Show the recipe list and the recipe side by side"
-msgstr "并排显示食谱列表和食谱  "
+msgstr "并排显示菜谱和菜谱清单"
 
 msgid ""
 "This means the next execution of this chore is scheduled dynamically based "
@@ -2380,16 +2378,16 @@ msgstr "‎到期分数‎"
 msgid ""
 "The higher this number is, the more ingredients currently in stock are due "
 "soon, overdue or already expired"
-msgstr "这个数字越高，说明库存中即将到期、过期或已经过期的成分越多  "
+msgstr "此数值越高，当前库存中即将过期或已经过期的配料越多"
 
 msgid "Disable own stock"
-msgstr "禁用的库存"
+msgstr "禁用自有库存"
 
 msgid ""
 "When enabled, this product can't have own stock, means it will not be "
 "selectable on purchase (useful for parent products which are just used as a "
 "summary/total view of the child products)"
-msgstr "当启用时，该产品不能有自己的库存，意味着在购买时它将不可选(适用于父产品，仅用作子产品的汇总/总体视图)  "
+msgstr "当启用后，此产品不需要库存管理，在采购时不可选（适用于仅用作子产品的汇总/摘要视图的父产品）"
 
 msgid "Out of stock items will be shown at the products default location"
 msgstr "无库存项目将显示在产品默认位置  "
@@ -2435,24 +2433,24 @@ msgid "Now / today"
 msgstr "现在/今天"
 
 msgid "Add meal plan entry"
-msgstr "添加膳食计划条目"
+msgstr "添加饮食计划条目"
 
 msgid "Edit meal plan entry"
-msgstr "编辑膳食计划条目"
+msgstr "编辑饮食计划条目"
 
 msgid "Default consume location"
 msgstr "默认消耗/食用位置"
 
 msgid "Stock entries at this location will be consumed first"
-msgstr "这个位置的库存条目将首先被消费  "
+msgstr "优先消耗此位置的库存  "
 
 msgid "Move on open"
-msgstr "开封时移动到默认使用位置"
+msgstr "开封后转移"
 
 msgid ""
 "When enabled, on marking this product as opened, the corresponding amount "
 "will be moved to the default consume location"
-msgstr "勾选后，在将此‎‎产品‎‎标记为已开封时，相应数量的产品将移动到默认使用位置‎"
+msgstr "若启用，当此‎‎产品‎‎被标记为开封时，相应数量的产品将转移到默认消耗位置"
 
 msgid "Moved to %1$s"
 msgstr "移动到%1$s"
@@ -2487,10 +2485,10 @@ msgid "This is the default quantity unit used when consuming this product"
 msgstr "这是消耗此产品时使用的默认数量单位"
 
 msgid "Add to meal plan"
-msgstr "添加到膳食计划"
+msgstr "添加到饮食计划"
 
 msgid "Successfully added the recipe to the meal plan"
-msgstr "已将食谱添加到膳食计划"
+msgstr "已将菜谱添加到饮食计划"
 
 msgid "Reprint stock entry label"
 msgstr "重新打印库存输入标签"
@@ -2556,7 +2554,7 @@ msgstr ""
 msgid ""
 "When displaying prices for this product, they will be related to this "
 "quantity unit"
-msgstr ""
+msgstr "当展示产品价格时，将此数量单位做为产品价格的计算单位"
 
 msgid "This means 1 label will be printed"
 msgid_plural "This means %1$s labels will be printed"

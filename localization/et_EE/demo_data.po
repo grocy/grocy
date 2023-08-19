@@ -2,6 +2,7 @@
 # Translators:
 # Mario Loik <mariomobla@gmail.com>, 2020
 # Lauri Lepik, 2023
+# aylamz, 2023
 # 
 msgid ""
 msgstr ""
@@ -9,7 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Lauri Lepik, 2023\n"
+"Last-Translator: aylamz, 2023\n"
 "Language-Team: Estonian (Estonia) (https://app.transifex.com/grocy/teams/93189/et_EE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -31,7 +32,7 @@ msgid "Candy cupboard"
 msgstr "Kommisahtel"
 
 msgid "Tinned food cupboard"
-msgstr "Metallpurgitoidu sahtel"
+msgstr "Konservisahtel"
 
 msgid "Fridge"
 msgstr "Külmkapp"
@@ -106,16 +107,16 @@ msgid "Tomato"
 msgstr "Tomat"
 
 msgid "Change towels in the bathroom"
-msgstr "Vaheta vannitoas rätikud"
+msgstr "Vaheta vetsu rätikud"
 
 msgid "Mop the kitchen floor"
 msgstr "Pühi köögi põrand"
 
 msgid "Warranty ends"
-msgstr "Garantii lõpeb"
+msgstr "Garantii lõppeb"
 
 msgid "TV remote control"
-msgstr "TV pult"
+msgstr "Teleri pult"
 
 msgid "Alarm clock"
 msgstr "Äratuskell"
@@ -148,7 +149,7 @@ msgid "Pizza"
 msgstr "Pitsa"
 
 msgid "Spaghetti bolognese"
-msgstr "Bolognese spagetid"
+msgstr "Pasta bolognese"
 
 msgid "Sandwiches"
 msgstr "Võileivad"
@@ -166,7 +167,7 @@ msgid "This is the note content of the recipe ingredient"
 msgstr "See on retsepti koostisosade sisu märge"
 
 msgid "Demo User"
-msgstr "Demo Kasutaja"
+msgstr "Demo kasutaja"
 
 msgid "Gram"
 msgid_plural "Grams"
@@ -186,7 +187,7 @@ msgid "Sweets"
 msgstr "Maiustused"
 
 msgid "Bakery products"
-msgstr "Ahjutooted"
+msgstr "Pagaritooted"
 
 msgid "Tinned food"
 msgstr "Konserv"
@@ -198,7 +199,7 @@ msgid "Vegetables/Fruits"
 msgstr "Köögiviljad/Puuviljad"
 
 msgid "Refrigerated products"
-msgstr "Külmutatud Tooted"
+msgstr "Külmutatud tooted"
 
 msgid "Coffee machine"
 msgstr "Kohvimasin"
@@ -222,7 +223,7 @@ msgid "Milk"
 msgstr "Piim"
 
 msgid "Chocolate sauce"
-msgstr "Šokolaadi kaste"
+msgstr "Šokolaadikaste"
 
 msgid "Milliliters"
 msgstr "Millimeetrit"
@@ -249,7 +250,7 @@ msgid "Russian"
 msgstr "Vene"
 
 msgid "Vacuum the living room floor"
-msgstr "Korista tolmuimejaga elutuba"
+msgstr "Korista elutuba tolmuimejaga"
 
 msgid "Clean the litter box"
 msgstr "Korista liivakast"
@@ -267,7 +268,7 @@ msgid "Milk Chocolate"
 msgstr "Piimašokolaad"
 
 msgid "Dark Chocolate"
-msgstr "Must Šokolaad"
+msgstr "Must šokolaad"
 
 msgid "Slice"
 msgid_plural "Slices"
@@ -275,16 +276,16 @@ msgstr[0] "Viil"
 msgstr[1] "Viilu"
 
 msgid "Example userentity"
-msgstr "Näidis kasutajasisend"
+msgstr "Näidis kasutajaolem"
 
 msgid "This is an example user entity..."
-msgstr "See on kasutaja sisendi näide..."
+msgstr "See on kasutajaolemi näide..."
 
 msgid "Custom field"
-msgstr "Kohandatud väli"
+msgstr "Kohandatav väli"
 
 msgid "Example field value..."
-msgstr "Näidisvälja väärtus..."
+msgstr "Välja näidisväärtus..."
 
 msgid "Waffle rolls"
 msgstr "Vahvlirullid"
@@ -320,7 +321,7 @@ msgid "This is a note"
 msgstr "See on märge"
 
 msgid "Freezer"
-msgstr "Külmik"
+msgstr "Sügavkülmik"
 
 msgid "Hungarian"
 msgstr "Ungari"
@@ -411,4 +412,4 @@ msgid "Beer"
 msgstr "Õlu"
 
 msgid "Estonian"
-msgstr ""
+msgstr "eesti"

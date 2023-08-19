@@ -2,7 +2,7 @@
 # Translators:
 # Stan Overgauw <stan.overgauw@gmail.com>, 2020
 # Luc Donderwinkel, 2022
-# 36d163aedfa797f6b2721cfc9bae9c42_308433e, 2023
+# Matthijs <transifex.com@brievenbus.6689.nl>, 2023
 # 
 msgid ""
 msgstr ""
@@ -10,7 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2020-08-31 19:11+0000\n"
-"Last-Translator: 36d163aedfa797f6b2721cfc9bae9c42_308433e, 2023\n"
+"Last-Translator: Matthijs <transifex.com@brievenbus.6689.nl>, 2023\n"
 "Language-Team: Dutch (https://app.transifex.com/grocy/teams/93189/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -121,7 +121,7 @@ msgstr "Hebreeuws"
 
 # Tamil
 msgid "ta"
-msgstr "Tamils"
+msgstr "Tamil"
 
 # Finnish
 msgid "fi"
@@ -141,8 +141,8 @@ msgstr "Oekraïens"
 
 # Romanian
 msgid "ro_RO"
-msgstr "ro_RO"
+msgstr "Roemeens"
 
 # Estonian
 msgid "et_EE"
-msgstr ""
+msgstr "Estisch"

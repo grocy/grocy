@@ -1192,9 +1192,6 @@ msgstr "Asla"
 msgid "Today"
 msgstr "Bugün"
 
-msgid "Not all ingredients of recipe \"%s\" are in stock, nothing removed"
-msgstr ""
-
 msgid "Undo task"
 msgstr "Görevi geri al"
 

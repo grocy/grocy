@@ -277,9 +277,7 @@ msgid "Manage master data"
 msgstr "Spravovat základní data"
 
 msgid "This will apply to added products"
-msgstr ""
-"Určuje, jak se změna množství balení produktu zapíše do Seznamu zásob a zda "
-"se k této změně vytisknou nálepky na produkt"
+msgstr "Tento údaj se zapíše jen pro přidané produkty do zásoby."
 
 msgid "never"
 msgstr "nikdy"
@@ -1235,10 +1233,6 @@ msgstr "Nikdy"
 
 msgid "Today"
 msgstr "Dnes"
-
-msgid "Not all ingredients of recipe \"%s\" are in stock, nothing removed"
-msgstr ""
-"V zásobě nejsou všechny ingredience receptu „%s“ – nic nebude odebráno"
 
 msgid "Undo task"
 msgstr "Vrátit úkol"
@@ -2728,7 +2722,7 @@ msgid "Decimal places allowed for prices (display)"
 msgstr "Počet desetinných míst pro zobrazení ceny"
 
 msgid "Clear done items"
-msgstr "Smazat všechna zaškrtnutá"
+msgstr "Odstranit všechna vybraná"
 
 msgid ""
 "This shows all to this product directly or indirectly related quantity units"
@@ -2780,7 +2774,7 @@ msgid "Track chore execution now"
 msgstr "Splnění povinnosti s dnešním datem"
 
 msgid "Total"
-msgstr "Součet"
+msgstr "Celkem"
 
 msgid "Apply"
 msgstr "Provést"

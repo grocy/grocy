@@ -1169,9 +1169,6 @@ msgstr "Never"
 msgid "Today"
 msgstr "오늘"
 
-msgid "Not all ingredients of recipe \"%s\" are in stock, nothing removed"
-msgstr "Not all ingredients of recipe \"%s\" are in stock, nothing removed"
-
 msgid "Undo task"
 msgstr "작업 되돌리기"
 

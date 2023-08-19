@@ -11,6 +11,7 @@
 # Martino Falorni, 2023
 # Davide Casella, 2023
 # Saul il, 2023
+# Davide G., 2023
 # 
 msgid ""
 msgstr ""
@@ -18,7 +19,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Saul il, 2023\n"
+"Last-Translator: Davide G., 2023\n"
 "Language-Team: Italian (https://app.transifex.com/grocy/teams/93189/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1243,11 +1244,6 @@ msgstr "Mai"
 
 msgid "Today"
 msgstr "Oggi"
-
-msgid "Not all ingredients of recipe \"%s\" are in stock, nothing removed"
-msgstr ""
-"Non tutti gli ingredienti della ricetta \"%s\" sono disponibili in dispensa,"
-" nulla è stato rimosso"
 
 msgid "Undo task"
 msgstr "Annulla attività"
@@ -2763,7 +2759,7 @@ msgid "Product specifc QU conversions"
 msgstr ""
 
 msgid "Default quantity unit consume"
-msgstr ""
+msgstr "Quantità di unità di acquisto predefinita"
 
 msgid "This is the default quantity unit used when consuming this product"
 msgstr ""

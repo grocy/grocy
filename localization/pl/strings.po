@@ -19,6 +19,7 @@
 # Kamila Frej, 2022
 # Michał G, 2022
 # Oskar Sawaryn, 2023
+# orl0pl, 2023
 # 
 msgid ""
 msgstr ""
@@ -26,7 +27,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Oskar Sawaryn, 2023\n"
+"Last-Translator: orl0pl, 2023\n"
 "Language-Team: Polish (https://app.transifex.com/grocy/teams/93189/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -384,7 +385,7 @@ msgid "Removed %1$s of %2$s from stock"
 msgstr "%2$s - %1$s - usunięto z zapasów"
 
 msgid "About Grocy"
-msgstr ""
+msgstr "O Grocy"
 
 msgid "Close"
 msgstr "Zamknij"
@@ -895,6 +896,9 @@ msgid ""
 "The first item in this list would be picked by the default rule consume rule"
 " (Opened first, then first due first, then first in first out)"
 msgstr ""
+"Pierwszy element na tej liście zostanie wybrany domyślną regułą, którą jest "
+"\"Otwarte najpierw, następnie najszybciej przeterminowane, następnie "
+"pierwsze weszło-pierwsze wyszło\""
 
 msgid "Mark %1$s of %2$s as open"
 msgstr "%2$s - %1$s - oznacz jako otwarte"
@@ -1248,11 +1252,6 @@ msgstr "Nigdy"
 
 msgid "Today"
 msgstr "Dzisiaj"
-
-msgid "Not all ingredients of recipe \"%s\" are in stock, nothing removed"
-msgstr ""
-"Nie wszystkie składniki przepisu \"%s\" są dostępne, nic nie zostało "
-"usunięte"
 
 msgid "Undo task"
 msgstr "Cofnij zadanie"

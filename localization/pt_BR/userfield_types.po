@@ -1,7 +1,7 @@
 # 
 # Translators:
 # Bernd Bestel <bernd@berrnd.de>, 2019
-# Arthur Rodrigues <araruna@gmail.com>, 2022
+# Arthur Rodrigues <transifex@araruna.me>, 2022
 # Fernando Luiz Bonifácio de Oliveira, 2022
 # 
 msgid ""

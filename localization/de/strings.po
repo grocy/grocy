@@ -1222,11 +1222,6 @@ msgstr "Nie"
 msgid "Today"
 msgstr "Heute"
 
-msgid "Not all ingredients of recipe \"%s\" are in stock, nothing removed"
-msgstr ""
-"Nicht alle Zutaten, die vom Rezept \"%s\" benötigt werden, sind vorrätig, es"
-" wurde nichts aus dem Bestand entfernt"
-
 msgid "Undo task"
 msgstr "Aufgabe rückgängig machen"
 

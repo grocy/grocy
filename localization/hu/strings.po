@@ -1216,11 +1216,6 @@ msgstr "Soha"
 msgid "Today"
 msgstr "Ma"
 
-msgid "Not all ingredients of recipe \"%s\" are in stock, nothing removed"
-msgstr ""
-"Nincs a \"%s\" recept összes hozzávalója készleten, így nem használtunk fel "
-"semmit se"
-
 msgid "Undo task"
 msgstr "Feladat visszavonása"
 

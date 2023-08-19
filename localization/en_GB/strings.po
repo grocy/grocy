@@ -1198,9 +1198,6 @@ msgstr "Never"
 msgid "Today"
 msgstr "Today"
 
-msgid "Not all ingredients of recipe \"%s\" are in stock, nothing removed"
-msgstr "Not all ingredients of recipe \"%s\" are in stock, nothing removed"
-
 msgid "Undo task"
 msgstr "Undo task"
 

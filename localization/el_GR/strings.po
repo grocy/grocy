@@ -1218,9 +1218,6 @@ msgstr "Ποτέ"
 msgid "Today"
 msgstr "Σήμερα"
 
-msgid "Not all ingredients of recipe \"%s\" are in stock, nothing removed"
-msgstr "Δεν υπάρχουν όλα τα συστατικά της συνταγής \"%s\", τίποτα δεν αφαιρείται"
-
 msgid "Undo task"
 msgstr ""
 

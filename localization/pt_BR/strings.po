@@ -133,10 +133,10 @@ msgid "Battery"
 msgstr "Bateria"
 
 msgid "Last charged"
-msgstr "Última Carga"
+msgstr "Último Carregamento"
 
 msgid "Next planned charge cycle"
-msgstr "Próximo ciclo de carga prevista"
+msgstr "Próxima recarga"
 
 msgid "Best before"
 msgstr "Melhor consumido antes de "
@@ -572,7 +572,7 @@ msgstr "Diários"
 
 msgid "0 means suggestions for the next charge cycle are disabled"
 msgstr ""
-"0 significa que as sugestões para o próximo ciclo de carga estão "
+"0 (zero) significa que as sugestões para o próximo ciclo de carga estão "
 "desabilitados"
 
 msgid "Charge cycle interval (days)"
@@ -913,7 +913,7 @@ msgid "Chore due"
 msgstr "Ativ."
 
 msgid "Battery charge cycle due"
-msgstr "Vence carga"
+msgstr "Carregar"
 
 msgid "Show clock in header"
 msgstr "Exibir relógio no cabeçalho"
@@ -1239,11 +1239,6 @@ msgstr "Nunca"
 
 msgid "Today"
 msgstr "Hoje"
-
-msgid "Not all ingredients of recipe \"%s\" are in stock, nothing removed"
-msgstr ""
-"Nem todos os ingredientes da receita \"%s\" estão no estoque, nada foi "
-"removido"
 
 msgid "Undo task"
 msgstr "Desfazer tarefa"
@@ -1976,7 +1971,7 @@ msgid "Mark task as completed"
 msgstr "Marcar a tarefa como concluída"
 
 msgid "Track charge cycle"
-msgstr "Rastrear ciclo de recarga"
+msgstr "Atualizar ciclo de recarga"
 
 msgid "Battery journal"
 msgstr "Diário"

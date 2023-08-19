@@ -1157,9 +1157,6 @@ msgstr "期限なし"
 msgid "Today"
 msgstr "今日"
 
-msgid "Not all ingredients of recipe \"%s\" are in stock, nothing removed"
-msgstr ""
-
 msgid "Undo task"
 msgstr ""
 

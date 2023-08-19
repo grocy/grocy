@@ -1253,9 +1253,6 @@ msgstr "Никогда"
 msgid "Today"
 msgstr "Сегодня"
 
-msgid "Not all ingredients of recipe \"%s\" are in stock, nothing removed"
-msgstr "Не все ингредиенты рецепта \"%s\" есть в запасе, ничего не изъято"
-
 msgid "Undo task"
 msgstr "Отменить задание"
 
@@ -2741,10 +2738,10 @@ msgid "Track chore execution now"
 msgstr ""
 
 msgid "Total"
-msgstr ""
+msgstr "Всего"
 
 msgid "Apply"
-msgstr ""
+msgstr "Применить"
 
 msgid "Custom range"
 msgstr ""
@@ -2769,13 +2766,13 @@ msgid "This year"
 msgstr ""
 
 msgid "Last year"
-msgstr ""
+msgstr "Прошлый год"
 
 msgid "Reports"
-msgstr ""
+msgstr "Отчеты"
 
 msgid "Spendings"
-msgstr ""
+msgstr "Расходы"
 
 msgid "Stock report"
 msgstr ""

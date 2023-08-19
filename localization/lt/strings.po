@@ -1238,9 +1238,6 @@ msgstr "Niekada"
 msgid "Today"
 msgstr "Šiandien"
 
-msgid "Not all ingredients of recipe \"%s\" are in stock, nothing removed"
-msgstr "Ne visi recepto „%s“ ingredientai yra sandėlyje, nieko nėra pašalinta"
-
 msgid "Undo task"
 msgstr "Anuliuoti užduotį"
 

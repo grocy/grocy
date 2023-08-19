@@ -1236,9 +1236,6 @@ msgstr "Ніколи"
 msgid "Today"
 msgstr "Сьогодні"
 
-msgid "Not all ingredients of recipe \"%s\" are in stock, nothing removed"
-msgstr "Не усі інгрідієнти рецепту \"%s\" є в наявності, нічого не видалено"
-
 msgid "Undo task"
 msgstr "Відмінити завдання"
 

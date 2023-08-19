@@ -1209,10 +1209,6 @@ msgstr "Aldrig"
 msgid "Today"
 msgstr "Idag"
 
-msgid "Not all ingredients of recipe \"%s\" are in stock, nothing removed"
-msgstr ""
-"Ikke alle ingredienser til opskrift \"%s\" er i beholdningen, intet fjernet"
-
 msgid "Undo task"
 msgstr "Fortryd opgave"
 

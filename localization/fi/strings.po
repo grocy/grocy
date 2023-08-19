@@ -1204,9 +1204,6 @@ msgstr "Ei koskaan"
 msgid "Today"
 msgstr "Tänään"
 
-msgid "Not all ingredients of recipe \"%s\" are in stock, nothing removed"
-msgstr "Reseptin \"%s\"  kaikkia ainesosia ei ole varastossa, ei poistettu mitään"
-
 msgid "Undo task"
 msgstr "Kumoa tehtävä"
 

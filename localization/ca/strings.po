@@ -1204,11 +1204,6 @@ msgstr "Mai"
 msgid "Today"
 msgstr "Avui"
 
-msgid "Not all ingredients of recipe \"%s\" are in stock, nothing removed"
-msgstr ""
-"No tots els ingredients de la recepta \"%s\" tenen existències, no s'ha "
-"eliminat res"
-
 msgid "Undo task"
 msgstr "Desfer tasca"
 

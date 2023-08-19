@@ -1175,9 +1175,6 @@ msgstr "ஒருபோதும் இல்லை"
 msgid "Today"
 msgstr "இன்று"
 
-msgid "Not all ingredients of recipe \"%s\" are in stock, nothing removed"
-msgstr ""
-
 msgid "Undo task"
 msgstr ""
 

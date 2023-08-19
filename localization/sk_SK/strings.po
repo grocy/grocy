@@ -1228,9 +1228,6 @@ msgstr "Nikdy"
 msgid "Today"
 msgstr "Dnes"
 
-msgid "Not all ingredients of recipe \"%s\" are in stock, nothing removed"
-msgstr "Nie všetky suroviny v recepte \"%s\" sú v zásobe, nič nebude odstránené"
-
 msgid "Undo task"
 msgstr "Zrušiť úlohu"
 

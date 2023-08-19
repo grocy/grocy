@@ -3,7 +3,7 @@
 # Danilo Vieira <cebikyn@gmail.com>, 2019
 # Jefferson Brito Passos dos Santos <jeffersantoss@gmail.com>, 2019
 # Ryan Monteiro, 2022
-# Arthur Rodrigues <araruna@gmail.com>, 2022
+# Arthur Rodrigues <transifex@araruna.me>, 2022
 # Aurelio Barreto <aurelio@aureliobarreto.com>, 2023
 # 
 msgid ""

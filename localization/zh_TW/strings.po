@@ -1158,9 +1158,6 @@ msgstr "從未"
 msgid "Today"
 msgstr "今天"
 
-msgid "Not all ingredients of recipe \"%s\" are in stock, nothing removed"
-msgstr "食譜「%s」並非所有食材都有庫存，未處理。"
-
 msgid "Undo task"
 msgstr "取消任務"
 

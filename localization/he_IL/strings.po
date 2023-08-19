@@ -1218,9 +1218,6 @@ msgstr "אף פעם"
 msgid "Today"
 msgstr "היום"
 
-msgid "Not all ingredients of recipe \"%s\" are in stock, nothing removed"
-msgstr "לא כל הרכיבים של המתכון „%s” נמצאים במלאי, לא הוסר דבר"
-
 msgid "Undo task"
 msgstr "ביטול ביצוע משימה"
 
