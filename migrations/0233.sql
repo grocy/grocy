@@ -1,4 +1,4 @@
-DROP VIEW IF EXISTS "main"."stock_current";
+DROP VIEW stock_current;
 CREATE VIEW stock_current
 AS
 SELECT
@@ -9,7 +9,7 @@ SELECT
 	MIN(s.best_before_date) AS best_before_date,
 	IFNULL((SELECT SUM(amount) FROM stock WHERE product_id = pr.parent_product_id AND open = 1), 0) AS amount_opened,
 	IFNULL((SELECT SUM(amount) FROM stock WHERE product_id IN (SELECT sub_product_id FROM products_resolved WHERE parent_product_id = pr.parent_product_id) AND open = 1), 0) * IFNULL(qucr.factor, 1) AS amount_opened_aggregated,
-    CASE WHEN COUNT(p_sub.parent_product_id) > 0  THEN 1 ELSE 0 END AS is_aggregated_amount,
+	CASE WHEN COUNT(p_sub.parent_product_id) > 0  THEN 1 ELSE 0 END AS is_aggregated_amount,
 	MAX(p_parent.due_type) AS due_type
 FROM products_resolved pr
 JOIN stock s
@@ -48,4 +48,4 @@ JOIN products p_sub
 	AND p_sub.active = 1
 WHERE pr.parent_product_id != pr.sub_product_id
 GROUP BY pr.sub_product_id
-HAVING SUM(s.amount) > 0
+HAVING SUM(s.amount) > 0;
