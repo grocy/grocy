@@ -70,7 +70,7 @@ Grocy.Api.Post = function(apiFunction, jsonData, success, error)
 	};
 
 	xhr.open('POST', url, true);
-	xhr.setRequestHeader('Content-type', 'application/json');
+	xhr.setRequestHeader('Content-Type', 'application/json');
 	xhr.send(JSON.stringify(jsonData));
 };
 
@@ -108,7 +108,7 @@ Grocy.Api.Put = function(apiFunction, jsonData, success, error)
 	};
 
 	xhr.open('PUT', url, true);
-	xhr.setRequestHeader('Content-type', 'application/json');
+	xhr.setRequestHeader('Content-Type', 'application/json');
 	xhr.send(JSON.stringify(jsonData));
 };
 
@@ -146,7 +146,7 @@ Grocy.Api.Delete = function(apiFunction, jsonData, success, error)
 	};
 
 	xhr.open('DELETE', url, true);
-	xhr.setRequestHeader('Content-type', 'application/json');
+	xhr.setRequestHeader('Content-Type', 'application/json');
 	xhr.send(JSON.stringify(jsonData));
 };
 
@@ -184,7 +184,7 @@ Grocy.Api.UploadFile = function(file, group, fileName, success, error)
 	};
 
 	xhr.open('PUT', url, true);
-	xhr.setRequestHeader('Content-type', 'application/octet-stream');
+	xhr.setRequestHeader('Content-Type', 'application/octet-stream');
 	xhr.send(file);
 };
 
@@ -222,7 +222,7 @@ Grocy.Api.DeleteFile = function(fileName, group, success, error)
 	};
 
 	xhr.open('DELETE', url, true);
-	xhr.setRequestHeader('Content-type', 'application/json');
+	xhr.setRequestHeader('Content-Type', 'application/json');
 	xhr.send();
 };
 

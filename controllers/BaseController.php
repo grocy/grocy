@@ -19,6 +19,7 @@ use Grocy\Services\TasksService;
 use Grocy\Services\UserfieldsService;
 use Grocy\Services\UsersService;
 use DI\Container;
+use Slim\Exception\HttpException;
 
 class BaseController
 {
@@ -213,6 +214,11 @@ class BaseController
 
 	protected function GetParsedAndFilteredRequestBody($request)
 	{
+		if ($request->getHeaderLine('Content-Type') != 'application/json')
+		{
+			throw new HttpException($request, 'Bad Content-Type', 400);
+		}
+
 		if (self::$htmlPurifierInstance == null)
 		{
 			$htmlPurifierConfig = \HTMLPurifier_Config::createDefault();
