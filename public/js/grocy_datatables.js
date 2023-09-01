@@ -20,14 +20,32 @@ $.extend(true, $.fn.dataTable.defaults, {
 	'stateSaveCallback': function(settings, data)
 	{
 		var settingKey = 'datatables_state_' + settings.sTableId;
+
 		if ($.isEmptyObject(data))
 		{
-			//state.clear was called and unfortunately the table is not refresh, so we are reloading the page
+			// state.clear() was called (resetting table layout)
 			Grocy.FrontendHelpers.DeleteUserSetting(settingKey, true);
-		} else
+		}
+		else
 		{
-			var stateData = JSON.stringify(data);
-			Grocy.FrontendHelpers.SaveUserSetting(settingKey, stateData);
+			// Don't save when the state data hasn't actually changed
+			if (Grocy.UserSettings[settingKey] !== undefined)
+			{
+				var data1 = JSON.parse(Grocy.UserSettings[settingKey]);
+				delete data1.time;
+				delete data1.childRows;
+
+				var data2 = Object.assign({}, data); // Clone `data` without reference
+				delete data2.time;
+				delete data2.childRows;
+
+				if (JSON.stringify(data1) == JSON.stringify(data2))
+				{
+					return;
+				}
+			}
+
+			Grocy.FrontendHelpers.SaveUserSetting(settingKey, JSON.stringify(data));
 		}
 	},
 	'stateLoadCallback': function(settings, data)
@@ -277,6 +295,7 @@ $(".change-table-columns-visibility-button").on("click", function(e)
 				{
 					bootbox.confirm({
 						message: __t("Are you sure to reset the table options?"),
+						closeButton: false,
 						buttons: {
 							cancel: {
 								label: 'No',

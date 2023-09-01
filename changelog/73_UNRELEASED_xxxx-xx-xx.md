@@ -10,7 +10,8 @@
 
 ### Stock
 
-- xxx
+- Performance improvements related to the stock overview page / displaying a product card
+- Performance improvements related to consuming products (thanks @alkuzman)
 
 ### Shopping list
 
@@ -18,7 +19,7 @@
 
 ### Recipes
 
-- Performance improvements when consuming recipes (thanks @alkuzman)
+- xxx
 
 ### Meal plan
 
@@ -50,7 +51,7 @@
 
 ### General
 
-- xxx
+- Performance improvements related to table (layout) loading handling
 
 ### API
 
