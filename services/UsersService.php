@@ -67,12 +67,24 @@ class UsersService extends BaseService
 		}
 	}
 
+	private static $UserSettingsCache = [];
 	public function GetUserSetting($userId, $settingKey)
 	{
+		if (!array_key_exists($userId, self::$UserSettingsCache))
+		{
+			self::$UserSettingsCache[$userId] = [];
+		}
+
+		if (array_key_exists($settingKey, self::$UserSettingsCache[$userId]))
+		{
+			return self::$UserSettingsCache[$userId][$settingKey];
+		}
+
+		$value = null;
 		$settingRow = $this->getDatabase()->user_settings()->where('user_id = :1 AND key = :2', $userId, $settingKey)->fetch();
 		if ($settingRow !== null)
 		{
-			return $settingRow->value;
+			$value = $settingRow->value;
 		}
 		else
 		{
@@ -80,19 +92,17 @@ class UsersService extends BaseService
 			global $GROCY_DEFAULT_USER_SETTINGS;
 			if (array_key_exists($settingKey, $GROCY_DEFAULT_USER_SETTINGS))
 			{
-				return $GROCY_DEFAULT_USER_SETTINGS[$settingKey];
-			}
-			else
-			{
-				return null;
+				$value = $GROCY_DEFAULT_USER_SETTINGS[$settingKey];
 			}
 		}
+
+		self::$UserSettingsCache[$userId][$settingKey] = $value;
+		return $value;
 	}
 
 	public function GetUserSettings($userId)
 	{
 		$settings = [];
-
 		$settingRows = $this->getDatabase()->user_settings()->where('user_id = :1', $userId)->fetchAll();
 		foreach ($settingRows as $settingRow)
 		{
@@ -111,6 +121,12 @@ class UsersService extends BaseService
 
 	public function SetUserSetting($userId, $settingKey, $settingValue)
 	{
+		if (!array_key_exists($userId, self::$UserSettingsCache))
+		{
+			self::$UserSettingsCache[$userId] = [];
+		}
+		self::$UserSettingsCache[$userId][$settingKey] = $settingValue;
+
 		$settingRow = $this->getDatabase()->user_settings()->where('user_id = :1 AND key = :2', $userId, $settingKey)->fetch();
 		if ($settingRow !== null)
 		{
@@ -132,6 +148,12 @@ class UsersService extends BaseService
 
 	public function DeleteUserSetting($userId, $settingKey)
 	{
+		if (!array_key_exists($userId, self::$UserSettingsCache))
+		{
+			self::$UserSettingsCache[$userId] = [];
+		}
+		unset(self::$UserSettingsCache[$userId][$settingKey]);
+
 		$this->getDatabase()->user_settings()->where('user_id = :1 AND key = :2', $userId, $settingKey)->delete();
 	}
 
