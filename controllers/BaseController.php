@@ -19,7 +19,6 @@ use Grocy\Services\TasksService;
 use Grocy\Services\UserfieldsService;
 use Grocy\Services\UsersService;
 use DI\Container;
-use Slim\Exception\HttpException;
 
 class BaseController
 {
@@ -208,49 +207,5 @@ class BaseController
 		}
 
 		return $this->render($response, $viewName, $data);
-	}
-
-	private static $htmlPurifierInstance = null;
-
-	protected function GetParsedAndFilteredRequestBody($request)
-	{
-		if ($request->getHeaderLine('Content-Type') != 'application/json')
-		{
-			throw new HttpException($request, 'Bad Content-Type', 400);
-		}
-
-		if (self::$htmlPurifierInstance == null)
-		{
-			$htmlPurifierConfig = \HTMLPurifier_Config::createDefault();
-			$htmlPurifierConfig->set('Cache.SerializerPath', GROCY_DATAPATH . '/viewcache');
-			$htmlPurifierConfig->set('HTML.Allowed', 'div,b,strong,i,em,u,a[href|title|target],iframe[src|width|height|frameborder],ul,ol,li,p[style],br,span[style],img[style|width|height|alt|src],table[border|width|style],tbody,tr,td,th,blockquote,*[style|class|id],h1,h2,h3,h4,h5,h6');
-			$htmlPurifierConfig->set('Attr.EnableID', true);
-			$htmlPurifierConfig->set('HTML.SafeIframe', true);
-			$htmlPurifierConfig->set('CSS.AllowedProperties', 'font,font-size,font-weight,font-style,font-family,text-decoration,padding-left,color,background-color,text-align,width,height');
-			$htmlPurifierConfig->set('URI.AllowedSchemes', ['data' => true, 'http' => true, 'https' => true]);
-			$htmlPurifierConfig->set('URI.SafeIframeRegexp', '%^.*%'); // Allow any iframe source
-			$htmlPurifierConfig->set('CSS.MaxImgLength', null);
-
-			self::$htmlPurifierInstance = new \HTMLPurifier($htmlPurifierConfig);
-		}
-
-		$requestBody = $request->getParsedBody();
-		foreach ($requestBody as $key => &$value)
-		{
-			// HTMLPurifier removes boolean values (true/false) and arrays, so explicitly keep them
-			// Maybe also possible through HTMLPurifier config (http://htmlpurifier.org/live/configdoc/plain.html)
-			if (!is_bool($value) && !is_array($value))
-			{
-				$value = self::$htmlPurifierInstance->purify($value);
-
-				// Allow some special chars
-				// Maybe also possible through HTMLPurifier config (http://htmlpurifier.org/live/configdoc/plain.html)
-				$value = str_replace('&amp;', '&', $value);
-				$value = str_replace('&gt;', '>', $value);
-				$value = str_replace('&lt;', '<', $value);
-			}
-		}
-
-		return $requestBody;
 	}
 }
