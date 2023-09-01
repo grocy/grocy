@@ -204,7 +204,7 @@ class LocalizationService
 		$quantityUnits = null;
 		try
 		{
-			$quantityUnits = $this->getDatabase()->quantity_units()->fetchAll();
+			$quantityUnits = $this->getDatabase()->quantity_units()->where('active = 1')->fetchAll();
 		}
 		catch (\Exception $ex)
 		{

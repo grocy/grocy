@@ -711,42 +711,14 @@ class StockService extends BaseService
 			$stockCurrentRow->is_aggregated_amount = 0;
 		}
 
-		$productLastPurchased = $this->getDatabase()->cache__products_last_purchased()->where('product_id', $productId)->fetch();
-		$lastPurchasedDate = null;
-		$lastPrice = null;
-		$lastShoppingLocation = null;
-		$avgPrice = null;
-		if ($productLastPurchased)
-		{
-			$lastPurchasedDate = $productLastPurchased->purchased_date;
-			$lastPrice = $productLastPurchased->price;
-			$lastShoppingLocation = $productLastPurchased->shopping_location_id;
-			$avgPriceRow = $this->getDatabase()->cache__products_average_price()->where('product_id', $productId)->fetch();
-			if ($avgPriceRow)
-			{
-				$avgPrice = $avgPriceRow->price;
-			}
-		}
-
+		$detailsRow = $this->getDatabase()->uihelper_product_details()->where('id', $productId)->fetch();
 		$product = $this->getDatabase()->products($productId);
 		$productBarcodes = $this->getDatabase()->product_barcodes()->where('product_id', $productId)->fetchAll();
-		$productLastUsed = $this->getDatabase()->stock_log()->where('product_id', $productId)->where('transaction_type', self::TRANSACTION_TYPE_CONSUME)->where('undone', 0)->max('used_date');
-		$nextDueDate = $this->getDatabase()->stock()->where('product_id', $productId)->min('best_before_date');
 		$quPurchase = $this->getDatabase()->quantity_units($product->qu_id_purchase);
 		$quStock = $this->getDatabase()->quantity_units($product->qu_id_stock);
 		$quConsume = $this->getDatabase()->quantity_units($product->qu_id_consume);
 		$quPrice = $this->getDatabase()->quantity_units($product->qu_id_price);
 		$location = $this->getDatabase()->locations($product->location_id);
-		$averageShelfLifeDays = $this->getDatabase()->stock_average_product_shelf_life()->where('id', $productId)->fetch()->average_shelf_life_days;
-		$currentPrice = $this->getDatabase()->products_current_price()->where('product_id', $productId)->fetch()->price;
-
-		$consumeCount = $this->getDatabase()->stock_log()->where('product_id', $productId)->where('transaction_type', self::TRANSACTION_TYPE_CONSUME)->where('undone = 0')->sum('amount') * -1;
-		$consumeCountSpoiled = $this->getDatabase()->stock_log()->where('product_id', $productId)->where('transaction_type', self::TRANSACTION_TYPE_CONSUME)->where('undone = 0 AND spoiled = 1')->sum('amount') * -1;
-		if ($consumeCount == 0 || $consumeCount == null)
-		{
-			$consumeCount = 1;
-		}
-		$spoilRate = ($consumeCountSpoiled * 100.0) / $consumeCount;
 
 		$defaultConsumeLocation = null;
 		if (!empty($product->default_consume_location_id))
@@ -754,31 +726,11 @@ class StockService extends BaseService
 			$defaultConsumeLocation = $this->getDatabase()->locations($product->default_consume_location_id);
 		}
 
-		$quConversionFactorPurchaseToStock = 1.0;
-		if ($product->qu_id_stock != $product->qu_id_purchase)
-		{
-			$conversion = $this->getDatabase()->cache__quantity_unit_conversions_resolved()->where('product_id = :1 AND from_qu_id = :2 AND to_qu_id = :3', $product->id, $product->qu_id_purchase, $product->qu_id_stock)->fetch();
-			if ($conversion != null)
-			{
-				$quConversionFactorPurchaseToStock = $conversion->factor;
-			}
-		}
-
-		$quConversionFactorPriceToStock = 1.0;
-		if ($product->qu_id_stock != $product->qu_id_price)
-		{
-			$conversion = $this->getDatabase()->cache__quantity_unit_conversions_resolved()->where('product_id = :1 AND from_qu_id = :2 AND to_qu_id = :3', $product->id, $product->qu_id_price, $product->qu_id_stock)->fetch();
-			if ($conversion != null)
-			{
-				$quConversionFactorPriceToStock = $conversion->factor;
-			}
-		}
-
 		return [
 			'product' => $product,
 			'product_barcodes' => $productBarcodes,
-			'last_purchased' => $lastPurchasedDate,
-			'last_used' => $productLastUsed,
+			'last_purchased' => $detailsRow->last_purchased_date,
+			'last_used' => $detailsRow->last_used_date,
 			'stock_amount' => $stockCurrentRow->amount,
 			'stock_value' => $stockCurrentRow->value,
 			'stock_amount_opened' => $stockCurrentRow->amount_opened,
@@ -788,21 +740,21 @@ class StockService extends BaseService
 			'default_quantity_unit_purchase' => $quPurchase,
 			'default_quantity_unit_consume' => $quConsume,
 			'quantity_unit_price' => $quPrice,
-			'last_price' => $lastPrice,
-			'avg_price' => $avgPrice,
-			'oldest_price' => $currentPrice, // Deprecated
-			'current_price' => $currentPrice,
-			'last_shopping_location_id' => $lastShoppingLocation,
+			'last_price' => $detailsRow->last_purchased_price,
+			'avg_price' => $detailsRow->average_price,
+			'oldest_price' => $detailsRow->current_price, // Deprecated
+			'current_price' => $detailsRow->current_price,
+			'last_shopping_location_id' => $detailsRow->last_purchased_shopping_location_id,
 			'default_shopping_location_id' => $product->shopping_location_id,
-			'next_due_date' => $nextDueDate,
+			'next_due_date' => $detailsRow->next_due_date,
 			'location' => $location,
-			'average_shelf_life_days' => $averageShelfLifeDays,
-			'spoil_rate_percent' => $spoilRate,
+			'average_shelf_life_days' => $detailsRow->average_shelf_life_days,
+			'spoil_rate_percent' => $detailsRow->spoil_rate,
 			'is_aggregated_amount' => $stockCurrentRow->is_aggregated_amount,
-			'has_childs' => $this->getDatabase()->products()->where('parent_product_id = :1', $product->id)->count() !== 0,
+			'has_childs' => boolval($detailsRow->has_childs),
 			'default_consume_location' => $defaultConsumeLocation,
-			'qu_conversion_factor_purchase_to_stock' => $quConversionFactorPurchaseToStock,
-			'qu_conversion_factor_price_to_stock' => $quConversionFactorPriceToStock
+			'qu_conversion_factor_purchase_to_stock' => $detailsRow->qu_factor_purchase_to_stock,
+			'qu_conversion_factor_price_to_stock' => $detailsRow->qu_factor_price_to_stock
 		];
 	}
 
