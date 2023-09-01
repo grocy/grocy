@@ -619,19 +619,25 @@ class StockService extends BaseService
 		return $pluginOutput;
 	}
 
+	private static $CurrentStockCache = null;
 	public function GetCurrentStock()
 	{
-		$sql = 'SELECT * FROM stock_current';
-		$currentStockMapped = $this->getDatabaseService()->ExecuteDbQuery($sql)->fetchAll(\PDO::FETCH_GROUP | \PDO::FETCH_OBJ);
-		$relevantProducts = $this->getDatabase()->products()->where('id IN (SELECT product_id FROM (' . $sql . ') x)');
-
-		foreach ($relevantProducts as $product)
+		if (self::$CurrentStockCache == null)
 		{
-			$currentStockMapped[$product->id][0]->product_id = $product->id;
-			$currentStockMapped[$product->id][0]->product = $product;
+			$sql = 'SELECT * FROM stock_current';
+			$currentStockMapped = $this->getDatabaseService()->ExecuteDbQuery($sql)->fetchAll(\PDO::FETCH_GROUP | \PDO::FETCH_OBJ);
+			$relevantProducts = $this->getDatabase()->products()->where('id IN (SELECT product_id FROM (' . $sql . ') x)');
+
+			foreach ($relevantProducts as $product)
+			{
+				$currentStockMapped[$product->id][0]->product_id = $product->id;
+				$currentStockMapped[$product->id][0]->product = $product;
+			}
+
+			self::$CurrentStockCache = array_column($currentStockMapped, 0);
 		}
 
-		return array_column($currentStockMapped, 0);
+		return self::$CurrentStockCache;
 	}
 
 	public function GetCurrentStockLocationContent($includeOutOfStockProductsAtTheDefaultLocation = false)
