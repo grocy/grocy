@@ -28,6 +28,10 @@ msgstr ""
 msgid "number-decimal"
 msgstr ""
 
+# Number (currency)
+msgid "number-currency"
+msgstr ""
+
 # Date (without time)
 msgid "date"
 msgstr ""

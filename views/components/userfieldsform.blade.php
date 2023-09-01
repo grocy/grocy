@@ -34,7 +34,7 @@
 			@if($userfield->input_required == 1) required @endif></textarea>
 		<div class="invalid-feedback">{{ $__t('Mandatory Userfield') }}</div>
 	</div>
-	@elseif($userfield->type == \Grocy\Services\UserfieldsService::USERFIELD_TYPE_INTEGRAL_NUMBER)
+	@elseif($userfield->type == \Grocy\Services\UserfieldsService::USERFIELD_TYPE_NUMBER_INT)
 	@include('components.numberpicker', array(
 	'id' => $userfield->name,
 	'label' => $userfield->caption,
@@ -45,7 +45,7 @@
 	'additionalAttributes' => 'data-userfield-name="' . $userfield->name . '"',
 	'value' => ''
 	))
-	@elseif($userfield->type == \Grocy\Services\UserfieldsService::USERFIELD_TYPE_DECIMAL_NUMBER)
+	@elseif($userfield->type == \Grocy\Services\UserfieldsService::USERFIELD_TYPE_NUMBER_DECIMAL)
 	@include('components.numberpicker', array(
 	'id' => '',
 	'label' => $userfield->caption,
@@ -54,6 +54,18 @@
 	'decimals' => 4,
 	'isRequired' => $userfield->input_required == 1,
 	'additionalCssClasses' => 'userfield-input',
+	'additionalAttributes' => 'data-userfield-name="' . $userfield->name . '"',
+	'value' => ''
+	))
+	@elseif($userfield->type == \Grocy\Services\UserfieldsService::USERFIELD_TYPE_NUMBER_CURRENCY)
+	@include('components.numberpicker', array(
+	'id' => '',
+	'label' => $userfield->caption,
+	'noNameAttribute' => true,
+	'min' => 0,
+	'decimals' => 4,
+	'isRequired' => $userfield->input_required == 1,
+	'additionalCssClasses' => 'userfield-input locale-number-input locale-number-currency',
 	'additionalAttributes' => 'data-userfield-name="' . $userfield->name . '"',
 	'value' => ''
 	))

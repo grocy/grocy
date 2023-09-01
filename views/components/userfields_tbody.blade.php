@@ -48,6 +48,10 @@ $excludeFieldTypes = [];
 			alt="{{ base64_decode(explode('_', $userfieldObject->value)[1]) }}"
 			loading="lazy">
 	</a>
+	@elseif($userfield->type == \Grocy\Services\UserfieldsService::USERFIELD_TYPE_NUMBER_DECIMAL)
+	<span class="locale-number locale-number-generic">{{ $userfieldObject->value }}</span>
+	@elseif($userfield->type == \Grocy\Services\UserfieldsService::USERFIELD_TYPE_NUMBER_CURRENCY)
+	<span class="locale-number locale-number-currency">{{ $userfieldObject->value }}</span>
 	@else
 	{{ $userfieldObject->value }}
 	@endif

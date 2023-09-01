@@ -7,10 +7,11 @@ class UserfieldsService extends BaseService
 	const USERFIELD_TYPE_CHECKBOX = 'checkbox';
 	const USERFIELD_TYPE_DATE = 'date';
 	const USERFIELD_TYPE_DATETIME = 'datetime';
-	const USERFIELD_TYPE_DECIMAL_NUMBER = 'number-decimal';
+	const USERFIELD_TYPE_NUMBER_INT = 'number-integral';
+	const USERFIELD_TYPE_NUMBER_DECIMAL = 'number-decimal';
+	const USERFIELD_TYPE_NUMBER_CURRENCY = 'number-currency';
 	const USERFIELD_TYPE_FILE = 'file';
 	const USERFIELD_TYPE_IMAGE = 'image';
-	const USERFIELD_TYPE_INTEGRAL_NUMBER = 'number-integral';
 	const USERFIELD_TYPE_LINK = 'link';
 	const USERFIELD_TYPE_LINK_WITH_TITLE = 'link-with-title';
 	const USERFIELD_TYPE_PRESET_CHECKLIST = 'preset-checklist';

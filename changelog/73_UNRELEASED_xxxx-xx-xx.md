@@ -47,7 +47,7 @@
 
 ### Userfields
 
-- xxx
+- New Userfield type "Number (currency)", just like the type "Number (decimal)", but it will render the value according to / with the configured currency
 
 ### General
 
