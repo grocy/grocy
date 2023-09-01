@@ -20,7 +20,7 @@ See the website &rarr; <https://grocy.info>
 - General help and usage questions &rarr;  [r/grocy subreddit](https://www.reddit.com/r/grocy)
 - Bug Reports and Feature Requests &rarr; [Issue Tracker](https://github.com/grocy/grocy/issues/new/choose)
 
-_Please don't send me private messages or call me regarding Grocy help. I check the issue tracker and the subreddit pretty much daily, but don't provide any support beyond that._
+_Please don't send me private messages or call me regarding anything Grocy. I check the issue tracker and the subreddit pretty much daily, but don't provide any support beyond that._
 
 ## Community contributions
 
@@ -32,8 +32,6 @@ See the website for a list of community contributed Add-ons / Tools. &rarr; [htt
 >
 > Directly download the [latest release](https://releases.grocy.info/latest-desktop) - the installation is nothing more than just clicking 2 times "next".
 
-See the website for some installation guides and troubleshooting help. &rarr; [https://grocy.info/links](https://grocy.info/links)
-
 Grocy is technically a pretty simple PHP application, so the basic notes to get it running are:
 - Unpack the [latest release](https://releases.grocy.info/latest)
 - Copy `config-dist.php` to `data/config.php` + edit to your needs
@@ -44,6 +42,8 @@ Grocy is technically a pretty simple PHP application, so the basic notes to get 
 - &rarr; Default login is user `admin` with password `admin`, please change the password immediately (user menu at the top right corner)
 
 Alternatively clone this repository (the `release` branch always references the latest released version) and install Composer and Yarn dependencies manually.
+
+See the website for more installation guides and troubleshooting help. &rarr; [https://grocy.info/links](https://grocy.info/links)
 
 ### Platform support
 
@@ -102,11 +102,11 @@ _My personal recommendation: Use a USB barcode laser scanner. They are cheap and
 For (productivity) reasons all date (and time) input (and display) fields use the ISO-8601 format regardless of localization.
 The following shorthands are available:
 - `MMDD` gets expanded to the given day on the current year, if > today, or to the given day next year, if < today, in proper notation
-  - Example: `0517` will be converted to `2021-05-17`
+  - Example: `0517` will be converted to `2023-05-17`
 - `YYYYMMDD` gets expanded to the proper ISO-8601 notation
-  - Example: `20210417` will be converted to `2021-04-17`
+  - Example: `20230417` will be converted to `2023-04-17`
 - `YYYYMMe` or `YYYYMM+` gets expanded to the end of the given month in the given year in proper notation
-  - Example: `202107e` will be converted to `2021-07-31`
+  - Example: `202307e` will be converted to `2023-07-31`
 - `[+/-]n[d/m/y]` gets expanded to a date relative to today, while adding (**+**) or subtracting (**-**) the **n**umber of**d**ays/**m**onths/**y**ears, in proper notation
   - Example: `+1m` will be converted to the same day next month
 - `x` gets expanded to `2999-12-31` (which is an alias for "never overdue")
@@ -157,7 +157,7 @@ Any help is welcome, feel free to contribute anything which comes to your mind o
 
 ## Roadmap
 
-There is none. The progress of a specific bug/enhancement is always tracked in the corresponding issue, at least by commit comment references.
+There is none, this is a hobby project. The progress of a specific bug/enhancement is always tracked in the corresponding issue, at least by commit comment references.
 
 [Milestones](https://github.com/grocy/grocy/milestones) are used to indicate in which version the corresponding request was done (`vNEXT` means it's currently planned to do that for the next release).
 
