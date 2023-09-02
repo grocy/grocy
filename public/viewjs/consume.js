@@ -389,26 +389,35 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 					{
 						var setDefault = 0;
 						var stockAmountAtDefaultLocation = 0;
+						var addedLocations = [];
 						stockLocations.forEach(stockLocation =>
 						{
 							if (stockLocation.location_id == defaultLocationId)
 							{
-								$("#location_id").append($("<option>", {
-									value: stockLocation.location_id,
-									text: stockLocation.location_name + " (" + __t("Default location") + ")"
-								}));
-								$("#location_id").val(defaultLocationId);
-								$("#location_id").trigger('change');
-								setDefault = 1;
+								if (!addedLocations.includes(stockLocation.location_id))
+								{
+									$("#location_id").append($("<option>", {
+										value: stockLocation.location_id,
+										text: stockLocation.location_name + " (" + __t("Default location") + ")"
+									}));
+									$("#location_id").val(defaultLocationId);
+									$("#location_id").trigger('change');
+									setDefault = 1;
+								}
 								stockAmountAtDefaultLocation += stockLocation.amount;
 							}
 							else
 							{
-								$("#location_id").append($("<option>", {
-									value: stockLocation.location_id,
-									text: stockLocation.location_name
-								}));
+								if (!addedLocations.includes(stockLocation.location_id))
+								{
+									$("#location_id").append($("<option>", {
+										value: stockLocation.location_id,
+										text: stockLocation.location_name
+									}));
+								}
 							}
+
+							addedLocations.push(stockLocation.location_id);
 
 							if (setDefault == 0)
 							{
