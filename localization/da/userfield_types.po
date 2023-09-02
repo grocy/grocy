@@ -35,6 +35,10 @@ msgstr "tal-heltal"
 msgid "number-decimal"
 msgstr "tal-decimal"
 
+# Number (currency)
+msgid "number-currency"
+msgstr ""
+
 # Date (without time)
 msgid "date"
 msgstr "dato"

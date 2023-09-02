@@ -2817,12 +2817,12 @@ msgid "Out-of-stock products"
 msgstr "Produkty bez zásoby"
 
 msgid "Quantity unit for prices"
-msgstr "Množstevní jednotka pro ceny"
+msgstr "Měrná jednotka pro ceny"
 
 msgid ""
 "When displaying prices for this product, they will be related to this "
 "quantity unit"
-msgstr "Zobrazované ceny produktu budou odpovídat této množstevní jednotce"
+msgstr "Zobrazované ceny produktu budou odpovídat této měrné jednotce"
 
 msgid "This means 1 label will be printed"
 msgid_plural "This means %1$s labels will be printed"

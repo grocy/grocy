@@ -35,6 +35,10 @@ msgstr "整數"
 msgid "number-decimal"
 msgstr "小數"
 
+# Number (currency)
+msgid "number-currency"
+msgstr ""
+
 # Date (without time)
 msgid "date"
 msgstr "日期"

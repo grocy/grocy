@@ -33,6 +33,10 @@ msgstr "Nummer (geheel getal)"
 msgid "number-decimal"
 msgstr "Nummer (decimaal)"
 
+# Number (currency)
+msgid "number-currency"
+msgstr ""
+
 # Date (without time)
 msgid "date"
 msgstr "Datum (zonder tijd)"

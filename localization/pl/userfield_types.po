@@ -36,6 +36,10 @@ msgstr "Liczba (całkowita)"
 msgid "number-decimal"
 msgstr "Liczba (dziesiętna)"
 
+# Number (currency)
+msgid "number-currency"
+msgstr ""
+
 # Date (without time)
 msgid "date"
 msgstr "Data (bez czasu)"

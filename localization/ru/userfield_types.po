@@ -35,6 +35,10 @@ msgstr "Число (целочисленное)"
 msgid "number-decimal"
 msgstr "Число (дробное)"
 
+# Number (currency)
+msgid "number-currency"
+msgstr ""
+
 # Date (without time)
 msgid "date"
 msgstr "Дата (без времени)"

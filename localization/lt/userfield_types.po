@@ -33,6 +33,10 @@ msgstr "skaičių integralas"
 msgid "number-decimal"
 msgstr "skaičius po kablelio"
 
+# Number (currency)
+msgid "number-currency"
+msgstr ""
+
 # Date (without time)
 msgid "date"
 msgstr "data"

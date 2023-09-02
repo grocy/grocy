@@ -24,6 +24,9 @@ msgstr "Number (integral)"
 msgid "number-decimal"
 msgstr "Number (decimal)"
 
+msgid "number-currency"
+msgstr "Number (currency)"
+
 msgid "date"
 msgstr "Date (without time)"
 

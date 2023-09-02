@@ -7,9 +7,9 @@
 # Alan Pucheta <apucheta@protonmail.com>, 2020
 # Alberto Martin <ami232@gmail.com>, 2021
 # victormce <victormce@gmail.com>, 2021
-# GRBaset, 2022
 # Matt Sawyers, 2022
 # Ricardo Verduguez, 2023
+# GRBaset, 2023
 # 
 msgid ""
 msgstr ""
@@ -17,7 +17,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Ricardo Verduguez, 2023\n"
+"Last-Translator: GRBaset, 2023\n"
 "Language-Team: Spanish (https://app.transifex.com/grocy/teams/93189/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -120,13 +120,13 @@ msgid "Tomato"
 msgstr "Tomate"
 
 msgid "Change towels in the bathroom"
-msgstr "Cambiar toallas en el baño"
+msgstr "Cambiar las toallas del baño"
 
 msgid "Mop the kitchen floor"
 msgstr "Trapear el piso de la cocina."
 
 msgid "Warranty ends"
-msgstr "Final de la garantía"
+msgstr "La garantía se acaba en"
 
 msgid "TV remote control"
 msgstr "Mando a distancia de la televisión"
@@ -138,7 +138,7 @@ msgid "Heat remote control"
 msgstr "Mando a distancia de la calefacción"
 
 msgid "Take out the trash"
-msgstr "Sacar la basura."
+msgstr "Sacar la basura"
 
 msgid "Some good snacks"
 msgstr "Cosas de picar"
@@ -405,27 +405,27 @@ msgstr "Ukrainian"
 
 msgid "Kilogram"
 msgid_plural "Kilograms"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Kilogramo"
+msgstr[1] "Kilogramos"
+msgstr[2] "Kilogramos"
 
 msgid "Romanian"
-msgstr ""
+msgstr "Rumano"
 
 msgid "Pint"
-msgstr ""
+msgstr "Pinta"
 
 msgid "Beverages"
-msgstr ""
+msgstr "Bebidas"
 
 msgid "Ice Cream"
-msgstr ""
+msgstr "Helado"
 
 msgid "Soda"
-msgstr ""
+msgstr "Refresco"
 
 msgid "Beer"
-msgstr ""
+msgstr "Cerveza"
 
 msgid "Estonian"
-msgstr ""
+msgstr "Estonio"

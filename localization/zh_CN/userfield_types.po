@@ -1,8 +1,8 @@
 # 
 # Translators:
-# Song Li <boltomli@gmail.com>, 2020
 # ba X <985096998@qq.com>, 2020
 # 冠南 胡, 2023
+# aleixcox, 2023
 # 
 msgid ""
 msgstr ""
@@ -10,7 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:43+0000\n"
-"Last-Translator: 冠南 胡, 2023\n"
+"Last-Translator: aleixcox, 2023\n"
 "Language-Team: Chinese (China) (https://app.transifex.com/grocy/teams/93189/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -29,11 +29,15 @@ msgstr "多行文本"
 
 # Number (integral)
 msgid "number-integral"
-msgstr "数量（整数）"
+msgstr "数量 - 整数"
 
 # Number (decimal)
 msgid "number-decimal"
-msgstr "十进制数"
+msgstr "数量 - 小数"
+
+# Number (currency)
+msgid "number-currency"
+msgstr ""
 
 # Date (without time)
 msgid "date"

@@ -35,6 +35,10 @@ msgstr "αριθμός-ακέραιο"
 msgid "number-decimal"
 msgstr "αριθμός-δεκαδικός"
 
+# Number (currency)
+msgid "number-currency"
+msgstr ""
+
 # Date (without time)
 msgid "date"
 msgstr "ημερομηνία"

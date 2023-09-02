@@ -9,9 +9,10 @@
 # Walter Palagi, 2022
 # Moltivie Denied <major2015usa@gmail.com>, 2022
 # Martino Falorni, 2023
-# Davide Casella, 2023
 # Saul il, 2023
 # Davide G., 2023
+# Davide Casella, 2023
+# Claudio Arseni <claudio.arseni@gmail.com>, 2023
 # 
 msgid ""
 msgstr ""
@@ -19,7 +20,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Davide G., 2023\n"
+"Last-Translator: Claudio Arseni <claudio.arseni@gmail.com>, 2023\n"
 "Language-Team: Italian (https://app.transifex.com/grocy/teams/93189/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -97,10 +98,10 @@ msgid "Shopping list"
 msgstr "Lista della spesa"
 
 msgid "Chore tracking"
-msgstr "Tracciamento delle faccende domestiche"
+msgstr "Tracciamento delle faccende"
 
 msgid "Battery tracking"
-msgstr "Dati batterie"
+msgstr "Dati sulle batterie"
 
 msgid "Locations"
 msgstr "Posizioni"
@@ -127,7 +128,7 @@ msgid "Last tracked"
 msgstr "Ultima esecuzione"
 
 msgid "Battery"
-msgstr "Batterie"
+msgstr "Batteria"
 
 msgid "Last charged"
 msgstr "Ultima ricarica"
@@ -217,7 +218,7 @@ msgid "Create product"
 msgstr "Aggiungi prodotto"
 
 msgid "Barcode(s)"
-msgstr "Codice(i) a barre"
+msgstr "Codice a barre"
 
 msgid "Minimum stock amount"
 msgstr "Quantità minima in dispensa"
@@ -289,19 +290,19 @@ msgid "Login"
 msgstr "Accesso"
 
 msgid "Username"
-msgstr "Nome Utente"
+msgstr "Nome utente"
 
 msgid "Password"
 msgstr "Password"
 
 msgid "Invalid credentials, please try again"
-msgstr "Credenziali non valide, per favore riprova"
+msgstr "Credenziali non valide, riprovare"
 
 msgid "Are you sure to delete battery \"%s\"?"
 msgstr "Sei sicuro di voler eliminare la batteria \"%s\"?"
 
 msgid "Yes"
-msgstr "Si"
+msgstr "Sì"
 
 msgid "No"
 msgstr "No"
@@ -2356,6 +2357,8 @@ msgid ""
 "Grocycode is a unique referer to this %s in your Grocy instance - print it "
 "onto a label and scan it like any other barcode"
 msgstr ""
+"Grocycode è un riferimento univoco a questo %s nell'istanza di Grocy. "
+"Stampalo su un'etichetta e scansionalo come qualsiasi altro codice a barre."
 
 # Abbreviation for "due date"
 msgid "DD"
@@ -2384,7 +2387,7 @@ msgstr "Errore durante l'esecuzione di WebHook"
 
 # Example: Print *Product* Grocycode on label printer
 msgid "Print %s Grocycode on label printer"
-msgstr ""
+msgstr "Stampa il Grocycode di %s su una stampante per etichette"
 
 msgid "Open stock entry label in new window"
 msgstr "Apri l'etichetta della dispensa in una nuova finestra"
@@ -2723,14 +2726,14 @@ msgstr ""
 "consumate"
 
 msgid "Move on open"
-msgstr "Avanti apri"
+msgstr "Muovi all'apertura"
 
 msgid ""
 "When enabled, on marking this product as opened, the corresponding amount "
 "will be moved to the default consume location"
 msgstr ""
-"Quando abilitato, selezionando questo prodotto come aperto, l'attuale "
-"quantita' verra' spostata nella location di consumo predefinita"
+"Quando abilitato, selezionando questo prodotto come aperto, la rispettiva "
+"quantità verrà spostata nella location di consumo predefinita"
 
 msgid "Moved to %1$s"
 msgstr "Spostato a %1$s"
@@ -2748,27 +2751,31 @@ msgid ""
 "This shows all to this product directly or indirectly related quantity units"
 " and their derived conversion factors"
 msgstr ""
+"Mostra tutte le unità di quantità direttamente o indirettamente correlate a "
+"questo prodotto e i relativi fattori di conversione derivati"
 
 msgid "Show resolved conversions"
-msgstr ""
+msgstr "Mostra le conversioni risolte"
 
 msgid "QU conversions resolved"
-msgstr ""
+msgstr "UQ di conversioni risolte"
 
 msgid "Product specifc QU conversions"
-msgstr ""
+msgstr "UQ di conversioni specifiche per il prodotto"
 
 msgid "Default quantity unit consume"
 msgstr "Quantità di unità di acquisto predefinita"
 
 msgid "This is the default quantity unit used when consuming this product"
 msgstr ""
+"È l'unità di quantità predefinita utilizzata per il consumo di questo "
+"prodotto"
 
 msgid "Add to meal plan"
 msgstr "Aggiungi al piano alimentare"
 
 msgid "Successfully added the recipe to the meal plan"
-msgstr ""
+msgstr "La ricetta è stata aggiunta con successo al piano pasti"
 
 msgid "Reprint stock entry label"
 msgstr ""
@@ -2783,7 +2790,7 @@ msgid ""
 msgstr ""
 
 msgid "Quick open amount"
-msgstr ""
+msgstr "Quantità per consumo rapido"
 
 msgid "Track chore execution now"
 msgstr "Traccia l'esecuzione delle faccende ora"

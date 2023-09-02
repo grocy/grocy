@@ -34,6 +34,10 @@ msgstr "מספר שלם"
 msgid "number-decimal"
 msgstr "מספר עשרוני"
 
+# Number (currency)
+msgid "number-currency"
+msgstr ""
+
 # Date (without time)
 msgid "date"
 msgstr "תאריך (בלי שעה)"

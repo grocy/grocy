@@ -33,6 +33,10 @@ msgstr "Număr (integral)"
 msgid "number-decimal"
 msgstr "Număr (decimal)"
 
+# Number (currency)
+msgid "number-currency"
+msgstr ""
+
 # Date (without time)
 msgid "date"
 msgstr "Dată (fără timp)"

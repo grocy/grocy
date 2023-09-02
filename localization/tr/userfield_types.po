@@ -33,6 +33,10 @@ msgstr "tam-sayi"
 msgid "number-decimal"
 msgstr "ondalik-sayi"
 
+# Number (currency)
+msgid "number-currency"
+msgstr ""
+
 # Date (without time)
 msgid "date"
 msgstr "tarih"

@@ -13,9 +13,9 @@
 # victormce <victormce@gmail.com>, 2021
 # Fernando Sánchez <fernando.l.sanchez@gmail.com>, 2021
 # Juan José González-Abril, 2021
-# GRBaset, 2022
 # Ricardo Verduguez, 2023
 # Jose Manuel Ruiz, 2023
+# GRBaset, 2023
 # 
 msgid ""
 msgstr ""
@@ -23,7 +23,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Jose Manuel Ruiz, 2023\n"
+"Last-Translator: GRBaset, 2023\n"
 "Language-Team: Spanish (https://app.transifex.com/grocy/teams/93189/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -907,7 +907,7 @@ msgid "%s opened"
 msgstr "%s abierto"
 
 msgid "Product due"
-msgstr "Producto fecha límite"
+msgstr "Producto con fecha límite"
 
 msgid "Task due"
 msgstr "Tarea pendiente"
@@ -1035,7 +1035,7 @@ msgid "The given date is earlier than today, are you sure?"
 msgstr "La fecha introducida es anterior a hoy, ¿está seguro?"
 
 msgid "Product count"
-msgstr "Cuenta de producto"
+msgstr "Número de productos"
 
 msgid ""
 "Type a new product name or barcode and hit TAB or ENTER to start a workflow"
@@ -1078,7 +1078,7 @@ msgid "Are you sure to delete shopping list \"%s\"?"
 msgstr "¿Está seguro de querer eliminar la lista de la compra \"%s\"?"
 
 msgid "Average shelf life"
-msgstr "Promedio de tiempo de almacenamiento"
+msgstr "Tiempo de conservación promedio"
 
 msgid "Spoil rate"
 msgstr "Ratio de desperdicio"
@@ -1978,7 +1978,7 @@ msgid "Chore journal"
 msgstr "Diario de tareas del hogar"
 
 msgid "Track next chore schedule"
-msgstr ""
+msgstr "Registrar la siguiente ejecución programada de la tarea"
 
 msgid "Mark task as completed"
 msgstr "Marcar tarea como completada"
@@ -2005,6 +2005,8 @@ msgid ""
 "This is the default quantity unit used on purchase and when adding this "
 "product to the shopping list"
 msgstr ""
+"Esta es la unidad de cantidad predeterminada al comprar y al añadir este "
+"producto a la lista de la compra"
 
 msgid ""
 "Show a warning when the due date of the purchased product is earlier than "
@@ -2034,11 +2036,15 @@ msgid ""
 "This amount is used for the \"quick consume button\" on the stock overview "
 "page (related to quantity unit stock)"
 msgstr ""
+"Esta cantidad se usa para el botón de \"consumo rápido\" en la página de "
+"resumen de inventario (medido en unidades de inventario)"
 
 msgid ""
 "This amount is used for the \"quick open button\" on the stock overview page"
 " (related to quantity unit stock)"
 msgstr ""
+"Esta cantidad se usa para el botón de \"apertura rápida\" en la página de "
+"resumen de inventario (medido en unidades de inventario)"
 
 msgid "Copy"
 msgstr "Copiar"
@@ -2333,7 +2339,7 @@ msgid "A product or a note is required"
 msgstr "Hace falta un producto o una nota"
 
 msgid "Grocycode"
-msgstr ""
+msgstr "Grocycode"
 
 msgid "Download"
 msgstr "Descargar"
@@ -2346,6 +2352,8 @@ msgid ""
 "Grocycode is a unique referer to this %s in your Grocy instance - print it "
 "onto a label and scan it like any other barcode"
 msgstr ""
+"El Grocycode es una referencia única a este %s en tu instancia de Grocy - "
+"imprímalo en una etiqueta y escanéelo como cualquier otro código de barras"
 
 # Abbreviation for "due date"
 msgid "DD"
@@ -2374,7 +2382,7 @@ msgstr "Error al ejecutar WebHook"
 
 # Example: Print *Product* Grocycode on label printer
 msgid "Print %s Grocycode on label printer"
-msgstr ""
+msgstr "Imprimir Grocycode de %s en una impresora de etiquetas"
 
 msgid "Open stock entry label in new window"
 msgstr "Abrir etiqueta de entrada de inventario en una ventana nueva"
@@ -2582,7 +2590,7 @@ msgid "Skipped"
 msgstr "Omitido"
 
 msgid "Skip next chore schedule"
-msgstr "Omitir el siguiente programa de tareas"
+msgstr "Omitir la siguiente ejecución programada de la tarea"
 
 msgid "Time"
 msgstr "Tiempo"
@@ -2779,10 +2787,10 @@ msgstr ""
 "etiqueta."
 
 msgid "Quick open amount"
-msgstr ""
+msgstr "Cantidad de apertura rápida"
 
 msgid "Track chore execution now"
-msgstr ""
+msgstr "Registrar ejecución de la tarea del hogar ahora"
 
 msgid "Total"
 msgstr "Total"
@@ -2798,9 +2806,9 @@ msgstr "Ayer"
 
 msgid "Last %1$s day"
 msgid_plural "Last %1$s days"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Último %1$s día"
+msgstr[1] "Últimos %1$s días"
+msgstr[2] "Últimos %1$s días"
 
 msgid "This month"
 msgstr "Este mes"
@@ -2818,7 +2826,7 @@ msgid "Reports"
 msgstr "Informes"
 
 msgid "Spendings"
-msgstr ""
+msgstr "Gastos"
 
 msgid "Stock report"
 msgstr "Inventario"
@@ -2827,12 +2835,14 @@ msgid "Out-of-stock products"
 msgstr "Productos sin existencias"
 
 msgid "Quantity unit for prices"
-msgstr ""
+msgstr "Unidad para los precios"
 
 msgid ""
 "When displaying prices for this product, they will be related to this "
 "quantity unit"
 msgstr ""
+"Cuando se muestren los precios para este producto, se mostrarán en términos "
+"de esta unidad de cantidad"
 
 msgid "This means 1 label will be printed"
 msgid_plural "This means %1$s labels will be printed"

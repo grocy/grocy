@@ -33,6 +33,10 @@ msgstr "цілі числа"
 msgid "number-decimal"
 msgstr "числа з часткою"
 
+# Number (currency)
+msgid "number-currency"
+msgstr ""
+
 # Date (without time)
 msgid "date"
 msgstr "дата"

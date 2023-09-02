@@ -37,6 +37,10 @@ msgstr "nombre entier"
 msgid "number-decimal"
 msgstr "nombre décimal"
 
+# Number (currency)
+msgid "number-currency"
+msgstr ""
+
 # Date (without time)
 msgid "date"
 msgstr "date"

@@ -1,10 +1,14 @@
 # 
+# Translators:
+# Anže Pintar <anze.pintar2@gmail.com>, 2023
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
+"Last-Translator: Anže Pintar <anze.pintar2@gmail.com>, 2023\n"
 "Language-Team: Slovenian (https://app.transifex.com/grocy/teams/93189/sl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -14,10 +18,10 @@ msgstr ""
 "X-Domain: grocy/demo_data\n"
 
 msgid "Cookies"
-msgstr ""
+msgstr "Piškoti"
 
 msgid "Chocolate"
-msgstr ""
+msgstr "Čokolada"
 
 msgid "Pantry"
 msgstr ""
@@ -29,14 +33,14 @@ msgid "Tinned food cupboard"
 msgstr ""
 
 msgid "Fridge"
-msgstr ""
+msgstr "Hladilnik"
 
 msgid "Piece"
 msgid_plural "Pieces"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "Kos"
+msgstr[1] "Kosa"
+msgstr[2] "Kosi"
+msgstr[3] "Kosov"
 
 msgid "Pack"
 msgid_plural "Packs"
@@ -80,37 +84,37 @@ msgid "Crisps"
 msgstr ""
 
 msgid "Eggs"
-msgstr ""
+msgstr "Jajca"
 
 msgid "Noodles"
-msgstr ""
+msgstr "Rezanci"
 
 msgid "Pickles"
 msgstr ""
 
 msgid "Gulash soup"
-msgstr ""
+msgstr "Golaž"
 
 msgid "Yogurt"
-msgstr ""
+msgstr "Jogurt"
 
 msgid "Cheese"
-msgstr ""
+msgstr "Sir"
 
 msgid "Cold cuts"
 msgstr ""
 
 msgid "Paprika"
-msgstr ""
+msgstr "Paprika"
 
 msgid "Cucumber"
-msgstr ""
+msgstr "Kumara"
 
 msgid "Radish"
-msgstr ""
+msgstr "Redkev"
 
 msgid "Tomato"
-msgstr ""
+msgstr "Paradižnik"
 
 msgid "Change towels in the bathroom"
 msgstr ""
@@ -137,28 +141,28 @@ msgid "Some good snacks"
 msgstr ""
 
 msgid "Pizza dough"
-msgstr ""
+msgstr "Testo za pico"
 
 msgid "Sieved tomatoes"
 msgstr ""
 
 msgid "Salami"
-msgstr ""
+msgstr "Salama"
 
 msgid "Toast"
-msgstr ""
+msgstr "Toast"
 
 msgid "Minced meat"
 msgstr ""
 
 msgid "Pizza"
-msgstr ""
+msgstr "Pica"
 
 msgid "Spaghetti bolognese"
-msgstr ""
+msgstr "Špageti Bolognese"
 
 msgid "Sandwiches"
-msgstr ""
+msgstr "Sendviči"
 
 msgid "English"
 msgstr ""
@@ -177,22 +181,22 @@ msgstr ""
 
 msgid "Gram"
 msgid_plural "Grams"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "Gram"
+msgstr[1] "Grama"
+msgstr[2] "Grami"
+msgstr[3] "Gramov"
 
 msgid "Flour"
-msgstr ""
+msgstr "Moka"
 
 msgid "Pancakes"
-msgstr ""
+msgstr "Palačinke"
 
 msgid "Sugar"
-msgstr ""
+msgstr "Sladkor"
 
 msgid "Sweets"
-msgstr ""
+msgstr "Sladkarije"
 
 msgid "Bakery products"
 msgstr ""
@@ -213,31 +217,31 @@ msgid "Coffee machine"
 msgstr ""
 
 msgid "Dishwasher"
-msgstr ""
+msgstr "Pomivalni stroj"
 
 msgid "Liter"
-msgstr ""
+msgstr "Liter"
 
 msgid "Liters"
-msgstr ""
+msgstr "Litrov"
 
 msgid "Bottle"
-msgstr ""
+msgstr "Steklenica"
 
 msgid "Bottles"
-msgstr ""
+msgstr "Steklenic"
 
 msgid "Milk"
-msgstr ""
+msgstr "Mleko"
 
 msgid "Chocolate sauce"
 msgstr ""
 
 msgid "Milliliters"
-msgstr ""
+msgstr "Mililitrov"
 
 msgid "Milliliter"
-msgstr ""
+msgstr "Mililiter"
 
 msgid "Bottom"
 msgstr ""
@@ -273,17 +277,17 @@ msgid "Polish"
 msgstr ""
 
 msgid "Milk Chocolate"
-msgstr ""
+msgstr "Mlečna čokolada"
 
 msgid "Dark Chocolate"
-msgstr ""
+msgstr "Temna čokolada"
 
 msgid "Slice"
 msgid_plural "Slices"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "Rezina"
+msgstr[1] "Rezini"
+msgstr[2] "Rezine"
+msgstr[3] "Rezin"
 
 msgid "Example userentity"
 msgstr ""
@@ -328,10 +332,10 @@ msgid "Portuguese (Brazil)"
 msgstr ""
 
 msgid "This is a note"
-msgstr ""
+msgstr "To je opomba"
 
 msgid "Freezer"
-msgstr ""
+msgstr "Zamrzovalnik"
 
 msgid "Hungarian"
 msgstr ""
@@ -347,11 +351,11 @@ msgstr ""
 
 # Use a in your country well known supermarket name
 msgid "DemoSupermarket1"
-msgstr ""
+msgstr "DemoTrgovina1"
 
 # Use a in your country well known supermarket name
 msgid "DemoSupermarket2"
-msgstr ""
+msgstr "DemoTrgovina2"
 
 msgid "Japanese"
 msgstr ""
@@ -378,13 +382,13 @@ msgid "Finnish"
 msgstr ""
 
 msgid "Breakfast"
-msgstr ""
+msgstr "Zajtrk"
 
 msgid "Lunch"
-msgstr ""
+msgstr "Kosilo"
 
 msgid "Dinner"
-msgstr ""
+msgstr "Večerja"
 
 msgid "Catalan"
 msgstr ""
@@ -400,10 +404,10 @@ msgstr ""
 
 msgid "Kilogram"
 msgid_plural "Kilograms"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "Kilogram"
+msgstr[1] "Kilograma"
+msgstr[2] "Kilogrami"
+msgstr[3] "Kilogramov"
 
 msgid "Romanian"
 msgstr ""
@@ -415,13 +419,13 @@ msgid "Beverages"
 msgstr ""
 
 msgid "Ice Cream"
-msgstr ""
+msgstr "Sladoled"
 
 msgid "Soda"
 msgstr ""
 
 msgid "Beer"
-msgstr ""
+msgstr "Pivo"
 
 msgid "Estonian"
 msgstr ""
