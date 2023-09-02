@@ -620,9 +620,9 @@ class StockService extends BaseService
 	}
 
 	private static $CurrentStockCache = null;
-	public function GetCurrentStock()
+	public function GetCurrentStock(bool $useCache = false)
 	{
-		if (self::$CurrentStockCache == null)
+		if (!$useCache || self::$CurrentStockCache == null)
 		{
 			$sql = 'SELECT * FROM stock_current';
 			$currentStockMapped = $this->getDatabaseService()->ExecuteDbQuery($sql)->fetchAll(\PDO::FETCH_GROUP | \PDO::FETCH_OBJ);
@@ -665,7 +665,7 @@ class StockService extends BaseService
 
 	public function GetDueProducts(int $days = 5, bool $excludeOverdue = false)
 	{
-		$currentStock = $this->GetCurrentStock();
+		$currentStock = $this->GetCurrentStock(true);
 		$currentStock = FindAllObjectsInArrayByPropertyValue($currentStock, 'best_before_date', date('Y-m-d 23:59:59', strtotime("+$days days")), '<');
 
 		if ($excludeOverdue)
@@ -678,7 +678,7 @@ class StockService extends BaseService
 
 	public function GetExpiredProducts()
 	{
-		$currentStock = $this->GetCurrentStock();
+		$currentStock = $this->GetCurrentStock(true);
 		$currentStock = FindAllObjectsInArrayByPropertyValue($currentStock, 'best_before_date', date('Y-m-d 23:59:59', strtotime('-1 days')), '<');
 		$currentStock = FindAllObjectsInArrayByPropertyValue($currentStock, 'due_type', 2);
 
