@@ -22,7 +22,7 @@
 
 ### Meal plan
 
-- xxx
+- Fixed that the meal plan page was broken after deleting _all_ (of all weeks) meal plan items
 
 ### Chores
 
