@@ -18,7 +18,7 @@
 
 ### Recipes
 
-- xxx
+- Fixed that copying recipes with special characters in the name was not possible
 
 ### Meal plan
 
