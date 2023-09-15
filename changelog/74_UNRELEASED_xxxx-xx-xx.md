@@ -11,6 +11,7 @@
 ### Stock
 
 - Fixed that the location dropdown on the consume page contained the same location multiple times if there are currently stock entries at multiple locations of the corresponding product
+- Fixed that the status filter "n products are overdue" on the stock overview page also counted/included stock entries due today or tomorrow
 
 ### Shopping list
 
