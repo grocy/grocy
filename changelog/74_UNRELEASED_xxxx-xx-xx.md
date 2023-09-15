@@ -46,7 +46,7 @@
 
 ### Userfields
 
-- xxx
+- Fixed that when having a userfield of type "Select list (multiple items can be selected)" and selecting no item, editing of the corresponding form was broken
 
 ### General
 
