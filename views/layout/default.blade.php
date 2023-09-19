@@ -349,7 +349,7 @@
 					title="{{ $userentity->caption }}">
 					<a class="nav-link discrete-link"
 						href="{{ $U('/userobjects/' . $userentity->name) }}">
-						<i class="{{ $userentity->icon_css_class }}"></i>
+						<i class="fa-fw {{ $userentity->icon_css_class }}"></i>
 						<span class="nav-link-text">{{ $userentity->caption }}</span>
 					</a>
 				</li>
