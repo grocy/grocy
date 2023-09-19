@@ -51,7 +51,7 @@
 
 ### General
 
-- xxx
+- Optimized sidebar icon spacing (thanks @chris-thorn)
 
 ### API
 
