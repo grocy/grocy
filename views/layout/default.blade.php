@@ -161,7 +161,7 @@
 					title="{{ $__t('Stock overview') }}">
 					<a class="nav-link discrete-link"
 						href="{{ $U('/stockoverview') }}">
-						<i class="fa-solid fa-box"></i>
+						<i class="fa-solid fa-fw fa-box"></i>
 						<span class="nav-link-text">{{ $__t('Stock overview') }}</span>
 					</a>
 				</li>
@@ -173,7 +173,7 @@
 					title="{{ $__t('Shopping list') }}">
 					<a class="nav-link discrete-link"
 						href="{{ $U('/shoppinglist') }}">
-						<i class="fa-solid fa-shopping-cart"></i>
+						<i class="fa-solid fa-fw fa-shopping-cart"></i>
 						<span class="nav-link-text">{{ $__t('Shopping list') }}</span>
 					</a>
 				</li>
@@ -186,7 +186,7 @@
 					title="{{ $__t('Recipes') }}">
 					<a class="nav-link discrete-link"
 						href="{{ $U('/recipes') }}">
-						<i class="fa-solid fa-pizza-slice"></i>
+						<i class="fa-solid fa-fw fa-pizza-slice"></i>
 						<span class="nav-link-text">{{ $__t('Recipes') }}</span>
 					</a>
 				</li>
@@ -198,7 +198,7 @@
 					<a id="meal-plan-nav-link"
 						class="nav-link discrete-link"
 						href="{{ $U('/mealplan') }}">
-						<i class="fa-solid fa-paper-plane"></i>
+						<i class="fa-solid fa-fw fa-paper-plane"></i>
 						<span class="nav-link-text">{{ $__t('Meal plan') }}</span>
 					</a>
 				</li>
@@ -212,7 +212,7 @@
 					title="{{ $__t('Chores overview') }}">
 					<a class="nav-link discrete-link"
 						href="{{ $U('/choresoverview') }}">
-						<i class="fa-solid fa-home"></i>
+						<i class="fa-solid fa-fw fa-home"></i>
 						<span class="nav-link-text">{{ $__t('Chores overview') }}</span>
 					</a>
 				</li>
@@ -224,7 +224,7 @@
 					title="{{ $__t('Tasks') }}">
 					<a class="nav-link discrete-link"
 						href="{{ $U('/tasks') }}">
-						<i class="fa-solid fa-tasks"></i>
+						<i class="fa-solid fa-fw fa-tasks"></i>
 						<span class="nav-link-text">{{ $__t('Tasks') }}</span>
 					</a>
 				</li>
@@ -236,7 +236,7 @@
 					title="{{ $__t('Batteries overview') }}">
 					<a class="nav-link discrete-link"
 						href="{{ $U('/batteriesoverview') }}">
-						<i class="fa-solid fa-battery-half"></i>
+						<i class="fa-solid fa-fw fa-battery-half"></i>
 						<span class="nav-link-text">{{ $__t('Batteries overview') }}</span>
 					</a>
 				</li>
@@ -248,7 +248,7 @@
 					title="{{ $__t('Equipment') }}">
 					<a class="nav-link discrete-link"
 						href="{{ $U('/equipment') }}">
-						<i class="fa-solid fa-toolbox"></i>
+						<i class="fa-solid fa-fw fa-toolbox"></i>
 						<span class="nav-link-text">{{ $__t('Equipment') }}</span>
 					</a>
 				</li>
@@ -261,7 +261,7 @@
 					title="{{ $__t('Calendar') }}">
 					<a class="nav-link discrete-link"
 						href="{{ $U('/calendar') }}">
-						<i class="fa-solid fa-calendar-days"></i>
+						<i class="fa-solid fa-fw fa-calendar-days"></i>
 						<span class="nav-link-text">{{ $__t('Calendar') }}</span>
 					</a>
 				</li>
@@ -275,7 +275,7 @@
 					title="{{ $__t('Purchase') }}">
 					<a class="nav-link discrete-link"
 						href="{{ $U('/purchase') }}">
-						<i class="fa-solid fa-cart-plus"></i>
+						<i class="fa-solid fa-fw fa-cart-plus"></i>
 						<span class="nav-link-text">{{ $__t('Purchase') }}</span>
 					</a>
 				</li>
@@ -285,7 +285,7 @@
 					title="{{ $__t('Consume') }}">
 					<a class="nav-link discrete-link"
 						href="{{ $U('/consume') }}">
-						<i class="fa-solid fa-utensils"></i>
+						<i class="fa-solid fa-fw fa-utensils"></i>
 						<span class="nav-link-text">{{ $__t('Consume') }}</span>
 					</a>
 				</li>
@@ -296,7 +296,7 @@
 					title="{{ $__t('Transfer') }}">
 					<a class="nav-link discrete-link"
 						href="{{ $U('/transfer') }}">
-						<i class="fa-solid fa-exchange-alt"></i>
+						<i class="fa-solid fa-fw fa-exchange-alt"></i>
 						<span class="nav-link-text">{{ $__t('Transfer') }}</span>
 					</a>
 				</li>
@@ -307,7 +307,7 @@
 					title="{{ $__t('Inventory') }}">
 					<a class="nav-link discrete-link"
 						href="{{ $U('/inventory') }}">
-						<i class="fa-solid fa-list"></i>
+						<i class="fa-solid fa-fw fa-list"></i>
 						<span class="nav-link-text">{{ $__t('Inventory') }}</span>
 					</a>
 				</li>
@@ -319,7 +319,7 @@
 					title="{{ $__t('Chore tracking') }}">
 					<a class="nav-link discrete-link"
 						href="{{ $U('/choretracking') }}">
-						<i class="fa-solid fa-play"></i>
+						<i class="fa-solid fa-fw fa-play"></i>
 						<span class="nav-link-text">{{ $__t('Chore tracking') }}</span>
 					</a>
 				</li>
@@ -331,7 +331,7 @@
 					title="{{ $__t('Battery tracking') }}">
 					<a class="nav-link discrete-link"
 						href="{{ $U('/batterytracking') }}">
-						<i class="fa-solid fa-car-battery"></i>
+						<i class="fa-solid fa-fw fa-car-battery"></i>
 						<span class="nav-link-text">{{ $__t('Battery tracking') }}</span>
 					</a>
 				</li>
@@ -370,7 +370,7 @@
 					<a class="nav-link nav-link-collapse discrete-link @if(!in_array($viewName, $masterDataViews)) collapsed @else active-page @endif"
 						data-toggle="collapse"
 						href="#sub-nav-manage-master-data">
-						<i class="fa-solid fa-table"></i>
+						<i class="fa-solid fa-fw fa-table"></i>
 						<span class="nav-link-text">{{ $__t('Manage master data') }}</span>
 					</a>
 					<ul id="sub-nav-manage-master-data"
