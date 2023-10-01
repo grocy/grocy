@@ -107,7 +107,7 @@ The following shorthands are available:
   - Example: `20230417` will be converted to `2023-04-17`
 - `YYYYMMe` or `YYYYMM+` gets expanded to the end of the given month in the given year in proper notation
   - Example: `202307e` will be converted to `2023-07-31`
-- `[+/-]n[d/m/y]` gets expanded to a date relative to today, while adding (**+**) or subtracting (**-**) the **n**umber of**d**ays/**m**onths/**y**ears, in proper notation
+- `[+/-]n[d/m/y]` gets expanded to a date relative to today, while adding (**+**) or subtracting (**-**) the **n**umber of **d**ays/**m**onths/**y**ears, in proper notation
   - Example: `+1m` will be converted to the same day next month
 - `x` gets expanded to `2999-12-31` (which is an alias for "never overdue")
 - Down/up arrow keys will increase/decrease the date by 1 day
