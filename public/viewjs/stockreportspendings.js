@@ -116,7 +116,6 @@ $("#daterange-filter").daterangepicker({
 	},
 	"applyLabel": __t("Apply"),
 	"cancelLabel": __t("Cancel"),
-	"customRangeLabel": __t("Custom range"),
 	"ranges": ranges
 }, function(start, end, label)
 {
@@ -124,6 +123,7 @@ $("#daterange-filter").daterangepicker({
 	UpdateUriParam("end_date", end.format("YYYY-MM-DD"))
 	window.location.reload();
 });
+$('[data-range-key="Custom Range"]').text(__t("Custom range")); // customRangeLabel option doesn't work, however
 
 $("#daterange-filter").on("cancel.daterangepicker", function(ev, picker)
 {
