@@ -1,9 +1,9 @@
-# 
+#
 # Translators:
 # milkfish <i@mxd.moe>, 2020
 # ba X <985096998@qq.com>, 2020
 # Bernd Bestel <bernd@berrnd.de>, 2020
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
@@ -20,7 +20,7 @@ msgstr ""
 "X-Domain: grocy/component_translations\n"
 
 msgid "moment_locale"
-msgstr "zh-CN"
+msgstr "zh-cn"
 
 msgid "datatables_localization"
 msgstr ""
