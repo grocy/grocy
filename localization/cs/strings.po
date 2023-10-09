@@ -2830,6 +2830,3 @@ msgstr[0] "Vytiskne se 1nálepka"
 msgstr[1] "Vytisknou se %1$s nálepky"
 msgstr[2] "Vytiskne se %1$s nálepek"
 msgstr[3] "Vytiskne se %1$s nálepek"
-
-msgid "Estimated tracking"
-msgstr ""

@@ -2790,6 +2790,3 @@ msgid "This means 1 label will be printed"
 msgid_plural "This means %1$s labels will be printed"
 msgstr[0] "Dies bedeutet 1 Bestandseintragsetikett wird gedruckt"
 msgstr[1] "Dies bedeutet %1$s Bestandseintragsetiketten werden gedruckt"
-
-msgid "Estimated tracking"
-msgstr "Geplante Ausführung"

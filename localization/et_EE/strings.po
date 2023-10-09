@@ -2741,6 +2741,3 @@ msgid "This means 1 label will be printed"
 msgid_plural "This means %1$s labels will be printed"
 msgstr[0] "See tähendab, et prinditakse üks etikett"
 msgstr[1] "See tähendab, et prinditakse %1$s etiketti"
-
-msgid "Estimated tracking"
-msgstr ""

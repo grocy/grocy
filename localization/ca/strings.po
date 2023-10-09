@@ -2651,6 +2651,3 @@ msgid "This means 1 label will be printed"
 msgid_plural "This means %1$s labels will be printed"
 msgstr[0] ""
 msgstr[1] ""
-
-msgid "Estimated tracking"
-msgstr ""

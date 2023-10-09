@@ -2817,6 +2817,3 @@ msgid "This means 1 label will be printed"
 msgid_plural "This means %1$s labels will be printed"
 msgstr[0] "Dit betekend dat 1 label wordt geprint"
 msgstr[1] "Dit betekend dat %1$s labels worden geprint"
-
-msgid "Estimated tracking"
-msgstr ""
