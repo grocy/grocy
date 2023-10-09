@@ -2849,3 +2849,6 @@ msgid_plural "This means %1$s labels will be printed"
 msgstr[0] "Esto significa que 1 etiqueta será impresa"
 msgstr[1] "Esto significa que %1$s etiqueta será impresa"
 msgstr[2] "Esto significa que %1$s etiquetas serán impresas"
+
+msgid "Estimated tracking"
+msgstr ""

@@ -91,6 +91,7 @@
 					</th>
 					<th class="allow-grouping">{{ $__t('Chore') }}</th>
 					<th>{{ $__t('Tracked time') }}</th>
+					<th>{{ $__t('Estimated tracking') }}</th>
 					@if(GROCY_FEATURE_FLAG_CHORES_ASSIGNMENTS)
 					<th class="allow-grouping">{{ $__t('Done by') }}</th>
 					@endif
@@ -130,6 +131,11 @@
 						@if($choreLogEntry->skipped == 1)
 						<span class="text-muted">{{ $__t('Skipped') }}</span>
 						@endif
+					</td>
+					<td>
+						<span>{{ $choreLogEntry->estimated_execution_time }}</span>
+						<time class="timeago-contextual @if(FindObjectInArrayByPropertyValue($chores, 'id', $choreLogEntry->chore_id)->track_date_only == 1) timeago-date-only @endif"
+							datetime="{{ $choreLogEntry->estimated_execution_time }}"></time>
 					</td>
 					@if(GROCY_FEATURE_FLAG_CHORES_ASSIGNMENTS)
 					<td>

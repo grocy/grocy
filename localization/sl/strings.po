@@ -2671,3 +2671,6 @@ msgstr[0] ""
 msgstr[1] ""
 msgstr[2] ""
 msgstr[3] ""
+
+msgid "Estimated tracking"
+msgstr ""

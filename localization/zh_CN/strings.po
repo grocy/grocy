@@ -2556,3 +2556,6 @@ msgstr "显示此产品价格时，将此产品数量单位做为产品价格的
 msgid "This means 1 label will be printed"
 msgid_plural "This means %1$s labels will be printed"
 msgstr[0] "%1$s个标签将被打印"
+
+msgid "Estimated tracking"
+msgstr ""
