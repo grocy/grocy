@@ -10,6 +10,10 @@
 
 ### Stock
 
+- Added a new product picker workflow "External barcode lookup (via plugin)"
+  - This executes the configured barcode lookup plugin with the given barcode
+  - If the lookup was successful, the product edit page of the created product is displayed, where the product setup can be completed (if required)
+  - After that, the purchase transaction is continued with that product
 - Fixed that the location dropdown on the consume page contained the same location multiple times if there are currently stock entries at multiple locations of the corresponding product
 - Fixed that the status filter "n products are overdue" on the stock overview page also counted/included stock entries due today or tomorrow
 

@@ -442,7 +442,6 @@ class StockApiController extends BaseApiController
 		try
 		{
 			$addFoundProduct = false;
-
 			if (isset($request->getQueryParams()['add']) && ($request->getQueryParams()['add'] === 'true' || $request->getQueryParams()['add'] === 1))
 			{
 				$addFoundProduct = true;
