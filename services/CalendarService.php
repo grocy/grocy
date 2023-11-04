@@ -162,7 +162,8 @@ class CalendarService extends BaseService
 					'title' => $titlePrefix . $titlePrefix2 . $mealPlanDayNote->note,
 					'start' => $start,
 					'date_format' => $dateFormat,
-					'link' => $this->UrlManager->ConstructUrl('/mealplan' . '?start=' . $start)
+					'link' => $this->UrlManager->ConstructUrl('/mealplan' . '?start=' . $start),
+					'color' => $usersService->GetUserSettings(GROCY_USER_ID)['calendar_color_meal_plan']
 				];
 			}
 
@@ -190,7 +191,8 @@ class CalendarService extends BaseService
 					'title' => $titlePrefix . $titlePrefix2 . FindObjectInArrayByPropertyValue($products, 'id', $mealPlanDayProduct->product_id)->name,
 					'start' => $start,
 					'date_format' => $dateFormat,
-					'link' => $this->UrlManager->ConstructUrl('/mealplan' . '?start=' . $start)
+					'link' => $this->UrlManager->ConstructUrl('/mealplan' . '?start=' . $start),
+					'color' => $usersService->GetUserSettings(GROCY_USER_ID)['calendar_color_meal_plan']
 				];
 			}
 		}

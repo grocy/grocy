@@ -65,3 +65,8 @@ $("#configure-colors-button").on("click", function(e)
 
 	$("#configure-colors-modal").modal("show");
 });
+
+$("#configure-colors-modal").on("hidden.bs.modal", function(e)
+{
+	window.location.href = U('/calendar');
+})
