@@ -2432,3 +2432,6 @@ msgstr ""
 
 msgid "Nothing was found for the given barcode"
 msgstr ""
+
+msgid "Configure colors"
+msgstr ""

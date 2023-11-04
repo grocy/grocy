@@ -58,3 +58,10 @@ $(window).one("resize", function()
 		calendar.fullCalendar("changeView", "month");
 	}
 });
+
+$("#configure-colors-button").on("click", function(e)
+{
+	e.preventDefault();
+
+	$("#configure-colors-modal").modal("show");
+});

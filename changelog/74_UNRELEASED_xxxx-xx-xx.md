@@ -35,7 +35,8 @@
 
 ### Calendar
 
-- xxx
+- The different event types (due products, chores, tasks and so on) can now have different colors
+  - => New button "Configure colors" on the calendar page to configure these colors (top right corner)
 
 ### Tasks
 
