@@ -15,11 +15,12 @@
 # Łukasz Wawrzyk, 2021
 # Tomasz Wieczorek <tomek12-96@o2.pl>, 2022
 # Hans Müller, 2022
-# Marcin Lewandowski <email.marcina.lewandowskiego@gmail.com>, 2022
 # Kamila Frej, 2022
 # Michał G, 2022
 # Oskar Sawaryn, 2023
 # orl0pl, 2023
+# Stanisław Czajka <stanislaw@czajka.pl>, 2023
+# Marcin Lewandowski <email.marcina.lewandowskiego@gmail.com>, 2023
 # 
 msgid ""
 msgstr ""
@@ -27,7 +28,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: orl0pl, 2023\n"
+"Last-Translator: Marcin Lewandowski <email.marcina.lewandowskiego@gmail.com>, 2023\n"
 "Language-Team: Polish (https://app.transifex.com/grocy/teams/93189/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -709,17 +710,17 @@ msgstr "Czy jesteś pewien, że chcesz usunąć zadanie \"%s\"?"
 
 msgid "%s task is due to be done"
 msgid_plural "%s tasks are due to be done"
-msgstr[0] "Zadania po terminie realizacji: %s"
-msgstr[1] "Zadania po terminie realizacji: %s"
-msgstr[2] "Zadania po terminie realizacji: %s"
-msgstr[3] "Zadania po terminie realizacji: %s"
-
-msgid "%s task is overdue to be done"
-msgid_plural "%s tasks are overdue to be done"
 msgstr[0] "Zadania bliskie terminu realizacji: %s"
 msgstr[1] "Zadania bliskie terminu realizacji: %s"
 msgstr[2] "Zadania bliskie terminu realizacji: %s"
 msgstr[3] "Zadania bliskie terminu realizacji: %s"
+
+msgid "%s task is overdue to be done"
+msgid_plural "%s tasks are overdue to be done"
+msgstr[0] "Zadania po terminie realizacji: %s"
+msgstr[1] "Zadania po terminie realizacji: %s"
+msgstr[2] "Zadania po terminie realizacji: %s"
+msgstr[3] "Zadania po terminie realizacji: %s"
 
 msgid "Edit task category"
 msgstr "Edytuj kategorię zadania"
@@ -1534,7 +1535,7 @@ msgid "Price factor"
 msgstr "Współczynnik ceny"
 
 msgid "Do you find Grocy useful?"
-msgstr ""
+msgstr "Uważasz, że Grocy jest dla Ciebie przydatny?"
 
 msgid "Say thanks"
 msgstr "Podziękuj"
@@ -1675,6 +1676,9 @@ msgid ""
 "Camera access is only possible when supported and allowed by your browser "
 "and when Grocy is served via a secure (https://) connection"
 msgstr ""
+"Dostęp do kamery jest możliwy tylko w momencie kiedy Twoja przeglądarka na "
+"to pozwala oraz Grocy jest serwowane przez zabezpieczone (https://) "
+"połączenie"
 
 msgid "Keep screen on"
 msgstr "Nie wygaszaj ekranu"
@@ -1744,7 +1748,7 @@ msgstr ""
 "zostać automatycznie uzupełnione"
 
 msgid "Is freezer"
-msgstr "Jest mrożonką"
+msgstr "Jest zamrażalnikiem"
 
 msgid "This cannot be the same as the \"From\" location"
 msgstr "Nie może być tożsame z lokalizacją \"od\""
@@ -1989,7 +1993,7 @@ msgid "Chore journal"
 msgstr "Dziennik obowiązków"
 
 msgid "Track next chore schedule"
-msgstr ""
+msgstr "Śledź harmonogram kolejnego obowiązku"
 
 msgid "Mark task as completed"
 msgstr "Oznacz zadanie jako wykonane"
@@ -2016,6 +2020,8 @@ msgid ""
 "This is the default quantity unit used on purchase and when adding this "
 "product to the shopping list"
 msgstr ""
+"Jest to domyślna jednostka ilości używana przy zakupie i dodawaniu tego "
+"produktu do listy zakupów"
 
 msgid ""
 "Show a warning when the due date of the purchased product is earlier than "
@@ -2043,6 +2049,8 @@ msgid ""
 "This amount is used for the \"quick consume button\" on the stock overview "
 "page (related to quantity unit stock)"
 msgstr ""
+"Kwota ta jest wykorzystana w przypadku użycia przycisku „szybkiego zużycia” "
+"na stronie przeglądu zapasów"
 
 msgid ""
 "This amount is used for the \"quick open button\" on the stock overview page"
@@ -2338,19 +2346,21 @@ msgid "A product or a note is required"
 msgstr "Produkty lub notatka jest wymagana"
 
 msgid "Grocycode"
-msgstr ""
+msgstr "Grocycode"
 
 msgid "Download"
 msgstr "Pobierz"
 
 # Example: Download *Product* Grocycode
 msgid "Download %s Grocycode"
-msgstr ""
+msgstr "Pobierz Grocycode dla %s"
 
 msgid ""
 "Grocycode is a unique referer to this %s in your Grocy instance - print it "
 "onto a label and scan it like any other barcode"
 msgstr ""
+"Grocycode to unikalny odnośnik do %s w twojej instancji Grocy - umieść go na"
+" etykiecie i skanuj tak jak dowolny inny kod kreskowy"
 
 # Abbreviation for "due date"
 msgid "DD"
@@ -2379,7 +2389,7 @@ msgstr "Błąd podczas wykonywania webhooka"
 
 # Example: Print *Product* Grocycode on label printer
 msgid "Print %s Grocycode on label printer"
-msgstr ""
+msgstr "Wydrukuj Grocycode dla %s na drukarce etykiet"
 
 msgid "Open stock entry label in new window"
 msgstr "Utwórz etykietę wpisu zapasu w nowym oknie"
@@ -2639,7 +2649,7 @@ msgstr ""
 "magazynie zbliża się do terminu ważności lub jest przeterminowane."
 
 msgid "Disable own stock"
-msgstr ""
+msgstr "Wyłącz własne zapasy"
 
 msgid ""
 "When enabled, this product can't have own stock, means it will not be "
@@ -2710,7 +2720,7 @@ msgid "Default consume location"
 msgstr "Domyślna lokalizacja pobierania zasobu"
 
 msgid "Stock entries at this location will be consumed first"
-msgstr ""
+msgstr "Pozycje zapasu z tej lokalizacji będą zużyte jako pierwsze."
 
 msgid "Move on open"
 msgstr "Przenieś po otwarciu"
@@ -2762,10 +2772,10 @@ msgid "Successfully added the recipe to the meal plan"
 msgstr "Udało się dodać przepis do planu posiłków"
 
 msgid "Reprint stock entry label"
-msgstr ""
+msgstr "Przedrukuj etykietę pozycji zapasu"
 
 msgid "Auto reprint stock entry label"
-msgstr ""
+msgstr "Automatycznie przedrukuj etykietę pozycji zapasu"
 
 msgid ""
 "When enabled, auto-changing the due date of a stock entry (by "
@@ -2774,29 +2784,29 @@ msgid ""
 msgstr ""
 
 msgid "Quick open amount"
-msgstr ""
+msgstr "Ilość szybkiego otwarcia"
 
 msgid "Track chore execution now"
 msgstr ""
 
 msgid "Total"
-msgstr ""
+msgstr "Łącznie"
 
 msgid "Apply"
 msgstr "Zastosuj"
 
 msgid "Custom range"
-msgstr ""
+msgstr "Zakres niestandardowy"
 
 msgid "Yesterday"
 msgstr "Wczoraj"
 
 msgid "Last %1$s day"
 msgid_plural "Last %1$s days"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "Ostatni 1 dzień"
+msgstr[1] "Ostatnie %1$s dni"
+msgstr[2] "Ostatnie %1$s dni "
+msgstr[3] "Ostatnie %1$s dni"
 
 msgid "This month"
 msgstr "W tym miesiącu"
@@ -2805,34 +2815,44 @@ msgid "Last month"
 msgstr "W zeszłym miesiącu"
 
 msgid "This year"
-msgstr ""
+msgstr "Ten rok"
 
 msgid "Last year"
-msgstr ""
+msgstr "Poprzedni rok"
 
 msgid "Reports"
-msgstr ""
+msgstr "Raporty"
 
 msgid "Spendings"
-msgstr ""
+msgstr "Wydatki"
 
 msgid "Stock report"
-msgstr ""
+msgstr "Raport zapasów"
 
 msgid "Out-of-stock products"
-msgstr ""
+msgstr "Produkty niedostępne"
 
 msgid "Quantity unit for prices"
-msgstr ""
+msgstr "Jednostka ilości dla cen"
 
 msgid ""
 "When displaying prices for this product, they will be related to this "
 "quantity unit"
 msgstr ""
+"Wyświetlając ceny tego produktu, będą one odniesione do jednostki ilości"
 
 msgid "This means 1 label will be printed"
 msgid_plural "This means %1$s labels will be printed"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "Oznacza to, że zostanie wydrukowana 1 etykieta"
+msgstr[1] "Oznacza to, że zostaną wydrukowane %1$s etykiety"
+msgstr[2] "Oznacza to, że zostanie wydrukowanych %1$s etykiet"
+msgstr[3] "Oznacza to, że zostanie wydrukowanych %1$s etykiet"
+
+msgid "External barcode lookup (via plugin)"
+msgstr ""
+
+msgid "Error while executing the barcode lookup plugin"
+msgstr ""
+
+msgid "Nothing was found for the given barcode"
+msgstr ""

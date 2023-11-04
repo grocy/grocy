@@ -2,6 +2,7 @@
 # Translators:
 # Gábor Szellő <gabor.szello@gmail.com>, 2020
 # rozgonik <rozgonik1@gmail.com>, 2023
+# Tamas Voros <voros.e.tamas@gmail.com>, 2023
 # 
 msgid ""
 msgstr ""
@@ -9,7 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2020-08-31 19:11+0000\n"
-"Last-Translator: rozgonik <rozgonik1@gmail.com>, 2023\n"
+"Last-Translator: Tamas Voros <voros.e.tamas@gmail.com>, 2023\n"
 "Language-Team: Hungarian (https://app.transifex.com/grocy/teams/93189/hu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -140,8 +141,8 @@ msgstr "Ukrán"
 
 # Romanian
 msgid "ro_RO"
-msgstr ""
+msgstr "ro_RO"
 
 # Estonian
 msgid "et_EE"
-msgstr ""
+msgstr "et_EE"

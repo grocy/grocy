@@ -2854,3 +2854,12 @@ msgid_plural "This means %1$s labels will be printed"
 msgstr[0] "Cela signifie que 1 étiquette sera imprimée"
 msgstr[1] "Cela signifie que %1$s étiquettes seront imprimées"
 msgstr[2] "Cela signifie que %1$s étiquettes seront imprimées"
+
+msgid "External barcode lookup (via plugin)"
+msgstr ""
+
+msgid "Error while executing the barcode lookup plugin"
+msgstr ""
+
+msgid "Nothing was found for the given barcode"
+msgstr ""

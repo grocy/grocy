@@ -2769,3 +2769,12 @@ msgstr[0] "משמעות הדבר היא שתודפס תווית אחת"
 msgstr[1] "משמעות הדבר היא שתודפסנה %1$s תוויות"
 msgstr[2] "משמעות הדבר היא שתודפסנה %1$s תוויות"
 msgstr[3] "משמעות הדבר היא שתודפסנה %1$s תוויות"
+
+msgid "External barcode lookup (via plugin)"
+msgstr ""
+
+msgid "Error while executing the barcode lookup plugin"
+msgstr ""
+
+msgid "Nothing was found for the given barcode"
+msgstr ""

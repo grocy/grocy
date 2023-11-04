@@ -2790,3 +2790,12 @@ msgid "This means 1 label will be printed"
 msgid_plural "This means %1$s labels will be printed"
 msgstr[0] "Dies bedeutet 1 Bestandseintragsetikett wird gedruckt"
 msgstr[1] "Dies bedeutet %1$s Bestandseintragsetiketten werden gedruckt"
+
+msgid "External barcode lookup (via plugin)"
+msgstr "Externe Barcode-Suche (via Plugin)"
+
+msgid "Error while executing the barcode lookup plugin"
+msgstr "Fehler beim Ausführen des Barcode-Suche-Plugins"
+
+msgid "Nothing was found for the given barcode"
+msgstr "Für den angegebenen Barcode wurde nichts gefunden"

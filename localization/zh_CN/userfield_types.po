@@ -3,6 +3,7 @@
 # ba X <985096998@qq.com>, 2020
 # 冠南 胡, 2023
 # aleixcox, 2023
+# aleixcox, 2023
 # 
 msgid ""
 msgstr ""
@@ -37,7 +38,7 @@ msgstr "数量 - 小数"
 
 # Number (currency)
 msgid "number-currency"
-msgstr ""
+msgstr "数量 - 货币"
 
 # Date (without time)
 msgid "date"

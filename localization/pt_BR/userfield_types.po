@@ -3,6 +3,7 @@
 # Bernd Bestel <bernd@berrnd.de>, 2019
 # Arthur Rodrigues <transifex@araruna.me>, 2022
 # Fernando Luiz Bonifácio de Oliveira, 2022
+# Aurelio Barreto <aurelio@aureliobarreto.com>, 2023
 # 
 msgid ""
 msgstr ""
@@ -10,7 +11,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:43+0000\n"
-"Last-Translator: Fernando Luiz Bonifácio de Oliveira, 2022\n"
+"Last-Translator: Aurelio Barreto <aurelio@aureliobarreto.com>, 2023\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/grocy/teams/93189/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -37,7 +38,7 @@ msgstr "Número (decimal)"
 
 # Number (currency)
 msgid "number-currency"
-msgstr ""
+msgstr "number-currency"
 
 # Date (without time)
 msgid "date"
