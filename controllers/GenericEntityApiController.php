@@ -233,7 +233,11 @@ class GenericEntityApiController extends BaseApiController
 				$userfieldKeyValuePairs = null;
 				foreach ($userfields as $userfield)
 				{
-					$value = FindObjectInArrayByPropertyValue(FindAllObjectsInArrayByPropertyValue($allUserfieldValues, 'object_id', $object->id), 'name', $userfield->name);
+					if ($args['entity'] == 'stock') {
+						$value = FindObjectInArrayByPropertyValue(FindAllObjectsInArrayByPropertyValue($allUserfieldValues, 'object_id', $object->stock_id), 'name', $userfield->name);
+					} else {
+						$value = FindObjectInArrayByPropertyValue(FindAllObjectsInArrayByPropertyValue($allUserfieldValues, 'object_id', $object->id), 'name', $userfield->name);
+					}
 					if ($value)
 					{
 						$userfieldKeyValuePairs[$userfield->name] = $value->value;
