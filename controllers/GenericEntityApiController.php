@@ -190,28 +190,31 @@ class GenericEntityApiController extends BaseApiController
 
 	public function GetObject(Request $request, Response $response, array $args)
 	{
-		if ($this->IsValidExposedEntity($args['entity']) && !$this->IsEntityWithNoListing($args['entity']))
-		{
-			$userfields = $this->getUserfieldsService()->GetValues($args['entity'], $args['objectId']);
-			if (count($userfields) === 0)
-			{
-				$userfields = null;
-			}
-
-			$object = $this->getDatabase()->{$args['entity']}($args['objectId']);
-			if ($object == null)
-			{
-				return $this->GenericErrorResponse($response, 'Object not found', 404);
-			}
-
-			$object['userfields'] = $userfields;
-
-			return $this->ApiResponse($response, $object);
-		}
-		else
+		if (!$this->IsValidExposedEntity($args['entity']) || $this->IsEntityWithNoListing($args['entity']))
 		{
 			return $this->GenericErrorResponse($response, 'Entity does not exist or is not exposed');
 		}
+
+		$object = $this->getDatabase()->{$args['entity']}($args['objectId']);
+		if ($object == null)
+		{
+			return $this->GenericErrorResponse($response, 'Object not found', 404);
+		}
+
+		// TODO: Handle this somehow more generically
+		$referencingId = $args['objectId'];
+		if ($args['entity'] == 'stock')
+		{
+			$referencingId = $object->stock_id;
+		}
+		$userfields = $this->getUserfieldsService()->GetValues($args['entity'], $referencingId);
+		if (count($userfields) === 0)
+		{
+			$userfields = null;
+		}
+		$object['userfields'] = $userfields;
+
+		return $this->ApiResponse($response, $object);
 	}
 
 	public function GetObjects(Request $request, Response $response, array $args)
@@ -222,8 +225,8 @@ class GenericEntityApiController extends BaseApiController
 		}
 
 		$objects = $this->queryData($this->getDatabase()->{$args['entity']}(), $request->getQueryParams());
-		$userfields = $this->getUserfieldsService()->GetFields($args['entity']);
 
+		$userfields = $this->getUserfieldsService()->GetFields($args['entity']);
 		if (count($userfields) > 0)
 		{
 			$allUserfieldValues = $this->getUserfieldsService()->GetAllValues($args['entity']);
@@ -233,7 +236,14 @@ class GenericEntityApiController extends BaseApiController
 				$userfieldKeyValuePairs = null;
 				foreach ($userfields as $userfield)
 				{
-					$value = FindObjectInArrayByPropertyValue(FindAllObjectsInArrayByPropertyValue($allUserfieldValues, 'object_id', $object->id), 'name', $userfield->name);
+					// TODO: Handle this somehow more generically
+					$userfieldReference = 'id';
+					if ($args['entity'] == 'stock')
+					{
+						$userfieldReference = 'stock_id';
+					}
+
+					$value = FindObjectInArrayByPropertyValue(FindAllObjectsInArrayByPropertyValue($allUserfieldValues, 'object_id', $object->{$userfieldReference}), 'name', $userfield->name);
 					if ($value)
 					{
 						$userfieldKeyValuePairs[$userfield->name] = $value->value;

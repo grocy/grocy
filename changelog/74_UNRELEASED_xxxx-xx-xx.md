@@ -60,4 +60,4 @@
 
 ### API
 
-- xxx
+- Optimized that the endpoints `GET /objects/{entity}` and `GET /objects/{entity}/{objectId}` now also return Userfields for the entity `stock`
