@@ -423,4 +423,4 @@ msgid "Beer"
 msgstr "Cerveja"
 
 msgid "Estonian"
-msgstr ""
+msgstr "Estoniano"

@@ -5,7 +5,6 @@
 # 42d76af3cd20bc399c7e8a413695959f, 2019
 # Matteo Piccina <altermatte@gmail.com>, 2021
 # Sergio Zampello <seriotv88@gmail.com>, 2021
-# Antonino Ursino <ninus_@libero.it>, 2022
 # Walter Palagi, 2022
 # Moltivie Denied <major2015usa@gmail.com>, 2022
 # Martino Falorni, 2023
@@ -13,6 +12,8 @@
 # Davide G., 2023
 # Davide Casella, 2023
 # Claudio Arseni <claudio.arseni@gmail.com>, 2023
+# Antonino Ursino <ninus_@libero.it>, 2023
+# Antonio Nardella, 2023
 # 
 msgid ""
 msgstr ""
@@ -20,7 +21,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Claudio Arseni <claudio.arseni@gmail.com>, 2023\n"
+"Last-Translator: Antonio Nardella, 2023\n"
 "Language-Team: Italian (https://app.transifex.com/grocy/teams/93189/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1637,7 +1638,7 @@ msgid "Stock entries"
 msgstr "Voci di dispensa"
 
 msgid "Best before date"
-msgstr "Data di scadenza"
+msgstr "Consumarsi preferibilmente entro"
 
 msgid "Purchased date"
 msgstr "Data di acquisto"
@@ -2075,7 +2076,7 @@ msgstr ""
 " dopo che è stata raggiunta la sua data di scadenza"
 
 msgid "Expiration date"
-msgstr "Data di scadenza"
+msgstr "Consumarsi entro"
 
 msgid ""
 "Means that the product is not safe to be consumed after its due date is "
@@ -2778,16 +2779,19 @@ msgid "Successfully added the recipe to the meal plan"
 msgstr "La ricetta è stata aggiunta con successo al piano pasti"
 
 msgid "Reprint stock entry label"
-msgstr ""
+msgstr "Ristampa l'etichetta di immissione in dispensa"
 
 msgid "Auto reprint stock entry label"
-msgstr ""
+msgstr "Ristampa automaticamente l'etichetta di immissione in dispensa"
 
 msgid ""
 "When enabled, auto-changing the due date of a stock entry (by "
 "opening/freezing/thawing and having corresponding default due days set) will"
 " reprint its label"
 msgstr ""
+"Se abilitata, la modifica automatica della data di scadenza di una voce di "
+"dispensa (aprendo/congelando/scongelando e impostando i giorni di scadenza "
+"predefiniti corrispondenti) ristamperà la sua etichetta"
 
 msgid "Quick open amount"
 msgstr "Quantità per consumo rapido"
@@ -2844,9 +2848,20 @@ msgid ""
 "When displaying prices for this product, they will be related to this "
 "quantity unit"
 msgstr ""
+"Quando verranno visualizzati i prezzi per questo prodotto, saranno correlati"
+" a questa unità di quantità"
 
 msgid "This means 1 label will be printed"
 msgid_plural "This means %1$s labels will be printed"
 msgstr[0] "Questo significa che verrà stampata 1 etichetta"
 msgstr[1] "Questo significa che verranno stampate %1$s etichette"
 msgstr[2] "Questo significa che verranno stampate %1$s etichette"
+
+msgid "External barcode lookup (via plugin)"
+msgstr ""
+
+msgid "Error while executing the barcode lookup plugin"
+msgstr ""
+
+msgid "Nothing was found for the given barcode"
+msgstr ""

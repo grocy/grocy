@@ -2741,3 +2741,12 @@ msgid "This means 1 label will be printed"
 msgid_plural "This means %1$s labels will be printed"
 msgstr[0] "See tähendab, et prinditakse üks etikett"
 msgstr[1] "See tähendab, et prinditakse %1$s etiketti"
+
+msgid "External barcode lookup (via plugin)"
+msgstr ""
+
+msgid "Error while executing the barcode lookup plugin"
+msgstr ""
+
+msgid "Nothing was found for the given barcode"
+msgstr ""

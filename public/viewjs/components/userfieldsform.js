@@ -143,7 +143,11 @@ Grocy.Components.UserfieldsForm.Load = function()
 					}
 					else if (input.hasAttr("multiple"))
 					{
-						input.val(value.split(","));
+						if (value)
+						{
+							input.val(value.split(","));
+						}
+
 						$(".selectpicker").selectpicker("render");
 					}
 					else if (input.attr('type') == "file")

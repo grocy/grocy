@@ -20,6 +20,27 @@ $('#save-recipe-pos-button').on('click', function(e)
 
 	Grocy.FrontendHelpers.BeginUiBusy("recipe-pos-form");
 
+	if (GetUriParam("flow") === "InplaceAddBarcodeToExistingProduct")
+	{
+		var jsonDataBarcode = {};
+		jsonDataBarcode.barcode = GetUriParam("barcode");
+		jsonDataBarcode.product_id = jsonData.product_id;
+
+		Grocy.Api.Post('objects/product_barcodes', jsonDataBarcode,
+			function(result)
+			{
+				$("#flow-info-InplaceAddBarcodeToExistingProduct").addClass("d-none");
+				$('#barcode-lookup-disabled-hint').addClass('d-none');
+				$('#barcode-lookup-hint').removeClass('d-none');
+			},
+			function(xhr)
+			{
+				Grocy.FrontendHelpers.EndUiBusy("inventory-form");
+				Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response);
+			}
+		);
+	}
+
 	if (Grocy.EditMode === 'create')
 	{
 		Grocy.Api.Post('objects/recipes_pos', jsonData,
@@ -94,11 +115,37 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 
 Grocy.FrontendHelpers.ValidateForm('recipe-pos-form');
 
-if (Grocy.Components.ProductPicker.InProductAddWorkflow() === false)
+if (!Grocy.Components.ProductPicker.InAnyFlow())
 {
-	Grocy.Components.ProductPicker.GetInputElement().focus();
+	if (GetUriParam("product") !== undefined || Grocy.EditMode == "edit")
+	{
+		Grocy.Components.ProductPicker.GetPicker().trigger('change');
+
+		setTimeout(function()
+		{
+			$("#display_amount").focus();
+		}, 250);
+	}
+	else
+	{
+		setTimeout(function()
+		{
+			Grocy.Components.ProductPicker.GetInputElement().focus();
+		}, 250);
+	}
 }
-Grocy.Components.ProductPicker.GetPicker().trigger('change');
+else
+{
+	Grocy.Components.ProductPicker.GetPicker().trigger('change');
+
+	if (Grocy.Components.ProductPicker.InProductModifyWorkflow())
+	{
+		setTimeout(function()
+		{
+			Grocy.Components.ProductPicker.GetInputElement().focus();
+		}, 250);
+	}
+}
 
 if (Grocy.EditMode == "create")
 {

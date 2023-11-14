@@ -23,7 +23,7 @@ class DatabaseService
 		return false;
 	}
 
-	public function ExecuteDbStatement(string $sql)
+	public function ExecuteDbStatement(string $sql, array $params = null)
 	{
 		$pdo = $this->GetDbConnectionRaw();
 
@@ -36,9 +36,21 @@ class DatabaseService
 			}
 		}
 
-		if ($pdo->exec($sql) === false)
+		if ($params == null)
 		{
-			throw new \Exception($pdo->errorInfo());
+
+			if ($pdo->exec($sql) === false)
+			{
+				throw new \Exception($pdo->errorInfo());
+			}
+		}
+		else
+		{
+			$cmd = $pdo->prepare($sql);
+			if ($cmd->execute($params) === false)
+			{
+				throw new \Exception($pdo->errorInfo());
+			}
 		}
 
 		return true;

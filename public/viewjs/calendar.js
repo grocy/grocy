@@ -58,3 +58,15 @@ $(window).one("resize", function()
 		calendar.fullCalendar("changeView", "month");
 	}
 });
+
+$("#configure-colors-button").on("click", function(e)
+{
+	e.preventDefault();
+
+	$("#configure-colors-modal").modal("show");
+});
+
+$("#configure-colors-modal").on("hidden.bs.modal", function(e)
+{
+	window.location.href = U('/calendar');
+})

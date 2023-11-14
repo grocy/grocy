@@ -29,7 +29,8 @@ abstract class BaseBarcodeLookupPlugin
 		}
 
 		if (!IsAssociativeArray($pluginOutput))
-		{ // $pluginOutput is at least an indexed array here
+		{
+			// $pluginOutput is at least an indexed array here
 			throw new \Exception('Plugin output must be an associative array');
 		}
 
@@ -53,7 +54,7 @@ abstract class BaseBarcodeLookupPlugin
 
 		// $pluginOutput contains all needed properties here
 
-		// Check referenced entity ids are valid
+		// Check if referenced entity ids are valid
 		$locationId = $pluginOutput['location_id'];
 		if (FindObjectInArrayByPropertyValue($this->Locations, 'id', $locationId) === null)
 		{

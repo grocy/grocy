@@ -2826,3 +2826,12 @@ msgstr[0] "Tai reiškia, kad bus atspausdinta 1 etiketė"
 msgstr[1] "Tai reiškia, kad bus atspausdintos %1$s etiketės"
 msgstr[2] "Tai reiškia, kad bus atspausdintos %1$s etikečių"
 msgstr[3] "Tai reiškia, kad bus atspausdintos %1$s etikečių"
+
+msgid "External barcode lookup (via plugin)"
+msgstr ""
+
+msgid "Error while executing the barcode lookup plugin"
+msgstr ""
+
+msgid "Nothing was found for the given barcode"
+msgstr ""

@@ -803,7 +803,7 @@ msgid "Create equipment"
 msgstr "Vytvořit vybavení"
 
 msgid "The current file will be deleted on save"
-msgstr "Aktuální soubor bude smazán při uložení této položky vybavení"
+msgstr "Soubor se smaže až po kliknutí na tlačítku Uložit"
 
 msgid "No picture available"
 msgstr "Obrázek není k dispozici"
@@ -1005,7 +1005,7 @@ msgid "Gallery"
 msgstr "Galerie"
 
 msgid "The current picture will be deleted on save"
-msgstr "Aktuální obrázek bude smazán při uložení nového"
+msgstr "Obrázek se smaže až po kliknutí na jedno z tlačítek Uložit"
 
 msgid "Journal for this battery"
 msgstr "Deník k této baterii"
@@ -2830,3 +2830,12 @@ msgstr[0] "Vytiskne se 1nálepka"
 msgstr[1] "Vytisknou se %1$s nálepky"
 msgstr[2] "Vytiskne se %1$s nálepek"
 msgstr[3] "Vytiskne se %1$s nálepek"
+
+msgid "External barcode lookup (via plugin)"
+msgstr ""
+
+msgid "Error while executing the barcode lookup plugin"
+msgstr ""
+
+msgid "Nothing was found for the given barcode"
+msgstr ""

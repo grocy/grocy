@@ -203,7 +203,7 @@ msgid "Minimum stock amount"
 msgstr "安全库存"
 
 msgid "Default best before days"
-msgstr "默认保质天数"
+msgstr "默认保鲜天数"
 
 msgid "Default quantity unit purchase"
 msgstr "默认采购数量单位"
@@ -347,10 +347,10 @@ msgid "This means %s will be added to stock"
 msgstr "新增%s库存"
 
 msgid "This means %s will be removed from stock"
-msgstr "删除%s库存"
+msgstr "移除%s库存"
 
 msgid "Removed %1$s of %2$s from stock"
-msgstr "%1$s%2$s已消耗"
+msgstr "%1$s%2$s已从库存中移除"
 
 msgid "About Grocy"
 msgstr "关于Grocy"
@@ -362,7 +362,7 @@ msgid "Released on"
 msgstr "发布于"
 
 msgid "Added %1$s of %2$s to stock"
-msgstr "%1$s%2$s已入库"
+msgstr "%1$s%2$s已添加至库存"
 
 msgid "Stock amount of %1$s is now %2$s"
 msgstr "当前 %1$s 在库存中的数量是 %2$s"
@@ -502,7 +502,7 @@ msgid "Are you sure to delete user \"%s\"?"
 msgstr "确定要删除用户 “%s” 吗？"
 
 msgid "Create user"
-msgstr "创建用户"
+msgstr "新建用户"
 
 msgid "Edit user"
 msgstr "编辑用户"
@@ -602,7 +602,7 @@ msgid "Click to show technical details"
 msgstr "单击此处显示技术细节"
 
 msgid "Error while saving, probably this item already exists"
-msgstr "保存失败，可能这一项已经存在"
+msgstr "保存时发生错误，可能此条目已经存在"
 
 msgid "Error details"
 msgstr "错误详情"
@@ -667,7 +667,7 @@ msgid "Ungrouped"
 msgstr "未分组"
 
 msgid "Create product group"
-msgstr "创建产品组"
+msgstr "新建产品组"
 
 msgid "Edit product group"
 msgstr "编辑产品组"
@@ -751,7 +751,7 @@ msgid "Edit equipment"
 msgstr "编辑设备"
 
 msgid "Create equipment"
-msgstr "创建设备"
+msgstr "新建设备"
 
 msgid "The current file will be deleted on save"
 msgstr "当前文件将在保存时被删除"
@@ -921,7 +921,7 @@ msgid ""
 "This is useful e.g. for flour in jars - on purchase/consume/inventory you "
 "always weigh the whole jar, the amount to be posted is then automatically "
 "calculated based on what is in stock and the tare weight defined below"
-msgstr "此功能很实用。例如：罐装面粉在购买、消费、调整库存时可以整罐称重，系统会根据下方皮重自动计算出净重，并调整库存数量"
+msgstr "此功能很实用。例如：罐装面粉在购买、消耗、调整库存时可以整罐称重，系统会根据下方皮重自动计算出净重，并调整库存数量"
 
 msgid "Tare weight"
 msgstr "皮重"
@@ -1572,7 +1572,7 @@ msgid ""
 msgstr "扫描模式已启用，但并非所有必填字段都可以自动填充"
 
 msgid "Is freezer"
-msgstr "冰箱"
+msgstr "冷冻设备"
 
 msgid "This cannot be the same as the \"From\" location"
 msgstr "不能和“原始位置”相同"
@@ -1842,7 +1842,7 @@ msgstr "这是采购此产品和将此产品加入购物清单时所使用的默
 msgid ""
 "Show a warning when the due date of the purchased product is earlier than "
 "the next due date in stock"
-msgstr "当采购产品的到期日早于库存产品的下次到期日时，显示警告"
+msgstr "当采购产品的到期日期早于库存产品的下次到期日期时显示警告"
 
 msgid "This is due earlier than already in-stock items"
 msgstr "这是由于早于已有库存的物品"
@@ -1916,7 +1916,7 @@ msgstr "开封后默认到期天数"
 msgid ""
 "On moving this product to a freezer location (so when freezing it), the due "
 "date will be replaced by today + this amount of days"
-msgstr "本产品放入冰箱时（即冷冻时），到期日期替换为冷冻日期加上此天数"
+msgstr "本产品放入冷冻室时（即冷冻时），到期日期替换为冷冻日期加上此天数"
 
 msgid "Default due days after freezing"
 msgstr "冷冻后默认到期天数"
@@ -1924,7 +1924,7 @@ msgstr "冷冻后默认到期天数"
 msgid ""
 "On moving this product from a freezer location (so when thawing it), the due"
 " date will be replaced by today + this amount of days"
-msgstr "本产品从冰箱取出时（即解冻时），到期日期替换为解冻日期加上此天数"
+msgstr "本产品从冷冻室取出时（即解冻时），到期日期替换为解冻日期加上此天数"
 
 msgid "Default due days after thawing"
 msgstr "解冻后默认到期天数"
@@ -1987,7 +1987,7 @@ msgstr "如果产品设置了“默认到期日”，则使用最新价格和购
 msgid ""
 "When moving products from/to a freezer location, the products due date is "
 "automatically adjusted according to the product settings"
-msgstr "将产品移入/移出冰柜位置时，产品到期日会根据产品设置自动调整"
+msgstr "将产品移入/移出冷冻室位置时，产品到期日期会根据产品设置自动调整"
 
 msgid "This is the internal field name, e. g. for the API"
 msgstr "内部字段名称，例如用于API"
@@ -2124,7 +2124,7 @@ msgstr "Grocycode是Grocy实例中此%s的唯一引用，可以像其他条码�
 
 # Abbreviation for "due date"
 msgid "DD"
-msgstr "‎期限‎"
+msgstr "‎到期日期"
 
 msgid "Print on label printer"
 msgstr "打印"
@@ -2401,10 +2401,10 @@ msgid ""
 "The parent product %1$s is currently not in stock, %2$s is the current next "
 "sub product based on the default consume rule (Opened first, then first due "
 "first, then first in first out)"
-msgstr "父产品%1$s目前不在库存中，%2$s是基于默认消费规则的当前下一个子产品(先打开，然后先到期，然后先进先出)  "
+msgstr "父产品%1$s当前没有库存，%2$s是基于默认消耗规则的当前下一个子产品（先开封，然后先到期，然后先进先出）"
 
 msgid "Night mode"
-msgstr "黑暗模式"
+msgstr "夜间模式"
 
 msgid "On"
 msgstr "打开"
@@ -2439,7 +2439,7 @@ msgid "Default consume location"
 msgstr "默认消耗位置"
 
 msgid "Stock entries at this location will be consumed first"
-msgstr "优先消耗此位置的库存  "
+msgstr "优先消耗此位置的库存"
 
 msgid "Move on open"
 msgstr "开封后转移"
@@ -2497,7 +2497,7 @@ msgid ""
 "When enabled, auto-changing the due date of a stock entry (by "
 "opening/freezing/thawing and having corresponding default due days set) will"
 " reprint its label"
-msgstr "开启后，自动转换库存产品的到期时间（通过拆封/冷冻/解冻并设置的对应默认保质期）并重新打印此产品标签"
+msgstr "开启后，自动更改库存条目的到期日期并重新打印此条目的标签（在开封/冷冻/解冻并存在相应的默认到期天数设置时）"
 
 msgid "Quick open amount"
 msgstr "快速开封数量"
@@ -2556,3 +2556,12 @@ msgstr "显示此产品价格时，将此产品数量单位做为产品价格的
 msgid "This means 1 label will be printed"
 msgid_plural "This means %1$s labels will be printed"
 msgstr[0] "%1$s个标签将被打印"
+
+msgid "External barcode lookup (via plugin)"
+msgstr ""
+
+msgid "Error while executing the barcode lookup plugin"
+msgstr ""
+
+msgid "Nothing was found for the given barcode"
+msgstr ""

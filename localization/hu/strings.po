@@ -10,6 +10,7 @@
 # Vad Laszlo, 2021
 # Tallyrald, 2021
 # rozgonik <rozgonik1@gmail.com>, 2023
+# Tamas Voros <voros.e.tamas@gmail.com>, 2023
 # 
 msgid ""
 msgstr ""
@@ -17,7 +18,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: rozgonik <rozgonik1@gmail.com>, 2023\n"
+"Last-Translator: Tamas Voros <voros.e.tamas@gmail.com>, 2023\n"
 "Language-Team: Hungarian (https://app.transifex.com/grocy/teams/93189/hu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -363,7 +364,7 @@ msgid "Removed %1$s of %2$s from stock"
 msgstr "%1$s %2$s készletről levéve"
 
 msgid "About Grocy"
-msgstr ""
+msgstr "A Grocyról"
 
 msgid "Close"
 msgstr "Bezár"
@@ -1471,7 +1472,7 @@ msgid "Price factor"
 msgstr "Ár szorzó"
 
 msgid "Do you find Grocy useful?"
-msgstr ""
+msgstr "Hasznosnak találod a Grocyt?"
 
 msgid "Say thanks"
 msgstr "Köszönd meg"
@@ -1489,7 +1490,7 @@ msgid "Output"
 msgstr "Kimenet"
 
 msgid "Energy"
-msgstr ""
+msgstr "Energia"
 
 msgid "Per stock quantity unit"
 msgstr "Készletegységenként"
@@ -1587,7 +1588,7 @@ msgid "Best before date"
 msgstr "Minőségmegőrzési dátum"
 
 msgid "Purchased date"
-msgstr "Vásárlási napja"
+msgstr "Vásárlás dátuma"
 
 msgid "Consume all %s for this stock entry"
 msgstr "Az összes %s elfogyasztása ennél a készletbejegyzésnél"
@@ -1605,6 +1606,9 @@ msgid ""
 "Camera access is only possible when supported and allowed by your browser "
 "and when Grocy is served via a secure (https://) connection"
 msgstr ""
+"A kamera hozzáférés csak akkor lehetséges, ha a böngésződ által támogatott "
+"és engedélyezett, valamint ha a Grocy egy biztonságos (https://) kapcsolaton"
+" keresztül van kiszolgálva"
 
 msgid "Keep screen on"
 msgstr "Kijelző ébren tartása"
@@ -1921,7 +1925,7 @@ msgid "Chore journal"
 msgstr "Házimunka napló"
 
 msgid "Track next chore schedule"
-msgstr ""
+msgstr "A következő ütemezett házimunka végrehajtásának követése"
 
 msgid "Mark task as completed"
 msgstr "Feladat jelölése elvégzettként"
@@ -1948,6 +1952,8 @@ msgid ""
 "This is the default quantity unit used on purchase and when adding this "
 "product to the shopping list"
 msgstr ""
+"Ez a vásárláskor és a termék bevásárlólistára való felvételekor használt "
+"alapértelmezett mennyiségi egység"
 
 msgid ""
 "Show a warning when the due date of the purchased product is earlier than "
@@ -1974,11 +1980,15 @@ msgid ""
 "This amount is used for the \"quick consume button\" on the stock overview "
 "page (related to quantity unit stock)"
 msgstr ""
+"A készlet áttekintésnél lévő \"gyors felhasználás\" gomb ennyi mennyiséget "
+"használ el (készletegységben)"
 
 msgid ""
 "This amount is used for the \"quick open button\" on the stock overview page"
 " (related to quantity unit stock)"
 msgstr ""
+"A készlet áttekintésnél lévő \"gyors nyitás\" gomb ennyi mennyiséget használ"
+" el (készletegységben)"
 
 msgid "Copy"
 msgstr "Másolás"
@@ -2261,19 +2271,22 @@ msgid "A product or a note is required"
 msgstr "Termék vagy jegyzet szükséges"
 
 msgid "Grocycode"
-msgstr ""
+msgstr "Grocy kód"
 
 msgid "Download"
 msgstr "Letöltés"
 
 # Example: Download *Product* Grocycode
 msgid "Download %s Grocycode"
-msgstr ""
+msgstr "%s Grocy kód nyomtatása"
 
 msgid ""
 "Grocycode is a unique referer to this %s in your Grocy instance - print it "
 "onto a label and scan it like any other barcode"
 msgstr ""
+"A Grocy kód egy egyedi vonalkód, amely a(z) %s Grocy-n belüli egyértelmű "
+"azonosítására szolgál - nyomtasd ki egy címkére és használd úgy, mint "
+"bármely más vonalkódot"
 
 # Abbreviation for "due date"
 msgid "DD"
@@ -2302,7 +2315,7 @@ msgstr "Webhook hívási hiba"
 
 # Example: Print *Product* Grocycode on label printer
 msgid "Print %s Grocycode on label printer"
-msgstr ""
+msgstr "%s Grocy kód címkenyomtatóra küldés"
 
 msgid "Open stock entry label in new window"
 msgstr "Készletbejegyzés címkéjének megnyitása új lapon"
@@ -2490,7 +2503,7 @@ msgid "Save & add another task"
 msgstr "Mentés és újabb feladat hozzáadása"
 
 msgid "Treat opened as out of stock"
-msgstr "Felbontott termékeket hiányzóként kezeli"
+msgstr "Kezelje a felbontott termékeket hiányzóként"
 
 msgid ""
 "When enabled, opened items will be counted as missing for calculating if "
@@ -2557,9 +2570,9 @@ msgid ""
 "selectable on purchase (useful for parent products which are just used as a "
 "summary/total view of the child products)"
 msgstr ""
-"Bekapcsolva a terméknek nem lehet saját készlete, így vásárolni se lehet "
-"(akkor hasznos, ha az adott terméket csak az al-termékek összesítésére "
-"használjuk)"
+"Bekapcsolva a terméknek nem lehet saját készlete, így vásárláskor sem lehet "
+"kiválasztani (akkor hasznos, ha az adott terméket csak az al-termékek "
+"összesítésére használjuk)"
 
 msgid "Out of stock items will be shown at the products default location"
 msgstr "Készlethiányos termékek az alapértelmezett helyükön fognak szerepelni"
@@ -2690,61 +2703,71 @@ msgstr ""
 " esetén) automatán újranyomtatja a címkét"
 
 msgid "Quick open amount"
-msgstr ""
+msgstr "Gyors felbontási mennyiség"
 
 msgid "Track chore execution now"
-msgstr ""
+msgstr "Házimunka végrehajtásának követése most"
 
 msgid "Total"
-msgstr ""
+msgstr "Összesen"
 
 msgid "Apply"
-msgstr ""
+msgstr "Alkalmaz"
 
 msgid "Custom range"
-msgstr ""
+msgstr "Egyedi tartomány"
 
 msgid "Yesterday"
-msgstr ""
+msgstr "Tegnap"
 
 msgid "Last %1$s day"
 msgid_plural "Last %1$s days"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Elmúlt %1$s nap"
+msgstr[1] "Elmúlt %1$s nap"
 
 msgid "This month"
-msgstr ""
+msgstr "Ebben a hónapban"
 
 msgid "Last month"
-msgstr ""
+msgstr "Előző hónap"
 
 msgid "This year"
-msgstr ""
+msgstr "Idén"
 
 msgid "Last year"
-msgstr ""
+msgstr "Ebben a hónapban"
 
 msgid "Reports"
-msgstr ""
+msgstr "Jelentések"
 
 msgid "Spendings"
-msgstr ""
+msgstr "Kiadások"
 
 msgid "Stock report"
-msgstr ""
+msgstr "Készletjelentés"
 
 msgid "Out-of-stock products"
-msgstr ""
+msgstr "Elfogyott termékek"
 
 msgid "Quantity unit for prices"
-msgstr ""
+msgstr "Mennyiségi egység az árakhoz"
 
 msgid ""
 "When displaying prices for this product, they will be related to this "
 "quantity unit"
 msgstr ""
+"A termék árainak megjelenítésekor ehhez a mennyiségi egységhez kapcsolódnak"
 
 msgid "This means 1 label will be printed"
 msgid_plural "This means %1$s labels will be printed"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Ez azt jelenti, hogy 1 címke kerül nyomtatásra"
+msgstr[1] "Ez azt jelenti, hogy %1$s címke kerül nyomtatásra"
+
+msgid "External barcode lookup (via plugin)"
+msgstr ""
+
+msgid "Error while executing the barcode lookup plugin"
+msgstr ""
+
+msgid "Nothing was found for the given barcode"
+msgstr ""
