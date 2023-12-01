@@ -2676,7 +2676,7 @@ msgstr "הצגת דיונים שנפתרו"
 msgid "QU conversions resolved"
 msgstr "המרות יחידות כמות נפתרו"
 
-msgid "Product specifc QU conversions"
+msgid "Product specific QU conversions"
 msgstr "המרות יחידות כמות נקודתיות למוצר"
 
 msgid "Default quantity unit consume"

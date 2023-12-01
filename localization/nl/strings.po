@@ -2724,7 +2724,7 @@ msgstr "Toon opgeloste conversies"
 msgid "QU conversions resolved"
 msgstr "Hoeveelheidseenheid conversies opgelost"
 
-msgid "Product specifc QU conversions"
+msgid "Product specific QU conversions"
 msgstr "Product-specifieke hoeveelheidseenheid conversies"
 
 msgid "Default quantity unit consume"

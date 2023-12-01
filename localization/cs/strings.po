@@ -2737,7 +2737,7 @@ msgstr "Zobrazit všechny převody"
 msgid "QU conversions resolved"
 msgstr "Všechny převody měrných jednotek pro"
 
-msgid "Product specifc QU conversions"
+msgid "Product specific QU conversions"
 msgstr "Převody měrných jednotek pro tento produkt"
 
 msgid "Default quantity unit consume"

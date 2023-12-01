@@ -761,7 +761,7 @@
 			<div class="col">
 				<div class="title-related-links">
 					<h4>
-						{{ $__t('Product specifc QU conversions') }}
+						{{ $__t('Product specific QU conversions') }}
 					</h4>
 					<button class="btn btn-outline-dark d-md-none mt-2 float-right order-1 order-md-3"
 						type="button"

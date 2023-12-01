@@ -2598,7 +2598,7 @@ msgstr ""
 msgid "QU conversions resolved"
 msgstr "mængdeenhed konverteringsproblem løst"
 
-msgid "Product specifc QU conversions"
+msgid "Product specific QU conversions"
 msgstr "Vare specifikke mængdeenhed omregning"
 
 msgid "Default quantity unit consume"

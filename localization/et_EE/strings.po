@@ -2652,7 +2652,7 @@ msgstr "Näita lahendatud teisendusi"
 msgid "QU conversions resolved"
 msgstr "Koguseühiku teisendusi lahendatud"
 
-msgid "Product specifc QU conversions"
+msgid "Product specific QU conversions"
 msgstr "Tootele omased koguseühikute teisendused"
 
 msgid "Default quantity unit consume"

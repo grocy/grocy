@@ -2697,7 +2697,7 @@ msgstr "Aufgelöste ME-Umrechnungen anzeigen"
 msgid "QU conversions resolved"
 msgstr "Aufgelöste ME-Umrechnungen"
 
-msgid "Product specifc QU conversions"
+msgid "Product specific QU conversions"
 msgstr "Produktspezifische ME-Umrechnungen"
 
 msgid "Default quantity unit consume"

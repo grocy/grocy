@@ -2469,7 +2469,7 @@ msgstr ""
 msgid "QU conversions resolved"
 msgstr ""
 
-msgid "Product specifc QU conversions"
+msgid "Product specific QU conversions"
 msgstr ""
 
 msgid "Default quantity unit consume"

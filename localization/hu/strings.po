@@ -2671,7 +2671,7 @@ msgstr "Mutassa a felismert átváltásokat"
 msgid "QU conversions resolved"
 msgstr "Felismert ME átváltások"
 
-msgid "Product specifc QU conversions"
+msgid "Product specific QU conversions"
 msgstr "Termék specifikus mennyiségi egység váltások"
 
 msgid "Default quantity unit consume"

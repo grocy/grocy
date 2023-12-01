@@ -2732,7 +2732,7 @@ msgstr "Mostrar conversões resolvidas"
 msgid "QU conversions resolved"
 msgstr "QU conversões resolvidas"
 
-msgid "Product specifc QU conversions"
+msgid "Product specific QU conversions"
 msgstr "Conversões de unidade específicas"
 
 msgid "Default quantity unit consume"

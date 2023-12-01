@@ -2761,7 +2761,7 @@ msgstr "Mostra le conversioni risolte"
 msgid "QU conversions resolved"
 msgstr "UQ di conversioni risolte"
 
-msgid "Product specifc QU conversions"
+msgid "Product specific QU conversions"
 msgstr "UQ di conversioni specifiche per il prodotto"
 
 msgid "Default quantity unit consume"

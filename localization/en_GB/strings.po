@@ -2648,8 +2648,8 @@ msgstr "Show resolved conversions"
 msgid "QU conversions resolved"
 msgstr "QU conversions resolved"
 
-msgid "Product specifc QU conversions"
-msgstr "Product specifc QU conversions"
+msgid "Product specific QU conversions"
+msgstr "Product specific QU conversions"
 
 msgid "Default quantity unit consume"
 msgstr "Default quantity unit consume"

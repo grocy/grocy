@@ -2657,7 +2657,7 @@ msgstr "Çözümlenen dönüşümleri göster"
 msgid "QU conversions resolved"
 msgstr "QU dönüşümleri çözüldü"
 
-msgid "Product specifc QU conversions"
+msgid "Product specific QU conversions"
 msgstr "Ürüne özel QU dönüşümleri"
 
 msgid "Default quantity unit consume"

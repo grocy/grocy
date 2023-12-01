@@ -2472,7 +2472,7 @@ msgstr "显示转换过的单位"
 msgid "QU conversions resolved"
 msgstr "单位转换已完成"
 
-msgid "Product specifc QU conversions"
+msgid "Product specific QU conversions"
 msgstr "产品特有的数量单位转换"
 
 msgid "Default quantity unit consume"
