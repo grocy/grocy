@@ -4753,7 +4753,7 @@
 					},
 					"last_used": {
 						"type": "string",
-						"format": "date-time"
+						"format": "date"
 					},
 					"stock_amount": {
 						"type": "number"
@@ -4763,7 +4763,7 @@
 					},
 					"next_due_date": {
 						"type": "string",
-						"format": "date-time"
+						"format": "date"
 					},
 					"last_price": {
 						"type": "number",
