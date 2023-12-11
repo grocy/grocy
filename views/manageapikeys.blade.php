@@ -86,7 +86,7 @@
 			</thead>
 			<tbody class="d-none">
 				@foreach($apiKeys as $apiKey)
-				<tr class="@if($apiKey->id == $selectedKeyId) table-primary @endif">
+				<tr class="@if($apiKey->id == $selectedKeyId) table-info @endif">
 					<td class="fit-content border-right">
 						<a class="btn btn-danger btn-sm apikey-delete-button"
 							href="#"
