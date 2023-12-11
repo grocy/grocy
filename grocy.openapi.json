@@ -4733,7 +4733,10 @@
 						"$ref": "#/components/schemas/Product"
 					},
 					"product_barcodes": {
-						"$ref": "#/components/schemas/ProductBarcode"
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/ProductBarcode"
+						}
 					},
 					"quantity_unit_stock": {
 						"$ref": "#/components/schemas/QuantityUnit"
