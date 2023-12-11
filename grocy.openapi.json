@@ -5866,7 +5866,6 @@
 			"StringEnumTemplate": {
 				"type": "string",
 				"enum": [
-					""
 				]
 			}
 		},
