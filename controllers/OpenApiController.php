@@ -100,6 +100,68 @@ class OpenApiController extends BaseApiController
 				array_push($spec->components->schemas->ExposedEntity_NotIncludingNotListable->enum, $value);
 			}
 		}
+
+		$entity_types = array(
+			"products" => "Product",
+			"chores"  => "Chore",
+			"product_barcodes" => "ProductBarcode",
+			"batteries" => "Battery",
+			"locations" => "Location",
+			"quantity_units" => "QuantityUnit",
+			//			"quantity_unit_conversions" => ,
+			"shopping_list" => "ShoppingListItem",
+			// "shopping_lists" => ,
+			"shopping_locations" => "ShoppingLocation",
+			//			"recipes" => ,
+			// "recipes_pos",
+			// "recipes_nestings",
+			"tasks" => "Task",
+			"task_categories" => "TaskCategory",
+			//			"product_groups",
+			//"equipment",
+			"api_keys" => "ApiKey",
+			//"userfields",
+			//"userentities",
+			//"userobjects",
+			//"meal_plan",
+			"stock_log" => "StockLogEntry",
+			"stock" => "StockEntry",
+			///			"stock_current_locations" => ,
+			"chores_log" => "ChoreLogEntry"
+			//"meal_plan_sections",
+			//"products_last_purchased",
+			//"products_average_price",
+			//"quantity_unit_conversions_resolved",
+			//"recipes_pos_resolved"
+		);
+		// non-generic entity api
+		foreach(array_unique(array_merge($spec->components->schemas->ExposedEntity_NotIncludingNotListable->enum,
+										 $spec->components->schemas->ExposedEntity_NotIncludingNotEditable->enum)) as $value) {
+			$listObjectsPath = unserialize(serialize(clone $spec->paths->{"/objects/{entity}"}));
+
+			$type = null;
+			if(array_key_exists((string)$value, $entity_types)) {
+				$type = (object) array('$ref' => "#/components/schemas/" . $entity_types[$value]);
+			} else {
+				$type = (object) array("type" => "object");
+			}
+			$listObjectsPath->get->responses->{"200"}->content->
+													   {"application/json"}->schema->items = $type;
+			$listObjectsPath->post->requestBody->content->
+													   {"application/json"}->schema = $type;
+
+			if(!in_array($value, $spec->components->schemas->ExposedEntity_NotIncludingNotListable->enum)) {
+				unset($listObjectsPath->get);
+			}
+			if(!in_array($value, $spec->components->schemas->ExposedEntity_NotIncludingNotEditable->enum)) {
+				unset($listObjectsPath->post);
+			}
+
+			// TODO: update summary
+			$spec->paths->{"/objects/" . $value} = $listObjectsPath;
+		}
+		unset($spec->paths->{"/objects/{entity}"});
+
 		sort($spec->components->schemas->ExposedEntity_NotIncludingNotListable->enum);
 
 		return $this->ApiResponse($response, $spec);

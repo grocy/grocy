@@ -248,15 +248,6 @@
 				],
 				"parameters": [
 					{
-						"in": "path",
-						"name": "entity",
-						"required": true,
-						"description": "A valid entity name",
-						"schema": {
-							"$ref": "#/components/schemas/ExposedEntity_NotIncludingNotListable"
-						}
-					},
-					{
 						"$ref": "#/components/parameters/query"
 					},
 					{
@@ -334,17 +325,6 @@
 				"summary": "Adds a single object of the given entity",
 				"tags": [
 					"Generic entity interactions"
-				],
-				"parameters": [
-					{
-						"in": "path",
-						"name": "entity",
-						"required": true,
-						"description": "A valid entity name",
-						"schema": {
-							"$ref": "#/components/schemas/ExposedEntity_NotIncludingNotEditable"
-						}
-					}
 				],
 				"requestBody": {
 					"description": "A valid entity object of the entity specified in parameter *entity*",
