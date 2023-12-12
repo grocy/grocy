@@ -127,11 +127,11 @@ class OpenApiController extends BaseApiController
 			"stock_log" => "StockLogEntry",
 			"stock" => "StockEntry",
 			///			"stock_current_locations" => ,
-			"chores_log" => "ChoreLogEntry"
+			"chores_log" => "ChoreLogEntry",
 			//"meal_plan_sections",
 			//"products_last_purchased",
 			//"products_average_price",
-			//"quantity_unit_conversions_resolved",
+			"quantity_unit_conversions_resolved" => "QuantityUnitConversionResolved",
 			//"recipes_pos_resolved"
 		);
 		// non-generic entity api

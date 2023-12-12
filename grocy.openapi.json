@@ -5724,6 +5724,41 @@
 					}
 				}
 			},
+			"QuantityUnitConversionResolved": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "integer"
+					},
+					"product_id": {
+						"type": "integer"
+					},
+					"from_qu_id": {
+						"type": "integer"
+					},
+					"from_qu_name": {
+						"type": "string"
+					},
+					"from_qu_name_plural": {
+						"type": "string"
+					},
+					"to_qu_id": {
+						"type": "integer"
+					},
+					"to_qu_name": {
+						"type": "string"
+					},
+					"to_qu_name_plural": {
+						"type": "string"
+					},
+					"factor": {
+						"type": "number"
+					},
+					"path": {
+						"type": "string"
+					}
+				}
+			},
 			"ExposedEntity": {
 				"type": "string",
 				"enum": [
