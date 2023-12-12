@@ -162,6 +162,38 @@ class OpenApiController extends BaseApiController
 		}
 		unset($spec->paths->{"/objects/{entity}"});
 
+		foreach(array_unique(array_merge($spec->components->schemas->ExposedEntity_NotIncludingNotListable->enum,
+										 $spec->components->schemas->ExposedEntity_NotIncludingNotDeletable->enum,
+										 $spec->components->schemas->ExposedEntity_NotIncludingNotEditable->enum)) as $value) {
+			$singleEntityPath = unserialize(serialize(clone $spec->paths->{"/objects/{entity}/{objectId}"}));
+
+			$type = null;
+			if(array_key_exists((string)$value, $entity_types)) {
+				$type = (object) array('$ref' => "#/components/schemas/" . $entity_types[$value]);
+			} else {
+				$type = (object) array("type" => "object");
+			}
+
+			$singleEntityPath->get->responses->{"200"}->content->
+														{"application/json"}->schema = $type;
+			$singleEntityPath->put->requestBody->content->
+													   {"application/json"}->schema = $type;
+
+			if(!in_array($value, $spec->components->schemas->ExposedEntity_NotIncludingNotListable->enum)) {
+				unset($singleEntityPath->get);
+			}
+			if(!in_array($value, $spec->components->schemas->ExposedEntity_NotIncludingNotEditable->enum)) {
+				unset($singleEntityPath->put);
+			}
+			if(!in_array($value, $spec->components->schemas->ExposedEntity_NotIncludingNotDeletable->enum)) {
+				unset($singleEntityPath->delete);
+			}
+
+			// TODO: update summary
+			$spec->paths->{"/objects/" . $value . '/{objectId}'} = $singleEntityPath;
+		}
+		unset($spec->paths->{"/objects/{entity}/{objectId}"});
+
 		sort($spec->components->schemas->ExposedEntity_NotIncludingNotListable->enum);
 
 		return $this->ApiResponse($response, $spec);

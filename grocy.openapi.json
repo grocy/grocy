@@ -401,15 +401,6 @@
 				"parameters": [
 					{
 						"in": "path",
-						"name": "entity",
-						"required": true,
-						"description": "A valid entity name",
-						"schema": {
-							"$ref": "#/components/schemas/ExposedEntity_NotIncludingNotListable"
-						}
-					},
-					{
-						"in": "path",
 						"name": "objectId",
 						"required": true,
 						"description": "A valid object id of the given entity",
@@ -485,15 +476,6 @@
 				"parameters": [
 					{
 						"in": "path",
-						"name": "entity",
-						"required": true,
-						"description": "A valid entity name",
-						"schema": {
-							"$ref": "#/components/schemas/ExposedEntity_NotIncludingNotEditable"
-						}
-					},
-					{
-						"in": "path",
 						"name": "objectId",
 						"required": true,
 						"description": "A valid object id of the given entity",
@@ -560,15 +542,6 @@
 					"Generic entity interactions"
 				],
 				"parameters": [
-					{
-						"in": "path",
-						"name": "entity",
-						"required": true,
-						"description": "A valid entity name",
-						"schema": {
-							"$ref": "#/components/schemas/ExposedEntity_NotIncludingNotDeletable"
-						}
-					},
 					{
 						"in": "path",
 						"name": "objectId",
