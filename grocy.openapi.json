@@ -5289,8 +5289,8 @@
 						"format": "date"
 					},
 					"spoiled": {
-						"type": "boolean",
-						"default": false
+						"type": "integer",
+						"default": 0
 					},
 					"stock_id": {
 						"type": "string"
