@@ -5329,7 +5329,7 @@
 					},
 					"purchased_date": {
 						"type": "string",
-						"format": "date-time"
+						"format": "date"
 					},
 					"used_date": {
 						"type": "string",
