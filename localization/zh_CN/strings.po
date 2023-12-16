@@ -2472,8 +2472,8 @@ msgstr "显示转换过的单位"
 msgid "QU conversions resolved"
 msgstr "单位转换已完成"
 
-msgid "Product specifc QU conversions"
-msgstr "产品特有的数量单位转换"
+msgid "Product specific QU conversions"
+msgstr ""
 
 msgid "Default quantity unit consume"
 msgstr "默认消耗数量单位"
@@ -2564,4 +2564,7 @@ msgid "Error while executing the barcode lookup plugin"
 msgstr ""
 
 msgid "Nothing was found for the given barcode"
+msgstr ""
+
+msgid "Configure colors"
 msgstr ""

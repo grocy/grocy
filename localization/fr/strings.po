@@ -40,6 +40,7 @@
 # ThalusA, 2022
 # Maxime Corteel, 2022
 # Jonathan Blanc, 2023
+# Greg G, 2023
 # 
 msgid ""
 msgstr ""
@@ -47,7 +48,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Jonathan Blanc, 2023\n"
+"Last-Translator: Greg G, 2023\n"
 "Language-Team: French (https://app.transifex.com/grocy/teams/93189/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1640,7 +1641,7 @@ msgid "There are no units available at this location"
 msgstr "Il n'y a pas d'unité disponible à cet endroit."
 
 msgid "Amount: %1$s; Due on %2$s; Bought on %3$s"
-msgstr "Quantité : %1$s; Expire le %2$s ; Acheté le %3$s"
+msgstr "Quantité : %1$s; Périmé le %2$s ; Acheté le %3$s"
 
 msgid "Transfered %1$s of %2$s from %3$s to %4$s"
 msgstr "A transferé%1$sde %2$svenant de %3$s à %4$s"
@@ -2758,8 +2759,8 @@ msgstr "Afficher les conversions résolues"
 msgid "QU conversions resolved"
 msgstr "Conversions d'UQ résolue"
 
-msgid "Product specifc QU conversions"
-msgstr "Conversions UQ spécifiques au produit"
+msgid "Product specific QU conversions"
+msgstr ""
 
 msgid "Default quantity unit consume"
 msgstr "Quantité consommée par défaut"
@@ -2856,10 +2857,13 @@ msgstr[1] "Cela signifie que %1$s étiquettes seront imprimées"
 msgstr[2] "Cela signifie que %1$s étiquettes seront imprimées"
 
 msgid "External barcode lookup (via plugin)"
-msgstr ""
+msgstr "Lecture externe de codes-barres (via plugin)"
 
 msgid "Error while executing the barcode lookup plugin"
-msgstr ""
+msgstr "Erreur durant l'exécution du plugin de lecture de code-barres"
 
 msgid "Nothing was found for the given barcode"
-msgstr ""
+msgstr "Rien n'a été trouvé pour le code-barres reçu"
+
+msgid "Configure colors"
+msgstr "Paramétrage des couleurs"

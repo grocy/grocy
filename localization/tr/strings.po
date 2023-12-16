@@ -2657,8 +2657,8 @@ msgstr "Çözümlenen dönüşümleri göster"
 msgid "QU conversions resolved"
 msgstr "QU dönüşümleri çözüldü"
 
-msgid "Product specifc QU conversions"
-msgstr "Ürüne özel QU dönüşümleri"
+msgid "Product specific QU conversions"
+msgstr ""
 
 msgid "Default quantity unit consume"
 msgstr "Varsayılan miktar birimi tüketimi"
@@ -2755,4 +2755,7 @@ msgid "Error while executing the barcode lookup plugin"
 msgstr ""
 
 msgid "Nothing was found for the given barcode"
+msgstr ""
+
+msgid "Configure colors"
 msgstr ""

@@ -2648,8 +2648,8 @@ msgstr "Show resolved conversions"
 msgid "QU conversions resolved"
 msgstr "QU conversions resolved"
 
-msgid "Product specifc QU conversions"
-msgstr "Product specifc QU conversions"
+msgid "Product specific QU conversions"
+msgstr "Product specific QU conversions"
 
 msgid "Default quantity unit consume"
 msgstr "Default quantity unit consume"
@@ -2741,10 +2741,13 @@ msgstr[0] "This means 1 label will be printed"
 msgstr[1] "This means %1$s labels will be printed"
 
 msgid "External barcode lookup (via plugin)"
-msgstr ""
+msgstr "External barcode lookup (via plugin)"
 
 msgid "Error while executing the barcode lookup plugin"
-msgstr ""
+msgstr "Error while executing the barcode lookup plugin"
 
 msgid "Nothing was found for the given barcode"
-msgstr ""
+msgstr "Nothing was found for the given barcode"
+
+msgid "Configure colors"
+msgstr "Configure colours"

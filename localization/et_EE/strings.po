@@ -2652,8 +2652,8 @@ msgstr "Näita lahendatud teisendusi"
 msgid "QU conversions resolved"
 msgstr "Koguseühiku teisendusi lahendatud"
 
-msgid "Product specifc QU conversions"
-msgstr "Tootele omased koguseühikute teisendused"
+msgid "Product specific QU conversions"
+msgstr ""
 
 msgid "Default quantity unit consume"
 msgstr "Vaikimisi tarbitav kogusühik"
@@ -2749,4 +2749,7 @@ msgid "Error while executing the barcode lookup plugin"
 msgstr ""
 
 msgid "Nothing was found for the given barcode"
+msgstr ""
+
+msgid "Configure colors"
 msgstr ""

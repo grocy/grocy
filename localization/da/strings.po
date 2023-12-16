@@ -2598,8 +2598,8 @@ msgstr ""
 msgid "QU conversions resolved"
 msgstr "mængdeenhed konverteringsproblem løst"
 
-msgid "Product specifc QU conversions"
-msgstr "Vare specifikke mængdeenhed omregning"
+msgid "Product specific QU conversions"
+msgstr ""
 
 msgid "Default quantity unit consume"
 msgstr ""
@@ -2692,4 +2692,7 @@ msgid "Error while executing the barcode lookup plugin"
 msgstr ""
 
 msgid "Nothing was found for the given barcode"
+msgstr ""
+
+msgid "Configure colors"
 msgstr ""

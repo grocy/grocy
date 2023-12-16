@@ -2671,8 +2671,8 @@ msgstr "Mutassa a felismert átváltásokat"
 msgid "QU conversions resolved"
 msgstr "Felismert ME átváltások"
 
-msgid "Product specifc QU conversions"
-msgstr "Termék specifikus mennyiségi egység váltások"
+msgid "Product specific QU conversions"
+msgstr ""
 
 msgid "Default quantity unit consume"
 msgstr "Alapértelmezett felhasználási mennyiségi egység"
@@ -2770,4 +2770,7 @@ msgid "Error while executing the barcode lookup plugin"
 msgstr ""
 
 msgid "Nothing was found for the given barcode"
+msgstr ""
+
+msgid "Configure colors"
 msgstr ""

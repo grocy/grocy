@@ -2697,7 +2697,7 @@ msgstr "Aufgelöste ME-Umrechnungen anzeigen"
 msgid "QU conversions resolved"
 msgstr "Aufgelöste ME-Umrechnungen"
 
-msgid "Product specifc QU conversions"
+msgid "Product specific QU conversions"
 msgstr "Produktspezifische ME-Umrechnungen"
 
 msgid "Default quantity unit consume"
@@ -2799,3 +2799,6 @@ msgstr "Fehler beim Ausführen des Barcode-Suche-Plugins"
 
 msgid "Nothing was found for the given barcode"
 msgstr "Für den angegebenen Barcode wurde nichts gefunden"
+
+msgid "Configure colors"
+msgstr "Farben konfigurieren"

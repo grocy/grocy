@@ -2676,8 +2676,8 @@ msgstr "הצגת דיונים שנפתרו"
 msgid "QU conversions resolved"
 msgstr "המרות יחידות כמות נפתרו"
 
-msgid "Product specifc QU conversions"
-msgstr "המרות יחידות כמות נקודתיות למוצר"
+msgid "Product specific QU conversions"
+msgstr "המרת יחידות כמות נקודתיות למוצר"
 
 msgid "Default quantity unit consume"
 msgstr "יחידת כמות צריכה כברירת מחדל"
@@ -2771,10 +2771,13 @@ msgstr[2] "משמעות הדבר היא שתודפסנה %1$s תוויות"
 msgstr[3] "משמעות הדבר היא שתודפסנה %1$s תוויות"
 
 msgid "External barcode lookup (via plugin)"
-msgstr ""
+msgstr "חיפוש ברקוד חיצוני (דרך תוסף)"
 
 msgid "Error while executing the barcode lookup plugin"
-msgstr ""
+msgstr "שגיאה בהפעלת תוסף חיפוש הברקוד"
 
 msgid "Nothing was found for the given barcode"
-msgstr ""
+msgstr "לא נמצא כלום לברקוד שסופק"
+
+msgid "Configure colors"
+msgstr "הגדרת צבעים"

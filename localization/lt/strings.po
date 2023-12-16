@@ -2732,8 +2732,8 @@ msgstr "Rodyti užbaigtas konversijas"
 msgid "QU conversions resolved"
 msgstr "QU konversijos išspręstos"
 
-msgid "Product specifc QU conversions"
-msgstr "Konkretaus produkto QU konversijos"
+msgid "Product specific QU conversions"
+msgstr ""
 
 msgid "Default quantity unit consume"
 msgstr "Numatytasis suvartojamo kiekio vienetas"
@@ -2834,4 +2834,7 @@ msgid "Error while executing the barcode lookup plugin"
 msgstr ""
 
 msgid "Nothing was found for the given barcode"
+msgstr ""
+
+msgid "Configure colors"
 msgstr ""

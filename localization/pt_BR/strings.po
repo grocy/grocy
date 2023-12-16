@@ -2730,10 +2730,10 @@ msgid "Show resolved conversions"
 msgstr "Mostrar conversões resolvidas"
 
 msgid "QU conversions resolved"
-msgstr "QU conversões resolvidas"
+msgstr "Conversões QU resolvidas"
 
-msgid "Product specifc QU conversions"
-msgstr "Conversões de unidade específicas"
+msgid "Product specific QU conversions"
+msgstr "Conversões QU de produtos específicos"
 
 msgid "Default quantity unit consume"
 msgstr "Unidade padrão de consumo"
@@ -2827,10 +2827,13 @@ msgstr[1] "Significa que %1$s etiquetas serão impressas"
 msgstr[2] "Significa que %1$s etiquetas serão impressas"
 
 msgid "External barcode lookup (via plugin)"
-msgstr ""
+msgstr "Leitor externo de código de barras (via plugin)"
 
 msgid "Error while executing the barcode lookup plugin"
-msgstr ""
+msgstr "Erro no leitor externo do código de barras"
 
 msgid "Nothing was found for the given barcode"
-msgstr ""
+msgstr "Nada foi encontrado com esse código de barras"
+
+msgid "Configure colors"
+msgstr "Configurar cores"

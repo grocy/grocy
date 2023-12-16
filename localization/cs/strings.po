@@ -1105,10 +1105,10 @@ msgid "Sunday"
 msgstr "Neděle"
 
 msgid "Configure userfields"
-msgstr "Upravit uživatelská pole"
+msgstr "Upravit sloupce tabulky"
 
 msgid "Userfields"
-msgstr "Uživatelská pole"
+msgstr "Vlastní sloupce tabulky"
 
 msgid "Entity"
 msgstr "Entita"
@@ -1120,7 +1120,7 @@ msgid "Type"
 msgstr "Typ"
 
 msgid "Create userfield"
-msgstr "Vytvoř uživatelské pole"
+msgstr "Vytvořit sloupec uživatelské tabulky"
 
 msgid "A entity is required"
 msgstr "Proměnná je povinný údaj"
@@ -1135,10 +1135,10 @@ msgid "Show as column in tables"
 msgstr "Zobrazit jako řádek v tabulkách"
 
 msgid "This is required and can only contain letters and numbers"
-msgstr "Toto je povinné pole a může obsahovat pouze písmena a číslice"
+msgstr "Toto je povinný údaj a může obsahovat pouze písmena a číslice"
 
 msgid "Edit userfield"
-msgstr "Upravit uživatelská pole"
+msgstr "Upravit sloupec uživatelské tabulky"
 
 msgid "Plural forms"
 msgstr "Množné čislo"
@@ -1453,7 +1453,7 @@ msgid "Consume product on chore execution"
 msgstr "Spotřebovat produkt při splnění povinnosti"
 
 msgid "Are you sure to delete user field \"%s\"?"
-msgstr "Opravdu si přejete smazat uživatelské pole „%s“?"
+msgstr "Opravdu si přejete smazat sloupec „%s“?"
 
 msgid "Userentities"
 msgstr "Uživatelské tabulky"
@@ -1540,7 +1540,7 @@ msgid "Expected barcode"
 msgstr "Očekávaný čárový kód"
 
 msgid "Scan field"
-msgstr "Skenovací pole"
+msgstr "Naskenováno"
 
 msgid "Scanned barcodes"
 msgstr "Naskenované čárové kódy"
@@ -1721,7 +1721,7 @@ msgstr "vypnut"
 msgid ""
 "Scan mode is on but not all required fields could be populated automatically"
 msgstr ""
-"Skenovací režim je zapnutý, ale ne všechna vyžadovaná pole mohou být "
+"Skenovací režim je zapnutý, ale ne všechna vyžadovaná data mohou být "
 "vyplněna automaticky"
 
 msgid "Is freezer"
@@ -2197,7 +2197,7 @@ msgstr "Takto se položka databáze zobrazuje ve webové stránce"
 
 msgid "Multiple Userfields will be ordered by that number on the input form"
 msgstr ""
-"Řada uživatelských položek bude uspořádána podle tohoto čísla při jejich "
+"Řada uživatelských sloupců bude uspořádána podle tohoto čísla při jejich "
 "zadávání"
 
 msgid "Sort number"
@@ -2401,7 +2401,7 @@ msgid "Mandatory"
 msgstr "Povinné"
 
 msgid "Mandatory Userfield"
-msgstr "Povinné uživatelské pole"
+msgstr "Povinný uživatelský údaj"
 
 msgid "When enabled, then this field must be filled on the destination form"
 msgstr "Použijete-li tento údaj ve formuláři, bude povinný"
@@ -2737,7 +2737,7 @@ msgstr "Zobrazit všechny převody"
 msgid "QU conversions resolved"
 msgstr "Všechny převody měrných jednotek pro"
 
-msgid "Product specifc QU conversions"
+msgid "Product specific QU conversions"
 msgstr "Převody měrných jednotek pro tento produkt"
 
 msgid "Default quantity unit consume"
@@ -2832,10 +2832,13 @@ msgstr[2] "Vytiskne se %1$s nálepek"
 msgstr[3] "Vytiskne se %1$s nálepek"
 
 msgid "External barcode lookup (via plugin)"
-msgstr ""
+msgstr "Vyhodnocení čárového kódu doplňkovým modulem aplikace"
 
 msgid "Error while executing the barcode lookup plugin"
-msgstr ""
+msgstr "Vyhodnocení doplňkovým modulem se nezdařilo"
 
 msgid "Nothing was found for the given barcode"
-msgstr ""
+msgstr "Pro tento čárový kód nebylo nic nalezeno"
+
+msgid "Configure colors"
+msgstr "Změnit barvy"

@@ -2761,8 +2761,8 @@ msgstr "Mostra le conversioni risolte"
 msgid "QU conversions resolved"
 msgstr "UQ di conversioni risolte"
 
-msgid "Product specifc QU conversions"
-msgstr "UQ di conversioni specifiche per il prodotto"
+msgid "Product specific QU conversions"
+msgstr ""
 
 msgid "Default quantity unit consume"
 msgstr "Quantità di unità di acquisto predefinita"
@@ -2864,4 +2864,7 @@ msgid "Error while executing the barcode lookup plugin"
 msgstr ""
 
 msgid "Nothing was found for the given barcode"
+msgstr ""
+
+msgid "Configure colors"
 msgstr ""
