@@ -1,8 +1,8 @@
-> ⚠️ xxxBREAKING CHANGESxxx
+> 💡 PHP 8.3 is from now on (additionally to PHP 8.2) supported.
+>
+> ⚠️ PHP 8.1 is no longer supported.
 
 > ❗ xxxImportant upgrade informationXXX
-
-> 💡 xxxMinor upgrade informationXXX
 
 ### New feature: xxxx
 

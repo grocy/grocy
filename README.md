@@ -47,8 +47,8 @@ See the website for more installation guides and troubleshooting help. &rarr; [h
 
 ### Platform support
 
-- PHP 8.1 or 8.2 (with SQLite 3.34.0+)
-  - Required PHP extensions: `fileinfo`, `pdo_sqlite`, `gd`, `ctype`, `json`, `intl`, `zlib`, `mbstring`
+- PHP 8.2 or 8.3 (with SQLite 3.34.0+)
+  - Required PHP extensions: `fileinfo`, `pdo_sqlite`, `gd`, `ctype`, `intl`, `zlib`, `mbstring`
   - _Recommendation: Benchmark tests showed that e.g. unit conversion handling is up to 5 times faster when using a more recent (3.39.4+) SQLite version._
 - Recent Firefox, Chrome or Edge
 
