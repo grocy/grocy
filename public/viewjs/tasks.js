@@ -34,12 +34,28 @@ $("#status-filter").on("change", function()
 	tasksTable.column(tasksTable.colReorder.transpose(5)).search(value).draw();
 });
 
+$("#category-filter").on("change", function()
+{
+	var value = $(this).val();
+	if (value === "all")
+	{
+		value = "";
+	}
+
+	// Transfer CSS classes of selected element to dropdown element (for background)
+	$(this).attr("class", $("#" + $(this).attr("id") + " option[value='" + value + "']").attr("class") + " form-control");
+
+	tasksTable.column(tasksTable.colReorder.transpose(6)).search(value).draw();
+});
+
 $("#clear-filter-button").on("click", function()
 {
 	$("#search").val("");
 	$("#status-filter").val("all");
+	$("#category-filter").val("all");
 	$("#search").trigger("keyup");
 	$("#status-filter").trigger("change");
+	$("#category-filter").trigger("change");
 	$("#show-done-tasks").trigger('checked', false);
 });
 
