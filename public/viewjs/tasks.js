@@ -41,10 +41,6 @@ $("#category-filter").on("change", function()
 	{
 		value = "";
 	}
-
-	// Transfer CSS classes of selected element to dropdown element (for background)
-	$(this).attr("class", $("#" + $(this).attr("id") + " option[value='" + value + "']").attr("class") + " form-control");
-
 	tasksTable.column(tasksTable.colReorder.transpose(6)).search(value).draw();
 });
 
