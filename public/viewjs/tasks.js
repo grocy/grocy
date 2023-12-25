@@ -42,7 +42,7 @@ $("#category-filter").on("change", function()
 		value = "";
 	}
 
-	tasksTable.column(tasksTable.colReorder.transpose(6)).search(value).draw();
+	tasksTable.column(tasksTable.colReorder.transpose(3)).search(value).draw();
 });
 
 $("#clear-filter-button").on("click", function()
