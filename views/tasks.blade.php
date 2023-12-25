@@ -92,6 +92,8 @@
 				@foreach($taskCategories as $taskCategory)
 				<option value="{{ $taskCategory->name }}">{{ $taskCategory->name }}</option>
 				@endforeach
+				<option class="font-italic font-weight-light"
+					value="{{ $__t('Uncategorized') }}">{{ $__t('Uncategorized') }}</option>
 			</select>
 		</div>
 	</div>
