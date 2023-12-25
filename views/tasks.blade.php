@@ -90,7 +90,7 @@
 				id="category-filter">
 				<option value="all">{{ $__t('All') }}</option>
 				@foreach($taskCategories as $taskCategory)
-				<option value="{{ $taskCategory->name }}">{{ $__t($taskCategory->name) }}</option>
+				<option value="{{ $taskCategory->name }}">{{ $taskCategory->name }}</option>
 				@endforeach
 			</select>
 		</div>
