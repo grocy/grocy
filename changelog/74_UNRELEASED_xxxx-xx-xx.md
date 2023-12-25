@@ -40,7 +40,7 @@
 
 ### Tasks
 
-- xxx
+- Added a new table filter for categories (thanks @geoffwright240 for the initial work on this)
 
 ### Batteries
 
