@@ -41,6 +41,7 @@ $("#category-filter").on("change", function()
 	{
 		value = "";
 	}
+
 	tasksTable.column(tasksTable.colReorder.transpose(6)).search(value).draw();
 });
 

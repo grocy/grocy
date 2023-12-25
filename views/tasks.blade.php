@@ -81,7 +81,7 @@
 			</select>
 		</div>
 	</div>
-<div class="col-12 col-md-6 col-xl-3">
+	<div class="col-12 col-md-6 col-xl-3">
 		<div class="input-group">
 			<div class="input-group-prepend">
 				<span class="input-group-text"><i class="fa-solid fa-filter"></i>&nbsp;{{ $__t('Category') }}</span>
@@ -90,7 +90,7 @@
 				id="category-filter">
 				<option value="all">{{ $__t('All') }}</option>
 				@foreach($taskCategories as $taskCategory)
-					<option value="{{ $taskCategory->name }}">{{ $__t($taskCategory->name) }}</option>
+				<option value="{{ $taskCategory->name }}">{{ $__t($taskCategory->name) }}</option>
 				@endforeach
 			</select>
 		</div>
