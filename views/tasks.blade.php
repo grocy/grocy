@@ -82,6 +82,22 @@
 		</div>
 	</div>
 	<div class="col-12 col-md-6 col-xl-3">
+		<div class="input-group">
+			<div class="input-group-prepend">
+				<span class="input-group-text"><i class="fa-solid fa-filter"></i>&nbsp;{{ $__t('Category') }}</span>
+			</div>
+			<select class="custom-control custom-select"
+				id="category-filter">
+				<option value="all">{{ $__t('All') }}</option>
+				@foreach($taskCategories as $taskCategory)
+				<option value="{{ $taskCategory->name }}">{{ $taskCategory->name }}</option>
+				@endforeach
+				<option class="font-italic font-weight-light"
+					value="{{ $__t('Uncategorized') }}">{{ $__t('Uncategorized') }}</option>
+			</select>
+		</div>
+	</div>
+	<div class="col-12 col-md-6 col-xl-3">
 		<div class="form-check custom-control custom-checkbox">
 			<input class="form-check-input custom-control-input"
 				type="checkbox"

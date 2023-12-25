@@ -34,12 +34,25 @@ $("#status-filter").on("change", function()
 	tasksTable.column(tasksTable.colReorder.transpose(5)).search(value).draw();
 });
 
+$("#category-filter").on("change", function()
+{
+	var value = $(this).val();
+	if (value === "all")
+	{
+		value = "";
+	}
+
+	tasksTable.column(tasksTable.colReorder.transpose(3)).search(value).draw();
+});
+
 $("#clear-filter-button").on("click", function()
 {
 	$("#search").val("");
 	$("#status-filter").val("all");
+	$("#category-filter").val("all");
 	$("#search").trigger("keyup");
 	$("#status-filter").trigger("change");
+	$("#category-filter").trigger("change");
 	$("#show-done-tasks").trigger('checked', false);
 });
 
