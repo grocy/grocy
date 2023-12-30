@@ -200,7 +200,12 @@ function QrCodeImgHtml(text)
 function CleanFileName(fileName)
 {
 	// Umlaute seem to cause problems on Linux...
-	return fileName.toLowerCase().replaceAll(/ä/g, 'ae').replaceAll(/ö/g, 'oe').replaceAll(/ü/g, 'ue').replaceAll(/ß/g, 'ss');
+	fileName = fileName.toLowerCase().replaceAll(/ä/g, 'ae').replaceAll(/ö/g, 'oe').replaceAll(/ü/g, 'ue').replaceAll(/ß/g, 'ss');
+
+	// Multiple spaces seem to be a problem, so simply strip them all
+	fileName = fileName.replace(/\s+/g, "");
+
+	return fileName;
 }
 
 function nl2br(s)

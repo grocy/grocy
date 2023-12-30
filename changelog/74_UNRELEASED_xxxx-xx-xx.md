@@ -57,6 +57,7 @@
 ### General
 
 - Optimized sidebar icon spacing (thanks @chris-thorn)
+- Fixed that file uploads (product pictures and so on) didn't work for files where the file name contains multiple spaces
 
 ### API
 
