@@ -41,7 +41,7 @@ class RecipesService extends BaseService
 					$conversion = $this->getDatabase()->cache__quantity_unit_conversions_resolved()->where('product_id = :1 AND from_qu_id = :2 AND to_qu_id = :3', $recipePosition->product_id, $recipePosition->qu_id, $product->qu_id_stock)->fetch();
 					if ($conversion != null)
 					{
-						$toOrderAmount = $toOrderAmount * $conversion->factor;
+						$toOrderAmount = ceil($toOrderAmount * $conversion->factor);
 					}
 				}
 
