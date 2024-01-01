@@ -32,14 +32,27 @@ class StockService extends BaseService
 
 			$alreadyExistingEntry = $this->getDatabase()->shopping_list()->where('product_id', $missingProduct->id)->fetch();
 
+			$equivalentAmountToAdd = $amountToAdd;
+			if ($product->qu_id_stock != $product->qu_id_purchase){
+				$productQuConversion = $this->getDatabase()->cache__quantity_unit_conversions_resolved()->where('product_id = :1 AND from_qu_id = :2 AND to_qu_id = :3', $product->id, $product->qu_id_stock, $product->qu_id_purchase)->fetch();
+				if ($productQuConversion){
+					$factor = $productQuConversion->factor;
+					/// we need to find the next integer from qu_id_stock(amount_missing) * factor
+					// which is ceil(qu_id_stock(amount_missing) * factor) * qu_id_purchase
+					// but the shopping list always has the number needed to buy as stock unit, so convert back
+					$equivalentAmountToAdd = ceil(($amountToAdd)*$productQuConversion->factor)/$productQuConversion->factor;
+				}
+			}
+
 			if ($alreadyExistingEntry)
 			{
 				// Update
 				if ($alreadyExistingEntry->amount < $amountToAdd)
 				{
 					$alreadyExistingEntry->update([
-						'amount' => $amountToAdd,
-						'shopping_list_id' => $listId
+						'amount' => $equivalentAmountToAdd,
+						'shopping_list_id' => $listId,
+						'qu_id' => $product->qu_id_purchase
 					]);
 				}
 			}
@@ -48,8 +61,9 @@ class StockService extends BaseService
 				// Insert
 				$shoppinglistRow = $this->getDatabase()->shopping_list()->createRow([
 					'product_id' => $missingProduct->id,
-					'amount' => $amountToAdd,
-					'shopping_list_id' => $listId
+					'amount' => $equivalentAmountToAdd,
+					'shopping_list_id' => $listId,
+					'qu_id' => $product->qu_id_purchase
 				]);
 				$shoppinglistRow->save();
 			}
