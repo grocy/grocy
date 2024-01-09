@@ -44,7 +44,7 @@ class StockReportsController extends BaseController
 			FROM products_price_history pph
 			JOIN products p
 				ON pph.product_id = p.id
-			JOIN product_groups pg
+			LEFT JOIN product_groups pg
 				ON p.product_group_id = pg.id
 			WHERE $where
 			GROUP BY p.id, p.name, pg.id, pg.name
@@ -61,7 +61,7 @@ class StockReportsController extends BaseController
 			FROM products_price_history pph
 			JOIN products p
 				ON pph.product_id = p.id
-			JOIN product_groups pg
+			LEFT JOIN product_groups pg
 				ON p.product_group_id = pg.id
 			WHERE $where
 			GROUP BY pg.id, pg.name
