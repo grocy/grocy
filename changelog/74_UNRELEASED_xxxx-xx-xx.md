@@ -16,6 +16,7 @@
   - After that, the transaction is continued with that product
 - Fixed that the location dropdown on the consume page contained the same location multiple times if there are currently stock entries at multiple locations of the corresponding product
 - Fixed that the status filter "n products are overdue" on the stock overview page also counted/included stock entries due today or tomorrow
+- Fixed that the stock report "Spendings" did not take products without an assigned product group into account (thanks @Torqu3Wr3nch for the initial work on this)
 
 ### Shopping list
 
