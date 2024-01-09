@@ -77,6 +77,8 @@
 				<option @if($productGroup->id == $selectedGroup) selected="selected" @endif
 					value="{{ $productGroup->id }}">{{ $productGroup->name }}</option>
 				@endforeach
+				<option class="font-italic font-weight-light"
+					value="ungrouped">{{ $__t('Ungrouped') }}</option>
 			</select>
 		</div>
 	</div>
@@ -112,8 +114,16 @@
 			<tbody class="d-none">
 				@foreach($metrics as $metric)
 				<tr>
-					<td data-chart-label="{{ $metric->name }}">
+					<td>
+						@if($groupBy == 'productgroup')
+						@if(empty($metric->name))
+						<span class="font-italic font-weight-light">{{ $__t('Ungrouped') }}</span>
+						@else
 						{{ $metric->name }}
+						@endif
+						@else
+						{{ $metric->name }}
+						@endif
 					</td>
 					<td data-chart-value="{{ $metric->total }}"
 						data-order="{{ $metric->total }}">
@@ -121,7 +131,11 @@
 					</td>
 					@if($groupBy == 'product')
 					<td>
+						@if(empty($metric->group_name))
+						<span class="font-italic font-weight-light">{{ $__t('Ungrouped') }}</span>
+						@else
 						{{ $metric->group_name }}
+						@endif
 					</td>
 					@endif
 				</tr>

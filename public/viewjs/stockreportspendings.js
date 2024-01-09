@@ -4,7 +4,7 @@ var totalAmount = 0.0;
 $("#metrics-table tbody tr").each(function()
 {
 	var self = $(this);
-	labels.push(self.find("td:eq(0)").attr("data-chart-label"));
+	labels.push(self.find("td:eq(0)").text().trim());
 	var itemTotal = Number.parseFloat(self.find("td:eq(1)").attr("data-chart-value"));
 	data.push(itemTotal);
 	totalAmount += + itemTotal;
