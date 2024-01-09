@@ -29,9 +29,16 @@ class StockReportsController extends BaseController
 
 		if ($groupBy == 'product')
 		{
-			if (isset($request->getQueryParams()['product-group']) and $request->getQueryParams()['product-group'] != 'all')
+			if (isset($request->getQueryParams()['product-group']))
 			{
-				$where .= ' AND pg.id = ' . $request->getQueryParams()['product-group'];
+				if ($request->getQueryParams()['product-group'] == 'ungrouped')
+				{
+					$where .= ' AND pg.id IS NULL';
+				}
+				elseif ($request->getQueryParams()['product-group'] != 'all')
+				{
+					$where .= ' AND pg.id = ' . $request->getQueryParams()['product-group'];
+				}
 			}
 
 			$sql = "
@@ -44,7 +51,7 @@ class StockReportsController extends BaseController
 			FROM products_price_history pph
 			JOIN products p
 				ON pph.product_id = p.id
-			JOIN product_groups pg
+			LEFT JOIN product_groups pg
 				ON p.product_group_id = pg.id
 			WHERE $where
 			GROUP BY p.id, p.name, pg.id, pg.name
@@ -61,7 +68,7 @@ class StockReportsController extends BaseController
 			FROM products_price_history pph
 			JOIN products p
 				ON pph.product_id = p.id
-			JOIN product_groups pg
+			LEFT JOIN product_groups pg
 				ON p.product_group_id = pg.id
 			WHERE $where
 			GROUP BY pg.id, pg.name
