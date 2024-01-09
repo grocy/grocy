@@ -29,9 +29,16 @@ class StockReportsController extends BaseController
 
 		if ($groupBy == 'product')
 		{
-			if (isset($request->getQueryParams()['product-group']) and $request->getQueryParams()['product-group'] != 'all')
+			if (isset($request->getQueryParams()['product-group']))
 			{
-				$where .= ' AND pg.id = ' . $request->getQueryParams()['product-group'];
+				if ($request->getQueryParams()['product-group'] == 'ungrouped')
+				{
+					$where .= ' AND pg.id IS NULL';
+				}
+				elseif ($request->getQueryParams()['product-group'] != 'all')
+				{
+					$where .= ' AND pg.id = ' . $request->getQueryParams()['product-group'];
+				}
 			}
 
 			$sql = "
