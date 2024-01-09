@@ -4733,7 +4733,10 @@
 						"$ref": "#/components/schemas/Product"
 					},
 					"product_barcodes": {
-						"$ref": "#/components/schemas/ProductBarcode"
+						"type": "array",
+						"items": {
+							"$ref": "#/components/schemas/ProductBarcode"
+						}
 					},
 					"quantity_unit_stock": {
 						"$ref": "#/components/schemas/QuantityUnit"
@@ -4753,7 +4756,7 @@
 					},
 					"last_used": {
 						"type": "string",
-						"format": "date-time"
+						"format": "date"
 					},
 					"stock_amount": {
 						"type": "number"
@@ -4763,7 +4766,7 @@
 					},
 					"next_due_date": {
 						"type": "string",
-						"format": "date-time"
+						"format": "date"
 					},
 					"last_price": {
 						"type": "number",
@@ -5326,7 +5329,7 @@
 					},
 					"purchased_date": {
 						"type": "string",
-						"format": "date-time"
+						"format": "date"
 					},
 					"used_date": {
 						"type": "string",
