@@ -59,6 +59,7 @@
 
 - Optimized sidebar icon spacing (thanks @chris-thorn)
 - Fixed that file uploads (product pictures and so on) didn't work for files where the file name contains multiple spaces
+- Fixed that some dialogs were not properly (too small) displayed in Firefox >= 121
 
 ### API
 

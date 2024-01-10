@@ -564,10 +564,6 @@ $(window).on('resize', function()
 {
 	ResizeResponsiveEmbeds($("body").hasClass("fullscreen-card"));
 });
-$("iframe").on("load", function()
-{
-	ResizeResponsiveEmbeds($("body").hasClass("fullscreen-card"));
-});
 
 function WindowMessageBag(message, payload = null)
 {
@@ -708,7 +704,7 @@ $(document).on("click", ".show-as-dialog-link", function(e)
 	var link = $(e.currentTarget).attr("href");
 
 	bootbox.dialog({
-		message: '<iframe height="650px" class="embed-responsive" src="' + link + '" loading="lazy"></iframe>',
+		message: '<iframe height="650px" class="embed-responsive" src="' + link + '"></iframe>',
 		size: 'large',
 		backdrop: true,
 		closeButton: false,
