@@ -258,6 +258,7 @@ $(document).on('click', '.shopping-list-stock-add-workflow-list-item-button', fu
 	}
 	else
 	{
+		$("#shopping-list-stock-add-workflow-purchase-item-count").addClass("d-none");
 		$("#shopping-list-stock-add-workflow-skip-button").addClass("d-none");
 	}
 });
@@ -623,3 +624,8 @@ if ($(window).width() < 768 || !Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK)
 {
 	$("#filter-container").removeClass("border-bottom");
 }
+
+$("#shopping-list-stock-add-workflow-purchase-form-frame").on("load", function()
+{
+	ResizeResponsiveEmbeds();
+});

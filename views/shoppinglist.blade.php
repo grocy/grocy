@@ -321,8 +321,8 @@
 		<div class="modal-content text-center">
 			<div class="modal-body">
 				<iframe id="shopping-list-stock-add-workflow-purchase-form-frame"
-					class="embed-responsive"
-					src=""></iframe>
+					class="embed-responsive">
+				</iframe>
 			</div>
 			<div class="modal-footer">
 				<span id="shopping-list-stock-add-workflow-purchase-item-count"

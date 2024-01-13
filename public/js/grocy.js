@@ -542,37 +542,21 @@ if ($(".custom-file-label").length > 0)
 	$("<style>").html('.custom-file-label::after { content: "' + __t("Select file") + '"; }').appendTo("head");
 }
 
-ResizeResponsiveEmbeds = function(fillEntireViewport = false, iframesOnly = false)
+ResizeResponsiveEmbeds = function(fillEntireViewport = false)
 {
-	if (!iframesOnly)
+	if (!fillEntireViewport)
 	{
-		if (!fillEntireViewport)
-		{
-			var maxHeight = $("body").height() - $("#mainNav").outerHeight() - 62;
-		}
-		else
-		{
-			var maxHeight = $("body").height();
-		}
-		$("embed.embed-responsive").attr("height", maxHeight.toString() + "px");
+		var maxHeight = $("body").height() - $("#mainNav").outerHeight() - 62;
 	}
+	else
+	{
+		var maxHeight = $("body").height();
+	}
+	$("embed.embed-responsive").attr("height", maxHeight.toString() + "px");
 
 	$("iframe.embed-responsive").each(function()
 	{
-		var iframeHeight = $(this)[0].contentWindow.document.body.scrollHeight;
-
-		if (iframeHeight == 0)
-		{
-			// Iframe has most likely not finished loading yet => try again later
-			setTimeout(function()
-			{
-				ResizeResponsiveEmbeds(fillEntireViewport, true);
-			}, 150);
-		}
-		else
-		{
-			$(this).attr("height", iframeHeight.toString() + "px");
-		}
+		$(this).attr("height", $(this)[0].contentWindow.document.body.scrollHeight.toString() + "px");
 	});
 }
 $(window).on('resize', function()
@@ -719,7 +703,7 @@ $(document).on("click", ".show-as-dialog-link", function(e)
 	var link = $(e.currentTarget).attr("href");
 
 	bootbox.dialog({
-		message: '<iframe height="650px" class="embed-responsive" src="' + link + '"></iframe>',
+		message: '<iframe height="650px" class="embed-responsive" onload="ResizeResponsiveEmbeds();" src="' + link + '"></iframe>',
 		size: 'large',
 		backdrop: true,
 		closeButton: false,
@@ -805,8 +789,3 @@ $(document).on("click", "#clear-filter-button", function(e)
 {
 	$(".tooltip").tooltip("hide");
 });
-
-$(document).on("shown.bs.modal", function(e)
-{
-	ResizeResponsiveEmbeds();
-})
