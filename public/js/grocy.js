@@ -542,22 +542,37 @@ if ($(".custom-file-label").length > 0)
 	$("<style>").html('.custom-file-label::after { content: "' + __t("Select file") + '"; }').appendTo("head");
 }
 
-ResizeResponsiveEmbeds = function(fillEntireViewport = false)
+ResizeResponsiveEmbeds = function(fillEntireViewport = false, iframesOnly = false)
 {
-	if (!fillEntireViewport)
+	if (!iframesOnly)
 	{
-		var maxHeight = $("body").height() - $("#mainNav").outerHeight() - 62;
+		if (!fillEntireViewport)
+		{
+			var maxHeight = $("body").height() - $("#mainNav").outerHeight() - 62;
+		}
+		else
+		{
+			var maxHeight = $("body").height();
+		}
+		$("embed.embed-responsive").attr("height", maxHeight.toString() + "px");
 	}
-	else
-	{
-		var maxHeight = $("body").height();
-	}
-
-	$("embed.embed-responsive").attr("height", maxHeight.toString() + "px");
 
 	$("iframe.embed-responsive").each(function()
 	{
-		$(this).attr("height", $(this)[0].contentWindow.document.body.scrollHeight.toString() + "px");
+		var iframeHeight = $(this)[0].contentWindow.document.body.scrollHeight;
+
+		if (iframeHeight == 0)
+		{
+			// Iframe has most likely not finished loading yet => try again later
+			setTimeout(function()
+			{
+				ResizeResponsiveEmbeds(fillEntireViewport, true);
+			}, 150);
+		}
+		else
+		{
+			$(this).attr("height", iframeHeight.toString() + "px");
+		}
 	});
 }
 $(window).on('resize', function()
