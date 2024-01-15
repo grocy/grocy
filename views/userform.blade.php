@@ -106,6 +106,7 @@
 					@endif>
 				<div class="invalid-feedback">{{ $__t('Passwords do not match') }}</div>
 			</div>
+			@endif
 			@else
 			<input type="hidden"
 				name="password"
@@ -115,7 +116,6 @@
 				name="password_confirm"
 				id="password_confirm"
 				value="x">
-			@endif
 			@endif
 
 			@include('components.userfieldsform', array(

@@ -25,10 +25,12 @@
 			</div>
 			<div class="related-links collapse d-md-flex order-2 width-xs-sm-100 m-1 mt-md-0 mb-md-0 float-right"
 				id="related-links">
+				@if(!defined('GROCY_EXTERNALLY_MANAGED_AUTHENTICATION'))
 				<a class="btn btn-primary responsive-button"
 					href="{{ $U('/user/new') }}">
 					{{ $__t('Add') }}
 				</a>
+				@endif
 				<a class="btn btn-outline-secondary m-1 mt-md-0 mb-md-0 float-right"
 					href="{{ $U('/userfields?entity=users') }}">
 					{{ $__t('Configure userfields') }}
