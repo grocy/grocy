@@ -57,6 +57,7 @@
 
 ### General
 
+- Night mode is now also used on the login page if that's the system preferred color scheme (generally if night mode is on or not is based on user settings and before logging in no user context is available)
 - Optimized sidebar icon spacing (thanks @chris-thorn)
 - Fixed that file uploads (product pictures and so on) didn't work for files where the file name contains multiple spaces
 - Fixed that some dialogs were not properly (too small) displayed in Firefox >= 121

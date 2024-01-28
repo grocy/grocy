@@ -49,9 +49,9 @@ $("#auto-night-mode-time-range-goes-over-midgnight").on("change", function()
 
 function CheckNightMode()
 {
-	if (Grocy.UserId === -1)
+	if (Grocy.UserId === -1) // Not logged in => always use system preferred color scheme
 	{
-		return;
+		Grocy.UserSettings.night_mode = "follow-system";
 	}
 
 	var nightModeEnabledInternalBefore = Grocy.UserSettings.night_mode_enabled_internal;
@@ -132,8 +132,6 @@ if (Grocy.UserId !== -1)
 	$("#auto-night-mode-time-range-from").trigger("keyup");
 	$("#auto-night-mode-time-range-to").val(Grocy.UserSettings.auto_night_mode_time_range_to);
 	$("#auto-night-mode-time-range-to").trigger("keyup");
-
-	CheckNightMode();
 }
 
 if (Grocy.Mode === "production")
@@ -144,3 +142,5 @@ else
 {
 	setInterval(CheckNightMode, 4000);
 }
+
+CheckNightMode();
