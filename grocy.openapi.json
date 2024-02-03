@@ -4511,6 +4511,106 @@
 					"move_on_open": "1"
 				}
 			},
+			"ProductWithoutUserfields": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "integer"
+					},
+					"name": {
+						"type": "string"
+					},
+					"description": {
+						"type": "string"
+					},
+					"location_id": {
+						"type": "integer"
+					},
+					"qu_id_purchase": {
+						"type": "integer"
+					},
+					"qu_id_stock": {
+						"type": "integer"
+					},
+					"enable_tare_weight_handling": {
+						"type": "integer"
+					},
+					"not_check_stock_fulfillment_for_recipes": {
+						"type": "integer"
+					},
+					"product_group_id": {
+						"type": "integer"
+					},
+					"tare_weight": {
+						"type": "number"
+					},
+					"min_stock_amount": {
+						"type": "number",
+						"minimum": 0,
+						"default": 0
+					},
+					"default_best_before_days": {
+						"type": "integer",
+						"minimum": 0,
+						"default": 0
+					},
+					"default_best_before_days_after_open": {
+						"type": "integer",
+						"minimum": 0,
+						"default": 0
+					},
+					"picture_file_name": {
+						"type": "string"
+					},
+					"row_created_timestamp": {
+						"type": "string",
+						"format": "date-time"
+					},
+					"shopping_location_id": {
+						"type": "integer"
+					},
+					"treat_opened_as_out_of_stock": {
+						"type": "integer"
+					},
+					"auto_reprint_stock_label": {
+						"type": "integer"
+					},
+					"no_own_stock": {
+						"type": "integer"
+					},
+					"should_not_be_frozen": {
+						"type": "integer"
+					},
+					"default_consume_location_id": {
+						"type": "integer"
+					},
+					"move_on_open": {
+						"type": "integer"
+					}
+				},
+				"example": {
+					"id": "1",
+					"name": "Cookies",
+					"description": null,
+					"location_id": "4",
+					"qu_id_purchase": "3",
+					"qu_id_stock": "3",
+					"min_stock_amount": "8",
+					"default_best_before_days": "0",
+					"row_created_timestamp": "2019-05-02 20:12:26",
+					"product_group_id": "1",
+					"picture_file_name": "cookies.jpg",
+					"default_best_before_days_after_open": "0",
+					"enable_tare_weight_handling": "0",
+					"tare_weight": "0.0",
+					"not_check_stock_fulfillment_for_recipes": "0",
+					"shopping_location_id": null,
+					"userfields": null,
+					"should_not_be_frozen": "1",
+					"default_consume_location_id": "5",
+					"move_on_open": "1"
+				}
+			},
 			"QuantityUnit": {
 				"type": "object",
 				"properties": {
@@ -5524,7 +5624,7 @@
 						"description": "Indicates wheter this product has sub-products or not / if the fields `amount_aggregated` and `amount_opened_aggregated` are filled"
 					},
 					"product": {
-						"$ref": "#/components/schemas/Product"
+						"$ref": "#/components/schemas/ProductWithoutUserfields"
 					}
 				}
 			},
