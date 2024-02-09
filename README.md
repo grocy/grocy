@@ -123,7 +123,9 @@ Example: Button "**P** Add as new product" can be "pressed" by using the `P` key
 ### Barcode lookup via external services
 
 Products can be directly added to the database via looking them up against external services by a barcode.
-This is currently only possible through the REST API.
+
+This can be done in-place using the product picker workflow "External barcode lookup (via plugin)" (the workflow dialog is displayed when entering something unknown in any product input field).
+
 There is no plugin included for any service, see the reference implementation in `data/plugins/DemoBarcodeLookupPlugin.php`.
 
 ### Database migrations
