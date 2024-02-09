@@ -17,6 +17,8 @@
 - Fixed that the location dropdown on the consume page contained the same location multiple times if there are currently stock entries at multiple locations of the corresponding product
 - Fixed that the status filter "n products are overdue" on the stock overview page also counted/included stock entries due today or tomorrow
 - Fixed that the stock report "Spendings" did not take products without an assigned product group into account (thanks @Torqu3Wr3nch for the initial work on this)
+- Fixed that the success message after opening a stock entry on the stock entries page displayed always an amount of `1` instead of the actual amount opened
+- Fixed that the "Consume this stock entry as spoiled" context menu action on the stock entries page consumed alway `1` instead of the whole stock entry
 
 ### Shopping list
 
