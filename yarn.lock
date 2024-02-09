@@ -29,9 +29,9 @@
     fsevents "2.3.3"
 
 "@fontsource/open-sans@^5.0.0":
-  version "5.0.19"
-  resolved "https://registry.yarnpkg.com/@fontsource/open-sans/-/open-sans-5.0.19.tgz#cfa86eace9f62b1bd41f34e9961be8fa7847b145"
-  integrity sha512-0KIJthLoIT2LZKaZ41bdmhutfjhleiG/8F4wGHBtx2zmBQNsmLScPh4AqPzD4BjvNX0qJWP/dnl1R7fe/9U88A==
+  version "5.0.22"
+  resolved "https://registry.yarnpkg.com/@fontsource/open-sans/-/open-sans-5.0.22.tgz#ff5d4de6301e58a1da79acfc838eca71a631f663"
+  integrity sha512-lN3A4prlcVPgLjlgwY+oMPalpyXPM/6DwaLr6LjqkjytjGIZTLBbInL+zTfcemSyMtTQklreETepGjjmtzlRHA==
 
 "@fortawesome/fontawesome-free@^6.1.1":
   version "6.5.1"
@@ -498,16 +498,16 @@ mime-types@^2.0.1, mime-types@^2.1.12, mime-types@~2.1.19:
     mime-db "1.52.0"
 
 moment-timezone@^0.5.34:
-  version "0.5.43"
-  resolved "https://registry.yarnpkg.com/moment-timezone/-/moment-timezone-0.5.43.tgz#3dd7f3d0c67f78c23cd1906b9b2137a09b3c4790"
-  integrity sha512-72j3aNyuIsDxdF1i7CEgV2FfxM1r6aaqJyLB2vwb33mXYyoyLly+F1zbWqhA3/bVIoJ4szlUoMbUnVdid32NUQ==
+  version "0.5.45"
+  resolved "https://registry.yarnpkg.com/moment-timezone/-/moment-timezone-0.5.45.tgz#cb685acd56bac10e69d93c536366eb65aa6bcf5c"
+  integrity sha512-HIWmqA86KcmCAhnMAN0wuDOARV/525R2+lOLotuGFzn4HO+FH+/645z2wx0Dt3iDv6/p61SIvKnDstISainhLQ==
   dependencies:
     moment "^2.29.4"
 
 moment@^2.10.2, moment@^2.27.0, moment@^2.29.2, moment@^2.29.4, moment@^2.9.0:
-  version "2.29.4"
-  resolved "https://registry.yarnpkg.com/moment/-/moment-2.29.4.tgz#3dbe052889fe7c1b2ed966fcb3a77328964ef108"
-  integrity sha512-5LC9SOxjSc2HF6vO2CyuTDNivEdoz2IvyJJGj6X8DJ0eFyfszE0QiEd+iXmBvUP3WHxSjFH/vIsA0EN00cgr8w==
+  version "2.30.1"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.30.1.tgz#f8c91c07b7a786e30c59926df530b4eac96974ae"
+  integrity sha512-uEmtNhbDOrWPFS+hdjFCBfy9f2YoyzRpwcl+DqpC6taX21FzsTLQVbMV/W7PzNSX6x/bhC1zA3c2UQ5NzH6how==
 
 ndarray-linear-interpolate@^1.0.0:
   version "1.0.0"
@@ -654,9 +654,9 @@ summernote@^0.8.18:
   integrity sha512-W9RhjQjsn+b1s9xiJQgJbCiYGJaDAc9CdEqXo+D13WuStG8lCdtKaO5AiNiSSMJsQJN2EfGSwbBQt+SFE2B8Kw==
 
 swagger-ui-dist@^5.2.0:
-  version "5.10.5"
-  resolved "https://registry.yarnpkg.com/swagger-ui-dist/-/swagger-ui-dist-5.10.5.tgz#a16e32465c49259045a745f6906fbdb37b4f7ef5"
-  integrity sha512-Uv8E7hV/nXALQKgW86X1i58gl1O6DFg+Uq54sDwhYqucBBxj/47dLNw872TNILNlOTuPA6dRvUMGQdmlpaX8qQ==
+  version "5.11.3"
+  resolved "https://registry.yarnpkg.com/swagger-ui-dist/-/swagger-ui-dist-5.11.3.tgz#64c96e90b6a352e7b20a55b73b91fc0e0bed4f0a"
+  integrity sha512-vQ+Pe73xt7vMVbX40L6nHu4sDmNCM6A+eMVJPGvKrifHQ4LO3smH0jCiiefKzsVl7OlOcVEnrZ9IFzYwElfMkA==
 
 tempusdominus-bootstrap-4@^5.39.2:
   version "5.39.2"
