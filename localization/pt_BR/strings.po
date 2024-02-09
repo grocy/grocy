@@ -16,7 +16,7 @@
 # Fernando Luiz Bonifácio de Oliveira, 2022
 # Webysther Sperandio <webysther@gmail.com>, 2022
 # Marcio Ota, 2023
-# Aurelio Barreto <aurelio@aureliobarreto.com>, 2023
+# Aurelio Barreto <aurelio@aureliobarreto.com>, 2024
 # 
 msgid ""
 msgstr ""
@@ -24,7 +24,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Aurelio Barreto <aurelio@aureliobarreto.com>, 2023\n"
+"Last-Translator: Aurelio Barreto <aurelio@aureliobarreto.com>, 2024\n"
 "Language-Team: Portuguese (Brazil) (https://app.transifex.com/grocy/teams/93189/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -38,21 +38,21 @@ msgstr "Visão Geral"
 
 msgid "%s product expires"
 msgid_plural "%s products expiring"
-msgstr[0] "%s produtos vencendo"
+msgstr[0] "%s produto vencendo"
 msgstr[1] "%s produtos vencendo"
 msgstr[2] "%s produtos vencendo"
 
 msgid "within the next day"
 msgid_plural "within the next %s days"
-msgstr[0] "amanhã"
+msgstr[0] "até amanhã"
 msgstr[1] "nos próximos %s dias"
 msgstr[2] "nos próximos %s dias"
 
 msgid "%s product is already expired"
 msgid_plural "%s products are already expired"
 msgstr[0] "%s produto já estragou"
-msgstr[1] "%s produto já estragaram"
-msgstr[2] "%s produto já estragaram"
+msgstr[1] "%s produtos já estragaram"
+msgstr[2] "%s produtos já estragaram"
 
 msgid "%s product is overdue"
 msgid_plural "%s products are overdue"
@@ -71,8 +71,8 @@ msgstr "Produto"
 
 msgid "%s Product"
 msgid_plural "%s Products"
-msgstr[0] " (%s produto"
-msgstr[1] " (%s produtos"
+msgstr[0] "| %s produto"
+msgstr[1] "| %s produtos"
 msgstr[2] " | %s produtos"
 
 msgid "Amount"
@@ -88,10 +88,10 @@ msgid "Batteries overview"
 msgstr "Baterias"
 
 msgid "Purchase"
-msgstr "Compras"
+msgstr "Comprar"
 
 msgid "Consume"
-msgstr "Consumo"
+msgstr "Consumir"
 
 msgid "Inventory"
 msgstr "Inventário"
@@ -739,13 +739,13 @@ msgid "Status"
 msgstr "Situação"
 
 msgid "Below min. stock amount"
-msgstr "Abaixo da quantidade min. de estoque"
+msgstr "Abaixo da quantidade mínima"
 
 msgid "Due soon"
 msgstr "Vencendo em breve"
 
 msgid "Overdue"
-msgstr "Vencidas"
+msgstr "Vencido"
 
 msgid "View settings"
 msgstr "Visualizar configurações"
@@ -1303,7 +1303,7 @@ msgid "Create QU conversion"
 msgstr "Criar conversão de medida"
 
 msgid "Default for QU"
-msgstr "Padrão para unidade de medida"
+msgstr "Padrão para medida"
 
 msgid "Quantity unit from"
 msgstr "Unidade de"
@@ -2409,7 +2409,7 @@ msgstr ""
 "Quando habilitado, este campo deve ser preenchido no formulário de destino"
 
 msgid "In-stock products"
-msgstr "Produtos em estoque"
+msgstr "Em estoque"
 
 msgid "Timestamp"
 msgstr "Data/Hora"
@@ -2730,10 +2730,10 @@ msgid "Show resolved conversions"
 msgstr "Mostrar conversões resolvidas"
 
 msgid "QU conversions resolved"
-msgstr "Conversões QU resolvidas"
+msgstr "Conversões de medida resolvidas"
 
 msgid "Product specific QU conversions"
-msgstr "Conversões QU de produtos específicos"
+msgstr "Conversões de medida de produtos específicos"
 
 msgid "Default quantity unit consume"
 msgstr "Unidade padrão de consumo"

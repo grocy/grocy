@@ -4,6 +4,7 @@
 # Carles Riera <blauigris@gmail.com>, 2021
 # jorclaret, 2022
 # Martí Gombau, 2023
+# Auri, 2024
 # 
 msgid ""
 msgstr ""
@@ -11,7 +12,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Martí Gombau, 2023\n"
+"Last-Translator: Auri, 2024\n"
 "Language-Team: Catalan (https://app.transifex.com/grocy/teams/93189/ca/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -129,7 +130,7 @@ msgid "Product overview"
 msgstr "Resum de productes"
 
 msgid "Stock quantity unit"
-msgstr "Unitat d'inventari"
+msgstr "Unitat d'existències"
 
 msgid "Stock amount"
 msgstr "Existències"
@@ -213,7 +214,7 @@ msgid "Default quantity unit purchase"
 msgstr "Unitat predeterminada"
 
 msgid "Quantity unit stock"
-msgstr "Unitat d'inventari"
+msgstr "Unitat d'existències"
 
 msgid "Create location"
 msgstr "Afegir ubicació"
@@ -357,7 +358,7 @@ msgid "Removed %1$s of %2$s from stock"
 msgstr "%1$s de %2$s eliminats de l'inventari"
 
 msgid "About Grocy"
-msgstr ""
+msgstr "Sobre Grocy"
 
 msgid "Close"
 msgstr "Tancar"
@@ -1156,6 +1157,9 @@ msgid ""
 "When this is not empty, it will be shown instead of the amount entered above"
 " while the amount there will still be used for stock fulfillment checking"
 msgstr ""
+"Quan no estigui buit, es mostrarà enlloc de la quantitat introduïda a dalt. "
+"La quantitat de dalt seguirà sent la utilitzada en les comprovacions "
+"d'existències a l'inventari. "
 
 msgid "Track date only"
 msgstr "Només seguiment de data"
@@ -1356,15 +1360,15 @@ msgid ""
 msgstr ""
 
 msgid "Assign to"
-msgstr ""
+msgstr "Assigna a"
 
 msgid "This assignment type requires that at least one is assigned"
 msgstr ""
 
 msgid "%s chore is assigned to me"
 msgid_plural "%s chores are assigned to me"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Tens assignada %s feina"
+msgstr[1] "Tens assignades %s feines"
 
 msgid "Assigned to me"
 msgstr "Assignat a mi"
@@ -1435,7 +1439,7 @@ msgid "Price factor"
 msgstr "Factor de preu"
 
 msgid "Do you find Grocy useful?"
-msgstr ""
+msgstr "Trobes que Grocy t'és d'utilitat?"
 
 msgid "Say thanks"
 msgstr "Dir gràcies"
@@ -1453,7 +1457,7 @@ msgid "Output"
 msgstr "Resultat"
 
 msgid "Energy"
-msgstr ""
+msgstr "Energia"
 
 msgid "Per stock quantity unit"
 msgstr "Per unitat d'existències"
@@ -1521,7 +1525,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 msgid "Transfer"
-msgstr ""
+msgstr "Transfereix"
 
 msgid "From location"
 msgstr "D'ubicació"
@@ -1554,10 +1558,10 @@ msgid "The amount cannot be lower than %1$s"
 msgstr "La quantitat no pot ser inferior a %1$s"
 
 msgid "Stock entry successfully updated"
-msgstr ""
+msgstr "Entrada d'existències actualitzada correctament"
 
 msgid "Edit stock entry"
-msgstr ""
+msgstr "Edita l'entrada d'inventari"
 
 msgid ""
 "Camera access is only possible when supported and allowed by your browser "
@@ -2118,13 +2122,13 @@ msgid "Ingredient group"
 msgstr "Grup d'ingredients"
 
 msgid "Reset"
-msgstr "Reiniciar"
+msgstr "Reinicia"
 
 msgid "Are you sure to reset the table options?"
 msgstr "Segur que vols reiniciar les opcions de la taula?"
 
 msgid "Hide/view columns"
-msgstr "Ocultar/mostrar columnes"
+msgstr "Oculta/mostra columnes"
 
 msgid ""
 "A different amount/unit can then be used below while for stock fulfillment "
@@ -2135,7 +2139,7 @@ msgid "Last price (Unit)"
 msgstr "Últim preu (unitat)"
 
 msgid "Last price (Total)"
-msgstr "Últim preu (Total)"
+msgstr "Últim preu (total)"
 
 msgid "Show header"
 msgstr "Mostrar capçalera"
@@ -2210,7 +2214,7 @@ msgstr ""
 
 # Abbreviation for "due date"
 msgid "DD"
-msgstr ""
+msgstr "DC"
 
 msgid "Print on label printer"
 msgstr "Imprimir en una impressora d'etiquetes"
@@ -2343,7 +2347,7 @@ msgid ""
 msgstr ""
 
 msgid "Stock entry"
-msgstr ""
+msgstr "Entrada d'existències"
 
 msgid "Configure sections"
 msgstr "Configurar seccions"
@@ -2411,10 +2415,10 @@ msgid "Set to 0 to hide due soon filters/highlighting"
 msgstr ""
 
 msgid "Save & close"
-msgstr ""
+msgstr "Desa i tanca"
 
 msgid "Save & add another task"
-msgstr ""
+msgstr "Desa i afegeix una altra tasca"
 
 msgid "Treat opened as out of stock"
 msgstr ""
@@ -2431,13 +2435,13 @@ msgid "Skip next chore schedule"
 msgstr ""
 
 msgid "Time"
-msgstr ""
+msgstr "Hora"
 
 msgid "A start date is required"
-msgstr ""
+msgstr "La data d'inici és necessària"
 
 msgid "Start date"
-msgstr ""
+msgstr "Data d'inici"
 
 msgid "The start date cannot be changed when the chore was once tracked"
 msgstr ""
@@ -2451,16 +2455,16 @@ msgid ""
 msgstr ""
 
 msgid "Average execution frequency"
-msgstr ""
+msgstr "Freqüència mitjana de realització"
 
 msgid "Reschedule next execution"
-msgstr ""
+msgstr "Re-programa la següent realització"
 
 msgid "This can only be in the future"
 msgstr ""
 
 msgid "Rescheduled"
-msgstr ""
+msgstr "Re-programada"
 
 msgid "Due score"
 msgstr ""
@@ -2497,45 +2501,47 @@ msgid ""
 msgstr ""
 
 msgid "Night mode"
-msgstr ""
+msgstr "Mode nocturn"
 
 msgid "On"
-msgstr ""
+msgstr "ON"
 
 msgid "Use system setting"
-msgstr ""
+msgstr "Utilitza la configuració del sistema"
 
 msgid "Off"
-msgstr ""
+msgstr "OFF"
 
 msgid ""
 "Automatically add products that are below their defined min. stock amount to"
 " the shopping list"
 msgstr ""
+"Afegeix automàticament els productes que estiguin per sota el seu valor "
+"d'existències mínim definit a la llista de compra"
 
 msgid "Reassigned"
-msgstr ""
+msgstr "Re-assignada"
 
 msgid "Default value"
-msgstr ""
+msgstr "Valor predeterminat"
 
 msgid "Now / today"
-msgstr ""
+msgstr "Ara / avui"
 
 msgid "Add meal plan entry"
-msgstr ""
+msgstr "Afegeix entrada al menú"
 
 msgid "Edit meal plan entry"
-msgstr ""
+msgstr "Edita entrada del menú"
 
 msgid "Default consume location"
-msgstr ""
+msgstr "Ubicació de consum predeterminada"
 
 msgid "Stock entries at this location will be consumed first"
-msgstr ""
+msgstr "Les existències en aquesta ubicació es consumiran primer"
 
 msgid "Move on open"
-msgstr ""
+msgstr "Mou quan s'obri"
 
 msgid ""
 "When enabled, on marking this product as opened, the corresponding amount "
@@ -2543,13 +2549,13 @@ msgid ""
 msgstr ""
 
 msgid "Moved to %1$s"
-msgstr ""
+msgstr "S'ha mogut a %1$s"
 
 msgid "Decimal places allowed for prices (input)"
-msgstr ""
+msgstr "Posicions decimals permeses pels preus (entrada)"
 
 msgid "Decimal places allowed for prices (display)"
-msgstr ""
+msgstr "Posicions decimals permeses pels preus (visualització)"
 
 msgid "Clear done items"
 msgstr ""
@@ -2560,25 +2566,25 @@ msgid ""
 msgstr ""
 
 msgid "Show resolved conversions"
-msgstr ""
+msgstr "Mostra les conversions resoltes"
 
 msgid "QU conversions resolved"
-msgstr ""
+msgstr "Conversions QU resoltes"
 
 msgid "Product specific QU conversions"
-msgstr ""
+msgstr "Conversions QU específiques de producte"
 
 msgid "Default quantity unit consume"
-msgstr ""
+msgstr "Unitat de consum predeterminada"
 
 msgid "This is the default quantity unit used when consuming this product"
 msgstr ""
 
 msgid "Add to meal plan"
-msgstr ""
+msgstr "Afegeix al menú"
 
 msgid "Successfully added the recipe to the meal plan"
-msgstr ""
+msgstr "Recepta afegida al menú correctament"
 
 msgid "Reprint stock entry label"
 msgstr ""
@@ -2599,45 +2605,45 @@ msgid "Track chore execution now"
 msgstr ""
 
 msgid "Total"
-msgstr ""
+msgstr "Total"
 
 msgid "Apply"
-msgstr ""
+msgstr "Aplica"
 
 msgid "Custom range"
-msgstr ""
+msgstr "Interval personalitzat"
 
 msgid "Yesterday"
-msgstr ""
+msgstr "Ahir"
 
 msgid "Last %1$s day"
 msgid_plural "Last %1$s days"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "L'últim %1$s dia"
+msgstr[1] "Els últims %1$s dies"
 
 msgid "This month"
-msgstr ""
+msgstr "Aquest mes"
 
 msgid "Last month"
-msgstr ""
+msgstr "El mes passat"
 
 msgid "This year"
-msgstr ""
+msgstr "Aquest any"
 
 msgid "Last year"
-msgstr ""
+msgstr "L'any passat"
 
 msgid "Reports"
-msgstr ""
+msgstr "Informes"
 
 msgid "Spendings"
-msgstr ""
+msgstr "Despeses"
 
 msgid "Stock report"
-msgstr ""
+msgstr "Informe d'existències"
 
 msgid "Out-of-stock products"
-msgstr ""
+msgstr "Productes sense existències"
 
 msgid "Quantity unit for prices"
 msgstr ""
@@ -2662,4 +2668,4 @@ msgid "Nothing was found for the given barcode"
 msgstr ""
 
 msgid "Configure colors"
-msgstr ""
+msgstr "Configura els colors"
