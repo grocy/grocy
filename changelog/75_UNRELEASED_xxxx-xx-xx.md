@@ -17,7 +17,7 @@
 
 ### Shopping list
 
-- xxx
+- The shopping lists dropdown on the shopping list page now also shows the number of items on the corresponding shopping list
 
 ### Recipes
 

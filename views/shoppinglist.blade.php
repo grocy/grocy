@@ -45,7 +45,7 @@
 					<select class="custom-control custom-select custom-select-sm"
 						id="selected-shopping-list">
 						@foreach($shoppingLists as $shoppingList)
-						<option @if($shoppingList->id == $selectedShoppingListId) selected="selected" @endif value="{{ $shoppingList->id }}">{{ $shoppingList->name }}</option>
+						<option @if($shoppingList->id == $selectedShoppingListId) selected="selected" @endif value="{{ $shoppingList->id }}">{{ $shoppingList->name }} ({{ $shoppingList->item_count }})</option>
 						@endforeach
 					</select>
 				</div>

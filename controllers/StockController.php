@@ -397,7 +397,7 @@ class StockController extends BaseController
 			'products' => $this->getDatabase()->products()->where('active = 1')->orderBy('name', 'COLLATE NOCASE'),
 			'quantityunits' => $this->getDatabase()->quantity_units()->orderBy('name', 'COLLATE NOCASE'),
 			'missingProducts' => $this->getStockService()->GetMissingProducts(),
-			'shoppingLists' => $this->getDatabase()->shopping_lists()->orderBy('name', 'COLLATE NOCASE'),
+			'shoppingLists' => $this->getDatabase()->shopping_lists_view()->orderBy('name', 'COLLATE NOCASE'),
 			'selectedShoppingListId' => $listId,
 			'quantityUnitConversionsResolved' => $this->getDatabase()->cache__quantity_unit_conversions_resolved(),
 			'productUserfields' => $this->getUserfieldsService()->GetFields('products'),
