@@ -14,6 +14,7 @@
   - This executes the configured barcode lookup plugin with the given barcode
   - If the lookup was successful, the product edit page of the created product is displayed, where the product setup can be completed (if required)
   - After that, the transaction is continued with that product
+- Fixed that for the product's last price stock transactions with an empty or `0` price weren't ignored
 
 ### Shopping list
 
