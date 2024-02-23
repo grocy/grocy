@@ -55,7 +55,7 @@
 
 ### General
 
-- xxx
+- Optimized that file uploads are not completely buffered in memory before writing them to disk (thanks @bbx0)
 
 ### API
 
