@@ -23,7 +23,7 @@
 
 ### Recipes
 
-- xxx
+- Optimized that when creating a recipe, the desired serving amount is now initially prefilled by the recipe's base serving amount
 
 ### Meal plan
 
