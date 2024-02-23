@@ -109,9 +109,26 @@ class FilesApiController extends BaseApiController
 			}
 
 			$fileName = $this->checkFileName($args['fileName']);
-			$data = $request->getBody()->getContents();
 
-			file_put_contents($this->getFilesService()->GetFilePath($args['group'], $fileName), $data);
+			if(false === $fileHandle = fopen($this->getFilesService()->GetFilePath($args['group'], $fileName), 'xb'))
+			{
+				throw new \Exception('Cannot create file');
+			}
+
+			$requestBody = $request->getBody();
+
+			while ($data = $requestBody->read(32768))
+			{
+				if ( fwrite($fileHandle, $data) === false )
+				{
+					throw new \Exception('Cannot write to file');
+				}
+			}
+
+			if ( fclose($fileHandle) === false )
+			{
+				throw new \Exception('Failed to close file');
+			}
 
 			return $this->EmptyApiResponse($response);
 		}
