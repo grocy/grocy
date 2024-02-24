@@ -560,6 +560,11 @@ ResizeIframes = function()
 {
 	$("iframe.embed-responsive").each(function()
 	{
+		if (!$(this).isVisibleInViewport())
+		{
+			return;
+		}
+
 		var desiredHeight = $(this)[0].contentWindow.document.body.scrollHeight;
 		if (desiredHeight == 0)
 		{
