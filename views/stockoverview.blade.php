@@ -243,7 +243,7 @@
 								@if(GROCY_FEATURE_FLAG_SHOPPINGLIST)
 								<a class="dropdown-item show-as-dialog-link permission-SHOPPINGLIST_ITEMS_ADD"
 									type="button"
-									href="{{ $U('/shoppinglistitem/new?embedded&updateexistingproduct&product=' . $currentStockEntry->product_id ) }}">
+									href="{{ $U('/shoppinglistitem/new?embedded&updateexistingproduct&list=1&product=' . $currentStockEntry->product_id ) }}">
 									<span class="dropdown-item-icon"><i class="fa-solid fa-shopping-cart"></i></span> <span class="dropdown-item-text">{{ $__t('Add to shopping list') }}</span>
 								</a>
 								<div class="dropdown-divider"></div>

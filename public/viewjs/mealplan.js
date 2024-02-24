@@ -259,7 +259,7 @@ $(".calendar").each(function()
 				var shoppingListButtonHtml = "";
 				if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_SHOPPINGLIST)
 				{
-					shoppingListButtonHtml = '<a class="btn btn-outline-primary btn-xs show-as-dialog-link ' + productOrderMissingButtonDisabledClasses + '" href="' + U("/shoppinglistitem/new?embedded&updateexistingproduct&product=") + mealPlanEntry.product_id + '&amount=' + mealPlanEntry.product_amount + '" data-toggle="tooltip" title="' + __t("Add to shopping list") + '" data-product-id="' + productDetails.product.id.toString() + '" data-product-name="' + productDetails.product.name + '" data-product-amount="' + mealPlanEntry.product_amount + '"><i class="fa-solid fa-cart-plus"></i></a>';
+					shoppingListButtonHtml = '<a class="btn btn-outline-primary btn-xs show-as-dialog-link ' + productOrderMissingButtonDisabledClasses + '" href="' + U("/shoppinglistitem/new?embedded&updateexistingproduct&list=1&product=") + mealPlanEntry.product_id + '&amount=' + mealPlanEntry.product_amount + '" data-toggle="tooltip" title="' + __t("Add to shopping list") + '" data-product-id="' + productDetails.product.id.toString() + '" data-product-name="' + productDetails.product.name + '" data-product-amount="' + mealPlanEntry.product_amount + '"><i class="fa-solid fa-cart-plus"></i></a>';
 				}
 
 				element.html('\
