@@ -552,40 +552,18 @@ ResizeResponsiveEmbeds = function(fillEntireViewport = false)
 	{
 		var maxHeight = $("body").height();
 	}
+
 	$("embed.embed-responsive").attr("height", maxHeight.toString() + "px");
-
-	ResizeIframes();
-}
-ResizeIframes = function()
-{
-	$("iframe.embed-responsive").each(function()
-	{
-		if (!$(this).isVisibleInViewport())
-		{
-			return;
-		}
-
-		var desiredHeight = $(this)[0].contentWindow.document.body.scrollHeight;
-		if (desiredHeight == 0)
-		{
-			// The corresponding frame should be loaded after the "onload" event fired,
-			// this seems to be sometimes (not really reproducible) not the case in Chrome based Browsers...
-			// => So if that happens, just try this again later
-			setTimeout(function()
-			{
-				ResizeIframes();
-			}, 200);
-		}
-		else
-		{
-			$(this).attr("height", desiredHeight.toString() + "px");
-		}
-	});
 }
 $(window).on('resize', function()
 {
 	ResizeResponsiveEmbeds($("body").hasClass("fullscreen-card"));
 });
+
+if (GetUriParam("embedded"))
+{
+	window.parent.iFrameResize({ "checkOrigin": false, "warningTimeout": 0 }, "iframe.embed-responsive");
+}
 
 function WindowMessageBag(message, payload = null)
 {
@@ -726,7 +704,7 @@ $(document).on("click", ".show-as-dialog-link", function(e)
 	var link = $(e.currentTarget).attr("href");
 
 	bootbox.dialog({
-		message: '<iframe height="650px" class="embed-responsive" onload="ResizeResponsiveEmbeds();" src="' + link + '"></iframe>',
+		message: '<iframe class="embed-responsive" src="' + link + '"></iframe>',
 		size: 'large',
 		backdrop: true,
 		closeButton: false,

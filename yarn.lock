@@ -415,6 +415,11 @@ http-signature@~1.2.0:
     jsprim "^1.2.2"
     sshpk "^1.7.0"
 
+iframe-resizer@^4.3.9:
+  version "4.3.9"
+  resolved "https://registry.yarnpkg.com/iframe-resizer/-/iframe-resizer-4.3.9.tgz#a2fcdb0f35a2eba1b3a3984c883193a849e1a6ce"
+  integrity sha512-MCt+V/THB4a9OcAdrWo5NsI2CRpeMM4ijhTfiLtsdgDJXWYXf62Ve8yO8rKGmYNs991zty/EolYOxActlkfU+A==
+
 iota-array@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/iota-array/-/iota-array-1.0.0.tgz#81ef57fe5d05814cd58c2483632a99c30a0e8087"

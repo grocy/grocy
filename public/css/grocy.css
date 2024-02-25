@@ -107,8 +107,10 @@ button.disabled {
 	margin-left: 0;
 }
 
-iframe {
+iframe.embed-responsive {
 	border: 0;
+	width: 1px;
+	min-width: 100%;
 }
 
 /* Hide the default up/down arrow buttons for number inputs because we use our own buttons in numberpicker */

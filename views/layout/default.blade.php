@@ -124,7 +124,7 @@
 </head>
 
 <body class="fixed-nav @if(boolval($userSettings['night_mode_enabled_internal'])) night-mode @endif @if($embedded) embedded @endif">
-	@if(!($embedded))
+	@if(!$embedded)
 	<nav id="mainNav"
 		class="navbar navbar-expand-lg navbar-light fixed-top">
 		<a class="navbar-brand py-0"
@@ -744,6 +744,11 @@
 	<script src="{{ $U('/packages/chartjs-plugin-colorschemes/dist/chartjs-plugin-colorschemes.min.js?v=', true) }}{{ $version}}"></script>
 	<script src="{{ $U('/packages/chartjs-plugin-doughnutlabel/dist/chartjs-plugin-doughnutlabel.js?v=', true) }}{{ $version }}"></script>
 	<script src="{{ $U('/packages/chartjs-plugin-piechart-outlabels/dist/chartjs-plugin-piechart-outlabels.min.js?v=', true) }}{{ $version}}"></script>
+	@endif
+	@if($embedded)
+	<script src="{{ $U('/packages/iframe-resizer/js/iframeResizer.contentWindow.js?v=', true) }}{{ $version}}"></script>
+	@else
+	<script src="{{ $U('/packages/iframe-resizer/js/iframeResizer.js?v=', true) }}{{ $version}}"></script>
 	@endif
 
 	<script src="{{ $U('/js/extensions.js?v=', true) }}{{ $version }}"></script>

@@ -291,7 +291,7 @@ recipesTables.on('select', function(e, dt, type, indexes)
 		else
 		{
 			bootbox.dialog({
-				message: '<iframe height="650px" class="embed-responsive" onload="ResizeResponsiveEmbeds();" src="' + U("/recipes?embedded&recipe=") + selectedRecipeId + '#fullscreen"></iframe>',
+				message: '<iframe class="embed-responsive" src="' + U("/recipes?embedded&recipe=") + selectedRecipeId + '#fullscreen"></iframe>',
 				size: 'extra-large',
 				backdrop: true,
 				closeButton: false,
@@ -323,7 +323,7 @@ $(".recipe-gallery-item").on("click", function(e)
 	else
 	{
 		bootbox.dialog({
-			message: '<iframe height="650px" class="embed-responsive" onload="ResizeResponsiveEmbeds();" src="' + U("/recipes?embedded&recipe=") + selectedRecipeId + '#fullscreen"></iframe>',
+			message: '<iframe class="embed-responsive" src="' + U("/recipes?embedded&recipe=") + selectedRecipeId + '#fullscreen"></iframe>',
 			size: 'extra-large',
 			backdrop: true,
 			closeButton: false,

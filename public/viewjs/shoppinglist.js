@@ -624,8 +624,3 @@ if ($(window).width() < 768 || !Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK)
 {
 	$("#filter-container").removeClass("border-bottom");
 }
-
-$("#shopping-list-stock-add-workflow-purchase-form-frame").on("load", function()
-{
-	ResizeResponsiveEmbeds();
-});

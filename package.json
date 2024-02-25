@@ -27,6 +27,7 @@
 		"daterangepicker": "^3.1.0",
 		"fullcalendar": "^3.10.1",
 		"gettext-translator": "3.0.1",
+		"iframe-resizer": "^4.3.9",
 		"jquery": "^3.6.0",
 		"jquery-serializejson": "^2.9.0",
 		"moment": "^2.27.0",

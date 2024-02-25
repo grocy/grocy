@@ -927,7 +927,7 @@ $(document).on("click", ".display-recipe-button", function(e)
 		function(result)
 		{
 			bootbox.dialog({
-				message: '<iframe height="650px" class="embed-responsive" onload="ResizeResponsiveEmbeds();" src="' + U("/recipes?embedded&recipe=") + objectId + '#fullscreen"></iframe>',
+				message: '<iframe class="embed-responsive" src="' + U("/recipes?embedded&recipe=") + objectId + '#fullscreen"></iframe>',
 				size: 'extra-large',
 				backdrop: true,
 				closeButton: false,

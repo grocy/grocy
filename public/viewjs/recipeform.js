@@ -220,7 +220,7 @@ $(document).on('click', '.recipe-pos-edit-button', function(e)
 	var recipePosId = $(e.currentTarget).attr('data-recipe-pos-id');
 
 	bootbox.dialog({
-		message: '<iframe height="650px" class="embed-responsive" onload="ResizeResponsiveEmbeds();" src="' + U("/recipe/") + Grocy.EditObjectId.toString() + '/pos/' + recipePosId.toString() + '?embedded&product=' + productId.toString() + '"></iframe>',
+		message: '<iframe class="embed-responsive" src="' + U("/recipe/") + Grocy.EditObjectId.toString() + '/pos/' + recipePosId.toString() + '?embedded&product=' + productId.toString() + '"></iframe>',
 		size: 'large',
 		backdrop: true,
 		closeButton: false,
@@ -266,7 +266,7 @@ $("#recipe-pos-add-button").on("click", function(e)
 	e.preventDefault();
 
 	bootbox.dialog({
-		message: '<iframe height="650px" class="embed-responsive" onload="ResizeResponsiveEmbeds();" src="' + U("/recipe/") + Grocy.EditObjectId + '/pos/new?embedded"></iframe>',
+		message: '<iframe class="embed-responsive" src="' + U("/recipe/") + Grocy.EditObjectId + '/pos/new?embedded"></iframe>',
 		size: 'large',
 		backdrop: true,
 		closeButton: false,
