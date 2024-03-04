@@ -67,6 +67,10 @@ abstract class AuthMiddleware extends BaseMiddleware
 					return $response->withStatus(302)->withHeader('Location', $this->AppContainer->get('UrlManager')->ConstructUrl('/login'));
 				}
 			}
+			else if ($user instanceof Response)
+			{
+				return $user;
+			}
 			else
 			{
 				define('GROCY_AUTHENTICATED', true);
