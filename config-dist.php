@@ -96,6 +96,15 @@ Setting('LDAP_BIND_PW', ''); // Password for the above account
 Setting('LDAP_USER_FILTER', ''); // Example value "(OU=grocy_users)"
 Setting('LDAP_UID_ATTR', ''); // Windows AD: "sAMAccountName", OpenLDAP: "uid", GLAuth: "cn"
 
+// Options when using OAuthMiddleware
+Setting('OAUTH_CLIENT_ID', '');
+Setting('OAUTH_CLIENT_SECRET', '');
+Setting('OAUTH_SCOPES', 'openid profile');
+Setting('OAUTH_USERNAME_CLAIM', 'preferred_username');
+Setting('OAUTH_AUTH_URL', '');
+Setting('OAUTH_TOKEN_URL', '');
+Setting('OAUTH_USERINFO_URL', '');
+
 // Default permissions for new users
 // the array needs to contain the technical/constant names
 // See the file controllers/Users/User.php for possible values
