@@ -73,7 +73,9 @@ class BatteriesController extends BaseController
 
 		return $this->renderPage($response, 'batteriesjournal', [
 			'chargeCycles' => $this->getDatabase()->battery_charge_cycles()->where($where)->orderBy('tracked_time', 'DESC'),
-			'batteries' => $this->getDatabase()->batteries()->where('active = 1')->orderBy('name', 'COLLATE NOCASE')
+			'batteries' => $this->getDatabase()->batteries()->where('active = 1')->orderBy('name', 'COLLATE NOCASE'),
+			'userfields' => $this->getUserfieldsService()->GetFields('battery_charge_cycles'),
+			'userfieldValues' => $this->getUserfieldsService()->GetAllValues('battery_charge_cycles')
 		]);
 	}
 
@@ -115,7 +117,8 @@ class BatteriesController extends BaseController
 	public function TrackChargeCycle(Request $request, Response $response, array $args)
 	{
 		return $this->renderPage($response, 'batterytracking', [
-			'batteries' => $this->getDatabase()->batteries()->where('active = 1')->orderBy('name', 'COLLATE NOCASE')
+			'batteries' => $this->getDatabase()->batteries()->where('active = 1')->orderBy('name', 'COLLATE NOCASE'),
+			'userfields' => $this->getUserfieldsService()->GetFields('battery_charge_cycles')
 		]);
 	}
 

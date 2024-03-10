@@ -5904,7 +5904,8 @@
 					"products_last_purchased",
 					"products_average_price",
 					"quantity_unit_conversions_resolved",
-					"recipes_pos_resolved"
+					"recipes_pos_resolved",
+					"battery_charge_cycles"
 				]
 			},
 			"ExposedEntityNoListing": {
@@ -5924,7 +5925,8 @@
 					"products_last_purchased",
 					"products_average_price",
 					"quantity_unit_conversions_resolved",
-					"recipes_pos_resolved"
+					"recipes_pos_resolved",
+					"battery_charge_cycles"
 				]
 			},
 			"ExposedEntityNoDelete": {
@@ -5937,7 +5939,8 @@
 					"products_last_purchased",
 					"products_average_price",
 					"quantity_unit_conversions_resolved",
-					"recipes_pos_resolved"
+					"recipes_pos_resolved",
+					"battery_charge_cycles"
 				]
 			},
 			"ExposedEntityEditRequiresAdmin": {
