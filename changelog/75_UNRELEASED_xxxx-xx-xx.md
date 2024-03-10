@@ -58,7 +58,7 @@
 
 - Optimized that file uploads are not completely buffered in memory before writing them to disk (thanks @bbx0)
 - Fixed again that some dialogs were not properly (too small) displayed (this time mostly affecting Chrome/Edge)
-- Add an option for displaying a Barcode Buddy link in the navbar, to display the link just fill the corresponding setting with a URL
+- Added an option for displaying a Barcode Buddy link in the navbar, to display the link just fill the corresponding setting with a URL
 - Made settings menu (wrench) entries aligned by changing the icons to fixed width
 
 ### API
