@@ -478,14 +478,14 @@
 
 					<div class="dropdown-menu dropdown-menu-right">
 						<a class="dropdown-item logout-button discrete-link"
-							href="{{ $U('/logout') }}"><i class="fa-solid fa-sign-out-alt"></i>&nbsp;{{ $__t('Logout') }}</a>
+							href="{{ $U('/logout') }}"><i class="fa-solid fa-fw fa-sign-out-alt"></i>&nbsp;{{ $__t('Logout') }}</a>
 						<div class="dropdown-divider"></div>
 						@if(!defined('GROCY_EXTERNALLY_MANAGED_AUTHENTICATION'))
 						<a class="dropdown-item logout-button discrete-link"
-							href="{{ $U('/user/' . GROCY_USER_ID . '?changepw=true') }}"><i class="fa-solid fa-key"></i>&nbsp;{{ $__t('Change password') }}</a>
+							href="{{ $U('/user/' . GROCY_USER_ID . '?changepw=true') }}"><i class="fa-solid fa-fw fa-key"></i>&nbsp;{{ $__t('Change password') }}</a>
 						@else
 						<a class="dropdown-item logout-button discrete-link"
-							href="{{ $U('/user/' . GROCY_USER_ID) }}"><i class="fa-solid fa-key"></i>&nbsp;{{ $__t('Edit user') }}</a>
+							href="{{ $U('/user/' . GROCY_USER_ID) }}"><i class="fa-solid fa-fw fa-key"></i>&nbsp;{{ $__t('Edit user') }}</a>
 						@endif
 					</div>
 				</li>
