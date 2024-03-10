@@ -630,47 +630,47 @@
 
 					<div class="dropdown-menu dropdown-menu-right">
 						<a class="dropdown-item discrete-link"
-							href="{{ $U('/stocksettings') }}"><i class="fa-solid fa-box"></i>&nbsp;{{ $__t('Stock settings') }}</a>
+							href="{{ $U('/stocksettings') }}"><i class="fa-solid fa-fw fa-box"></i>&nbsp;{{ $__t('Stock settings') }}</a>
 						@if(GROCY_FEATURE_FLAG_SHOPPINGLIST)
 						<a class="dropdown-item discrete-link permission-SHOPPINGLIST"
-							href="{{ $U('/shoppinglistsettings') }}"><i class="fa-solid fa-shopping-cart"></i>&nbsp;{{ $__t('Shopping list settings') }}</a>
+							href="{{ $U('/shoppinglistsettings') }}"><i class="fa-solid fa-fw fa-shopping-cart"></i>&nbsp;{{ $__t('Shopping list settings') }}</a>
 						@endif
 						@if(GROCY_FEATURE_FLAG_RECIPES)
 						<a class="dropdown-item discrete-link permission-RECIPES"
-							href="{{ $U('/recipessettings') }}"><i class="fa-solid fa-pizza-slice"></i>&nbsp;{{ $__t('Recipes settings') }}</a>
+							href="{{ $U('/recipessettings') }}"><i class="fa-solid fa-fw fa-pizza-slice"></i>&nbsp;{{ $__t('Recipes settings') }}</a>
 						@endif
 						@if(GROCY_FEATURE_FLAG_CHORES)
 						<a class="dropdown-item discrete-link permission-CHORES"
-							href="{{ $U('/choressettings') }}"><i class="fa-solid fa-home"></i>&nbsp;{{ $__t('Chores settings') }}</a>
+							href="{{ $U('/choressettings') }}"><i class="fa-solid fa-fw fa-home"></i>&nbsp;{{ $__t('Chores settings') }}</a>
 						@endif
 						@if(GROCY_FEATURE_FLAG_TASKS)
 						<a class="dropdown-item discrete-link permission-TASKS"
-							href="{{ $U('/taskssettings') }}"><i class="fa-solid fa-tasks"></i>&nbsp;{{ $__t('Tasks settings') }}</a>
+							href="{{ $U('/taskssettings') }}"><i class="fa-solid fa-fw fa-tasks"></i>&nbsp;{{ $__t('Tasks settings') }}</a>
 						@endif
 						@if(GROCY_FEATURE_FLAG_BATTERIES)
 						<a class="dropdown-item discrete-link permission-BATTERIES"
-							href="{{ $U('/batteriessettings') }}"><i class="fa-solid fa-battery-half"></i>&nbsp;{{ $__t('Batteries settings') }}</a>
+							href="{{ $U('/batteriessettings') }}"><i class="fa-solid fa-fw fa-battery-half"></i>&nbsp;{{ $__t('Batteries settings') }}</a>
 						@endif
 						<div class="dropdown-divider"></div>
 						<a data-href="{{ $U('/usersettings') }}"
 							class="dropdown-item discrete-link link-return">
-							<i class="fa-solid fa-user-cog"></i> {{ $__t('User settings') }}
+							<i class="fa-solid fa-fw fa-user-cog"></i> {{ $__t('User settings') }}
 						</a>
 						<a class="dropdown-item discrete-link permission-USERS_READ"
-							href="{{ $U('/users') }}"><i class="fa-solid fa-users"></i>&nbsp;{{ $__t('Manage users') }}</a>
+							href="{{ $U('/users') }}"><i class="fa-solid fa-fw fa-users"></i>&nbsp;{{ $__t('Manage users') }}</a>
 						<div class="dropdown-divider"></div>
 						@if(!GROCY_DISABLE_AUTH)
 						<a class="dropdown-item discrete-link"
-							href="{{ $U('/manageapikeys') }}"><i class="fa-solid fa-handshake"></i>&nbsp;{{ $__t('Manage API keys') }}</a>
+							href="{{ $U('/manageapikeys') }}"><i class="fa-solid fa-fw fa-handshake"></i>&nbsp;{{ $__t('Manage API keys') }}</a>
 						@endif
 						<a class="dropdown-item discrete-link"
 							target="_blank"
-							href="{{ $U('/api') }}"><i class="fa-solid fa-book"></i>&nbsp;{{ $__t('REST API browser') }}</a>
+							href="{{ $U('/api') }}"><i class="fa-solid fa-fw fa-book"></i>&nbsp;{{ $__t('REST API browser') }}</a>
 						<a class="dropdown-item discrete-link"
-							href="{{ $U('/barcodescannertesting') }}"><i class="fa-solid fa-barcode"></i>&nbsp;{{ $__t('Barcode scanner testing') }}</a>
+							href="{{ $U('/barcodescannertesting') }}"><i class="fa-solid fa-fw fa-barcode"></i>&nbsp;{{ $__t('Barcode scanner testing') }}</a>
 						<div class="dropdown-divider"></div>
 						<a class="dropdown-item discrete-link show-as-dialog-link"
-							href="{{ $U('/about?embedded') }}"><i class="fa-solid fa-info fa-fw"></i>&nbsp;{{ $__t('About Grocy') }}</a>
+							href="{{ $U('/about?embedded') }}"><i class="fa-solid fa-fw fa-info"></i>&nbsp;{{ $__t('About Grocy') }}</a>
 					</div>
 				</li>
 			</ul>
