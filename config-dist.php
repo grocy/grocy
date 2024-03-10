@@ -104,6 +104,9 @@ Setting('DEFAULT_PERMISSIONS', ['ADMIN']);
 // "1D" (=> Code128) or "2D" (=> DataMatrix)
 Setting('GROCYCODE_TYPE', '1D');
 
+// Add Barcode Buddy link to navbar when not empty (like 'https://barcodebuddy.example.com/' or 'http://192.168.0.10/')
+Setting('BARCODE_BUDDY_URL', '');
+
 
 // Label printer settings
 Setting('LABEL_PRINTER_WEBHOOK', ''); // The URI that Grocy will POST to when asked to print a label
