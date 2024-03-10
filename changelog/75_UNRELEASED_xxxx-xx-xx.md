@@ -44,7 +44,9 @@
 
 ### Batteries
 
-- xxx
+- It's now possible to track any addtional info on a battery charge cycle by using Userfields
+  - => Configure the desired Userfields for the entity `battery_charge_cycles`
+  - => On a battery charge cycle tracking entered information is then visible in the corresponding battery charge cycle journal entry
 
 ### Equipment
 

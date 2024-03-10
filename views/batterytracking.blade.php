@@ -44,6 +44,11 @@
 			'invalidFeedback' => $__t('This can only be before now')
 			))
 
+			@include('components.userfieldsform', array(
+			'userfields' => $userfields,
+			'entity' => 'battery_charge_cycles'
+			))
+
 			<button id="save-batterytracking-button"
 				class="btn btn-success">{{ $__t('OK') }}</button>
 

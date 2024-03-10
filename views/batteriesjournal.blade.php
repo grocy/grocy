@@ -91,6 +91,10 @@
 					</th>
 					<th class="allow-grouping">{{ $__t('Battery') }}</th>
 					<th>{{ $__t('Tracked time') }}</th>
+
+					@include('components.userfields_thead', array(
+					'userfields' => $userfields
+					))
 				</tr>
 			</thead>
 			<tbody class="d-none">
@@ -121,6 +125,11 @@
 						<time class="timeago timeago-contextual"
 							datetime="{{ $chargeCycleEntry->tracked_time }}"></time>
 					</td>
+
+					@include('components.userfields_tbody', array(
+					'userfields' => $userfields,
+					'userfieldValues' => FindAllObjectsInArrayByPropertyValue($userfieldValues, 'object_id', $chargeCycleEntry->id)
+					))
 				</tr>
 				@endforeach
 			</tbody>
