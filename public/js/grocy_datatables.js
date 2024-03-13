@@ -8,6 +8,7 @@ $.extend(true, $.fn.dataTable.defaults, {
 	'scrollX': true,
 	'colReorder': true,
 	'stateSave': true,
+	'stateDuration': 0,
 	'stateSaveParams': function(settings, data)
 	{
 		data.search.search = "";

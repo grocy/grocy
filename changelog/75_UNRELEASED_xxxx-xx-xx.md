@@ -61,6 +61,7 @@
 - Optimized that file uploads are not completely buffered in memory before writing them to disk (thanks @bbx0)
 - Optimized top right corner menus icon spacing (thanks @TheDodger for the initial work on this)
 - Fixed again that some dialogs were not properly (too small) displayed (this time mostly affecting Chrome/Edge)
+- Fixed that table states (visible columns, sorting, column order and so on) could be reset to default after not accessing/using the corresponding page for a certain amount of time
 
 ### API
 
