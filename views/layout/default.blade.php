@@ -747,9 +747,8 @@
 	@endif
 	@if($embedded)
 	<script src="{{ $U('/packages/iframe-resizer/js/iframeResizer.contentWindow.js?v=', true) }}{{ $version}}"></script>
-	@else
-	<script src="{{ $U('/packages/iframe-resizer/js/iframeResizer.js?v=', true) }}{{ $version}}"></script>
 	@endif
+	<script src="{{ $U('/packages/iframe-resizer/js/iframeResizer.js?v=', true) }}{{ $version}}"></script>
 
 	<script src="{{ $U('/js/extensions.js?v=', true) }}{{ $version }}"></script>
 	<script src="{{ $U('/js/grocy_menu_layout.js?v=', true) }}{{ $version }}"></script>
