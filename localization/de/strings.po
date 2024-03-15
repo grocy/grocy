@@ -3,7 +3,7 @@
 # Luca RHK <luca@rhk-in.de>, 2020
 # Tobias Wolter <mumpfpuffel@gmail.com>, 2020
 # @RubenKelevra <ruben@freifunk-nrw.de>, 2021
-# Bernd Bestel <bernd@berrnd.de>, 2023
+# Bernd Bestel <bernd@berrnd.de>, 2024
 # 
 msgid ""
 msgstr ""
@@ -11,7 +11,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Bernd Bestel <bernd@berrnd.de>, 2023\n"
+"Last-Translator: Bernd Bestel <bernd@berrnd.de>, 2024\n"
 "Language-Team: German (https://app.transifex.com/grocy/teams/93189/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -851,7 +851,7 @@ msgid "Add this item to stock"
 msgstr "Diesen Eintrag zum Bestand hinzufügen"
 
 msgid "Adding shopping list item %1$s of %2$s"
-msgstr "Bearbeite Einkausfzetteleintrag %1$s von %2$s"
+msgstr "Bearbeite Einkaufszetteleintrag %1$s von %2$s"
 
 msgid "Use a specific stock item"
 msgstr "Einen bestimmten Bestandseintrag verwenden"
@@ -946,7 +946,7 @@ msgid "You have to select a recipe"
 msgstr "Ein Rezept muss ausgewählt werden"
 
 msgid "Key type"
-msgstr "Schlusseltyp"
+msgstr "Schlüsseltyp"
 
 msgid "Share/Integrate calendar (iCal)"
 msgstr "Kalender teilen/integrieren (iCal)"
@@ -1493,7 +1493,7 @@ msgid "Add to shopping list"
 msgstr "Zum Einkaufszettel hinzufügen"
 
 msgid "Added %1$s of %2$s to the shopping list \"%3$s\""
-msgstr "%1$s %2$s dem Einkauszettel \"%3$s\" hinzugefügt"
+msgstr "%1$s %2$s dem Einkaufszettel \"%3$s\" hinzugefügt"
 
 msgid "Output"
 msgstr "Ausgabe"
