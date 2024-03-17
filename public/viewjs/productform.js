@@ -454,6 +454,10 @@ if (Grocy.EditMode == "create" && GetUriParam("copy-of") != undefined)
 			{
 				$("#move_on_open").prop("checked", true);
 			}
+			if (BoolVal(sourceProduct.treat_opened_as_out_of_stock))
+			{
+				$("#treat_opened_as_out_of_stock").prop("checked", true);
+			}
 
 			Grocy.FrontendHelpers.ValidateForm('product-form');
 		},
