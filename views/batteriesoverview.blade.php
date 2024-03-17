@@ -97,6 +97,7 @@
 							href="#"><i class="fa-solid fa-eye"></i></a>
 					</th>
 					<th>{{ $__t('Battery') }}</th>
+					<th>{{ $__t('Description') }}</th>
 					<th class="allow-grouping">{{ $__t('Used in') }}</th>
 					<th>{{ $__t('Last charged') }}</th>
 					<th>{{ $__t('Next planned charge cycle') }}</th>
@@ -165,6 +166,10 @@
 					<td class="batterycard-trigger cursor-link"
 						data-battery-id="{{ $currentBatteryEntry->battery_id }}">
 						{{ FindObjectInArrayByPropertyValue($batteries, 'id', $currentBatteryEntry->battery_id)->name }}
+					</td>
+					<td class="fit-content"
+						data-battery-id="{{ $currentBatteryEntry->battery_id }}">
+						{{ FindObjectInArrayByPropertyValue($batteries, 'id', $currentBatteryEntry->battery_id)->description }}
 					</td>
 					<td class="fit-content">
 						{{ FindObjectInArrayByPropertyValue($batteries, 'id', $currentBatteryEntry->battery_id)->used_in }}
