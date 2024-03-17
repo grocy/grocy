@@ -21,7 +21,7 @@
 
 ### Recipes
 
-- xxx
+- When self producing a product ("Produces product" recipe option) the name of the recipe is now added to the note field of the created stock entry
 
 ### Meal plan
 
