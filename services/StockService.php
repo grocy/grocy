@@ -113,6 +113,12 @@ class StockService extends BaseService
 			throw new \Exception('Product does not exist or is inactive');
 		}
 
+
+		if ($amount <= 0)
+		{
+			throw new \Exception('Amount can\'t be <= 0');
+		}
+
 		$productDetails = (object)$this->GetProductDetails($productId);
 
 		// Tare weight handling
@@ -354,6 +360,11 @@ class StockService extends BaseService
 		if (!$this->ProductExists($productId))
 		{
 			throw new \Exception('Product does not exist or is inactive');
+		}
+
+		if ($amount <= 0)
+		{
+			throw new \Exception('Amount can\'t be <= 0');
 		}
 
 		if ($locationId !== null && !$this->LocationExists($locationId))
