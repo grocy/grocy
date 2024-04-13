@@ -18,5 +18,5 @@ Please make sure to:
 
 Please also try to reproduce the problem on the pre-release demo: => https://demo-prerelease.grocy.info
 - Use a private demo instance to make your example persistent
-- If the problem is not reproducible there, it's most likely not a bug - please use the r/grocy subreddit for general questions / help: => https://www.reddit.com/r/grocy
+- If the problem is not reproducible there, it's most likely not a bug - please use the r/grocy subreddit for general help and usage questions: => https://www.reddit.com/r/grocy
 -->
