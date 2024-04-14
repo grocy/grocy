@@ -26,20 +26,39 @@
 
 			<div class="tab-pane show active"
 				id="system-info">
-				<p>
-					Version <code>{{ $versionInfo->Version }}</code><br>
-					{{ $__t('Released on') }} <code>{{ $versionInfo->ReleaseDate }}</code> <time class="timeago timeago-contextual"
-						datetime="{{ $versionInfo->ReleaseDate }}"></time>
-				</p>
+				<div class="row">
+					<div class="col-auto">
+						<table class="table table-borderless table-responsive table-sm text-left">
+							<tr>
+								<td class="text-right">Version</td>
+								<td><code>{{ $versionInfo->Version }}</code></td>
+							</tr>
+							<tr>
+								<td class="text-right">{{ $__t('Released on') }}</td>
+								<td><code>{{ $versionInfo->ReleaseDate }}</code> <time class="timeago timeago-contextual"
+										datetime="{{ $versionInfo->ReleaseDate }}"></time></td>
+							</tr>
+							<tr>
+								<td class="text-right">PHP Version</td>
+								<td><code>{{ $systemInfo['php_version'] }}</code></td>
+							</tr>
+							<tr>
+								<td class="text-right">SQLite Version</td>
+								<td><code>{{ $systemInfo['sqlite_version'] }}</code></td>
+							</tr>
+							<tr>
+								<td class="text-right">OS</td>
+								<td><code>{{ $systemInfo['os'] }}</code></td>
+							</tr>
+							<tr>
+								<td class="text-right">Client</td>
+								<td><code>{{ $systemInfo['client'] }}</code></td>
+							</tr>
+						</table>
+					</div>
+				</div>
 
-				<p>
-					PHP Version <code>{{ $systemInfo['php_version'] }}</code><br>
-					SQLite Version <code>{{ $systemInfo['sqlite_version'] }}</code><br>
-					OS <code>{{ $systemInfo['os'] }}</code><br>
-					Client <code>{{ $systemInfo['client'] }}</code>
-				</p>
-
-				<p>
+				<p class="border-top pt-3">
 					{{ $__t('Do you find Grocy useful?') }}<br>
 					<a class="btn btn-sm btn-primary text-white mt-1"
 						href="https://grocy.info/#say-thanks"
@@ -73,18 +92,15 @@
 
 		</div>
 
-		<p class="small text-muted">
-			Grocy is a project by
+		<p class="small text-muted border-top pt-3">
+			<a href="https://grocy.info"
+				class="text-dark"
+				target="_blank">Grocy</a> is a hobby project by
 			<a href="https://berrnd.de"
 				class="text-dark"
 				target="_blank">Bernd Bestel</a><br>
 			Created with passion since 2017<br>
 			Life runs on code<br>
-			<a href="https://github.com/grocy/grocy"
-				class="text-dark"
-				target="_blank">
-				<i class="fa-brands fa-github"></i>
-			</a>
 		</p>
 	</div>
 </div>
