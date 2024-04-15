@@ -1205,3 +1205,6 @@ msgstr "This is required and can only contain letters and numbers"
 
 msgid "Edit userfield"
 msgstr "Edit userfield"
+
+msgid "Use alternative quick actions"
+msgstr "Use alternative quick actions"

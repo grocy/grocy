@@ -2802,3 +2802,6 @@ msgstr "Für den angegebenen Barcode wurde nichts gefunden"
 
 msgid "Configure colors"
 msgstr "Farben konfigurieren"
+
+msgid "Use alternative quick actions"
+msgstr "Alternative Schnellaktionen benutzen"
