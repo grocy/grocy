@@ -51,3 +51,8 @@ $("#stock_default_consume_amount_use_quick_consume_amount").on("click", function
 		$("#stock_default_consume_amount").removeAttr("disabled");
 	}
 });
+
+if (BoolVal(Grocy.UserSettings.use_alternative_actions_on_stock_overview_page))
+{
+	$("#use_alternative_actions_on_stock_overview_page").prop("checked", true);
+}

@@ -207,6 +207,19 @@
 
 		@endif
 
+		<div class="form-group">
+			<div class="custom-control custom-checkbox">
+				<input type="checkbox"
+					class="form-check-input custom-control-input user-setting-control"
+					id="use_alternative_actions_on_stock_overview_page"
+					data-setting-key="use_alternative_actions_on_stock_overview_page">
+				<label class="form-check-label custom-control-label"
+					for="use_alternative_actions_on_stock_overview_page">
+					{{ $__t('Use alternative quick actions') }}
+				</label>
+			</div>
+		</div>
+
 		<a href="{{ $U('/stockoverview') }}"
 			class="btn btn-success">{{ $__t('OK') }}</a>
 	</div>
