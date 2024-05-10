@@ -8,7 +8,7 @@
 # Radim Kabeláč <radim.ekk@gmail.com>, 2020
 # Jaroslav Lichtblau <l10n@lichtblau.cz>, 2020
 # Jarda Tesar <intossh@gmail.com>, 2021
-# Pavel Paseka, 2023
+# Pavel Paseka, 2024
 # 
 msgid ""
 msgstr ""
@@ -16,7 +16,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Pavel Paseka, 2023\n"
+"Last-Translator: Pavel Paseka, 2024\n"
 "Language-Team: Czech (https://app.transifex.com/grocy/teams/93189/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1874,8 +1874,8 @@ msgstr "Výpis běžících funkcí – stack trace"
 
 msgid "Easy error info copy & paste (for reporting)"
 msgstr ""
-"Budete-li psát vývojářům, pošlete jim celý tento text. Stačí do něj kliknout"
-" a celý se vybere (pro Ctrl-C)."
+"Budete-li psát vývojářům, pošlete jim text níže. Stačí do něj kliknout a "
+"celý se vybere (pro Ctrl-C)."
 
 msgid "This page does not exist"
 msgstr "Tato stránka neexistuje"

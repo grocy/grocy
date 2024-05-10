@@ -7,7 +7,7 @@
 # 冠南 胡, 2023
 # foo bar, 2023
 # aleixcox, 2023
-# aleixcox, 2023
+# aleixcox, 2024
 # 
 msgid ""
 msgstr ""
@@ -15,7 +15,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: aleixcox, 2023\n"
+"Last-Translator: aleixcox, 2024\n"
 "Language-Team: Chinese (China) (https://app.transifex.com/grocy/teams/93189/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -33,7 +33,7 @@ msgstr[0] "%s款产品即将过期"
 
 msgid "within the next day"
 msgid_plural "within the next %s days"
-msgstr[0] "于接下来%s天内"
+msgstr[0] "在未来%s天内"
 
 msgid "%s product is already expired"
 msgid_plural "%s products are already expired"
@@ -2473,7 +2473,7 @@ msgid "QU conversions resolved"
 msgstr "单位转换已完成"
 
 msgid "Product specific QU conversions"
-msgstr ""
+msgstr "产品特有的数量单位转换"
 
 msgid "Default quantity unit consume"
 msgstr "默认消耗数量单位"
@@ -2558,13 +2558,13 @@ msgid_plural "This means %1$s labels will be printed"
 msgstr[0] "%1$s个标签将被打印"
 
 msgid "External barcode lookup (via plugin)"
-msgstr ""
+msgstr "外部条码查询（通过插件）"
 
 msgid "Error while executing the barcode lookup plugin"
-msgstr ""
+msgstr "运行条码查询插件时出错"
 
 msgid "Nothing was found for the given barcode"
-msgstr ""
+msgstr "没有找到指定条码的相关内容"
 
 msgid "Configure colors"
-msgstr ""
+msgstr "配置颜色"

@@ -11,6 +11,7 @@
 # Brian Moos Lindberg <brian@blueeel.dk>, 2022
 # Tobias Østergaard-Jørgensen, 2023
 # hskdk <henrik@skjaerbaek.net>, 2023
+# G Momsen, 2024
 # 
 msgid ""
 msgstr ""
@@ -18,7 +19,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: hskdk <henrik@skjaerbaek.net>, 2023\n"
+"Last-Translator: G Momsen, 2024\n"
 "Language-Team: Danish (https://app.transifex.com/grocy/teams/93189/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -28,7 +29,7 @@ msgstr ""
 "X-Domain: grocy/strings\n"
 
 msgid "Stock overview"
-msgstr "Lagerbeholdning"
+msgstr "Lageroversigt"
 
 msgid "%s product expires"
 msgid_plural "%s products expiring"
@@ -362,7 +363,7 @@ msgid "Removed %1$s of %2$s from stock"
 msgstr "Fjerede %1$s af %2$s fra beholdningen"
 
 msgid "About Grocy"
-msgstr ""
+msgstr "Om Grocy"
 
 msgid "Close"
 msgstr "Luk"
@@ -855,6 +856,8 @@ msgid ""
 "The first item in this list would be picked by the default rule consume rule"
 " (Opened first, then first due first, then first in first out)"
 msgstr ""
+"Den første varer på denne liste vil blive valgt efter standardreglen: (1. "
+"Allerede åbnet, 2. Bedst før dato, 3. Først ind først ud.)"
 
 msgid "Mark %1$s of %2$s as open"
 msgstr "Marker %1$s %2$s som åben"
@@ -1452,7 +1455,7 @@ msgid "Price factor"
 msgstr "Prisfaktor"
 
 msgid "Do you find Grocy useful?"
-msgstr ""
+msgstr "Finder du grocy brugbart?"
 
 msgid "Say thanks"
 msgstr "Sig tak"
@@ -1890,7 +1893,7 @@ msgid "Chore journal"
 msgstr "Historik over pligter"
 
 msgid "Track next chore schedule"
-msgstr ""
+msgstr "Føl den næste planlagte pligt"
 
 msgid "Mark task as completed"
 msgstr "Marker opgave som afsluttet"
@@ -2218,14 +2221,14 @@ msgid "A product or a note is required"
 msgstr "Der behøves en vare eller en note"
 
 msgid "Grocycode"
-msgstr ""
+msgstr "Grocykode"
 
 msgid "Download"
 msgstr "Download"
 
 # Example: Download *Product* Grocycode
 msgid "Download %s Grocycode"
-msgstr ""
+msgstr "Hent %s grocykode"
 
 msgid ""
 "Grocycode is a unique referer to this %s in your Grocy instance - print it "
@@ -2243,13 +2246,13 @@ msgid "Default stock entry label"
 msgstr ""
 
 msgid "Stock entry label"
-msgstr ""
+msgstr "Lager indgangslabel"
 
 msgid "No label"
 msgstr "Ingen label"
 
 msgid "Single label"
-msgstr ""
+msgstr "Enkelt label"
 
 msgid "Label per unit"
 msgstr "Label pr. enhed"
@@ -2259,7 +2262,7 @@ msgstr "Fejl ved afvikling af WebHook"
 
 # Example: Print *Product* Grocycode on label printer
 msgid "Print %s Grocycode on label printer"
-msgstr ""
+msgstr "Print %s grocykode på labelprinter"
 
 msgid "Open stock entry label in new window"
 msgstr ""
@@ -2470,7 +2473,7 @@ msgid "The start date cannot be changed when the chore was once tracked"
 msgstr ""
 
 msgid "Show the recipe list and the recipe side by side"
-msgstr ""
+msgstr "Vis opskrift listen og opskrifter side om side"
 
 msgid ""
 "This means the next execution of this chore is scheduled dynamically based "
@@ -2593,16 +2596,16 @@ msgid ""
 msgstr ""
 
 msgid "Show resolved conversions"
-msgstr ""
+msgstr "Vis løste samtaler"
 
 msgid "QU conversions resolved"
 msgstr "mængdeenhed konverteringsproblem løst"
 
 msgid "Product specific QU conversions"
-msgstr ""
+msgstr "Produktspecifikke QU-konverteringer"
 
 msgid "Default quantity unit consume"
-msgstr ""
+msgstr "Standard mængdeenhed for forbrug"
 
 msgid "This is the default quantity unit used when consuming this product"
 msgstr ""
@@ -2632,67 +2635,69 @@ msgid "Track chore execution now"
 msgstr ""
 
 msgid "Total"
-msgstr ""
+msgstr "Total"
 
 msgid "Apply"
-msgstr ""
+msgstr "Anvend"
 
 msgid "Custom range"
-msgstr ""
+msgstr "Tilpasset område"
 
 msgid "Yesterday"
-msgstr ""
+msgstr "Igår"
 
 msgid "Last %1$s day"
 msgid_plural "Last %1$s days"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Sidste %1$s dag"
+msgstr[1] "Sidste %1$s dage"
 
 msgid "This month"
-msgstr ""
+msgstr "Denne måned"
 
 msgid "Last month"
-msgstr ""
+msgstr "Sidste måned"
 
 msgid "This year"
-msgstr ""
+msgstr "Dette år"
 
 msgid "Last year"
-msgstr ""
+msgstr "Sidste år"
 
 msgid "Reports"
-msgstr ""
+msgstr "Rapporter"
 
 msgid "Spendings"
-msgstr ""
+msgstr "Brugt"
 
 msgid "Stock report"
-msgstr ""
+msgstr "Lager rapport"
 
 msgid "Out-of-stock products"
-msgstr ""
+msgstr "Produkter, ikke er på lager"
 
 msgid "Quantity unit for prices"
-msgstr ""
+msgstr "Mængdeenhed for priser"
 
 msgid ""
 "When displaying prices for this product, they will be related to this "
 "quantity unit"
 msgstr ""
+"Når priserne for dette produkt vises, vil de være relateret til denne "
+"mængdeenhed"
 
 msgid "This means 1 label will be printed"
 msgid_plural "This means %1$s labels will be printed"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Dette betyder at 1 label vil blive printet"
+msgstr[1] "Dette betyder at %1$s labels vil blive printet"
 
 msgid "External barcode lookup (via plugin)"
-msgstr ""
+msgstr "Ekstern stregkode opslag (via plugin)"
 
 msgid "Error while executing the barcode lookup plugin"
-msgstr ""
+msgstr "Fejl opstået under udførelse af stregkode opslag plugin"
 
 msgid "Nothing was found for the given barcode"
-msgstr ""
+msgstr "Intet fundet på denne stregkode"
 
 msgid "Configure colors"
-msgstr ""
+msgstr "Konfigurer farver"
