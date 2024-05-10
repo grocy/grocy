@@ -746,9 +746,9 @@
 	<script src="{{ $U('/packages/chartjs-plugin-piechart-outlabels/dist/chartjs-plugin-piechart-outlabels.min.js?v=', true) }}{{ $version}}"></script>
 	@endif
 	@if($embedded)
-	<script src="{{ $U('/packages/iframe-resizer/js/iframeResizer.contentWindow.js?v=', true) }}{{ $version}}"></script>
+	<script src="{{ $U('/packages/iframe-resizer/js/iframeResizer.contentWindow.min.js?v=', true) }}{{ $version}}"></script>
 	@endif
-	<script src="{{ $U('/packages/iframe-resizer/js/iframeResizer.js?v=', true) }}{{ $version}}"></script>
+	<script src="{{ $U('/packages/iframe-resizer/js/iframeResizer.min.js?v=', true) }}{{ $version}}"></script>
 
 	<script src="{{ $U('/js/extensions.js?v=', true) }}{{ $version }}"></script>
 	<script src="{{ $U('/js/grocy_menu_layout.js?v=', true) }}{{ $version }}"></script>
