@@ -136,6 +136,7 @@
 				<tr id="chore-{{ $curentChoreEntry->chore_id }}-row"
 					class="@if($curentChoreEntry->due_type == 'overdue') table-danger @elseif($curentChoreEntry->due_type == 'duetoday') table-info @elseif($curentChoreEntry->due_type == 'duesoon') table-warning @endif">
 					<td class="fit-content border-right">
+						@if(GROCY_FEATURE_FLAG_CHORES_OVERVIEW_DEFAULT_TRACK_ON_NEXT_SCHEDULE)
 						<a class="btn btn-success btn-sm track-chore-button permission-CHORE_TRACK_EXECUTION"
 							href="#"
 							data-toggle="tooltip"
@@ -145,6 +146,17 @@
 							data-chore-name="{{ FindObjectInArrayByPropertyValue($chores, 'id', $curentChoreEntry->chore_id)->name }}">
 							<i class="fa-solid fa-play"></i>
 						</a>
+						@else
+						<a class="btn btn-success btn-sm track-chore-button now permission-CHORE_TRACK_EXECUTION"
+							href="#"
+							data-toggle="tooltip"
+							data-placement="left"
+							title="{{ $__t('Track chore execution now') }}"
+							data-chore-id="{{ $curentChoreEntry->chore_id }}"
+							data-chore-name="{{ FindObjectInArrayByPropertyValue($chores, 'id', $curentChoreEntry->chore_id)->name }}">
+							<i class="fa-solid fa-play"></i>
+						</a>
+						@endif
 						<a class="btn btn-secondary btn-sm track-chore-button skip permission-CHORE_TRACK_EXECUTION @if(FindObjectInArrayByPropertyValue($chores, 'id', $curentChoreEntry->chore_id)->period_type == \Grocy\Services\ChoresService::CHORE_PERIOD_TYPE_MANUALLY) disabled @endif"
 							href="#"
 							data-toggle="tooltip"
@@ -161,12 +173,21 @@
 								<i class="fa-solid fa-ellipsis-v"></i>
 							</button>
 							<div class="table-inline-menu dropdown-menu dropdown-menu-right">
+								@if(GROCY_FEATURE_FLAG_CHORES_OVERVIEW_DEFAULT_TRACK_ON_NEXT_SCHEDULE)
 								<a class="dropdown-item track-chore-button now permission-CHORE_TRACK_EXECUTION"
 									data-chore-id="{{ $curentChoreEntry->chore_id }}"
 									type="button"
 									href="#">
 									<span>{{ $__t('Track chore execution now') }}</span>
 								</a>
+								@else
+								<a class="dropdown-item track-chore-button permission-CHORE_TRACK_EXECUTION"
+									data-chore-id="{{ $curentChoreEntry->chore_id }}"
+									type="button"
+									href="#">
+									<span>{{ $__t('Track next chore schedule') }}</span>
+								</a>
+								@endif
 								<a class="dropdown-item reschedule-chore-button permission-CHORE_TRACK_EXECUTION"
 									data-chore-id="{{ $curentChoreEntry->chore_id }}"
 									type="button"

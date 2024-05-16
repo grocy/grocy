@@ -30,7 +30,7 @@
 
 ### Chores
 
-- xxx
+- There is now a new sub feature flag `FEATURE_FLAG_CHORES_OVERVIEW_DEFAULT_TRACK_ON_NEXT_SCHEDULE` to change the behaviour of the green button on `/choresoverview`. If set to true, the green button will track an execution of the corresponding chore on the next scheduled time. If set to false it will instead track an execution for now/today. (Flag defaults to `true`, so no changed behavior when not configured)
 
 ### Calendar
 
