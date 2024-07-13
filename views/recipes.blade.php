@@ -341,7 +341,7 @@
 										data-recipe-name="{{ $recipe->name }}">
 										<i class="fa-solid fa-utensils"></i>
 									</a>
-									<a class="btn @if(!GROCY_FEATURE_FLAG_STOCK) d-none @endif recipe-shopping-list @if(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->need_fulfilled_with_shopping_list == 1) disabled @endif"
+									<a class="btn @if(!GROCY_FEATURE_FLAG_SHOPPINGLIST) d-none @endif recipe-shopping-list @if(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->need_fulfilled_with_shopping_list == 1) disabled @endif"
 										href="#"
 										data-toggle="tooltip"
 										title="{{ $__t('Put missing products on shopping list') }}"
