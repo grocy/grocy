@@ -1,8 +1,5 @@
 # 
 # Translators:
-# Niko G <niko9911@ironlions.fi>, 2019
-# Kalle Laakso <rogueshadow@keemail.me>, 2020
-# jarkko hämäläinen <zeik@iki.fi>, 2020
 # Sami Kiviniemi, 2024
 # 
 msgid ""
@@ -21,13 +18,13 @@ msgstr ""
 "X-Domain: grocy/chore_assignment_types\n"
 
 msgid "no-assignment"
-msgstr "ei toimeksiantoa"
+msgstr "Ei toimeksiantoa"
 
 msgid "who-least-did-first"
-msgstr "vähiten tehnyt"
+msgstr "Vähiten tehnyt"
 
 msgid "random"
-msgstr "satunnainen"
+msgstr "Satunnainen"
 
 msgid "in-alphabetical-order"
-msgstr "aakkosjärjestyksessä"
+msgstr "Aakkosjärjestyksessä"
