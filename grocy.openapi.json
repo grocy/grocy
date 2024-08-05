@@ -2,7 +2,7 @@
 	"openapi": "3.1.0",
 	"info": {
 		"title": "Grocy REST API",
-		"description": "Authentication is done via API keys (header *GROCY-API-KEY* or same named query parameter), which you can manage [here](PlaceHolderManageApiKeysUrl).<br>Additionally requests from within the frontend are also valid (via session cookie).",
+		"description": "Authentication is done via API keys (header *GROCY-API-KEY* or same named query parameter), which you can manage [here](PlaceHolderManageApiKeysUrl).<br>Additionally requests from within the frontend are also valid (via session cookie).<br>Hint: To find the right request and request body, use the browser web developer tools while using the Grocy Frontend.",
 		"version": "xxx",
 		"license": {
 			"name": "grocy.info",
@@ -3042,7 +3042,7 @@
 		"/stock/shoppinglist/add-product": {
 			"post": {
 				"summary": "Adds the given amount of the given product to the given shopping list",
-				"description": "If the product is already on the shopping list, the given amount will increase the amount of the already existing item, otherwise a new item will be added",
+				"description": "If the product is already on the shopping list, the given amount will increase the amount of the already existing item, otherwise a new item will be added. If you want to add only a note to a shopping list, you need to use the /objects/shoppinglist request.",
 				"tags": [
 					"Stock"
 				],
