@@ -278,6 +278,13 @@ a:not([href]) {
 	z-index: 99998;
 }
 
+/* Give recipe modal in meal plan space for Ingredients/Preparation side-by-side */
+@media (min-width: 992px) {
+	.modal-xl {
+		max-width: 1100px;
+	}
+}
+
 /* Third party component customizations - DataTables */
 .dataTable td {
 	vertical-align: middle !important;
