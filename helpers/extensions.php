@@ -223,12 +223,14 @@ function GetUserDisplayName($user)
 
 function IsValidFileName($fileName)
 {
-	if (preg_match('=^[^/?*;:{}\\\\]+\.[^/?*;:{}\\\\]+$=', $fileName))
-	{
-		return true;
-	}
+    // Pattern allows any Unicode character except '/', '?', '*', ':', ';', '{', '}', '\'
+    $pattern = '/^[^\x00-\x1F\/?:*;"{}\\\]+(\.[^\x00-\x1F\/?:*;"{}\\\]+)?$/u';
+    
+    if (preg_match($pattern, $fileName)) {
+        return true;
+    }
 
-	return false;
+    return false;
 }
 
 function IsJsonString($text)
