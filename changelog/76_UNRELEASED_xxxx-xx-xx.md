@@ -59,4 +59,4 @@
 
 ### API
 
-- xxx
+- Optimized that uploading files where the file name contains non-ASCII characters is now also possible

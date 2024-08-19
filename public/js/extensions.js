@@ -205,6 +205,9 @@ function CleanFileName(fileName)
 	// Multiple spaces seem to be a problem, so simply strip them all
 	fileName = fileName.replace(/\s+/g, "");
 
+	// Remove any non-ASCII character
+	fileName = fileName.replace(/[^\x00-\x7F]/g, "");
+
 	return fileName;
 }
 

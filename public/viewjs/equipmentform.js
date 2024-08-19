@@ -17,8 +17,7 @@
 
 	if ($("#instruction-manual")[0].files.length > 0)
 	{
-		var someRandomStuff = RandomString();
-		jsonData.instruction_manual_file_name = someRandomStuff + CleanFileName($("#instruction-manual")[0].files[0].name);
+		jsonData.instruction_manual_file_name = RandomString() + CleanFileName($("#instruction-manual")[0].files[0].name);
 	}
 
 	if (Grocy.DeleteInstructionManualOnSave)
