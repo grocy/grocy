@@ -182,6 +182,7 @@ class RecipesController extends BaseController
 				'recipe' => $this->getDatabase()->recipes($args['recipeId']),
 				'recipePos' => new \stdClass(),
 				'products' => $this->getDatabase()->products()->where('active = 1')->orderBy('name', 'COLLATE NOCASE'),
+				'barcodes' => $this->getDatabase()->product_barcodes_comma_separated(),
 				'quantityUnits' => $this->getDatabase()->quantity_units()->orderBy('name', 'COLLATE NOCASE'),
 				'quantityUnitConversionsResolved' => $this->getDatabase()->cache__quantity_unit_conversions_resolved()
 			]);
@@ -193,6 +194,7 @@ class RecipesController extends BaseController
 				'recipe' => $this->getDatabase()->recipes($args['recipeId']),
 				'recipePos' => $this->getDatabase()->recipes_pos($args['recipePosId']),
 				'products' => $this->getDatabase()->products()->orderBy('name', 'COLLATE NOCASE'),
+				'barcodes' => $this->getDatabase()->product_barcodes_comma_separated(),
 				'quantityUnits' => $this->getDatabase()->quantity_units()->orderBy('name', 'COLLATE NOCASE'),
 				'quantityUnitConversionsResolved' => $this->getDatabase()->cache__quantity_unit_conversions_resolved()
 			]);

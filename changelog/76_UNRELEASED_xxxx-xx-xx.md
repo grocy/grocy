@@ -26,6 +26,7 @@
 
 - When self producing a product ("Produces product" recipe option) the name of the recipe is now added to the note field of the created stock entry
 - Fixed that when `FEATURE_FLAG_STOCK_STOCK` was set to `false`, the "Put missing products on shopping list"-button was not visible
+- Fixed that scanning a product barcode on the recipe ingredient edit page didn't work
 
 ### Meal plan
 

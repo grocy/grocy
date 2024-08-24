@@ -45,6 +45,7 @@
 
 			@include('components.productpicker', array(
 			'products' => $products,
+			'barcodes' => $barcodes,
 			'nextInputSelector' => '#amount'
 			))
 
