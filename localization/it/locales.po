@@ -2,10 +2,9 @@
 # Translators:
 # Antonino Ursino <ninus_@libero.it>, 2020
 # Andrea Raineri, 2022
-# Moltivie Denied <major2015usa@gmail.com>, 2022
 # Martino Falorni, 2023
 # Davide Casella, 2023
-# Claudio Arseni <claudio.arseni@gmail.com>, 2023
+# Giovanni Mascellani, 2024
 # 
 msgid ""
 msgstr ""
@@ -13,7 +12,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2020-08-31 19:11+0000\n"
-"Last-Translator: Claudio Arseni <claudio.arseni@gmail.com>, 2023\n"
+"Last-Translator: Giovanni Mascellani, 2024\n"
 "Language-Team: Italian (https://app.transifex.com/grocy/teams/93189/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -132,7 +131,7 @@ msgstr "Finlandese"
 
 # Catalan
 msgid "ca"
-msgstr "Canadese"
+msgstr "Catalano"
 
 # Lithuanian
 msgid "lt"
@@ -140,7 +139,7 @@ msgstr "Lituano"
 
 # Ukrainian
 msgid "uk"
-msgstr "Regno Unito"
+msgstr "Ucraino"
 
 # Romanian
 msgid "ro_RO"
@@ -148,4 +147,4 @@ msgstr "Rumeno"
 
 # Estonian
 msgid "et_EE"
-msgstr "et_EE"
+msgstr "Estone"

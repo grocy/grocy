@@ -1899,7 +1899,7 @@ msgid ""
 msgstr "建议的到期日期，是从采购之日起加上此天数。"
 
 msgid "-1 means that this product will be never overdue"
-msgstr "-1表示该产品永远不会过期"
+msgstr "-1表示此产品永不到期"
 
 msgid "Default due days"
 msgstr "默认到期天数"

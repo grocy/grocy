@@ -5,6 +5,7 @@
 # Jukka-Pekka Kokkonen <jukkapekka.kokkonen@gmail.com>, 2020
 # Matti Koskimies <matti@apulanta.fi>, 2021
 # Markus Laaksonen, 2022
+# Sami Kiviniemi, 2024
 # 
 msgid ""
 msgstr ""
@@ -12,7 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Markus Laaksonen, 2022\n"
+"Last-Translator: Sami Kiviniemi, 2024\n"
 "Language-Team: Finnish (https://app.transifex.com/grocy/teams/93189/fi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -109,10 +110,10 @@ msgid "Tomato"
 msgstr "Tomaatti"
 
 msgid "Change towels in the bathroom"
-msgstr ""
+msgstr "Vaihda käsipyyhkeet"
 
 msgid "Mop the kitchen floor"
-msgstr ""
+msgstr "Moppaa keittiön lattia"
 
 msgid "Warranty ends"
 msgstr "Takuu päättyy"
@@ -127,7 +128,7 @@ msgid "Heat remote control"
 msgstr "Lämpökaukosäädin"
 
 msgid "Take out the trash"
-msgstr ""
+msgstr "Vie roskat"
 
 msgid "Some good snacks"
 msgstr "Hyviä välipaloja"
@@ -252,13 +253,13 @@ msgid "Russian"
 msgstr "Venäjä"
 
 msgid "Vacuum the living room floor"
-msgstr ""
+msgstr "Imuroi olohuoneen lattia"
 
 msgid "Clean the litter box"
-msgstr ""
+msgstr "Tyhjennä kissanhiekkalaatikko"
 
 msgid "Change the bed sheets"
-msgstr ""
+msgstr "Vaihda lakanat"
 
 msgid "Swedish"
 msgstr "Ruotsi"
@@ -278,10 +279,10 @@ msgstr[0] "Viipale"
 msgstr[1] "Viipaletta"
 
 msgid "Example userentity"
-msgstr "Esimerkki omasta oliosta"
+msgstr "Esimerkki omasta käyttäjäosiosta"
 
 msgid "This is an example user entity..."
-msgstr "Tämä on esimerkki omasta oliosta..."
+msgstr "Tämä on esimerkki käyttäjäosiosta..."
 
 msgid "Custom field"
 msgstr "Mukautettu kenttä"
@@ -382,36 +383,36 @@ msgid "Catalan"
 msgstr "Katalonialainen"
 
 msgid "Slovenian"
-msgstr ""
+msgstr "Slovenia"
 
 msgid "Lithuanian"
-msgstr ""
+msgstr "Liettua"
 
 msgid "Ukrainian"
-msgstr ""
+msgstr "Ukraina"
 
 msgid "Kilogram"
 msgid_plural "Kilograms"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Kilogramma"
+msgstr[1] "Kilogrammaa"
 
 msgid "Romanian"
-msgstr ""
+msgstr "Romania"
 
 msgid "Pint"
-msgstr ""
+msgstr "Tuoppi"
 
 msgid "Beverages"
-msgstr ""
+msgstr "Juomat"
 
 msgid "Ice Cream"
-msgstr ""
+msgstr "Jäätelö"
 
 msgid "Soda"
-msgstr ""
+msgstr "Limsa"
 
 msgid "Beer"
-msgstr ""
+msgstr "Olut"
 
 msgid "Estonian"
-msgstr ""
+msgstr "Viro"

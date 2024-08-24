@@ -9,6 +9,7 @@
 # Jorge Araújo, 2022
 # João Queirós, 2022
 # Cesar Veloso, 2023
+# Joao Cabral, 2024
 # 
 msgid ""
 msgstr ""
@@ -16,7 +17,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Cesar Veloso, 2023\n"
+"Last-Translator: Joao Cabral, 2024\n"
 "Language-Team: Portuguese (Portugal) (https://app.transifex.com/grocy/teams/93189/pt_PT/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1918,7 +1919,7 @@ msgid "Battery journal"
 msgstr ""
 
 msgid "This product has a picture"
-msgstr ""
+msgstr "Este produto tem uma imagem"
 
 msgid "Consume this stock entry as spoiled"
 msgstr ""
@@ -1927,7 +1928,7 @@ msgid "Configure user permissions"
 msgstr ""
 
 msgid "Show a QR-Code for this API key"
-msgstr ""
+msgstr "Mostrar um QR Code para esta chave API"
 
 msgid ""
 "This is the default quantity unit used on purchase and when adding this "
@@ -1962,7 +1963,7 @@ msgid ""
 msgstr ""
 
 msgid "Copy"
-msgstr ""
+msgstr "Copiar"
 
 msgid "Are you sure to remove this barcode?"
 msgstr ""
@@ -2046,7 +2047,7 @@ msgstr[1] ""
 msgstr[2] ""
 
 msgid "Expired"
-msgstr ""
+msgstr "Estragado"
 
 msgid "Due soon days"
 msgstr ""
@@ -2101,7 +2102,7 @@ msgid "Sort number"
 msgstr ""
 
 msgid "Download file"
-msgstr ""
+msgstr "Descarregar ficheiro"
 
 msgid "Use the products \"Quick consume amount\""
 msgstr "Usar a \"Quantidade de consumo rápido\" do produto"
@@ -2166,7 +2167,7 @@ msgid "Merge this product with another one"
 msgstr ""
 
 msgid "Merge products"
-msgstr ""
+msgstr "Combinar produtos"
 
 msgid "Product to keep"
 msgstr ""
@@ -2175,10 +2176,10 @@ msgid "Product to remove"
 msgstr ""
 
 msgid "Error while merging"
-msgstr ""
+msgstr "Erro ao combinar"
 
 msgid "After merging, this product will be kept"
-msgstr ""
+msgstr "Após a combinação, este produto será mantido"
 
 msgid ""
 "After merging, all occurences of this product will be replaced by the kept "
@@ -2186,13 +2187,13 @@ msgid ""
 msgstr ""
 
 msgid "Merge"
-msgstr ""
+msgstr "Combinar"
 
 msgid "Title"
-msgstr ""
+msgstr "Título"
 
 msgid "Link"
-msgstr ""
+msgstr "Hiperligação"
 
 msgid ""
 "The stock overview page lists all products which are currently in-stock or "
@@ -2210,11 +2211,11 @@ msgid "Grocycode"
 msgstr ""
 
 msgid "Download"
-msgstr ""
+msgstr "Descarregar"
 
 # Example: Download *Product* Grocycode
 msgid "Download %s Grocycode"
-msgstr ""
+msgstr "Descarregar Grocycode de  %s "
 
 msgid ""
 "Grocycode is a unique referer to this %s in your Grocy instance - print it "
@@ -2235,7 +2236,7 @@ msgid "Stock entry label"
 msgstr ""
 
 msgid "No label"
-msgstr ""
+msgstr "Sem Etiqueta"
 
 msgid "Single label"
 msgstr ""
@@ -2254,16 +2255,16 @@ msgid "Open stock entry label in new window"
 msgstr ""
 
 msgid "Thermal printer"
-msgstr ""
+msgstr "Impressora térmica"
 
 msgid "Printing"
-msgstr ""
+msgstr "Imprimindo"
 
 msgid "Connecting to printer..."
-msgstr ""
+msgstr "Ligando à impressora..."
 
 msgid "Unable to print"
-msgstr ""
+msgstr "Não foi possível imprimir"
 
 msgid "Only done items"
 msgstr ""
@@ -2272,7 +2273,7 @@ msgid "Show only in-stock products"
 msgstr ""
 
 msgid "Product description"
-msgstr ""
+msgstr "Descrição do produto"
 
 # Example: *3.21 USD* per *Pack*
 msgid "%1$s per %2$s"
@@ -2282,7 +2283,7 @@ msgid "Mark this item as undone"
 msgstr ""
 
 msgid "Mandatory"
-msgstr ""
+msgstr "Obrigatório"
 
 msgid "Mandatory Userfield"
 msgstr ""
@@ -2305,7 +2306,7 @@ msgid ""
 msgstr ""
 
 msgid "This product shouldn't be frozen"
-msgstr ""
+msgstr "Este produto não deve ser congelado"
 
 msgid "Copy all meal plan entries of %s"
 msgstr ""
@@ -2314,7 +2315,7 @@ msgid "A date is required"
 msgstr "É necessário uma data"
 
 msgid "Day"
-msgstr ""
+msgstr "Dia"
 
 msgid "Add recipe"
 msgstr ""
@@ -2386,16 +2387,16 @@ msgid "This is the default which will be prefilled on purchase"
 msgstr ""
 
 msgid "Merge chores"
-msgstr ""
+msgstr "Unir tarefas"
 
 msgid "Chore to keep"
-msgstr ""
+msgstr "Tarefa a manter"
 
 msgid "After merging, this chore will be kept"
-msgstr ""
+msgstr "Após a união, esta tarefa será mantida"
 
 msgid "Chore to remove"
-msgstr ""
+msgstr "Tarefa a remover"
 
 msgid ""
 "After merging, all occurences of this chore will be replaced by the kept "
@@ -2633,40 +2634,40 @@ msgid "Track chore execution now"
 msgstr ""
 
 msgid "Total"
-msgstr ""
+msgstr "Total"
 
 msgid "Apply"
-msgstr ""
+msgstr "Aplicar"
 
 msgid "Custom range"
 msgstr ""
 
 msgid "Yesterday"
-msgstr ""
+msgstr "Ontem"
 
 msgid "Last %1$s day"
 msgid_plural "Last %1$s days"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Último %1$s dia"
+msgstr[1] "Últimos %1$s dias"
+msgstr[2] "Últimos %1$s dias"
 
 msgid "This month"
-msgstr ""
+msgstr "Este mês"
 
 msgid "Last month"
-msgstr ""
+msgstr "Mês passado"
 
 msgid "This year"
-msgstr ""
+msgstr "Este ano"
 
 msgid "Last year"
-msgstr ""
+msgstr "Ano passado"
 
 msgid "Reports"
-msgstr ""
+msgstr "Relatórios"
 
 msgid "Spendings"
-msgstr ""
+msgstr "Gastos"
 
 msgid "Stock report"
 msgstr ""

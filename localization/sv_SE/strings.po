@@ -13,6 +13,7 @@
 # Robert Johansson, 2022
 # Eduard Kapoun, 2022
 # Eric Andersson, 2023
+# riiga <riiga_92@hotmail.com>, 2024
 # 
 msgid ""
 msgstr ""
@@ -20,7 +21,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Eric Andersson, 2023\n"
+"Last-Translator: riiga <riiga_92@hotmail.com>, 2024\n"
 "Language-Team: Swedish (Sweden) (https://app.transifex.com/grocy/teams/93189/sv_SE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -62,7 +63,7 @@ msgstr "Produkt"
 
 msgid "%s Product"
 msgid_plural "%s Products"
-msgstr[0] "%s Produkt"
+msgstr[0] "%s produkt"
 msgstr[1] "%s produkter"
 
 msgid "Amount"
@@ -336,7 +337,7 @@ msgid "Manage API keys"
 msgstr "Hantera API-nycklar"
 
 msgid "REST API browser"
-msgstr ""
+msgstr "REST API-läsare"
 
 msgid "API keys"
 msgstr "API-nycklar"
@@ -366,7 +367,7 @@ msgid "Removed %1$s of %2$s from stock"
 msgstr "Tog bort %1$s  %2$s från lagret"
 
 msgid "About Grocy"
-msgstr "Om grocy"
+msgstr "Om Grocy"
 
 msgid "Close"
 msgstr "Stäng"
@@ -423,10 +424,10 @@ msgid "A best before date is required"
 msgstr "Ett bäst-före-datum krävs"
 
 msgid "Settings"
-msgstr "inställningar"
+msgstr "Inställningar"
 
 msgid "This can only be before now"
-msgstr "Detta kan bara vara en tidpunkt tidigare än just nu"
+msgstr "Detta kan bara vara tidigare än nu"
 
 msgid "Calendar"
 msgstr "Kalender"
@@ -605,7 +606,7 @@ msgstr[0] "%s batteri borde redan ha laddats"
 msgstr[1] "%s batterier borde redan ha laddats"
 
 msgid "in singular form"
-msgstr "i singular form"
+msgstr "i singular"
 
 msgid "Quantity unit"
 msgstr "Mängdenhet"
@@ -649,7 +650,7 @@ msgid "Due"
 msgstr "Förfaller"
 
 msgid "Assigned to"
-msgstr "Tilldelats"
+msgstr "Tilldelad"
 
 msgid "Mark task \"%s\" as completed"
 msgstr "Markera uppgiften \"%s\" som slutförd"
@@ -710,7 +711,7 @@ msgid "Are you sure to delete product group \"%s\"?"
 msgstr "Vill du verkligen radera produktgrupp \"%s\"?"
 
 msgid "Stay logged in permanently"
-msgstr "Håll dig inloggad permanent"
+msgstr "Håll dig permanent inloggad"
 
 msgid "When not set, you will get logged out at latest after 30 days"
 msgstr "Om inte markerad så kommer du att bli utloggad efter högst 30 dagar"
@@ -740,7 +741,7 @@ msgid "From"
 msgstr "Från"
 
 msgid "in format"
-msgstr "i format"
+msgstr "på formatet"
 
 msgid "To"
 msgstr "Till"
@@ -1139,7 +1140,7 @@ msgid "Plural rule"
 msgstr "Pluralregel"
 
 msgid "in plural form"
-msgstr "i plural form"
+msgstr "i plural"
 
 msgid "Not enough in stock, %s ingredient missing"
 msgid_plural "Not enough in stock, %s ingredients missing"
@@ -1179,7 +1180,7 @@ msgid "When enabled only the day of an execution is tracked, not the time"
 msgstr "När det är aktiverat spåras bara dagen för en körning, inte tiden"
 
 msgid "Consume %1$s of %2$s"
-msgstr "Konsumera %1$s av %2$s"
+msgstr "Förbruka %1$s av %2$s"
 
 msgid "Meal plan"
 msgstr "Måltidsplan"
@@ -1452,7 +1453,7 @@ msgid "Price factor"
 msgstr "Prisfaktor"
 
 msgid "Do you find Grocy useful?"
-msgstr ""
+msgstr "Tycker du att Grocy är användbart?"
 
 msgid "Say thanks"
 msgstr "Tacka"
@@ -1470,7 +1471,7 @@ msgid "Output"
 msgstr "Utdata"
 
 msgid "Energy"
-msgstr ""
+msgstr "Energi"
 
 msgid "Per stock quantity unit"
 msgstr "Per mängdenhet i lager"
@@ -1749,13 +1750,13 @@ msgid "Barcode"
 msgstr "Streckkod"
 
 msgid "Create Barcode"
-msgstr "Skapa Streckkod"
+msgstr "Skapa streckkod"
 
 msgid "Barcode for product"
 msgstr "Streckkod för produkt"
 
 msgid "Edit Barcode"
-msgstr "Redigera Streckkod"
+msgstr "Redigera streckkod"
 
 msgid ""
 "Based on the prices of the default consume rule (Opened first, then first "
@@ -1795,7 +1796,7 @@ msgid "Stack trace"
 msgstr "Stack trace"
 
 msgid "Easy error info copy & paste (for reporting)"
-msgstr ""
+msgstr "Enkel felinformation att kopiera (för rapportering)"
 
 msgid "This page does not exist"
 msgstr "Sidan finns inte"
@@ -2203,14 +2204,14 @@ msgid "A product or a note is required"
 msgstr "En produkt eller anteckning krävs"
 
 msgid "Grocycode"
-msgstr ""
+msgstr "Grocykod"
 
 msgid "Download"
 msgstr "Ladda ner"
 
 # Example: Download *Product* Grocycode
 msgid "Download %s Grocycode"
-msgstr ""
+msgstr "Ladda ner %s Grocykod"
 
 msgid ""
 "Grocycode is a unique referer to this %s in your Grocy instance - print it "
@@ -2219,7 +2220,7 @@ msgstr ""
 
 # Abbreviation for "due date"
 msgid "DD"
-msgstr ""
+msgstr "Utg."
 
 msgid "Print on label printer"
 msgstr "Skriv ut på etikettskrivare"
@@ -2272,7 +2273,7 @@ msgstr "Produktbeskrivning"
 
 # Example: *3.21 USD* per *Pack*
 msgid "%1$s per %2$s"
-msgstr ""
+msgstr "%1$s per %2$s"
 
 msgid "Mark this item as undone"
 msgstr "Markera den här posten som ogjord"
@@ -2281,7 +2282,7 @@ msgid "Mandatory"
 msgstr "Obligatorisk"
 
 msgid "Mandatory Userfield"
-msgstr "Obligatoriskt Användarfält"
+msgstr "Obligatoriskt användarfält"
 
 msgid "When enabled, then this field must be filled on the destination form"
 msgstr ""
@@ -2508,16 +2509,16 @@ msgid ""
 msgstr ""
 
 msgid "Night mode"
-msgstr ""
+msgstr "Mörkerläge"
 
 msgid "On"
-msgstr ""
+msgstr "På"
 
 msgid "Use system setting"
 msgstr "Använd systeminställningar"
 
 msgid "Off"
-msgstr ""
+msgstr "Av"
 
 msgid ""
 "Automatically add products that are below their defined min. stock amount to"
@@ -2530,10 +2531,10 @@ msgid "Reassigned"
 msgstr ""
 
 msgid "Default value"
-msgstr ""
+msgstr "Standardvärde"
 
 msgid "Now / today"
-msgstr ""
+msgstr "Nu / idag"
 
 msgid "Add meal plan entry"
 msgstr ""
@@ -2556,7 +2557,7 @@ msgid ""
 msgstr ""
 
 msgid "Moved to %1$s"
-msgstr ""
+msgstr "Flyttad till %1$s"
 
 msgid "Decimal places allowed for prices (input)"
 msgstr ""
@@ -2641,7 +2642,7 @@ msgid "Last year"
 msgstr "Förra året"
 
 msgid "Reports"
-msgstr ""
+msgstr "Rapporter"
 
 msgid "Spendings"
 msgstr ""
@@ -2653,7 +2654,7 @@ msgid "Out-of-stock products"
 msgstr ""
 
 msgid "Quantity unit for prices"
-msgstr ""
+msgstr "Mängdenhet för priser"
 
 msgid ""
 "When displaying prices for this product, they will be related to this "
@@ -2664,17 +2665,17 @@ msgstr ""
 
 msgid "This means 1 label will be printed"
 msgid_plural "This means %1$s labels will be printed"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Detta betyder att 1 etikett kommer att skrivas ut"
+msgstr[1] "Detta betyder att %1$s etiketter kommer att skrivas ut"
 
 msgid "External barcode lookup (via plugin)"
-msgstr ""
+msgstr "Extern streckkodsuppslagning (insticksprogram)"
 
 msgid "Error while executing the barcode lookup plugin"
-msgstr ""
+msgstr "Fel vid körning av streckkodsinsticksprogrammet"
 
 msgid "Nothing was found for the given barcode"
-msgstr ""
+msgstr "Inget hittades för den angivna steckkoden"
 
 msgid "Configure colors"
-msgstr ""
+msgstr "Konfigurera färger"
