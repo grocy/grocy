@@ -29,14 +29,14 @@
     fsevents "2.3.3"
 
 "@fontsource/open-sans@^5.0.0":
-  version "5.0.28"
-  resolved "https://registry.yarnpkg.com/@fontsource/open-sans/-/open-sans-5.0.28.tgz#ae371d53744ef2e5346c1576fba582f55ce3e90c"
-  integrity sha512-hBvJHY76pJT/JynGUB5EXWhnzjYfLdcMn655J5p1v9lTT9HdQSy+keq2KPVXO2Htlg998BBa3p6u/jlrZ6w0kg==
+  version "5.0.29"
+  resolved "https://registry.yarnpkg.com/@fontsource/open-sans/-/open-sans-5.0.29.tgz#6ec23ecf426d8d89d9a8f96f1a1c4923d3a67664"
+  integrity sha512-5ayVkmB5fY2NXm/YKF0UxtjWipLIqeXBxyhjtR46ab+z8xiJonolUBIVFYUfn5zH4FDf078zXbsIvmo82C0Aew==
 
 "@fortawesome/fontawesome-free@^6.1.1":
-  version "6.5.2"
-  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free/-/fontawesome-free-6.5.2.tgz#310fe90cb5a8dee9698833171b98e7835404293d"
-  integrity sha512-hRILoInAx8GNT5IMkrtIt9blOdrqHOnPBH+k70aWUAqPZPgopb9G5EQJFpaBx/S8zp2fC+mPW349Bziuk1o28Q==
+  version "6.6.0"
+  resolved "https://registry.yarnpkg.com/@fortawesome/fontawesome-free/-/fontawesome-free-6.6.0.tgz#0e984f0f2344ee513c185d87d77defac4c0c8224"
+  integrity sha512-60G28ke/sXdtS9KZCpZSHHkCbdsOGEhIUGlwq6yhY74UpTiToIh8np7A8yphhM4BWsvNFtIvLpi4co+h9Mr9Ow==
 
 "@types/jquery@^3.5.16":
   version "3.5.30"
@@ -88,9 +88,9 @@ aws-sign2@~0.7.0:
   integrity sha512-08kcGqnYf/YmjoRhfxyu+CLxBjUtHLXLXX/vUfx9l2LYzG3c1m61nrpyFUZI6zeS+Li/wWMMidD9KgrqtGq3mA==
 
 aws4@^1.8.0:
-  version "1.12.0"
-  resolved "https://registry.yarnpkg.com/aws4/-/aws4-1.12.0.tgz#ce1c9d143389679e253b314241ea9aa5cec980d3"
-  integrity sha512-NmWvPnx0F1SfrQbYwOi7OeaNGokp9XhzNioJ/CSBs8Qa4vxug81mhJEAVZwxXuBmYB5KDRfMq/F3RR0BIU7sWg==
+  version "1.13.1"
+  resolved "https://registry.yarnpkg.com/aws4/-/aws4-1.13.1.tgz#bb5f8b8a20739f6ae1caeaf7eea2c7913df8048e"
+  integrity sha512-u5w79Rd7SU4JaIlA/zFqG+gOiuq25q5VLyZ8E+ijJeILuTxVzZgp2CaGw/UTw6pXYN9XMO9yiqj/nEHmhTG5CA==
 
 bcrypt-pbkdf@^1.0.0:
   version "1.0.2"
@@ -216,11 +216,11 @@ data-uri-to-buffer@0.0.3:
   integrity sha512-Cp+jOa8QJef5nXS5hU7M1DWzXPEIoVR3kbV0dQuVGwROZg8bGf1DcCnkmajBTnvghTtSNMUdRrPjgaT6ZQucbw==
 
 datatables.net-bs4@>=1.11.0:
-  version "2.0.7"
-  resolved "https://registry.yarnpkg.com/datatables.net-bs4/-/datatables.net-bs4-2.0.7.tgz#ceb7a4d074eed36ed1412e9caf4738da229e2771"
-  integrity sha512-9O2MEcamEPtyHRxkSYUuZ/Xeau9Kbk+25/lG5M5680ey2lLVKEV6ihISc8xsVYyDDpWJLZNEFJTCrhPzQ6miBA==
+  version "2.1.4"
+  resolved "https://registry.yarnpkg.com/datatables.net-bs4/-/datatables.net-bs4-2.1.4.tgz#223ef26ab5532d7fdd205172aad8ec7deda7865b"
+  integrity sha512-R/UYCa/yYxqCdfY1GCGYqRlNkrw9fP4EbH3PqDGKXxH4MQuPZrN7zfaWAEQNlnklMMlzz9rwayMrZu7baPHvLw==
   dependencies:
-    datatables.net "2.0.7"
+    datatables.net "2.1.4"
     jquery ">=1.7"
 
 datatables.net-bs4@^1.10.22, datatables.net-bs4@^1.13.0:
@@ -297,10 +297,10 @@ datatables.net@1.13.11, datatables.net@^1.10.22, datatables.net@^1.13.0, datatab
   dependencies:
     jquery "1.8 - 4"
 
-datatables.net@2.0.7, datatables.net@>=1.11.0:
-  version "2.0.7"
-  resolved "https://registry.yarnpkg.com/datatables.net/-/datatables.net-2.0.7.tgz#8af61ac17334c37ae3bd77fc2828a3571e052041"
-  integrity sha512-cyW+HZwkMzb4bLrao/SS9/i64ZHiw5nYhXl+OwuOPgddG+R9O11iOEke8wYsdiyOQmjv2mE6xkEmRMZwHZc8zw==
+datatables.net@2.1.4, datatables.net@>=1.11.0:
+  version "2.1.4"
+  resolved "https://registry.yarnpkg.com/datatables.net/-/datatables.net-2.1.4.tgz#b25c021b0d92292521955cb9ed8ff74705a63006"
+  integrity sha512-Qxfsow9o8iYjU/OP9Ju9W46gDj+jD+ZN6qkRLArOvNF0mOKAO8ZvmTe37FhipXh8sH6tPh19oJoRSdZ3GnQUjA==
   dependencies:
     jquery ">=1.7"
 
@@ -431,9 +431,9 @@ http-signature@~1.2.0:
     sshpk "^1.7.0"
 
 iframe-resizer@^4.3.9:
-  version "4.3.11"
-  resolved "https://registry.yarnpkg.com/iframe-resizer/-/iframe-resizer-4.3.11.tgz#6d13c23b19c528f3a43e301b4a0ea847cd034d90"
-  integrity sha512-5QtnsmfH11GDsuC7Gxd/eNzojudX3346Gb0E+Ku8ln8AtfSq+cWCZtnhCrthrtE7f1CI2/kwHkZ9G4sFYzHP7A==
+  version "4.4.5"
+  resolved "https://registry.yarnpkg.com/iframe-resizer/-/iframe-resizer-4.4.5.tgz#f5048636e7f2fb5d9a09cc2ae78eb2da55ad555c"
+  integrity sha512-U8bCywf/Gh07O69RXo6dXAzTtODQrxaHGHRI7Nt4ipXsuq6EMxVsOP/jjaP43YtXz/ibESS0uSVDN3sOGCzSmw==
 
 iota-array@^1.0.0:
   version "1.0.0"
@@ -674,9 +674,9 @@ summernote@^0.8.18:
   integrity sha512-W9RhjQjsn+b1s9xiJQgJbCiYGJaDAc9CdEqXo+D13WuStG8lCdtKaO5AiNiSSMJsQJN2EfGSwbBQt+SFE2B8Kw==
 
 swagger-ui-dist@^5.2.0:
-  version "5.17.7"
-  resolved "https://registry.yarnpkg.com/swagger-ui-dist/-/swagger-ui-dist-5.17.7.tgz#64113eefe01b05d49845cf163793c94c5b71a303"
-  integrity sha512-hKnq2Dss6Nvqxzj+tToBz0IJvKXgp7FExxX0Zj0rMajXJp8CJ98yLAwbKwKu8rxQf+2iIDUTGir84SCA8AN+fQ==
+  version "5.17.14"
+  resolved "https://registry.yarnpkg.com/swagger-ui-dist/-/swagger-ui-dist-5.17.14.tgz#e2c222e5bf9e15ccf80ec4bc08b4aaac09792fd6"
+  integrity sha512-CVbSfaLpstV65OnSjbXfVd6Sta3q3F7Cj/yYuvHMp1P90LztOLs6PfUnKEVAeiIVQt9u2SaPwv0LiH/OyMjHRw==
 
 tempusdominus-bootstrap-4@^5.39.2:
   version "5.39.2"
