@@ -161,7 +161,7 @@
 						<tr id="recipe-row-{{ $recipe->id }}"
 							data-recipe-id="{{ $recipe->id }}">
 							<td class="fit-content border-right">
-								<a class="btn btn-info btn-sm hide-when-embedded hide-on-fullscreen-card"
+								<a class="btn btn-info btn-sm hide-when-embedded hide-on-fullscreen-card recipe-edit-button"
 									href="{{ $U('/recipe/') }}{{ $recipe->id }}"
 									data-toggle="tooltip"
 									title="{{ $__t('Edit this item') }}">
@@ -280,7 +280,7 @@
 										title="{{ $__t('Delete this item') }}">
 										<i class="fa-solid fa-trash"></i>
 									</a>
-									<a class="btn btn-outline-info btn-xs hide-when-embedded hide-on-fullscreen-card"
+									<a class="btn btn-outline-info btn-xs hide-when-embedded hide-on-fullscreen-card recipe-edit-button"
 										href="{{ $U('/recipe/') }}{{ $recipe->id }}"
 										data-toggle="tooltip"
 										title="{{ $__t('Edit this item') }}">

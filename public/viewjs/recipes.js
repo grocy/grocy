@@ -341,6 +341,11 @@ $(".recipe-gallery-item").on("click", function(e)
 	}
 });
 
+$(".recipe-edit-button").on("click", function(e)
+{
+	e.stopPropagation();
+});
+
 $(".recipe-fullscreen").on('click', function(e)
 {
 	e.preventDefault();
