@@ -16,7 +16,7 @@
   - After that, the transaction is continued with that product
 - Fixed that when copying a product, the field "Treat opened as out of stock" wasn't copied along (thanks @TheDodger)
 - Fixed that the product groups filter on the master data products page used a contains search instead of an exact search
-- Fixed that Scan Mode on the purchase page didn't work (not all fields were properly populated) when using/scanning a product Grocycodes
+- Fixed that Scan Mode on the purchase and consume page didn't work (not all fields were properly populated) when using/scanning a product Grocycodes
 
 ### Shopping list
 

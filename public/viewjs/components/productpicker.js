@@ -170,6 +170,7 @@ $('#product_id_text_input').on('blur', function(e)
 		{
 			possibleOptionElement = $("#product_id option[value=\"" + gc[2] + "\"]").first();
 			$("#product_id").data("grocycode", true);
+			$('#product_id').attr("barcode", input);
 		}
 	}
 	else // Normal product barcode handling
@@ -298,7 +299,7 @@ $('#product_id_text_input').on('blur', function(e)
 			// otherwise an error validation message that the product is not in stock
 			var existsAsProduct = false;
 			var existsAsBarcode = false;
-			Grocy.Api.Get('objects/product_barcodes?query[]=barcode=' + input,
+			Grocy.Api.Get('objects/product_barcodes_view?query[]=barcode=' + input,
 				function(barcodeResult)
 				{
 					if (barcodeResult.length > 0)

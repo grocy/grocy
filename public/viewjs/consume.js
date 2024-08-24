@@ -257,6 +257,10 @@ $("#location_id").on('change', function(e)
 					}
 				);
 			}
+			else
+			{
+				OnLocationChange(locationId, null);
+			}
 		}
 		else
 		{
@@ -326,7 +330,7 @@ function OnLocationChange(locationId, stockId)
 					}
 				);
 
-				if (document.getElementById("product_id").getAttribute("barcode") == "null")
+				if (document.getElementById("product_id").getAttribute("barcode") == "null" || $("#product_id").data("grocycode"))
 				{
 					ScanModeSubmit();
 				}

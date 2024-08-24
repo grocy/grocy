@@ -5905,7 +5905,8 @@
 					"products_average_price",
 					"quantity_unit_conversions_resolved",
 					"recipes_pos_resolved",
-					"battery_charge_cycles"
+					"battery_charge_cycles",
+					"product_barcodes_view"
 				]
 			},
 			"ExposedEntityNoListing": {
@@ -5926,7 +5927,8 @@
 					"products_average_price",
 					"quantity_unit_conversions_resolved",
 					"recipes_pos_resolved",
-					"battery_charge_cycles"
+					"battery_charge_cycles",
+					"product_barcodes_view"
 				]
 			},
 			"ExposedEntityNoDelete": {
@@ -5940,7 +5942,8 @@
 					"products_average_price",
 					"quantity_unit_conversions_resolved",
 					"recipes_pos_resolved",
-					"battery_charge_cycles"
+					"battery_charge_cycles",
+					"product_barcodes_view"
 				]
 			},
 			"ExposedEntityEditRequiresAdmin": {
