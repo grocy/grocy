@@ -31,7 +31,7 @@ $("#product-group-filter").on("change", function()
 	}
 	else
 	{
-		productsTable.column(productsTable.colReorder.transpose(6)).search("^" + value + "\$", true, false).draw();
+		productsTable.column(productsTable.colReorder.transpose(6)).search("^" + value + "$", true, false).draw();
 	}
 
 });
