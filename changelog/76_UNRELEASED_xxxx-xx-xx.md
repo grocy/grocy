@@ -54,7 +54,7 @@
 
 ### Userfields
 
-- xxx
+- Userentity tables (custom objects / lists) now also have the table options icon (top left corner eye icon, to e.g. add a grouping condition)
 
 ### General
 
