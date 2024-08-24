@@ -27,10 +27,13 @@ $("#product-group-filter").on("change", function()
 	var value = $("#product-group-filter option:selected").text();
 	if (value === __t("All"))
 	{
-		value = "";
+		productsTable.column(productsTable.colReorder.transpose(6)).search("").draw();
+	}
+	else
+	{
+		productsTable.column(productsTable.colReorder.transpose(6)).search("^" + value + "\$", true, false).draw();
 	}
 
-	productsTable.column(productsTable.colReorder.transpose(6)).search(value).draw();
 });
 
 $("#clear-filter-button").on("click", function()
