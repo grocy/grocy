@@ -358,7 +358,7 @@ if (Grocy.Components.ProductPicker !== undefined)
 						Grocy.Api.Get('objects/product_barcodes?query[]=barcode=' + document.getElementById("product_id").getAttribute("barcode"),
 							function(barcodeResult)
 							{
-								if (barcodeResult)
+								if (barcodeResult && barcodeResult.length > 0)
 								{
 									var barcode = barcodeResult[0];
 									$("#purchase-form").attr("data-used-barcode", barcode.id);
