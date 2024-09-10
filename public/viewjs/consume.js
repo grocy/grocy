@@ -481,7 +481,7 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 				if (productDetails.product.enable_tare_weight_handling == 1)
 				{
 					$("#display_amount").attr("min", productDetails.product.tare_weight);
-					$('#display_amount').attr('max', productDetails.stock_amount + productDetails.product.tare_weight);
+					$('#display_amount').attr('max', (productDetails.stock_amount + productDetails.product.tare_weight).toFixed(Grocy.UserSettings.stock_decimal_places_amounts));
 					$("#tare-weight-handling-info").removeClass("d-none");
 				}
 				else
@@ -568,7 +568,7 @@ $("#specific_stock_entry").on("change", function(e)
 						sumValue = sumValue + stockEntry.amount_aggregated;
 					}
 				});
-				$("#display_amount").attr("max", sumValue);
+				$("#display_amount").attr("max", sumValue.toFixed(Grocy.UserSettings.stock_decimal_places_amounts));
 				if (sumValue == 0)
 				{
 					$("#display_amount").parent().find(".invalid-feedback").text(__t('There are no units available at this location'));
@@ -582,7 +582,7 @@ $("#specific_stock_entry").on("change", function(e)
 	}
 	else
 	{
-		$("#display_amount").attr("max", $('option:selected', this).attr('amount'));
+		$("#display_amount").attr("max", Number.parseFloat($('option:selected', this).attr('amount')).toFixed(Grocy.UserSettings.stock_decimal_places_amounts));
 	}
 });
 
@@ -705,7 +705,7 @@ function RefreshForm()
 	if (productDetails.product.enable_tare_weight_handling == 1 && !$('#consume-exact-amount').is(':checked'))
 	{
 		$("#display_amount").attr("min", productDetails.product.tare_weight);
-		$('#display_amount').attr('max', sumValue + productDetails.product.tare_weight);
+		$('#display_amount').attr('max', (sumValue + productDetails.product.tare_weight).toFixed(Grocy.UserSettings.stock_decimal_places_amounts));
 		$("#tare-weight-handling-info").removeClass("d-none");
 	}
 	else
@@ -713,7 +713,7 @@ function RefreshForm()
 		$("#tare-weight-handling-info").addClass("d-none");
 
 		$("#display_amount").attr("min", Grocy.DefaultMinAmount);
-		$('#display_amount').attr('max', sumValue * $("#qu_id option:selected").attr("data-qu-factor"));
+		$('#display_amount').attr('max', (sumValue * $("#qu_id option:selected").attr("data-qu-factor")).toFixed(Grocy.UserSettings.stock_decimal_places_amounts));
 
 		if (sumValue == 0)
 		{

@@ -365,7 +365,7 @@ $("#location_id_from").on('change', function(e)
 						sumValue = sumValue + stockEntry.amount;
 					}
 				});
-				$("#display_amount").attr("max", sumValue * $("#qu_id option:selected").attr("data-qu-factor"));
+				$("#display_amount").attr("max", (sumValue * $("#qu_id option:selected").attr("data-qu-factor")).toFixed(Grocy.UserSettings.stock_decimal_places_amounts));
 				if (sumValue == 0)
 				{
 					$("#display_amount").parent().find(".invalid-feedback").text(__t('There are no units available at this location'));
@@ -392,7 +392,7 @@ $("#location_id_to").on('change', function(e)
 
 $("#qu_id").on('change', function(e)
 {
-	$("#display_amount").attr("max", Number.parseFloat($('#display_amount').attr("data-stock-amount")) * $("#qu_id option:selected").attr("data-qu-factor"));
+	$("#display_amount").attr("max", (Number.parseFloat($('#display_amount').attr("data-stock-amount")) * $("#qu_id option:selected").attr("data-qu-factor")).toFixed(Grocy.UserSettings.stock_decimal_places_amounts));
 });
 
 $('#display_amount').on('focus', function(e)
@@ -442,7 +442,7 @@ $("#specific_stock_entry").on("change", function(e)
 						sumValue = sumValue + stockEntry.amount;
 					}
 				});
-				$("#display_amount").attr("max", sumValue * $("#qu_id option:selected").attr("data-qu-factor"));
+				$("#display_amount").attr("max", (sumValue * $("#qu_id option:selected").attr("data-qu-factor")).toFixed(Grocy.UserSettings.stock_decimal_places_amounts));
 				if (sumValue == 0)
 				{
 					$("#display_amount").parent().find(".invalid-feedback").text(__t('There are no units available at this location'));
@@ -456,7 +456,7 @@ $("#specific_stock_entry").on("change", function(e)
 	}
 	else
 	{
-		$("#display_amount").attr("max", $('option:selected', this).attr('amount'));
+		$("#display_amount").attr("max", Number.parseFloat($('option:selected', this).attr('amount')).toFixed(Grocy.UserSettings.stock_decimal_places_amounts));
 	}
 });
 
