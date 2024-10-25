@@ -9,16 +9,18 @@ class StockReportsController extends BaseController
 {
 	public function Spendings(Request $request, Response $response, array $args)
 	{
+		$where = "pph.transaction_type != 'self-production'";
+
 		if (isset($request->getQueryParams()['start_date']) && isset($request->getQueryParams()['end_date']) && IsIsoDate($request->getQueryParams()['start_date']) && IsIsoDate($request->getQueryParams()['end_date']))
 		{
 			$startDate = $request->getQueryParams()['start_date'];
 			$endDate = $request->getQueryParams()['end_date'];
-			$where = "pph.purchased_date BETWEEN '$startDate' AND '$endDate'";
+			$where .= " AND pph.purchased_date BETWEEN '$startDate' AND '$endDate'";
 		}
 		else
 		{
 			// Default to this month
-			$where = "pph.purchased_date >= DATE(DATE('now', 'localtime'), 'start of month')";
+			$where .= " AND pph.purchased_date >= DATE(DATE('now', 'localtime'), 'start of month')";
 		}
 
 		$groupBy = 'product';
