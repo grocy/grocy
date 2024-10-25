@@ -15,6 +15,7 @@
   - If the lookup was successful, the product edit page of the created product is displayed, where the product setup can be completed (if required)
   - After that, the transaction is continued with that product
 - Optimized form validation (max amount checks) related to unit conversion with a lot of decimal places on the consume and transfer page
+- Optimized that the stock report "Spendings" now excludes self produced products (thanks @danielr18 for the initial work on this)
 - Fixed that when copying a product, the field "Treat opened as out of stock" wasn't copied along (thanks @TheDodger)
 - Fixed that the product groups filter on the master data products page used a contains search instead of an exact search
 - Fixed that Scan Mode on the purchase and consume page didn't work (not all fields were properly populated) when using/scanning a product Grocycodes
