@@ -10,6 +10,7 @@ class StockReportsController extends BaseController
 	public function Spendings(Request $request, Response $response, array $args)
 	{
 		$where = "pph.transaction_type != 'self-production'";
+
 		if (isset($request->getQueryParams()['start_date']) && isset($request->getQueryParams()['end_date']) && IsIsoDate($request->getQueryParams()['start_date']) && IsIsoDate($request->getQueryParams()['end_date']))
 		{
 			$startDate = $request->getQueryParams()['start_date'];
