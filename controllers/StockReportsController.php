@@ -14,12 +14,12 @@ class StockReportsController extends BaseController
 		{
 			$startDate = $request->getQueryParams()['start_date'];
 			$endDate = $request->getQueryParams()['end_date'];
-			$where = " AND pph.purchased_date BETWEEN '$startDate' AND '$endDate'";
+			$where .= " AND pph.purchased_date BETWEEN '$startDate' AND '$endDate'";
 		}
 		else
 		{
 			// Default to this month
-			$where = " AND pph.purchased_date >= DATE(DATE('now', 'localtime'), 'start of month')";
+			$where .= " AND pph.purchased_date >= DATE(DATE('now', 'localtime'), 'start of month')";
 		}
 
 		$groupBy = 'product';
