@@ -4,7 +4,7 @@
 <img alt="Logo" height="50" src="https://raw.githubusercontent.com/grocy/grocy/master/public/img/logo.svg?sanitize=true" />
 <h2>ERP beyond your fridge</h2>
 <h3>Grocy is a web-based self-hosted groceries & household management solution for your home</h3>
-<em><h4>This is a hobby project by <a href="https://github.com/berrnd">@berrnd</a></h4></em>
+<em><h4>This is a hobby project by <a href="https://berrnd.de">Bernd Bestel</a></h4></em>
 </div>
 
 -----
@@ -164,7 +164,7 @@ Any help is welcome, feel free to contribute anything which comes to your mind o
 
 ## Roadmap
 
-There is none, this is a hobby project. The progress of a specific bug/enhancement is always tracked in the corresponding issue, at least by commit comment references.
+There is none. The progress of a specific bug/enhancement is always tracked in the corresponding issue, at least by commit comment references.
 
 [Milestones](https://github.com/grocy/grocy/milestones) are used to indicate in which version the corresponding request was done (`vNEXT` means it's currently planned to do that for the next release).
 
