@@ -22,8 +22,7 @@ $('#shoppinglist-table tbody').removeClass("d-none");
 shoppingListTable.columns.adjust().draw();
 
 var shoppingListPrintShadowTable = $('#shopping-list-print-shadow-table').DataTable({
-	'order': [[1, 'asc']],
-	"orderFixed": [[2, 'asc']],
+	"orderFixed": [[0, 'asc'], [2, 'asc']],
 	'columnDefs': [
 		{ 'visible': false, 'targets': 2 },
 		{ 'orderable': false, 'targets': '_all' }
@@ -500,7 +499,6 @@ $(document).on("click", "#print-shopping-list-button", function(e)
 				if (!$("#print-group-by-product-group").prop("checked"))
 				{
 					shoppingListPrintShadowTable.rowGroup().enable(false);
-					shoppingListPrintShadowTable.order.fixed({});
 					shoppingListPrintShadowTable.draw();
 				}
 

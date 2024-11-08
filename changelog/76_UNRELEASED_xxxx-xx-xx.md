@@ -22,7 +22,7 @@
 
 ### Shopping list
 
-- xxx
+- Fixed that when printing a shoppping list the table/list wasn't sorted (will now be sorted alphabetically by the product name of the corresponding list item)
 
 ### Recipes
 

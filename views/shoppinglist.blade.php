@@ -4,6 +4,15 @@
 
 @section('title', $__t('Shopping list'))
 
+@push('pageStyles')
+<style>
+	#shopping-list-print-shadow-table_wrapper .dataTable>thead>tr>th[class*="sort"]:before,
+	#shopping-list-print-shadow-table_wrapper .dataTable>thead>tr>th[class*="sort"]:after {
+		content: "" !important;
+	}
+</style>
+@endpush
+
 @push('pageScripts')
 <script src="{{ $U('/viewjs/purchase.js?v=', true) }}{{ $version }}"></script>
 @endpush
