@@ -135,6 +135,16 @@
 			))
 			@endif
 
+			<div class="form-group">
+				<label for="note">{{ $__t('Note') }}</label>
+				<div class="input-group">
+					<input type="text"
+						class="form-control"
+						id="note"
+						name="note">
+				</div>
+			</div>
+
 			<button id="save-consume-button"
 				class="btn btn-success">{{ $__t('OK') }}</button>
 

@@ -315,8 +315,13 @@ class StockApiController extends BaseApiController
 				$allowSubproductSubstitution = $requestBody['allow_subproduct_substitution'];
 			}
 
+			$note = null;
+			if (array_key_exists('note', $requestBody)) {
+				$note = $requestBody['note'];
+			}
+
 			$transactionId = null;
-			$transactionId = $this->getStockService()->ConsumeProduct($args['productId'], $requestBody['amount'], $spoiled, $transactionType, $specificStockEntryId, $recipeId, $locationId, $transactionId, $allowSubproductSubstitution, $consumeExact);
+			$transactionId = $this->getStockService()->ConsumeProduct($args['productId'], $requestBody['amount'], $spoiled, $transactionType, $specificStockEntryId, $recipeId, $locationId, $transactionId, $allowSubproductSubstitution, $consumeExact, $note);
 			$args['transactionId'] = $transactionId;
 			return $this->StockTransactions($request, $response, $args);
 		}

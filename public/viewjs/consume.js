@@ -22,6 +22,7 @@
 	jsonData.exact_amount = $('#consume-exact-amount').is(':checked');
 	jsonData.spoiled = $('#spoiled').is(':checked');
 	jsonData.allow_subproduct_substitution = true;
+	jsonData.note = jsonForm.note;
 
 	if ($("#use_specific_stock_entry").is(":checked"))
 	{
