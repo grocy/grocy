@@ -562,7 +562,7 @@ $(window).on('resize', function()
 
 if (GetUriParam("embedded"))
 {
-	window.parent.iFrameResize({ "checkOrigin": false, "warningTimeout": 0, "minHeight": 700 }, "iframe.embed-responsive");
+	window.parent.iframeResize({ "checkOrigin": false, "warningTimeout": 0, "license": "GPLv3" }, "iframe.embed-responsive");
 }
 
 function WindowMessageBag(message, payload = null)

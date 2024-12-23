@@ -111,6 +111,7 @@ iframe.embed-responsive {
 	border: 0;
 	width: 1px;
 	min-width: 100%;
+	min-height: 700px;
 }
 
 /* Hide the default up/down arrow buttons for number inputs because we use our own buttons in numberpicker */
