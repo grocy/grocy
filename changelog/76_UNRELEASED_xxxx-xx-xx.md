@@ -23,6 +23,7 @@
 ### Shopping list
 
 - Fixed that when printing a shoppping list the table/list wasn't sorted (will now be sorted alphabetically by the product name of the corresponding list item)
+- Fixed that when deleting a shopping list item and marking another one as done while not reloading the page in-between, the deleted item reappeared (was only a visual problem, there was no problem on deleting the item on the backend / in the database)
 
 ### Recipes
 

@@ -132,7 +132,7 @@ $(document).on('click', '.shoppinglist-delete-button', function(e)
 			animateCSS("#shoppinglistitem-" + shoppingListItemId + "-row", "fadeOut", function()
 			{
 				Grocy.FrontendHelpers.EndUiBusy();
-				$("#shoppinglistitem-" + shoppingListItemId + "-row").remove();
+				$("#shoppinglistitem-" + shoppingListItemId + "-row").addClass("d-none").remove();
 				OnListItemRemoved();
 			});
 		},
