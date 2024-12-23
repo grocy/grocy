@@ -8,6 +8,7 @@
 # Kurt Inge Smådal, 2022
 # Vegard Fladby <vegard.fladby@gmail.com>, 2023
 # Ronny Rusten, 2023
+# Kristian Daae-Johansen, 2024
 # 
 msgid ""
 msgstr ""
@@ -15,7 +16,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Ronny Rusten, 2023\n"
+"Last-Translator: Kristian Daae-Johansen, 2024\n"
 "Language-Team: Norwegian (https://app.transifex.com/grocy/teams/93189/no/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1595,6 +1596,8 @@ msgid ""
 "Camera access is only possible when supported and allowed by your browser "
 "and when Grocy is served via a secure (https://) connection"
 msgstr ""
+"Tilgang til kamera er kun mulig når det er støttet og når nettleseren din "
+"tillater det, og når grocy kjøres gjennom en sikker tilkobling (https://)"
 
 msgid "Keep screen on"
 msgstr "Skjerm alltid på"
@@ -1910,7 +1913,7 @@ msgid "Chore journal"
 msgstr "Statistikk husarbeid"
 
 msgid "Track next chore schedule"
-msgstr ""
+msgstr "Følg neste planlegging"
 
 msgid "Mark task as completed"
 msgstr "Merk oppgave som ferdig"
@@ -1937,6 +1940,7 @@ msgid ""
 "This is the default quantity unit used on purchase and when adding this "
 "product to the shopping list"
 msgstr ""
+"Dette er standard enhet brukt på produkter du legger til på handlelisten"
 
 msgid ""
 "Show a warning when the due date of the purchased product is earlier than "
@@ -1964,6 +1968,8 @@ msgid ""
 "This amount is used for the \"quick consume button\" on the stock overview "
 "page (related to quantity unit stock)"
 msgstr ""
+"Dette antallet blir brukt av \"hurtigkonsumere / åpne-knappene\" på "
+"beholdningsoversikten (relatert til antall enheter på lager) "
 
 msgid ""
 "This amount is used for the \"quick open button\" on the stock overview page"

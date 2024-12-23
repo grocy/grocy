@@ -3,6 +3,7 @@
 # 신강수 <idaksha@outlook.com>, 2020
 # CW kim <cw2002.kim@gmail.com>, 2021
 # Junsu Jeong, 2023
+# YS Lee, 2024
 # 
 msgid ""
 msgstr ""
@@ -10,7 +11,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Junsu Jeong, 2023\n"
+"Last-Translator: YS Lee, 2024\n"
 "Language-Team: Korean (Korea) (https://app.transifex.com/grocy/teams/93189/ko_KR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -318,7 +319,7 @@ msgid "Manage API keys"
 msgstr "API키 관리"
 
 msgid "REST API browser"
-msgstr ""
+msgstr "REST API 브라우저"
 
 msgid "API keys"
 msgstr "API 키"

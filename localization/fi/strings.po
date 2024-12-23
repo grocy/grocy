@@ -1,7 +1,7 @@
 # 
 # Translators:
 # oskari uusitalo <osku78@gmail.com>, 2019
-# Niko G <niko9911@ironlions.fi>, 2019
+# Niko Granö <niko9911@ironlions.fi>, 2019
 # Kalle Laakso <rogueshadow@keemail.me>, 2020
 # Tuomas Yrjölä <yrski@pm.me>, 2020
 # jarkko hämäläinen <zeik@iki.fi>, 2020

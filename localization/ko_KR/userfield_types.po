@@ -1,6 +1,6 @@
 # 
 # Translators:
-# CW kim <cw2002.kim@gmail.com>, 2020
+# YS Lee, 2024
 # 
 msgid ""
 msgstr ""
@@ -8,7 +8,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:43+0000\n"
-"Last-Translator: CW kim <cw2002.kim@gmail.com>, 2020\n"
+"Last-Translator: YS Lee, 2024\n"
 "Language-Team: Korean (Korea) (https://app.transifex.com/grocy/teams/93189/ko_KR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,56 +19,56 @@ msgstr ""
 
 # Text (single line)
 msgid "text-single-line"
-msgstr "text-single-line"
+msgstr "텍스트 - 한 줄"
 
 # Text (multi line)
 msgid "text-multi-line"
-msgstr "text-multi-line"
+msgstr "텍스트 - 여러 줄"
 
 # Number (integral)
 msgid "number-integral"
-msgstr "number-integral"
+msgstr "숫자 - 정수"
 
 # Number (decimal)
 msgid "number-decimal"
-msgstr "number-decimal"
+msgstr "숫자 - 소숫점"
 
 # Number (currency)
 msgid "number-currency"
-msgstr ""
+msgstr " 숫자 - 통화"
 
 # Date (without time)
 msgid "date"
-msgstr "date"
+msgstr "날짜"
 
 # Date & time
 msgid "datetime"
-msgstr "datetime"
+msgstr "날짜 및 시간"
 
 # Checkbox
 msgid "checkbox"
-msgstr "checkbox"
+msgstr "체크박스"
 
 # Select list (a single item can be selected)
 msgid "preset-list"
-msgstr "preset-list"
+msgstr "사전 정의 리스트"
 
 # Select list (multiple items can be selected)
 msgid "preset-checklist"
-msgstr "preset-checklist"
+msgstr "사전 정의 체크리스트"
 
 # Link
 msgid "link"
-msgstr "link"
+msgstr "링크"
 
 # Link (with title)
 msgid "link-with-title"
-msgstr ""
+msgstr "링크 - 명칭 포함"
 
 # File
 msgid "file"
-msgstr "file"
+msgstr "파일"
 
 # Image
 msgid "image"
-msgstr "image"
+msgstr "그림"

@@ -16,6 +16,7 @@
 # Ricardo Verduguez, 2023
 # Jose Manuel Ruiz, 2023
 # GRBaset, 2023
+# Pier Jose Gotta Perez <piegope@protonmail.com>, 2024
 # 
 msgid ""
 msgstr ""
@@ -23,7 +24,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: GRBaset, 2023\n"
+"Last-Translator: Pier Jose Gotta Perez <piegope@protonmail.com>, 2024\n"
 "Language-Team: Spanish (https://app.transifex.com/grocy/teams/93189/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2754,7 +2755,7 @@ msgid "QU conversions resolved"
 msgstr "QU conversiones resueltas "
 
 msgid "Product specific QU conversions"
-msgstr ""
+msgstr "QU conversiones de producto específico "
 
 msgid "Default quantity unit consume"
 msgstr "Cantidad de unidades de consumo por defecto"
@@ -2851,13 +2852,13 @@ msgstr[1] "Esto significa que %1$s etiqueta será impresa"
 msgstr[2] "Esto significa que %1$s etiquetas serán impresas"
 
 msgid "External barcode lookup (via plugin)"
-msgstr ""
+msgstr "Búsqueda de código de barras externo (mediante complemento)"
 
 msgid "Error while executing the barcode lookup plugin"
-msgstr ""
+msgstr "Error al ejecutar el complemento de búsqueda de código de barras"
 
 msgid "Nothing was found for the given barcode"
-msgstr ""
+msgstr "No se encontró nada para el código de barras indicado"
 
 msgid "Configure colors"
-msgstr ""
+msgstr "Configurar colores"
