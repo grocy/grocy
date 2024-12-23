@@ -624,9 +624,22 @@ function RefreshLocaleNumberDisplay(rootSelector = "#page-content")
 	});
 }
 RefreshLocaleNumberDisplay();
-$(document).on("DOMSubtreeModified", ".locale-number", function()
+$(".locale-number").each(function()
 {
-	$(this).removeClass("number-parsing-done");
+	new MutationObserver(function(mutations)
+	{
+		mutations.forEach(mutation =>
+		{
+			if (mutation.type == "childList" || mutation.type == "attributes")
+			{
+				$(mutation.target).removeClass("number-parsing-done");
+			}
+		});
+	}).observe(this, {
+		attributes: true,
+		childList: true,
+		subtree: true
+	});
 });
 
 function RefreshLocaleNumberInput(rootSelector = "#page-content")
