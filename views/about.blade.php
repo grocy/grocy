@@ -100,7 +100,7 @@
 				class="text-dark"
 				target="_blank">Bernd Bestel</a><br>
 			Created with passion since 2017<br>
-			Life runs on code<br>
+			Life runs on Code<br>
 		</p>
 	</div>
 </div>
