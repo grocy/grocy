@@ -250,8 +250,8 @@ $('#product_id_text_input').on('blur', function(e)
 						Grocy.Components.ProductPicker.PopupOpen = false;
 						window.location.href = U('/product/new?flow=InplaceNewProductWithBarcode&barcode=' + encodeURIComponent(input) + '&returnto=' + encodeURIComponent(Grocy.CurrentUrlRelative + "?flow=InplaceAddBarcodeToExistingProduct&barcode=" + input + "&" + embedded) + "&" + embedded);
 					}
-				},
-				barcodepluginlookup: {
+				}
+				/*barcodepluginlookup: {
 					label: '<strong>E</strong> ' + __t('External barcode lookup (via plugin)'),
 					className: 'btn-dark add-new-product-plugin-dialog-button responsive-button ' + addProductWorkflowsAdditionalCssClasses,
 					callback: function()
@@ -276,7 +276,7 @@ $('#product_id_text_input').on('blur', function(e)
 							}
 						);
 					}
-				}
+				}*/
 			};
 
 			if (!Grocy.FeatureFlags.GROCY_FEATURE_FLAG_DISABLE_BROWSER_BARCODE_CAMERA_SCANNING)
