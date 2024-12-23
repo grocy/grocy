@@ -59,6 +59,7 @@
 ### Userfields
 
 - Userentity tables (custom objects / lists) now also have the table options icon (top left corner eye icon, to e.g. add a grouping condition)
+- Userfield names can now also contain underscores
 
 ### General
 

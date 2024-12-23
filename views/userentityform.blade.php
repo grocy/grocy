@@ -39,7 +39,7 @@
 					type="text"
 					class="form-control"
 					required
-					pattern="^[a-zA-Z0-9]*$"
+					pattern="^[a-zA-Z0-9_]*$"
 					id="name"
 					name="name"
 					value="@if($mode == 'edit'){{ $userentity->name }}@endif">
