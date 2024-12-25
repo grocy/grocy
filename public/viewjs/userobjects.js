@@ -30,7 +30,7 @@ $(document).on('click', '.userobject-delete-button', function(e)
 	var objectId = $(e.currentTarget).attr('data-userobject-id');
 
 	bootbox.confirm({
-		message: __t('Are you sure to delete this userobject?'),
+		message: __t('Are you sure you want to delete this userobject?'),
 		closeButton: false,
 		buttons: {
 			confirm: {

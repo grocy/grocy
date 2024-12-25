@@ -761,7 +761,7 @@ $(document).on('click', '.recipe-order-missing-button', function(e)
 	var servings = $(e.currentTarget).attr('data-mealplan-servings');
 
 	bootbox.confirm({
-		message: __t('Are you sure to put all missing ingredients for recipe "%s" on the shopping list?', objectName),
+		message: __t('Are you sure you want to put all missing ingredients for recipe "%s" on the shopping list?', objectName),
 		closeButton: false,
 		buttons: {
 			confirm: {
@@ -870,7 +870,7 @@ $(document).on('click', '.recipe-consume-button', function(e)
 	var mealPlanEntryId = $(e.currentTarget).attr('data-mealplan-entry-id');
 
 	bootbox.confirm({
-		message: __t('Are you sure to consume all ingredients needed by recipe "%s" (ingredients marked with "only check if any amount is in stock" will be ignored)?', objectName),
+		message: __t('Are you sure you want to consume all ingredients needed by recipe "%s" (ingredients marked with "only check if any amount is in stock" will be ignored)?', objectName),
 		closeButton: false,
 		buttons: {
 			confirm: {

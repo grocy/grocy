@@ -137,7 +137,7 @@ $(".recipe-delete").on('click', function(e)
 	var objectId = $(e.currentTarget).attr('data-recipe-id');
 
 	bootbox.confirm({
-		message: __t('Are you sure to delete recipe "%s"?', objectName),
+		message: __t('Are you sure you want to delete recipe "%s"?', objectName),
 		closeButton: false,
 		buttons: {
 			confirm: {
@@ -192,7 +192,7 @@ $(document).on('click', '.recipe-shopping-list', function(e)
 	var objectId = $(e.currentTarget).attr('data-recipe-id');
 
 	bootbox.confirm({
-		message: __t('Are you sure to put all missing ingredients for recipe "%s" on the shopping list?', objectName) + "<br><br>" + __t("Uncheck ingredients to not put them on the shopping list") + ":" + $("#missing-recipe-pos-list")[0].outerHTML.replace("d-none", ""),
+		message: __t('Are you sure you want to put all missing ingredients for recipe "%s" on the shopping list?', objectName) + "<br><br>" + __t("Uncheck ingredients to not put them on the shopping list") + ":" + $("#missing-recipe-pos-list")[0].outerHTML.replace("d-none", ""),
 		closeButton: false,
 		buttons: {
 			confirm: {
@@ -238,7 +238,7 @@ $(".recipe-consume").on('click', function(e)
 	var objectId = $(e.currentTarget).attr('data-recipe-id');
 
 	bootbox.confirm({
-		message: __t('Are you sure to consume all ingredients needed by recipe "%s" (ingredients marked with "only check if any amount is in stock" will be ignored)?', objectName),
+		message: __t('Are you sure you want to consume all ingredients needed by recipe "%s" (ingredients marked with "only check if any amount is in stock" will be ignored)?', objectName),
 		closeButton: false,
 		buttons: {
 			confirm: {

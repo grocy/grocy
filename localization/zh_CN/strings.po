@@ -277,7 +277,7 @@ msgstr "密码"
 msgid "Invalid credentials, please try again"
 msgstr "用户名或者密码错误，请重试"
 
-msgid "Are you sure to delete battery \"%s\"?"
+msgid "Are you sure you want to delete battery \"%s\"?"
 msgstr "确定删除电池%s吗？"
 
 msgid "Yes"
@@ -286,7 +286,7 @@ msgstr "是"
 msgid "No"
 msgstr "否"
 
-msgid "Are you sure to delete chore \"%s\"?"
+msgid "Are you sure you want to delete chore \"%s\"?"
 msgstr "确定删除家务%s？"
 
 msgid "\"%s\" could not be resolved to a product, how do you want to proceed?"
@@ -307,16 +307,16 @@ msgstr "作为条码添加到现有产品"
 msgid "Add as new product and prefill barcode"
 msgstr "作为新产品添加并录入条码"
 
-msgid "Are you sure to delete quantity unit \"%s\"?"
+msgid "Are you sure you want to delete quantity unit \"%s\"?"
 msgstr "确定删除数量单位%s？"
 
-msgid "Are you sure to delete product \"%s\"?"
+msgid "Are you sure you want to delete product \"%s\"?"
 msgstr "确定删除产品%s？"
 
-msgid "Are you sure to delete location \"%s\"?"
+msgid "Are you sure you want to delete location \"%s\"?"
 msgstr "确定删除位置“%s”？"
 
-msgid "Are you sure to delete store \"%s\"?"
+msgid "Are you sure you want to delete store \"%s\"?"
 msgstr "确定删除商店%s"
 
 msgid "Manage API keys"
@@ -433,13 +433,13 @@ msgstr "新增食材"
 msgid "Edit recipe ingredient"
 msgstr "编辑食材"
 
-msgid "Are you sure to delete recipe \"%s\"?"
+msgid "Are you sure you want to delete recipe \"%s\"?"
 msgstr "您确定要删除菜谱“%s”吗？"
 
-msgid "Are you sure to delete recipe ingredient \"%s\"?"
+msgid "Are you sure you want to delete recipe ingredient \"%s\"?"
 msgstr "您确定要删除食材“%s”吗?"
 
-msgid "Are you sure to empty shopping list \"%s\"?"
+msgid "Are you sure you want to empty shopping list \"%s\"?"
 msgstr "您确定要清空购物清单“%s”吗？"
 
 msgid "Clear list"
@@ -482,7 +482,7 @@ msgid "Put missing amount on shopping list"
 msgstr "将缺少的数量加入购物清单"
 
 msgid ""
-"Are you sure to put all missing ingredients for recipe \"%s\" on the "
+"Are you sure you want to put all missing ingredients for recipe \"%s\" on the "
 "shopping list?"
 msgstr "您确定要将菜谱“%s”中缺少的全部食材加入购物清单吗？"
 
@@ -498,7 +498,7 @@ msgstr "用户"
 msgid "Users"
 msgstr "用户"
 
-msgid "Are you sure to delete user \"%s\"?"
+msgid "Are you sure you want to delete user \"%s\"?"
 msgstr "确定要删除用户 “%s” 吗？"
 
 msgid "Create user"
@@ -588,7 +588,7 @@ msgid "Only check if any amount is in stock"
 msgstr "仅检查是否有任意数量的库存"
 
 msgid ""
-"Are you sure to consume all ingredients needed by recipe \"%s\" (ingredients"
+"Are you sure you want to consume all ingredients needed by recipe \"%s\" (ingredients"
 " marked with \"only check if any amount is in stock\" will be ignored)?"
 msgstr "您确定要消耗菜谱“%s”中需要的全部食材吗？（忽略被标记为“仅检查是否有库存”的食材）"
 
@@ -643,7 +643,7 @@ msgstr "分类"
 msgid "Edit task"
 msgstr "编辑任务"
 
-msgid "Are you sure to delete task \"%s\"?"
+msgid "Are you sure you want to delete task \"%s\"?"
 msgstr "确定要删除任务 “%s” 吗？"
 
 msgid "%s task is due to be done"
@@ -675,7 +675,7 @@ msgstr "编辑产品组"
 msgid "Product group"
 msgstr "产品组"
 
-msgid "Are you sure to delete product group \"%s\"?"
+msgid "Are you sure you want to delete product group \"%s\"?"
 msgstr "您确定要删除产品组\"%s\"吗?"
 
 msgid "Stay logged in permanently"
@@ -997,7 +997,7 @@ msgstr "任务设置"
 msgid "Create shopping list"
 msgstr "新建购物清单"
 
-msgid "Are you sure to delete shopping list \"%s\"?"
+msgid "Are you sure you want to delete shopping list \"%s\"?"
 msgstr "您确定要删除购物清单 “%s” 吗？"
 
 msgid "Average shelf life"
@@ -1194,7 +1194,7 @@ msgstr "已消耗数量"
 msgid "Time of printing"
 msgstr "打印时间"
 
-msgid "Are you sure to delete equipment \"%s\"?"
+msgid "Are you sure you want to delete equipment \"%s\"?"
 msgstr "您确定要删除设备\"%s\"?"
 
 msgid "Parent product"
@@ -1324,7 +1324,7 @@ msgstr "分配"
 msgid "Consume product on chore execution"
 msgstr "在家务执行时消耗产品"
 
-msgid "Are you sure to delete user field \"%s\"?"
+msgid "Are you sure you want to delete user field \"%s\"?"
 msgstr "您确定要删除自定义字段\"%s\"吗?"
 
 msgid "Userentities"
@@ -1345,7 +1345,7 @@ msgstr "编辑 %s"
 msgid "Create %s"
 msgstr "新建 %s"
 
-msgid "Are you sure to delete this userobject?"
+msgid "Are you sure you want to delete this userobject?"
 msgstr "您确定要删除此用户对象吗?"
 
 msgid "Icon CSS class"
@@ -1432,7 +1432,7 @@ msgid ""
 "this product, means the sub product will never be missing, only this product"
 msgstr "启用后，子产品的安全库存将累计到此产品，代表子产品安全库存永远满足，仅对此产品有效"
 
-msgid "Are you sure to remove this conversion?"
+msgid "Are you sure you want to remove this conversion?"
 msgstr "您确定要删除此转换吗?"
 
 msgid "Unit price"
@@ -1450,7 +1450,7 @@ msgstr "无限制"
 msgid "Clear"
 msgstr "清除"
 
-msgid "Are you sure to remove the included recipe \"%s\"?"
+msgid "Are you sure you want to remove the included recipe \"%s\"?"
 msgstr "您确定要删除关联菜谱“%s”吗？"
 
 msgid "Period interval"
@@ -1531,7 +1531,7 @@ msgstr "此交易无法撤消"
 msgid "Booking does not exist or was already undone"
 msgstr "交易不存在或已撤销"
 
-msgid "Are you sure to delete API key \"%s\"?"
+msgid "Are you sure you want to delete API key \"%s\"?"
 msgstr "您确定要删除API密钥\"%s\"吗?"
 
 msgid "Add note"
@@ -1583,7 +1583,7 @@ msgstr "解冻"
 msgid "Frozen"
 msgstr "冷冻"
 
-msgid "Are you sure to delete userentity \"%s\"?"
+msgid "Are you sure you want to delete userentity \"%s\"?"
 msgstr "您确定要删除自定义项目\"%s\"吗?"
 
 msgid "Shopping list settings"
@@ -1869,7 +1869,7 @@ msgstr "此数量用于库存总览页面上的“快速打开”按钮（使用
 msgid "Copy"
 msgstr "复制"
 
-msgid "Are you sure to remove this barcode?"
+msgid "Are you sure you want to remove this barcode?"
 msgstr "您确定要删除此条码吗?"
 
 msgid "Due date type"
@@ -2034,7 +2034,7 @@ msgstr "食材分组"
 msgid "Reset"
 msgstr "重置"
 
-msgid "Are you sure to reset the table options?"
+msgid "Are you sure you want to reset the table options?"
 msgstr "确定要重置表格选项吗?"
 
 msgid "Hide/view columns"
@@ -2270,13 +2270,13 @@ msgstr "饮食计划的时段按照此编号进行排序"
 msgid "Edit meal plan section"
 msgstr "编辑饮食计划时段"
 
-msgid "Are you sure to delete meal plan section \"%s\"?"
+msgid "Are you sure you want to delete meal plan section \"%s\"?"
 msgstr "您确定要删除饮食计划\"%s\"吗?"
 
 msgid "Section"
 msgstr "‎时段"
 
-msgid "Are you sure to empty the shopping list?"
+msgid "Are you sure you want to empty the shopping list?"
 msgstr "‎是否确实要清空购物清单？‎"
 
 msgid "This is the default which will be prefilled on purchase"

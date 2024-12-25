@@ -31,7 +31,7 @@ $(document).on('click', '.product-group-delete-button', function(e)
 	var objectId = $(e.currentTarget).attr('data-group-id');
 
 	bootbox.confirm({
-		message: __t('Are you sure to delete product group "%s"?', objectName),
+		message: __t('Are you sure you want to delete product group "%s"?', objectName),
 		closeButton: false,
 		buttons: {
 			confirm: {

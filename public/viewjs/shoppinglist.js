@@ -86,7 +86,7 @@ $("#delete-selected-shopping-list").on("click", function()
 	var objectId = $("#selected-shopping-list").val();
 
 	bootbox.confirm({
-		message: __t('Are you sure to delete shopping list "%s"?', objectName),
+		message: __t('Are you sure you want to delete shopping list "%s"?', objectName),
 		closeButton: false,
 		buttons: {
 			confirm: {
@@ -183,10 +183,10 @@ $(document).on('click', '#add-overdue-expired-products', function(e)
 
 $(document).on('click', '#clear-shopping-list', function(e)
 {
-	var confirmMessage = __t('Are you sure to empty shopping list "%s"?', $("#selected-shopping-list option:selected").text());
+	var confirmMessage = __t('Are you sure you want to empty shopping list "%s"?', $("#selected-shopping-list option:selected").text());
 	if (!BoolVal(Grocy.FeatureFlags.GROCY_FEATURE_FLAG_SHOPPINGLIST_MULTIPLE_LISTS))
 	{
-		confirmMessage = __t('Are you sure to empty the shopping list?');
+		confirmMessage = __t('Are you sure you want to empty the shopping list?');
 	}
 
 	bootbox.confirm({

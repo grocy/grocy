@@ -31,7 +31,7 @@ $(document).on('click', '.shoppinglocation-delete-button', function(e)
 	var objectId = $(e.currentTarget).attr('data-shoppinglocation-id');
 
 	bootbox.confirm({
-		message: __t('Are you sure to delete store "%s"?', objectName),
+		message: __t('Are you sure you want to delete store "%s"?', objectName),
 		closeButton: false,
 		buttons: {
 			confirm: {

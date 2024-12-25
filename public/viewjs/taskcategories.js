@@ -31,7 +31,7 @@ $(document).on('click', '.task-category-delete-button', function(e)
 	var objectId = $(e.currentTarget).attr('data-category-id');
 
 	bootbox.confirm({
-		message: __t('Are you sure to delete task category "%s"?', objectName),
+		message: __t('Are you sure you want to delete task category "%s"?', objectName),
 		closeButton: false,
 		buttons: {
 			confirm: {

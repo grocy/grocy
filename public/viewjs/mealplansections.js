@@ -31,7 +31,7 @@ $(document).on('click', '.mealplansection-delete-button', function(e)
 	var objectId = $(e.currentTarget).attr('data-mealplansection-id');
 
 	bootbox.confirm({
-		message: __t('Are you sure to delete meal plan section "%s"?', objectName),
+		message: __t('Are you sure you want to delete meal plan section "%s"?', objectName),
 		closeButton: false,
 		buttons: {
 			confirm: {

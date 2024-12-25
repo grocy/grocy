@@ -288,7 +288,7 @@ msgstr "Jelszó"
 msgid "Invalid credentials, please try again"
 msgstr "Érvénytelen adatok, kérlek próbáld újra"
 
-msgid "Are you sure to delete battery \"%s\"?"
+msgid "Are you sure you want to delete battery \"%s\"?"
 msgstr "Biztosan törölni szeretnéd a következő elemet: \"%s\"?"
 
 msgid "Yes"
@@ -297,7 +297,7 @@ msgstr "Igen"
 msgid "No"
 msgstr "Nem"
 
-msgid "Are you sure to delete chore \"%s\"?"
+msgid "Are you sure you want to delete chore \"%s\"?"
 msgstr "Biztosan törölni szeretnéd a következő házimunkát: \"%s\"?"
 
 msgid "\"%s\" could not be resolved to a product, how do you want to proceed?"
@@ -318,16 +318,16 @@ msgstr "Hozzáadás vonalkódként létező termékhez"
 msgid "Add as new product and prefill barcode"
 msgstr "Hozzáadás új termékként és a vonalkód kitöltése"
 
-msgid "Are you sure to delete quantity unit \"%s\"?"
+msgid "Are you sure you want to delete quantity unit \"%s\"?"
 msgstr "Biztosan törölni szeretnéd a következő mennyiségi egységet: \"%s\" ?"
 
-msgid "Are you sure to delete product \"%s\"?"
+msgid "Are you sure you want to delete product \"%s\"?"
 msgstr "Biztosan törölni szeretnéd a következő terméket: \"%s\"?"
 
-msgid "Are you sure to delete location \"%s\"?"
+msgid "Are you sure you want to delete location \"%s\"?"
 msgstr "Biztosan törölni szeretnéd a következő helyet: \"%s\"?"
 
-msgid "Are you sure to delete store \"%s\"?"
+msgid "Are you sure you want to delete store \"%s\"?"
 msgstr "Biztosan törölni szeretnéd a következő áruházat: \"%s\"?"
 
 msgid "Manage API keys"
@@ -444,13 +444,13 @@ msgstr "Hozzávaló hozzáadása"
 msgid "Edit recipe ingredient"
 msgstr "Hozzávaló szerkesztése"
 
-msgid "Are you sure to delete recipe \"%s\"?"
+msgid "Are you sure you want to delete recipe \"%s\"?"
 msgstr "Biztosan törölni szeretnéd a következő receptet: %s?"
 
-msgid "Are you sure to delete recipe ingredient \"%s\"?"
+msgid "Are you sure you want to delete recipe ingredient \"%s\"?"
 msgstr "Biztos benne, hogy törli a következő recept hozzávalót: %s?"
 
-msgid "Are you sure to empty shopping list \"%s\"?"
+msgid "Are you sure you want to empty shopping list \"%s\"?"
 msgstr "Biztosan kiüríted a következő bevásárló listát: %s?"
 
 msgid "Clear list"
@@ -499,7 +499,7 @@ msgid "Put missing amount on shopping list"
 msgstr "Hiányzó mennyiség hozzáadása a bevásárlólistához"
 
 msgid ""
-"Are you sure to put all missing ingredients for recipe \"%s\" on the "
+"Are you sure you want to put all missing ingredients for recipe \"%s\" on the "
 "shopping list?"
 msgstr ""
 "Biztos benne, hogy a bevásárlólistára teszi az összes hiányzó \"%s\" "
@@ -517,7 +517,7 @@ msgstr "Felhasználó"
 msgid "Users"
 msgstr "Felhasználó"
 
-msgid "Are you sure to delete user \"%s\"?"
+msgid "Are you sure you want to delete user \"%s\"?"
 msgstr "Biztosan törölni szeretnéd a következő felhasználót: \"%s\"?"
 
 msgid "Create user"
@@ -614,7 +614,7 @@ msgid "Only check if any amount is in stock"
 msgstr "Csak azt ellenőrizze, hogy készleten van"
 
 msgid ""
-"Are you sure to consume all ingredients needed by recipe \"%s\" (ingredients"
+"Are you sure you want to consume all ingredients needed by recipe \"%s\" (ingredients"
 " marked with \"only check if any amount is in stock\" will be ignored)?"
 msgstr ""
 "Biztosan felhasználod a \"%s\" recepthez szükséges alapanyagokat (a \"Csak "
@@ -671,7 +671,7 @@ msgstr "Kategória"
 msgid "Edit task"
 msgstr "Feladat szerkesztése"
 
-msgid "Are you sure to delete task \"%s\"?"
+msgid "Are you sure you want to delete task \"%s\"?"
 msgstr "Biztosan törölni szeretnéd a következő feladatot: \"%s\"?"
 
 msgid "%s task is due to be done"
@@ -705,7 +705,7 @@ msgstr "Termékcsoport szerkesztése"
 msgid "Product group"
 msgstr "Termékcsoport"
 
-msgid "Are you sure to delete product group \"%s\"?"
+msgid "Are you sure you want to delete product group \"%s\"?"
 msgstr "Biztosan töröli szeretnéd a következő termékcsoportot: \"%s\"?"
 
 msgid "Stay logged in permanently"
@@ -1049,7 +1049,7 @@ msgstr "Feladat beállítások"
 msgid "Create shopping list"
 msgstr "Bevásárlólista létrehozása"
 
-msgid "Are you sure to delete shopping list \"%s\"?"
+msgid "Are you sure you want to delete shopping list \"%s\"?"
 msgstr "Biztosan törölni szeretnéd a következő bevásárlólistát: \"%s\"?"
 
 msgid "Average shelf life"
@@ -1255,7 +1255,7 @@ msgstr "Felhasznált mennyiség"
 msgid "Time of printing"
 msgstr "Nyomtatás időpontja"
 
-msgid "Are you sure to delete equipment \"%s\"?"
+msgid "Are you sure you want to delete equipment \"%s\"?"
 msgstr "Biztosan törölni szeretnéd a következő eszközt: \"%s\"?"
 
 msgid "Parent product"
@@ -1416,7 +1416,7 @@ msgstr "Hozzárendelés"
 msgid "Consume product on chore execution"
 msgstr "Házimunka elvégzésekor terméket használ el"
 
-msgid "Are you sure to delete user field \"%s\"?"
+msgid "Are you sure you want to delete user field \"%s\"?"
 msgstr "Biztosan törölni szeretnéd a következő egyéni mezőt: \"%s\"?"
 
 msgid "Userentities"
@@ -1437,7 +1437,7 @@ msgstr "%s szerkesztése"
 msgid "Create %s"
 msgstr "%s létrehozása"
 
-msgid "Are you sure to delete this userobject?"
+msgid "Are you sure you want to delete this userobject?"
 msgstr "Biztosan törölni akarod ezt az egyéni objektumot?"
 
 msgid "Icon CSS class"
@@ -1526,7 +1526,7 @@ msgstr ""
 "Összeszámolja az altermékeket, így ebből a szülőtermékből keletkezik hiány "
 "az egyes altermékek helyett"
 
-msgid "Are you sure to remove this conversion?"
+msgid "Are you sure you want to remove this conversion?"
 msgstr "Biztosan törölni szeretnéd ezt az átváltást?"
 
 msgid "Unit price"
@@ -1544,7 +1544,7 @@ msgstr "Korlátlan"
 msgid "Clear"
 msgstr "Törlés"
 
-msgid "Are you sure to remove the included recipe \"%s\"?"
+msgid "Are you sure you want to remove the included recipe \"%s\"?"
 msgstr "Biztosan ki akarod törölni a csatolt receptet \"%s\"?"
 
 msgid "Period interval"
@@ -1635,7 +1635,7 @@ msgstr "Ez a foglalás nem visszavonható"
 msgid "Booking does not exist or was already undone"
 msgstr "A foglalás nem létezik, vagy már korábban visszavonásra került"
 
-msgid "Are you sure to delete API key \"%s\"?"
+msgid "Are you sure you want to delete API key \"%s\"?"
 msgstr "Biztosan törölni szeretnéd a következő API kulcsot: \"%s\"?"
 
 msgid "Add note"
@@ -1691,7 +1691,7 @@ msgstr "Kiolvasztott"
 msgid "Frozen"
 msgstr "Fagyasztott"
 
-msgid "Are you sure to delete userentity \"%s\"?"
+msgid "Are you sure you want to delete userentity \"%s\"?"
 msgstr "Biztosan törölni szeretnéd a következő egyéni objektumot: \"%s\"?"
 
 msgid "Shopping list settings"
@@ -1993,7 +1993,7 @@ msgstr ""
 msgid "Copy"
 msgstr "Másolás"
 
-msgid "Are you sure to remove this barcode?"
+msgid "Are you sure you want to remove this barcode?"
 msgstr "Biztosan szeretnéd eltávolítani ezt a vonalkódot?"
 
 msgid "Due date type"
@@ -2190,7 +2190,7 @@ msgstr "Hozzávaló csoport"
 msgid "Reset"
 msgstr "Visszaállítás"
 
-msgid "Are you sure to reset the table options?"
+msgid "Are you sure you want to reset the table options?"
 msgstr "Biztosan visszaállítod a táblázat beállításait?"
 
 msgid "Hide/view columns"
@@ -2444,13 +2444,13 @@ msgstr "A szekciók a beírt szám alapján lesznek sorba rendezve a menü terve
 msgid "Edit meal plan section"
 msgstr "Menü terv szekció szerkesztése"
 
-msgid "Are you sure to delete meal plan section \"%s\"?"
+msgid "Are you sure you want to delete meal plan section \"%s\"?"
 msgstr "Biztosan törölni akarod a következő menü terv szekciót \"%s\"?"
 
 msgid "Section"
 msgstr "Szekció"
 
-msgid "Are you sure to empty the shopping list?"
+msgid "Are you sure you want to empty the shopping list?"
 msgstr "Biztosan ki akarod üríteni a bevásárló listát?"
 
 msgid "This is the default which will be prefilled on purchase"

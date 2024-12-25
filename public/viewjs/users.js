@@ -31,7 +31,7 @@ $(document).on('click', '.user-delete-button', function(e)
 	var objectId = $(e.currentTarget).attr('data-user-id');
 
 	bootbox.confirm({
-		message: __t('Are you sure to delete user "%s"?', objectName),
+		message: __t('Are you sure you want to delete user "%s"?', objectName),
 		closeButton: false,
 		buttons: {
 			confirm: {

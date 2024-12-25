@@ -297,7 +297,7 @@ msgstr "Heslo"
 msgid "Invalid credentials, please try again"
 msgstr "Nesprávné jméno nebo heslo, zkuste to ještě jednou"
 
-msgid "Are you sure to delete battery \"%s\"?"
+msgid "Are you sure you want to delete battery \"%s\"?"
 msgstr "Opravdu chcete smazat baterii „%s“"
 
 msgid "Yes"
@@ -306,7 +306,7 @@ msgstr "Ano"
 msgid "No"
 msgstr "Ne"
 
-msgid "Are you sure to delete chore \"%s\"?"
+msgid "Are you sure you want to delete chore \"%s\"?"
 msgstr "Opravdu chcete smazat povinnost „%s“?"
 
 msgid "\"%s\" could not be resolved to a product, how do you want to proceed?"
@@ -327,16 +327,16 @@ msgstr "Přidat jako čárový kód k existujícímu produktu"
 msgid "Add as new product and prefill barcode"
 msgstr "Přidat jako nový produkt a předvyplnit čárový kód"
 
-msgid "Are you sure to delete quantity unit \"%s\"?"
+msgid "Are you sure you want to delete quantity unit \"%s\"?"
 msgstr "Opravdu chcete smazat měrnou jednotku „%s“?"
 
-msgid "Are you sure to delete product \"%s\"?"
+msgid "Are you sure you want to delete product \"%s\"?"
 msgstr "Opravdu chcete smazat produkt „%s“?"
 
-msgid "Are you sure to delete location \"%s\"?"
+msgid "Are you sure you want to delete location \"%s\"?"
 msgstr "Opravdu chcete smazat umístění „%s“?"
 
-msgid "Are you sure to delete store \"%s\"?"
+msgid "Are you sure you want to delete store \"%s\"?"
 msgstr "Opravdu chcete smazat obchod „%s“?"
 
 msgid "Manage API keys"
@@ -453,13 +453,13 @@ msgstr "Přidat ingredienci"
 msgid "Edit recipe ingredient"
 msgstr "Upravit ingredienci"
 
-msgid "Are you sure to delete recipe \"%s\"?"
+msgid "Are you sure you want to delete recipe \"%s\"?"
 msgstr "Opravdu chcete smazat recept „%s“?"
 
-msgid "Are you sure to delete recipe ingredient \"%s\"?"
+msgid "Are you sure you want to delete recipe ingredient \"%s\"?"
 msgstr "Opravdu chcete smazat ingredienci „%s“?"
 
-msgid "Are you sure to empty shopping list \"%s\"?"
+msgid "Are you sure you want to empty shopping list \"%s\"?"
 msgstr "Opravdu chcete vyprázdnit nákupní seznam „%s“?"
 
 msgid "Clear list"
@@ -505,7 +505,7 @@ msgid "Put missing amount on shopping list"
 msgstr "Přidat chybějící množství do nákupního seznamu"
 
 msgid ""
-"Are you sure to put all missing ingredients for recipe \"%s\" on the "
+"Are you sure you want to put all missing ingredients for recipe \"%s\" on the "
 "shopping list?"
 msgstr ""
 "Chcete přidat všechny chybějící ingredience z receptu „%s“ do nákupního "
@@ -523,7 +523,7 @@ msgstr "Uživatel"
 msgid "Users"
 msgstr "Uživatelé"
 
-msgid "Are you sure to delete user \"%s\"?"
+msgid "Are you sure you want to delete user \"%s\"?"
 msgstr "Opravdu chcete smazat uživatele „%s“?"
 
 msgid "Create user"
@@ -628,7 +628,7 @@ msgid "Only check if any amount is in stock"
 msgstr "Pouze zkontrolovat, zda je v zásobě jakékoliv množství"
 
 msgid ""
-"Are you sure to consume all ingredients needed by recipe \"%s\" (ingredients"
+"Are you sure you want to consume all ingredients needed by recipe \"%s\" (ingredients"
 " marked with \"only check if any amount is in stock\" will be ignored)?"
 msgstr ""
 "Opravdu si přejete spotřebovat všechny ingredience receptu „%s“? Ingredience"
@@ -686,7 +686,7 @@ msgstr "Kategorie"
 msgid "Edit task"
 msgstr "Upravit úkol"
 
-msgid "Are you sure to delete task \"%s\"?"
+msgid "Are you sure you want to delete task \"%s\"?"
 msgstr "Opravdu chcete smazat úkol „%s?"
 
 msgid "%s task is due to be done"
@@ -724,7 +724,7 @@ msgstr "Upravit skupinu produktů"
 msgid "Product group"
 msgstr "Skupina produktů"
 
-msgid "Are you sure to delete product group \"%s\"?"
+msgid "Are you sure you want to delete product group \"%s\"?"
 msgstr "Opravdu chcete smazat skupinu produktů „%s“?"
 
 msgid "Stay logged in permanently"
@@ -1062,7 +1062,7 @@ msgstr "Nastavení úkolů"
 msgid "Create shopping list"
 msgstr "Vytvořit nákupní seznam"
 
-msgid "Are you sure to delete shopping list \"%s\"?"
+msgid "Are you sure you want to delete shopping list \"%s\"?"
 msgstr "Opravdu chcete smazat nákupní seznam „%s?"
 
 msgid "Average shelf life"
@@ -1272,7 +1272,7 @@ msgstr "Spotřebované množství"
 msgid "Time of printing"
 msgstr "Čas tisku"
 
-msgid "Are you sure to delete equipment \"%s\"?"
+msgid "Are you sure you want to delete equipment \"%s\"?"
 msgstr "Opravdu chcete smazat vybavení „%s“?"
 
 msgid "Parent product"
@@ -1452,7 +1452,7 @@ msgstr "Přiřazení"
 msgid "Consume product on chore execution"
 msgstr "Spotřebovat produkt při splnění povinnosti"
 
-msgid "Are you sure to delete user field \"%s\"?"
+msgid "Are you sure you want to delete user field \"%s\"?"
 msgstr "Opravdu si přejete smazat sloupec „%s“?"
 
 msgid "Userentities"
@@ -1473,7 +1473,7 @@ msgstr "Upravit %s"
 msgid "Create %s"
 msgstr "Vytvořit %s"
 
-msgid "Are you sure to delete this userobject?"
+msgid "Are you sure you want to delete this userobject?"
 msgstr "Opravdu si přejete smazat položku definovanou uživatelem?"
 
 msgid "Icon CSS class"
@@ -1565,7 +1565,7 @@ msgstr ""
 "přičteno do tohoto produktu. To znamená že podřízené produkty nikdy nebudou "
 "chybět, ale pouze tento produkt."
 
-msgid "Are you sure to remove this conversion?"
+msgid "Are you sure you want to remove this conversion?"
 msgstr "Opravdu chcete odstranit tento převod?"
 
 msgid "Unit price"
@@ -1583,7 +1583,7 @@ msgstr "Neomezeně"
 msgid "Clear"
 msgstr "Vymazat"
 
-msgid "Are you sure to remove the included recipe \"%s\"?"
+msgid "Are you sure you want to remove the included recipe \"%s\"?"
 msgstr "Opravdu chcete odstranit dílčí recept „%s“?"
 
 msgid "Period interval"
@@ -1680,7 +1680,7 @@ msgstr "Tato akce nemůže být vrácena zpět"
 msgid "Booking does not exist or was already undone"
 msgstr "Tato akce neexistuje nebo již byla vrácena zpět"
 
-msgid "Are you sure to delete API key \"%s\"?"
+msgid "Are you sure you want to delete API key \"%s\"?"
 msgstr "Opravdu chcete smazat API klíč „%s“?"
 
 msgid "Add note"
@@ -1736,7 +1736,7 @@ msgstr "Rozmraženo"
 msgid "Frozen"
 msgstr "Zmraženo"
 
-msgid "Are you sure to delete userentity \"%s\"?"
+msgid "Are you sure you want to delete userentity \"%s\"?"
 msgstr "Opravdu chcete smazat uživatelskou tabulku „%s“?"
 
 msgid "Shopping list settings"
@@ -2041,7 +2041,7 @@ msgstr ""
 msgid "Copy"
 msgstr "Kopírovat"
 
-msgid "Are you sure to remove this barcode?"
+msgid "Are you sure you want to remove this barcode?"
 msgstr "Opravdu chcete smazat tento čárový kód?"
 
 msgid "Due date type"
@@ -2239,7 +2239,7 @@ msgstr "Skupina ingrediencí"
 msgid "Reset"
 msgstr "Resetovat"
 
-msgid "Are you sure to reset the table options?"
+msgid "Are you sure you want to reset the table options?"
 msgstr "Opravdu chcete uvést sloupce tabulky do výchozího stavu?"
 
 msgid "Hide/view columns"
@@ -2497,13 +2497,13 @@ msgstr ""
 msgid "Edit meal plan section"
 msgstr "Upravit část dne v jídelníčku"
 
-msgid "Are you sure to delete meal plan section \"%s\"?"
+msgid "Are you sure you want to delete meal plan section \"%s\"?"
 msgstr "Chcete odstranit rozdělení dne s názvem: %s?"
 
 msgid "Section"
 msgstr "Část dne v jídelníčku"
 
-msgid "Are you sure to empty the shopping list?"
+msgid "Are you sure you want to empty the shopping list?"
 msgstr "Opravdu chcete smazat nákupní seznam?"
 
 msgid "This is the default which will be prefilled on purchase"

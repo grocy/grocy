@@ -284,7 +284,7 @@ msgstr "Clau d'accés"
 msgid "Invalid credentials, please try again"
 msgstr "Credencials invàlides, sius-plau torna-ho a intentar"
 
-msgid "Are you sure to delete battery \"%s\"?"
+msgid "Are you sure you want to delete battery \"%s\"?"
 msgstr "Segur que vols eliminar la bateria \"%s\"?"
 
 msgid "Yes"
@@ -293,7 +293,7 @@ msgstr "Sí"
 msgid "No"
 msgstr "No"
 
-msgid "Are you sure to delete chore \"%s\"?"
+msgid "Are you sure you want to delete chore \"%s\"?"
 msgstr "Segur que vols eliminar la feina de casa  \"%s\"?"
 
 msgid "\"%s\" could not be resolved to a product, how do you want to proceed?"
@@ -314,16 +314,16 @@ msgstr "Afegir com a codi de barres a un producte existent"
 msgid "Add as new product and prefill barcode"
 msgstr "Afegir com a nou producte amb el codi de barres"
 
-msgid "Are you sure to delete quantity unit \"%s\"?"
+msgid "Are you sure you want to delete quantity unit \"%s\"?"
 msgstr "Segur que vols eliminar la unitat \"%s\"?"
 
-msgid "Are you sure to delete product \"%s\"?"
+msgid "Are you sure you want to delete product \"%s\"?"
 msgstr "Segur que vols eliminar el producte \"%s\"?"
 
-msgid "Are you sure to delete location \"%s\"?"
+msgid "Are you sure you want to delete location \"%s\"?"
 msgstr "Segur que vols eliminar la ubicació \"%s\"?"
 
-msgid "Are you sure to delete store \"%s\"?"
+msgid "Are you sure you want to delete store \"%s\"?"
 msgstr "Segur que vols eliminar l'establiment \"%s\"?"
 
 msgid "Manage API keys"
@@ -440,13 +440,13 @@ msgstr "Afegir ingredient a la recepta"
 msgid "Edit recipe ingredient"
 msgstr "Editar ingredient de la recepta"
 
-msgid "Are you sure to delete recipe \"%s\"?"
+msgid "Are you sure you want to delete recipe \"%s\"?"
 msgstr "Segur que vols eliminar la recepta \"%s\"?"
 
-msgid "Are you sure to delete recipe ingredient \"%s\"?"
+msgid "Are you sure you want to delete recipe ingredient \"%s\"?"
 msgstr "Segur que vols eliminar l'ingredient \"%s\" de la recepta?"
 
-msgid "Are you sure to empty shopping list \"%s\"?"
+msgid "Are you sure you want to empty shopping list \"%s\"?"
 msgstr "Segur que vols buidar la llista de la compra \"%s\"?"
 
 msgid "Clear list"
@@ -496,7 +496,7 @@ msgid "Put missing amount on shopping list"
 msgstr "Afegeix els que falten a la llista de la compra"
 
 msgid ""
-"Are you sure to put all missing ingredients for recipe \"%s\" on the "
+"Are you sure you want to put all missing ingredients for recipe \"%s\" on the "
 "shopping list?"
 msgstr ""
 "Segur que vols afegir tots els ingredients que falten per a la recepta "
@@ -514,7 +514,7 @@ msgstr "Usuari"
 msgid "Users"
 msgstr "Usuaris"
 
-msgid "Are you sure to delete user \"%s\"?"
+msgid "Are you sure you want to delete user \"%s\"?"
 msgstr "Segur que vols eliminar l'usuari \"%s\"?"
 
 msgid "Create user"
@@ -611,7 +611,7 @@ msgid "Only check if any amount is in stock"
 msgstr "Només comprovar si hi ha existències"
 
 msgid ""
-"Are you sure to consume all ingredients needed by recipe \"%s\" (ingredients"
+"Are you sure you want to consume all ingredients needed by recipe \"%s\" (ingredients"
 " marked with \"only check if any amount is in stock\" will be ignored)?"
 msgstr ""
 "Segur que vols consumir tots els ingredients requerits per fer la recepta "
@@ -669,7 +669,7 @@ msgstr "Categoria"
 msgid "Edit task"
 msgstr "Editar tasca"
 
-msgid "Are you sure to delete task \"%s\"?"
+msgid "Are you sure you want to delete task \"%s\"?"
 msgstr "Segur que vols eliminar la tasca \"%s\"?"
 
 msgid "%s task is due to be done"
@@ -703,7 +703,7 @@ msgstr "Editar grup de productes"
 msgid "Product group"
 msgstr "Grup de productes"
 
-msgid "Are you sure to delete product group \"%s\"?"
+msgid "Are you sure you want to delete product group \"%s\"?"
 msgstr "Estàs segur d'eliminar el grup de producte \"%s\"?"
 
 msgid "Stay logged in permanently"
@@ -1044,7 +1044,7 @@ msgstr "Configuració de tasques"
 msgid "Create shopping list"
 msgstr "Crear llista de la compra"
 
-msgid "Are you sure to delete shopping list \"%s\"?"
+msgid "Are you sure you want to delete shopping list \"%s\"?"
 msgstr "Estàs segur d'eliminar la llista de la compra \"%s\"?"
 
 msgid "Average shelf life"
@@ -1255,7 +1255,7 @@ msgstr "Quantitat consumida"
 msgid "Time of printing"
 msgstr "Hora d'impressi"
 
-msgid "Are you sure to delete equipment \"%s\"?"
+msgid "Are you sure you want to delete equipment \"%s\"?"
 msgstr "Estàs segur d'eliminar l'equipament \"%s\"?"
 
 msgid "Parent product"
@@ -1416,7 +1416,7 @@ msgstr "Assignació"
 msgid "Consume product on chore execution"
 msgstr "Consumir producte al executar la tasca"
 
-msgid "Are you sure to delete user field \"%s\"?"
+msgid "Are you sure you want to delete user field \"%s\"?"
 msgstr "Segur que vols eliminar el camp d'usuari \"%s\"?"
 
 msgid "Userentities"
@@ -1437,7 +1437,7 @@ msgstr "Editar %s"
 msgid "Create %s"
 msgstr "Crear %s"
 
-msgid "Are you sure to delete this userobject?"
+msgid "Are you sure you want to delete this userobject?"
 msgstr "Segur que vols eliminar aquest objecte d'usuari?"
 
 msgid "Icon CSS class"
@@ -1528,7 +1528,7 @@ msgstr ""
 "aquest producte, volent dir que el subproducte mai podrà faltar, només "
 "aquest producte."
 
-msgid "Are you sure to remove this conversion?"
+msgid "Are you sure you want to remove this conversion?"
 msgstr "Estas segur d'eliminar aquesta conversió?"
 
 msgid "Unit price"
@@ -1546,7 +1546,7 @@ msgstr "Il·limitat"
 msgid "Clear"
 msgstr "Neteja"
 
-msgid "Are you sure to remove the included recipe \"%s\"?"
+msgid "Are you sure you want to remove the included recipe \"%s\"?"
 msgstr "Segur que vols eliminar la recepta inclosa \"%s\"?"
 
 msgid "Period interval"
@@ -1634,7 +1634,7 @@ msgstr ""
 msgid "Booking does not exist or was already undone"
 msgstr ""
 
-msgid "Are you sure to delete API key \"%s\"?"
+msgid "Are you sure you want to delete API key \"%s\"?"
 msgstr "Segur que vols eliminar la clau API \"%s\"?"
 
 msgid "Add note"
@@ -1688,7 +1688,7 @@ msgstr "Descongelat"
 msgid "Frozen"
 msgstr "Congelat"
 
-msgid "Are you sure to delete userentity \"%s\"?"
+msgid "Are you sure you want to delete userentity \"%s\"?"
 msgstr "Segur que vols eliminar l'entitat d'usuari \"%s\"?"
 
 msgid "Shopping list settings"
@@ -1984,7 +1984,7 @@ msgstr ""
 msgid "Copy"
 msgstr "Copiar"
 
-msgid "Are you sure to remove this barcode?"
+msgid "Are you sure you want to remove this barcode?"
 msgstr "Segur que vols eliminar aquest codi de barres?"
 
 msgid "Due date type"
@@ -2175,7 +2175,7 @@ msgstr "Grup d'ingredients"
 msgid "Reset"
 msgstr "Reinicia"
 
-msgid "Are you sure to reset the table options?"
+msgid "Are you sure you want to reset the table options?"
 msgstr "Segur que vols reiniciar les opcions de la taula?"
 
 msgid "Hide/view columns"
@@ -2418,13 +2418,13 @@ msgstr "Les seccions seran ordenades pel número en el planificador d'àpats."
 msgid "Edit meal plan section"
 msgstr ""
 
-msgid "Are you sure to delete meal plan section \"%s\"?"
+msgid "Are you sure you want to delete meal plan section \"%s\"?"
 msgstr ""
 
 msgid "Section"
 msgstr "Secció"
 
-msgid "Are you sure to empty the shopping list?"
+msgid "Are you sure you want to empty the shopping list?"
 msgstr ""
 
 msgid "This is the default which will be prefilled on purchase"

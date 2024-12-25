@@ -289,7 +289,7 @@ msgstr "Geslo"
 msgid "Invalid credentials, please try again"
 msgstr "Napačne poverilnice, poskusite ponovno"
 
-msgid "Are you sure to delete battery \"%s\"?"
+msgid "Are you sure you want to delete battery \"%s\"?"
 msgstr "Res želiš izbrisati baterijo \" %s \"?"
 
 msgid "Yes"
@@ -298,7 +298,7 @@ msgstr "Da"
 msgid "No"
 msgstr "Ne"
 
-msgid "Are you sure to delete chore \"%s\"?"
+msgid "Are you sure you want to delete chore \"%s\"?"
 msgstr "Res želiš izbrisati obveznost \"%s\"?"
 
 msgid "\"%s\" could not be resolved to a product, how do you want to proceed?"
@@ -319,16 +319,16 @@ msgstr "Dodaj črtno kodo obstoječemu izdelku"
 msgid "Add as new product and prefill barcode"
 msgstr "Dodaj kot nov izdelek in vnesi črtno kodo"
 
-msgid "Are you sure to delete quantity unit \"%s\"?"
+msgid "Are you sure you want to delete quantity unit \"%s\"?"
 msgstr "Ali res želiš izbrisati enoto količine \"%s\"?"
 
-msgid "Are you sure to delete product \"%s\"?"
+msgid "Are you sure you want to delete product \"%s\"?"
 msgstr "Ali res želiš izbrisati izdelek \"%s\"?"
 
-msgid "Are you sure to delete location \"%s\"?"
+msgid "Are you sure you want to delete location \"%s\"?"
 msgstr "Ali res želiš izbrisati lokacijo \"%s\"?"
 
-msgid "Are you sure to delete store \"%s\"?"
+msgid "Are you sure you want to delete store \"%s\"?"
 msgstr "Ali res želiš izbrisati trgovino \"%s\"?"
 
 msgid "Manage API keys"
@@ -445,13 +445,13 @@ msgstr "Dodaj sestavino receptu"
 msgid "Edit recipe ingredient"
 msgstr "Uredi sestavino recepta"
 
-msgid "Are you sure to delete recipe \"%s\"?"
+msgid "Are you sure you want to delete recipe \"%s\"?"
 msgstr "Ali res želiš izbrisati recept \"%s\"?"
 
-msgid "Are you sure to delete recipe ingredient \"%s\"?"
+msgid "Are you sure you want to delete recipe ingredient \"%s\"?"
 msgstr "Ali res želiš izbrisati sestavino recepta \"%s\"?"
 
-msgid "Are you sure to empty shopping list \"%s\"?"
+msgid "Are you sure you want to empty shopping list \"%s\"?"
 msgstr "Ali res želiš izprazniti nakupovalni seznam \"%s\"?"
 
 msgid "Clear list"
@@ -503,7 +503,7 @@ msgid "Put missing amount on shopping list"
 msgstr "Dodaj manjkajočo količino na nakupovalni seznam"
 
 msgid ""
-"Are you sure to put all missing ingredients for recipe \"%s\" on the "
+"Are you sure you want to put all missing ingredients for recipe \"%s\" on the "
 "shopping list?"
 msgstr ""
 "Res želiš dodati vse manjkajoče sestavine za recept \"%s\" na nakupovalni "
@@ -521,7 +521,7 @@ msgstr "Uporabnik"
 msgid "Users"
 msgstr "Uporabniki"
 
-msgid "Are you sure to delete user \"%s\"?"
+msgid "Are you sure you want to delete user \"%s\"?"
 msgstr "Res želiš izbrisati uporabnika \"%s\""
 
 msgid "Create user"
@@ -626,7 +626,7 @@ msgid "Only check if any amount is in stock"
 msgstr "Samo preveri če je količina na zalogi"
 
 msgid ""
-"Are you sure to consume all ingredients needed by recipe \"%s\" (ingredients"
+"Are you sure you want to consume all ingredients needed by recipe \"%s\" (ingredients"
 " marked with \"only check if any amount is in stock\" will be ignored)?"
 msgstr ""
 "Ali res želiš porabiti vse sestavine potrebne za recept \"%s\" (sestavine "
@@ -683,7 +683,7 @@ msgstr "Kategorija"
 msgid "Edit task"
 msgstr "Uredi opravilo"
 
-msgid "Are you sure to delete task \"%s\"?"
+msgid "Are you sure you want to delete task \"%s\"?"
 msgstr "Ali res želiš izbrisati opravilo \"%s\"?"
 
 msgid "%s task is due to be done"
@@ -721,7 +721,7 @@ msgstr "Uredi skupino izdelkov"
 msgid "Product group"
 msgstr "Skupina izdelkov"
 
-msgid "Are you sure to delete product group \"%s\"?"
+msgid "Are you sure you want to delete product group \"%s\"?"
 msgstr "Ali res želiš izbrisati skupino izdelkov \"%s\"?"
 
 msgid "Stay logged in permanently"
@@ -1050,7 +1050,7 @@ msgstr "Nastavitve opravil"
 msgid "Create shopping list"
 msgstr "Ustvari nakupovalni seznam"
 
-msgid "Are you sure to delete shopping list \"%s\"?"
+msgid "Are you sure you want to delete shopping list \"%s\"?"
 msgstr "Ali si prepričan izbrisati nakupovalni seznam \"%s\"?"
 
 msgid "Average shelf life"
@@ -1255,7 +1255,7 @@ msgstr "Porabljena količina"
 msgid "Time of printing"
 msgstr "Čas izpisa"
 
-msgid "Are you sure to delete equipment \"%s\"?"
+msgid "Are you sure you want to delete equipment \"%s\"?"
 msgstr "Ali res želiš izbrisati opremo \" %s \" ?"
 
 msgid "Parent product"
@@ -1402,7 +1402,7 @@ msgstr "Zadolžitev"
 msgid "Consume product on chore execution"
 msgstr "Porabi izdelek ob izvedbi obveznosti"
 
-msgid "Are you sure to delete user field \"%s\"?"
+msgid "Are you sure you want to delete user field \"%s\"?"
 msgstr "Ali res želiš izbrisati uporabniško polje \"%s\""
 
 msgid "Userentities"
@@ -1423,7 +1423,7 @@ msgstr "Uredi %s"
 msgid "Create %s"
 msgstr "Ustvari %s"
 
-msgid "Are you sure to delete this userobject?"
+msgid "Are you sure you want to delete this userobject?"
 msgstr "Ali res želiš izbrisati ta uporabniški objekt ?"
 
 msgid "Icon CSS class"
@@ -1510,7 +1510,7 @@ msgid ""
 "this product, means the sub product will never be missing, only this product"
 msgstr ""
 
-msgid "Are you sure to remove this conversion?"
+msgid "Are you sure you want to remove this conversion?"
 msgstr "Ali res želiš odstraniti to pretvorbo?"
 
 msgid "Unit price"
@@ -1528,7 +1528,7 @@ msgstr "Neomejeno"
 msgid "Clear"
 msgstr "Počisti"
 
-msgid "Are you sure to remove the included recipe \"%s\"?"
+msgid "Are you sure you want to remove the included recipe \"%s\"?"
 msgstr "Ali res želiš odstraniti vključen recept \"%s\"?"
 
 msgid "Period interval"
@@ -1612,7 +1612,7 @@ msgstr "Ta rezervacija ne more biti razveljavljena"
 msgid "Booking does not exist or was already undone"
 msgstr "Rezervacija ne obstaja, ali je že bila razveljavljena"
 
-msgid "Are you sure to delete API key \"%s\"?"
+msgid "Are you sure you want to delete API key \"%s\"?"
 msgstr "Ali si prepričan, da želiš izbrisati API ključ \"%s\" ?"
 
 msgid "Add note"
@@ -1666,7 +1666,7 @@ msgstr "Odtaljeno"
 msgid "Frozen"
 msgstr "Zamrznejno"
 
-msgid "Are you sure to delete userentity \"%s\"?"
+msgid "Are you sure you want to delete userentity \"%s\"?"
 msgstr ""
 
 msgid "Shopping list settings"
@@ -1954,7 +1954,7 @@ msgstr ""
 msgid "Copy"
 msgstr "Kopiraj"
 
-msgid "Are you sure to remove this barcode?"
+msgid "Are you sure you want to remove this barcode?"
 msgstr "Ali res želiš odstraniti to črtno kodo?"
 
 msgid "Due date type"
@@ -2125,7 +2125,7 @@ msgstr "Skupina sestavine"
 msgid "Reset"
 msgstr "Ponastavi"
 
-msgid "Are you sure to reset the table options?"
+msgid "Are you sure you want to reset the table options?"
 msgstr "Ali res želiš ponastaviti možnosti tabele?"
 
 msgid "Hide/view columns"
@@ -2367,13 +2367,13 @@ msgstr ""
 msgid "Edit meal plan section"
 msgstr ""
 
-msgid "Are you sure to delete meal plan section \"%s\"?"
+msgid "Are you sure you want to delete meal plan section \"%s\"?"
 msgstr ""
 
 msgid "Section"
 msgstr "Oddelek"
 
-msgid "Are you sure to empty the shopping list?"
+msgid "Are you sure you want to empty the shopping list?"
 msgstr "Ali res želiš izprazniti nakupovalni seznam?"
 
 msgid "This is the default which will be prefilled on purchase"

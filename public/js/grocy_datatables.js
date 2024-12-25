@@ -295,7 +295,7 @@ $(".change-table-columns-visibility-button").on("click", function(e)
 				callback: function()
 				{
 					bootbox.confirm({
-						message: __t("Are you sure to reset the table options?"),
+						message: __t("Are you sure you want to reset the table options?"),
 						closeButton: false,
 						buttons: {
 							cancel: {
