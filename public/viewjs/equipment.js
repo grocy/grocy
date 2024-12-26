@@ -119,7 +119,7 @@ $(document).on('click', '.equipment-delete-button', function(e)
 	var objectId = $(e.currentTarget).attr('data-equipment-id');
 
 	bootbox.confirm({
-		message: __t('Are you sure to delete equipment "%s"?', objectName),
+		message: __t('Are you sure you want to delete equipment "%s"?', objectName),
 		closeButton: false,
 		buttons: {
 			confirm: {

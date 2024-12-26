@@ -31,7 +31,7 @@ $(document).on('click', '.location-delete-button', function(e)
 	var objectId = $(e.currentTarget).attr('data-location-id');
 
 	bootbox.confirm({
-		message: __t('Are you sure to delete location "%s"?', objectName),
+		message: __t('Are you sure you want to delete location "%s"?', objectName),
 		closeButton: false,
 		buttons: {
 			confirm: {

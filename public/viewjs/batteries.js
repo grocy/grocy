@@ -33,7 +33,7 @@ $(document).on('click', '.battery-delete-button', function(e)
 	var objectId = $(e.currentTarget).attr('data-battery-id');
 
 	bootbox.confirm({
-		message: __t('Are you sure to delete battery "%s"?', objectName),
+		message: __t('Are you sure you want to delete battery "%s"?', objectName),
 		buttons: {
 			confirm: {
 				label: __t('Yes'),

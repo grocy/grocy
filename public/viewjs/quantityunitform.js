@@ -159,7 +159,7 @@ $(document).on('click', '.qu-conversion-delete-button', function(e)
 	var objectId = $(e.currentTarget).attr('data-qu-conversion-id');
 
 	bootbox.confirm({
-		message: __t('Are you sure to remove this conversion?'),
+		message: __t('Are you sure you want to remove this conversion?'),
 		closeButton: false,
 		buttons: {
 			confirm: {

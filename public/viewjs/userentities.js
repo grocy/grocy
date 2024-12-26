@@ -31,7 +31,7 @@ $(document).on('click', '.userentity-delete-button', function(e)
 	var objectId = $(e.currentTarget).attr('data-userentity-id');
 
 	bootbox.confirm({
-		message: __t('Are you sure to delete userentity "%s"?', objectName),
+		message: __t('Are you sure you want to delete userentity "%s"?', objectName),
 		closeButton: false,
 		buttons: {
 			confirm: {

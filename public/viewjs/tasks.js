@@ -138,7 +138,7 @@ $(document).on('click', '.delete-task-button', function(e)
 	var objectId = $(e.currentTarget).attr('data-task-id');
 
 	bootbox.confirm({
-		message: __t('Are you sure to delete task "%s"?', objectName),
+		message: __t('Are you sure you want to delete task "%s"?', objectName),
 		closeButton: false,
 		buttons: {
 			confirm: {

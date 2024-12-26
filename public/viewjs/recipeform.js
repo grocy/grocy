@@ -136,7 +136,7 @@ $(document).on('click', '.recipe-pos-delete-button', function(e)
 	var objectId = $(e.currentTarget).attr('data-recipe-pos-id');
 
 	bootbox.confirm({
-		message: __t('Are you sure to delete recipe ingredient "%s"?', objectName),
+		message: __t('Are you sure you want to delete recipe ingredient "%s"?', objectName),
 		closeButton: false,
 		buttons: {
 			confirm: {
@@ -173,7 +173,7 @@ $(document).on('click', '.recipe-include-delete-button', function(e)
 	var objectId = $(e.currentTarget).attr('data-recipe-include-id');
 
 	bootbox.confirm({
-		message: __t('Are you sure to remove the included recipe "%s"?', objectName),
+		message: __t('Are you sure you want to remove the included recipe "%s"?', objectName),
 		closeButton: false,
 		buttons: {
 			confirm: {

@@ -32,7 +32,7 @@ $(document).on('click', '.chore-delete-button', function(e)
 	var objectId = $(e.currentTarget).attr('data-chore-id');
 
 	bootbox.confirm({
-		message: __t('Are you sure to delete chore "%s"?', objectName),
+		message: __t('Are you sure you want to delete chore "%s"?', objectName),
 		closeButton: false,
 		buttons: {
 			confirm: {
