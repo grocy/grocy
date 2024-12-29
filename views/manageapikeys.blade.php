@@ -92,6 +92,7 @@
 							href="#"
 							data-apikey-id="{{ $apiKey->id }}"
 							data-apikey-key="{{ $apiKey->api_key }}"
+							data-apikey-description="{{ $apiKey->description }}"
 							data-toggle="tooltip"
 							title="{{ $__t('Delete this item') }}">
 							<i class="fa-solid fa-trash"></i>

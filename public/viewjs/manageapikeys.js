@@ -29,11 +29,18 @@ $(document).on('click', '.apikey-delete-button', function(e)
 {
 	var button = $(e.currentTarget);
 	var objectName = button.attr('data-apikey-key');
+	var objectDescription = button.attr('data-apikey-description');
 	var objectId = button.attr('data-apikey-id');
+
+	if (objectDescription)
+	{
+		objectName = objectDescription;
+	}
 
 	bootbox.confirm({
 		message: __t('Are you sure you want to delete API key "%s"?', objectName),
 		closeButton: false,
+		className: "text-break",
 		buttons: {
 			confirm: {
 				label: __t('Yes'),
