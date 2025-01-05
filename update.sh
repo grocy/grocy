@@ -24,7 +24,7 @@ rm -rf ./data/viewcache/* > /dev/null
 
 echo Downloading latest release
 rm -f ./grocy-latest.zip > /dev/null
-wget $GROCY_RELEASE_URL -q -O ./grocy-latest.zip > /dev/null
+wget $GROCY_RELEASE_URL -q --show-progress -O ./grocy-latest.zip > /dev/null
 
 echo Unzipping latest release
 unzip -o ./grocy-latest.zip > /dev/null
