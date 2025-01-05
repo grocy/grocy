@@ -2045,6 +2045,9 @@ msgstr ""
 msgid "-1 means that this product will be never overdue"
 msgstr "-1 bedeutet, dass dieses Produkt niemals überfällig ist"
 
+msgid "0 means that the due date will not be replaced"
+msgstr "0 bedeutet, dass das Fälligkeitsdatum beibehalten wird"
+
 msgid "Default due days"
 msgstr "Standardfälligkeitstage"
 

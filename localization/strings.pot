@@ -1823,6 +1823,9 @@ msgstr ""
 msgid "-1 means that this product will be never overdue"
 msgstr ""
 
+msgid "0 means that the due date will not be replaced"
+msgstr ""
+
 msgid "Default due days"
 msgstr ""
 
