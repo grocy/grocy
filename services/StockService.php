@@ -1272,6 +1272,10 @@ class StockService extends BaseService
 					{
 						$newBestBeforeDate = date('2999-12-31');
 					}
+                    elseif ($productDetails->product->default_best_before_days_after_freezing == 0)
+                    {       
+                        $newBestBeforeDate = $stockEntry->best_before_date;
+                    }
 					else
 					{
 						$newBestBeforeDate = date('Y-m-d', strtotime('+' . $productDetails->product->default_best_before_days_after_freezing . ' days'));
