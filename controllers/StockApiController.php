@@ -621,7 +621,22 @@ class StockApiController extends BaseApiController
 		try
 		{
 			$productId = $this->getStockService()->GetProductIdFromBarcode($args['barcode']);
-			return $this->ApiResponse($response, $this->getStockService()->GetProductDetails($productId));
+			$product_data = $this->getStockService()->GetProductDetails($productId);
+			
+			if (Grocycode::Validate($args['barcode']))
+			{
+				$gc = new Grocycode($args['barcode']);
+
+				if ($gc->GetExtraData())
+				{
+					$stock_data = $this->getDatabase()->stock()->where('stock_id', $gc->GetExtraData()[0])->fetch();
+					$data = $product_data + ['stock_entry' => $stock_data];
+				} else {
+					$data = $product_data + ['stock_entry' => null];
+				}
+			}
+
+			return $this->ApiResponse($response, $data);
 		}
 		catch (\Exception $ex)
 		{
