@@ -1266,7 +1266,7 @@ class StockService extends BaseService
 				$locationTo = $this->getDatabase()->locations()->where('id', $locationIdTo)->fetch();
 
 				// Product was moved from a non-freezer to freezer location -> freeze
-				if ($locationFrom->is_freezer == 0 && $locationTo->is_freezer == 1 && $productDetails->product->default_best_before_days_after_freezing >= -1)
+				if ($locationFrom->is_freezer == 0 && $locationTo->is_freezer == 1 && ($productDetails->product->default_best_before_days_after_freezing > 0 || $productDetails->product->default_best_before_days_after_freezing == -1))
 				{
 					if ($productDetails->product->default_best_before_days_after_freezing == -1)
 					{
