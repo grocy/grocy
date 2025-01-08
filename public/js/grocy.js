@@ -350,10 +350,6 @@ toastr.options = {
 	extendedTimeOut: 5000
 };
 
-window.FontAwesomeConfig = {
-	searchPseudoElements: true
-}
-
 Grocy.FrontendHelpers = {};
 Grocy.FrontendHelpers.ValidateForm = function(formId, reportValidity = false)
 {

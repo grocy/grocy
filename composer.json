@@ -14,7 +14,7 @@
 		"ezyang/htmlpurifier": "^4.13",
 		"interficieis/php-barcode": "^2.0.2",
 		"guzzlehttp/guzzle": "^7.0",
-		"mike42/escpos-php": "^3.0"
+		"mike42/escpos-php": "^4.0"
 	},
 	"repositories": [
 		{

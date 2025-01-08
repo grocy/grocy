@@ -234,7 +234,7 @@ $(document).on("click", "#barcodescanner-start-button", async function(e)
 		closeButton: true,
 		buttons: {
 			torch: {
-				label: '<i class="fa-regular fa-lightbulb"></i>',
+				label: '<i class="fa-solid fa-lightbulb"></i>',
 				className: 'btn-warning responsive-button torch',
 				callback: function()
 				{

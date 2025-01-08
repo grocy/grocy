@@ -7,22 +7,22 @@
 	<div class="col-12 col-md-6 text-center">
 		<h2 class="title">@yield('title')</h2>
 
-		<ul class="nav nav-tabs justify-content-center mt-3">
+		<ul class="nav nav-tabs grocy-tabs justify-content-center mt-3">
 			<li class="nav-item">
-				<a class="nav-link active"
+				<a class="nav-link discrete-link active"
 					id="system-info-tab"
 					data-toggle="tab"
 					href="#system-info">{{ $__t('System info') }}</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link"
+				<a class="nav-link discrete-link"
 					id="changelog-tab"
 					data-toggle="tab"
 					href="#changelog">{{ $__t('Changelog') }}</a>
 			</li>
 		</ul>
 
-		<div class="tab-content mt-3">
+		<div class="tab-content grocy-tabs mt-3">
 
 			<div class="tab-pane show active"
 				id="system-info">

@@ -28,10 +28,10 @@
   optionalDependencies:
     fsevents "2.3.3"
 
-"@fontsource/open-sans@^5.0.0":
-  version "5.1.0"
-  resolved "https://registry.yarnpkg.com/@fontsource/open-sans/-/open-sans-5.1.0.tgz#3fb106a5e0a208bbe8e66ac5e9a2130afff6b859"
-  integrity sha512-g+mjF8gWUDwck9DrRCkhmFeEj7fskjtKZJKAQguVzSg93lc6ThakTHMRgs0dZfe5qBbktrV839tDrb4bIDyZSA==
+"@fontsource/roboto@^5.1.1":
+  version "5.1.1"
+  resolved "https://registry.yarnpkg.com/@fontsource/roboto/-/roboto-5.1.1.tgz#64b3f819baf8d3bcfb48c0437ddc7e4118a6ab14"
+  integrity sha512-XwVVXtERDQIM7HPUIbyDe0FP4SRovpjF7zMI8M7pbqFp3ahLJsJTd18h+E6pkar6UbV3btbwkKjYARr5M+SQow==
 
 "@fortawesome/fontawesome-free@^6.1.1":
   version "6.7.2"
@@ -246,11 +246,11 @@ datatables.net-bs4@^1.10.22, datatables.net-bs4@^1.13.0:
     jquery "1.8 - 4"
 
 datatables.net-bs4@^2:
-  version "2.1.8"
-  resolved "https://registry.yarnpkg.com/datatables.net-bs4/-/datatables.net-bs4-2.1.8.tgz#bf90a2729bfdff18ac71526f5b9171c43070adcd"
-  integrity sha512-2mFfyD6KdeFaq5qlOWggcjLPblZTuoOFv1fHN3WzquYNiWe8BuSEEARvl7OQ+53/sEY3HOkHsbZ5+Pat0faG9Q==
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/datatables.net-bs4/-/datatables.net-bs4-2.2.0.tgz#bf35a667b05a3ee5dc4626d07c92a57d0dfc2090"
+  integrity sha512-dTgsblxSftIkLuyUItcQwbRfunAhFygxwpXxLCfKmE3xA8QBkl8KREAx9OQuVxJUMc5Ao+LCknd5kT+kzEqREg==
   dependencies:
-    datatables.net "2.1.8"
+    datatables.net "2.2.0"
     jquery ">=1.7"
 
 datatables.net-colreorder-bs4@^1.5.2:
@@ -319,10 +319,10 @@ datatables.net@1.13.11, datatables.net@^1.10.22, datatables.net@^1.13.0, datatab
   dependencies:
     jquery "1.8 - 4"
 
-datatables.net@2.1.8, datatables.net@^2:
-  version "2.1.8"
-  resolved "https://registry.yarnpkg.com/datatables.net/-/datatables.net-2.1.8.tgz#9b020f18e927cc924d72411f62dc595cc688669b"
-  integrity sha512-47ULt+U4bcjbuGTpTlT6SnCuSFVRBxxdWa6X3NfvTObBJ2BZU0o+JUIl05wQ6cABNIavjbAV51gpgvFsMHL9zA==
+datatables.net@2.2.0, datatables.net@^2:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/datatables.net/-/datatables.net-2.2.0.tgz#d7e92ede9a3bf23ac4c360e475fbe6313f16fd56"
+  integrity sha512-q/G5ylL+AhMLFFHNYQAgvooCZtmbudc7wwzKkCZI4B1HnYec4SqnWtcTFjC7P6EtL1UGyx16FcjQ0U84S86mLg==
   dependencies:
     jquery ">=1.7"
 

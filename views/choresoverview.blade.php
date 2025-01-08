@@ -227,7 +227,7 @@
 							class="text-muted"
 							data-toggle="tooltip"
 							title="{{ $__t('Rescheduled') }}">
-							<i class="fa-regular fa-clock"></i>
+							<i class="fa-solid fa-clock"></i>
 						</span>
 						@endif
 					</td>

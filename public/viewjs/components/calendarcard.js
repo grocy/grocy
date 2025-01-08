@@ -8,15 +8,15 @@ $('#calendar').datetimepicker(
 		calendarWeeks: true,
 		locale: moment.locale(),
 		icons: {
-			time: 'fa-regular fa-clock',
-			date: 'fa-regular fa-calendar',
+			time: 'fa-solid fa-clock',
+			date: 'fa-solid fa-calendar',
 			up: 'fa-solid fa-arrow-up',
 			down: 'fa-solid fa-arrow-down',
 			previous: 'fa-solid fa-chevron-left',
 			next: 'fa-solid fa-chevron-right',
 			today: 'fa-solid fa-calendar-check',
-			clear: 'fa-regular fa-trash-alt',
-			close: 'fa-regular fa-times-circle'
+			clear: 'fa-solid fa-trash-can',
+			close: 'fa-solid fa-circle-xmark'
 		},
 		keepOpen: true,
 		inline: true,

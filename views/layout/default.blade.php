@@ -24,11 +24,13 @@
 
 	<title>@yield('title') | Grocy</title>
 
-	<link href="{{ $U('/packages/@fontsource/open-sans/latin.css?v=', true) }}{{ $version }}"
+	<link href="{{ $U('/packages/@fontsource/roboto/latin.css?v=', true) }}{{ $version }}"
 		rel="stylesheet">
 	<link href="{{ $U('/packages/bootstrap/dist/css/bootstrap.min.css?v=', true) }}{{ $version }}"
 		rel="stylesheet">
-	<link href="{{ $U('/packages/@fortawesome/fontawesome-free/css/all.min.css?v=', true) }}{{ $version }}"
+	<link href="{{ $U('/packages/@fortawesome/fontawesome-free/css/fontawesome.min.css?v=', true) }}{{ $version }}"
+		rel="stylesheet">
+	<link href="{{ $U('/packages/@fortawesome/fontawesome-free/css/solid.min.css?v=', true) }}{{ $version }}"
 		rel="stylesheet">
 	<link href="{{ $U('/packages/toastr/build/toastr.min.css?v=', true) }}{{ $version }}"
 		rel="stylesheet">
@@ -135,7 +137,7 @@
 		</a>
 		<span id="clock-container"
 			class="text-muted font-italic d-none">
-			<i class="fa-regular fa-clock"></i>
+			<i class="fa-solid fa-clock"></i>
 			<span id="clock-small"
 				class="d-inline d-sm-none"></span>
 			<span id="clock-big"

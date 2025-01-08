@@ -46,7 +46,6 @@
 
 		.swagger-ui .scheme-container {
 			box-shadow: none !important;
-			-webkit-box-shadow: none !important;
 			border-bottom: 1px solid rgba(59, 65, 81, 0.3) !important;
 		}
 	</style>

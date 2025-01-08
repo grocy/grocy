@@ -95,14 +95,14 @@ Grocy.Components.DateTimePicker2.Init = function(reInit = false)
 				defaultDate: startDate,
 				useCurrent: false,
 				icons: {
-					time: 'fa-regular fa-clock',
-					date: 'fa-regular fa-calendar',
+					time: 'fa-solid fa-clock',
+					date: 'fa-solid fa-calendar',
 					up: 'fa-solid fa-arrow-up',
 					down: 'fa-solid fa-arrow-down',
 					previous: 'fa-solid fa-chevron-left',
 					next: 'fa-solid fa-chevron-right',
 					today: 'fa-solid fa-calendar-day',
-					clear: 'fa-regular fa-trash-alt',
+					clear: 'fa-solid fa-trash-can',
 					close: 'fa-solid fa-check'
 				},
 				sideBySide: true,

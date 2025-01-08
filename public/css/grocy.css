@@ -1,6 +1,6 @@
 ﻿/* Main style customizations */
 body {
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Roboto', sans-serif;
 }
 
 .content-text {
@@ -16,14 +16,23 @@ body {
 	font-size: 0.8em;
 }
 
-a.discrete-link {
-	color: inherit !important;
-	transition: all 0.3s !important;
+a:not(.btn):not(.nav-link):not(.dropdown-item) {
+	color: inherit;
+	text-decoration: underline;
+	text-decoration-style: dotted;
+	text-underline-offset: 0.2rem;
 }
 
-a.discrete-link:hover,
-a.discrete-link:focus {
-	color: #337ab7 !important;
+a:not(.btn):not(.nav-link):not(.dropdown-item):hover {
+	text-decoration: underline;
+}
+
+a.discrete-link {
+	color: inherit !important;
+	text-decoration: none !important;
+}
+
+a.discrete-link:hover {
 	text-decoration: none !important;
 }
 
@@ -31,13 +40,8 @@ a.discrete-link:focus {
 	background-color: inherit;
 }
 
-.grocy-card .card-title {
-	color: #495157;
-}
-
 .grocy-card .card-icons a {
 	font-size: 22px;
-	color: #495157;
 	padding: 2px 4px;
 	text-decoration: none;
 	text-align: center;
@@ -116,12 +120,7 @@ iframe.embed-responsive {
 
 /* Hide the default up/down arrow buttons for number inputs because we use our own buttons in numberpicker */
 input[type='number'] {
-	-moz-appearance: textfield;
-}
-
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-	-webkit-appearance: none;
+	appearance: textfield;
 }
 
 .sticky-form-footer {
@@ -448,7 +447,7 @@ canvas.drawingBuffer {
 }
 
 .grocy-tabs .nav-link {
-	color: #767676;
+	color: inherit;
 	text-transform: uppercase;
 }
 
@@ -459,12 +458,12 @@ canvas.drawingBuffer {
 
 .grocy-tabs .nav-link.active {
 	border: 2px solid transparent;
-	border-bottom-color: #0b024c !important;
+	border-bottom-color: #000 !important;
 }
 
 .grocy-tabs .nav-link:hover {
 	border: 2px solid transparent;
-	border-bottom-color: #0b024c7d;
+	border-bottom-color: #000;
 }
 
 .grocy-tabs .nav-item {

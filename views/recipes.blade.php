@@ -249,7 +249,7 @@
 
 			<div class="tab-pane show"
 				id="gallery">
-				<div class="card-columns no-gutters">
+				<div class="card-columns no-gutters mt-1">
 					@foreach($recipes as $recipe)
 					<div class="cursor-link recipe-gallery-item @if(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->need_fulfilled == 1) recipe-enoughinstock @elseif(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->need_fulfilled_with_shopping_list == 1) recipe-enoughinstockwithshoppinglist @else recipe-notenoughinstock @endif"
 						data-recipe-id="{{ $recipe->id }}"
@@ -305,7 +305,7 @@
 		<div id="selectedRecipeCard"
 			class="card grocy-card">
 			@if(count($allRecipes) > 1)
-			<div class="card-header card-header-fullscreen d-print-none">
+			<div class="card-header card-header-fullscreen mb-1 d-print-none">
 				<ul class="nav nav-tabs grocy-tabs card-header-tabs">
 					@foreach($allRecipes as $index=>$recipe)
 					<li class="nav-item">
@@ -502,7 +502,7 @@
 											data-toggle="tooltip"
 											data-placement="right"
 											title="{{ $__t('Mark this item as done') }}">
-											<i class="fa-regular fa-check-circle"></i>
+											<i class="fa-solid fa-check-circle"></i>
 										</a>
 										@endif
 										@php

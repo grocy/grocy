@@ -121,7 +121,7 @@
 	</div>
 
 	<div class="col-12 col-md-8">
-		<ul class="nav nav-tabs grocy-tabs">
+		<ul class="nav nav-tabs grocy-tabs mb-1">
 			<li class="nav-item">
 				<a class="nav-link active"
 					data-toggle="tab"
