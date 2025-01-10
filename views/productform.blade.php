@@ -25,11 +25,13 @@
 			<div class="related-links collapse d-md-flex order-2 width-xs-sm-100"
 				id="related-links">
 				<a class="btn btn-outline-secondary m-1 mt-md-0 mb-md-0 float-right show-as-dialog-link"
-					href="{{ $U('/stockentries?embedded&product=') }}{{ $product->id }}">
+					href="{{ $U('/stockentries?embedded&product=') }}{{ $product->id }}"
+					data-dialog-type="table">
 					{{ $__t('Stock entries') }}
 				</a>
 				<a class="btn btn-outline-secondary m-1 mt-md-0 mb-md-0 float-right show-as-dialog-link"
-					href="{{ $U('/stockjournal?embedded&product=') }}{{ $product->id }}">
+					href="{{ $U('/stockjournal?embedded&product=') }}{{ $product->id }}"
+					data-dialog-type="table">
 					{{ $__t('Stock journal') }}
 				</a>
 			</div>
@@ -156,7 +158,26 @@
 						for="move_on_open">{{ $__t('Move on open') }}&nbsp;<i class="fa-solid fa-question-circle text-muted"
 							data-toggle="tooltip"
 							data-trigger="hover click"
-							title="{{ $__t("When enabled, on marking this product as opened, the corresponding amount will be moved to the default consume location")
+							title="{{ $__t("
+							When
+							enabled,
+							on
+							marking
+							this
+							product
+							as
+							opened,
+							the
+							corresponding
+							amount
+							will
+							be
+							moved
+							to
+							the
+							default
+							consume
+							location")
 							}}"></i>
 					</label>
 				</div>
@@ -773,11 +794,13 @@
 					<div class="related-links collapse d-md-flex order-2 width-xs-sm-100"
 						id="related-links">
 						<a class="btn btn-primary btn-sm m-1 mt-md-0 mb-md-0 float-right show-as-dialog-link"
-							href="{{ $U('/quantityunitconversion/new?embedded&product=' . $product->id ) }}">
+							href="{{ $U('/quantityunitconversion/new?embedded&product=' . $product->id ) }}"
+							data-dialog-type="wider">
 							{{ $__t('Add') }}
 						</a>
 						<a class="btn btn-outline-primary btn-sm m-1 mt-md-0 mb-md-0 float-right show-as-dialog-link"
 							href="{{ $U('/quantityunitconversionsresolved?embedded&product=' . $product->id ) }}"
+							data-dialog-type="wider"
 							data-toggle="tooltip"
 							title="{{ $__t('This shows all to this product directly or indirectly related quantity units and their derived conversion factors') }}">
 							{{ $__t('Show resolved conversions') }}
@@ -808,7 +831,8 @@
 						<tr>
 							<td class="fit-content border-right">
 								<a class="btn btn-sm btn-info show-as-dialog-link @if($quConversion->product_id == null) disabled @endif"
-									href="{{ $U('/quantityunitconversion/' . $quConversion->id . '?embedded&product=' . $product->id ) }}">
+									href="{{ $U('/quantityunitconversion/' . $quConversion->id . '?embedded&product=' . $product->id ) }}"
+									data-dialog-type="wider">
 									<i class="fa-solid fa-edit"></i>
 								</a>
 								<a class="btn btn-sm btn-danger qu-conversion-delete-button @if($quConversion->product_id == null) disabled @endif"

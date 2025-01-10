@@ -27,7 +27,8 @@
 						</a>
 						<a id="batterycard-battery-journal-button"
 							class="btn btn-sm btn-outline-secondary py-0 mr-1 float-right disabled show-as-dialog-link"
-							href="#">
+							href="#"
+							data-dialog-type="table">
 							{{ $__t('Battery journal') }}
 						</a>
 					</div>

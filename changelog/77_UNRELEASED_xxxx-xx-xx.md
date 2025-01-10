@@ -56,7 +56,10 @@
 
 - Optimized nested modal dialogs:
   - Nested dialogs are now no longer displayed "in each other" and instead "on top of each other"
+  - Dialogs can now be closed with the `ESC` key on the keyboard
+  - There is no longer a close button at the bottom (outside of the displayed `iframe`) and instead one at the top right corner of the dialog
   - Wide dialogs (e.g. all showing a table, like showing stock entries of a product from the stock overview more/context menu per line) now use the full screen width
+  - Improved handling of the initial field focus
 
 ### API
 

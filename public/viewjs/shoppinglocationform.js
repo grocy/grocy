@@ -92,5 +92,5 @@ Grocy.Components.UserfieldsForm.Load();
 setTimeout(function()
 {
 	$('#name').focus();
-}, 250);
+}, 150);
 Grocy.FrontendHelpers.ValidateForm('shoppinglocation-form');

@@ -672,6 +672,7 @@
 							href="{{ $U('/barcodescannertesting') }}"><i class="fa-solid fa-fw fa-barcode"></i>&nbsp;{{ $__t('Barcode scanner testing') }}</a>
 						<div class="dropdown-divider"></div>
 						<a class="dropdown-item discrete-link show-as-dialog-link"
+							data-dialog-type="wider"
 							href="{{ $U('/about?embedded') }}"><i class="fa-solid fa-fw fa-info"></i>&nbsp;{{ $__t('About Grocy') }}</a>
 					</div>
 				</li>
@@ -681,7 +682,7 @@
 	@endif
 
 	<div class="@if(GROCY_AUTHENTICATED) content-wrapper @endif pt-0">
-		<div class="container-fluid @if(GROCY_AUTHENTICATED) pr-1 pl-md-3 pl-2 @endif">
+		<div class="container-fluid @if(GROCY_AUTHENTICATED && !$embedded) pr-1 pl-md-3 pl-2 @endif @if($embedded) px-1 @endif">
 			<div class="row mb-3">
 				<div id="page-content"
 					class="col content-text">

@@ -311,7 +311,10 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 				$('#display_amount').val(productDetails.stock_amount);
 				RefreshLocaleNumberInput();
 				$(".input-group-productamountpicker").trigger("change");
-				$('#display_amount').focus();
+				setTimeout(function()
+				{
+					$('#display_amount').focus();
+				}, 150);
 				$('#display_amount').trigger('keyup');
 				RefreshPriceHint();
 			},

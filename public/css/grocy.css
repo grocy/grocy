@@ -120,6 +120,11 @@ input[type='number'] {
 	appearance: textfield;
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+}
+
 .sticky-form-footer {
 	border-top: 1px solid #d6d6d6;
 	background-color: white;
@@ -275,9 +280,18 @@ a:not([href]) {
 	z-index: 99998;
 }
 
+/* There is a little too much padding around modals */
+.modal-body {
+	padding: 0.75rem;
+}
+
 @media (min-width: 576px) {
 	.form .modal-dialog {
 		max-width: 650px;
+	}
+
+	.wider .modal-dialog {
+		max-width: 800px;
 	}
 
 	.table .modal-dialog {

@@ -93,4 +93,4 @@ Grocy.FrontendHelpers.ValidateForm('location-form');
 setTimeout(function()
 {
 	$('#name').focus();
-}, 250);
+}, 150);

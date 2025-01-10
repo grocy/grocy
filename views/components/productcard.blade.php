@@ -29,12 +29,14 @@
 						</a>
 						<a id="productcard-product-journal-button"
 							class="btn btn-sm btn-outline-secondary py-0 mr-1 float-right disabled show-as-dialog-link"
-							href="#">
+							href="#"
+							data-dialog-type="table">
 							{{ $__t('Stock journal') }}
 						</a>
 						<a id="productcard-product-stock-button"
 							class="btn btn-sm btn-outline-secondary py-0 mr-1 float-right disabled show-as-dialog-link"
-							href="#">
+							href="#"
+							data-dialog-type="table">
 							{{ $__t('Stock entries') }}
 						</a>
 					</div>

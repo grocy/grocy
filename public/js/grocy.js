@@ -703,6 +703,30 @@ if (Grocy.CalendarFirstDayOfWeek)
 	});
 }
 
+if (GetUriParam("embedded"))
+{
+	$("body").append('<div class="fixed-top"> \
+		<button class="btn btn-light float-right close-last-modal-button" \
+			type="button" \> \
+			<i class="fa-solid fa-xmark"></i> \
+		</button> \
+	</div>');
+}
+
+$(document).on("click", ".close-last-modal-button", function()
+{
+	window.parent.postMessage(WindowMessageBag("CloseLastModal"), Grocy.BaseUrl);
+});
+
+$("body").on("keydown", function(e)
+{
+	if (e.key == "Escape")
+	{
+		window.parent.postMessage(WindowMessageBag("CloseLastModal"), Grocy.BaseUrl);
+	}
+});
+
+
 $(window).on("message", function(e)
 {
 	var data = e.originalEvent.data;
@@ -769,17 +793,7 @@ function IframeModal(link, dialogClass = "form")
 		size: 'large',
 		backdrop: true,
 		closeButton: false,
-		className: dialogClass,
-		buttons: {
-			cancel: {
-				label: __t('Close'),
-				className: 'btn-secondary responsive-button',
-				callback: function()
-				{
-					$(".modal").last().modal("hide");
-				}
-			}
-		}
+		className: dialogClass
 	});
 }
 

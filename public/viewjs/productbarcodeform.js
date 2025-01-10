@@ -99,7 +99,7 @@ Grocy.FrontendHelpers.ValidateForm('barcode-form');
 setTimeout(function()
 {
 	$('#barcode').focus();
-}, 250);
+}, 150);
 RefreshLocaleNumberInput();
 Grocy.Components.UserfieldsForm.Load()
 

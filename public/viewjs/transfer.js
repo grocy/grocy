@@ -280,7 +280,10 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 
 				Grocy.Components.ProductPicker.HideCustomError();
 				Grocy.FrontendHelpers.ValidateForm('transfer-form');
-				$('#display_amount').focus();
+				setTimeout(function()
+				{
+					$('#display_amount').focus();
+				}, 150);
 			},
 			function(xhr)
 			{
