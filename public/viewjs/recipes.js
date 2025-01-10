@@ -301,7 +301,7 @@ recipesTables.on('select', function(e, dt, type, indexes)
 						className: 'btn-secondary responsive-button',
 						callback: function()
 						{
-							bootbox.hideAll();
+							$(".modal").last().modal("hide");
 						}
 					}
 				}
@@ -333,7 +333,7 @@ $(".recipe-gallery-item").on("click", function(e)
 					className: 'btn-secondary responsive-button',
 					callback: function()
 					{
-						bootbox.hideAll();
+						$(".modal").last().modal("hide");
 					}
 				}
 			}

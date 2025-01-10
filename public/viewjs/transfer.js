@@ -70,9 +70,9 @@
 
 					if (GetUriParam("embedded") !== undefined)
 					{
-						window.parent.postMessage(WindowMessageBag("ProductChanged", jsonForm.product_id), Grocy.BaseUrl);
+						window.top.postMessage(WindowMessageBag("BroadcastMessage", WindowMessageBag("ProductChanged", jsonForm.product_id)), Grocy.BaseUrl);
 						window.parent.postMessage(WindowMessageBag("ShowSuccessMessage", successMessage), Grocy.BaseUrl);
-						window.parent.postMessage(WindowMessageBag("CloseAllModals"), Grocy.BaseUrl);
+						window.parent.postMessage(WindowMessageBag("CloseLastModal"), Grocy.BaseUrl);
 					}
 					else
 					{

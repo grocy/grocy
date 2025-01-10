@@ -47,7 +47,7 @@ $('#save-recipe-pos-button').on('click', function(e)
 			function(result)
 			{
 				window.parent.postMessage(WindowMessageBag("IngredientsChanged"), Grocy.BaseUrl);
-				window.parent.postMessage(WindowMessageBag("CloseAllModals"), Grocy.BaseUrl);
+				window.parent.postMessage(WindowMessageBag("CloseLastModal"), Grocy.BaseUrl);
 			},
 			function(xhr)
 			{
@@ -62,7 +62,7 @@ $('#save-recipe-pos-button').on('click', function(e)
 			function(result)
 			{
 				window.parent.postMessage(WindowMessageBag("IngredientsChanged"), Grocy.BaseUrl);
-				window.parent.postMessage(WindowMessageBag("CloseAllModals"), Grocy.BaseUrl);
+				window.parent.postMessage(WindowMessageBag("CloseLastModal"), Grocy.BaseUrl);
 			},
 			function(xhr)
 			{

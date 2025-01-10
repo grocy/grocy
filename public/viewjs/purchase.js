@@ -174,11 +174,11 @@ $('#save-purchase-button').on('click', function(e)
 					{
 						Grocy.Components.UserfieldsForm.Save(function()
 						{
-							window.parent.postMessage(WindowMessageBag("ProductChanged", jsonForm.product_id), Grocy.BaseUrl);
+							window.top.postMessage(WindowMessageBag("BroadcastMessage", WindowMessageBag("ProductChanged", jsonForm.product_id)), Grocy.BaseUrl);
 							window.parent.postMessage(WindowMessageBag("AfterItemAdded", GetUriParam("listitemid")), Grocy.BaseUrl);
 							window.parent.postMessage(WindowMessageBag("ShowSuccessMessage", successMessage), Grocy.BaseUrl);
 							window.parent.postMessage(WindowMessageBag("Ready"), Grocy.BaseUrl);
-							window.parent.postMessage(WindowMessageBag("CloseAllModals"), Grocy.BaseUrl);
+							window.parent.postMessage(WindowMessageBag("CloseLastModal"), Grocy.BaseUrl);
 						});
 					}
 					else
@@ -627,7 +627,7 @@ function UndoStockBooking(bookingId)
 			Grocy.Api.Get('stock/bookings/' + bookingId.toString(),
 				function(result)
 				{
-					window.postMessage(WindowMessageBag("ProductChanged", result.product_id), Grocy.BaseUrl);
+					window.top.postMessage(WindowMessageBag("BroadcastMessage", WindowMessageBag("ProductChanged", result.product_id)), Grocy.BaseUrl);
 				},
 				function(xhr)
 				{
@@ -652,7 +652,7 @@ function UndoStockTransaction(transactionId)
 			Grocy.Api.Get('stock/transactions/' + transactionId.toString(),
 				function(result)
 				{
-					window.postMessage(WindowMessageBag("ProductChanged", result[0].product_id), Grocy.BaseUrl);
+					window.top.postMessage(WindowMessageBag("BroadcastMessage", WindowMessageBag("ProductChanged", result[0].product_id)), Grocy.BaseUrl);
 				},
 				function(xhr)
 				{

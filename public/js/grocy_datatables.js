@@ -320,7 +320,7 @@ $(".change-table-columns-visibility-button").on("click", function(e)
 								// Delete state settings
 								dataTable.state.clear();
 							}
-							bootbox.hideAll();
+							$(".modal").last().modal("hide");
 						}
 					});
 				}
@@ -330,7 +330,7 @@ $(".change-table-columns-visibility-button").on("click", function(e)
 				className: 'btn-primary responsive-button',
 				callback: function()
 				{
-					bootbox.hideAll();
+					$(".modal").last().modal("hide");
 				}
 			}
 		}

@@ -7,6 +7,8 @@
 	<div class="col-12 col-md-6 text-center">
 		<h2 class="title">@yield('title')</h2>
 
+		<hr class="my-2">
+
 		<ul class="nav nav-tabs grocy-tabs justify-content-center mt-3">
 			<li class="nav-item">
 				<a class="nav-link discrete-link active"

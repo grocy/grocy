@@ -23,7 +23,7 @@
 	</div>
 	<div class="related-links collapse d-md-flex order-2 width-xs-sm-100"
 		id="related-links">
-		<a class="btn btn-outline-dark responsive-button m-1 mt-md-0 mb-md-0 float-right"
+		<a class="btn btn-outline-dark responsive-button m-1 mt-md-0 mb-md-0 float-right hide-when-embedded"
 			href="{{ $U('/stockjournal/summary') }}">
 			{{ $__t('Journal summary') }}
 		</a>
@@ -226,12 +226,14 @@
 								<a class="dropdown-item show-as-dialog-link"
 									type="button"
 									href="{{ $U('/stockentries?embedded&product=') }}{{ $stockLogEntry->product_id }}"
+									data-dialog-type="table"
 									data-product-id="{{ $stockLogEntry->product_id }}">
 									<span class="dropdown-item-text">{{ $__t('Stock entries') }}</span>
 								</a>
 								<a class="dropdown-item show-as-dialog-link"
 									type="button"
-									href="{{ $U('/stockjournal/summary?embedded&product_id=') }}{{ $stockLogEntry->product_id }}">
+									href="{{ $U('/stockjournal/summary?embedded&product_id=') }}{{ $stockLogEntry->product_id }}"
+									data-dialog-type="table">
 									<span class="dropdown-item-text">{{ $__t('Stock journal summary') }}</span>
 								</a>
 								<a class="dropdown-item permission-MASTER_DATA_EDIT link-return"

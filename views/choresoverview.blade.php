@@ -182,7 +182,8 @@
 								</a>
 								<a class="dropdown-item show-as-dialog-link"
 									type="button"
-									href="{{ $U('/choresjournal?embedded&chore=') }}{{ $curentChoreEntry->chore_id }}">
+									href="{{ $U('/choresjournal?embedded&chore=') }}{{ $curentChoreEntry->chore_id }}"
+									data-dialog-type="table">
 									<span class="dropdown-item-text">{{ $__t('Chore journal') }}</span>
 								</a>
 								<a class="dropdown-item permission-MASTER_DATA_EDIT"

@@ -229,7 +229,7 @@ $(document).on('click', '.recipe-pos-edit-button', function(e)
 				className: 'btn-secondary responsive-button',
 				callback: function()
 				{
-					bootbox.hideAll();
+					$(".modal").last().modal("hide");
 				}
 			}
 		}
@@ -275,7 +275,7 @@ $("#recipe-pos-add-button").on("click", function(e)
 				className: 'btn-secondary responsive-button',
 				callback: function()
 				{
-					bootbox.hideAll();
+					$(".modal").last().modal("hide");
 				}
 			}
 		}

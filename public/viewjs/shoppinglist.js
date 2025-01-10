@@ -431,7 +431,7 @@ $(document).on("click", "#print-shopping-list-button", function(e)
 			className: 'btn-secondary',
 			callback: function()
 			{
-				bootbox.hideAll();
+				$(".modal").last().modal("hide");
 			}
 		},
 		printtp: {
@@ -439,7 +439,7 @@ $(document).on("click", "#print-shopping-list-button", function(e)
 			className: 'btn-secondary',
 			callback: function()
 			{
-				bootbox.hideAll();
+				$(".modal").last().modal("hide");
 				var printHeader = $("#print-show-header").prop("checked");
 				var thermalPrintDialog = bootbox.dialog({
 					title: __t('Printing'),
@@ -451,7 +451,7 @@ $(document).on("click", "#print-shopping-list-button", function(e)
 					Grocy.Api.Get('print/shoppinglist/thermal?list=' + $("#selected-shopping-list").val() + '&printHeader=' + printHeader,
 						function(result)
 						{
-							bootbox.hideAll();
+							$(".modal").last().modal("hide");
 						},
 						function(xhr)
 						{
@@ -481,7 +481,7 @@ $(document).on("click", "#print-shopping-list-button", function(e)
 			className: 'btn-primary responsive-button',
 			callback: function()
 			{
-				bootbox.hideAll();
+				$(".modal").last().modal("hide");
 				$('.modal-backdrop').remove();
 				$(".print-timestamp").text(moment().format("l LT"));
 

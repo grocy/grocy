@@ -937,7 +937,7 @@ $(document).on("click", ".display-recipe-button", function(e)
 						className: 'btn-secondary responsive-button',
 						callback: function()
 						{
-							bootbox.hideAll();
+							$(".modal").last().modal("hide");
 						}
 					}
 				}

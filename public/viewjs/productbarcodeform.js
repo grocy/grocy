@@ -27,8 +27,8 @@
 				Grocy.EditObjectId = result.created_object_id;
 				Grocy.Components.UserfieldsForm.Save()
 
-				window.parent.postMessage(WindowMessageBag("ProductBarcodesChanged"), U("/product/" + GetUriParam("product")));
-				window.parent.postMessage(WindowMessageBag("CloseAllModals"), U("/product/" + GetUriParam("product")));
+				window.parent.postMessage(WindowMessageBag("ProductBarcodesChanged"), Grocy.BaseUrl);
+				window.parent.postMessage(WindowMessageBag("CloseLastModal"), Grocy.BaseUrl);
 			},
 			function(xhr)
 			{
@@ -43,8 +43,8 @@
 		Grocy.Api.Put('objects/product_barcodes/' + Grocy.EditObjectId, jsonData,
 			function(result)
 			{
-				window.parent.postMessage(WindowMessageBag("ProductBarcodesChanged"), U("/product/" + GetUriParam("product")));
-				window.parent.postMessage(WindowMessageBag("CloseAllModals"), U("/product/" + GetUriParam("product")));
+				window.parent.postMessage(WindowMessageBag("ProductBarcodesChanged"), Grocy.BaseUrl);
+				window.parent.postMessage(WindowMessageBag("CloseLastModal"), Grocy.BaseUrl);
 			},
 			function(xhr)
 			{

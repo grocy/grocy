@@ -124,7 +124,7 @@ Grocy.Components.BarcodeScanner.StartScanning = function()
 			window.localStorage.removeItem("cameraId");
 			setTimeout(function()
 			{
-				bootbox.hideAll();
+				$(".modal").last().modal("hide");
 			}, 500);
 			return;
 		}
@@ -142,7 +142,7 @@ Grocy.Components.BarcodeScanner.StopScanning = function()
 	Grocy.Components.BarcodeScanner.DecodedCodesCount = 0;
 	Grocy.Components.BarcodeScanner.DecodedCodesErrorCount = 0;
 
-	bootbox.hideAll();
+	$(".modal").last().modal("hide");
 }
 
 Grocy.Components.BarcodeScanner.TorchOn = function(track)

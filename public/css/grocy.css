@@ -113,9 +113,6 @@ button.disabled {
 
 iframe.embed-responsive {
 	border: 0;
-	width: 1px;
-	min-width: 100%;
-	min-height: 700px;
 }
 
 /* Hide the default up/down arrow buttons for number inputs because we use our own buttons in numberpicker */
@@ -276,6 +273,21 @@ a:not([href]) {
 /* Always show modals over everything else */
 .modal {
 	z-index: 99998;
+}
+
+@media (min-width: 576px) {
+	.form .modal-dialog {
+		max-width: 650px;
+	}
+
+	.table .modal-dialog {
+		max-width: 90%;
+	}
+}
+
+.dropdown-menu {
+	max-height: 100vh;
+	overflow-y: auto;
 }
 
 /* Third party component customizations - DataTables */

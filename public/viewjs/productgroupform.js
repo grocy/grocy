@@ -23,7 +23,7 @@
 				Grocy.EditObjectId = result.created_object_id;
 				Grocy.Components.UserfieldsForm.Save(function()
 				{
-					window.parent.postMessage(WindowMessageBag("CloseAllModals"), U("/productgroups"));
+					window.parent.postMessage(WindowMessageBag("CloseLastModal"), Grocy.BaseUrl);
 				});
 			},
 			function(xhr)
@@ -40,7 +40,7 @@
 			{
 				Grocy.Components.UserfieldsForm.Save(function()
 				{
-					window.parent.postMessage(WindowMessageBag("CloseAllModals"), U("/productgroups"));
+					window.parent.postMessage(WindowMessageBag("CloseLastModal"), Grocy.BaseUrl);
 				});
 			},
 			function(xhr)

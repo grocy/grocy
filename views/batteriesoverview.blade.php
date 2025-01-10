@@ -137,7 +137,8 @@
 								</a>
 								<a class="dropdown-item show-as-dialog-link"
 									type="button"
-									href="{{ $U('/batteriesjournal?embedded&battery=') }}{{ $currentBatteryEntry->battery_id }}">
+									href="{{ $U('/batteriesjournal?embedded&battery=') }}{{ $currentBatteryEntry->battery_id }}"
+									data-dialog-type="table">
 									<span class="dropdown-item-text">{{ $__t('Battery journal') }}</span>
 								</a>
 								<a class="dropdown-item permission-MASTER_DATA_EDIT show-as-dialog-link"

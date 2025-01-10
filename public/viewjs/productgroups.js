@@ -65,7 +65,7 @@ $(window).on("message", function(e)
 {
 	var data = e.originalEvent.data;
 
-	if (data.Message === "CloseAllModals")
+	if (data.Message === "CloseLastModal")
 	{
 		window.location.reload();
 	}

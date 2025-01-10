@@ -288,17 +288,20 @@
 								<a class="dropdown-item show-as-dialog-link"
 									type="button"
 									href="{{ $U('/stockentries?embedded&product=') }}{{ $currentStockEntry->product_id }}"
+									data-dialog-type="table"
 									data-product-id="{{ $currentStockEntry->product_id }}">
 									<span class="dropdown-item-text">{{ $__t('Stock entries') }}</span>
 								</a>
 								<a class="dropdown-item show-as-dialog-link"
 									type="button"
-									href="{{ $U('/stockjournal?embedded&product=') }}{{ $currentStockEntry->product_id }}">
+									href="{{ $U('/stockjournal?embedded&product=') }}{{ $currentStockEntry->product_id }}"
+									data-dialog-type="table">
 									<span class="dropdown-item-text">{{ $__t('Stock journal') }}</span>
 								</a>
 								<a class="dropdown-item show-as-dialog-link"
 									type="button"
-									href="{{ $U('/stockjournal/summary?embedded&product_id=') }}{{ $currentStockEntry->product_id }}">
+									href="{{ $U('/stockjournal/summary?embedded&product_id=') }}{{ $currentStockEntry->product_id }}"
+									data-dialog-type="table">
 									<span class="dropdown-item-text">{{ $__t('Stock journal summary') }}</span>
 								</a>
 								<a class="dropdown-item permission-MASTER_DATA_EDIT link-return"

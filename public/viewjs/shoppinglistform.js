@@ -25,7 +25,7 @@
 				{
 					window.parent.postMessage(WindowMessageBag("ShoppingListChanged", result.created_object_id), Grocy.BaseUrl);
 					window.parent.postMessage(WindowMessageBag("Ready"), Grocy.BaseUrl);
-					window.parent.postMessage(WindowMessageBag("CloseAllModals"), Grocy.BaseUrl);
+					window.parent.postMessage(WindowMessageBag("CloseLastModal"), Grocy.BaseUrl);
 				});
 			},
 			function(xhr)
@@ -44,7 +44,7 @@
 				{
 					window.parent.postMessage(WindowMessageBag("ShoppingListChanged", Grocy.EditObjectId), Grocy.BaseUrl);
 					window.parent.postMessage(WindowMessageBag("Ready"), Grocy.BaseUrl);
-					window.parent.postMessage(WindowMessageBag("CloseAllModals"), Grocy.BaseUrl);
+					window.parent.postMessage(WindowMessageBag("CloseLastModal"), Grocy.BaseUrl);
 				},
 				function(xhr)
 				{

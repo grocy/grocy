@@ -538,28 +538,39 @@ if ($(".custom-file-label").length > 0)
 	$("<style>").html('.custom-file-label::after { content: "' + __t("Select file") + '"; }').appendTo("head");
 }
 
-ResizeResponsiveEmbeds = function(fillEntireViewport = false)
+ResizeResponsiveEmbeds = function()
 {
-	if (!fillEntireViewport)
+	$("iframe.embed-responsive").each(function()
 	{
-		var maxHeight = $("body").height() - $("#mainNav").outerHeight() - 62;
-	}
-	else
-	{
-		var maxHeight = $("body").height();
-	}
+		$(this).attr("height", $(this)[0].contentWindow.document.body.scrollHeight.toString() + "px");
+	});
 
+	var maxHeight = $("body").height() - $("#mainNav").outerHeight() - 62;
+	if ($("body").hasClass("fullscreen-card"))
+	{
+		maxHeight = $("body").height();
+	}
 	$("embed.embed-responsive").attr("height", maxHeight.toString() + "px");
 }
-$(window).on('resize', function()
+$(window).on("resize", function()
 {
-	ResizeResponsiveEmbeds($("body").hasClass("fullscreen-card"));
+	ResizeResponsiveEmbeds();
 });
-
-if (GetUriParam("embedded"))
+$("iframe").on("load", function()
 {
-	window.parent.iframeResize({ "checkOrigin": false, "warningTimeout": 0, "license": "GPLv3" }, "iframe.embed-responsive");
-}
+	ResizeResponsiveEmbeds();
+});
+$(document).on("shown.bs.modal", function(e)
+{
+	ResizeResponsiveEmbeds();
+});
+$("body").children().each(function(index, child)
+{
+	new ResizeObserver(function()
+	{
+		window.parent.postMessage(WindowMessageBag("ResizeResponsiveEmbeds"), Grocy.BaseUrl);
+	}).observe(child);
+});
 
 function WindowMessageBag(message, payload = null)
 {
@@ -696,13 +707,34 @@ $(window).on("message", function(e)
 {
 	var data = e.originalEvent.data;
 
-	if (data.Message === "ShowSuccessMessage")
+	if (data.Message == "ShowSuccessMessage")
 	{
 		toastr.success(data.Payload);
 	}
-	else if (data.Message === "CloseAllModals")
+	else if (data.Message == "CloseLastModal")
 	{
-		bootbox.hideAll();
+		$(".modal").last().modal("hide");
+	}
+	else if (data.Message == "ResizeResponsiveEmbeds")
+	{
+		ResizeResponsiveEmbeds();
+	}
+	else if (data.Message == "IframeModal")
+	{
+		IframeModal(data.Payload.Link, data.Payload.DialogType);
+	}
+	else if (data.Message == "Reload")
+	{
+		window.location.reload();
+	}
+	else if (data.Message == "BroadcastMessage")
+	{
+		// data.Payload is the original WindowMessageBag => distribute to this window + all child iframes
+		window.postMessage(data.Payload, Grocy.BaseUrl);
+		$("iframe.embed-responsive").each(function()
+		{
+			$(this)[0].contentWindow.postMessage(data.Payload, Grocy.BaseUrl);
+		});
 	}
 });
 
@@ -710,25 +742,46 @@ $(document).on("click", ".show-as-dialog-link", function(e)
 {
 	e.preventDefault();
 
-	var link = $(e.currentTarget).attr("href");
+	var element = $(e.currentTarget);
+	var link = element.attr("href");
 
+	var dialogType = "form";
+	if (element.hasAttr("data-dialog-type"))
+	{
+		dialogType = element.attr("data-dialog-type")
+	}
+
+	if (window.top != window.self)
+	{
+		window.top.postMessage(WindowMessageBag("IframeModal", { "Link": link, "DialogType": dialogType }), Grocy.BaseUrl);
+
+	}
+	else
+	{
+		IframeModal(link, dialogType);
+	}
+});
+
+function IframeModal(link, dialogClass = "form")
+{
 	bootbox.dialog({
 		message: '<iframe class="embed-responsive" src="' + link + '"></iframe>',
 		size: 'large',
 		backdrop: true,
 		closeButton: false,
+		className: dialogClass,
 		buttons: {
 			cancel: {
 				label: __t('Close'),
 				className: 'btn-secondary responsive-button',
 				callback: function()
 				{
-					bootbox.hideAll();
+					$(".modal").last().modal("hide");
 				}
 			}
 		}
 	});
-});
+}
 
 // Init Bootstrap tooltips
 $('[data-toggle="tooltip"]').tooltip();
@@ -777,16 +830,6 @@ $('.dropdown-item').has('.form-check input[type=checkbox]').on('click', function
 	if ($(e.target).is('div.form-check') || $(e.target).is('div.dropdown-item'))
 	{
 		$(e.target).find('input[type=checkbox]').click();
-	}
-});
-
-$(window).on("message", function(e)
-{
-	var data = e.originalEvent.data;
-
-	if (data.Message === "Reload")
-	{
-		window.location.reload();
 	}
 });
 

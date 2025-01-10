@@ -37,8 +37,8 @@
 					}
 					else
 					{
-						window.parent.postMessage(WindowMessageBag("ProductQUConversionChanged"), U("/product/" + GetUriParam("product")));
-						window.parent.postMessage(WindowMessageBag("CloseAllModals"), U("/product/" + GetUriParam("product")));
+						window.parent.postMessage(WindowMessageBag("ProductQUConversionChanged"), Grocy.BaseUrl);
+						window.parent.postMessage(WindowMessageBag("CloseLastModal"), Grocy.BaseUrl);
 					}
 				});
 			},
@@ -69,8 +69,8 @@
 					}
 					else
 					{
-						window.parent.postMessage(WindowMessageBag("ProductQUConversionChanged"), U("/product/" + GetUriParam("product")));
-						window.parent.postMessage(WindowMessageBag("CloseAllModals"), U("/product/" + GetUriParam("product")));
+						window.parent.postMessage(WindowMessageBag("ProductQUConversionChanged"), Grocy.BaseUrl);
+						window.parent.postMessage(WindowMessageBag("CloseLastModal"), Grocy.BaseUrl);
 					}
 				});
 			},

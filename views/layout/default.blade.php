@@ -747,10 +747,6 @@
 	<script src="{{ $U('/packages/chartjs-plugin-doughnutlabel/dist/chartjs-plugin-doughnutlabel.js?v=', true) }}{{ $version }}"></script>
 	<script src="{{ $U('/packages/chartjs-plugin-piechart-outlabels/dist/chartjs-plugin-piechart-outlabels.min.js?v=', true) }}{{ $version}}"></script>
 	@endif
-	@if($embedded)
-	<script src="{{ $U('/packages/@iframe-resizer/child/index.umd.js?v=', true) }}{{ $version}}"></script>
-	@endif
-	<script src="{{ $U('/packages/@iframe-resizer/parent/index.umd.js?v=', true) }}{{ $version}}"></script>
 
 	<script src="{{ $U('/js/extensions.js?v=', true) }}{{ $version }}"></script>
 	<script src="{{ $U('/js/grocy_menu_layout.js?v=', true) }}{{ $version }}"></script>

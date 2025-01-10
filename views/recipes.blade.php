@@ -305,7 +305,7 @@
 		<div id="selectedRecipeCard"
 			class="card grocy-card">
 			@if(count($allRecipes) > 1)
-			<div class="card-header card-header-fullscreen mb-1 d-print-none">
+			<div class="card-header card-header-fullscreen mb-1 pt-0 d-print-none">
 				<ul class="nav nav-tabs grocy-tabs card-header-tabs">
 					@foreach($allRecipes as $index=>$recipe)
 					<li class="nav-item">

@@ -6,8 +6,6 @@
 		"@ericblade/quagga2": "^1.2.1",
 		"@fontsource/roboto": "^5.1.1",
 		"@fortawesome/fontawesome-free": "^6.1.1",
-		"@iframe-resizer/child": "^5.3.2",
-		"@iframe-resizer/parent": "^5.3.2",
 		"animate.css": "^3.7.2",
 		"bootbox": "^6.0.0",
 		"bootstrap": "^4.5.2",

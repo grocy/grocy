@@ -208,12 +208,14 @@
 								</a>
 								<a class="dropdown-item show-as-dialog-link"
 									type="button"
-									href="{{ $U('/stockjournal?embedded&product=') }}{{ $stockEntry->product_id }}">
+									href="{{ $U('/stockjournal?embedded&product=') }}{{ $stockEntry->product_id }}"
+									data-dialog-type="table">
 									{{ $__t('Stock journal') }}
 								</a>
 								<a class="dropdown-item show-as-dialog-link"
 									type="button"
-									href="{{ $U('/stockjournal/summary?embedded&product=') }}{{ $stockEntry->product_id }}">
+									href="{{ $U('/stockjournal/summary?embedded&product=') }}{{ $stockEntry->product_id }}"
+									data-dialog-type="table">
 									{{ $__t('Stock journal summary') }}
 								</a>
 								<a class="dropdown-item link-return"
