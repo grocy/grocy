@@ -158,26 +158,7 @@
 						for="move_on_open">{{ $__t('Move on open') }}&nbsp;<i class="fa-solid fa-question-circle text-muted"
 							data-toggle="tooltip"
 							data-trigger="hover click"
-							title="{{ $__t("
-							When
-							enabled,
-							on
-							marking
-							this
-							product
-							as
-							opened,
-							the
-							corresponding
-							amount
-							will
-							be
-							moved
-							to
-							the
-							default
-							consume
-							location")
+							title="{{ $__t("When enabled, on marking this product as opened, the corresponding amount will be moved to the default consume location")
 							}}"></i>
 					</label>
 				</div>

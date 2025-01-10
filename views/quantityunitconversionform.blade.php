@@ -10,8 +10,8 @@
 <div class="row">
 	<div class="col">
 		<div class="title-related-links">
-			<h2 class="title">@yield('title')</h2>
-			<h2>
+			<h2 class="title">
+				@yield('title')<br>
 				@if($product != null)
 				<span class="text-muted small">{{ $__t('Override for product') }} <strong>{{ $product->name }}</strong></span>
 				@else

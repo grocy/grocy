@@ -223,16 +223,7 @@ $(document).on('click', '.recipe-pos-edit-button', function(e)
 		size: 'large',
 		backdrop: true,
 		closeButton: false,
-		buttons: {
-			cancel: {
-				label: __t('Cancel'),
-				className: 'btn-secondary responsive-button',
-				callback: function()
-				{
-					$(".modal").last().modal("hide");
-				}
-			}
-		}
+		className: "form"
 	});
 });
 
@@ -269,16 +260,7 @@ $("#recipe-pos-add-button").on("click", function(e)
 		size: 'large',
 		backdrop: true,
 		closeButton: false,
-		buttons: {
-			cancel: {
-				label: __t('Cancel'),
-				className: 'btn-secondary responsive-button',
-				callback: function()
-				{
-					$(".modal").last().modal("hide");
-				}
-			}
-		}
+		className: "form"
 	});
 });
 

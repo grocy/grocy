@@ -119,6 +119,7 @@ $(".calendar").each(function()
 			element.removeClass("fc-event");
 			element.addClass("text-center");
 			element.attr("data-meal-plan-entry", event.mealPlanEntry);
+			element.addClass("discrete-link");
 
 			var mealPlanEntry = JSON.parse(event.mealPlanEntry);
 
