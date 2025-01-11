@@ -66,7 +66,7 @@ Setting('BASE_URL', '/');
 // The plugin to use for external barcode lookups,
 // must be the filename (folder /data/plugins) without the .php extension,
 // see /data/plugins/DemoBarcodeLookupPlugin.php for an example implementation
-Setting('STOCK_BARCODE_LOOKUP_PLUGIN', 'DemoBarcodeLookupPlugin');
+Setting('STOCK_BARCODE_LOOKUP_PLUGIN', 'OpenFoodFactsBarcodeLookupPlugin');
 
 // If, however, your webserver does not support URL rewriting, set this to true
 Setting('DISABLE_URL_REWRITING', false);

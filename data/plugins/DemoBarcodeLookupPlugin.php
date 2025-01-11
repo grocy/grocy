@@ -44,17 +44,23 @@ class DemoBarcodeLookupPlugin extends BaseBarcodeLookupPlugin
 	/*
 		This class must implement the protected abstract function ExecuteLookup($barcode),
 		which is called with the barcode that needs to be looked up and must return an
-		associative array of the product model or null, when nothing was found for the barcode.
+		associative array of the product model or null, when nothing was found for the barcode
 
-		The returned array must contain at least these properties:
-		array(
+		The returned array must be a valid product object (see the "products" database table for all available properties/columns):
+		[
+			// Required properties:
 			'name' => '',
 			'location_id' => 1, // A valid id of a location object, check against $this->Locations
-			'qu_id_purchase' => 1, // A valid id of quantity unit object, check against $this->QuantityUnits
-			'qu_id_stock' => 1, // A valid id of quantity unit object, check against $this->QuantityUnits
+			'qu_id_purchase' => 1, // A valid id of a quantity unit object, check against $this->QuantityUnits
+			'qu_id_stock' => 1, // A valid id of a quantity unit object, check against $this->QuantityUnits
+
+			// These are virtual properties (not part of the product object, will be automatically handled as needed)
 			'qu_factor_purchase_to_stock' => 1, // Normally 1 when quantity unit stock and purchase is the same
 			'barcode' => $barcode // The barcode of the product, maybe just pass through $barcode or manipulate it if necessary
-		)
+
+			// Optional virtual properties
+			'image_url' => '' // When provided, the corresponding image will be downloaded and set as the product picture
+		]
 	*/
 	protected function ExecuteLookup($barcode)
 	{
@@ -72,9 +78,9 @@ class DemoBarcodeLookupPlugin extends BaseBarcodeLookupPlugin
 		{
 			return [
 				'name' => 'LookedUpProduct_' . RandomString(5),
-				'location_id' => $this->Locations[0]->id,
-				'qu_id_purchase' => $this->QuantityUnits[0]->id,
-				'qu_id_stock' => $this->QuantityUnits[0]->id,
+				'location_id' => $this->Locations[0]->id, // Take the first location as a default
+				'qu_id_purchase' => $this->QuantityUnits[0]->id, // Take the first QU as a default
+				'qu_id_stock' => $this->QuantityUnits[0]->id, // Take the first QU as a default
 				'qu_factor_purchase_to_stock' => 1,
 				'barcode' => $barcode
 			];

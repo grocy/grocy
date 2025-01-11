@@ -4,6 +4,7 @@ namespace Grocy\Services;
 
 use Grocy\Helpers\Grocycode;
 use Grocy\Helpers\WebhookRunner;
+use GuzzleHttp\Client;
 
 class StockService extends BaseService
 {
@@ -603,7 +604,26 @@ class StockService extends BaseService
 			{
 				// Add product to database and include new product id in output
 				$productData = $pluginOutput;
-				unset($productData['barcode'], $productData['qu_factor_purchase_to_stock']);
+				unset($productData['barcode'], $productData['qu_factor_purchase_to_stock'], $productData['image_url']); // Virtual lookup plugin properties
+
+				// Download and save image if provided
+				if (isset($pluginOutput['image_url']) && !empty($pluginOutput['image_url']))
+				{
+					try
+					{
+						$webClient = new Client();
+						$response = $webClient->request('GET', $pluginOutput['image_url']);
+						$fileName = $pluginOutput['barcode'] . '.' . pathinfo($pluginOutput['image_url'], PATHINFO_EXTENSION);
+						$fileHandle = fopen($this->getFilesService()->GetFilePath('productpictures', $fileName), 'wb');
+						fwrite($fileHandle, $response->getBody());
+						fclose($fileHandle);
+						$productData['picture_file_name'] = $fileName;
+					}
+					catch (\Exception)
+					{
+						// Ignore
+					}
+				}
 
 				$newProductRow = $this->getDatabase()->products()->createRow($productData);
 				$newProductRow->save();

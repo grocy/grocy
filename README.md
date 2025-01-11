@@ -131,7 +131,9 @@ Products can be directly added to the database via looking them up against exter
 
 This can be done in-place using the product picker workflow "External barcode lookup (via plugin)" (the workflow dialog is displayed when entering something unknown in any product input field).
 
-There is no plugin included for any service, see the reference implementation in `data/plugins/DemoBarcodeLookupPlugin.php`.
+A plugin for [Open Food Facts](https://world.openfoodfacts.org/) is included and used by default (see the `data/config.php` option `STOCK_BARCODE_LOOKUP_PLUGIN`).
+
+See that plugin or the reference implementation in `data/plugins/DemoBarcodeLookupPlugin.php` if you want to build a plugin.
 
 ### Database migrations
 

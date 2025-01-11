@@ -257,6 +257,7 @@ $('#product_id_text_input').on('blur', function(e)
 					callback: function()
 					{
 						Grocy.Components.ProductPicker.PopupOpen = false;
+						Grocy.FrontendHelpers.BeginUiBusy($("form").first().attr("id"));
 
 						Grocy.Api.Get("stock/barcodes/external-lookup/" + encodeURIComponent(input) + "?add=true",
 							function(pluginResponse)
@@ -264,15 +265,17 @@ $('#product_id_text_input').on('blur', function(e)
 								if (pluginResponse == null)
 								{
 									toastr.warning(__t("Nothing was found for the given barcode"));
+									Grocy.FrontendHelpers.EndUiBusy($("form").first().attr("id"));
 								}
 								else
 								{
-									window.location.href = U("/product/" + pluginResponse.id + "?flow=InplaceNewProductByPlugin&returnto=" + encodeURIComponent(Grocy.CurrentUrlRelative + "?flow=InplaceNewProductWithName&" + embedded) + "&" + embedded);
+									window.location.href = U("/product/" + pluginResponse.id + "?flow=InplaceNewProductByExternalBarcodeLookupPlugin&returnto=" + encodeURIComponent(Grocy.CurrentUrlRelative + "?flow=InplaceNewProductWithName&" + embedded) + "&" + embedded);
 								}
 							},
 							function(xhr)
 							{
 								Grocy.FrontendHelpers.ShowGenericError("Error while executing the barcode lookup plugin", xhr.response);
+								Grocy.FrontendHelpers.EndUiBusy($("form").first().attr("id"));
 							}
 						);
 					}

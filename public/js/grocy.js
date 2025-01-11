@@ -403,7 +403,8 @@ Grocy.FrontendHelpers.ShowGenericError = function(message, exception)
 			bootbox.alert({
 				title: __t('Error details'),
 				message: '<p class="text-monospace my-0">' + errorDetails + '</p>',
-				closeButton: false
+				closeButton: false,
+				className: "wider"
 			});
 		}
 	});

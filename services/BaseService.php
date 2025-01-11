@@ -47,7 +47,7 @@ class BaseService
 		return LocalizationService::getInstance(GROCY_LOCALE);
 	}
 
-	protected function getStockservice()
+	protected function getStockService()
 	{
 		return StockService::getInstance();
 	}
@@ -65,5 +65,10 @@ class BaseService
 	protected function getPrintService()
 	{
 		return PrintService::getInstance();
+	}
+
+	protected function getFilesService()
+	{
+		return FilesService::getInstance();
 	}
 }
