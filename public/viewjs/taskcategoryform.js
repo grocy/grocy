@@ -92,5 +92,5 @@ Grocy.Components.UserfieldsForm.Load();
 setTimeout(function()
 {
 	$('#name').focus();
-}, 200);
+}, 500);
 Grocy.FrontendHelpers.ValidateForm('task-category-form');

@@ -78,5 +78,5 @@ Grocy.Components.UserfieldsForm.Load();
 setTimeout(function()
 {
 	$('#name').focus();
-}, 200);
+}, 500);
 Grocy.FrontendHelpers.ValidateForm('product-group-form');

@@ -141,7 +141,7 @@ setTimeout(function()
 	$("#consume_product_on_execution").click();
 
 	Grocy.Components.ProductPicker.GetPicker().trigger('change');
-}, 200);
+}, 500);
 
 $('.input-group-chore-period-type').on('change keyup', function(e)
 {

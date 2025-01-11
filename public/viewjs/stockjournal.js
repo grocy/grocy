@@ -74,7 +74,7 @@ $("#search").on("keyup", Delay(function()
 	}
 
 	stockJournalTable.search(value).draw();
-}, 200));
+}, 500));
 
 $("#clear-filter-button").on("click", function()
 {

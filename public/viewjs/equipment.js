@@ -105,7 +105,7 @@ $("#search").on("keyup", Delay(function()
 	}
 
 	equipmentTable.search(value).draw();
-}, 200));
+}, 500));
 
 $("#clear-filter-button").on("click", function()
 {

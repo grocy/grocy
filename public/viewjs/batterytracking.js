@@ -65,7 +65,7 @@ $('#battery_id').on('change', function(e)
 		setTimeout(function()
 		{
 			$('#tracked_time').find('input').focus();
-		}, 200);
+		}, 500);
 
 		Grocy.FrontendHelpers.ValidateForm('batterytracking-form');
 	}
@@ -131,7 +131,7 @@ $(document).on("Grocy.BarcodeScanned", function(e, barcode, target)
 		$("#battery_id_text_input").focus();
 		$("#battery_id_text_input").blur();
 		$('#tracked_time').find('input').focus();
-	}, 200);
+	}, 500);
 });
 
 function UndoChargeCycle(chargeCycleId)

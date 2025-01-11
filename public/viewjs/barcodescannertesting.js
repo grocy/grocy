@@ -36,7 +36,7 @@ setTimeout(function()
 {
 	$("#barcodescanner-start-button").attr("disabled", "");
 	$("#barcodescanner-start-button").addClass("disabled");
-}, 200);
+}, 500);
 
 if (GetUriParam("barcode") !== undefined)
 {
@@ -45,7 +45,7 @@ if (GetUriParam("barcode") !== undefined)
 	{
 		$("#expected_barcode").keyup();
 		$("#scanned_barcode").focus();
-	}, 200);
+	}, 500);
 }
 
 function OnBarcodeScanned(barcode)
@@ -82,7 +82,7 @@ function OnBarcodeScanned(barcode)
 		{
 			$("#scanned_barcode").focus();
 		}
-	}, 200);
+	}, 500);
 }
 
 $(document).on("Grocy.BarcodeScanned", function(e, barcode, target)

@@ -346,7 +346,7 @@ if (Grocy.Components.ProductPicker !== undefined)
 					setTimeout(function()
 					{
 						$('#display_amount').focus();
-					}, 200);
+					}, 500);
 
 					Grocy.FrontendHelpers.ValidateForm('purchase-form');
 					if (GetUriParam("flow") === "shoppinglistitemtostock" && BoolVal(Grocy.UserSettings.shopping_list_to_stock_workflow_auto_submit_when_prefilled) && Grocy.FrontendHelpers.ValidateForm("purchase-form"))

@@ -20,7 +20,7 @@ $("#search").on("keyup", Delay(function()
 	}
 
 	productsTable.search(value).draw();
-}, 200));
+}, 500));
 
 $("#product-group-filter").on("change", function()
 {

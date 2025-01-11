@@ -17,7 +17,7 @@ $("#search").on("keyup", Delay(function()
 	}
 
 	categoriesTable.search(value).draw();
-}, 200));
+}, 500));
 
 $("#clear-filter-button").on("click", function()
 {

@@ -43,7 +43,7 @@ $("#search").on("keyup", Delay(function()
 	}
 
 	shoppingListTable.search(value).draw();
-}, 200));
+}, 500));
 
 $("#clear-filter-button").on("click", function()
 {

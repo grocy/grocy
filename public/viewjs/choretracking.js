@@ -99,7 +99,7 @@ $('#chore_id').on('change', function(e)
 		setTimeout(function()
 		{
 			Grocy.Components.DateTimePicker.GetInputElement().focus();
-		}, 200);
+		}, 500);
 
 		Grocy.FrontendHelpers.ValidateForm('choretracking-form');
 	}
@@ -158,7 +158,7 @@ $(document).on("Grocy.BarcodeScanned", function(e, barcode, target)
 		$("#chore_id_text_input").focus();
 		$("#chore_id_text_input").blur();
 		$('#tracked_time').find('input').focus();
-	}, 200);
+	}, 500);
 });
 
 Grocy.Components.DateTimePicker.GetInputElement().on('keypress', function(e)

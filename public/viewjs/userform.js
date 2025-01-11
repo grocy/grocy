@@ -146,7 +146,7 @@ $("#change_password").click(function()
 	setTimeout(function()
 	{
 		$("#password").focus();
-	}, 200);
+	}, 500);
 });
 
 if (GetUriParam("changepw") === "true")

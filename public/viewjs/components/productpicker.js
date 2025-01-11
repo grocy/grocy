@@ -397,7 +397,7 @@ $(document).on("Grocy.BarcodeScanned", function(e, barcode, target)
 		Grocy.Components.ProductPicker.GetInputElement().focusout();
 		Grocy.Components.ProductPicker.GetInputElement().focus();
 		Grocy.Components.ProductPicker.GetInputElement().blur();
-	}, 200);
+	}, 500);
 });
 
 $(document).on("shown.bs.modal", function(e)

@@ -124,14 +124,14 @@ if (!Grocy.Components.ProductPicker.InAnyFlow())
 		setTimeout(function()
 		{
 			$("#display_amount").focus();
-		}, 200);
+		}, 500);
 	}
 	else
 	{
 		setTimeout(function()
 		{
 			Grocy.Components.ProductPicker.GetInputElement().focus();
-		}, 200);
+		}, 500);
 	}
 }
 else
@@ -143,7 +143,7 @@ else
 		setTimeout(function()
 		{
 			Grocy.Components.ProductPicker.GetInputElement().focus();
-		}, 200);
+		}, 500);
 	}
 }
 

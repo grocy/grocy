@@ -18,7 +18,7 @@ $("#search").on("keyup", Delay(function()
 	}
 
 	tasksTable.search(value).draw();
-}, 200));
+}, 500));
 
 $("#status-filter").on("change", function()
 {

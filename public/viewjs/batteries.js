@@ -18,7 +18,7 @@ $("#search").on("keyup", Delay(function()
 	}
 
 	batteriesTable.search(value).draw();
-}, 200));
+}, 500));
 
 $("#clear-filter-button").on("click", function()
 {

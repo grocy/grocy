@@ -17,7 +17,7 @@ $("#search").on("keyup", Delay(function()
 	}
 
 	quConversionsResolvedTable.search(value).draw();
-}, 200));
+}, 500));
 
 $("#quantity-unit-filter").on("change", function()
 {

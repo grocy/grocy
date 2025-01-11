@@ -17,7 +17,7 @@ $("#search").on("keyup", Delay(function()
 	}
 
 	userfieldsTable.search(value).draw();
-}, 200));
+}, 500));
 
 $("#entity-filter").on("change", function()
 {

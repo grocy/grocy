@@ -38,7 +38,7 @@ $("#search").on("keyup", Delay(function()
 	}
 
 	choresJournalTable.search(value).draw();
-}, 200));
+}, 500));
 
 $("#clear-filter-button").on("click", function()
 {
