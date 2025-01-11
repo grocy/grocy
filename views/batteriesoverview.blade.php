@@ -34,7 +34,7 @@
 				data-status-filter="duesoon"
 				data-next-x-days="{{ $nextXDays }}"
 				class="warning-message status-filter-message responsive-button @if($nextXDays == 0) d-none @endif"></div>
-			<div class="float-right mt-1">
+			<div class="float-right mt-1 @if($embedded) pr-5 @endif">
 				<a class="btn btn-sm btn-outline-info d-md-none"
 					data-toggle="collapse"
 					href="#table-filter-row"

@@ -14,7 +14,7 @@
 				<span class="text-muted font-italic small">{{ $__t('Product') }} <strong>{{ $product->name }}</strong></span>
 				@endif
 			</h2>
-			<div class="float-right">
+			<div class="float-right @if($embedded) pr-5 @endif">
 				<button class="btn btn-outline-dark d-md-none mt-2"
 					type="button"
 					data-toggle="collapse"

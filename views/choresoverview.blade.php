@@ -39,7 +39,7 @@
 				data-user-filter="xx{{ GROCY_USER_ID }}xx"
 				class="secondary-message user-filter-message responsive-button"></div>
 			@endif
-			<div class="float-right mt-1">
+			<div class="float-right mt-1 @if($embedded) pr-5 @endif">
 				<a class="btn btn-sm btn-outline-info d-md-none"
 					data-toggle="collapse"
 					href="#table-filter-row"

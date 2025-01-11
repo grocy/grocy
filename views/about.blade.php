@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="row">
-	<div class="col-12 col-md-6 text-center">
+	<div class="col text-center">
 		<h2 class="title">@yield('title')</h2>
 
 		<hr class="my-2">

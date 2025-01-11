@@ -62,7 +62,6 @@
 			{
 				var successMessage = __t('Stock entry successfully updated') + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockBookingEntry(\'' + result.id + '\',\'' + Grocy.EditObjectRowId + '\')"><i class="fa-solid fa-undo"></i> ' + __t("Undo") + '</a>';
 
-				window.top.postMessage(WindowMessageBag("BroadcastMessage", WindowMessageBag("StockEntryChanged", Grocy.EditObjectRowId)), Grocy.BaseUrl);
 				window.top.postMessage(WindowMessageBag("BroadcastMessage", WindowMessageBag("ProductChanged", Grocy.EditObjectProductId)), Grocy.BaseUrl);
 				window.parent.postMessage(WindowMessageBag("ShowSuccessMessage", successMessage), Grocy.BaseUrl);
 				window.parent.postMessage(WindowMessageBag("Ready"), Grocy.BaseUrl);
@@ -149,5 +148,5 @@ Grocy.Components.UserfieldsForm.Load();
 setTimeout(function()
 {
 	$('#amount').focus();
-}, 150);
+}, 200);
 Grocy.FrontendHelpers.ValidateForm("stockentry-form");

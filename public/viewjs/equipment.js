@@ -159,6 +159,7 @@ $(".selectedEquipmentInstructionManualToggleFullscreenButton").on('click', funct
 	card.find(".card-header").toggleClass("fixed-top");
 	card.find(".card-body").toggleClass("mt-5");
 	$("body").toggleClass("fullscreen-card");
+	$("embed.embed-responsive").removeClass("resize-done");
 	ResizeResponsiveEmbeds();
 });
 

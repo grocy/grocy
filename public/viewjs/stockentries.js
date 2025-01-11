@@ -31,7 +31,12 @@ $("#clear-filter-button").on("click", function()
 {
 	$("#location-filter").val("all");
 	$("#location-filter").trigger("change");
-	Grocy.Components.ProductPicker.Clear();
+
+	if (GetUriParam("embedded") === undefined)
+	{
+		Grocy.Components.ProductPicker.Clear();
+	}
+
 	stockEntriesTable.draw();
 });
 
@@ -311,11 +316,7 @@ $(window).on("message", function(e)
 {
 	var data = e.originalEvent.data;
 
-	if (data.Message == "StockEntryChanged")
-	{
-		RefreshStockEntryRow(data.Payload);
-	}
-	else if (data.Message == "ProductChanged")
+	if (data.Message == "ProductChanged")
 	{
 		window.location.reload();
 	}
@@ -328,7 +329,6 @@ function UndoStockBookingEntry(bookingId, stockRowId, productId)
 	Grocy.Api.Post('stock/bookings/' + bookingId.toString() + '/undo', {},
 		function(result)
 		{
-			window.top.postMessage(WindowMessageBag("BroadcastMessage", WindowMessageBag("StockEntryChanged", stockRowId)), Grocy.BaseUrl);
 			window.top.postMessage(WindowMessageBag("BroadcastMessage", WindowMessageBag("ProductChanged", productId)), Grocy.BaseUrl);
 			toastr.success(__t("Booking successfully undone"));
 		},

@@ -107,5 +107,5 @@ Grocy.Components.UserfieldsForm.Load();
 setTimeout(function()
 {
 	$('#name').focus();
-}, 150);
+}, 200);
 Grocy.FrontendHelpers.ValidateForm('battery-form');

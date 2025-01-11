@@ -11,7 +11,7 @@
 			<h2 class="title mr-2 order-0">
 				@yield('title')
 			</h2>
-			<div class="float-right">
+			<div class="float-right @if($embedded) pr-5 @endif">
 				<button class="btn btn-outline-dark d-md-none mt-2 order-1 order-md-3"
 					type="button"
 					data-toggle="collapse"

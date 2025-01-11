@@ -29,7 +29,7 @@
 				<span class="text-muted small">{!! $__t('%s total value', '<span class="locale-number locale-number-currency">' . SumArrayValue($listItems, 'last_price_total') . '</span>') !!}</span>
 			</h2>
 			@endif
-			<div class="float-right">
+			<div class="float-right @if($embedded) pr-5 @endif">
 				<button class="btn btn-primary responsive-button d-md-none mt-2 order-1 order-md-3 show-as-dialog-link"
 					href="{{ $U('/shoppinglistitem/new?embedded&list=' . $selectedShoppingListId) }}">
 					{{ $__t('Add item') }}
@@ -333,15 +333,12 @@
 					class="embed-responsive">
 				</iframe>
 			</div>
-			<div class="modal-footer">
+			<div class="modal-footer d-none">
 				<span id="shopping-list-stock-add-workflow-purchase-item-count"
 					class="d-none mr-auto"></span>
 				<button id="shopping-list-stock-add-workflow-skip-button"
 					type="button"
 					class="btn btn-primary">{{ $__t('Skip') }}</button>
-				<button type="button"
-					class="btn btn-secondary"
-					data-dismiss="modal">{{ $__t('Close') }}</button>
 			</div>
 		</div>
 	</div>

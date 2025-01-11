@@ -542,7 +542,16 @@ ResizeResponsiveEmbeds = function()
 {
 	$("iframe.embed-responsive").each(function()
 	{
-		$(this).attr("height", $(this)[0].contentWindow.document.body.scrollHeight.toString() + "px");
+		var iframeBody = $(this)[0].contentWindow.document.body;
+		if (iframeBody)
+		{
+			$(this).attr("height", iframeBody.scrollHeight.toString() + "px");
+		}
+
+		if ($("body").hasClass("fullscreen-card"))
+		{
+			$(this).attr("height", $("body").height().toString() + "px");
+		}
 	});
 
 	var maxHeight = $("body").height() - $("#mainNav").outerHeight() - 62;
@@ -550,7 +559,7 @@ ResizeResponsiveEmbeds = function()
 	{
 		maxHeight = $("body").height();
 	}
-	$("embed.embed-responsive").attr("height", maxHeight.toString() + "px");
+	$("embed.embed-responsive:not(.resize-done)").attr("height", maxHeight.toString() + "px").addClass("resize-done");
 }
 $(window).on("resize", function()
 {
@@ -563,6 +572,10 @@ $("iframe").on("load", function()
 $(document).on("shown.bs.modal", function(e)
 {
 	ResizeResponsiveEmbeds();
+});
+$(document).on("hidden.bs.modal", function(e)
+{
+	$("body").removeClass("fullscreen-card");
 });
 $("body").children().each(function(index, child)
 {
@@ -705,8 +718,8 @@ if (Grocy.CalendarFirstDayOfWeek)
 
 if (GetUriParam("embedded"))
 {
-	$("body").append('<div class="fixed-top"> \
-		<button class="btn btn-light float-right close-last-modal-button" \
+	$("body").append('<div class="fixed-top" style="left: unset;"> \
+		<button class="btn btn-light btn-sm close-last-modal-button" \
 			type="button" \> \
 			<i class="fa-solid fa-xmark"></i> \
 		</button> \
@@ -737,7 +750,7 @@ $(window).on("message", function(e)
 	}
 	else if (data.Message == "CloseLastModal")
 	{
-		$(".modal").last().modal("hide");
+		$(".modal:visible").last().modal("hide");
 	}
 	else if (data.Message == "ResizeResponsiveEmbeds")
 	{
@@ -753,11 +766,15 @@ $(window).on("message", function(e)
 	}
 	else if (data.Message == "BroadcastMessage")
 	{
-		// data.Payload is the original WindowMessageBag => distribute to this window + all child iframes
+		// data.Payload is the original WindowMessageBag
+
+		// => Send the original message to this window
 		window.postMessage(data.Payload, Grocy.BaseUrl);
+
+		// => Bubble the broadcast message down to all child iframes
 		$("iframe.embed-responsive").each(function()
 		{
-			$(this)[0].contentWindow.postMessage(data.Payload, Grocy.BaseUrl);
+			$(this)[0].contentWindow.postMessage(data, Grocy.BaseUrl);
 		});
 	}
 });

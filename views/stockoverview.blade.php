@@ -72,7 +72,7 @@
 			<div id="info-missing-products"
 				data-status-filter="belowminstockamount"
 				class="normal-message status-filter-message responsive-button"></div>
-			<div class="float-right mt-1">
+			<div class="float-right mt-1 @if($embedded) pr-5 @endif">
 				<a class="btn btn-sm btn-outline-info d-md-none"
 					data-toggle="collapse"
 					href="#table-filter-row"

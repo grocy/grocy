@@ -43,11 +43,15 @@ $("#search").on("keyup", Delay(function()
 $("#clear-filter-button").on("click", function()
 {
 	$("#search").val("");
-	$("#chore-filter").val("all");
 	$("#daterange-filter").val("24");
-
 	RemoveUriParam("months");
-	RemoveUriParam("chore");
+
+	if (GetUriParam("embedded") === undefined)
+	{
+		$("#chore-filter").val("all");
+		RemoveUriParam("chore");
+	}
+
 	window.location.reload();
 });
 

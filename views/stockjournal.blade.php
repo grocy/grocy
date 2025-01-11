@@ -7,7 +7,7 @@
 @section('content')
 <div class="title-related-links">
 	<h2 class="title">@yield('title')</h2>
-	<div class="float-right">
+	<div class="float-right @if($embedded) pr-5 @endif">
 		<button class="btn btn-outline-dark d-md-none mt-2 order-1 order-md-3"
 			type="button"
 			data-toggle="collapse"
@@ -45,7 +45,7 @@
 				placeholder="{{ $__t('Search') }}">
 		</div>
 	</div>
-	<div class="col-12 col-md-6 col-xl-3">
+	<div class="col-12 col-md-6 col-xl-3 hide-when-embedded">
 		<div class="input-group">
 			<div class="input-group-prepend">
 				<span class="input-group-text"><i class="fa-solid fa-filter"></i>&nbsp;{{ $__t('Product') }}</span>

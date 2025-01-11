@@ -14,7 +14,7 @@
 			<h2 class="mb-0 mr-auto order-3 order-md-1 width-xs-sm-100">
 				<span class="text-muted small">{{ $userentity->description }}</span>
 			</h2>
-			<div class="float-right">
+			<div class="float-right @if($embedded) pr-5 @endif">
 				<button class="btn btn-outline-dark d-md-none mt-2 order-1 order-md-3"
 					type="button"
 					data-toggle="collapse"

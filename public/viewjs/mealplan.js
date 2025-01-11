@@ -927,6 +927,8 @@ $(document).on("click", ".display-recipe-button", function(e)
 	Grocy.Api.Put('objects/recipes/' + objectId, { "desired_servings": servings },
 		function(result)
 		{
+			$("body").addClass("fullscreen-card");
+
 			bootbox.dialog({
 				message: '<iframe class="embed-responsive" src="' + U("/recipes?embedded&recipe=") + objectId + '#fullscreen"></iframe>',
 				size: 'extra-large',

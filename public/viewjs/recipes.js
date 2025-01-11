@@ -290,6 +290,8 @@ recipesTables.on('select', function(e, dt, type, indexes)
 		}
 		else
 		{
+			$("body").addClass("fullscreen-card");
+
 			bootbox.dialog({
 				message: '<iframe class="embed-responsive" src="' + U("/recipes?embedded&recipe=") + selectedRecipeId + '#fullscreen"></iframe>',
 				size: 'extra-large',
@@ -322,6 +324,8 @@ $(".recipe-gallery-item").on("click", function(e)
 	}
 	else
 	{
+		$("body").addClass("fullscreen-card");
+
 		bootbox.dialog({
 			message: '<iframe class="embed-responsive" src="' + U("/recipes?embedded&recipe=") + selectedRecipeId + '#fullscreen"></iframe>',
 			size: 'extra-large',

@@ -283,7 +283,7 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 				setTimeout(function()
 				{
 					$('#display_amount').focus();
-				}, 150);
+				}, 200);
 			},
 			function(xhr)
 			{

@@ -272,6 +272,7 @@ $(document).on('click', '#add-all-items-to-stock-button', function(e)
 	Grocy.ShoppingListAddToStockButtonList = $(".shopping-list-stock-add-workflow-list-item-button");
 	Grocy.ShoppingListToStockWorkflowCount = Grocy.ShoppingListAddToStockButtonList.length;
 	Grocy.ShoppingListToStockWorkflowCurrent++;
+	$("#shopping-list-stock-add-workflow-modal .modal-footer").removeClass("d-none");
 	$(".shopping-list-stock-add-workflow-list-item-button").first().click();
 });
 
@@ -281,6 +282,7 @@ $("#shopping-list-stock-add-workflow-modal").on("hidden.bs.modal", function(e)
 	Grocy.ShoppingListToStockWorkflowCount = 0;
 	Grocy.ShoppingListToStockWorkflowCurrent = 0;
 	Grocy.ShoppingListAddToStockButtonList = [];
+	$("#shopping-list-stock-add-workflow-modal .modal-footer").addClass("d-none");
 })
 
 $(window).on("message", function(e)
@@ -445,6 +447,7 @@ $(document).on("click", "#print-shopping-list-button", function(e)
 					title: __t('Printing'),
 					message: '<p><i class="fa fa-spin fa-spinner"></i> ' + __t('Connecting to printer...') + '</p>'
 				});
+
 				//Delaying for one second so that the alert can be closed
 				setTimeout(function()
 				{

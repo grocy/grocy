@@ -82,11 +82,15 @@ $("#clear-filter-button").on("click", function()
 	$("#transaction-type-filter").val("all");
 	$("#location-filter").val("all");
 	$("#user-filter").val("all");
-	$("#product-filter").val("all");
 	$("#daterange-filter").val("6");
-
 	RemoveUriParam("months");
-	RemoveUriParam("product");
+
+	if (GetUriParam("embedded") === undefined)
+	{
+		RemoveUriParam("product");
+		$("#product-filter").val("all");
+	}
+
 	window.location.reload();
 });
 
