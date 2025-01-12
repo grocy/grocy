@@ -489,7 +489,10 @@ if (Grocy.Components.ProductPicker)
 {
 	if (Grocy.Components.ProductPicker.InAnyFlow() === false && GetUriParam("embedded") === undefined)
 	{
-		Grocy.Components.ProductPicker.GetInputElement().focus();
+		setTimeout(function()
+		{
+			Grocy.Components.ProductPicker.GetInputElement().focus();
+		}, 500);
 	}
 	else
 	{
@@ -497,7 +500,10 @@ if (Grocy.Components.ProductPicker)
 
 		if (Grocy.Components.ProductPicker.InProductModifyWorkflow())
 		{
-			Grocy.Components.ProductPicker.GetInputElement().focus();
+			setTimeout(function()
+			{
+				Grocy.Components.ProductPicker.GetInputElement().focus();
+			}, 500);
 		}
 	}
 }
@@ -506,7 +512,10 @@ $('#display_amount').on('focus', function(e)
 {
 	if (Grocy.Components.ProductPicker.GetValue().length === 0)
 	{
-		Grocy.Components.ProductPicker.GetInputElement().focus();
+		setTimeout(function()
+		{
+			Grocy.Components.ProductPicker.GetInputElement().focus();
+		}, 500);
 	}
 	else
 	{

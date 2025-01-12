@@ -96,7 +96,10 @@ $("#add-api-key-button").on("click", function(e)
 
 $("#add-api-key-modal").on("shown.bs.modal", function(e)
 {
-	$("#description").focus();
+	setTimeout(function()
+	{
+		$("#description").focus();
+	}, 500);
 });
 
 $("#new-api-key-button").on("click", function(e)

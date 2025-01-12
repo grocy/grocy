@@ -661,7 +661,10 @@ if (GetUriParam("embedded") !== undefined)
 }
 
 // Default input field
-Grocy.Components.ProductPicker.GetInputElement().focus();
+setTimeout(function()
+{
+	Grocy.Components.ProductPicker.GetInputElement().focus();
+}, 500);
 
 $(document).on("change", "#scan-mode", function(e)
 {

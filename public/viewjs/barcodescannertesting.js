@@ -31,11 +31,11 @@ $("#expected_barcode").on("keyup", function(e)
 	}
 });
 
-$("#expected_barcode").focus();
 setTimeout(function()
 {
 	$("#barcodescanner-start-button").attr("disabled", "");
 	$("#barcodescanner-start-button").addClass("disabled");
+	$("#expected_barcode").focus();
 }, 500);
 
 if (GetUriParam("barcode") !== undefined)

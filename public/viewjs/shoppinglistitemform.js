@@ -292,7 +292,7 @@ if (!Grocy.Components.ProductPicker.InAnyFlow())
 		setTimeout(function()
 		{
 			$("#display_amount").focus();
-		}, 300);
+		}, 500);
 	}
 	else
 	{

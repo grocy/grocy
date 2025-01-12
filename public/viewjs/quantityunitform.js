@@ -151,8 +151,11 @@ quConversionsTable.columns.adjust().draw();
 
 Grocy.Components.UserfieldsForm.Load();
 $("#name").trigger("keyup");
-$('#name').focus();
 Grocy.FrontendHelpers.ValidateForm('quantityunit-form');
+setTimeout(function()
+{
+	$('#name').focus();
+}, 500);
 
 $(document).on('click', '.qu-conversion-delete-button', function(e)
 {

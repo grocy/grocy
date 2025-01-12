@@ -1,4 +1,7 @@
-﻿$('#username').focus();
+﻿setTimeout(function()
+{
+	$('#username').focus();
+}, 500);
 
 if (GetUriParam('invalid') === 'true')
 {

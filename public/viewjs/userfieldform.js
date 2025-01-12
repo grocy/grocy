@@ -122,7 +122,10 @@ if (GetUriParam("entity"))
 }
 else
 {
-	$('#entity').focus();
+	setTimeout(function()
+	{
+		$('#entity').focus();
+	}, 500);
 }
 
 $("#type").trigger("change");

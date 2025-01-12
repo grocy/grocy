@@ -156,7 +156,10 @@ $('#display_amount').on('focus', function(e)
 {
 	if (Grocy.Components.ProductPicker.GetValue().length === 0)
 	{
-		Grocy.Components.ProductPicker.GetInputElement().focus();
+		setTimeout(function()
+		{
+			Grocy.Components.ProductPicker.GetInputElement().focus();
+		}, 500);
 	}
 	else
 	{

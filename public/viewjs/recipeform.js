@@ -106,7 +106,10 @@ $('#recipes-includes-table tbody').removeClass("d-none");
 recipesIncludesTables.columns.adjust().draw();
 
 Grocy.FrontendHelpers.ValidateForm('recipe-form');
-$("#name").focus();
+setTimeout(function()
+{
+	$("#name").focus();
+}, 500);
 
 $('#recipe-form input').keyup(function(event)
 {

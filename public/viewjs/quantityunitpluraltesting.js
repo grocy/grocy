@@ -34,4 +34,7 @@ if (GetUriParam("qu") !== undefined)
 	$("#qu_id").trigger("change");
 }
 
-$("#amount").focus();
+setTimeout(function()
+{
+	$("#amount").focus();
+}, 500);

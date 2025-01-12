@@ -518,7 +518,10 @@ if (GetUriParam("embedded") !== undefined)
 	if (typeof locationId === 'undefined')
 	{
 		Grocy.Components.ProductPicker.GetPicker().trigger('change');
-		Grocy.Components.ProductPicker.GetInputElement().focus();
+		setTimeout(function()
+		{
+			Grocy.Components.ProductPicker.GetInputElement().focus();
+		}, 500);
 	}
 	else
 	{
@@ -532,4 +535,7 @@ if (GetUriParam("embedded") !== undefined)
 }
 
 // Default input field
-Grocy.Components.ProductPicker.GetInputElement().focus();
+setTimeout(function()
+{
+	Grocy.Components.ProductPicker.GetInputElement().focus();
+}, 500);

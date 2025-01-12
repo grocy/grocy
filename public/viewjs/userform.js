@@ -155,7 +155,10 @@ if (GetUriParam("changepw") === "true")
 }
 else
 {
-	$('#username').focus();
+	setTimeout(function()
+	{
+		$('#username').focus();
+	}, 500);
 }
 
 Grocy.Components.UserfieldsForm.Load();

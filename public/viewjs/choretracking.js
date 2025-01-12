@@ -111,10 +111,13 @@ $('.combobox').combobox({
 	clearIfNoMatch: false
 });
 
-$('#chore_id_text_input').focus();
 $('#chore_id_text_input').trigger('change');
 Grocy.Components.DateTimePicker.GetInputElement().trigger('input');
 Grocy.FrontendHelpers.ValidateForm('choretracking-form');
+setTimeout(function()
+{
+	$('#chore_id_text_input').focus();
+}, 500);
 
 $('#choretracking-form input').keyup(function(event)
 {

@@ -77,4 +77,7 @@ $('#mealplansection-form input').keydown(function(event)
 });
 
 Grocy.FrontendHelpers.ValidateForm('mealplansection-form');
-$('#name').focus();
+setTimeout(function()
+{
+	$('#name').focus();
+}, 500);

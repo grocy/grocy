@@ -111,8 +111,11 @@ for (var i = 0; i < checkboxValues.length; i++)
 }
 
 Grocy.Components.UserfieldsForm.Load();
-$('#name').focus();
 Grocy.FrontendHelpers.ValidateForm('chore-form');
+setTimeout(function()
+{
+	$('#name').focus();
+}, 500);
 
 if (Grocy.EditMode == "edit")
 {

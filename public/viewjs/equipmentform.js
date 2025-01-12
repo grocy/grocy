@@ -146,8 +146,11 @@ $('#delete-current-instruction-manual-button').on('click', function(e)
 ResizeResponsiveEmbeds();
 
 Grocy.Components.UserfieldsForm.Load();
-$('#name').focus();
 Grocy.FrontendHelpers.ValidateForm('equipment-form');
+setTimeout(function()
+{
+	$('#name').focus();
+}, 500);
 
 $("#instruction-manual").on("change", function(e)
 {

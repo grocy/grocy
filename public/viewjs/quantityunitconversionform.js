@@ -141,8 +141,11 @@ $('.input-group-qu').on('change', function(e)
 
 Grocy.Components.UserfieldsForm.Load();
 $('.input-group-qu').trigger('change');
-$('#from_qu_id').focus();
 Grocy.FrontendHelpers.ValidateForm('quconversion-form');
+setTimeout(function()
+{
+	$('#from_qu_id').focus();
+}, 500);
 
 if (GetUriParam("qu-unit") !== undefined)
 {

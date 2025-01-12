@@ -80,5 +80,8 @@ if (GetUriParam("entity"))
 {
 	$("#entity-filter").val(GetUriParam("entity"));
 	$("#entity-filter").trigger("change");
-	$("#name").focus();
+	setTimeout(function()
+	{
+		$("#name").focus();
+	}, 500);
 }

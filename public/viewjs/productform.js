@@ -142,7 +142,6 @@ $('.save-product-button').on('click', function(e)
 if (GetUriParam("flow") == "InplaceNewProductWithName")
 {
 	$('#name').val(GetUriParam("name"));
-	$('#name').focus();
 }
 
 if (GetUriParam("flow") !== undefined || GetUriParam("returnto") !== undefined)
@@ -258,9 +257,12 @@ barcodeTable.columns.adjust().draw();
 
 Grocy.Components.UserfieldsForm.Load();
 $("#name").trigger("keyup");
-$('#name').focus();
 $('.input-group-qu').trigger('change');
 Grocy.FrontendHelpers.ValidateForm('product-form');
+setTimeout(function()
+{
+	$('#name').focus();
+}, 500);
 
 $(document).on('click', '.product-grocycode-label-print', function(e)
 {
