@@ -199,6 +199,7 @@ Quagga.onDetected(function(result)
 	{
 		Grocy.Components.CameraBarcodeScanner.StopScanning();
 		$(document).trigger("Grocy.BarcodeScanned", [result.codeResult.code, Grocy.Components.CameraBarcodeScanner.CurrentTarget]);
+		$(".modal").last().modal("hide");
 	}
 });
 
