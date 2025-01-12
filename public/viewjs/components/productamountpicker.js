@@ -8,6 +8,11 @@ Grocy.Components.ProductAmountPicker.Reload = function(productId, destinationQuI
 	if (!Grocy.Components.ProductAmountPicker.AllowAnyQuEnabled)
 	{
 		$("#qu_id").find("option").remove().end();
+		if (!$("#qu_id").hasAttr("required"))
+		{
+			$("#qu_id").append('<option></option>');
+		}
+
 		$("#qu_id").attr("data-destination-qu-name", FindObjectInArrayByPropertyValue(Grocy.QuantityUnits, 'id', destinationQuId).name);
 		$("#qu_id").attr("data-destination-qu-name-plural", FindObjectInArrayByPropertyValue(Grocy.QuantityUnits, 'id', destinationQuId).name_plural);
 
@@ -67,6 +72,11 @@ Grocy.Components.ProductAmountPicker.AllowAnyQu = function(keepInitialQu = false
 	Grocy.Components.ProductAmountPicker.AllowAnyQuEnabled = true;
 
 	$("#qu_id").find("option").remove().end();
+	if (!$("#qu_id").hasAttr("required"))
+	{
+		$("#qu_id").append('<option></option>');
+	}
+
 	Grocy.QuantityUnits.forEach(qu =>
 	{
 		$("#qu_id").append('<option value="' + qu.id + '" data-qu-factor="1" data-qu-name-plural="' + qu.name_plural + '">' + qu.name + '</option>');

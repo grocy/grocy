@@ -92,7 +92,11 @@ if (Grocy.EditMode == "edit")
 {
 	$("#display_amount").val(Grocy.EditObject.amount);
 	$(".input-group-productamountpicker").trigger("change");
-	Grocy.Components.ProductAmountPicker.SetQuantityUnit(Grocy.EditObject.qu_id);
+
+	if (Grocy.EditObject.qu_id)
+	{
+		Grocy.Components.ProductAmountPicker.SetQuantityUnit(Grocy.EditObject.qu_id);
+	}
 }
 
 Grocy.FrontendHelpers.ValidateForm('barcode-form');
