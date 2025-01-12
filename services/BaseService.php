@@ -71,4 +71,9 @@ class BaseService
 	{
 		return FilesService::getInstance();
 	}
+
+	protected function getApplicationService()
+	{
+		return ApplicationService::getInstance();
+	}
 }

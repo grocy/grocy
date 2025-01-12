@@ -4,12 +4,31 @@ namespace Grocy\Controllers;
 
 use Grocy\Helpers\Grocycode;
 use Grocy\Services\RecipesService;
+use DI\Container;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
 class StockController extends BaseController
 {
 	use GrocycodeTrait;
+
+	public function __construct(Container $container)
+	{
+		parent::__construct($container);
+
+		try
+		{
+			$externalBarcodeLookupPluginName = $this->getStockService()->GetExternalBarcodeLookupPluginName();
+		}
+		catch (\Exception)
+		{
+			$externalBarcodeLookupPluginName = '';
+		}
+		finally
+		{
+			$this->View->set('ExternalBarcodeLookupPluginName', $externalBarcodeLookupPluginName);
+		}
+	}
 
 	public function Consume(Request $request, Response $response, array $args)
 	{

@@ -220,6 +220,9 @@ class DemoDataGeneratorService extends BaseService
 				INSERT INTO userfield_values (field_id, object_id, value) VALUES (1, 2, '{$this->__t_sql('Example field value...')}');
 				INSERT INTO userfield_values (field_id, object_id, value) VALUES (2, 2, '{$this->__t_sql('Example field value...')}');
 
+				INSERT INTO user_settings(user_id, key, value) VALUES (1, 'product_presets_location_id', '3'); -- Pantry
+				INSERT INTO user_settings(user_id, key, value) VALUES (1, 'product_presets_qu_id', '3'); -- Pack
+
 				INSERT INTO migrations (migration) VALUES (-1);
 			";
 			$this->getDatabaseService()->ExecuteDbStatement($sql);

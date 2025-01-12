@@ -4,14 +4,19 @@ namespace Grocy\Helpers;
 
 abstract class BaseBarcodeLookupPlugin
 {
-	final public function __construct($locations, $quantityUnits)
+	// That's a "self-referencing constant" and forces the child class to define it
+	public const PLUGIN_NAME = self::PLUGIN_NAME;
+
+	final public function __construct($locations, $quantityUnits, $userSettings)
 	{
 		$this->Locations = $locations;
 		$this->QuantityUnits = $quantityUnits;
+		$this->UserSettings = $userSettings;
 	}
 
 	protected $Locations;
 	protected $QuantityUnits;
+	protected $UserSettings;
 
 	final public function Lookup($barcode)
 	{
@@ -40,8 +45,8 @@ abstract class BaseBarcodeLookupPlugin
 			'location_id',
 			'qu_id_purchase',
 			'qu_id_stock',
-			'qu_factor_purchase_to_stock',
-			'barcode'
+			'__qu_factor_purchase_to_stock',
+			'__barcode'
 		];
 
 		foreach ($minimunNeededProperties as $prop)
@@ -58,25 +63,25 @@ abstract class BaseBarcodeLookupPlugin
 		$locationId = $pluginOutput['location_id'];
 		if (FindObjectInArrayByPropertyValue($this->Locations, 'id', $locationId) === null)
 		{
-			throw new \Exception("Location $locationId is not a valid location id");
+			throw new \Exception("Provided location_id ($locationId) is not a valid location id");
 		}
 
 		$quIdPurchase = $pluginOutput['qu_id_purchase'];
 		if (FindObjectInArrayByPropertyValue($this->QuantityUnits, 'id', $quIdPurchase) === null)
 		{
-			throw new \Exception("Location $quIdPurchase is not a valid quantity unit id");
+			throw new \Exception("Provided qu_id_purchase ($quIdPurchase) is not a valid quantity unit id");
 		}
 
 		$quIdStock = $pluginOutput['qu_id_stock'];
 		if (FindObjectInArrayByPropertyValue($this->QuantityUnits, 'id', $quIdStock) === null)
 		{
-			throw new \Exception("Location $quIdStock is not a valid quantity unit id");
+			throw new \Exception("Provided qu_id_stock ($quIdStock) is not a valid quantity unit id");
 		}
 
-		$quFactor = $pluginOutput['qu_factor_purchase_to_stock'];
+		$quFactor = $pluginOutput['__qu_factor_purchase_to_stock'];
 		if (empty($quFactor) || !is_numeric($quFactor))
 		{
-			throw new \Exception('Quantity unit factor is empty or not a number');
+			throw new \Exception('Provided __qu_factor_purchase_to_stock is empty or not a number');
 		}
 
 		return $pluginOutput;

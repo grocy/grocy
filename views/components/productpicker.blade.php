@@ -4,6 +4,11 @@
 @push('componentScripts')
 <script src="{{ $U('/viewjs/components/productpicker.js', true) }}?v={{ $version }}"></script>
 @endpush
+@push('componentScripts')
+<script>
+	Grocy.ExternalBarcodeLookupPluginName = "{{ $ExternalBarcodeLookupPluginName }}";
+</script>
+@endpush
 @endonce
 
 @php if(empty($disallowAddProductWorkflows)) { $disallowAddProductWorkflows = false; } @endphp

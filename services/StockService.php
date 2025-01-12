@@ -592,9 +592,15 @@ class StockService extends BaseService
 		return $transactionId;
 	}
 
+	public function GetExternalBarcodeLookupPluginName()
+	{
+		$plugin = $this->LoadExternalBarcodeLookupPlugin();
+		return $plugin::PLUGIN_NAME;
+	}
+
 	public function ExternalBarcodeLookup($barcode, $addFoundProduct)
 	{
-		$plugin = $this->LoadBarcodeLookupPlugin();
+		$plugin = $this->LoadExternalBarcodeLookupPlugin();
 		$pluginOutput = $plugin->Lookup($barcode);
 
 		if ($pluginOutput !== null)
@@ -602,21 +608,24 @@ class StockService extends BaseService
 			// Lookup was successful
 			if ($addFoundProduct === true)
 			{
+				if ($this->getDatabase()->products()->where('name = :1', $pluginOutput['name'])->fetch() !== null)
+				{
+					throw new \Exception('Product "' . $pluginOutput['name'] . '" already exists');
+				}
+
 				// Add product to database and include new product id in output
 				$productData = $pluginOutput;
-				unset($productData['barcode'], $productData['qu_factor_purchase_to_stock'], $productData['image_url']); // Virtual lookup plugin properties
+				unset($productData['__barcode'], $productData['__qu_factor_purchase_to_stock'], $productData['__image_url']); // Virtual lookup plugin properties
 
 				// Download and save image if provided
-				if (isset($pluginOutput['image_url']) && !empty($pluginOutput['image_url']))
+				if (isset($pluginOutput['__image_url']) && !empty($pluginOutput['__image_url']))
 				{
 					try
 					{
 						$webClient = new Client();
-						$response = $webClient->request('GET', $pluginOutput['image_url']);
-						$fileName = $pluginOutput['barcode'] . '.' . pathinfo($pluginOutput['image_url'], PATHINFO_EXTENSION);
-						$fileHandle = fopen($this->getFilesService()->GetFilePath('productpictures', $fileName), 'wb');
-						fwrite($fileHandle, $response->getBody());
-						fclose($fileHandle);
+						$response = $webClient->request('GET', $pluginOutput['__image_url'], ['headers' => ['User-Agent' => 'Grocy/' . $this->getApplicationService()->GetInstalledVersion()->Version . ' (https://grocy.info)']]);
+						$fileName = $pluginOutput['__barcode'] . '.' . pathinfo($pluginOutput['__image_url'], PATHINFO_EXTENSION);
+						file_put_contents($this->getFilesService()->GetFilePath('productpictures', $fileName), $response->getBody());
 						$productData['picture_file_name'] = $fileName;
 					}
 					catch (\Exception)
@@ -630,7 +639,7 @@ class StockService extends BaseService
 
 				$this->getDatabase()->product_barcodes()->createRow([
 					'product_id' => $newProductRow->id,
-					'barcode' => $pluginOutput['barcode']
+					'barcode' => $pluginOutput['__barcode']
 				])->save();
 
 				if ($pluginOutput['qu_id_stock'] != $pluginOutput['qu_id_purchase'])
@@ -639,7 +648,7 @@ class StockService extends BaseService
 						'product_id' => $newProductRow->id,
 						'from_qu_id' => $pluginOutput['qu_id_purchase'],
 						'to_qu_id' => $pluginOutput['qu_id_stock'],
-						'factor' => $pluginOutput['qu_factor_purchase_to_stock'],
+						'factor' => $pluginOutput['__qu_factor_purchase_to_stock'],
 					])->save();
 				}
 
@@ -1730,7 +1739,7 @@ class StockService extends BaseService
 		}
 	}
 
-	private function LoadBarcodeLookupPlugin()
+	private function LoadExternalBarcodeLookupPlugin()
 	{
 		$pluginName = defined('GROCY_STOCK_BARCODE_LOOKUP_PLUGIN') ? GROCY_STOCK_BARCODE_LOOKUP_PLUGIN : '';
 		if (empty($pluginName))
@@ -1738,11 +1747,18 @@ class StockService extends BaseService
 			throw new \Exception('No barcode lookup plugin defined');
 		}
 
-		$path = GROCY_DATAPATH . "/plugins/$pluginName.php";
-		if (file_exists($path))
+		// User plugins take precedence
+		$standardPluginPath = __DIR__ . "/../plugins/$pluginName.php";
+		$userPluginPath = GROCY_DATAPATH . "/plugins/$pluginName.php";
+		if (file_exists($userPluginPath))
 		{
-			require_once $path;
-			return new $pluginName($this->getDatabase()->locations()->where('active = 1')->fetchAll(), $this->getDatabase()->quantity_units()->fetchAll());
+			require_once $userPluginPath;
+			return new $pluginName($this->getDatabase()->locations()->where('active = 1')->fetchAll(), $this->getDatabase()->quantity_units()->where('active = 1')->fetchAll(), $this->getUsersService()->GetUserSettings(GROCY_USER_ID));
+		}
+		elseif (file_exists($standardPluginPath))
+		{
+			require_once $standardPluginPath;
+			return new $pluginName($this->getDatabase()->locations()->where('active = 1')->fetchAll(), $this->getDatabase()->quantity_units()->where('active = 1')->fetchAll(), $this->getUsersService()->GetUserSettings(GROCY_USER_ID));
 		}
 		else
 		{

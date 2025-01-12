@@ -10,7 +10,7 @@
 
 ### Stock
 
-- Added a new product picker workflow "External barcode lookup (via plugin)"
+- Added a new product picker workflow "External barcode lookup"
   - This executes the configured barcode lookup plugin with the given barcode
   - If the lookup was successful, the product edit page of the created product is displayed, where the product setup can be completed (if required)
   - After that, the transaction is continued with that product as usual

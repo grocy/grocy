@@ -29,7 +29,7 @@ class BaseController
 	}
 
 	protected $AppContainer;
-	private $View;
+	protected $View;
 
 	protected function getApiKeyService()
 	{

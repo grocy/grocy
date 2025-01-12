@@ -129,11 +129,11 @@ Example: Button "**P** Add as new product" can be "pressed" by using the `P` key
 
 Products can be directly added to the database via looking them up against external services by a barcode.
 
-This can be done in-place using the product picker workflow "External barcode lookup (via plugin)" (the workflow dialog is displayed when entering something unknown in any product input field).
+This can be done in-place using the product picker workflow "External barcode lookup" (the workflow dialog is displayed when entering something unknown in any product input field).
 
 A plugin for [Open Food Facts](https://world.openfoodfacts.org/) is included and used by default (see the `data/config.php` option `STOCK_BARCODE_LOOKUP_PLUGIN`).
 
-See that plugin or the reference implementation in `data/plugins/DemoBarcodeLookupPlugin.php` if you want to build a plugin.
+See that plugin or `plugins/DemoBarcodeLookupPlugin.php` for a commented example implementation if you want to build a plugin.
 
 ### Database migrations
 
