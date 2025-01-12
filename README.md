@@ -63,8 +63,6 @@ See [grocy/grocy-docker](https://github.com/grocy/grocy-docker) or [linuxserver/
 
 - Overwrite everything with the [latest release](https://releases.grocy.info/latest) while keeping the `data` directory
 - Check `config-dist.php` for new configuration options and add them to your `data/config.php` where appropriate (the default values from `config-dist.php` will be used for not in `data/config.php` defined settings)
-- Empty the `data/viewcache` directory
-- Visit the main route once to apply database migrations ([see below](https://github.com/grocy/grocy#database-migrations))
 
 If you run Grocy on Linux, there is also `update.sh` (remember to make the script executable (`chmod +x update.sh`) and ensure that you have `unzip` installed) which does exactly this and additionally creates a backup (`.tgz` archive) of the current installation in `data/backups` (backups older than 60 days will be deleted during the update).
 
@@ -137,7 +135,7 @@ See that plugin or `plugins/DemoBarcodeLookupPlugin.php` for a commented example
 
 ### Database migrations
 
-Database schema migration is automatically done when visiting the root (`/`) route (click on the logo in the left upper edge).
+Database schema migration is done when visiting the root (`/`) route (click on the logo in the left upper edge) as needed and is also triggered automatically if the version has changed (so when an update has been made).
 
 _Please note: Database migrations are supposed to work between releases, not between every commit. If you want to run the current `master` branch (which is the development version), you need to handle that (and more) yourself._
 

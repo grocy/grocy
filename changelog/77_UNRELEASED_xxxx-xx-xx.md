@@ -62,7 +62,8 @@
   - Dialogs can now be closed with the `ESC` key on the keyboard
   - There is no longer a close button at the bottom (outside of the displayed `iframe`) and instead one at the top right corner of the dialog
   - Wide dialogs (e.g. all showing a table, like showing stock entries of a product from the stock overview more/context menu per line) now use the full screen width
-  - Improved handling of the initial field focus
+- Improved the handling of the initial field focus on form pages
+- The previously manually necessary update steps (e.g. emptying the `data/viewcache` directory) are now fully automated, so no need to do this manually after this and future updates
 
 ### API
 

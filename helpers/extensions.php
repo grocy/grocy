@@ -262,3 +262,19 @@ function require_frontend_packages(array $packages)
 
 	$GROCY_REQUIRED_FRONTEND_PACKAGES = array_unique(array_merge($GROCY_REQUIRED_FRONTEND_PACKAGES, $packages));
 }
+
+function EmptyFolder($folderPath)
+{
+	foreach(glob("{$folderPath}/*") as $item)
+	{
+		if(is_dir($item))
+		{
+			EmptyFolder($item);
+			rmdir($item);
+		}
+		else
+		{
+			unlink($item);
+		}
+	}
+}

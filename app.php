@@ -52,9 +52,28 @@ catch (EInvalidConfig $ex)
 }
 
 // Create data/viewcache folder if it doesn't exist
-if (!file_exists(GROCY_DATAPATH . '/viewcache'))
+$viewcachePath = GROCY_DATAPATH . '/viewcache';
+if (!file_exists($viewcachePath))
 {
-	mkdir(GROCY_DATAPATH . '/viewcache');
+	mkdir($viewcachePath);
+}
+
+// Empty data/viewcache when the version changed (so when an update was done) and trigger database migrations
+$releaseHash = hash_file('sha256', __DIR__ . '/version.json');
+$releaseHashCacheFile = $viewcachePath . "/$releaseHash.txt";
+if (!file_exists($releaseHashCacheFile))
+{
+	EmptyFolder($viewcachePath);
+	touch($releaseHashCacheFile);
+
+	if (function_exists('opcache_reset'))
+	{
+		opcache_reset();
+	}
+
+	// Schema migration happens on the root route, so redirect to there
+	header('Location: ' . (new UrlManager(GROCY_BASE_URL))->ConstructUrl('/'));
+	exit();
 }
 
 // Setup base application
