@@ -15,7 +15,7 @@ class OpenFoodFactsBarcodeLookupPlugin extends BaseBarcodeLookupPlugin
 	protected function ExecuteLookup($barcode)
 	{
 		$webClient = new Client(['http_errors' => false]);
-		$response = $webClient->request('GET', "https://world.openfoodfacts.net/api/v2/product/$barcode?fields=product_name,image_url", ['headers' => ['User-Agent' => 'GrocyOpenFoodFactsBarcodeLookupPlugin/1.0 (https://grocy.info)']]);
+		$response = $webClient->request('GET', 'https://world.openfoodfacts.net/api/v2/product/' . preg_replace('/[^0-9]/', '', $barcode) . '?fields=product_name,image_url', ['headers' => ['User-Agent' => 'GrocyOpenFoodFactsBarcodeLookupPlugin/1.0 (https://grocy.info)']]);
 		$statusCode = $response->getStatusCode();
 
 		// Guzzle throws exceptions for connection errors, so nothing to do on that here
