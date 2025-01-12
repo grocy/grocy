@@ -16,6 +16,8 @@
   - After that, the transaction is continued with that product as usual
   - A plugin for [Open Food Facts](https://world.openfoodfacts.org/) is now included and used by default (see the `config.php` option `STOCK_BARCODE_LOOKUP_PLUGIN` and maybe change it as needed)
     - The product name and image (and of course the barcode itself) are taken over from Open Food Facts to the product being looked up
+  - => Quick video demo (using a Barcode Laser Scanner): https://www.youtube.com/watch?v=-moXPA-VvGc
+  - => Quick video demo (using Browser Camera Barcode Scanning): https://www.youtube.com/watch?v=veezFX4X1JU
 - Optimized that when moving a product to a freezer location (so when freezing it) the due date will no longer be replaced when the product option "Default due days after freezing" is set to `0`
 - Fixed that a once set quantity unit on a product barcode could not be removed on edit
 
