@@ -15,7 +15,8 @@ Grocy.Components.BarcodeScanner.CheckCapabilities = async function()
 	var cameraSelect = document.querySelector('.cameraSelect-wrapper');
 	if (cameraSelect)
 	{
-		cameraSelect.style.display = cameras.length > 1 ? 'inline-block' : 'none';
+		// Ignore devices without any name
+		cameraSelect.style.display = cameras.filter(x => x.label || x.deviceId).length > 1 ? 'inline-block' : 'none';
 	}
 
 	// Check if the camera is capable to turn on a torch.
@@ -254,16 +255,19 @@ $(document).on("click", "#barcodescanner-start-button", async function(e)
 	});
 
 	// Add camera select to existing dialog
-	dialog.find('.bootbox-body').append('<div class="form-group py-0 my-1 cameraSelect-wrapper"><select class="custom-control custom-select cameraSelect"><select class="custom-control custom-select cameraSelect" style="display: none"></select></div>');
+	dialog.find('.bootbox-body').append('<div class="form-group py-0 my-1 d-block cameraSelect-wrapper"><select class="custom-control custom-select cameraSelect"><select class="custom-control custom-select cameraSelect" style="display: none"></select></div>');
 	var cameraSelect = document.querySelector('.cameraSelect');
 
 	var cameras = await Quagga.CameraAccess.enumerateVideoDevices();
 	cameras.forEach(camera =>
 	{
 		var option = document.createElement("option");
-		option.text = camera.label ? camera.label : camera.deviceId; // Use camera label if it exists, else show device id
-		option.value = camera.deviceId;
-		cameraSelect.appendChild(option);
+		if (camera.label || camera.deviceId) // Ignore devices without any name
+		{
+			option.text = camera.label ? camera.label : camera.deviceId; // Use camera label if it exists, else show device id
+			option.value = camera.deviceId;
+			cameraSelect.appendChild(option);
+		}
 	});
 
 	// Set initial value to preferred camera if one exists - and if not, start out empty
