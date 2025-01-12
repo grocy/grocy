@@ -53,7 +53,7 @@
 
 ### Userfields
 
-- xxx
+- Fixed that Userfield default values were not initialized for the `stock` entity (so affecting the purchase and inventory page)
 
 ### General
 

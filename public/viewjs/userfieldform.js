@@ -111,13 +111,18 @@ $("#type").on("change", function(e)
 	$("#default-value-group.userfield-type-" + value).removeClass("d-none");
 });
 
-$('#entity').focus();
-
 if (GetUriParam("entity"))
 {
 	$("#entity").val(GetUriParam("entity"));
 	$("#entity").trigger("change");
-	$('#name').focus();
+	setTimeout(function()
+	{
+		$('#name').focus();
+	}, 500);
+}
+else
+{
+	$('#entity').focus();
 }
 
 $("#type").trigger("change");

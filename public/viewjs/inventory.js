@@ -548,3 +548,5 @@ if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_LABEL_PRINTER)
 		}
 	});
 }
+
+Grocy.Components.UserfieldsForm.Load();
