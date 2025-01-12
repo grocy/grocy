@@ -77,4 +77,4 @@
 		class="form-text text-info small d-none"><strong><span id="InplaceAddBarcodeToExistingProduct"></span></strong> {{ $__t('will be added to the list of barcodes for the selected product on submit') }}</div>
 </div>
 
-@include('components.barcodescanner')
+@include('components.camerabarcodescanner')

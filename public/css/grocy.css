@@ -209,7 +209,7 @@ a:not([href]) {
 	white-space: pre-wrap;
 }
 
-/* Barcodescanner Quagga */
+/* Barcodescanner Quagga2 */
 #barcodescanner-container {
 	max-height: 90vw;
 }

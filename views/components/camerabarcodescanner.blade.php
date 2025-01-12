@@ -4,7 +4,7 @@
 
 @once
 @push('componentScripts')
-<script src="{{ $U('/viewjs/components/barcodescanner.js', true) }}?v={{ $version }}"></script>
+<script src="{{ $U('/viewjs/components/camerabarcodescanner.js', true) }}?v={{ $version }}"></script>
 @endpush
 @endonce
 

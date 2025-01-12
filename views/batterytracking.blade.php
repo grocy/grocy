@@ -60,5 +60,5 @@
 	</div>
 </div>
 
-@include('components.barcodescanner')
+@include('components.camerabarcodescanner')
 @stop

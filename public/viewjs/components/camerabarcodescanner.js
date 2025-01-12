@@ -1,7 +1,10 @@
-Grocy.Components.BarcodeScanner = {};
+Grocy.Components.CameraBarcodeScanner = {};
 
-Grocy.Components.BarcodeScanner.LiveVideoSizeAdjusted = false;
-Grocy.Components.BarcodeScanner.CheckCapabilities = async function()
+Grocy.Components.CameraBarcodeScanner.LiveVideoSizeAdjusted = false;
+Grocy.Components.CameraBarcodeScanner.CameraSelectLoaded = false;
+Grocy.Components.CameraBarcodeScanner.TorchIsOn = false;
+
+Grocy.Components.CameraBarcodeScanner.CheckCapabilities = async function()
 {
 	var track = Quagga.CameraAccess.getActiveTrack();
 	var capabilities = {};
@@ -10,31 +13,42 @@ Grocy.Components.BarcodeScanner.CheckCapabilities = async function()
 		capabilities = track.getCapabilities();
 	}
 
-	// If there is more than 1 camera, show the camera selection
-	var cameras = await Quagga.CameraAccess.enumerateVideoDevices();
-	var cameraSelect = document.querySelector('.cameraSelect-wrapper');
-	if (cameraSelect)
+	// Init camera select dropdown
+	if (!Grocy.Components.CameraBarcodeScanner.CameraSelectLoaded)
 	{
-		// Ignore devices without any name
-		cameraSelect.style.display = cameras.filter(x => x.label || x.deviceId).length > 1 ? 'inline-block' : 'none';
+		var cameraSelect = document.querySelector('.cameraSelect');
+		var cameras = await Quagga.CameraAccess.enumerateVideoDevices();
+		cameras.forEach(camera =>
+		{
+			var option = document.createElement("option");
+			option.text = camera.label;
+			option.value = camera.deviceId;
+			if (track.label == camera.label)
+			{
+				option.selected = "selected";
+			}
+			cameraSelect.appendChild(option);
+		});
+
+		Grocy.Components.CameraBarcodeScanner.CameraSelectLoaded = true;
 	}
 
-	// Check if the camera is capable to turn on a torch.
-	var canTorch = typeof capabilities.torch === 'boolean' && capabilities.torch
-	// Remove the torch button, if either the device can not torch or AutoTorchOn is set.
-	var node = document.querySelector('.torch');
-	if (node)
+	// Check if the camera is capable to turn on a torch
+	var hasTorch = typeof capabilities.torch === 'boolean' && capabilities.torch;
+
+	// Remove the torch button if the select camera doesn't have a torch
+	var button = document.querySelector('.torch');
+	if (!hasTorch)
 	{
-		node.style.display = canTorch && !Grocy.FeatureFlags.GROCY_FEATURE_FLAG_AUTO_TORCH_ON_WITH_CAMERA ? 'inline-block' : 'none';
+		button.classList.add('disabled');
 	}
-	// If AutoTorchOn is set, turn on the torch.
-	if (canTorch && Grocy.FeatureFlags.GROCY_FEATURE_FLAG_AUTO_TORCH_ON_WITH_CAMERA)
+	else
 	{
-		Grocy.Components.BarcodeScanner.TorchOn(track);
+		button.classList.remove('disabled');
 	}
 
 	// Reduce the height of the video, if it's higher than then the viewport
-	if (!Grocy.Components.BarcodeScanner.LiveVideoSizeAdjusted)
+	if (!Grocy.Components.CameraBarcodeScanner.LiveVideoSizeAdjusted)
 	{
 		var bc = document.getElementById('barcodescanner-container');
 		if (bc)
@@ -43,7 +57,7 @@ Grocy.Components.BarcodeScanner.CheckCapabilities = async function()
 			var settings = track.getSettings();
 			if (bcAspectRatio > settings.aspectRatio)
 			{
-				var v = document.querySelector('#barcodescanner-livestream video')
+				var v = document.querySelector('#barcodescanner-livestream video');
 				if (v)
 				{
 					var c = document.querySelector('#barcodescanner-livestream canvas')
@@ -53,15 +67,15 @@ Grocy.Components.BarcodeScanner.CheckCapabilities = async function()
 				}
 			}
 
-			Grocy.Components.BarcodeScanner.LiveVideoSizeAdjusted = true;
+			Grocy.Components.CameraBarcodeScanner.LiveVideoSizeAdjusted = true;
 		}
 	}
 }
 
-Grocy.Components.BarcodeScanner.StartScanning = function()
+Grocy.Components.CameraBarcodeScanner.StartScanning = function()
 {
-	Grocy.Components.BarcodeScanner.DecodedCodesCount = 0;
-	Grocy.Components.BarcodeScanner.DecodedCodesErrorCount = 0;
+	Grocy.Components.CameraBarcodeScanner.DecodedCodesCount = 0;
+	Grocy.Components.CameraBarcodeScanner.DecodedCodesErrorCount = 0;
 
 	Quagga.init({
 		inputStream: {
@@ -70,7 +84,7 @@ Grocy.Components.BarcodeScanner.StartScanning = function()
 			target: document.querySelector("#barcodescanner-livestream"),
 			constraints: {
 				facingMode: "environment",
-				...(window.localStorage.getItem('cameraId') && { deviceId: window.localStorage.getItem('cameraId') }) // If preferred cameraId is set, request to use that specific camera
+				...(window.localStorage.getItem('cameraId') && { deviceId: window.localStorage.getItem('cameraId') }), // If preferred cameraId is set, request to use that specific camera
 			}
 		},
 		locator: {
@@ -130,30 +144,39 @@ Grocy.Components.BarcodeScanner.StartScanning = function()
 			return;
 		}
 
-		Grocy.Components.BarcodeScanner.CheckCapabilities();
-
+		Grocy.Components.CameraBarcodeScanner.CheckCapabilities();
 		Quagga.start();
+
+		if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_AUTO_TORCH_ON_WITH_CAMERA)
+		{
+			setTimeout(function()
+			{
+				Grocy.Components.CameraBarcodeScanner.TorchToggle(Quagga.CameraAccess.getActiveTrack());
+			}, 250);
+		}
 	});
 }
 
-Grocy.Components.BarcodeScanner.StopScanning = function()
+Grocy.Components.CameraBarcodeScanner.StopScanning = function()
 {
 	Quagga.stop();
 
-	Grocy.Components.BarcodeScanner.DecodedCodesCount = 0;
-	Grocy.Components.BarcodeScanner.DecodedCodesErrorCount = 0;
-
-	$(".modal").last().modal("hide");
+	Grocy.Components.CameraBarcodeScanner.DecodedCodesCount = 0;
+	Grocy.Components.CameraBarcodeScanner.DecodedCodesErrorCount = 0;
+	Grocy.Components.CameraBarcodeScanner.LiveVideoSizeAdjusted = false;
+	Grocy.Components.CameraBarcodeScanner.CameraSelectLoaded = false;
+	Grocy.Components.CameraBarcodeScanner.TorchIsOn = false;
 }
 
-Grocy.Components.BarcodeScanner.TorchOn = function(track)
+Grocy.Components.CameraBarcodeScanner.TorchToggle = function(track)
 {
 	if (track)
 	{
+		Grocy.Components.CameraBarcodeScanner.TorchIsOn = !Grocy.Components.CameraBarcodeScanner.TorchIsOn;
 		track.applyConstraints({
 			advanced: [
 				{
-					torch: true
+					torch: Grocy.Components.CameraBarcodeScanner.TorchIsOn
 				}
 			]
 		});
@@ -166,16 +189,16 @@ Quagga.onDetected(function(result)
 	{
 		if (error.error != undefined)
 		{
-			Grocy.Components.BarcodeScanner.DecodedCodesCount++;
-			Grocy.Components.BarcodeScanner.DecodedCodesErrorCount += Number.parseFloat(error.error);
+			Grocy.Components.CameraBarcodeScanner.DecodedCodesCount++;
+			Grocy.Components.CameraBarcodeScanner.DecodedCodesErrorCount += Number.parseFloat(error.error);
 		}
 	});
 
-	if ((Grocy.Components.BarcodeScanner.DecodedCodesErrorCount / Grocy.Components.BarcodeScanner.DecodedCodesCount < 0.15) ||
-		(Grocy.Components.BarcodeScanner.DecodedCodesErrorCount == 0 && Grocy.Components.BarcodeScanner.DecodedCodesCount == 0 && result.codeResult.code.length != 0))
+	if ((Grocy.Components.CameraBarcodeScanner.DecodedCodesErrorCount / Grocy.Components.CameraBarcodeScanner.DecodedCodesCount < 0.15) ||
+		(Grocy.Components.CameraBarcodeScanner.DecodedCodesErrorCount == 0 && Grocy.Components.CameraBarcodeScanner.DecodedCodesCount == 0 && result.codeResult.code.length != 0))
 	{
-		Grocy.Components.BarcodeScanner.StopScanning();
-		$(document).trigger("Grocy.BarcodeScanned", [result.codeResult.code, Grocy.Components.BarcodeScanner.CurrentTarget]);
+		Grocy.Components.CameraBarcodeScanner.StopScanning();
+		$(document).trigger("Grocy.BarcodeScanned", [result.codeResult.code, Grocy.Components.CameraBarcodeScanner.CurrentTarget]);
 	}
 });
 
@@ -221,72 +244,49 @@ $(document).on("click", "#barcodescanner-start-button", async function(e)
 		return;
 	}
 
-	Grocy.Components.BarcodeScanner.CurrentTarget = inputElement.attr("data-target");
+	Grocy.Components.CameraBarcodeScanner.CurrentTarget = inputElement.attr("data-target");
 
 	var dialog = bootbox.dialog({
 		message: '<div id="barcodescanner-container" class="col"><div id="barcodescanner-livestream"></div></div>',
 		title: __t('Scan a barcode'),
-		onEscape: function()
-		{
-			Grocy.Components.BarcodeScanner.StopScanning();
-		},
-		size: 'big',
+		size: 'large',
 		backdrop: true,
 		closeButton: true,
+		className: "form",
 		buttons: {
 			torch: {
 				label: '<i class="fa-solid fa-lightbulb"></i>',
 				className: 'btn-warning responsive-button torch',
 				callback: function()
 				{
-					Grocy.Components.BarcodeScanner.TorchOn(Quagga.CameraAccess.getActiveTrack());
+					Grocy.Components.CameraBarcodeScanner.TorchToggle(Quagga.CameraAccess.getActiveTrack());
 					return false;
 				}
-			},
-			cancel: {
-				label: __t('Cancel'),
-				className: 'btn-secondary responsive-button',
-				callback: function()
-				{
-					Grocy.Components.BarcodeScanner.StopScanning();
-				}
 			}
+		},
+		onHide: function(e)
+		{
+			Grocy.Components.CameraBarcodeScanner.StopScanning();
 		}
 	});
 
 	// Add camera select to existing dialog
-	dialog.find('.bootbox-body').append('<div class="form-group py-0 my-1 d-block cameraSelect-wrapper"><select class="custom-control custom-select cameraSelect"><select class="custom-control custom-select cameraSelect" style="display: none"></select></div>');
+	dialog.find('.bootbox-body').append('<div class="form-group py-0 my-1 d-block cameraSelect-wrapper"><select class="custom-control custom-select cameraSelect"></select></div>');
 	var cameraSelect = document.querySelector('.cameraSelect');
-
-	var cameras = await Quagga.CameraAccess.enumerateVideoDevices();
-	cameras.forEach(camera =>
-	{
-		var option = document.createElement("option");
-		if (camera.label || camera.deviceId) // Ignore devices without any name
-		{
-			option.text = camera.label ? camera.label : camera.deviceId; // Use camera label if it exists, else show device id
-			option.value = camera.deviceId;
-			cameraSelect.appendChild(option);
-		}
-	});
-
-	// Set initial value to preferred camera if one exists - and if not, start out empty
-	cameraSelect.value = window.localStorage.getItem('cameraId');
-
 	cameraSelect.onchange = function()
 	{
 		window.localStorage.setItem('cameraId', cameraSelect.value);
 		Quagga.stop();
-		Grocy.Components.BarcodeScanner.StartScanning();
+		Grocy.Components.CameraBarcodeScanner.StartScanning();
 	};
 
-	Grocy.Components.BarcodeScanner.StartScanning();
+	Grocy.Components.CameraBarcodeScanner.StartScanning();
 });
 
-Grocy.Components.BarcodeScanner.InitDone = false;
-Grocy.Components.BarcodeScanner.Init = function()
+Grocy.Components.CameraBarcodeScanner.InitDone = false;
+Grocy.Components.CameraBarcodeScanner.Init = function()
 {
-	if (Grocy.Components.BarcodeScanner.InitDone)
+	if (Grocy.Components.CameraBarcodeScanner.InitDone)
 	{
 		return;
 	}
@@ -302,11 +302,11 @@ Grocy.Components.BarcodeScanner.Init = function()
 			$(this).after('<a id="barcodescanner-start-button" class="btn btn-sm btn-primary text-white" data-target="' + $(this).attr("data-target") + '"><i class="fa-solid fa-camera"></i></a>');
 		}
 
-		Grocy.Components.BarcodeScanner.InitDone = true;
+		Grocy.Components.CameraBarcodeScanner.InitDone = true;
 	});
 }
 
 setTimeout(function()
 {
-	Grocy.Components.BarcodeScanner.Init();
+	Grocy.Components.CameraBarcodeScanner.Init();
 }, 50);

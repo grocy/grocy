@@ -41,4 +41,4 @@
 	<div class="invalid-feedback">{{ $__t('You have to select a recipe') }}</div>
 </div>
 
-@include('components.barcodescanner')
+@include('components.camerabarcodescanner')

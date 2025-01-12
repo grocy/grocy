@@ -57,7 +57,7 @@
 						name="barcode"
 						value="@if($mode == 'edit'){{ $barcode->barcode }}@endif"
 						data-target="#barcode">
-					@include('components.barcodescanner')
+					@include('components.camerabarcodescanner')
 				</div>
 			</div>
 
