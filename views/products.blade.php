@@ -128,6 +128,7 @@
 					<th class="">{{ $__t('Product group') }}</th>
 					<th class="@if(!GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING) d-none @endif allow-grouping">{{ $__t('Default store') }}</th>
 					<th class="">{{ $__t('Grocycode') }}</th>
+					<th>{{ $__t('Product picture') }}</th>
 
 					@include('components.userfields_thead', array(
 					'userfields' => $userfields
@@ -214,6 +215,12 @@
 					<td>
 						<img src="{{ $U('/product/' . $product->id . '/grocycode?size=25') }}"
 							loading="lazy">
+					</td>
+					<td>
+						@if(!empty($product->picture_file_name))
+						<img src="{{ $U('/api/files/productpictures/' . base64_encode($product->picture_file_name) . '?force_serve_as=picture&best_fit_width=64&best_fit_height=64') }}"
+							loading="lazy">
+						@endif
 					</td>
 
 					@include('components.userfields_tbody', array(

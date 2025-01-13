@@ -19,7 +19,9 @@
   - => Quick video demo (using a Barcode Laser Scanner): https://www.youtube.com/watch?v=-moXPA-VvGc
   - => Quick video demo (using Browser Camera Barcode Scanning): https://www.youtube.com/watch?v=veezFX4X1JU
 - Optimized that when moving a product to a freezer location (so when freezing it) the due date will no longer be replaced when the product option "Default due days after freezing" is set to `0`
+- Added a new column "Product picture" on the products list (master data) page (hidden by default)
 - Fixed that a once set quantity unit on a product barcode could not be removed on edit
+- Fixed that when consuming a specific stock entry which is opened, and which originated from a before partly opened stock entry, the unopened one was wrongly consume instead
 
 ### Shopping list
 
@@ -27,7 +29,7 @@
 
 ### Recipes
 
-- xxx
+- Fixed that calories/costs of recipe ingredients were wrong when the ingredient option "Only check if any amount is in stock" was set and the on the ingredient used quantity unit was different from the product's QU stock
 
 ### Meal plan
 

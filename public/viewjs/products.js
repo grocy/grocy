@@ -5,6 +5,7 @@
 		{ 'searchable': false, "targets": 0 },
 		{ 'visible': false, 'targets': 7 },
 		{ 'visible': false, 'targets': 8 },
+		{ 'visible': false, 'targets': 9 },
 		{ "type": "html-num-fmt", "targets": 3 }
 	].concat($.fn.dataTable.defaults.columnDefs)
 });

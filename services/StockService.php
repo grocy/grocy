@@ -1069,7 +1069,7 @@ class StockService extends BaseService
 					'purchased_date' => $stockEntry->purchased_date,
 					'location_id' => $stockEntry->location_id,
 					'shopping_location_id' => $stockEntry->shopping_location_id,
-					'stock_id' => $stockEntry->stock_id,
+					'stock_id' => uniqid(),
 					'price' => $stockEntry->price,
 					'note' => $stockEntry->note
 				]);

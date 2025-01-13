@@ -26,7 +26,8 @@ body.night-mode,
 	color: #c1c1c1;
 }
 
-.night-mode .table {
+.night-mode .table,
+.night-mode .list-group-item {
 	color: #c1c1c1;
 }
 

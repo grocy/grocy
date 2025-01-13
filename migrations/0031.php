@@ -2,10 +2,7 @@
 
 // This is executed inside DatabaseMigrationService class/context
 
-use Grocy\Services\LocalizationService;
-
 $localizationService = $this->getLocalizationService();
-
 $db = $this->getDatabaseService()->GetDbConnection();
 
 if ($db->quantity_units()->count() === 0)

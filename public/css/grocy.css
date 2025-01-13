@@ -16,14 +16,14 @@ body {
 	font-size: 0.8em;
 }
 
-a:not(.btn):not(.nav-link):not(.dropdown-item) {
+a:not(.btn):not(.nav-link):not(.dropdown-item):not(.list-group-item) {
 	color: inherit;
 	text-decoration: underline;
 	text-decoration-style: dotted;
 	text-underline-offset: 0.2rem;
 }
 
-a:not(.btn):not(.nav-link):not(.dropdown-item):hover {
+a:not(.btn):not(.nav-link):not(.dropdown-item):not(.list-group-item):hover {
 	text-decoration: underline;
 }
 
