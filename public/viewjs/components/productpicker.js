@@ -175,7 +175,7 @@ $('#product_id_text_input').on('blur', function(e)
 	}
 	else // Normal product barcode handling
 	{
-		possibleOptionElement = $("#product_id option[data-additional-searchdata*=\"" + input + ",\"]").first();
+		possibleOptionElement = $("#product_id option[data-additional-searchdata*=\"" + input.toLowerCase() + ",\"]").first();
 	}
 
 	if (GetUriParam('flow') === undefined && input.length > 0 && possibleOptionElement.length > 0)

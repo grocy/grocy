@@ -19,6 +19,7 @@
   - => Quick video demo (using a Barcode Laser Scanner): https://www.youtube.com/watch?v=-moXPA-VvGc
   - => Quick video demo (using Browser Camera Barcode Scanning): https://www.youtube.com/watch?v=veezFX4X1JU
 - Optimized that when moving a product to a freezer location (so when freezing it) the due date will no longer be replaced when the product option "Default due days after freezing" is set to `0`
+- Product barcode matching is now case-insensitive
 - Added a new column "Product picture" on the products list (master data) page (hidden by default)
 - Fixed that a once set quantity unit on a product barcode could not be removed on edit
 - Fixed that when consuming a specific stock entry which is opened, and which originated from a before partly opened stock entry, the unopened one was wrongly consume instead

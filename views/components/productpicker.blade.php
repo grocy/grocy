@@ -66,7 +66,7 @@
 		$bc = FindObjectInArrayByPropertyValue($barcodes, 'product_id', $product->id);
 		}
 		@endphp
-		<option data-additional-searchdata="@if(isset($bc)){{ $bc->barcodes }}@endif,"
+		<option data-additional-searchdata="@if(isset($bc)){{ strtolower($bc->barcodes) }}@endif,"
 			value="{{ $product->id }}">{{ $product->name }}</option>
 		@endforeach
 	</select>
