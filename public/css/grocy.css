@@ -362,8 +362,12 @@ html {
 	min-height: inherit;
 }
 
-.dropdown-toggle::after {
-	margin-left: -0.15em !important;
+.dropdown-toggle:after {
+	vertical-align: 0;
+	margin: 0;
+	border: none;
+	content: '\f107';
+	font-family: 'Font Awesome 6 Free';
 }
 
 /* Third party component customizations - Tempus Dominus */

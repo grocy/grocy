@@ -13,7 +13,7 @@
 					if (Grocy.ProductEditFormRedirectUri == "reload")
 					{
 						window.location.reload();
-						return
+						return;
 					}
 
 					var returnTo = GetUriParam('returnto');
@@ -42,7 +42,7 @@
 				(xhr) =>
 				{
 					Grocy.FrontendHelpers.EndUiBusy("product-form");
-					Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
+					Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response);
 				}
 			);
 		}
@@ -107,7 +107,7 @@ $('.save-product-button').on('click', function(e)
 			(xhr) =>
 			{
 				Grocy.FrontendHelpers.EndUiBusy("product-form");
-				Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
+				Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response);
 			});
 		return;
 	}
@@ -116,7 +116,7 @@ $('.save-product-button').on('click', function(e)
 	{
 		jsonData.picture_file_name = null;
 
-		Grocy.Api.DeleteFile(Grocy.ProductPictureFileName, 'productpictures', {},
+		Grocy.Api.DeleteFile(Grocy.ProductPictureFileName, 'productpictures',
 			function(result)
 			{
 				// Nothing to do
@@ -124,7 +124,7 @@ $('.save-product-button').on('click', function(e)
 			function(xhr)
 			{
 				Grocy.FrontendHelpers.EndUiBusy("product-form");
-				Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
+				Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response);
 			}
 		);
 	}

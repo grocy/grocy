@@ -56,7 +56,7 @@
 			function(xhr)
 			{
 				Grocy.FrontendHelpers.EndUiBusy("task-form");
-				Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
+				Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response);
 			}
 		);
 	}
@@ -80,7 +80,7 @@
 			function(xhr)
 			{
 				Grocy.FrontendHelpers.EndUiBusy("task-form");
-				Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
+				Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response);
 			}
 		);
 	}

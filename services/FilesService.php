@@ -80,7 +80,6 @@ class FilesService extends BaseService
 		if (file_exists($filePath))
 		{
 			$fileNameWithoutExtension = pathinfo($filePath, PATHINFO_FILENAME);
-			$fileExtension = pathinfo($filePath, PATHINFO_EXTENSION);
 
 			// Then the file is an image
 			if (getimagesize($filePath) !== false)

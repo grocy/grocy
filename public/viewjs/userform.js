@@ -13,7 +13,7 @@
 				(xhr) =>
 				{
 					Grocy.FrontendHelpers.EndUiBusy("user-form");
-					Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
+					Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response);
 				}
 			);
 		}
@@ -63,7 +63,7 @@ $('#save-user-button').on('click', function(e)
 		{
 			jsonData.picture_file_name = null;
 
-			Grocy.Api.DeleteFile(Grocy.UserPictureFileName, 'userpictures', {},
+			Grocy.Api.DeleteFile(Grocy.UserPictureFileName, 'userpictures',
 				function(result)
 				{
 					// Nothing to do
@@ -71,7 +71,7 @@ $('#save-user-button').on('click', function(e)
 				function(xhr)
 				{
 					Grocy.FrontendHelpers.EndUiBusy("user-form");
-					Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
+					Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response);
 				}
 			);
 		}

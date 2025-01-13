@@ -491,11 +491,11 @@ Grocy.FrontendHelpers.RunWebhook = function(webhook, data, repetitions = 1)
 
 $(document).on("keyup paste change", "input, textarea", function()
 {
-	$(this).closest("form").addClass("is-dirty");
+	$(this).addClass("is-dirty").closest("form").addClass("is-dirty");
 });
 $(document).on("click", "select", function()
 {
-	$(this).closest("form").addClass("is-dirty");
+	$(this).addClass("is-dirty").closest("form").addClass("is-dirty");
 });
 
 // Auto saving user setting controls

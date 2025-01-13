@@ -43,7 +43,7 @@
 							function(xhr)
 							{
 								Grocy.FrontendHelpers.EndUiBusy("equipment-form");
-								Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
+								Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response);
 							}
 						);
 					}
@@ -56,7 +56,7 @@
 			function(xhr)
 			{
 				Grocy.FrontendHelpers.EndUiBusy("equipment-form");
-				Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
+				Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response);
 			}
 		);
 	}
@@ -64,7 +64,7 @@
 	{
 		if (Grocy.DeleteInstructionManualOnSave)
 		{
-			Grocy.Api.DeleteFile(Grocy.InstructionManualFileNameName, 'equipmentmanuals', {},
+			Grocy.Api.DeleteFile(Grocy.InstructionManualFileNameName, 'equipmentmanuals',
 				function(result)
 				{
 					// Nothing to do
@@ -72,7 +72,7 @@
 				function(xhr)
 				{
 					Grocy.FrontendHelpers.EndUiBusy("equipment-form");
-					Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
+					Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response);
 				}
 			);
 		};
@@ -92,7 +92,7 @@
 							function(xhr)
 							{
 								Grocy.FrontendHelpers.EndUiBusy("equipment-form");
-								Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
+								Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response);
 							}
 						);
 					}
@@ -105,7 +105,7 @@
 			function(xhr)
 			{
 				Grocy.FrontendHelpers.EndUiBusy("equipment-form");
-				Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
+				Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response);
 			}
 		);
 	}

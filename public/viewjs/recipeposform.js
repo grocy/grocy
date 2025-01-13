@@ -52,7 +52,7 @@ $('#save-recipe-pos-button').on('click', function(e)
 			function(xhr)
 			{
 				Grocy.FrontendHelpers.EndUiBusy("recipe-pos-form");
-				Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
+				Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response);
 			}
 		);
 	}
@@ -67,7 +67,7 @@ $('#save-recipe-pos-button').on('click', function(e)
 			function(xhr)
 			{
 				Grocy.FrontendHelpers.EndUiBusy("recipe-pos-form");
-				Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
+				Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response);
 			}
 		);
 	}

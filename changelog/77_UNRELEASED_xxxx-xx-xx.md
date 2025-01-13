@@ -58,6 +58,7 @@
 ### Userfields
 
 - Fixed that Userfield default values were not initialized for the `stock` entity (so affecting the purchase and inventory page)
+- Fixed that uploading bigger or multiple files (so when the upload usually takes a little longer) didn't work (Userfield type "File")
 
 ### General
 

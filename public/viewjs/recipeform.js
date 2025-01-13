@@ -15,7 +15,7 @@
 				(xhr) =>
 				{
 					Grocy.FrontendHelpers.EndUiBusy("recipe-form");
-					Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
+					Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response);
 				}
 			);
 		}
@@ -56,7 +56,7 @@ $('.save-recipe').on('click', function(e)
 	{
 		jsonData.picture_file_name = null;
 
-		Grocy.Api.DeleteFile(Grocy.RecipePictureFileName, 'recipepictures', {},
+		Grocy.Api.DeleteFile(Grocy.RecipePictureFileName, 'recipepictures',
 			function(result)
 			{
 				// Nothing to do
@@ -64,7 +64,7 @@ $('.save-recipe').on('click', function(e)
 			function(xhr)
 			{
 				Grocy.FrontendHelpers.EndUiBusy("recipe-form");
-				Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
+				Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response);
 			}
 		);
 	}
@@ -317,7 +317,7 @@ $('#save-recipe-include-button').on('click', function(e)
 			},
 			function(xhr)
 			{
-				Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
+				Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response);
 			}
 		);
 	}
@@ -330,7 +330,7 @@ $('#save-recipe-include-button').on('click', function(e)
 			},
 			function(xhr)
 			{
-				Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response)
+				Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response);
 			}
 		);
 	}
