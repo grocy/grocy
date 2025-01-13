@@ -30,10 +30,11 @@
 ### Recipes
 
 - Fixed that calories/costs of recipe ingredients were wrong when the ingredient option "Only check if any amount is in stock" was set and the on the ingredient used quantity unit was different from the product's QU stock
+- Fixed that multi-nested recipes (at least 3 levels of "included recipes") resulted in wrong amounts/costs/calories calculated for the ingredients orginating in those nested recipes (also affected the meal plan)
 
 ### Meal plan
 
-- xxx
+- Fixed that amounts/costs/calories were wrong for recipes which had at least 2 levels of "included recipes"
 
 ### Chores
 
