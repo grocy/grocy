@@ -31,16 +31,19 @@
 					href="#">
 					{{ $__t('Group by') }}:
 				</a>
-				<a class="btn btn-outline-dark responsive-button m-1 mt-md-0 mb-md-0 float-right @if($groupBy == 'product') active @endif"
-					href="{{ $U('/stockreports/spendings?group-by=product') }}">
+				<a class="btn btn-outline-dark responsive-button m-1 mt-md-0 mb-md-0 float-right group-by-button @if($groupBy == 'product') active @endif"
+					href="#"
+					data-group-by="product">
 					{{ $__t('Product') }}
 				</a>
-				<a class="btn btn-outline-dark responsive-button m-1 mt-md-0 mb-md-0 float-right @if($groupBy == 'productgroup') active @endif"
-					href="{{ $U('/stockreports/spendings?group-by=productgroup') }}">
+				<a class="btn btn-outline-dark responsive-button m-1 mt-md-0 mb-md-0 float-right group-by-button @if($groupBy == 'productgroup') active @endif"
+					href="#"
+					data-group-by="productgroup">
 					{{ $__t('Product group') }}
 				</a>
-				<a class="btn btn-outline-dark responsive-button m-1 mt-md-0 mb-md-0 float-right @if($groupBy == 'store') active @endif"
-					href="{{ $U('/stockreports/spendings?group-by=store') }}">
+				<a class="btn btn-outline-dark responsive-button m-1 mt-md-0 mb-md-0 float-right group-by-button @if($groupBy == 'store') active @endif"
+					href="#"
+					data-group-by="store">
 					{{ $__t('Store') }}
 				</a>
 			</div>

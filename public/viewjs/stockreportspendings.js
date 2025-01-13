@@ -143,3 +143,11 @@ $("#product-group-filter").on("change", function()
 	UpdateUriParam("product-group", $(this).val());
 	window.location.reload();
 });
+
+$(".group-by-button").on("click", function(e)
+{
+	e.preventDefault();
+
+	UpdateUriParam("group-by", $(this).attr("data-group-by"));
+	window.location.reload();
+});

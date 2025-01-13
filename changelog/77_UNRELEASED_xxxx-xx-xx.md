@@ -21,6 +21,7 @@
 - Optimized that when moving a product to a freezer location (so when freezing it) the due date will no longer be replaced when the product option "Default due days after freezing" is set to `0`
 - Product barcode matching is now case-insensitive
 - Added a new column "Product picture" on the products list (master data) page (hidden by default)
+- Optimized that when navigation between the different "Group by"-variants on the stock report "Spendings", the selected date range now remains persistent
 - Fixed that a once set quantity unit on a product barcode could not be removed on edit
 - Fixed that when consuming a specific stock entry which is opened, and which originated from a before partly opened stock entry, the unopened one was wrongly consume instead
 
