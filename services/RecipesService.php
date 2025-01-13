@@ -27,6 +27,7 @@ class RecipesService extends BaseService
 			{
 				$product = $this->getDataBase()->products($recipePosition->product_id);
 				$toOrderAmount = round(($recipePosition->missing_amount - $recipePosition->amount_on_shopping_list), 2);
+				$quId = $product->qu_id_stock;
 
 				if ($recipe->not_check_shoppinglist == 1)
 				{
@@ -43,6 +44,11 @@ class RecipesService extends BaseService
 					{
 						$toOrderAmount = $toOrderAmount * $conversion->factor;
 					}
+					else
+					{
+						$quId = $recipePosition->qu_id;
+						$toOrderAmount = $recipePosition->missing_amount;
+					}
 				}
 
 				if ($toOrderAmount > 0)
@@ -56,6 +62,7 @@ class RecipesService extends BaseService
 					$shoppinglistRow = $this->getDataBase()->shopping_list()->createRow([
 						'product_id' => $recipePosition->product_id,
 						'amount' => $toOrderAmount,
+						'qu_id' => $quId,
 						'note' => $note
 					]);
 					$shoppinglistRow->save();
