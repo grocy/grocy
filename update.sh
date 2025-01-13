@@ -19,9 +19,6 @@ find ./data/backups/*.tgz -mtime +60 -type f -delete
 echo Deleting everything except ./data and this script
 rm -rf !(data|update.sh) > /dev/null
 
-echo Emptying ./data/viewcache
-rm -rf ./data/viewcache/* > /dev/null
-
 echo Downloading latest release
 rm -f ./grocy-latest.zip > /dev/null
 wget $GROCY_RELEASE_URL -q --show-progress -O ./grocy-latest.zip > /dev/null
