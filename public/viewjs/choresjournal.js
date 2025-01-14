@@ -2,7 +2,8 @@
 	'order': [[2, 'desc']],
 	'columnDefs': [
 		{ 'orderable': false, 'targets': 0 },
-		{ 'searchable': false, "targets": 0 }
+		{ 'searchable': false, "targets": 0 },
+		{ 'visible': false, 'targets': 4 }
 	].concat($.fn.dataTable.defaults.columnDefs)
 });
 $('#chores-journal-table tbody').removeClass("d-none");

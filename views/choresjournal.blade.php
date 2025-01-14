@@ -91,9 +91,9 @@
 					</th>
 					<th class="allow-grouping">{{ $__t('Chore') }}</th>
 					<th>{{ $__t('Tracked time') }}</th>
-					@if(GROCY_FEATURE_FLAG_CHORES_ASSIGNMENTS)
-					<th class="allow-grouping">{{ $__t('Done by') }}</th>
-					@endif
+					<th>{{ $__t('Scheduled tracking time') }}</th>
+					<th>{{ $__t('Time of tracking') }}</th>
+					<th class="allow-grouping @if(!GROCY_FEATURE_FLAG_CHORES_ASSIGNMENTS) d-none @endif">{{ $__t('Done by') }}</th>
 
 					@include('components.userfields_thead', array(
 					'userfields' => $userfields
@@ -103,7 +103,7 @@
 			<tbody class="d-none">
 				@foreach($choresLog as $choreLogEntry)
 				<tr id="chore-execution-{{ $choreLogEntry->id }}-row"
-					class="@if($choreLogEntry->undone == 1) text-muted @endif @if($choreLogEntry->skipped == 1) font-italic @endif">
+					class="@if($choreLogEntry->undone == 1) text-muted @endif @if($choreLogEntry->skipped == 1) font-italic @endif @if (!empty($choreLogEntry->scheduled_execution_time) && $choreLogEntry->skipped == 0 && $choreLogEntry->tracked_time > $choreLogEntry->scheduled_execution_time) table-danger @endif">
 					<td class="fit-content border-right">
 						<a class="btn btn-secondary btn-xs undo-chore-execution-button permission-CHORE_UNDO_EXECUTION @if($choreLogEntry->undone == 1) disabled @endif"
 							href="#"
@@ -131,15 +131,25 @@
 						<span class="text-muted">{{ $__t('Skipped') }}</span>
 						@endif
 					</td>
-					@if(GROCY_FEATURE_FLAG_CHORES_ASSIGNMENTS)
 					<td>
+						@if (!empty($choreLogEntry->scheduled_execution_time))
+						<span>{{ $choreLogEntry->scheduled_execution_time }}</span>
+						<time class="timeago timeago-contextual @if(FindObjectInArrayByPropertyValue($chores, 'id', $choreLogEntry->chore_id)->track_date_only == 1) timeago-date-only @endif"
+							datetime="{{ $choreLogEntry->scheduled_execution_time }}"></time>
+						@endif
+					</td>
+					<td>
+						<span>{{ $choreLogEntry->row_created_timestamp }}</span>
+						<time class="timeago timeago-contextual"
+							datetime="{{ $choreLogEntry->row_created_timestamp }}"></time>
+					</td>
+					<td class="@if(!GROCY_FEATURE_FLAG_CHORES_ASSIGNMENTS) d-none @endif">
 						@if ($choreLogEntry->done_by_user_id !== null && !empty($choreLogEntry->done_by_user_id))
 						{{ GetUserDisplayName(FindObjectInArrayByPropertyValue($users, 'id', $choreLogEntry->done_by_user_id)) }}
 						@else
 						{{ $__t('Unknown') }}
 						@endif
 					</td>
-					@endif
 
 					@include('components.userfields_tbody', array(
 					'userfields' => $userfields,

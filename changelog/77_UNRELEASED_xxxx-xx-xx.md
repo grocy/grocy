@@ -42,7 +42,11 @@
 
 ### Chores
 
-- Added a new option "Swap track next schedule / track now buttons" (stock settings / top right corner settings menu) to swap the "Track next chore schedule" and "Track chore execution now" buttons/menu items on the chores overview page (defaults to disabled, so no changed behavior when not configured)
+- Added the possibility to see if a scheduled schedule chore was tracked/done on time or not:
+  - When tracking chores, the "Next estimated tracking date" (so the current scheduled time) is now also stored in the corresponding chore journal entry and displayed in new column "Scheduled tracking time" on the chores journal page
+  - When the "Tracked time" is later than the "Scheduled tracking time", the corresponding chore journal entry is now highlighted in red on the chores journal page
+- Added a new column "Time of tracking" on the chores journal page (displays the time when the tracking actually happened, hidden by default)
+- Added a new option "Swap track next schedule / track now buttons" (chores settings / top right corner settings menu) to swap the "Track next chore schedule" / "Track chore execution now" buttons/menu items on the chores overview page (defaults to disabled, so no changed behavior when not configured)
 
 ### Calendar
 

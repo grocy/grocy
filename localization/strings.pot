@@ -2440,3 +2440,9 @@ msgstr ""
 
 msgid "Swap track next schedule / track now buttons"
 msgstr ""
+
+msgid "Scheduled tracking time"
+msgstr ""
+
+msgid "Time of tracking"
+msgstr ""
