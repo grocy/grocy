@@ -207,6 +207,7 @@ DefaultUserSetting('recipes_show_ingredient_checkbox', false); // When enabled, 
 
 // Chores settings
 DefaultUserSetting('chores_due_soon_days', 5); // The "due soon" days
+DefaultUserSetting('chores_overview_swap_tracking_buttons', false); // When enabled, the "Track next chore schedule" and "Track chore execution now" buttons/menu items are swapped
 
 // Batteries settings
 DefaultUserSetting('batteries_due_soon_days', 5); // The "due soon" days

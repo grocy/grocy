@@ -42,7 +42,7 @@
 
 ### Chores
 
-- xxx
+- Added a new option "Swap track next schedule / track now buttons" (stock settings / top right corner settings menu) to swap the "Track next chore schedule" and "Track chore execution now" buttons/menu items on the chores overview page (defaults to disabled, so no changed behavior when not configured)
 
 ### Calendar
 

@@ -2437,3 +2437,6 @@ msgstr ""
 
 msgid "Configure colors"
 msgstr ""
+
+msgid "Swap track next schedule / track now buttons"
+msgstr ""

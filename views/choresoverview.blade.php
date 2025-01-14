@@ -136,11 +136,15 @@
 				<tr id="chore-{{ $curentChoreEntry->chore_id }}-row"
 					class="@if($curentChoreEntry->due_type == 'overdue') table-danger @elseif($curentChoreEntry->due_type == 'duetoday') table-info @elseif($curentChoreEntry->due_type == 'duesoon') table-warning @endif">
 					<td class="fit-content border-right">
-						<a class="btn btn-success btn-sm track-chore-button permission-CHORE_TRACK_EXECUTION"
+						<a class="btn btn-success btn-sm track-chore-button permission-CHORE_TRACK_EXECUTION @if(boolval($userSettings['chores_overview_swap_tracking_buttons'])) now @endif"
 							href="#"
 							data-toggle="tooltip"
 							data-placement="left"
+							@if(boolval($userSettings['chores_overview_swap_tracking_buttons']))
+							title="{{ $__t('Track chore execution now') }}"
+							@else
 							title="{{ $__t('Track next chore schedule') }}"
+							@endif
 							data-chore-id="{{ $curentChoreEntry->chore_id }}"
 							data-chore-name="{{ FindObjectInArrayByPropertyValue($chores, 'id', $curentChoreEntry->chore_id)->name }}">
 							<i class="fa-solid fa-play"></i>
@@ -161,11 +165,15 @@
 								<i class="fa-solid fa-ellipsis-v"></i>
 							</button>
 							<div class="table-inline-menu dropdown-menu dropdown-menu-right">
-								<a class="dropdown-item track-chore-button now permission-CHORE_TRACK_EXECUTION"
+								<a class="dropdown-item track-chore-button permission-CHORE_TRACK_EXECUTION @if(!boolval($userSettings['chores_overview_swap_tracking_buttons'])) now @endif"
 									data-chore-id="{{ $curentChoreEntry->chore_id }}"
 									type="button"
 									href="#">
+									@if(boolval($userSettings['chores_overview_swap_tracking_buttons']))
+									<span>{{ $__t('Track next chore schedule') }}</span>
+									@else
 									<span>{{ $__t('Track chore execution now') }}</span>
+									@endif
 								</a>
 								<a class="dropdown-item reschedule-chore-button permission-CHORE_TRACK_EXECUTION"
 									data-chore-id="{{ $curentChoreEntry->chore_id }}"
