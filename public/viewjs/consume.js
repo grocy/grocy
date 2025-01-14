@@ -287,7 +287,7 @@ function OnLocationChange(locationId, stockId)
 					var openTxt = __t("Not opened");
 					if (stockEntry.open == 1)
 					{
-						openTxt = __t("Opened");
+						openTxt = __n(stockEntry.amount, "Opened", "Opened");
 					}
 
 					if (stockEntry.location_id == locationId)
@@ -672,7 +672,6 @@ $(document).on("change", "#scan-mode", function(e)
 
 $("#scan-mode-button").on("click", function(e)
 {
-	document.activeElement.blur();
 	$("#scan-mode").click();
 	$("#scan-mode-button").toggleClass("btn-success").toggleClass("btn-danger");
 	if ($("#scan-mode").prop("checked"))

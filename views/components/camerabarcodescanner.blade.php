@@ -10,7 +10,7 @@
 
 @push('pageStyles')
 <style>
-	#barcodescanner-start-button {
+	#camerabarcodescanner-start-button {
 		position: absolute;
 		right: 0;
 		margin-top: 4px;
@@ -18,8 +18,8 @@
 		cursor: pointer;
 	}
 
-	.combobox-container #barcodescanner-start-button {
-		margin-right: 36px !important;
+	.combobox-container #camerabarcodescanner-start-button {
+		margin-right: 38px !important;
 	}
 </style>
 @endpush

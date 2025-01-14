@@ -136,7 +136,10 @@ Grocy.Components.ProductCard.Refresh = function(productId)
 							$("#productcard-no-price-data-hint").addClass("d-none");
 
 							Grocy.Components.ProductCard.ReInitPriceHistoryChart();
+
 							var datasets = {};
+							datasets["_TrendlineDataset"] = []
+
 							var chart = Grocy.Components.ProductCard.PriceHistoryChart.data;
 							priceHistoryDataPoints.forEach((dataPoint) =>
 							{
@@ -150,18 +153,41 @@ Grocy.Components.ProductCard.Refresh = function(productId)
 								{
 									datasets[key] = []
 								}
+
 								chart.labels.push(moment(dataPoint.date).toDate());
 								datasets[key].push({ x: moment(dataPoint.date).toDate(), y: dataPoint.price * productDetails.qu_conversion_factor_price_to_stock });
-
+								datasets["_TrendlineDataset"].push({ x: moment(dataPoint.date).toDate(), y: dataPoint.price * productDetails.qu_conversion_factor_price_to_stock });
 							});
+
 							Object.keys(datasets).forEach((key) =>
 							{
-								chart.datasets.push({
-									data: datasets[key],
-									fill: false,
-									borderColor: "HSL(" + (129 * chart.datasets.length) + ",100%,50%)",
-									label: key,
-								});
+								if (key != "_TrendlineDataset")
+								{
+									chart.datasets.push({
+										data: datasets[key],
+										fill: false,
+										borderColor: "HSL(" + (129 * chart.datasets.length) + ",100%,50%)",
+										label: key
+									});
+								}
+								else
+								{
+									chart.datasets.push({
+										data: datasets[key],
+										fill: false,
+										borderColor: "HSL(" + (129 * chart.datasets.length) + ",100%,50%)",
+										label: key,
+										hidden: true,
+										alwaysShowTrendline: true,
+										trendlineLinear: {
+											colorMin: "rgba(0, 0, 0, 0.3)",
+											colorMax: "rgba(0, 0, 0, 0.3)",
+											lineStyle: "dotted",
+											width: 3
+										}
+									});
+								}
+
 							});
 
 							Grocy.Components.ProductCard.PriceHistoryChart.update();
@@ -234,7 +260,13 @@ Grocy.Components.ProductCard.ReInitPriceHistoryChart = function()
 				}]
 			},
 			legend: {
-				display: true
+				display: true,
+				labels: {
+					filter: function(item, chart)
+					{
+						return item.text != "_TrendlineDataset";
+					}
+				}
 			},
 			tooltips: {
 				callbacks: {

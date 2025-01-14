@@ -209,21 +209,16 @@ a:not([href]) {
 	white-space: pre-wrap;
 }
 
-/* Barcodescanner Quagga2 */
-#barcodescanner-container {
-	max-height: 90vw;
+/* Camera Barcodescanner Quagga2 */
+#camerabarcodescanner-container {
+	max-height: 90vh;
 }
 
-#livestream-container {
-	max-height: 100%;
-}
-
-#barcodescanner-livestream video {
+#camerabarcodescanner-livestream video {
 	width: 100%;
-
 }
 
-#barcodescanner-livestream canvas {
+#camerabarcodescanner-livestream canvas {
 	width: 100%;
 }
 
@@ -304,6 +299,14 @@ a:not([href]) {
 	overflow-y: auto;
 }
 
+.btn.dropdown-toggle:after {
+	vertical-align: 0;
+	margin: 0;
+	border: none;
+	content: '\f107';
+	font-family: 'Font Awesome 6 Free';
+}
+
 /* Third party component customizations - DataTables */
 .dataTable td {
 	vertical-align: middle !important;
@@ -360,14 +363,6 @@ tr.dtrg-group {
 
 html {
 	min-height: inherit;
-}
-
-.dropdown-toggle:after {
-	vertical-align: 0;
-	margin: 0;
-	border: none;
-	content: '\f107';
-	font-family: 'Font Awesome 6 Free';
 }
 
 /* Third party component customizations - Tempus Dominus */

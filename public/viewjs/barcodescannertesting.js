@@ -20,21 +20,21 @@ $("#expected_barcode").on("keyup", function(e)
 	if ($("#expected_barcode").val().length > 1)
 	{
 		$("#scanned_barcode").removeAttr("disabled");
-		$("#barcodescanner-start-button").removeAttr("disabled");
-		$("#barcodescanner-start-button").removeClass("disabled");
+		$("#camerabarcodescanner-start-button").removeAttr("disabled");
+		$("#camerabarcodescanner-start-button").removeClass("disabled");
 	}
 	else
 	{
 		$("#scanned_barcode").attr("disabled", "");
-		$("#barcodescanner-start-button").attr("disabled", "");
-		$("#barcodescanner-start-button").addClass("disabled");
+		$("#camerabarcodescanner-start-button").attr("disabled", "");
+		$("#camerabarcodescanner-start-button").addClass("disabled");
 	}
 });
 
 setTimeout(function()
 {
-	$("#barcodescanner-start-button").attr("disabled", "");
-	$("#barcodescanner-start-button").addClass("disabled");
+	$("#camerabarcodescanner-start-button").attr("disabled", "");
+	$("#camerabarcodescanner-start-button").addClass("disabled");
 	$("#expected_barcode").focus();
 }, 500);
 

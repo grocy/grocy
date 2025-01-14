@@ -167,6 +167,11 @@ chartjs-plugin-piechart-outlabels@^0.1.4:
   resolved "https://registry.yarnpkg.com/chartjs-plugin-piechart-outlabels/-/chartjs-plugin-piechart-outlabels-0.1.4.tgz#e97e19a12202d74f9040d9e4641987c9d1e458fc"
   integrity sha512-IaYkh6ab8nLAvgioQ+BwU0awfMbxwmfO2AeBL+S45VVx9AdObovr9+aE+ShUO2Og96y6eJpCxZGJr4zXB7YnRw==
 
+chartjs-plugin-trendline@^2.1.6:
+  version "2.1.6"
+  resolved "https://registry.yarnpkg.com/chartjs-plugin-trendline/-/chartjs-plugin-trendline-2.1.6.tgz#5090155cae06681c9888a63305991d868cff3596"
+  integrity sha512-73lpSv87RcIeu0so4ndEE48Xf08Q4scz079tSgYdfeGuIce4JKcSE64oluhz/j6NpBr50Z7PPwolGJ0cLtknRw==
+
 color-convert@^1.9.3:
   version "1.9.3"
   resolved "https://registry.yarnpkg.com/color-convert/-/color-convert-1.9.3.tgz#bb71850690e1f136567de629d2d5471deda4c1e8"
@@ -229,11 +234,11 @@ datatables.net-bs4@^1.10.22, datatables.net-bs4@^1.13.0:
     jquery "1.8 - 4"
 
 datatables.net-bs4@^2:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/datatables.net-bs4/-/datatables.net-bs4-2.2.0.tgz#bf35a667b05a3ee5dc4626d07c92a57d0dfc2090"
-  integrity sha512-dTgsblxSftIkLuyUItcQwbRfunAhFygxwpXxLCfKmE3xA8QBkl8KREAx9OQuVxJUMc5Ao+LCknd5kT+kzEqREg==
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/datatables.net-bs4/-/datatables.net-bs4-2.2.1.tgz#07e9da60d88c6e872ffdbb63c5d96a164e8e11aa"
+  integrity sha512-YJpbGGTqrOhS6p8BolGv16mdmljaq4ewhc0dbm3yd02UQ86A2cWQ2tDq6lE966tvRD43JE0PPAc5wLgsRozReg==
   dependencies:
-    datatables.net "2.2.0"
+    datatables.net "2.2.1"
     jquery ">=1.7"
 
 datatables.net-colreorder-bs4@^1.5.2:
@@ -302,10 +307,10 @@ datatables.net@1.13.11, datatables.net@^1.10.22, datatables.net@^1.13.0, datatab
   dependencies:
     jquery "1.8 - 4"
 
-datatables.net@2.2.0, datatables.net@^2:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/datatables.net/-/datatables.net-2.2.0.tgz#d7e92ede9a3bf23ac4c360e475fbe6313f16fd56"
-  integrity sha512-q/G5ylL+AhMLFFHNYQAgvooCZtmbudc7wwzKkCZI4B1HnYec4SqnWtcTFjC7P6EtL1UGyx16FcjQ0U84S86mLg==
+datatables.net@2.2.1, datatables.net@^2:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/datatables.net/-/datatables.net-2.2.1.tgz#30506074a42eb6f9bfdd823bd7e97d7458c6f1c4"
+  integrity sha512-Hz7f+a77xGdroAzej88aobT5nkQIJ2Oy1JI7yh2cl0QAXQSJDXOKkOLknu+nphVP8CP8w9MtLCmwMst/F8niiQ==
   dependencies:
     jquery ">=1.7"
 

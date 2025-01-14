@@ -836,7 +836,9 @@ msgid "Not opened"
 msgstr ""
 
 msgid "Opened"
-msgstr ""
+msgid_plural "Opened"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "%s opened"
 msgstr ""

@@ -249,7 +249,10 @@
 					$productQuConversion = FindObjectInArrayByPropertyValue($productQuConversions, 'to_qu_id', $listItem->qu_id);
 					if ($productQuConversion)
 					{
+					if (is_numeric($listItem->amount) && is_numeric($productQuConversion->factor)) // However people manage to have a non-number here, happened at least a trilion times for Grocy Mobile (iOS) users
+					{
 					$listItem->amount = $listItem->amount * $productQuConversion->factor;
+					}
 					}
 					@endphp
 					@endif

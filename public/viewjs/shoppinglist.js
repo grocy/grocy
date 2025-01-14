@@ -559,7 +559,6 @@ $("#description").on("summernote.change", function()
 $(document).on("click", "#save-description-button", function(e)
 {
 	e.preventDefault();
-	document.activeElement.blur();
 
 	Grocy.Api.Put('objects/shopping_lists/' + $("#selected-shopping-list").val(), { description: $("#description").val() },
 		function(result)
@@ -576,7 +575,6 @@ $(document).on("click", "#save-description-button", function(e)
 $(document).on("click", "#clear-description-button", function(e)
 {
 	e.preventDefault();
-	document.activeElement.blur();
 
 	$("#description").summernote("reset");
 	$("#save-description-button").click();

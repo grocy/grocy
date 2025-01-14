@@ -32,6 +32,7 @@
 ### Recipes
 
 - Optimized that when adding missing recipe ingredients with the option "Only check if any amount is in stock" enabled to the shopping list and when no corresponding unit conversion exists, the amount/unit is now taken "as is" (as defined in the recipe ingredient) into the created shopping list item
+- Added a trendline to the price history chart (product card)
 - Fixed that calories/costs of recipe ingredients were wrong when the ingredient option "Only check if any amount is in stock" was set and the on the ingredient used quantity unit was different from the product's QU stock
 - Fixed that multi-nested recipes (at least 3 levels of "included recipes") resulted in wrong amounts/costs/calories calculated for the ingredients orginating in those nested recipes (also affected the meal plan)
 
@@ -61,6 +62,8 @@
 
 ### Userfields
 
+- Optimized Userfields of type "Checkbox"
+  - When it's a mandatory Userfield, the initial state of the corresponding checkbox is now indeterminate, means it's now also possible to actively not check it (previously mandatory meant the checkbox has to be set)
 - Fixed that Userfield default values were not initialized for the `stock` entity (so affecting the purchase and inventory page)
 - Fixed that uploading bigger or multiple files (so when the upload usually takes a little longer) didn't work (Userfield type "File")
 

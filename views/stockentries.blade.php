@@ -259,7 +259,7 @@
 						<span id="stock-{{ $stockEntry->id }}-amount"
 							class="locale-number locale-number-quantity-amount">{{ $stockEntry->amount }}</span> <span id="product-{{ $stockEntry->product_id }}-qu-name">{{ $__n($stockEntry->amount, FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $stockEntry->product_id)->qu_id_stock)->name, FindObjectInArrayByPropertyValue($quantityunits, 'id', FindObjectInArrayByPropertyValue($products, 'id', $stockEntry->product_id)->qu_id_stock)->name_plural, true) }}</span>
 						<span id="stock-{{ $stockEntry->id }}-opened-amount"
-							class="small font-italic">@if($stockEntry->open == 1){{ $__t('Opened') }}@endif</span>
+							class="small font-italic">@if($stockEntry->open == 1){{ $__n($stockEntry->amount, 'Opened', 'Opened') }}@endif</span>
 					</td>
 					<td class="@if(!GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING) d-none @endif">
 						<span id="stock-{{ $stockEntry->id }}-due-date">{{ $stockEntry->best_before_date }}</span>

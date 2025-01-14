@@ -91,7 +91,6 @@ $('#battery-form input').keydown(function(event)
 $(document).on('click', '.battery-grocycode-label-print', function(e)
 {
 	e.preventDefault();
-	document.activeElement.blur();
 
 	var batteryId = $(e.currentTarget).attr('data-battery-id');
 	Grocy.Api.Get('batteries/' + batteryId + '/printlabel', function(labelData)

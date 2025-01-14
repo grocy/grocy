@@ -267,7 +267,6 @@ setTimeout(function()
 $(document).on('click', '.product-grocycode-label-print', function(e)
 {
 	e.preventDefault();
-	document.activeElement.blur();
 
 	var productId = $(e.currentTarget).attr('data-product-id');
 	Grocy.Api.Get('stock/products/' + productId + '/printlabel', function(labelData)

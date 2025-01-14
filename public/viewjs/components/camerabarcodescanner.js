@@ -37,30 +37,29 @@ Grocy.Components.CameraBarcodeScanner.CheckCapabilities = async function()
 	var hasTorch = typeof capabilities.torch === 'boolean' && capabilities.torch;
 
 	// Remove the torch button if the select camera doesn't have a torch
-	var button = document.querySelector('.torch');
 	if (!hasTorch)
 	{
-		button.classList.add('disabled');
+		document.querySelector('.camerabarcodescanner-modal .modal-footer').setAttribute('style', 'display:none !important;');
 	}
 	else
 	{
-		button.classList.remove('disabled');
+		document.querySelector('.camerabarcodescanner-modal .modal-footer').setAttribute('style', 'flex;');
 	}
 
 	// Reduce the height of the video, if it's higher than then the viewport
 	if (!Grocy.Components.CameraBarcodeScanner.LiveVideoSizeAdjusted)
 	{
-		var bc = document.getElementById('barcodescanner-container');
+		var bc = document.getElementById('camerabarcodescanner-container');
 		if (bc)
 		{
 			var bcAspectRatio = bc.offsetWidth / bc.offsetHeight;
 			var settings = track.getSettings();
 			if (bcAspectRatio > settings.aspectRatio)
 			{
-				var v = document.querySelector('#barcodescanner-livestream video');
+				var v = document.querySelector('#camerabarcodescanner-livestream video');
 				if (v)
 				{
-					var c = document.querySelector('#barcodescanner-livestream canvas')
+					var c = document.querySelector('#camerabarcodescanner-livestream canvas')
 					var newWidth = v.clientWidth / bcAspectRatio * settings.aspectRatio + 'px';
 					v.style.width = newWidth;
 					c.style.width = newWidth;
@@ -81,7 +80,7 @@ Grocy.Components.CameraBarcodeScanner.StartScanning = function()
 		inputStream: {
 			name: "Live",
 			type: "LiveStream",
-			target: document.querySelector("#barcodescanner-livestream"),
+			target: document.querySelector("#camerabarcodescanner-livestream"),
 			constraints: {
 				facingMode: "environment",
 				...(window.localStorage.getItem('cameraId') && { deviceId: window.localStorage.getItem('cameraId') }), // If preferred cameraId is set, request to use that specific camera
@@ -234,7 +233,7 @@ Quagga.onProcessed(function(result)
 	}
 });
 
-$(document).on("click", "#barcodescanner-start-button", async function(e)
+$(document).on("click", "#camerabarcodescanner-start-button", async function(e)
 {
 	e.preventDefault();
 	var inputElement = $(e.currentTarget).prev();
@@ -248,12 +247,12 @@ $(document).on("click", "#barcodescanner-start-button", async function(e)
 	Grocy.Components.CameraBarcodeScanner.CurrentTarget = inputElement.attr("data-target");
 
 	var dialog = bootbox.dialog({
-		message: '<div id="barcodescanner-container" class="col"><div id="barcodescanner-livestream"></div></div>',
+		message: '<div id="camerabarcodescanner-container" class="col"><div id="camerabarcodescanner-livestream"></div></div>',
 		title: __t('Scan a barcode'),
 		size: 'large',
 		backdrop: true,
 		closeButton: true,
-		className: "form",
+		className: "form camerabarcodescanner-modal",
 		buttons: {
 			torch: {
 				label: '<i class="fa-solid fa-lightbulb"></i>',
@@ -296,11 +295,11 @@ Grocy.Components.CameraBarcodeScanner.Init = function()
 	{
 		if ($(this).hasAttr("disabled"))
 		{
-			$(this).after('<a id="barcodescanner-start-button" class="btn btn-sm btn-primary text-white disabled" data-target="' + $(this).attr("data-target") + '"><i class="fa-solid fa-camera"></i></a>');
+			$(this).after('<a id="camerabarcodescanner-start-button" class="btn btn-sm btn-primary text-white disabled" data-target="' + $(this).attr("data-target") + '"><i class="fa-solid fa-camera"></i></a>');
 		}
 		else
 		{
-			$(this).after('<a id="barcodescanner-start-button" class="btn btn-sm btn-primary text-white" data-target="' + $(this).attr("data-target") + '"><i class="fa-solid fa-camera"></i></a>');
+			$(this).after('<a id="camerabarcodescanner-start-button" class="btn btn-sm btn-primary text-white" data-target="' + $(this).attr("data-target") + '"><i class="fa-solid fa-camera"></i></a>');
 		}
 
 		Grocy.Components.CameraBarcodeScanner.InitDone = true;

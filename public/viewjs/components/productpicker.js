@@ -76,15 +76,15 @@ Grocy.Components.ProductPicker.HideCustomError = function()
 Grocy.Components.ProductPicker.Disable = function()
 {
 	Grocy.Components.ProductPicker.GetInputElement().attr("disabled", "");
-	$("#barcodescanner-start-button").attr("disabled", "");
-	$("#barcodescanner-start-button").addClass("disabled");
+	$("#camerabarcodescanner-start-button").attr("disabled", "");
+	$("#camerabarcodescanner-start-button").addClass("disabled");
 }
 
 Grocy.Components.ProductPicker.Enable = function()
 {
 	Grocy.Components.ProductPicker.GetInputElement().removeAttr("disabled");
-	$("#barcodescanner-start-button").removeAttr("disabled");
-	$("#barcodescanner-start-button").removeClass("disabled");
+	$("#camerabarcodescanner-start-button").removeAttr("disabled");
+	$("#camerabarcodescanner-start-button").removeClass("disabled");
 }
 
 $('.product-combobox').combobox({
@@ -295,7 +295,7 @@ $('#product_id_text_input').on('blur', function(e)
 					{
 						Grocy.Components.ProductPicker.PopupOpen = false;
 						Grocy.Components.ProductPicker.SetValue('');
-						$("#barcodescanner-start-button").click();
+						$("#camerabarcodescanner-start-button").click();
 					}
 				};
 			}

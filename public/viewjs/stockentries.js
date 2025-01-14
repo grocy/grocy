@@ -161,7 +161,6 @@ $(document).on('click', '.product-open-button', function(e)
 $(document).on('click', '.stockentry-grocycode-label-print', function(e)
 {
 	e.preventDefault();
-	document.activeElement.blur();
 
 	var stockId = $(e.currentTarget).attr('data-stock-id');
 	Grocy.Api.Get('stock/entry/' + stockId + '/printlabel', function(labelData)
@@ -288,7 +287,7 @@ function RefreshStockEntryRow(stockRowId)
 
 				if (result.open == 1)
 				{
-					$('#stock-' + stockRowId + '-opened-amount').text(__t('Opened'));
+					$('#stock-' + stockRowId + '-opened-amount').text(__n(result.amount, 'Opened', 'Opened'));
 				}
 				else
 				{

@@ -874,3 +874,9 @@ $(document).on("click", "#clear-filter-button", function(e)
 {
 	$(".tooltip").tooltip("hide");
 });
+
+$(document).on("click", '.btn, a, button', function(e)
+{
+	// Remove focus after click
+	document.activeElement.blur();
+});

@@ -15,6 +15,7 @@
 		"chartjs-plugin-colorschemes": "^0.4.0",
 		"chartjs-plugin-doughnutlabel": "^2.0.3",
 		"chartjs-plugin-piechart-outlabels": "^0.1.4",
+		"chartjs-plugin-trendline": "^2.1.6",
 		"datatables.net": "^1.10.22",
 		"datatables.net-bs4": "^1.10.22",
 		"datatables.net-colreorder": "^1.5.2",

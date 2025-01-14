@@ -182,11 +182,19 @@ Grocy.Components.UserfieldsForm.Load = function()
 
 					if (userfield.type == "datetime" && userfield.default_value == "now")
 					{
-						input.val(moment().format("YYYY-MM-DD HH:mm:ss"))
+						input.val(moment().format("YYYY-MM-DD HH:mm:ss"));
 					}
 					else if (userfield.type == "date" && userfield.default_value == "now")
 					{
-						input.val(moment().format("YYYY-MM-DD"))
+						input.val(moment().format("YYYY-MM-DD"));
+					}
+					else if (userfield.type == "checkbox" && userfield.input_required == 1)
+					{
+						input.prop("indeterminate", true);
+						input.on("change", function()
+						{
+							input.removeAttr("required");
+						});
 					}
 				});
 
@@ -211,6 +219,12 @@ Grocy.Components.UserfieldsForm.Load = function()
 				$.each(result, function(key, value)
 				{
 					var input = $(".userfield-input[data-userfield-name='" + key + "']");
+
+					if (input.attr("type") == "checkbox")
+					{
+						// The required attribute for checkboxes is only relevant when creating objects
+						input.removeAttr("required");
+					}
 
 					if (input.attr("type") == "checkbox" && value == 1)
 					{

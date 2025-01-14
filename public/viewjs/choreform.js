@@ -271,7 +271,6 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 $(document).on('click', '.chore-grocycode-label-print', function(e)
 {
 	e.preventDefault();
-	document.activeElement.blur();
 
 	var choreId = $(e.currentTarget).attr('data-chore-id');
 	Grocy.Api.Get('chores/' + choreId + '/printlabel', function(labelData)

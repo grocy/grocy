@@ -137,7 +137,7 @@
 				<div class="custom-control custom-checkbox">
 					<input @if($stockEntry->open == 1) checked @endif class="form-check-input custom-control-input" type="checkbox" id="open" name="open" value="1">
 					<label class="form-check-label custom-control-label"
-						for="open">{{ $__t('Opened') }}</label>
+						for="open">{{ $__n(1, 'Opened', 'Opened') }}</label>
 				</div>
 			</div>
 			@endif

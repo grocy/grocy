@@ -340,7 +340,7 @@ $("#location_id_from").on('change', function(e)
 					var openTxt = __t("Not opened");
 					if (stockEntry.open == 1)
 					{
-						openTxt = __t("Opened");
+						openTxt = __n(stockEntry.amount, "Opened", "Opened");
 					}
 
 					if (stockEntry.location_id == locationId)

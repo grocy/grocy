@@ -689,7 +689,6 @@ $("#scan-mode").on("change", function(e)
 
 $("#scan-mode-button").on("click", function(e)
 {
-	document.activeElement.blur();
 	$("#scan-mode").click();
 	$("#scan-mode-button").toggleClass("btn-success").toggleClass("btn-danger");
 	if ($("#scan-mode").prop("checked"))
