@@ -10,7 +10,7 @@
 		"bootbox": "^6.0.0",
 		"bootstrap": "^4.5.2",
 		"bootstrap-select": "^1.13.18",
-		"bwip-js": "^3.0.1",
+		"bwip-js": "^4.5.1",
 		"chart.js": "^2.8.0",
 		"chartjs-plugin-colorschemes": "^0.4.0",
 		"chartjs-plugin-doughnutlabel": "^2.0.3",
@@ -33,7 +33,7 @@
 		"moment": "^2.27.0",
 		"nosleep.js": "^0.12.0",
 		"sprintf-js": "^1.1.2",
-		"summernote": "^0.8.18",
+		"summernote": "^0.9.1",
 		"swagger-ui-dist": "^5.2.0",
 		"tempusdominus-bootstrap-4": "^5.39.2",
 		"toastr": "^2.1.4"
