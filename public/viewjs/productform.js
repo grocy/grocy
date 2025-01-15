@@ -493,6 +493,11 @@ else if (Grocy.EditMode === 'create')
 	{
 		$("#treat_opened_as_out_of_stock").prop("checked", BoolVal(Grocy.UserSettings.product_presets_treat_opened_as_out_of_stock));
 	}
+
+	if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_LABEL_PRINTER)
+	{
+		$("#default_stock_label_type").val(Grocy.UserSettings.product_presets_default_stock_label_type);
+	}
 }
 
 Grocy.Components.ProductPicker.GetPicker().on('change', function(e)

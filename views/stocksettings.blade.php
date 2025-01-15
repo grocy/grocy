@@ -76,6 +76,19 @@
 				</div>
 			</div>
 			@endif
+
+			@if(GROCY_FEATURE_FLAG_LABEL_PRINTER)
+			<div class="form-group">
+				<label for="product_presets_default_stock_label_type">{{ $__t('Default stock entry label') }}</label>
+				<select class="custom-control custom-select user-setting-control"
+					id="product_presets_default_stock_label_type"
+					data-setting-key="product_presets_default_stock_label_type">
+					<option value="0">{{ $__t('No label') }}</option>
+					<option value="1">{{ $__t('Single label') }}</option>
+					<option value="2">{{ $__t('Label per unit') }}</option>
+				</select>
+			</div>
+			@endif
 		</div>
 
 		<h4 class="mt-2">{{ $__t('Stock overview') }}</h4>

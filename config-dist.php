@@ -180,6 +180,7 @@ DefaultUserSetting('product_presets_product_group_id', -1); // Default product g
 DefaultUserSetting('product_presets_qu_id', -1); // Default quantity unit id for new products (-1 means no quantity unit is preset)
 DefaultUserSetting('product_presets_default_due_days', 0); // Default due days for new products (-1 means that the product will be never overdue)
 DefaultUserSetting('product_presets_treat_opened_as_out_of_stock', true); // Default "Treat opened as out of stock" option for new products
+DefaultUserSetting('product_presets_default_stock_label_type', 0); // "Default stock entry label" option for new products (0 = No label, 1 = Single Label, 2 = Label per unit)
 DefaultUserSetting('stock_decimal_places_amounts', 4); // Default decimal places allowed for amounts
 DefaultUserSetting('stock_decimal_places_prices_input', 2); // Default decimal places allowed for prices (input)
 DefaultUserSetting('stock_decimal_places_prices_display', 2); // Default decimal places allowed for prices (display)

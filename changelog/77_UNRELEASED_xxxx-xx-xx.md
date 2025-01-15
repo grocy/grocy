@@ -22,6 +22,7 @@
 - Product barcode matching is now case-insensitive
 - Added a new column "Product picture" on the products list (master data) page (hidden by default)
 - Optimized that when navigation between the different "Group by"-variants on the stock report "Spendings", the selected date range now remains persistent
+- Added a new "Presets for new products" stock setting for the "Default stock entry label" option of new products
 - Fixed that a once set quantity unit on a product barcode could not be removed on edit
 - Fixed that when consuming a specific stock entry which is opened, and which originated from a before partly opened stock entry, the unopened one was wrongly consume instead
 

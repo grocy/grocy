@@ -6,6 +6,10 @@ if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_PRODUCT_OPENED_TRACKING && BoolV
 {
 	$("#product_presets_treat_opened_as_out_of_stock").prop("checked", true);
 }
+if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_LABEL_PRINTER)
+{
+	$("#product_presets_default_stock_label_type").val(Grocy.UserSettings.product_presets_default_stock_label_type);
+}
 $("#stock_due_soon_days").val(Grocy.UserSettings.stock_due_soon_days);
 $("#stock_default_purchase_amount").val(Grocy.UserSettings.stock_default_purchase_amount);
 $("#stock_default_consume_amount").val(Grocy.UserSettings.stock_default_consume_amount);
