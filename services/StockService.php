@@ -3,7 +3,7 @@
 namespace Grocy\Services;
 
 use Grocy\Helpers\Grocycode;
-use Grocy\Helpers\WebhookRunner;
+use Grocy\Services\WebhookService;
 use GuzzleHttp\Client;
 
 class StockService extends BaseService
@@ -220,21 +220,17 @@ class StockService extends BaseService
 					]);
 					$stockRow->save();
 
-					if (GROCY_FEATURE_FLAG_LABEL_PRINTER && GROCY_LABEL_PRINTER_RUN_SERVER)
+					$webhookData = [
+						'product' => $productDetails->product->name,
+						'grocycode' => (string)(new Grocycode(Grocycode::PRODUCT, $productId, [$stockId])),
+					];
+
+					if (GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING)
 					{
-						$webhookData = array_merge([
-							'product' => $productDetails->product->name,
-							'grocycode' => (string)(new Grocycode(Grocycode::PRODUCT, $productId, [$stockId])),
-						], GROCY_LABEL_PRINTER_PARAMS);
-
-						if (GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING)
-						{
-							$webhookData['due_date'] = $this->getLocalizationService()->__t('DD') . ': ' . $bestBeforeDate;
-						}
-
-						$runner = new WebhookRunner();
-						$runner->run(GROCY_LABEL_PRINTER_WEBHOOK, $webhookData, GROCY_LABEL_PRINTER_HOOK_JSON);
+						$webhookData['due_date'] = $this->getLocalizationService()->__t('DD') . ': ' . $bestBeforeDate;
 					}
+
+					$this->getWebhookService()->run(WebhookService::EVENT_ADD_PRODUCT, $webhookData);
 				}
 			}
 			else
@@ -271,20 +267,19 @@ class StockService extends BaseService
 				]);
 				$stockRow->save();
 
-				if ($stockLabelType == 1 && GROCY_FEATURE_FLAG_LABEL_PRINTER && GROCY_LABEL_PRINTER_RUN_SERVER)
+				if ($stockLabelType == 1)
 				{
-					$webhookData = array_merge([
+					$webhookData = [
 						'product' => $productDetails->product->name,
 						'grocycode' => (string)(new Grocycode(Grocycode::PRODUCT, $productId, [$stockId])),
-					], GROCY_LABEL_PRINTER_PARAMS);
+					];
 
 					if (GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING)
 					{
 						$webhookData['due_date'] = $this->getLocalizationService()->__t('DD') . ': ' . $bestBeforeDate;
 					}
 
-					$runner = new WebhookRunner();
-					$runner->run(GROCY_LABEL_PRINTER_WEBHOOK, $webhookData, GROCY_LABEL_PRINTER_HOOK_JSON);
+					$this->getWebhookService()->run(WebhookService::EVENT_ADD_PRODUCT, $webhookData);
 				}
 			}
 
@@ -996,20 +991,19 @@ class StockService extends BaseService
 					$newBestBeforeDate = $stockEntry->best_before_date;
 				}
 
-				if (GROCY_FEATURE_FLAG_LABEL_PRINTER && GROCY_LABEL_PRINTER_RUN_SERVER && $productDetails->product->auto_reprint_stock_label == 1 && $newBestBeforeDate != $stockEntry->best_before_date)
+				if ($productDetails->product->auto_reprint_stock_label == 1 && $newBestBeforeDate != $stockEntry->best_before_date)
 				{
-					$webhookData = array_merge([
+					$webhookData = [
 						'product' => $productDetails->product->name,
 						'grocycode' => (string)(new Grocycode(Grocycode::PRODUCT, $productId, [$stockEntry->stock_id])),
-					], GROCY_LABEL_PRINTER_PARAMS);
+					];
 
 					if (GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING)
 					{
 						$webhookData['due_date'] = $this->getLocalizationService()->__t('DD') . ': ' . $newBestBeforeDate;
 					}
 
-					$runner = new WebhookRunner();
-					$runner->run(GROCY_LABEL_PRINTER_WEBHOOK, $webhookData, GROCY_LABEL_PRINTER_HOOK_JSON);
+					$this->getWebhookService()->run(WebhookService::EVENT_OPEN_PRODUCT, $webhookData);
 				}
 			}
 
@@ -1308,20 +1302,19 @@ class StockService extends BaseService
 					$newBestBeforeDate = date('Y-m-d', strtotime('+' . $productDetails->product->default_best_before_days_after_thawing . ' days'));
 				}
 
-				if (GROCY_FEATURE_FLAG_LABEL_PRINTER && GROCY_LABEL_PRINTER_RUN_SERVER && $productDetails->product->auto_reprint_stock_label == 1 && $stockEntry->best_before_date != $newBestBeforeDate)
+				if ($productDetails->product->auto_reprint_stock_label == 1 && $stockEntry->best_before_date != $newBestBeforeDate)
 				{
-					$webhookData = array_merge([
+					$webhookData = [
 						'product' => $productDetails->product->name,
 						'grocycode' => (string)(new Grocycode(Grocycode::PRODUCT, $productId, [$stockEntry->stock_id])),
-					], GROCY_LABEL_PRINTER_PARAMS);
+					];
 
 					if (GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING)
 					{
 						$webhookData['due_date'] = $this->getLocalizationService()->__t('DD') . ': ' . $newBestBeforeDate;
 					}
 
-					$runner = new WebhookRunner();
-					$runner->run(GROCY_LABEL_PRINTER_WEBHOOK, $webhookData, GROCY_LABEL_PRINTER_HOOK_JSON);
+					$this->getWebhookService()->run(WebhookService::EVENT_TRANSFER_PRODUCT, $webhookData);
 				}
 			}
 
