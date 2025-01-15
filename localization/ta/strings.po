@@ -277,8 +277,8 @@ msgstr "கடவுச்சொல்"
 msgid "Invalid credentials, please try again"
 msgstr "தவறான ஆதாரச்சான்றுகள், மீண்டும் முயற்சிக்கவும்"
 
-msgid "Are you sure to delete battery \"%s\"?"
-msgstr "\"%s\" மின்கலத்தினை நீக்க உறுதியா?"
+msgid "Are you sure you want to delete battery \"%s\"?"
+msgstr ""
 
 msgid "Yes"
 msgstr "ஆமாம்"
@@ -286,8 +286,8 @@ msgstr "ஆமாம்"
 msgid "No"
 msgstr "இல்லை"
 
-msgid "Are you sure to delete chore \"%s\"?"
-msgstr "\"%s\" வேலையினை நீக்க உறுதியா?"
+msgid "Are you sure you want to delete chore \"%s\"?"
+msgstr ""
 
 msgid "\"%s\" could not be resolved to a product, how do you want to proceed?"
 msgstr ""
@@ -307,17 +307,17 @@ msgstr ""
 msgid "Add as new product and prefill barcode"
 msgstr "புதிய பொருளாக சேர் மற்றும் பார்கோடு விவரங்களை முன்னமே பட்டியலிடு"
 
-msgid "Are you sure to delete quantity unit \"%s\"?"
+msgid "Are you sure you want to delete quantity unit \"%s\"?"
 msgstr ""
 
-msgid "Are you sure to delete product \"%s\"?"
-msgstr "\"%s\" பொருளினை நீக்க உறுதியா?"
+msgid "Are you sure you want to delete product \"%s\"?"
+msgstr ""
 
-msgid "Are you sure to delete location \"%s\"?"
-msgstr "\"%s\" இடத்தினை நீக்க உறுதியா?"
+msgid "Are you sure you want to delete location \"%s\"?"
+msgstr ""
 
-msgid "Are you sure to delete store \"%s\"?"
-msgstr "\"%s\" கடையினை நீக்க உறுதியா?"
+msgid "Are you sure you want to delete store \"%s\"?"
+msgstr ""
 
 msgid "Manage API keys"
 msgstr "API விசைகளை நிர்வகிக்கவும்"
@@ -433,14 +433,14 @@ msgstr "சமையல் குறிப்பின் மூலப்பொ�
 msgid "Edit recipe ingredient"
 msgstr "சமையல் குறிப்பின் மூலப்பொருட்களைத் தொகு"
 
-msgid "Are you sure to delete recipe \"%s\"?"
-msgstr "\"%s\" சமையல் குறிப்பினை நீக்க உறுதியா?"
-
-msgid "Are you sure to delete recipe ingredient \"%s\"?"
+msgid "Are you sure you want to delete recipe \"%s\"?"
 msgstr ""
 
-msgid "Are you sure to empty shopping list \"%s\"?"
-msgstr "\"%s\" வாங்க வேண்டியவை பட்டியலில் உள்ளவற்றினை நீக்க உறுதியா?"
+msgid "Are you sure you want to delete recipe ingredient \"%s\"?"
+msgstr ""
+
+msgid "Are you sure you want to empty shopping list \"%s\"?"
+msgstr ""
 
 msgid "Clear list"
 msgstr "பட்டியலினை முதன்மைப்படுத்து"
@@ -483,8 +483,8 @@ msgid "Put missing amount on shopping list"
 msgstr "விடுபட்டுள்ள தொகையை வாங்க வேண்டியவை பட்டியலில் சேர்"
 
 msgid ""
-"Are you sure to put all missing ingredients for recipe \"%s\" on the "
-"shopping list?"
+"Are you sure you want to put all missing ingredients for recipe \"%s\" on "
+"the shopping list?"
 msgstr ""
 
 msgid "Added for recipe %s"
@@ -499,8 +499,8 @@ msgstr "பயனர்"
 msgid "Users"
 msgstr "பயனர்கள்"
 
-msgid "Are you sure to delete user \"%s\"?"
-msgstr "\"%s\" பயனரினை நீக்க உறுதியா?"
+msgid "Are you sure you want to delete user \"%s\"?"
+msgstr ""
 
 msgid "Create user"
 msgstr "பயனரை உருவாக்கு"
@@ -594,8 +594,9 @@ msgid "Only check if any amount is in stock"
 msgstr ""
 
 msgid ""
-"Are you sure to consume all ingredients needed by recipe \"%s\" (ingredients"
-" marked with \"only check if any amount is in stock\" will be ignored)?"
+"Are you sure you want to consume all ingredients needed by recipe \"%s\" "
+"(ingredients marked with \"only check if any amount is in stock\" will be "
+"ignored)?"
 msgstr ""
 
 msgid "Removed all ingredients of recipe \"%s\" from stock"
@@ -651,8 +652,8 @@ msgstr "பகுப்பு"
 msgid "Edit task"
 msgstr "பணியினை தொகு"
 
-msgid "Are you sure to delete task \"%s\"?"
-msgstr "\"%s\" பணியினை நீக்க உறுதியா?"
+msgid "Are you sure you want to delete task \"%s\"?"
+msgstr ""
 
 msgid "%s task is due to be done"
 msgid_plural "%s tasks are due to be done"
@@ -685,8 +686,8 @@ msgstr "பொருட்கள் குழுவினைத் தொகு"
 msgid "Product group"
 msgstr "பொருட்களின் குழு"
 
-msgid "Are you sure to delete product group \"%s\"?"
-msgstr "\"%s\" பொருட்கள் குழுவினை நீக்க உறுதியா?"
+msgid "Are you sure you want to delete product group \"%s\"?"
+msgstr ""
 
 msgid "Stay logged in permanently"
 msgstr "என்றும் புகுபதிகையில் இரு"
@@ -853,7 +854,9 @@ msgid "Not opened"
 msgstr "திறக்கப்படவில்லை"
 
 msgid "Opened"
-msgstr "திறக்கப்பட்டுவிட்டது"
+msgid_plural "Opened"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "%s opened"
 msgstr "%s திறக்கப்பட்டது"
@@ -1008,8 +1011,8 @@ msgstr "பணி அமைப்புகள்"
 msgid "Create shopping list"
 msgstr "வாங்க வேண்டியவைப் பட்டியலினை உருவாக்கு"
 
-msgid "Are you sure to delete shopping list \"%s\"?"
-msgstr "\"%s\" வாங்க வேண்டியவை பட்டியலினை நீக்க உறுதியா?"
+msgid "Are you sure you want to delete shopping list \"%s\"?"
+msgstr ""
 
 msgid "Average shelf life"
 msgstr "சராசரி பொருளின் வாழ்க்கை"
@@ -1209,7 +1212,7 @@ msgstr "உண்ட அளவு"
 msgid "Time of printing"
 msgstr "அச்சிடும் நேரம்"
 
-msgid "Are you sure to delete equipment \"%s\"?"
+msgid "Are you sure you want to delete equipment \"%s\"?"
 msgstr ""
 
 msgid "Parent product"
@@ -1344,7 +1347,7 @@ msgstr "பணி"
 msgid "Consume product on chore execution"
 msgstr "பணியின் முடிவில் பொருளினை உண்"
 
-msgid "Are you sure to delete user field \"%s\"?"
+msgid "Are you sure you want to delete user field \"%s\"?"
 msgstr ""
 
 msgid "Userentities"
@@ -1365,7 +1368,7 @@ msgstr "%s இனைத் தொகு"
 msgid "Create %s"
 msgstr "%s இனை உருவாக்கு"
 
-msgid "Are you sure to delete this userobject?"
+msgid "Are you sure you want to delete this userobject?"
 msgstr ""
 
 msgid "Icon CSS class"
@@ -1452,8 +1455,8 @@ msgid ""
 "this product, means the sub product will never be missing, only this product"
 msgstr ""
 
-msgid "Are you sure to remove this conversion?"
-msgstr "இந்த மாற்றுதலினை நீக்க உறுதியா?"
+msgid "Are you sure you want to remove this conversion?"
+msgstr ""
 
 msgid "Unit price"
 msgstr "அலகு விலை"
@@ -1470,8 +1473,8 @@ msgstr "அளவில்லாமல்"
 msgid "Clear"
 msgstr "காலியாக்கு"
 
-msgid "Are you sure to remove the included recipe \"%s\"?"
-msgstr "முன்னமே இணைக்கப்பட்டுள்ள \"%s\" சமையல் குறிப்பினை நீக்க உறுதியா?"
+msgid "Are you sure you want to remove the included recipe \"%s\"?"
+msgstr ""
 
 msgid "Period interval"
 msgstr "கால இடைவெளி"
@@ -1552,8 +1555,8 @@ msgstr "இந்த பதிவினை மீளமைக்க முடி
 msgid "Booking does not exist or was already undone"
 msgstr ""
 
-msgid "Are you sure to delete API key \"%s\"?"
-msgstr "\"%s\" API விசையினை நீக்க வேண்டுமா"
+msgid "Are you sure you want to delete API key \"%s\"?"
+msgstr ""
 
 msgid "Add note"
 msgstr "குறிப்பு சேர்"
@@ -1604,7 +1607,7 @@ msgstr "உருகியது"
 msgid "Frozen"
 msgstr "உறைந்தது"
 
-msgid "Are you sure to delete userentity \"%s\"?"
+msgid "Are you sure you want to delete userentity \"%s\"?"
 msgstr ""
 
 msgid "Shopping list settings"
@@ -1890,7 +1893,7 @@ msgstr ""
 msgid "Copy"
 msgstr "பிரதியிடு"
 
-msgid "Are you sure to remove this barcode?"
+msgid "Are you sure you want to remove this barcode?"
 msgstr ""
 
 msgid "Due date type"
@@ -2057,7 +2060,7 @@ msgstr ""
 msgid "Reset"
 msgstr "மீளமை"
 
-msgid "Are you sure to reset the table options?"
+msgid "Are you sure you want to reset the table options?"
 msgstr ""
 
 msgid "Hide/view columns"
@@ -2295,13 +2298,13 @@ msgstr ""
 msgid "Edit meal plan section"
 msgstr ""
 
-msgid "Are you sure to delete meal plan section \"%s\"?"
+msgid "Are you sure you want to delete meal plan section \"%s\"?"
 msgstr ""
 
 msgid "Section"
 msgstr ""
 
-msgid "Are you sure to empty the shopping list?"
+msgid "Are you sure you want to empty the shopping list?"
 msgstr ""
 
 msgid "This is the default which will be prefilled on purchase"
@@ -2587,7 +2590,7 @@ msgid_plural "This means %1$s labels will be printed"
 msgstr[0] ""
 msgstr[1] ""
 
-msgid "External barcode lookup (via plugin)"
+msgid "External barcode lookup"
 msgstr ""
 
 msgid "Error while executing the barcode lookup plugin"
@@ -2597,4 +2600,13 @@ msgid "Nothing was found for the given barcode"
 msgstr ""
 
 msgid "Configure colors"
+msgstr ""
+
+msgid "Swap track next schedule / track now buttons"
+msgstr ""
+
+msgid "Scheduled tracking time"
+msgstr ""
+
+msgid "Time of tracking"
 msgstr ""

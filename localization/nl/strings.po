@@ -2,6 +2,7 @@
 # Translators:
 # Llewy <carlvanoene@gmail.com>, 2019
 # Adriaan Peeters <apeeters@lashout.net>, 2019
+# Grocy NL, 2019
 # Bernd Bestel <bernd@berrnd.de>, 2019
 # Jelte L <jelte@ollavogala.org>, 2019
 # Tarik Faik <filoor1@gmail.com>, 2019
@@ -23,7 +24,6 @@
 # Anne Gerben van Assen <annegerben+transifex@vanassen.eu>, 2021
 # Sebastiaan Ammerlaan <steelbas@gmail.com>, 2021
 # Mark Peters <forkless@gmail.com>, 2021
-# Grocy NL, 2021
 # mc bloch <transifex@mcbloch.dev>, 2021
 # Gerard stn, 2021
 # Simon Bor <mail@simonbor.nl>, 2022
@@ -310,8 +310,8 @@ msgstr "Wachtwoord"
 msgid "Invalid credentials, please try again"
 msgstr "Ongeldige aanmeldgegevens"
 
-msgid "Are you sure to delete battery \"%s\"?"
-msgstr "Klaar om batterij \"%s\" te verwijderen?"
+msgid "Are you sure you want to delete battery \"%s\"?"
+msgstr ""
 
 msgid "Yes"
 msgstr "Ja"
@@ -319,8 +319,8 @@ msgstr "Ja"
 msgid "No"
 msgstr "Nee"
 
-msgid "Are you sure to delete chore \"%s\"?"
-msgstr "Ben je zeker dat je klusje \"%s\" wilt verwijderen?"
+msgid "Are you sure you want to delete chore \"%s\"?"
+msgstr ""
 
 msgid "\"%s\" could not be resolved to a product, how do you want to proceed?"
 msgstr "\"%s\" kon niet aan een product gelinkt worden, hoe wil je verder gaan?"
@@ -340,17 +340,17 @@ msgstr "Voeg toe als streepjescode bij bestaand product"
 msgid "Add as new product and prefill barcode"
 msgstr "Voeg toe als nieuw product en vul streepjescode in"
 
-msgid "Are you sure to delete quantity unit \"%s\"?"
-msgstr "Weet u zeker dat u hoeveelheidseenheid \"%s\" wilt verwijderen?"
+msgid "Are you sure you want to delete quantity unit \"%s\"?"
+msgstr ""
 
-msgid "Are you sure to delete product \"%s\"?"
-msgstr "Weet u zeker dat u product \"%s\" wilt verwijderen?"
+msgid "Are you sure you want to delete product \"%s\"?"
+msgstr ""
 
-msgid "Are you sure to delete location \"%s\"?"
-msgstr "Weet u zeker dat u locatie \"%s\" wilt verwijderen?"
+msgid "Are you sure you want to delete location \"%s\"?"
+msgstr ""
 
-msgid "Are you sure to delete store \"%s\"?"
-msgstr "Weet je zeker dat je winkel \"%s\" wilt verwijderen?"
+msgid "Are you sure you want to delete store \"%s\"?"
+msgstr ""
 
 msgid "Manage API keys"
 msgstr "Beheer API sleutels"
@@ -466,14 +466,14 @@ msgstr "Voeg ingrediënt toe aan recept"
 msgid "Edit recipe ingredient"
 msgstr "Bewerk ingrediënt"
 
-msgid "Are you sure to delete recipe \"%s\"?"
-msgstr "Ben je zeker dat je recept \"%s\" wil verwijderen?"
+msgid "Are you sure you want to delete recipe \"%s\"?"
+msgstr ""
 
-msgid "Are you sure to delete recipe ingredient \"%s\"?"
-msgstr "Ben je zeker dat je ingrediënt \"%s\" wil verwijderen?"
+msgid "Are you sure you want to delete recipe ingredient \"%s\"?"
+msgstr ""
 
-msgid "Are you sure to empty shopping list \"%s\"?"
-msgstr "Weet je zeker dat je boodschappenlijst %s leeg wilt maken?"
+msgid "Are you sure you want to empty shopping list \"%s\"?"
+msgstr ""
 
 msgid "Clear list"
 msgstr "Maak lijst leeg"
@@ -520,11 +520,9 @@ msgid "Put missing amount on shopping list"
 msgstr "Zet ontbrekende hoeveelheid op boodschappenlijst"
 
 msgid ""
-"Are you sure to put all missing ingredients for recipe \"%s\" on the "
-"shopping list?"
+"Are you sure you want to put all missing ingredients for recipe \"%s\" on "
+"the shopping list?"
 msgstr ""
-"Weet je zeker dat je alle ontbrekende ingrediënten voor recept \"%s\" op de "
-"boodschappenlijst wilt zetten?"
 
 msgid "Added for recipe %s"
 msgstr "Toegevoegd voor recept %s"
@@ -538,8 +536,8 @@ msgstr "Gebruiker"
 msgid "Users"
 msgstr "Gebruikers"
 
-msgid "Are you sure to delete user \"%s\"?"
-msgstr "Ben je zeker dat je gebruiker \"%s\" wilt verwijderen?"
+msgid "Are you sure you want to delete user \"%s\"?"
+msgstr ""
 
 msgid "Create user"
 msgstr "Maak gebruiker"
@@ -634,12 +632,10 @@ msgid "Only check if any amount is in stock"
 msgstr "Controleer alleen of er een aantal op voorraad is"
 
 msgid ""
-"Are you sure to consume all ingredients needed by recipe \"%s\" (ingredients"
-" marked with \"only check if any amount is in stock\" will be ignored)?"
+"Are you sure you want to consume all ingredients needed by recipe \"%s\" "
+"(ingredients marked with \"only check if any amount is in stock\" will be "
+"ignored)?"
 msgstr ""
-"Weet je zeker dat je alle ingrediënten gebruikt die nodig zijn voor het "
-"recept \"%s\"? (Ingrediënten gemarkeerd met \"controleer alleen als een "
-"enkele eenheid op voorraad is\" worden genegeerd)"
 
 msgid "Removed all ingredients of recipe \"%s\" from stock"
 msgstr "Alle ingrediënten van recept \"%s\" uit voorraad verwijderd"
@@ -692,8 +688,8 @@ msgstr "Categorie"
 msgid "Edit task"
 msgstr "Bewerk taak"
 
-msgid "Are you sure to delete task \"%s\"?"
-msgstr "Weet je zeker dat je taak \"%s\" wilt verwijderen?"
+msgid "Are you sure you want to delete task \"%s\"?"
+msgstr ""
 
 msgid "%s task is due to be done"
 msgid_plural "%s tasks are due to be done"
@@ -726,8 +722,8 @@ msgstr "Bewerk productcategorie"
 msgid "Product group"
 msgstr "Productcategorie"
 
-msgid "Are you sure to delete product group \"%s\"?"
-msgstr "Weet je zeker dat je productcategorie \"%s\" wilt verwijderen?"
+msgid "Are you sure you want to delete product group \"%s\"?"
+msgstr ""
 
 msgid "Stay logged in permanently"
 msgstr "Permanent aangemeld blijven"
@@ -898,7 +894,9 @@ msgid "Not opened"
 msgstr "Niet geopend"
 
 msgid "Opened"
-msgstr "Geopend"
+msgid_plural "Opened"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "%s opened"
 msgstr "%s geopend"
@@ -1073,8 +1071,8 @@ msgstr "Taakinstellingen"
 msgid "Create shopping list"
 msgstr "Maak boodschappenlijst"
 
-msgid "Are you sure to delete shopping list \"%s\"?"
-msgstr "Weet je zeker dat je boodschappenlijst %s wilt verwijderen?"
+msgid "Are you sure you want to delete shopping list \"%s\"?"
+msgstr ""
 
 msgid "Average shelf life"
 msgstr "Gemiddelde houdbaarheid"
@@ -1284,8 +1282,8 @@ msgstr "Verbruikte hoeveelheid"
 msgid "Time of printing"
 msgstr "Afdruktijdstip"
 
-msgid "Are you sure to delete equipment \"%s\"?"
-msgstr "Weet je zeker dat je apparaat \"%s\" wilt verwijderen?"
+msgid "Are you sure you want to delete equipment \"%s\"?"
+msgstr ""
 
 msgid "Parent product"
 msgstr "Parent product"
@@ -1446,8 +1444,8 @@ msgstr "Toewijzing"
 msgid "Consume product on chore execution"
 msgstr "Verbruik product bij uitvoeren klusje"
 
-msgid "Are you sure to delete user field \"%s\"?"
-msgstr "Weet u zeker dat u het gebruikersveld %s wilt verwijderen?"
+msgid "Are you sure you want to delete user field \"%s\"?"
+msgstr ""
 
 msgid "Userentities"
 msgstr "Gebruikersentiteit"
@@ -1467,8 +1465,8 @@ msgstr "Bewerk %s"
 msgid "Create %s"
 msgstr "Maak %s"
 
-msgid "Are you sure to delete this userobject?"
-msgstr "Weet u zeker dat u het gebruikersobject wil verwijderen?"
+msgid "Are you sure you want to delete this userobject?"
+msgstr ""
 
 msgid "Icon CSS class"
 msgstr "Icon CSS class"
@@ -1559,8 +1557,8 @@ msgstr ""
 "verzameld in dit product. Dat wil zeggen: het subproduct zal nooit "
 "\"ontbreken\", alleen dit product"
 
-msgid "Are you sure to remove this conversion?"
-msgstr "Weet u zeker dat u deze conversie wilt verwijderen."
+msgid "Are you sure you want to remove this conversion?"
+msgstr ""
 
 msgid "Unit price"
 msgstr "Prijs per eenheid"
@@ -1577,8 +1575,8 @@ msgstr "Onbegrensd"
 msgid "Clear"
 msgstr "Wis"
 
-msgid "Are you sure to remove the included recipe \"%s\"?"
-msgstr "Weet u zeker dat het recept \"%s\" wil toevoegen?"
+msgid "Are you sure you want to remove the included recipe \"%s\"?"
+msgstr ""
 
 msgid "Period interval"
 msgstr "Interval voor periode"
@@ -1669,8 +1667,8 @@ msgstr "Deze reservering kan niet ongedaan worden gemaakt"
 msgid "Booking does not exist or was already undone"
 msgstr "Boeking bestaat niet of was reeds ongedaan gemaakt"
 
-msgid "Are you sure to delete API key \"%s\"?"
-msgstr "Bent u zeker dat u API sleutel “%s” wilt verwijderen?"
+msgid "Are you sure you want to delete API key \"%s\"?"
+msgstr ""
 
 msgid "Add note"
 msgstr "Voeg notitie toe"
@@ -1725,8 +1723,8 @@ msgstr "Ontdooid"
 msgid "Frozen"
 msgstr "Ingevroren"
 
-msgid "Are you sure to delete userentity \"%s\"?"
-msgstr "Ben je zeker dat je gebruikerentiteit \"%s\" wilt verwijderen?"
+msgid "Are you sure you want to delete userentity \"%s\"?"
+msgstr ""
 
 msgid "Shopping list settings"
 msgstr "Instellingen voor het boodschappenlijstje"
@@ -2032,8 +2030,8 @@ msgstr ""
 msgid "Copy"
 msgstr "Kopieer"
 
-msgid "Are you sure to remove this barcode?"
-msgstr "Weet u zeker dat u deze streepjescode wilt verwijderen?"
+msgid "Are you sure you want to remove this barcode?"
+msgstr ""
 
 msgid "Due date type"
 msgstr "Vervaldatum soort"
@@ -2236,8 +2234,8 @@ msgstr "Ingrediëntengroep"
 msgid "Reset"
 msgstr "Resetten"
 
-msgid "Are you sure to reset the table options?"
-msgstr "Weet je zeker dat je de tabelopties wilt resetten?"
+msgid "Are you sure you want to reset the table options?"
+msgstr ""
 
 msgid "Hide/view columns"
 msgstr "Verberg/bekijk kolommen"
@@ -2492,14 +2490,14 @@ msgstr ""
 msgid "Edit meal plan section"
 msgstr "Sectie maaltijdplan bewerken"
 
-msgid "Are you sure to delete meal plan section \"%s\"?"
-msgstr "Weet je zeker dat je het maaltijdplan gedeelte \"%s\" wilt verwijderen?"
+msgid "Are you sure you want to delete meal plan section \"%s\"?"
+msgstr ""
 
 msgid "Section"
 msgstr "Sectie"
 
-msgid "Are you sure to empty the shopping list?"
-msgstr "Ben je zeker dat je de boodschappenlijst leeg wilt maken?"
+msgid "Are you sure you want to empty the shopping list?"
+msgstr ""
 
 msgid "This is the default which will be prefilled on purchase"
 msgstr "Dit is de standaardinstelling die bij aankoop wordt ingevuld"
@@ -2818,8 +2816,8 @@ msgid_plural "This means %1$s labels will be printed"
 msgstr[0] "Dit betekend dat 1 label wordt geprint"
 msgstr[1] "Dit betekend dat %1$s labels worden geprint"
 
-msgid "External barcode lookup (via plugin)"
-msgstr "Extern streepjescode opzoeken (via plugin)"
+msgid "External barcode lookup"
+msgstr ""
 
 msgid "Error while executing the barcode lookup plugin"
 msgstr ""
@@ -2830,3 +2828,12 @@ msgstr "Niets gevonden voor de opgegeven streepjescodes"
 
 msgid "Configure colors"
 msgstr "Kleuren configureren"
+
+msgid "Swap track next schedule / track now buttons"
+msgstr ""
+
+msgid "Scheduled tracking time"
+msgstr ""
+
+msgid "Time of tracking"
+msgstr ""

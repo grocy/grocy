@@ -1,8 +1,8 @@
 # 
 # Translators:
 # Bernd Bestel <bernd@berrnd.de>, 2019
+# Tuğberk Kaan Duman <kaan@dumanmail.com>, 2019
 # Yigit Sever <yigit@ceng.metu.edu.tr>, 2021
-# Tuğberk Kaan Duman <kaan@dumanmail.com>, 2021
 # Burak ER, 2023
 # 
 msgid ""
@@ -279,8 +279,8 @@ msgstr "Parola"
 msgid "Invalid credentials, please try again"
 msgstr "Yanlış giriş bilgisi, lütfen tekrar deneyin"
 
-msgid "Are you sure to delete battery \"%s\"?"
-msgstr "Pil \"%s\"'i silmek istediğine emin misin?"
+msgid "Are you sure you want to delete battery \"%s\"?"
+msgstr ""
 
 msgid "Yes"
 msgstr "Evet"
@@ -288,8 +288,8 @@ msgstr "Evet"
 msgid "No"
 msgstr "Hayır"
 
-msgid "Are you sure to delete chore \"%s\"?"
-msgstr "Ev işi \"%s\"'i silmek istediğine emin misin?"
+msgid "Are you sure you want to delete chore \"%s\"?"
+msgstr ""
 
 msgid "\"%s\" could not be resolved to a product, how do you want to proceed?"
 msgstr "\"%s\" bir ürünle eşleşmiyor, nasıl ilerlemek istersin?"
@@ -309,17 +309,17 @@ msgstr "Var olan ürüne barkod olarak ekle"
 msgid "Add as new product and prefill barcode"
 msgstr "Yeni ürün olarak ekle ve barkodu otomatik doldur"
 
-msgid "Are you sure to delete quantity unit \"%s\"?"
-msgstr "Miktar birimi \"%s\"'i silmek istediğine emin misin?"
+msgid "Are you sure you want to delete quantity unit \"%s\"?"
+msgstr ""
 
-msgid "Are you sure to delete product \"%s\"?"
-msgstr "Ürün \"%s\"'i silmek istediğine emin misin?"
+msgid "Are you sure you want to delete product \"%s\"?"
+msgstr ""
 
-msgid "Are you sure to delete location \"%s\"?"
-msgstr "Lokasyon \"%s\"'i silmek istediğine emin misin?"
+msgid "Are you sure you want to delete location \"%s\"?"
+msgstr ""
 
-msgid "Are you sure to delete store \"%s\"?"
-msgstr "Market \"%s\"i silmek istediğinize emin misiniz?"
+msgid "Are you sure you want to delete store \"%s\"?"
+msgstr ""
 
 msgid "Manage API keys"
 msgstr "API anahtarlarını yönet"
@@ -435,14 +435,14 @@ msgstr "Tarife malzeme ekle"
 msgid "Edit recipe ingredient"
 msgstr "Tarif malzemesini düzenle"
 
-msgid "Are you sure to delete recipe \"%s\"?"
-msgstr "Tarif \"%s\"'i silmek istediğine emin misin?"
+msgid "Are you sure you want to delete recipe \"%s\"?"
+msgstr ""
 
-msgid "Are you sure to delete recipe ingredient \"%s\"?"
-msgstr "Tarif malzemesi \"%s\"'i silmek istediğine emin misin?"
+msgid "Are you sure you want to delete recipe ingredient \"%s\"?"
+msgstr ""
 
-msgid "Are you sure to empty shopping list \"%s\"?"
-msgstr "Alışveriş listesi \"%s\"i temizlemek istediğinize emin misiniz?"
+msgid "Are you sure you want to empty shopping list \"%s\"?"
+msgstr ""
 
 msgid "Clear list"
 msgstr "Listeyi temizle"
@@ -490,11 +490,9 @@ msgid "Put missing amount on shopping list"
 msgstr "Eksik miktar kadar alışveriş listesine ekle"
 
 msgid ""
-"Are you sure to put all missing ingredients for recipe \"%s\" on the "
-"shopping list?"
+"Are you sure you want to put all missing ingredients for recipe \"%s\" on "
+"the shopping list?"
 msgstr ""
-"Tarif \"%s\"'deki bütün eksik malzemeleri alışveriş listesine eklemek "
-"istediğinize emin misiniz?"
 
 msgid "Added for recipe %s"
 msgstr "Tarif %s için eklendi"
@@ -508,8 +506,8 @@ msgstr "Kullanıcı"
 msgid "Users"
 msgstr "Kullanıcılar"
 
-msgid "Are you sure to delete user \"%s\"?"
-msgstr "Kullanıcı \"%s\"'i silmek istediğine emin misin?"
+msgid "Are you sure you want to delete user \"%s\"?"
+msgstr ""
 
 msgid "Create user"
 msgstr "Kullanıcı oluştur"
@@ -603,11 +601,10 @@ msgid "Only check if any amount is in stock"
 msgstr "Sadece stok olduğunda işaretle"
 
 msgid ""
-"Are you sure to consume all ingredients needed by recipe \"%s\" (ingredients"
-" marked with \"only check if any amount is in stock\" will be ignored)?"
+"Are you sure you want to consume all ingredients needed by recipe \"%s\" "
+"(ingredients marked with \"only check if any amount is in stock\" will be "
+"ignored)?"
 msgstr ""
-"%s tarifindeki tüm bileşenleri tüketmek istiyor musunuz?(\"sadece stok "
-"olduğunda işaretle\" işaretlenmişler ihmal edilecek)"
 
 msgid "Removed all ingredients of recipe \"%s\" from stock"
 msgstr "Tarif \"%s\"'in tüm malzemeleri stoklardan silindi"
@@ -660,8 +657,8 @@ msgstr "Kategori"
 msgid "Edit task"
 msgstr "Görevi düzenle"
 
-msgid "Are you sure to delete task \"%s\"?"
-msgstr "Görev \"%s\"'i silmek istediğine emin misin?"
+msgid "Are you sure you want to delete task \"%s\"?"
+msgstr ""
 
 msgid "%s task is due to be done"
 msgid_plural "%s tasks are due to be done"
@@ -694,8 +691,8 @@ msgstr "Ürün grubunu düzenle"
 msgid "Product group"
 msgstr "Ürün grubu"
 
-msgid "Are you sure to delete product group \"%s\"?"
-msgstr "Ürün grubu \"%s\"'i silmek istediğine emin misin?"
+msgid "Are you sure you want to delete product group \"%s\"?"
+msgstr ""
 
 msgid "Stay logged in permanently"
 msgstr "Oturum açık kalsın"
@@ -865,7 +862,9 @@ msgid "Not opened"
 msgstr "Açılmadı"
 
 msgid "Opened"
-msgstr "Açıldı"
+msgid_plural "Opened"
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "%s opened"
 msgstr "%s açıldı"
@@ -1035,8 +1034,8 @@ msgstr "Yapılacaklar seçenekleri"
 msgid "Create shopping list"
 msgstr "Alışveriş listesi oluştur"
 
-msgid "Are you sure to delete shopping list \"%s\"?"
-msgstr "Alışveriş listesi \"%s\"'i silmek istediğinize emin misiniz?"
+msgid "Are you sure you want to delete shopping list \"%s\"?"
+msgstr ""
 
 msgid "Average shelf life"
 msgstr "Ortalama raf ömrü"
@@ -1244,8 +1243,8 @@ msgstr "Tüketilen miktar"
 msgid "Time of printing"
 msgstr "Yazdırılma tarihi"
 
-msgid "Are you sure to delete equipment \"%s\"?"
-msgstr "\"%s\" ekipmanını silmek istediğinize emin misiniz?"
+msgid "Are you sure you want to delete equipment \"%s\"?"
+msgstr ""
 
 msgid "Parent product"
 msgstr "Üst ürün"
@@ -1399,8 +1398,8 @@ msgstr "Atama"
 msgid "Consume product on chore execution"
 msgstr "Ev işi tamamlandığında ürünü tüket"
 
-msgid "Are you sure to delete user field \"%s\"?"
-msgstr "\"%s\" kullanıcı alanını silmek istediğinize emin misiniz?"
+msgid "Are you sure you want to delete user field \"%s\"?"
+msgstr ""
 
 msgid "Userentities"
 msgstr "Kullanici"
@@ -1420,8 +1419,8 @@ msgstr "%s'yi düzenle"
 msgid "Create %s"
 msgstr "%s oluştur"
 
-msgid "Are you sure to delete this userobject?"
-msgstr "Bu kullanıcı nesnesini silmek istediğinizden emin misiniz?"
+msgid "Are you sure you want to delete this userobject?"
+msgstr ""
 
 msgid "Icon CSS class"
 msgstr "İkon CSS sınıfı"
@@ -1509,8 +1508,8 @@ msgstr ""
 "Etkinleştirilirse min. Alt ürünlerin stok miktarı bu ürüne birikecek, yani "
 "hiçbir zaman alt ürün eksik kalmayacak, sadece bu ürün olacak"
 
-msgid "Are you sure to remove this conversion?"
-msgstr "Bu çevirmeyi kaldırmak istediğinize emin misiniz?"
+msgid "Are you sure you want to remove this conversion?"
+msgstr ""
 
 msgid "Unit price"
 msgstr "Birim fiyat"
@@ -1527,8 +1526,8 @@ msgstr "Sınırsız"
 msgid "Clear"
 msgstr "Temizle"
 
-msgid "Are you sure to remove the included recipe \"%s\"?"
-msgstr "Dahil edilen \"%s\" tarifini kaldırmak istediğinizden emin misiniz?"
+msgid "Are you sure you want to remove the included recipe \"%s\"?"
+msgstr ""
 
 msgid "Period interval"
 msgstr "Dönem aralığı"
@@ -1618,8 +1617,8 @@ msgstr "Bu rezervasyon geri alınamaz"
 msgid "Booking does not exist or was already undone"
 msgstr "Rezervasyon mevcut değil veya zaten geri alınmış"
 
-msgid "Are you sure to delete API key \"%s\"?"
-msgstr "\"%s\" API anahtarını silmek istediğinizden emin misiniz?"
+msgid "Are you sure you want to delete API key \"%s\"?"
+msgstr ""
 
 msgid "Add note"
 msgstr "Not ekle"
@@ -1672,8 +1671,8 @@ msgstr "Çözülmüş"
 msgid "Frozen"
 msgstr "Donmuş"
 
-msgid "Are you sure to delete userentity \"%s\"?"
-msgstr "\"%s\" kullanıcı varlığını silmek istediğinizden emin misiniz?"
+msgid "Are you sure you want to delete userentity \"%s\"?"
+msgstr ""
 
 msgid "Shopping list settings"
 msgstr "Alışveriş listesi seçenekleri"
@@ -1976,8 +1975,8 @@ msgstr ""
 msgid "Copy"
 msgstr "Kopyala"
 
-msgid "Are you sure to remove this barcode?"
-msgstr "Bu barkodu kaldırmak istediğinize emin mısınız?"
+msgid "Are you sure you want to remove this barcode?"
+msgstr ""
 
 msgid "Due date type"
 msgstr "Son tarih türü"
@@ -2174,8 +2173,8 @@ msgstr "İçerik grubu"
 msgid "Reset"
 msgstr "Sıfırla"
 
-msgid "Are you sure to reset the table options?"
-msgstr "Tablo seçeneklerini sıfırlamak istediğinizden emin misiniz?"
+msgid "Are you sure you want to reset the table options?"
+msgstr ""
 
 msgid "Hide/view columns"
 msgstr "Sütunları göster/gizle"
@@ -2427,14 +2426,14 @@ msgstr "Bölümler yemek planında bu numaraya göre sıralanacak"
 msgid "Edit meal plan section"
 msgstr "Yemek planı bölümünü düzenle"
 
-msgid "Are you sure to delete meal plan section \"%s\"?"
-msgstr "Yemek planı bölüm %s'i sildiğinizden emin misiniz?"
+msgid "Are you sure you want to delete meal plan section \"%s\"?"
+msgstr ""
 
 msgid "Section"
 msgstr "Bölüm"
 
-msgid "Are you sure to empty the shopping list?"
-msgstr "Alışveriş listesini temizlemek istediğine emin misin?"
+msgid "Are you sure you want to empty the shopping list?"
+msgstr ""
 
 msgid "This is the default which will be prefilled on purchase"
 msgstr ""
@@ -2748,7 +2747,7 @@ msgid_plural "This means %1$s labels will be printed"
 msgstr[0] "Bu 1 etiketin yazdırılacağı anlamına gelir"
 msgstr[1] "Bu %1$s etiketin yazdırılacağı anlamına gelir"
 
-msgid "External barcode lookup (via plugin)"
+msgid "External barcode lookup"
 msgstr ""
 
 msgid "Error while executing the barcode lookup plugin"
@@ -2758,4 +2757,13 @@ msgid "Nothing was found for the given barcode"
 msgstr ""
 
 msgid "Configure colors"
+msgstr ""
+
+msgid "Swap track next schedule / track now buttons"
+msgstr ""
+
+msgid "Scheduled tracking time"
+msgstr ""
+
+msgid "Time of tracking"
 msgstr ""

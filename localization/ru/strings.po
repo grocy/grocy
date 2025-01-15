@@ -1,12 +1,12 @@
 # 
 # Translators:
 # Bernd Bestel <bernd@berrnd.de>, 2019
+# Pavel Pletenev <cpp.create@gmail.com>, 2019
 # cool guy <eut53770@bcaoo.com>, 2019
 # First Name Second Name <greentail@protonmail.ch>, 2019
 # Maksim Moiseikin <m.moiseikin@gmail.com>, 2020
 # unwarkz <git@unwar.kz>, 2021
 # J K <su1ka.box@gmail.com>, 2021
-# Pavel Pletenev <cpp.create@gmail.com>, 2021
 # Dmitry Galyshev, 2022
 # Юрий Куклин, 2022
 # Sergey Kodolov, 2023
@@ -298,8 +298,8 @@ msgstr "Пароль"
 msgid "Invalid credentials, please try again"
 msgstr "Неправильные данные для входа, попробуйте снова"
 
-msgid "Are you sure to delete battery \"%s\"?"
-msgstr "Вы уверены, что нужно удалить батарею \"%s\"? "
+msgid "Are you sure you want to delete battery \"%s\"?"
+msgstr ""
 
 msgid "Yes"
 msgstr "Да"
@@ -307,8 +307,8 @@ msgstr "Да"
 msgid "No"
 msgstr "Нет"
 
-msgid "Are you sure to delete chore \"%s\"?"
-msgstr "Вы уверены, что нужно удалить работу по дому \"%s\"?"
+msgid "Are you sure you want to delete chore \"%s\"?"
+msgstr ""
 
 msgid "\"%s\" could not be resolved to a product, how do you want to proceed?"
 msgstr ""
@@ -330,17 +330,17 @@ msgstr "Добавить в качестве штрихкода к сущест�
 msgid "Add as new product and prefill barcode"
 msgstr "Добавить новый продукт, заполнив штрихкод"
 
-msgid "Are you sure to delete quantity unit \"%s\"?"
-msgstr "Вы уверены, что нужно удалить единицу измерения \"%s\"?"
+msgid "Are you sure you want to delete quantity unit \"%s\"?"
+msgstr ""
 
-msgid "Are you sure to delete product \"%s\"?"
-msgstr "Вы уверены, что хотите удалить продукт %s?"
+msgid "Are you sure you want to delete product \"%s\"?"
+msgstr ""
 
-msgid "Are you sure to delete location \"%s\"?"
-msgstr "Вы уверены, что нужно удалить место хранения \"%s\"?"
+msgid "Are you sure you want to delete location \"%s\"?"
+msgstr ""
 
-msgid "Are you sure to delete store \"%s\"?"
-msgstr "Вы уверены, что хотите удалить магазин \"%s\"?"
+msgid "Are you sure you want to delete store \"%s\"?"
+msgstr ""
 
 msgid "Manage API keys"
 msgstr "Управление ключами доступа к API"
@@ -456,14 +456,14 @@ msgstr "Добавить ингредиент рецепта"
 msgid "Edit recipe ingredient"
 msgstr "Изменить ингредиент рецепта"
 
-msgid "Are you sure to delete recipe \"%s\"?"
-msgstr "Вы уверены, что нужно удалить рецепт \"%s\"?"
+msgid "Are you sure you want to delete recipe \"%s\"?"
+msgstr ""
 
-msgid "Are you sure to delete recipe ingredient \"%s\"?"
-msgstr "Вы уверены, что нужно удалить ингредиент рецепта \"%s\"?"
+msgid "Are you sure you want to delete recipe ingredient \"%s\"?"
+msgstr ""
 
-msgid "Are you sure to empty shopping list \"%s\"?"
-msgstr "Вы уверены, что нужно очистить список покупок \"%s\"? "
+msgid "Are you sure you want to empty shopping list \"%s\"?"
+msgstr ""
 
 msgid "Clear list"
 msgstr "Очистить список"
@@ -518,11 +518,9 @@ msgid "Put missing amount on shopping list"
 msgstr "Добавить отсутствующее количество в список покупок"
 
 msgid ""
-"Are you sure to put all missing ingredients for recipe \"%s\" on the "
-"shopping list?"
+"Are you sure you want to put all missing ingredients for recipe \"%s\" on "
+"the shopping list?"
 msgstr ""
-"Вы уверены, что нужно добавить все отсутствующие ингредиенты для рецепта "
-"\"%s\" в список покупок?"
 
 msgid "Added for recipe %s"
 msgstr "Добавлен рецепт %s"
@@ -536,8 +534,8 @@ msgstr "Пользователь"
 msgid "Users"
 msgstr "Пользователи"
 
-msgid "Are you sure to delete user \"%s\"?"
-msgstr "Вы уверены, что нужно удалить пользователя \"%s\"?"
+msgid "Are you sure you want to delete user \"%s\"?"
+msgstr ""
 
 msgid "Create user"
 msgstr "Создать пользователя"
@@ -641,12 +639,10 @@ msgid "Only check if any amount is in stock"
 msgstr "Проверять только если есть запас"
 
 msgid ""
-"Are you sure to consume all ingredients needed by recipe \"%s\" (ingredients"
-" marked with \"only check if any amount is in stock\" will be ignored)?"
+"Are you sure you want to consume all ingredients needed by recipe \"%s\" "
+"(ingredients marked with \"only check if any amount is in stock\" will be "
+"ignored)?"
 msgstr ""
-"Вы уверены что хотите использовать все ингридиенты, необходимые в рецепте %s"
-" (ингридиенты помеченные как \"Проверять только если есть запас\" будут "
-"проигнорированы)?"
 
 msgid "Removed all ingredients of recipe \"%s\" from stock"
 msgstr "Все ингредиенты рецепта \"%s\" убраны из запаса"
@@ -699,8 +695,8 @@ msgstr "Категория"
 msgid "Edit task"
 msgstr "Изменить задачу"
 
-msgid "Are you sure to delete task \"%s\"?"
-msgstr "Вы уверены, что нужно удалить задачу \"%s\"?"
+msgid "Are you sure you want to delete task \"%s\"?"
+msgstr ""
 
 msgid "%s task is due to be done"
 msgid_plural "%s tasks are due to be done"
@@ -737,8 +733,8 @@ msgstr "Изменить группу продуктов"
 msgid "Product group"
 msgstr "Группа продуктов"
 
-msgid "Are you sure to delete product group \"%s\"?"
-msgstr "Вы уверены, что нужно удалить группу \"%s\"?"
+msgid "Are you sure you want to delete product group \"%s\"?"
+msgstr ""
 
 msgid "Stay logged in permanently"
 msgstr "Оставаться  в сети всегда"
@@ -908,7 +904,11 @@ msgid "Not opened"
 msgstr "Не открыто"
 
 msgid "Opened"
-msgstr "Открыто"
+msgid_plural "Opened"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+msgstr[3] ""
 
 msgid "%s opened"
 msgstr "%s открыто"
@@ -1081,8 +1081,8 @@ msgstr "Настройки задач"
 msgid "Create shopping list"
 msgstr "Создать список покупок"
 
-msgid "Are you sure to delete shopping list \"%s\"?"
-msgstr "Вы уверены, что нужно удалить список покупок \"%s\"? "
+msgid "Are you sure you want to delete shopping list \"%s\"?"
+msgstr ""
 
 msgid "Average shelf life"
 msgstr "Среднее время жизни на полке"
@@ -1291,8 +1291,8 @@ msgstr "Использованное количество"
 msgid "Time of printing"
 msgstr "Время печати"
 
-msgid "Are you sure to delete equipment \"%s\"?"
-msgstr "Вы уверены, что нужно удалить оборудование \"%s\"?"
+msgid "Are you sure you want to delete equipment \"%s\"?"
+msgstr ""
 
 msgid "Parent product"
 msgstr "Родительский продукт"
@@ -1476,8 +1476,8 @@ msgstr "Назначение"
 msgid "Consume product on chore execution"
 msgstr "Употребить продукт по исполнению работы"
 
-msgid "Are you sure to delete user field \"%s\"?"
-msgstr "Вы уверены, что нужно удалить пользовательское поле \"%s\"?"
+msgid "Are you sure you want to delete user field \"%s\"?"
+msgstr ""
 
 msgid "Userentities"
 msgstr "Пользовательские сущности"
@@ -1497,8 +1497,8 @@ msgstr "Изменить %s"
 msgid "Create %s"
 msgstr "Создать %s"
 
-msgid "Are you sure to delete this userobject?"
-msgstr "Вы уверены, что нужно удалить эту пользовательский объект?"
+msgid "Are you sure you want to delete this userobject?"
+msgstr ""
 
 msgid "Icon CSS class"
 msgstr "CSS класс иконок"
@@ -1587,8 +1587,8 @@ msgstr ""
 "этом продукте, это означает, что субпродукт никогда не будет "
 "«отсутствовать», в отличии от этого продукта."
 
-msgid "Are you sure to remove this conversion?"
-msgstr "Вы уверены, что нужно удалить это преобразование?"
+msgid "Are you sure you want to remove this conversion?"
+msgstr ""
 
 msgid "Unit price"
 msgstr "Цена за единицу"
@@ -1605,8 +1605,8 @@ msgstr "Неограниченно"
 msgid "Clear"
 msgstr "Очистить"
 
-msgid "Are you sure to remove the included recipe \"%s\"?"
-msgstr "Вы уверены, что хотите удалить включённый рецепт \"%s\"?"
+msgid "Are you sure you want to remove the included recipe \"%s\"?"
+msgstr ""
 
 msgid "Period interval"
 msgstr "Временной интервал"
@@ -1702,8 +1702,8 @@ msgstr "Это действие не может быть отменено"
 msgid "Booking does not exist or was already undone"
 msgstr "Действие не существует или уже отменено"
 
-msgid "Are you sure to delete API key \"%s\"?"
-msgstr "Вы уверены, что хотите удалить ключ API \"%s\"?"
+msgid "Are you sure you want to delete API key \"%s\"?"
+msgstr ""
 
 msgid "Add note"
 msgstr "Добавить заметку"
@@ -1758,8 +1758,8 @@ msgstr "Разморожен"
 msgid "Frozen"
 msgstr "Заморожен"
 
-msgid "Are you sure to delete userentity \"%s\"?"
-msgstr "Вы уверены, что нужно удалить пользовательскую запись \"%s\"?"
+msgid "Are you sure you want to delete userentity \"%s\"?"
+msgstr ""
 
 msgid "Shopping list settings"
 msgstr "Настройки списка покупок"
@@ -2062,8 +2062,8 @@ msgstr ""
 msgid "Copy"
 msgstr "Копировать"
 
-msgid "Are you sure to remove this barcode?"
-msgstr "Вы уверены, что хотите удалить штрихкод?"
+msgid "Are you sure you want to remove this barcode?"
+msgstr ""
 
 msgid "Due date type"
 msgstr "Тип срока годности"
@@ -2267,8 +2267,8 @@ msgstr "Группа ингредиентов"
 msgid "Reset"
 msgstr "Сброс"
 
-msgid "Are you sure to reset the table options?"
-msgstr "Вы уверены, что хотите сбросить настройки таблицы?"
+msgid "Are you sure you want to reset the table options?"
+msgstr ""
 
 msgid "Hide/view columns"
 msgstr "Скрыть/показать колонки"
@@ -2523,14 +2523,14 @@ msgstr "Секции будут расположены в плане питан�
 msgid "Edit meal plan section"
 msgstr "Изменить секцию плана питания"
 
-msgid "Are you sure to delete meal plan section \"%s\"?"
-msgstr "Вы уверены, что хотите удалить раздел плана питания \"%s\"?"
+msgid "Are you sure you want to delete meal plan section \"%s\"?"
+msgstr ""
 
 msgid "Section"
 msgstr "Раздел"
 
-msgid "Are you sure to empty the shopping list?"
-msgstr "Вы уверены, что нужно очистить список покупок?"
+msgid "Are you sure you want to empty the shopping list?"
+msgstr ""
 
 msgid "This is the default which will be prefilled on purchase"
 msgstr "Значение, которое будет изначально заполнено при внесении покупки "
@@ -2860,8 +2860,8 @@ msgstr[1] "Это означает, что будет напечатано %1$s 
 msgstr[2] "Это означает, что будет напечатано %1$s этикеток"
 msgstr[3] "Это означает, что будет напечатано %1$s этикеток"
 
-msgid "External barcode lookup (via plugin)"
-msgstr "Внешний поиск штрих-кода (через плагин)"
+msgid "External barcode lookup"
+msgstr ""
 
 msgid "Error while executing the barcode lookup plugin"
 msgstr "Ошибка при выполнении плагина поиска штрих-кода"
@@ -2871,3 +2871,12 @@ msgstr "Ничего не было найдено по указанному шт
 
 msgid "Configure colors"
 msgstr "Настроить цвета"
+
+msgid "Swap track next schedule / track now buttons"
+msgstr ""
+
+msgid "Scheduled tracking time"
+msgstr ""
+
+msgid "Time of tracking"
+msgstr ""

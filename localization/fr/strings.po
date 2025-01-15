@@ -2,6 +2,7 @@
 # Translators:
 # bigoudo, 2019
 # Bernd Bestel <bernd@berrnd.de>, 2019
+# 8a6ec6ba31fecee74183669e4744ef28_7d4badd <d361cc5e10b554e8c048e8ae22413142_453062>, 2019
 # Hydreliox <hydreliox@gmail.com>, 2019
 # Matthieu K, 2019
 # Jérémy Tisserand <jeremy.tisserand@gmail.com>, 2019
@@ -30,7 +31,6 @@
 # Julien Pidoux <julien@pidoux.me>, 2021
 # Zorvalt - <zorvalt@protonmail.ch>, 2021
 # patate douce <poubel125@gmail.com>, 2021
-# 8a6ec6ba31fecee74183669e4744ef28_7d4badd <d361cc5e10b554e8c048e8ae22413142_453062>, 2021
 # Alexandre Mechineau <admin@alexsaphir.com>, 2021
 # Pierre Penninckx <ibizapeanut@gmail.com>, 2021
 # Zkryvix <angelo.frangione@gmail.com>, 2021
@@ -41,6 +41,7 @@
 # Maxime Corteel, 2022
 # Jonathan Blanc, 2023
 # Greg G, 2023
+# Lamecarlate, 2025
 # 
 msgid ""
 msgstr ""
@@ -48,7 +49,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Greg G, 2023\n"
+"Last-Translator: Lamecarlate, 2025\n"
 "Language-Team: French (https://app.transifex.com/grocy/teams/93189/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -324,8 +325,8 @@ msgstr "Mot de passe"
 msgid "Invalid credentials, please try again"
 msgstr "Identifiants invalides, merci de réessayer"
 
-msgid "Are you sure to delete battery \"%s\"?"
-msgstr "Êtes vous sûr de vouloir supprimer la batterie \"%s\" ?"
+msgid "Are you sure you want to delete battery \"%s\"?"
+msgstr ""
 
 msgid "Yes"
 msgstr "Oui"
@@ -333,8 +334,8 @@ msgstr "Oui"
 msgid "No"
 msgstr "Non"
 
-msgid "Are you sure to delete chore \"%s\"?"
-msgstr "Voulez-vous vraiment supprimer la corvée \"%s\" ?"
+msgid "Are you sure you want to delete chore \"%s\"?"
+msgstr ""
 
 msgid "\"%s\" could not be resolved to a product, how do you want to proceed?"
 msgstr ""
@@ -356,17 +357,17 @@ msgstr "Ajouter en tant que code-barres à un produit existant"
 msgid "Add as new product and prefill barcode"
 msgstr "Ajouter un nouveau produit et pré-renseigner le code-barres"
 
-msgid "Are you sure to delete quantity unit \"%s\"?"
-msgstr "Voulez-vous vraiment supprimer l'unité \"%s\" ?"
+msgid "Are you sure you want to delete quantity unit \"%s\"?"
+msgstr ""
 
-msgid "Are you sure to delete product \"%s\"?"
-msgstr "Voulez-vous vraiment supprimer le produit \"%s\" ?"
+msgid "Are you sure you want to delete product \"%s\"?"
+msgstr ""
 
-msgid "Are you sure to delete location \"%s\"?"
-msgstr "Voulez-vous vraiment supprimer l'emplacement \"%s\" ?"
+msgid "Are you sure you want to delete location \"%s\"?"
+msgstr ""
 
-msgid "Are you sure to delete store \"%s\"?"
-msgstr "Voulez-vous vraiment supprimer le magasin \"%s\" ?"
+msgid "Are you sure you want to delete store \"%s\"?"
+msgstr ""
 
 msgid "Manage API keys"
 msgstr "Gérer les clefs API"
@@ -482,14 +483,14 @@ msgstr "Ajouter un ingrédient dans la recette"
 msgid "Edit recipe ingredient"
 msgstr "Modifier un ingrédient dans la recette"
 
-msgid "Are you sure to delete recipe \"%s\"?"
-msgstr "Voulez-vous vraiment supprimer la recette \"%s\" ?"
+msgid "Are you sure you want to delete recipe \"%s\"?"
+msgstr ""
 
-msgid "Are you sure to delete recipe ingredient \"%s\"?"
-msgstr "Voulez-vous vraiment supprimer l'ingrédient \"%s\" de la recette ?"
+msgid "Are you sure you want to delete recipe ingredient \"%s\"?"
+msgstr ""
 
-msgid "Are you sure to empty shopping list \"%s\"?"
-msgstr "Voulez-vous vraiment vider la liste de courses ?"
+msgid "Are you sure you want to empty shopping list \"%s\"?"
+msgstr ""
 
 msgid "Clear list"
 msgstr "Vider la liste"
@@ -539,11 +540,9 @@ msgid "Put missing amount on shopping list"
 msgstr "Ajouter la quantité manquante dans la liste de courses"
 
 msgid ""
-"Are you sure to put all missing ingredients for recipe \"%s\" on the "
-"shopping list?"
+"Are you sure you want to put all missing ingredients for recipe \"%s\" on "
+"the shopping list?"
 msgstr ""
-"Voulez-vous vraiment ajouter tous les ingrédients manquants de la recette "
-"\"%s\" dans la liste de courses ?"
 
 msgid "Added for recipe %s"
 msgstr "Ajoutés pour la recette %s"
@@ -557,8 +556,8 @@ msgstr "Utilisateur"
 msgid "Users"
 msgstr "Utilisateurs"
 
-msgid "Are you sure to delete user \"%s\"?"
-msgstr "Voulez-vous vraiment supprimer l'utilisateur \"%s\" ?"
+msgid "Are you sure you want to delete user \"%s\"?"
+msgstr ""
 
 msgid "Create user"
 msgstr "Créer un utilisateur"
@@ -659,12 +658,10 @@ msgid "Only check if any amount is in stock"
 msgstr "Vérifier seulement qu'une quantité non-nulle est en stock"
 
 msgid ""
-"Are you sure to consume all ingredients needed by recipe \"%s\" (ingredients"
-" marked with \"only check if any amount is in stock\" will be ignored)?"
+"Are you sure you want to consume all ingredients needed by recipe \"%s\" "
+"(ingredients marked with \"only check if any amount is in stock\" will be "
+"ignored)?"
 msgstr ""
-"Êtes-vous sûr de vouloir consommer tous les ingrédients requis pour la "
-"recette \"%s\" (les ingrédient marqués \"Vérifier seulement qu'une quantité "
-"non-nulle est en stock\" seront ignorés)"
 
 msgid "Removed all ingredients of recipe \"%s\" from stock"
 msgstr "Enlever tous les ingrédients de la recette \"%s\" du stock"
@@ -717,8 +714,8 @@ msgstr "Catégorie"
 msgid "Edit task"
 msgstr "Modifier la tâche"
 
-msgid "Are you sure to delete task \"%s\"?"
-msgstr "Voulez-vous vraiment supprimer la tâche \"%s\" ?"
+msgid "Are you sure you want to delete task \"%s\"?"
+msgstr ""
 
 msgid "%s task is due to be done"
 msgid_plural "%s tasks are due to be done"
@@ -753,8 +750,8 @@ msgstr "Modifier le groupe de produit"
 msgid "Product group"
 msgstr "Groupe de produit"
 
-msgid "Are you sure to delete product group \"%s\"?"
-msgstr "Voulez-vous vraiment supprimer le groupe de produit \"%s\" ?"
+msgid "Are you sure you want to delete product group \"%s\"?"
+msgstr ""
 
 msgid "Stay logged in permanently"
 msgstr "Rester connecté de manière permanente"
@@ -924,7 +921,10 @@ msgid "Not opened"
 msgstr "Non ouvert"
 
 msgid "Opened"
-msgstr "Ouvert"
+msgid_plural "Opened"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
 msgid "%s opened"
 msgstr "%s ouvert"
@@ -1096,8 +1096,8 @@ msgstr "Paramètres des tâches"
 msgid "Create shopping list"
 msgstr "Créer liste de courses"
 
-msgid "Are you sure to delete shopping list \"%s\"?"
-msgstr "Voulez-vous vraiment vider la liste de courses \"%s\" ?"
+msgid "Are you sure you want to delete shopping list \"%s\"?"
+msgstr ""
 
 msgid "Average shelf life"
 msgstr "Durée moyenne de conservation "
@@ -1304,8 +1304,8 @@ msgstr "Quantité consommée"
 msgid "Time of printing"
 msgstr "Temps d'impression"
 
-msgid "Are you sure to delete equipment \"%s\"?"
-msgstr "Êtes-vous certain de vouloir effacer l'équipement \"%s\"?"
+msgid "Are you sure you want to delete equipment \"%s\"?"
+msgstr ""
 
 msgid "Parent product"
 msgstr "Produit parent"
@@ -1477,8 +1477,8 @@ msgstr "Tâche"
 msgid "Consume product on chore execution"
 msgstr "Consommer un produit lors de l'exécution de la corvée"
 
-msgid "Are you sure to delete user field \"%s\"?"
-msgstr "Êtes-vous sûr de vouloir supprimer le champ utilisateur \"%s\" ?"
+msgid "Are you sure you want to delete user field \"%s\"?"
+msgstr ""
 
 msgid "Userentities"
 msgstr "Entités utilisateur"
@@ -1498,8 +1498,8 @@ msgstr "Éditer %s"
 msgid "Create %s"
 msgstr "Créer %s"
 
-msgid "Are you sure to delete this userobject?"
-msgstr "Êtes-vous sûr de vouloir supprimer cet objet utilisateur ?"
+msgid "Are you sure you want to delete this userobject?"
+msgstr ""
 
 msgid "Icon CSS class"
 msgstr "Classe CSS de l'icône"
@@ -1588,8 +1588,8 @@ msgstr ""
 "dans ce produit, ce qui signifie que les sous-produits ne seront jamais "
 "manquants, seulement ce produit."
 
-msgid "Are you sure to remove this conversion?"
-msgstr "Êtes-vous sûr de vouloir supprimer cette conversion ?"
+msgid "Are you sure you want to remove this conversion?"
+msgstr ""
 
 msgid "Unit price"
 msgstr "Prix unitaire"
@@ -1606,8 +1606,8 @@ msgstr "Illimité"
 msgid "Clear"
 msgstr "Vider"
 
-msgid "Are you sure to remove the included recipe \"%s\"?"
-msgstr "Êtes-vous sûr de vouloir supprimer la recette incluse \"%s\"?"
+msgid "Are you sure you want to remove the included recipe \"%s\"?"
+msgstr ""
 
 msgid "Period interval"
 msgstr "Intervalle de temps"
@@ -1700,8 +1700,8 @@ msgstr "Cette réservation ne peut pas être annulée"
 msgid "Booking does not exist or was already undone"
 msgstr "La réservation n'existe pas ou a déjà été annulée"
 
-msgid "Are you sure to delete API key \"%s\"?"
-msgstr "Voulez-vous vraiment supprimer la clé API \"%s\" ?"
+msgid "Are you sure you want to delete API key \"%s\"?"
+msgstr ""
 
 msgid "Add note"
 msgstr "Ajouter une remarque"
@@ -1756,8 +1756,8 @@ msgstr "Décongelé"
 msgid "Frozen"
 msgstr "Congelé"
 
-msgid "Are you sure to delete userentity \"%s\"?"
-msgstr "Voulez-vous vraiment supprimer l'entité utilisateur \"%s\" ?"
+msgid "Are you sure you want to delete userentity \"%s\"?"
+msgstr ""
 
 msgid "Shopping list settings"
 msgstr "Paramètres de la liste de courses"
@@ -2062,8 +2062,8 @@ msgstr ""
 msgid "Copy"
 msgstr "Copier"
 
-msgid "Are you sure to remove this barcode?"
-msgstr "Êtes-vous sûr de vouloir supprimer ce code barre ?"
+msgid "Are you sure you want to remove this barcode?"
+msgstr ""
 
 msgid "Due date type"
 msgstr "Type d'échéance"
@@ -2265,8 +2265,8 @@ msgstr "Groupe d'ingrédients"
 msgid "Reset"
 msgstr "Réinitialiser"
 
-msgid "Are you sure to reset the table options?"
-msgstr "Êtes vous sûr de vouloir réinitialiser les options du tableau ?"
+msgid "Are you sure you want to reset the table options?"
+msgstr ""
 
 msgid "Hide/view columns"
 msgstr "Afficher/cacher les colonnes"
@@ -2343,7 +2343,7 @@ msgid "Print options"
 msgstr "Options d'impression"
 
 msgid "A product or a note is required"
-msgstr "Un produit ou une note est nécessaire"
+msgstr "Un produit ou une remarque est nécessaire"
 
 msgid "Grocycode"
 msgstr "Grocycode"
@@ -2519,14 +2519,14 @@ msgstr "Les sections seront triées par ce numéro dans le menu"
 msgid "Edit meal plan section"
 msgstr "Modifier la section du menu"
 
-msgid "Are you sure to delete meal plan section \"%s\"?"
-msgstr "Êtes-vous sûr de supprimer la section \"%s\" du menu ?"
+msgid "Are you sure you want to delete meal plan section \"%s\"?"
+msgstr ""
 
 msgid "Section"
 msgstr "Section"
 
-msgid "Are you sure to empty the shopping list?"
-msgstr "Voulez-vous vraiment vider la liste de courses ?"
+msgid "Are you sure you want to empty the shopping list?"
+msgstr ""
 
 msgid "This is the default which will be prefilled on purchase"
 msgstr "Ceci est la valeur par défaut, qui va être préremplie à l'achat"
@@ -2856,8 +2856,8 @@ msgstr[0] "Cela signifie que 1 étiquette sera imprimée"
 msgstr[1] "Cela signifie que %1$s étiquettes seront imprimées"
 msgstr[2] "Cela signifie que %1$s étiquettes seront imprimées"
 
-msgid "External barcode lookup (via plugin)"
-msgstr "Lecture externe de codes-barres (via plugin)"
+msgid "External barcode lookup"
+msgstr ""
 
 msgid "Error while executing the barcode lookup plugin"
 msgstr "Erreur durant l'exécution du plugin de lecture de code-barres"
@@ -2867,3 +2867,12 @@ msgstr "Rien n'a été trouvé pour le code-barres reçu"
 
 msgid "Configure colors"
 msgstr "Paramétrage des couleurs"
+
+msgid "Swap track next schedule / track now buttons"
+msgstr ""
+
+msgid "Scheduled tracking time"
+msgstr ""
+
+msgid "Time of tracking"
+msgstr ""
