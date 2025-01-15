@@ -289,6 +289,11 @@ function RefreshProductRow(productId)
 				RefreshProductRow(result.product.parent_product_id);
 			}
 
+			if (!result.next_due_date)
+			{
+				result.next_due_date = "2888-12-31"; // Unknown
+			}
+
 			var productRow = $('#product-' + productId + '-row');
 			var dueSoonThreshold = moment().add($("#info-duesoon-products").data("next-x-days"), "days");
 			var now = moment();
@@ -320,7 +325,7 @@ function RefreshProductRow(productId)
 				productRow.addClass("table-info");
 			}
 
-			if (result.stock_amount == 0 && result.stock_amount_aggregated == 0 && result.product.min_stock_amount == 0)
+			if (!BoolVal(Grocy.UserSettings.stock_overview_show_all_out_of_stock_products) && result.stock_amount == 0 && result.stock_amount_aggregated == 0 && result.product.min_stock_amount == 0)
 			{
 				animateCSS("#product-" + productId + "-row", "fadeOut", function()
 				{
@@ -347,6 +352,12 @@ function RefreshProductRow(productId)
 				else
 				{
 					$('#product-' + productId + '-opened-amount').text("");
+				}
+
+				if (result.stock_amount_aggregated == 0)
+				{
+					$(".product-consume-button[data-product-id='" + productId + "']").addClass("disabled");
+					$(".product-open-button[data-product-id='" + productId + "']").addClass("disabled");
 				}
 			}
 

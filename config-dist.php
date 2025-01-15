@@ -192,6 +192,7 @@ DefaultUserSetting('stock_default_consume_amount_use_quick_consume_amount', fals
 DefaultUserSetting('scan_mode_consume_enabled', false); // If scan mode on the consume page is enabled
 DefaultUserSetting('scan_mode_purchase_enabled', false); // If scan mode on the purchase page is enabled
 DefaultUserSetting('show_icon_on_stock_overview_page_when_product_is_on_shopping_list', true); // When enabled, an icon is shown on the stock overview page (next to the product name) when the prodcut is currently on a shopping list
+DefaultUserSetting('stock_overview_show_all_out_of_stock_products', false); // By default the stock overview page lists all products which are currently in-stock or below their min. stock amount - when this is enabled, all (active) products are always shown
 DefaultUserSetting('show_purchased_date_on_purchase', false); // Whether the purchased date should be editable on purchase (defaults to today otherwise)
 DefaultUserSetting('show_warning_on_purchase_when_due_date_is_earlier_than_next', true); // Show a warning on purchase when the due date of the purchased product is earlier than the next due date in stock
 

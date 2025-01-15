@@ -692,11 +692,6 @@ class StockService extends BaseService
 		return $this->getDatabaseService()->ExecuteDbQuery($sql)->fetchAll(\PDO::FETCH_OBJ);
 	}
 
-	public function GetCurrentStockOverview()
-	{
-		return $this->getDatabase()->uihelper_stock_current_overview();
-	}
-
 	public function GetDueProducts(int $days = 5, bool $excludeOverdue = false)
 	{
 		if ($excludeOverdue)

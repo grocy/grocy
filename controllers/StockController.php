@@ -139,8 +139,14 @@ class StockController extends BaseController
 		$usersService = $this->getUsersService();
 		$nextXDays = $usersService->GetUserSettings(GROCY_USER_ID)['stock_due_soon_days'];
 
+		$where = 'is_in_stock_or_below_min_stock = 1';
+		if (boolval($usersService->GetUserSettings(GROCY_USER_ID)['stock_overview_show_all_out_of_stock_products']))
+		{
+			$where = '1=1';
+		}
+
 		return $this->renderPage($response, 'stockoverview', [
-			'currentStock' => $this->getStockService()->GetCurrentStockOverview(),
+			'currentStock' => $this->getDatabase()->uihelper_stock_current_overview()->where($where),
 			'locations' => $this->getDatabase()->locations()->where('active = 1')->orderBy('name', 'COLLATE NOCASE'),
 			'currentStockLocations' => $this->getStockService()->GetCurrentStockLocations(),
 			'nextXDays' => $nextXDays,

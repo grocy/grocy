@@ -318,12 +318,18 @@ RefreshContextualTimeago = function(rootSelector = "#page-content")
 		}
 
 		var isNever = timestamp && timestamp.substring(0, 10) == "2999-12-31";
+		var isUnknown = timestamp && timestamp.substring(0, 10) == "2888-12-31";
 		var isToday = timestamp && timestamp.substring(0, 10) == moment().format("YYYY-MM-DD");
 		var isDateWithoutTime = element.hasClass("timeago-date-only");
 
 		if (isNever)
 		{
 			element.prev().text(__t("Never"));
+			element.text("");
+		}
+		else if (isUnknown)
+		{
+			element.prev().text(__t("Unknown"));
 			element.text("");
 		}
 		else if (isToday)

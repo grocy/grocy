@@ -113,6 +113,23 @@
 			</div>
 		</div>
 
+		<div class="form-group">
+			<div class="custom-control custom-checkbox">
+				<input type="checkbox"
+					class="form-check-input custom-control-input user-setting-control"
+					id="stock_overview_show_all_out_of_stock_products"
+					data-setting-key="stock_overview_show_all_out_of_stock_products">
+				<label class="form-check-label custom-control-label"
+					for="stock_overview_show_all_out_of_stock_products">
+					{{ $__t('Show all out of stock products') }}
+					<i class="fa-solid fa-question-circle text-muted"
+						data-toggle="tooltip"
+						data-trigger="hover click"
+						title="{{ $__t('By default the stock overview page lists all products which are currently in-stock or below their min. stock amount - when this is enabled, all (active) products are always shown') }}"></i>
+				</label>
+			</div>
+		</div>
+
 		<h4 class="mt-2">{{ $__t('Purchase') }}</h4>
 		@include('components.numberpicker', array(
 		'id' => 'stock_default_purchase_amount',
