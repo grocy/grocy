@@ -84,7 +84,7 @@ $(document).on('click', '.track-charge-cycle-button', function(e)
 						batteryRow.addClass("table-warning");
 					}
 
-					animateCSS("#battery-" + batteryId + "-row td:not(:first)", "shake");
+					animateCSS("#battery-" + batteryId + "-row td:not(:first)", "flash");
 
 					$('#battery-' + batteryId + '-last-tracked-time').text(trackedTime);
 					$('#battery-' + batteryId + '-last-tracked-time-timeago').attr('datetime', trackedTime);

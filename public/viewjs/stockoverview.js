@@ -335,7 +335,7 @@ function RefreshProductRow(productId)
 			}
 			else
 			{
-				animateCSS("#product-" + productId + "-row td:not(:first)", "shake");
+				animateCSS("#product-" + productId + "-row td:not(:first)", "flash");
 
 				$('#product-' + productId + '-qu-name').text(__n(result.stock_amount, result.quantity_unit_stock.name, result.quantity_unit_stock.name_plural, true));
 				$('#product-' + productId + '-amount').text(result.stock_amount);
@@ -358,6 +358,11 @@ function RefreshProductRow(productId)
 				{
 					$(".product-consume-button[data-product-id='" + productId + "']").addClass("disabled");
 					$(".product-open-button[data-product-id='" + productId + "']").addClass("disabled");
+				}
+				else
+				{
+					$(".product-consume-button[data-product-id='" + productId + "']").removeClass("disabled");
+					$(".product-open-button[data-product-id='" + productId + "']").removeClass("disabled");
 				}
 			}
 

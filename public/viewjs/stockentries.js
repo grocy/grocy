@@ -219,7 +219,7 @@ function RefreshStockEntryRow(stockRowId)
 					stockRow.addClass("table-warning");
 				}
 
-				animateCSS("#stock-" + stockRowId + "-row td:not(:first)", "shake");
+				animateCSS("#stock-" + stockRowId + "-row td:not(:first)", "flash");
 
 				$('#stock-' + stockRowId + '-amount').text(result.amount);
 				$('#stock-' + stockRowId + '-due-date').text(result.best_before_date);
@@ -317,8 +317,11 @@ $(window).on("message", function(e)
 
 	if (data.Message == "ProductChanged")
 	{
-		window.location.reload();
-	}
+		$(".stock-consume-button[data-product-id='" + data.Payload + "']").each(function()
+		{
+			RefreshStockEntryRow($(this).attr("data-stockrow-id"));
+		});
+	};
 });
 
 Grocy.Components.ProductPicker.GetPicker().trigger('change');

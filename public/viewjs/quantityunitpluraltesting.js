@@ -24,7 +24,7 @@ function RefreshQuPluralTestingResult()
 		return;
 	}
 
-	animateCSS("h2", "shake");
+	animateCSS("h2", "flash");
 	$("#result").text(__n(amount, singularForm, pluralForm, true));
 }
 

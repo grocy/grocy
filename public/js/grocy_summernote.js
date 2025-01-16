@@ -9,7 +9,16 @@ $("textarea.wysiwyg-editor").summernote({
 			$img = $('<img>').attr({ src: url, class: "img-fluid", loading: "lazy" })
 			$(this).summernote("insertNode", $img[0]);
 		}
-	}
+	},
+	toolbar: [
+		['fontsize', ['fontsize']],
+		['font', ['bold', 'underline', 'clear']],
+		['color', ['color']],
+		['para', ['ul', 'ol', 'paragraph']],
+		['table', ['table']],
+		['insert', ['link', 'picture', 'video']],
+		['view', ['codeview', 'fullscreen']]
+	]
 });
 
 // Summernote workaround: Make embeds responsive

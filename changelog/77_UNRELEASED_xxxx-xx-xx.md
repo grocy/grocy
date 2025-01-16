@@ -34,6 +34,7 @@
 
 - Optimized that when adding missing recipe ingredients with the option "Only check if any amount is in stock" enabled to the shopping list and when no corresponding unit conversion exists, the amount/unit is now taken "as is" (as defined in the recipe ingredient) into the created shopping list item
 - Added a trendline to the price history chart (product card)
+- Added a "Add to shopping list"-button on the product card
 - Added a new stock setting (top right corner settings menu) "Show all out of stock products" to optionally also show all out of stock products on the stock overview page (defaults to disabled, so no changed behavior when not configured)
   - By default the stock overview page lists all products which are currently in-stock or below their min. stock amount
   - When this new setting is enabled, all (active) products are always shown

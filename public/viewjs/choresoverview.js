@@ -146,7 +146,7 @@ $(document).on('click', '.track-chore-button', function(e)
 								$('#chore-' + choreId + '-due-filter-column').html("duesoon");
 							}
 
-							animateCSS("#chore-" + choreId + "-row td:not(:first)", "shake");
+							animateCSS("#chore-" + choreId + "-row td:not(:first)", "flash");
 
 							$('#chore-' + choreId + '-last-tracked-time').text(trackedTime);
 							$('#chore-' + choreId + '-last-tracked-time-timeago').attr('datetime', trackedTime);

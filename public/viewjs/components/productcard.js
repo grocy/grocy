@@ -77,10 +77,12 @@ Grocy.Components.ProductCard.Refresh = function(productId)
 
 			$('#productcard-product-edit-button').attr("href", U("/product/" + productDetails.product.id.toString() + '?' + 'returnto=' + encodeURIComponent(Grocy.CurrentUrlRelative)));
 			$('#productcard-product-journal-button').attr("href", U("/stockjournal?embedded&product=" + productDetails.product.id.toString()));
+			$('#productcard-product-shoppinglist-button').attr("href", U("/shoppinglistitem/new?embedded&updateexistingproduct&list=1&product=" + productDetails.product.id.toString()));
 			$('#productcard-product-stock-button').attr("href", U("/stockentries?embedded&product=" + productDetails.product.id.toString()));
 			$('#productcard-product-stock-button').removeClass("disabled");
 			$('#productcard-product-edit-button').removeClass("disabled");
 			$('#productcard-product-journal-button').removeClass("disabled");
+			$('#productcard-product-shoppinglist-button').removeClass("disabled");
 
 			if (productDetails.last_price !== null)
 			{

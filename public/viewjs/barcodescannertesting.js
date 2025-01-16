@@ -62,7 +62,7 @@ function OnBarcodeScanned(barcode)
 		bgClass = "bg-danger";
 
 		$("#miss-count").text(Grocy.BarCodeScannerTestingMissCount);
-		animateCSS("#miss-count", "pulse");
+		animateCSS("#miss-count", "flash");
 	}
 	else
 	{
@@ -70,7 +70,7 @@ function OnBarcodeScanned(barcode)
 		bgClass = "bg-success";
 
 		$("#hit-count").text(Grocy.BarCodeScannerTestingHitCount);
-		animateCSS("#hit-count", "pulse");
+		animateCSS("#hit-count", "flash");
 	}
 
 	$("#scanned_codes").prepend("<option class='" + bgClass + "'>" + barcode + "</option>");

@@ -9,7 +9,7 @@ SELECT
 	sc.amount AS amount,
 	sc.value as value,
 	sc.product_id AS product_id,
-	CASE WHEN sc.is_in_stock_or_below_min_stock = 1 THEN sc.best_before_date ELSE '2888-12-31' END AS best_before_date,
+	IFNULL(sc.best_before_date, '2888-12-31') AS best_before_date,
 	EXISTS(SELECT id FROM stock_missing_products WHERE id = sc.product_id) AS product_missing,
 	p.name AS product_name,
 	pg.name AS product_group_name,
