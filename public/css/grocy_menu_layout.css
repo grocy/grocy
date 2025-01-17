@@ -469,3 +469,40 @@ body.fixed-nav {
 		padding-top: 0;
 	}
 }
+
+@media (max-width: 992px) {
+
+	.navbar-sidenav,
+	.navbar-nav,
+	.navbar-nav .dropdown-item {
+		text-align: right;
+	}
+
+	#mainNav .navbar-collapse .navbar-sidenav {
+		margin-top: 5px;
+	}
+
+	.navbar-sidenav>li:hover,
+	.sidenav-second-level>li:hover,
+	.navbar-nav .dropdown-item:hover,
+	.navbar-sidenav>li>a:focus,
+	.sidenav-second-level>li>a:focus,
+	.navbar-nav .dropdown-item:focus,
+	.active-page {
+		box-shadow: inset -10px 0 0 #337ab7 !important;
+	}
+
+	#mainNav .navbar-collapse .navbar-nav>.nav-item.dropdown>.nav-link {
+		max-width: 100%;
+		padding-right: 1.25em !important;
+	}
+
+	.navbar-nav .dropdown-item .form-inline {
+		margin-left: auto;
+		display: unset;
+	}
+
+	.navbar-nav .dropdown-item .form-inline>input {
+		text-align: right;
+	}
+}
