@@ -444,8 +444,6 @@ $(document).on('click', '.ingredient-done-button', function(e)
 {
 	e.preventDefault();
 
-	$(".tooltip").tooltip("hide");
-
 	$(e.currentTarget).parent().toggleClass("text-strike-through");
 });
 

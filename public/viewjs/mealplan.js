@@ -754,8 +754,6 @@ $(document).on("keydown", "#servings", function(e)
 
 $(document).on('click', '.recipe-order-missing-button', function(e)
 {
-	$(".tooltip").tooltip("hide");
-
 	var objectName = $(e.currentTarget).attr('data-recipe-name');
 	var objectId = $(e.currentTarget).attr('data-recipe-id');
 	var button = $(this);
@@ -818,8 +816,6 @@ $(document).on('click', '.product-consume-button', function(e)
 {
 	e.preventDefault();
 
-	$(".tooltip").tooltip("hide");
-
 	Grocy.FrontendHelpers.BeginUiBusy();
 
 	var productId = $(e.currentTarget).attr('data-product-id');
@@ -864,8 +860,6 @@ $(document).on('click', '.product-consume-button', function(e)
 
 $(document).on('click', '.recipe-consume-button', function(e)
 {
-	$(".tooltip").tooltip("hide");
-
 	var objectName = $(e.currentTarget).attr('data-recipe-name');
 	var objectId = $(e.currentTarget).attr('data-recipe-id');
 	var mealPlanEntryId = $(e.currentTarget).attr('data-mealplan-entry-id');
@@ -918,8 +912,6 @@ $(document).on('click', '.recipe-consume-button', function(e)
 
 $(document).on("click", ".display-recipe-button", function(e)
 {
-	$(".tooltip").tooltip("hide");
-
 	var objectId = $(e.currentTarget).attr('data-recipe-id');
 	var servings = $(e.currentTarget).attr('data-mealplan-servings');
 
@@ -957,8 +949,6 @@ $(document).on("click", ".mealplan-entry-done-button", function(e)
 {
 	e.preventDefault();
 
-	$(".tooltip").tooltip("hide");
-
 	var mealPlanEntryId = $(e.currentTarget).attr("data-mealplan-entry-id");
 	Grocy.Api.Put("objects/meal_plan/" + mealPlanEntryId, { "done": 1 },
 		function(result)
@@ -975,8 +965,6 @@ $(document).on("click", ".mealplan-entry-done-button", function(e)
 $(document).on("click", ".mealplan-entry-undone-button", function(e)
 {
 	e.preventDefault();
-
-	$(".tooltip").tooltip("hide");
 
 	var mealPlanEntryId = $(e.currentTarget).attr("data-mealplan-entry-id");
 	Grocy.Api.Put("objects/meal_plan/" + mealPlanEntryId, { "done": 0 },

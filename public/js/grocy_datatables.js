@@ -73,7 +73,7 @@ $.extend(true, $.fn.dataTable.defaults, {
 			{
 				var rowGroup = JSON.parse(Grocy.UserSettings[settingKey]);
 
-				// Check if there way changed. the draw event is called often therefore we have to check if it's really necessary
+				// The draw event is called often therefore we have to check if it's really necessary
 				if (rowGroup.enable !== api.rowGroup().enabled()
 					|| ("dataSrc" in rowGroup && rowGroup.dataSrc !== api.rowGroup().dataSrc()))
 				{

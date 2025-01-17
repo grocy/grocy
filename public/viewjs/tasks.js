@@ -67,8 +67,6 @@ $(document).on('click', '.do-task-button', function(e)
 {
 	e.preventDefault();
 
-	$(".tooltip").tooltip("hide");
-
 	Grocy.FrontendHelpers.BeginUiBusy();
 
 	var taskId = $(e.currentTarget).attr('data-task-id');
@@ -82,7 +80,6 @@ $(document).on('click', '.do-task-button', function(e)
 			{
 				animateCSS("#task-" + taskId + "-row", "fadeOut", function()
 				{
-					$("#task-" + taskId + "-row").tooltip("hide");
 					$("#task-" + taskId + "-row").remove();
 				});
 			}
@@ -109,8 +106,6 @@ $(document).on('click', '.do-task-button', function(e)
 $(document).on('click', '.undo-task-button', function(e)
 {
 	e.preventDefault();
-
-	$(".tooltip").tooltip("hide");
 
 	Grocy.FrontendHelpers.BeginUiBusy();
 
@@ -159,7 +154,6 @@ $(document).on('click', '.delete-task-button', function(e)
 					{
 						animateCSS("#task-" + objectId + "-row", "fadeOut", function()
 						{
-							$("#task-" + objectId + "-row").tooltip("hide");
 							$("#task-" + objectId + "-row").remove();
 						});
 					},

@@ -84,8 +84,6 @@ $(document).on('click', '.track-chore-button', function(e)
 {
 	e.preventDefault();
 
-	$(".tooltip").tooltip("hide");
-
 	Grocy.FrontendHelpers.BeginUiBusy();
 
 	var choreId = $(e.currentTarget).attr('data-chore-id');

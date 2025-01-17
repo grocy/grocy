@@ -1,5 +1,5 @@
 $('.navbar-sidenav [data-toggle="tooltip"]').tooltip({
-	template: '<div class="tooltip navbar-sidenav-tooltip" role="tooltip" style="pointer-events: none;"><div class="arrow"></div><div class="tooltip-inner"></div></div>'
+	template: '<div class="tooltip navbar-sidenav-tooltip"><div class="arrow"></div><div class="tooltip-inner"></div></div>'
 })
 
 $("#sidenavToggler").click(function(e)

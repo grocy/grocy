@@ -128,8 +128,6 @@ $(document).on('click', '.product-consume-button', function(e)
 {
 	e.preventDefault();
 
-	$(".tooltip").tooltip("hide");
-
 	Grocy.FrontendHelpers.BeginUiBusy();
 
 	var productId = $(e.currentTarget).attr('data-product-id');
@@ -180,8 +178,6 @@ $(document).on('click', '.product-consume-button', function(e)
 $(document).on('click', '.product-open-button', function(e)
 {
 	e.preventDefault();
-
-	$(".tooltip").tooltip("hide");
 
 	Grocy.FrontendHelpers.BeginUiBusy();
 
@@ -329,7 +325,6 @@ function RefreshProductRow(productId)
 			{
 				animateCSS("#product-" + productId + "-row", "fadeOut", function()
 				{
-					$("#product-" + productId + "-row").tooltip("hide");
 					$("#product-" + productId + "-row").addClass("d-none");
 				});
 			}

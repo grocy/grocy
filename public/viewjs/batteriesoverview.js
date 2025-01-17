@@ -54,8 +54,6 @@ $(document).on('click', '.track-charge-cycle-button', function(e)
 {
 	e.preventDefault();
 
-	$(".tooltip").tooltip("hide");
-
 	Grocy.FrontendHelpers.BeginUiBusy();
 
 	var batteryId = $(e.currentTarget).attr('data-battery-id');

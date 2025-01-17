@@ -66,8 +66,6 @@ $(document).on('click', '.stock-consume-button', function(e)
 {
 	e.preventDefault();
 
-	$(".tooltip").tooltip("hide");
-
 	Grocy.FrontendHelpers.BeginUiBusy();
 
 	var productId = $(e.currentTarget).attr('data-product-id');
@@ -114,8 +112,6 @@ $(document).on('click', '.stock-consume-button', function(e)
 $(document).on('click', '.product-open-button', function(e)
 {
 	e.preventDefault();
-
-	$(".tooltip").tooltip("hide");
 
 	Grocy.FrontendHelpers.BeginUiBusy();
 

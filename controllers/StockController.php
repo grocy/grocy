@@ -137,10 +137,11 @@ class StockController extends BaseController
 	public function Overview(Request $request, Response $response, array $args)
 	{
 		$usersService = $this->getUsersService();
-		$nextXDays = $usersService->GetUserSettings(GROCY_USER_ID)['stock_due_soon_days'];
+		$userSettings = $usersService->GetUserSettings(GROCY_USER_ID);
+		$nextXDays = $userSettings['stock_due_soon_days'];
 
 		$where = 'is_in_stock_or_below_min_stock = 1';
-		if (boolval($usersService->GetUserSettings(GROCY_USER_ID)['stock_overview_show_all_out_of_stock_products']))
+		if (boolval($userSettings['stock_overview_show_all_out_of_stock_products']))
 		{
 			$where = '1=1';
 		}
