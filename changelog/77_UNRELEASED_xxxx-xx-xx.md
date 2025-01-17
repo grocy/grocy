@@ -4,11 +4,7 @@
 
 > 💡 xxxMinor upgrade informationXXX
 
-### New feature: xxxx
-
-- xxx
-
-### Stock
+### New Feature: External Barcode Lookups as a product picker workflow + a built-in Plugin for Open Food Facts
 
 - Added a new product picker workflow "External barcode lookup"
   - This executes the configured barcode lookup plugin with the given barcode
@@ -18,19 +14,22 @@
     - The product name and image (and of course the barcode itself) are taken over from Open Food Facts to the product being looked up
   - => Quick video demo (using a Barcode Laser Scanner): https://www.youtube.com/watch?v=-moXPA-VvGc
   - => Quick video demo (using Browser Camera Barcode Scanning): https://www.youtube.com/watch?v=veezFX4X1JU
-- Optimized that when moving a product to a freezer location (so when freezing it) the due date will no longer be replaced when the product option "Default due days after freezing" is set to `0`
+
+### Stock
+
+- Added a new stock setting (top right corner settings menu) "Show all out of stock products" to optionally also show all out of stock products on the stock overview page (defaults to disabled, so no changed behavior when not configured)
+  - By default the stock overview page lists all products which are currently in-stock or below their min. stock amount
+  - When this new setting is enabled, all (active) products are always shown
 - Product barcode matching is now case-insensitive
 - Added a new column "Product picture" on the products list (master data) page (hidden by default)
 - Optimized that when navigation between the different "Group by"-variants on the stock report "Spendings", the selected date range now remains persistent
 - Added a new "Presets for new products" stock setting for the "Default stock entry label" option of new products
 - Added a trendline to the price history chart (product card)
 - Added a "Add to shopping list"-button on the product card
-- Added a new stock setting (top right corner settings menu) "Show all out of stock products" to optionally also show all out of stock products on the stock overview page (defaults to disabled, so no changed behavior when not configured)
-  - By default the stock overview page lists all products which are currently in-stock or below their min. stock amount
-  - When this new setting is enabled, all (active) products are always shown
-- The "Decimal places allowed" stock settings now have an upper limit of 10 (since such a high number makes not so much sense in reality and causes form validtion problems)
+- Optimized that when moving a product to a freezer location (so when freezing it) the due date will no longer be replaced when the product option "Default due days after freezing" is set to `0`
+- The "Decimal places allowed" stock settings now have an upper limit of 10 (since such a high number makes not so much sense in reality and causes form validation problems)
 - Fixed that a once set quantity unit on a product barcode could not be removed on edit
-- Fixed that when consuming a specific stock entry which is opened, and which originated from a before partly opened stock entry, the unopened one was wrongly consume instead
+- Fixed that when consuming a specific stock entry which is opened, and which originated from a before partly opened stock entry, the unopened one was wrongly consumed instead
 
 ### Shopping list
 
@@ -38,8 +37,8 @@
 
 ### Recipes
 
-- Optimized that when adding missing recipe ingredients with the option "Only check if any amount is in stock" enabled to the shopping list and when no corresponding unit conversion exists, the amount/unit is now taken "as is" (as defined in the recipe ingredient) into the created shopping list item
 - For in-stock ingredients, the amount actually in-stock is now displayed next to the hint "Enough in stock"
+- Optimized that when adding missing recipe ingredients with the option "Only check if any amount is in stock" enabled to the shopping list and when no corresponding unit conversion exists, the amount/unit is now taken "as is" (as defined in the recipe ingredient) into the created shopping list item
 - Fixed that calories/costs of recipe ingredients were wrong when the ingredient option "Only check if any amount is in stock" was set and the on the ingredient used quantity unit was different from the product's QU stock
 - Fixed that multi-nested recipes (at least 3 levels of "included recipes") resulted in wrong amounts/costs/calories calculated for the ingredients orginating in those nested recipes (also affected the meal plan)
 
@@ -49,7 +48,7 @@
 
 ### Chores
 
-- Added the possibility to see if a scheduled schedule chore was tracked/done on time or not:
+- Added a possibility to see if a scheduled schedule chore was tracked/done on time or not:
   - When tracking chores, the "Next estimated tracking date" (so the current scheduled time) is now also stored in the corresponding chore journal entry and displayed in new column "Scheduled tracking time" on the chores journal page
   - When the "Tracked time" is later than the "Scheduled tracking time", the corresponding chore journal entry is now highlighted in red on the chores journal page
 - Added a new column "Time of tracking" on the chores journal page (displays the time when the tracking actually happened, hidden by default)

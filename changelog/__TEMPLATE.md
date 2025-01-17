@@ -4,7 +4,7 @@
 
 > 💡 xxxMinor upgrade informationXXX
 
-### New feature: xxxx
+### New Feature: xxxx
 
 - xxx
 
