@@ -197,6 +197,7 @@
 		'additionalAttributes' => 'data-setting-key="stock_decimal_places_amounts"',
 		'label' => 'Decimal places allowed for amounts',
 		'min' => 0,
+		'max' => 10,
 		'additionalCssClasses' => 'user-setting-control'
 		))
 
@@ -207,6 +208,7 @@
 		'additionalAttributes' => 'data-setting-key="stock_decimal_places_prices_input"',
 		'label' => 'Decimal places allowed for prices (input)',
 		'min' => 0,
+		'max' => 10,
 		'additionalCssClasses' => 'user-setting-control'
 		))
 
@@ -215,6 +217,7 @@
 		'additionalAttributes' => 'data-setting-key="stock_decimal_places_prices_display"',
 		'label' => 'Decimal places allowed for prices (display)',
 		'min' => 0,
+		'max' => 10,
 		'additionalCssClasses' => 'user-setting-control'
 		))
 

@@ -28,6 +28,7 @@
 - Added a new stock setting (top right corner settings menu) "Show all out of stock products" to optionally also show all out of stock products on the stock overview page (defaults to disabled, so no changed behavior when not configured)
   - By default the stock overview page lists all products which are currently in-stock or below their min. stock amount
   - When this new setting is enabled, all (active) products are always shown
+- The "Decimal places allowed" stock settings now have an upper limit of 10 (since such a high number makes not so much sense in reality and causes form validtion problems)
 - Fixed that a once set quantity unit on a product barcode could not be removed on edit
 - Fixed that when consuming a specific stock entry which is opened, and which originated from a before partly opened stock entry, the unopened one was wrongly consume instead
 
