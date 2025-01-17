@@ -58,13 +58,15 @@ if (!file_exists($viewcachePath))
 	mkdir($viewcachePath);
 }
 
-// Empty data/viewcache when the version changed (so when an update was done) and trigger database migrations
-$releaseHash = hash_file('sha256', __DIR__ . '/version.json');
-$releaseHashCacheFile = $viewcachePath . "/$releaseHash.txt";
-if (!file_exists($releaseHashCacheFile))
+// Empty data/viewcache when and trigger database migrations when:
+// The version changed (so when an update was done)
+// GROCY_BASE_URL OR GROCY_BASE_PATH changed
+$hash = hash('sha256', file_get_contents(__DIR__ . '/version.json') . GROCY_BASE_URL . GROCY_BASE_PATH);
+$hashCacheFile = $viewcachePath . "/$hash.txt";
+if (!file_exists($hashCacheFile))
 {
 	EmptyFolder($viewcachePath);
-	touch($releaseHashCacheFile);
+	touch($hashCacheFile);
 
 	if (function_exists('opcache_reset'))
 	{
