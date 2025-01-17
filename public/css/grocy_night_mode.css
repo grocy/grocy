@@ -370,3 +370,17 @@ body.night-mode,
 .night-mode .custom-control-label:before {
 	background-color: #333131;
 }
+
+@media (max-width: 992px) {
+
+	.night-mode .navbar-sidenav>li:hover,
+	.night-mode .sidenav-second-level>li:hover,
+	.night-mode .navbar-nav .dropdown-item:hover,
+	.night-mode .navbar-sidenav>li>a:focus,
+	.night-mode .sidenav-second-level>li>a:focus,
+	.night-mode .navbar-nav .dropdown-item:focus,
+	.night-mode .active-page {
+		box-shadow: inset -10px 0 0 #ff7585 !important;
+	}
+
+}
