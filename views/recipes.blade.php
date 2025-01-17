@@ -385,7 +385,7 @@
 									data-recipe-name="{{ $recipe->name }}">
 									<i class="fa-solid fa-cart-plus"></i>
 								</a>
-								<a class=" btnrecipe-fullscreen hide-when-embedded"
+								<a class=" btn recipe-fullscreen hide-when-embedded"
 									href="#"
 									data-toggle="tooltip"
 									title="{{ $__t('Expand to fullscreen') }}">
@@ -424,7 +424,15 @@
 										data-trigger="hover click"
 										title="{{ $__t('Based on the prices of the default consume rule (Opened first, then first due first, then first in first out) for in-stock ingredients and on the last price for missing ones') }}"></i>
 								</label>
-								<h3 class="locale-number locale-number-currency pt-0">{{ $costs }}</h3>
+								<h3>
+									<span class="locale-number locale-number-currency pt-0">{{ $costs }}</span>
+									@if(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->prices_incomplete)
+									<i class="fa-solid fa-exclamation text-danger"
+										data-toggle="tooltip"
+										data-trigger="hover click"
+										title="{{ $__t('No price information is available for at least one ingredient') }}"></i>
+									@endif
+								</h3>
 							</div>
 							@endif
 

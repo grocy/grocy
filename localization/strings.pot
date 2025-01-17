@@ -2452,3 +2452,6 @@ msgstr ""
 
 msgid "By default the stock overview page lists all products which are currently in-stock or below their min. stock amount - when this is enabled, all (active) products are always shown"
 msgstr ""
+
+msgid "No price information is available for at least one ingredient"
+msgstr ""
