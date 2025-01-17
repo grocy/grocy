@@ -23,6 +23,11 @@
 - Added a new column "Product picture" on the products list (master data) page (hidden by default)
 - Optimized that when navigation between the different "Group by"-variants on the stock report "Spendings", the selected date range now remains persistent
 - Added a new "Presets for new products" stock setting for the "Default stock entry label" option of new products
+- Added a trendline to the price history chart (product card)
+- Added a "Add to shopping list"-button on the product card
+- Added a new stock setting (top right corner settings menu) "Show all out of stock products" to optionally also show all out of stock products on the stock overview page (defaults to disabled, so no changed behavior when not configured)
+  - By default the stock overview page lists all products which are currently in-stock or below their min. stock amount
+  - When this new setting is enabled, all (active) products are always shown
 - Fixed that a once set quantity unit on a product barcode could not be removed on edit
 - Fixed that when consuming a specific stock entry which is opened, and which originated from a before partly opened stock entry, the unopened one was wrongly consume instead
 
@@ -33,11 +38,7 @@
 ### Recipes
 
 - Optimized that when adding missing recipe ingredients with the option "Only check if any amount is in stock" enabled to the shopping list and when no corresponding unit conversion exists, the amount/unit is now taken "as is" (as defined in the recipe ingredient) into the created shopping list item
-- Added a trendline to the price history chart (product card)
-- Added a "Add to shopping list"-button on the product card
-- Added a new stock setting (top right corner settings menu) "Show all out of stock products" to optionally also show all out of stock products on the stock overview page (defaults to disabled, so no changed behavior when not configured)
-  - By default the stock overview page lists all products which are currently in-stock or below their min. stock amount
-  - When this new setting is enabled, all (active) products are always shown
+- For in-stock ingredients, the amount actually in-stock is now displayed next to the hint "Enough in stock"
 - Fixed that calories/costs of recipe ingredients were wrong when the ingredient option "Only check if any amount is in stock" was set and the on the ingredient used quantity unit was different from the product's QU stock
 - Fixed that multi-nested recipes (at least 3 levels of "included recipes") resulted in wrong amounts/costs/calories calculated for the ingredients orginating in those nested recipes (also affected the meal plan)
 
