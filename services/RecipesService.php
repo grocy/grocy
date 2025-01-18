@@ -78,12 +78,6 @@ class RecipesService extends BaseService
 			throw new \Exception('Recipe does not exist');
 		}
 
-		$recipeResolved = $this->getDatabase()->recipes_resolved()->where('recipe_id', $recipeId)->fetch();
-		if ($recipeResolved->need_fulfilled == 0)
-		{
-			throw new \Exception('Recipe need is not fulfilled, consuming not possible');
-		}
-
 		$transactionId = uniqid();
 		$recipePositions = $this->getDatabase()->recipes_pos_resolved()->where('recipe_id', $recipeId)->fetchAll();
 
@@ -92,9 +86,15 @@ class RecipesService extends BaseService
 		{
 			foreach ($recipePositions as $recipePosition)
 			{
-				if ($recipePosition->only_check_single_unit_in_stock == 0)
+				if ($recipePosition->only_check_single_unit_in_stock == 0 && $recipePosition->stock_amount > 0)
 				{
-					$this->getStockService()->ConsumeProduct($recipePosition->product_id, $recipePosition->recipe_amount, false, StockService::TRANSACTION_TYPE_CONSUME, 'default', $recipeId, null, $transactionId, true, true);
+					$amount = $recipePosition->recipe_amount;
+					if ($recipePosition->stock_amount > 0 && $recipePosition->stock_amount < $recipePosition->recipe_amount)
+					{
+						$amount = $recipePosition->stock_amount;
+					}
+
+					$this->getStockService()->ConsumeProduct($recipePosition->product_id, $amount, false, StockService::TRANSACTION_TYPE_CONSUME, 'default', $recipeId, null, $transactionId, true, true);
 				}
 			}
 		}

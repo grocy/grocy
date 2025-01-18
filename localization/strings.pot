@@ -585,7 +585,7 @@ msgstr ""
 msgid "Are you sure you want to consume all ingredients needed by recipe \"%s\" (ingredients marked with \"only check if any amount is in stock\" will be ignored)?"
 msgstr ""
 
-msgid "Removed all ingredients of recipe \"%s\" from stock"
+msgid "Removed all in stock ingredients needed by recipe \"%s\" from stock"
 msgstr ""
 
 msgid "Consume all ingredients needed by this recipe"
@@ -2454,4 +2454,7 @@ msgid "By default the stock overview page lists all products which are currently
 msgstr ""
 
 msgid "No price information is available for at least one ingredient"
+msgstr ""
+
+msgid "For ingredients that are only partially in stock, the in stock amount will be consumed."
 msgstr ""

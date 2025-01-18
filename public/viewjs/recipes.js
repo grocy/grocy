@@ -238,7 +238,8 @@ $(".recipe-consume").on('click', function(e)
 	var objectId = $(e.currentTarget).attr('data-recipe-id');
 
 	bootbox.confirm({
-		message: __t('Are you sure you want to consume all ingredients needed by recipe "%s" (ingredients marked with "only check if any amount is in stock" will be ignored)?', objectName),
+		message: __t('Are you sure you want to consume all ingredients needed by recipe "%s" (ingredients marked with "only check if any amount is in stock" will be ignored)?', objectName) +
+			"<br><br>(" + __t("For ingredients that are only partially in stock, the in stock amount will be consumed.") + ")",
 		closeButton: false,
 		buttons: {
 			confirm: {
@@ -260,7 +261,7 @@ $(".recipe-consume").on('click', function(e)
 					function(result)
 					{
 						Grocy.FrontendHelpers.EndUiBusy();
-						toastr.success(__t('Removed all ingredients of recipe "%s" from stock', objectName));
+						toastr.success(__t('Removed all in stock ingredients needed by recipe \"%s\" from stock', objectName));
 					},
 					function(xhr)
 					{

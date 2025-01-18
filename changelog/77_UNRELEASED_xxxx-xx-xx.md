@@ -37,6 +37,7 @@
 
 ### Recipes
 
+- Consuming a recipe is now also possible when not all needed ingredients are currently in stock (the in stock amount, if any, of the corresponding ingredient will be consumed in that case)
 - For in-stock ingredients, the amount actually in-stock is now displayed next to the hint "Enough in stock"
 - Optimized that when adding missing recipe ingredients with the option "Only check if any amount is in stock" enabled to the shopping list and when no corresponding unit conversion exists, the amount/unit is now taken "as is" (as defined in the recipe ingredient) into the created shopping list item
 - When no price information is available for at least one ingredient, a red exclamation mark is now displayed next to the recipe total cost information

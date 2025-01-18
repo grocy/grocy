@@ -333,7 +333,7 @@
 							<div class="d-flex justify-content-between align-items-center">
 								<h3 class="card-title mb-0">{{ $recipe->name }}</h3>
 								<div class="card-icons d-flex flex-wrap justify-content-end flex-shrink-1">
-									<a class="btn @if(!GROCY_FEATURE_FLAG_STOCK) d-none @endif recipe-consume @if(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->need_fulfilled == 0) disabled @endif"
+									<a class="btn @if(!GROCY_FEATURE_FLAG_STOCK) d-none @endif recipe-consume"
 										href="#"
 										data-toggle="tooltip"
 										title="{{ $__t('Consume all ingredients needed by this recipe') }}"
@@ -369,7 +369,7 @@
 						<div class="mb-4 @if(!empty($recipe->picture_file_name)) d-none @else d-flex @endif d-print-block justify-content-between align-items-center">
 							<h1 class="card-title mb-0">{{ $recipe->name }}</h1>
 							<div class="card-icons d-flex flex-wrap justify-content-end flex-shrink-1 d-print-none">
-								<a class="btn recipe-consume @if(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->need_fulfilled == 0) disabled @endif"
+								<a class="btn recipe-consume"
 									href="#"
 									data-toggle="tooltip"
 									title="{{ $__t('Consume all ingredients needed by this recipe') }}"
@@ -427,7 +427,7 @@
 								<h3>
 									<span class="locale-number locale-number-currency pt-0">{{ $costs }}</span>
 									@if(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->prices_incomplete)
-									<i class="fa-solid fa-exclamation text-danger"
+									<i class="small fa-solid fa-exclamation text-danger"
 										data-toggle="tooltip"
 										data-trigger="hover click"
 										title="{{ $__t('No price information is available for at least one ingredient') }}"></i>

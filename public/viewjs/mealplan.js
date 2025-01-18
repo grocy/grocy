@@ -98,19 +98,13 @@ $(".calendar").each(function()
 					weekRecipeOrderMissingButtonDisabledClasses = "disabled";
 				}
 
-				var weekRecipeConsumeButtonDisabledClasses = "";
-				if (weekRecipeResolved.need_fulfilled == 0 || weekCosts == 0)
-				{
-					weekRecipeConsumeButtonDisabledClasses = "disabled";
-				}
-
 				var weekRecipeOrderMissingButtonHtml = "";
 				if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_SHOPPINGLIST)
 				{
 					weekRecipeOrderMissingButtonHtml = '<a class="ml-2 btn btn-outline-primary btn-xs recipe-order-missing-button d-print-none ' + weekRecipeOrderMissingButtonDisabledClasses + '" href="#" data-toggle="tooltip" title="' + __t("Put missing products on shopping list") + '" data-recipe-id="' + weekRecipe.id.toString() + '" data-recipe-name="' + weekRecipe.name + '" data-recipe-type="' + weekRecipe.type + '"><i class="fa-solid fa-cart-plus"></i></a>';
 				}
 
-				weekRecipeConsumeButtonHtml = '<a class="ml-2 btn btn-outline-success btn-xs recipe-consume-button d-print-none ' + weekRecipeConsumeButtonDisabledClasses + '" href="#" data-toggle="tooltip" title="' + __t("Consume all ingredients needed by this weeks recipes or products") + '" data-recipe-id="' + weekRecipe.id.toString() + '" data-recipe-name="' + weekRecipe.name + '" data-recipe-type="' + weekRecipe.type + '"><i class="fa-solid fa-utensils"></i></a>'
+				weekRecipeConsumeButtonHtml = '<a class="ml-2 btn btn-outline-success btn-xs recipe-consume-button d-print-none" href="#" data-toggle="tooltip" title="' + __t("Consume all ingredients needed by this weeks recipes or products") + '" data-recipe-id="' + weekRecipe.id.toString() + '" data-recipe-name="' + weekRecipe.name + '" data-recipe-type="' + weekRecipe.type + '"><i class="fa-solid fa-utensils"></i></a>'
 			}
 			$(".calendar[data-primary-section='true'] .fc-header-toolbar .fc-center").html("<h4>" + weekCostsHtml + weekRecipeOrderMissingButtonHtml + weekRecipeConsumeButtonHtml + "</h4>");
 		},
@@ -157,12 +151,6 @@ $(".calendar").each(function()
 					recipeOrderMissingButtonDisabledClasses = "disabled";
 				}
 
-				var recipeConsumeButtonDisabledClasses = "";
-				if (resolvedRecipe.need_fulfilled == 0)
-				{
-					recipeConsumeButtonDisabledClasses = "disabled";
-				}
-
 				var fulfillmentInfoHtml = __t('Enough in stock');
 				var fulfillmentIconHtml = '<i class="fa-solid fa-check text-success"></i>';
 				if (resolvedRecipe.need_fulfilled != 1)
@@ -201,7 +189,7 @@ $(".calendar").each(function()
 					<h5 class="d-print-none"> \
 						<a class="ml-2 btn btn-outline-info btn-xs edit-meal-plan-entry-button" href="#" data-toggle="tooltip" title="' + __t("Edit this item") + '"><i class="fa-solid fa-edit"></i></a> \
 						<a class="btn btn-outline-danger btn-xs remove-recipe-button" href="#" data-toggle="tooltip" title="' + __t("Delete this item") + '"><i class="fa-solid fa-trash"></i></a> \
-						<a class="ml-2 btn btn-outline-success btn-xs recipe-consume-button ' + recipeConsumeButtonDisabledClasses + '" href="#" data-toggle="tooltip" title="' + __t("Consume all ingredients needed by this recipe") + '" data-recipe-id="' + internalShadowRecipe.id.toString() + '" data-mealplan-entry-id="' + mealPlanEntry.id.toString() + '" data-recipe-name="' + recipe.name + '" data-recipe-type="' + recipe.type + '"><i class="fa-solid fa-utensils"></i></a> \
+						<a class="ml-2 btn btn-outline-success btn-xs recipe-consume-button" href="#" data-toggle="tooltip" title="' + __t("Consume all ingredients needed by this recipe") + '" data-recipe-id="' + internalShadowRecipe.id.toString() + '" data-mealplan-entry-id="' + mealPlanEntry.id.toString() + '" data-recipe-name="' + recipe.name + '" data-recipe-type="' + recipe.type + '"><i class="fa-solid fa-utensils"></i></a> \
 						' + shoppingListButtonHtml + ' \
 						' + doneButtonHtml + ' \
 					</h5> \
@@ -865,7 +853,8 @@ $(document).on('click', '.recipe-consume-button', function(e)
 	var mealPlanEntryId = $(e.currentTarget).attr('data-mealplan-entry-id');
 
 	bootbox.confirm({
-		message: __t('Are you sure you want to consume all ingredients needed by recipe "%s" (ingredients marked with "only check if any amount is in stock" will be ignored)?', objectName),
+		message: __t('Are you sure you want to consume all ingredients needed by recipe "%s" (ingredients marked with "only check if any amount is in stock" will be ignored)?', objectName) +
+			"<br><br>(" + __t("For ingredients that are only partially in stock, the in stock amount will be consumed.") + ")",
 		closeButton: false,
 		buttons: {
 			confirm: {
@@ -890,7 +879,7 @@ $(document).on('click', '.recipe-consume-button', function(e)
 							function(result)
 							{
 								Grocy.FrontendHelpers.EndUiBusy();
-								toastr.success(__t('Removed all ingredients of recipe "%s" from stock', objectName));
+								toastr.success(__t('Removed all in stock ingredients needed by recipe \"%s\" from stock', objectName));
 								window.location.reload();
 							},
 							function(xhr)
