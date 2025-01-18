@@ -2007,7 +2007,7 @@
 									},
 									"allow_subproduct_substitution": {
 										"type": "boolean",
-										"description": "`true` when any in-stock sub product should be used when the given product is a parent product and currently not in-stock"
+										"description": "`true` when any in stock sub product should be used when the given product is a parent product and currently not in stock"
 									}
 								},
 								"example": {
@@ -2242,7 +2242,7 @@
 									},
 									"allow_subproduct_substitution": {
 										"type": "boolean",
-										"description": "`true` when any in-stock sub product should be used when the given product is a parent product and currently not in-stock"
+										"description": "`true` when any in stock sub product should be used when the given product is a parent product and currently not in stock"
 									}
 								},
 								"example": {
@@ -2540,7 +2540,7 @@
 									},
 									"allow_subproduct_substitution": {
 										"type": "boolean",
-										"description": "`rue` when any in-stock sub product should be used when the given product is a parent product and currently not in-stock"
+										"description": "`rue` when any in stock sub product should be used when the given product is a parent product and currently not in stock"
 									}
 								},
 								"example": {
@@ -2763,7 +2763,7 @@
 									},
 									"allow_subproduct_substitution": {
 										"type": "boolean",
-										"description": "`rue` when any in-stock sub product should be used when the given product is a parent product and currently not in-stock"
+										"description": "`rue` when any in stock sub product should be used when the given product is a parent product and currently not in stock"
 									}
 								},
 								"example": {

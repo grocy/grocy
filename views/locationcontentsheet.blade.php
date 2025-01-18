@@ -43,7 +43,7 @@
 			checked>
 		<label class="form-check-label custom-control-label"
 			for="include-out-of-stock">
-			{{ $__t('Show only in-stock products') }}
+			{{ $__t('Show only in stock products') }}
 			<i class="fa-solid fa-question-circle text-muted"
 				data-toggle="tooltip"
 				data-trigger="hover click"

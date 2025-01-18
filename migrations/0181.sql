@@ -2,11 +2,11 @@ CREATE VIEW products_current_substitutions
 AS
 
 /*
-	When a parent product is not in-stock itself,
+	When a parent product is not in stock itself,
 	any sub product (the next based on the default consume rule) should be used
 
 	This view lists all parent products and in the column "product_id_effective" either itself,
-	when the corresponding parent product is currently in-stock itself, or otherwise the next sub product to use
+	when the corresponding parent product is currently in stock itself, or otherwise the next sub product to use
 */
 
 SELECT

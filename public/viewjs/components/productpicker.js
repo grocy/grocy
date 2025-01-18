@@ -300,7 +300,7 @@ $('#product_id_text_input').on('blur', function(e)
 				};
 			}
 
-			// The product picker contains only in-stock products on some pages,
+			// The product picker contains only in stock products on some pages,
 			// so only show the workflow dialog when the entered input
 			// does not match in existing product (name) or barcode,
 			// otherwise an error validation message that the product is not in stock

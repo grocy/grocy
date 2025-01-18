@@ -158,8 +158,7 @@
 						for="move_on_open">{{ $__t('Move on open') }}&nbsp;<i class="fa-solid fa-question-circle text-muted"
 							data-toggle="tooltip"
 							data-trigger="hover click"
-							title="{{ $__t("When enabled, on marking this product as opened, the corresponding amount will be moved to the default consume location")
-							}}"></i>
+							title="{{$__t("When enabled, on marking this product as opened, the corresponding amount will be moved to the default consume location")}}"></i>
 					</label>
 				</div>
 				@endif
@@ -585,7 +584,7 @@
 						for="hide_on_stock_overview">{{ $__t('Never show on stock overview') }}&nbsp;<i class="fa-solid fa-question-circle text-muted"
 							data-toggle="tooltip"
 							data-trigger="hover click"
-							title="{{ $__t('The stock overview page lists all products which are currently in-stock or below their min. stock amount - enable this to hide this product there always') }}"></i>
+							title="{{ $__t('The stock overview page lists all products which are currently in stock or below their min. stock amount - enable this to hide this product there always') }}"></i>
 					</label>
 				</div>
 			</div>

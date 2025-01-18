@@ -1627,7 +1627,7 @@ msgstr ""
 msgid "Edit Barcode"
 msgstr ""
 
-msgid "Based on the prices of the default consume rule (Opened first, then first due first, then first in first out) for in-stock ingredients and on the last price for missing ones"
+msgid "Based on the prices of the default consume rule (Opened first, then first due first, then first in first out) for in stock ingredients and on the last price for missing ones"
 msgstr ""
 
 msgid "Clear filter"
@@ -1783,7 +1783,7 @@ msgstr ""
 msgid "Show a warning when the due date of the purchased product is earlier than the next due date in stock"
 msgstr ""
 
-msgid "This is due earlier than already in-stock items"
+msgid "This is due earlier than already in stock items"
 msgstr ""
 
 msgid "When enabled, after changing/scanning a product and if all fields could be automatically populated (by product and/or barcode defaults), the transaction is automatically submitted"
@@ -1994,7 +1994,7 @@ msgstr ""
 msgid "Link"
 msgstr ""
 
-msgid "The stock overview page lists all products which are currently in-stock or below their min. stock amount - enable this to hide this product there always"
+msgid "The stock overview page lists all products which are currently in stock or below their min. stock amount - enable this to hide this product there always"
 msgstr ""
 
 msgid "Print options"
@@ -2063,7 +2063,7 @@ msgstr ""
 msgid "Only done items"
 msgstr ""
 
-msgid "Show only in-stock products"
+msgid "Show only in stock products"
 msgstr ""
 
 msgid "Product description"
@@ -2085,7 +2085,7 @@ msgstr ""
 msgid "When enabled, then this field must be filled on the destination form"
 msgstr ""
 
-msgid "In-stock products"
+msgid "In stock products"
 msgstr ""
 
 msgid "Timestamp"
@@ -2412,7 +2412,7 @@ msgstr ""
 msgid "Stock report"
 msgstr ""
 
-msgid "Out-of-stock products"
+msgid "Out of stock products"
 msgstr ""
 
 msgid "Quantity unit for prices"
@@ -2450,7 +2450,7 @@ msgstr ""
 msgid "Show all out of stock products"
 msgstr ""
 
-msgid "By default the stock overview page lists all products which are currently in-stock or below their min. stock amount - when this is enabled, all (active) products are always shown"
+msgid "By default the stock overview page lists all products which are currently in stock or below their min. stock amount - when this is enabled, all (active) products are always shown"
 msgstr ""
 
 msgid "No price information is available for at least one ingredient"

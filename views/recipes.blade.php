@@ -422,7 +422,7 @@
 									<i class="fa-solid fa-question-circle text-muted d-print-none"
 										data-toggle="tooltip"
 										data-trigger="hover click"
-										title="{{ $__t('Based on the prices of the default consume rule (Opened first, then first due first, then first in first out) for in-stock ingredients and on the last price for missing ones') }}"></i>
+										title="{{ $__t('Based on the prices of the default consume rule (Opened first, then first due first, then first in first out) for in stock ingredients and on the last price for missing ones') }}"></i>
 								</label>
 								<h3>
 									<span class="locale-number locale-number-currency pt-0">{{ $costs }}</span>

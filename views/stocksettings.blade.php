@@ -125,7 +125,7 @@
 					<i class="fa-solid fa-question-circle text-muted"
 						data-toggle="tooltip"
 						data-trigger="hover click"
-						title="{{ $__t('By default the stock overview page lists all products which are currently in-stock or below their min. stock amount - when this is enabled, all (active) products are always shown') }}"></i>
+						title="{{ $__t('By default the stock overview page lists all products which are currently in stock or below their min. stock amount - when this is enabled, all (active) products are always shown') }}"></i>
 				</label>
 			</div>
 		</div>

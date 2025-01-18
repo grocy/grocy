@@ -147,7 +147,7 @@
 				<option value="expired">{{ $__t('Expired') }}</option>
 				@endif
 				<option value="belowminstockamount">{{ $__t('Below min. stock amount') }}</option>
-				<option value="instockX">{{ $__t('In-stock products') }}</option>
+				<option value="instockX">{{ $__t('In stock products') }}</option>
 			</select>
 		</div>
 	</div>

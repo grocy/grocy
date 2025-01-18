@@ -193,7 +193,7 @@ $('#save-purchase-button').on('click', function(e)
 							{
 								if (moment(jsonData.best_before_date).isBefore(CurrentProductDetails.next_due_date))
 								{
-									toastr.warning(__t("This is due earlier than already in-stock items"));
+									toastr.warning(__t("This is due earlier than already in stock items"));
 								}
 							}
 

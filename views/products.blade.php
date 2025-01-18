@@ -79,8 +79,8 @@
 			<select class="custom-control custom-select"
 				id="status-filter">
 				<option value="all">{{ $__t('All') }}</option>
-				<option value="in-stock">{{ $__t('In-stock products') }}</option>
-				<option value="out-of-stock">{{ $__t('Out-of-stock products') }}</option>
+				<option value="in-stock">{{ $__t('In stock products') }}</option>
+				<option value="out-of-stock">{{ $__t('Out of stock products') }}</option>
 			</select>
 		</div>
 	</div>
