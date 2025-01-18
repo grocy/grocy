@@ -3444,7 +3444,7 @@
 		},
 		"/recipes/{recipeId}/consume": {
 			"post": {
-				"summary": "Consumes all products of the given recipe",
+				"summary": "Consumes all in stock ingredients of the given recipe (for ingredients that are only partially in stock, the in stock amount will be consumed)",
 				"tags": [
 					"Recipes"
 				],
