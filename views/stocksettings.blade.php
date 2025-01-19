@@ -12,7 +12,7 @@
 <hr class="my-2">
 
 <div class="row">
-	<div class="col-lg-6 col-12">
+	<div class="col-lg-4 col-md-8 col-12">
 		<div id="productpresets">
 			<h4>{{ $__t('Presets for new products') }}</h4>
 
@@ -91,7 +91,7 @@
 			@endif
 		</div>
 
-		<h4 class="mt-2">{{ $__t('Stock overview') }}</h4>
+		<h4 class="mt-5">{{ $__t('Stock overview') }}</h4>
 		@include('components.numberpicker', array(
 		'id' => 'stock_due_soon_days',
 		'additionalAttributes' => 'data-setting-key="stock_due_soon_days"',
@@ -130,7 +130,7 @@
 			</div>
 		</div>
 
-		<h4 class="mt-2">{{ $__t('Purchase') }}</h4>
+		<h4 class="mt-5">{{ $__t('Purchase') }}</h4>
 		@include('components.numberpicker', array(
 		'id' => 'stock_default_purchase_amount',
 		'additionalAttributes' => 'data-setting-key="stock_default_purchase_amount"',
@@ -166,7 +166,7 @@
 			</div>
 		</div>
 
-		<h4 class="mt-2">{{ $__t('Consume') }}</h4>
+		<h4 class="mt-5">{{ $__t('Consume') }}</h4>
 		@include('components.numberpicker', array(
 		'id' => 'stock_default_consume_amount',
 		'additionalAttributes' => 'data-setting-key="stock_default_consume_amount"',
@@ -190,7 +190,7 @@
 			</div>
 		</div>
 
-		<h4 class="mt-2">{{ $__t('Common') }}</h4>
+		<h4 class="mt-5">{{ $__t('Common') }}</h4>
 
 		@include('components.numberpicker', array(
 		'id' => 'stock_decimal_places_amounts',

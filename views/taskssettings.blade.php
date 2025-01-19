@@ -12,7 +12,7 @@
 <hr class="my-2">
 
 <div class="row">
-	<div class="col-lg-6 col-12">
+	<div class="col-lg-4 col-md-8 col-12">
 
 		@include('components.numberpicker', array(
 		'id' => 'tasks_due_soon_days',

@@ -12,7 +12,7 @@
 <hr class="my-2">
 
 <div class="row">
-	<div class="col-lg-6 col-12">
+	<div class="col-lg-4 col-md-8 col-12">
 		<div class="form-group">
 			<div class="custom-control custom-checkbox">
 				<input type="checkbox"
@@ -43,7 +43,7 @@
 			</div>
 		</div>
 
-		<h4 class="mt-2">{{ $__t('Recipe card') }}</h4>
+		<h4 class="mt-5">{{ $__t('Recipe card') }}</h4>
 		<div class="form-group">
 			<div class="custom-control custom-checkbox">
 				<input type="checkbox"
