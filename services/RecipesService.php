@@ -27,7 +27,7 @@ class RecipesService extends BaseService
 			{
 				$product = $this->getDataBase()->products($recipePosition->product_id);
 				$toOrderAmount = round(($recipePosition->missing_amount - $recipePosition->amount_on_shopping_list), 2);
-				$quId = $product->qu_id_stock;
+				$quId = $product->qu_id_purchase;
 
 				if ($recipe->not_check_shoppinglist == 1)
 				{
