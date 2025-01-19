@@ -20,6 +20,9 @@
 - Added a new stock setting (top right corner settings menu) "Show all out of stock products" to optionally also show all out of stock products on the stock overview page (defaults to disabled, so no changed behavior when not configured)
   - By default the stock overview page lists all products which are currently in stock or below their min. stock amount
   - When this new setting is enabled, all (active) products are always shown
+- Added a new product option "Can't be opened"
+  - When enabled the product open functionality for that product is disabled
+  - Defaults to disabled, so no changed behavior when not configured
 - Product barcode matching is now case-insensitive
 - Added a new column "Product picture" on the products list (master data) page (hidden by default)
 - Optimized that when navigation between the different "Group by"-variants on the stock report "Spendings", the selected date range now remains persistent

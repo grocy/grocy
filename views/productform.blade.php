@@ -570,10 +570,18 @@
 			</div>
 			@endif
 
-			@include('components.userfieldsform', array(
-			'userfields' => $userfields,
-			'entity' => 'products'
-			))
+			@if(GROCY_FEATURE_FLAG_STOCK_PRODUCT_OPENED_TRACKING)
+			<div class="form-group">
+				<div class="custom-control custom-checkbox">
+					<input @if($mode=='edit'
+						&&
+						$product->disable_open == 1) checked @endif class="form-check-input custom-control-input" type="checkbox" id="disable_open" name="disable_open" value="1">
+					<label class="form-check-label custom-control-label"
+						for="disable_open">{{ $__t('Can\'t be opened') }}
+					</label>
+				</div>
+			</div>
+			@endif
 
 			<div class="form-group">
 				<div class="custom-control custom-checkbox">
@@ -589,7 +597,7 @@
 				</div>
 			</div>
 
-			<div class="form-group mb-5">
+			<div class="form-group">
 				<div class="custom-control custom-checkbox">
 					<input @if($mode=='edit'
 						&&
@@ -603,6 +611,12 @@
 				</div>
 			</div>
 
+			@include('components.userfieldsform', array(
+			'userfields' => $userfields,
+			'entity' => 'products'
+			))
+
+			<div class="py-5"></div>
 			<div class="sticky-form-footer pt-1">
 				<small id="save-hint"
 					class="my-1 form-text text-muted @if($mode == 'edit') d-none @endif">{{ $__t('Save & continue to add quantity unit conversions & barcodes') }}</small>
@@ -878,10 +892,10 @@
 					class="img-fluid img-thumbnail mt-2 mb-5"
 					loading="lazy">
 				<p id="delete-current-product-picture-on-save-hint"
-					class="form-text text-muted font-italic d-none mb-5">{{ $__t('The current picture will be deleted on save') }}</p>
+					class="form-text text-muted font-italic d-none pb-5">{{ $__t('The current picture will be deleted on save') }}</p>
 				@else
 				<p id="no-current-product-picture-hint"
-					class="form-text text-muted font-italic mb-5">{{ $__t('No picture available') }}</p>
+					class="form-text text-muted font-italic pb-5">{{ $__t('No picture available') }}</p>
 				@endif
 			</div>
 		</div>

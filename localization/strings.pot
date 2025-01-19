@@ -2458,3 +2458,6 @@ msgstr ""
 
 msgid "For ingredients that are only partially in stock, the in stock amount will be consumed."
 msgstr ""
+
+msgid "Can't be opened"
+msgstr ""

@@ -121,7 +121,7 @@
 							<i class="fa-solid fa-utensils"></i>
 						</a>
 						@if(GROCY_FEATURE_FLAG_STOCK_PRODUCT_OPENED_TRACKING)
-						<a class="btn btn-success btn-sm product-open-button @if($stockEntry->open == 1 || FindObjectInArrayByPropertyValue($products, 'id', $stockEntry->product_id)->enable_tare_weight_handling == 1) disabled @endif"
+						<a class="btn btn-success btn-sm product-open-button @if($stockEntry->open == 1 || FindObjectInArrayByPropertyValue($products, 'id', $stockEntry->product_id)->enable_tare_weight_handling == 1 || FindObjectInArrayByPropertyValue($products, 'id', $stockEntry->product_id)->disable_open == 1) disabled @endif"
 							href="#"
 							data-toggle="tooltip"
 							data-placement="left"

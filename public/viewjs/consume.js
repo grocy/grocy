@@ -494,7 +494,7 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 					$('#display_amount').focus();
 				}, 500);
 
-				if (productDetails.stock_amount == productDetails.stock_amount_opened || productDetails.product.enable_tare_weight_handling == 1)
+				if (productDetails.stock_amount == productDetails.stock_amount_opened || productDetails.product.enable_tare_weight_handling == 1 || productDetails.product.disable_open == 1)
 				{
 					$("#save-mark-as-open-button").addClass("disabled");
 				}

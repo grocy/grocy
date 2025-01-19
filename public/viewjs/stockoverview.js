@@ -359,6 +359,11 @@ function RefreshProductRow(productId)
 					$(".product-consume-button[data-product-id='" + productId + "']").removeClass("disabled");
 					$(".product-open-button[data-product-id='" + productId + "']").removeClass("disabled");
 				}
+
+				if (result.product.disable_open == 1)
+				{
+					$(".product-open-button[data-product-id='" + productId + "']").addClass("disabled");
+				}
 			}
 
 			$('#product-' + productId + '-next-due-date').text(result.next_due_date);

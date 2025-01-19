@@ -953,10 +953,16 @@ class StockService extends BaseService
 			throw new \Exception('Product does not exist or is inactive');
 		}
 
+		$product = $this->getDatabase()->products($productId);
+
+		if ($product->disable_open == 1)
+		{
+			throw new \Exception('Product can\'t be opened');
+		}
+
 		$productDetails = (object)$this->GetProductDetails($productId);
 		$productStockAmountUnopened = $productDetails->stock_amount_aggregated - $productDetails->stock_amount_opened_aggregated;
 		$potentialStockEntries = $this->GetProductStockEntries($productId, true, $allowSubproductSubstitution);
-		$product = $this->getDatabase()->products($productId);
 
 		if ($product->enable_tare_weight_handling == 1)
 		{
