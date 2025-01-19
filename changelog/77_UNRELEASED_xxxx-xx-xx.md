@@ -52,7 +52,10 @@
 - Added a new recipe ingredient option "Round up quantity amounts to the nearest whole number"
   - When enabled, resulting quantity amounts (after scaling according the desired serving amount) are always rounded up to the nearest whole number
   - Defaults to disabled, so no changed behavior when not configured
-- Optimized that when adding missing recipe ingredients with the option "Only check if any amount is in stock" enabled to the shopping list and when no corresponding unit conversion exists, the amount/unit is now taken "as is" (as defined in the recipe ingredient) into the created shopping list item
+- Optimizations/changes when adding missing recipe ingredients to the shopping list:
+  - When the ingredient option "Only check if any amount is in stock" is enabled and when no corresponding unit conversion exists, the amount/unit is now taken "as is" (as defined in the recipe ingredient) into the created shopping list item
+  - The shopping list item no longer gets a note "Added for recipe" set and the ingredient note is no longer appended
+  - When the corresponding product is already on the shopping list, the amount of the existing item is incremented instead of creating a new shopping list item
 - When no price information is available for at least one ingredient, a red exclamation mark is now displayed next to the recipe total cost information
 - Fixed that calories/costs of recipe ingredients were wrong when the ingredient option "Only check if any amount is in stock" was set and the on the ingredient used quantity unit was different from the product's QU stock
 - Fixed that multi-nested recipes (at least 3 levels of "included recipes") resulted in wrong amounts/costs/calories calculated for the ingredients orginating in those nested recipes (also affected the meal plan)

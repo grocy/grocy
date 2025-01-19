@@ -476,9 +476,6 @@ msgstr ""
 msgid "Are you sure you want to put all missing ingredients for recipe \"%s\" on the shopping list?"
 msgstr ""
 
-msgid "Added for recipe %s"
-msgstr ""
-
 msgid "Manage users"
 msgstr ""
 

@@ -32,7 +32,6 @@ class StockService extends BaseService
 			$amountToAdd = round($missingProduct->amount_missing, 2);
 
 			$alreadyExistingEntry = $this->getDatabase()->shopping_list()->where('product_id', $missingProduct->id)->fetch();
-
 			if ($alreadyExistingEntry)
 			{
 				// Update

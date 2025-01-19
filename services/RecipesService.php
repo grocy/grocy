@@ -46,6 +46,7 @@ class RecipesService extends BaseService
 					}
 					else
 					{
+						// No conversion exists => take the amount/unit as is
 						$quId = $recipePosition->qu_id;
 						$toOrderAmount = $recipePosition->missing_amount;
 					}
@@ -53,19 +54,24 @@ class RecipesService extends BaseService
 
 				if ($toOrderAmount > 0)
 				{
-					$note = $this->getLocalizationService()->__t('Added for recipe %s', $recipe->name);
-					if (!empty($recipePosition->note))
+					$alreadyExistingEntry = $this->getDatabase()->shopping_list()->where('product_id', $recipePosition->product_id)->fetch();
+					if ($alreadyExistingEntry)
 					{
-						$note .= "\n" . $recipePosition->note;
+						// Update
+						$alreadyExistingEntry->update([
+							'amount' => $alreadyExistingEntry->amount + $toOrderAmount
+						]);
 					}
-
-					$shoppinglistRow = $this->getDataBase()->shopping_list()->createRow([
-						'product_id' => $recipePosition->product_id,
-						'amount' => $toOrderAmount,
-						'qu_id' => $quId,
-						'note' => $note
-					]);
-					$shoppinglistRow->save();
+					else
+					{
+						// Insert
+						$shoppinglistRow = $this->getDataBase()->shopping_list()->createRow([
+							'product_id' => $recipePosition->product_id,
+							'amount' => $toOrderAmount,
+							'qu_id' => $quId
+						]);
+						$shoppinglistRow->save();
+					}
 				}
 			}
 		}
