@@ -505,12 +505,12 @@
 										<div class="small text-muted font-italic">{{ $__t('Disabled') }}</div>
 										@endif
 										@if($userSettings['recipes_show_ingredient_checkbox'])
-										<a class="btn btn-link btn-xs cursor-pointer ingredient-done-button"
+										<a class="btn btn-light btn-sm ingredient-done-button"
 											href="#"
 											data-toggle="tooltip"
 											data-placement="right"
 											title="{{ $__t('Mark this item as done') }}">
-											<i class="fa-solid fa-check-circle"></i>
+											<i class="fa-solid fa-check-circle text-primary"></i>
 										</a>
 										@endif
 										@php

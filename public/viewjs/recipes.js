@@ -445,7 +445,7 @@ $(document).on('click', '.ingredient-done-button', function(e)
 {
 	e.preventDefault();
 
-	$(e.currentTarget).parent().toggleClass("text-strike-through");
+	$(e.currentTarget).parent().toggleClass("text-strike-through").toggleClass("text-muted");
 });
 
 $(document).on("click", ".add-to-mealplan-button", function(e)
