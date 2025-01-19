@@ -254,6 +254,11 @@
 					$listItem->amount = $listItem->amount * $productQuConversion->factor;
 					}
 					}
+
+					if(boolval($userSettings['shopping_list_round_up']))
+					{
+					$listItem->amount = ceil($listItem->amount);
+					}
 					@endphp
 					@endif
 					<td>

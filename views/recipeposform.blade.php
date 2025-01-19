@@ -80,6 +80,14 @@
 					id="variable_amount"
 					name="variable_amount"
 					value="@if($mode == 'edit'){{ $recipePos->variable_amount }}@endif">
+
+				<div class="custom-control custom-checkbox">
+					<input @if($mode=='edit'
+						&&
+						$recipePos->round_up == 1) checked @endif class="form-check-input custom-control-input" type="checkbox" id="round_up" name="round_up" value="1">
+					<label class="form-check-label custom-control-label"
+						for="round_up">{{ $__t('Round up quantity amounts to the nearest whole number') }}</label>
+				</div>
 			</div>
 
 			<div class="form-group @if(!GROCY_FEATURE_FLAG_STOCK) d-none @endif">

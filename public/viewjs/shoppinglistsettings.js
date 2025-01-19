@@ -8,6 +8,11 @@ if (BoolVal(Grocy.UserSettings.shopping_list_show_calendar))
 	$("#shopping_list_show_calendar").prop("checked", true);
 }
 
+if (BoolVal(Grocy.UserSettings.shopping_list_round_up))
+{
+	$("#shopping_list_round_up").prop("checked", true);
+}
+
 if (BoolVal(Grocy.UserSettings.shopping_list_auto_add_below_min_stock_amount))
 {
 	$("#shopping_list_auto_add_below_min_stock_amount").prop("checked", true);

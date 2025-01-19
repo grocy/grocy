@@ -199,6 +199,7 @@ DefaultUserSetting('show_warning_on_purchase_when_due_date_is_earlier_than_next'
 // Shopping list settings
 DefaultUserSetting('shopping_list_to_stock_workflow_auto_submit_when_prefilled', false); // Automatically do the booking using the last price and the amount of the shopping list item, if the product has "Default due days" set
 DefaultUserSetting('shopping_list_show_calendar', false); // When enabled, a small (month view) calendar will be shown on the shopping list page
+DefaultUserSetting('shopping_list_round_up', false); // When enabled, all quantity amounts on the shopping list are always displayed rounded up to the nearest whole number
 DefaultUserSetting('shopping_list_auto_add_below_min_stock_amount', false); // If products should be automatically added to the shopping list when they are below their min. stock amount
 DefaultUserSetting('shopping_list_auto_add_below_min_stock_amount_list_id', 1); // When the above setting is enabled, the id of the shopping list to which the products will be added
 

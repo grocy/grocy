@@ -14,6 +14,7 @@
 <div class="row">
 	<div class="col-lg-6 col-12">
 		<h4 class="mt-2">{{ $__t('Shopping list') }}</h4>
+
 		<div class="form-group">
 			<div class="custom-control custom-checkbox">
 				<input type="checkbox"
@@ -25,7 +26,22 @@
 					{{ $__t('Show a month-view calendar') }}
 				</label>
 			</div>
+		</div>
 
+		<div class="form-group">
+			<div class="custom-control custom-checkbox">
+				<input type="checkbox"
+					class="form-check-input custom-control-input user-setting-control"
+					id="shopping_list_round_up"
+					data-setting-key="shopping_list_round_up">
+				<label class="form-check-label custom-control-label"
+					for="shopping_list_round_up">
+					{{ $__t('Round up quantity amounts to the nearest whole number') }}
+				</label>
+			</div>
+		</div>
+
+		<div class="form-group">
 			<div class="custom-control custom-checkbox">
 				<input type="checkbox"
 					class="form-check-input custom-control-input user-setting-control"
@@ -48,7 +64,9 @@
 			</div>
 		</div>
 
+
 		<h4 class="mt-2">{{ $__t('Shopping list to stock workflow') }}</h4>
+
 		<div class="form-group">
 			<div class="custom-control custom-checkbox">
 				<input type="checkbox"

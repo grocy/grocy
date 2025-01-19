@@ -219,7 +219,7 @@ $(document).on('click', '.recipe-shopping-list', function(e)
 				Grocy.Api.Post('recipes/' + objectId + '/add-not-fulfilled-products-to-shoppinglist', { "excludedProductIds": excludedProductIds },
 					function(result)
 					{
-						window.location.href = U('/recipes');
+						window.location.reload();
 					},
 					function(xhr)
 					{

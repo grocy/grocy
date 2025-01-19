@@ -103,6 +103,14 @@ class DatabaseService
 				return $usersService->GetUserSetting(GROCY_USER_ID, $value);
 			});
 
+
+			// Unfortunately not included by default
+			// https://www.sqlite.org/lang_mathfunc.html#ceil
+			$pdo->sqliteCreateFunction('ceil', function ($value)
+			{
+				return ceil($value);
+			});
+
 			self::$DbConnectionRaw = $pdo;
 		}
 

@@ -2470,3 +2470,6 @@ msgstr ""
 
 msgid "Unspecified"
 msgstr ""
+
+msgid "Round up quantity amounts to the nearest whole number"
+msgstr ""
