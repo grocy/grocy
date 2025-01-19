@@ -23,6 +23,10 @@
 - Added a new product option "Can't be opened"
   - When enabled the product open functionality for that product is disabled
   - Defaults to disabled, so no changed behavior when not configured
+- Added a new product option "Default purchase price type"
+  - Can be used to set the default price type (Unit price / Total price) on the purchase page per product
+  - Previously "Unit price" was the default on purchase and the selection was not saved and not reset when selecting another product, means the price type selection was retained when doing multiple purchase transactions in one go
+  - The default for the new product option is "Unspecified" which keeps the previous behavior
 - When products are automatically added to the shopping list (e.g. by the "below defined min. stock amount"-functionality or when adding missing recipe ingredients) the product's "Default quantity unit purchase" is now used (instead of the product's "Quantity unit stock")
 - Product barcode matching is now case-insensitive
 - Added a new column "Product picture" on the products list (master data) page (hidden by default)

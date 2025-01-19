@@ -2461,3 +2461,12 @@ msgstr ""
 
 msgid "Can't be opened"
 msgstr ""
+
+msgid "Default purchase price type"
+msgstr ""
+
+msgid "This will be used as the default price type selection on purchase"
+msgstr ""
+
+msgid "Unspecified"
+msgstr ""

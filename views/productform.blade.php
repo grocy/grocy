@@ -570,6 +570,57 @@
 			</div>
 			@endif
 
+			@if(GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
+			<div class="form-group">
+				<label class="d-block my-0"
+					for="default_purchase_price_type">{{ $__t('Default purchase price type') }}
+					<i class="fa-solid fa-question-circle text-muted"
+						data-toggle="tooltip"
+						data-trigger="hover click"
+						title="{{ $__t('This will be used as the default price type selection on purchase') }}"></i>
+				</label>
+				<div class="custom-control custom-radio mt-n2">
+					<input class="custom-control-input"
+						type="radio"
+						name="default_purchase_price_type"
+						id="default-purchase-price-type-unspecified"
+						value="1"
+						@if($mode=='edit'
+						&&
+						$product->default_purchase_price_type == 1) checked @else checked @endif>
+					<label class="custom-control-label"
+						for="default-purchase-price-type-unspecified">{{ $__t('Unspecified') }}
+					</label>
+				</div>
+				<div class="custom-control custom-radio mt-n2">
+					<input class="custom-control-input"
+						type="radio"
+						name="default_purchase_price_type"
+						id="default-purchase-price-type-unit-price"
+						value="2"
+						@if($mode=='edit'
+						&&
+						$product->default_purchase_price_type == 2) checked @endif>
+					<label class="custom-control-label"
+						for="default-purchase-price-type-unit-price">{{ $__t('Unit price') }}
+					</label>
+				</div>
+				<div class="custom-control custom-radio mt-n2">
+					<input class="custom-control-input"
+						type="radio"
+						name="default_purchase_price_type"
+						id="default-purchase-price-type-total-price"
+						value="3"
+						@if($mode=='edit'
+						&&
+						$product->default_purchase_price_type == 3) checked @endif>
+					<label class="custom-control-label"
+						for="default-purchase-price-type-total-price">{{ $__t('Total price') }}
+					</label>
+				</div>
+			</div>
+			@endif
+
 			@if(GROCY_FEATURE_FLAG_STOCK_PRODUCT_OPENED_TRACKING)
 			<div class="form-group">
 				<div class="custom-control custom-checkbox">

@@ -1,6 +1,9 @@
 ALTER TABLE products
 ADD disable_open TINYINT NOT NULL DEFAULT 0 CHECK(disable_open IN (0, 1));
 
+ALTER TABLE products
+ADD default_purchase_price_type TINYINT NOT NULL DEFAULT 1 CHECK(default_purchase_price_type IN (1, 2, 3));
+
 DROP VIEW uihelper_stock_current_overview;
 CREATE VIEW uihelper_stock_current_overview
 AS

@@ -343,6 +343,15 @@ if (Grocy.Components.ProductPicker !== undefined)
 						$("#stock_label_type").trigger("change");
 					}
 
+					if (productDetails.product.default_purchase_price_type == 2)
+					{
+						$("#price-type-unit-price").click();
+					}
+					else if (productDetails.product.default_purchase_price_type == 3)
+					{
+						$("#price-type-total-price").click();
+					}
+
 					setTimeout(function()
 					{
 						$('#display_amount').focus();
