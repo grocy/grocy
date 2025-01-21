@@ -213,7 +213,7 @@ body.night-mode,
 	background-color: #333131;
 }
 
-.night-mode a.discrete-link:hover {
+.night-mode a.discrete-link:not(.nav-link):hover {
 	color: #83c6ff !important;
 	text-decoration: none !important;
 	background-color: #333131;
@@ -264,27 +264,17 @@ body.night-mode,
 
 .night-mode .navbar-sidenav>li:hover,
 .night-mode .sidenav-second-level>li:hover,
-.night-mode .navbar-nav .dropdown-item:hover {
-	box-shadow: inset 5px 0 0 #92bee2 !important;
-	background-color: #383838 !important;
-	color: #c1c1c1 !important;
-}
-
+.night-mode .navbar-nav .dropdown-item:hover,
 .night-mode .navbar-sidenav>li>a:focus,
 .night-mode .sidenav-second-level>li>a:focus,
-.night-mode .navbar-nav .dropdown-item:focus {
-	box-shadow: inset 5px 0 0 #ff7585 !important;
+.night-mode .navbar-nav .dropdown-item:focus,
+.night-mode .active-page {
+	box-shadow: inset 7px 0 0 #ff7585 !important;
 	background-color: #383838 !important;
-	color: #c1c1c1 !important;
 }
 
 #mainNav.fixed-top.navbar-light .sidenav-toggler a i {
 	color: #c1c1c1;
-}
-
-.night-mode .active-page {
-	box-shadow: inset 5px 0 0 #ff7585 !important;
-	background-color: #383838 !important;
 }
 
 .night-mode .toast-success {
