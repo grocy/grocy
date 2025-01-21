@@ -82,7 +82,7 @@ $(".status-filter-message").on("click", function()
 
 $("#delete-selected-shopping-list").on("click", function()
 {
-	var objectName = $("#selected-shopping-list option:selected").text();
+	var objectName = $("#selected-shopping-list option:selected").attr("data-shoppinglist-name");
 	var objectId = $("#selected-shopping-list").val();
 
 	bootbox.confirm({

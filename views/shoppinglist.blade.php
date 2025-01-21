@@ -51,37 +51,47 @@
 				id="related-links">
 				@if(GROCY_FEATURE_FLAG_SHOPPINGLIST_MULTIPLE_LISTS)
 				<div class="my-auto float-right">
-					<select class="custom-control custom-select custom-select-sm"
+					<select class="custom-control custom-select bg-light font-weight-bold mt-md-0 mt-1"
 						id="selected-shopping-list">
 						@foreach($shoppingLists as $shoppingList)
-						<option @if($shoppingList->id == $selectedShoppingListId) selected="selected" @endif value="{{ $shoppingList->id }}">{{ $shoppingList->name }} ({{ $shoppingList->item_count }})</option>
+						<option @if($shoppingList->id == $selectedShoppingListId) selected="selected" @endif value="{{ $shoppingList->id }}" data-shoppinglist-name="{{ $shoppingList->name }}">{{ $shoppingList->name }} ({{ $shoppingList->item_count }})</option>
 						@endforeach
 					</select>
 				</div>
-				<a class="btn btn-outline-dark responsive-button m-1 mt-md-0 mb-md-0 float-right show-as-dialog-link"
-					href="{{ $U('/shoppinglist/new?embedded') }}">
-					{{ $__t('New shopping list') }}
-				</a>
-				<a class="btn btn-outline-dark responsive-button m-1 mt-md-0 mb-md-0 float-right show-as-dialog-link"
-					href="{{ $U('/shoppinglist/' . $selectedShoppingListId . '?embedded') }}">
-					{{ $__t('Edit shopping list') }}
-				</a>
-				<a id="delete-selected-shopping-list"
-					class="btn btn-outline-danger responsive-button m-1 mt-md-0 mb-md-0 float-right @if($selectedShoppingListId == 1) disabled @endif"
-					href="#">
-					{{ $__t('Delete shopping list') }}
-				</a>
+				<div class="dropdown">
+					<a class="btn btn-outline-dark responsive-button m-1 mt-md-0 mb-md-0 float-right dropdown-toggle"
+						href="#"
+						data-toggle="dropdown">
+						{{ $__t('List actions') }}
+					</a>
+					<div class="dropdown-menu">
+						<a class="dropdown-item show-as-dialog-link"
+							href="{{ $U('/shoppinglist/new?embedded') }}">
+							{{ $__t('New shopping list') }}
+						</a>
+						<a class="dropdown-item show-as-dialog-link"
+							href="{{ $U('/shoppinglist/' . $selectedShoppingListId . '?embedded') }}">
+							{{ $__t('Edit shopping list') }}
+						</a>
+						<a id="delete-selected-shopping-list"
+							class="dropdown-item text-danger @if($selectedShoppingListId == 1) disabled text-muted @endif"
+							href="#">
+							{{ $__t('Delete shopping list') }}
+						</a>
+						<div class="dropdown-divider"></div>
+						<a id="print-shopping-list-button"
+							class="dropdown-item"
+							href="#">
+							{{ $__t('Print') }}
+						</a>
+					</div>
+				</div>
 				@else
 				<input type="hidden"
 					name="selected-shopping-list"
 					id="selected-shopping-list"
 					value="1">
 				@endif
-				<a id="print-shopping-list-button"
-					class="btn btn-outline-dark responsive-button m-1 mt-md-0 mb-md-0 float-right"
-					href="#">
-					{{ $__t('Print') }}
-				</a>
 			</div>
 		</div>
 		<div id="filter-container"
@@ -107,23 +117,29 @@
 						{{ $__t('Clear done items') }}
 					</a>
 				</div>
-				<a id="add-all-items-to-stock-button"
-					class="btn btn-outline-primary btn-sm mb-1 responsive-button @if(!GROCY_FEATURE_FLAG_STOCK) d-none @endif"
-					href="#">
-					{{ $__t('Add all list items to stock') }}
-				</a>
-				@if(!boolval($userSettings['shopping_list_auto_add_below_min_stock_amount']))
-				<a id="add-products-below-min-stock-amount"
-					class="btn btn-outline-primary btn-sm mb-1 responsive-button @if(!GROCY_FEATURE_FLAG_STOCK) d-none @endif"
-					href="#">
-					{{ $__t('Add products that are below defined min. stock amount') }}
-				</a>
+
+				@if(GROCY_FEATURE_FLAG_STOCK)
+				<div class="dropdown d-inline">
+					<a class="btn btn-sm btn-outline-dark responsive-button mb-1 dropdown-toggle"
+						href="#"
+						data-toggle="dropdown">
+						{{ $__t('Stock actions') }}
+					</a>
+					<div class="dropdown-menu text-right">
+						<a id="add-all-items-to-stock-button"
+							class="dropdown-item"
+							href="#">{{ $__t('Add all list items to stock') }}</a>
+						@if(!boolval($userSettings['shopping_list_auto_add_below_min_stock_amount']))
+						<a id="add-products-below-min-stock-amount"
+							class="dropdown-item"
+							href="#">{{ $__t('Add products that are below defined min. stock amount') }}</a>
+						@endif
+						<a id="add-overdue-expired-products"
+							class="dropdown-item"
+							href="#">{{ $__t('Add overdue/expired products') }}</a>
+					</div>
+				</div>
 				@endif
-				<a id="add-overdue-expired-products"
-					class="btn btn-outline-primary btn-sm mb-1 responsive-button @if(!GROCY_FEATURE_FLAG_STOCK) d-none @endif"
-					href="#">
-					{{ $__t('Add overdue/expired products') }}
-				</a>
 			</div>
 		</div>
 	</div>

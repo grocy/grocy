@@ -2470,3 +2470,9 @@ msgstr ""
 
 msgid "Round up quantity amounts to the nearest whole number"
 msgstr ""
+
+msgid "Stock actions"
+msgstr ""
+
+msgid "List actions"
+msgstr ""
