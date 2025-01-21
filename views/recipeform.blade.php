@@ -139,7 +139,6 @@
 						<tr>
 							<th class="border-right"><a class="text-muted change-table-columns-visibility-button"
 									data-toggle="tooltip"
-									data-toggle="tooltip"
 									title="{{ $__t('Table options') }}"
 									data-table-selector="#recipes-pos-table"
 									href="#"><i class="fa-solid fa-eye"></i></a>
@@ -250,7 +249,6 @@
 					<thead>
 						<tr>
 							<th class="border-right"><a class="text-muted change-table-columns-visibility-button"
-									data-toggle="tooltip"
 									data-toggle="tooltip"
 									title="{{ $__t('Table options') }}"
 									data-table-selector="#recipes-includes-table"

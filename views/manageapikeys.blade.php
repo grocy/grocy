@@ -70,7 +70,6 @@
 				<tr>
 					<th class="border-right"><a class="text-muted change-table-columns-visibility-button"
 							data-toggle="tooltip"
-							data-toggle="tooltip"
 							title="{{ $__t('Table options') }}"
 							data-table-selector="#apikeys-table"
 							href="#"><i class="fa-solid fa-eye"></i></a>

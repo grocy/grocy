@@ -79,7 +79,6 @@
 					<th class="border-right d-print-none">
 						<a class="text-muted change-table-columns-visibility-button"
 							data-toggle="tooltip"
-							data-toggle="tooltip"
 							title="{{ $__t('Table options') }}"
 							data-table-selector="#userobjects-table-{{$userentity->id}}"
 							href="#"><i class="fa-solid fa-eye"></i>
