@@ -521,7 +521,8 @@
 										$selectedRecipePosition->recipe_amount = $selectedRecipePosition->recipe_amount * $productQuConversion->factor;
 										}
 										@endphp
-										<span class="@if($selectedRecipePosition->due_score == 20) text-danger @elseif($selectedRecipePosition->due_score == 10) text-secondary @elseif($selectedRecipePosition->due_score == 1) text-warning @endif">
+										<span class="productcard-trigger cursor-link @if($selectedRecipePosition->due_score == 20) text-danger @elseif($selectedRecipePosition->due_score == 10) text-secondary @elseif($selectedRecipePosition->due_score == 1) text-warning @endif"
+											data-product-id="{{ $selectedRecipePosition->product_id }}">
 											@if(!empty($selectedRecipePosition->recipe_variable_amount))
 											{{ $selectedRecipePosition->recipe_variable_amount }}
 											@else
@@ -531,14 +532,16 @@
 											{{ FindObjectInArrayByPropertyValue($products, 'id', $selectedRecipePosition->product_id)->name }}
 										</span>
 										@if(GROCY_FEATURE_FLAG_STOCK)
-										<span class="d-print-none">
+										<span class="
+												d-print-none">
 											@if(FindObjectInArrayByPropertyValue($recipePositionsResolved, 'recipe_pos_id', $selectedRecipePosition->id)->need_fulfilled == 1)<i class="fa-solid fa-check text-success"></i>@elseif(FindObjectInArrayByPropertyValue($recipePositionsResolved, 'recipe_pos_id', $selectedRecipePosition->id)->need_fulfilled_with_shopping_list == 1)<i class="fa-solid fa-exclamation text-warning"></i>@else<i class="fa-solid fa-times text-danger"></i>@endif
 											<span class="timeago-contextual">@if(FindObjectInArrayByPropertyValue($recipePositionsResolved, 'recipe_pos_id', $selectedRecipePosition->id)->need_fulfilled == 1) {{ $__t('Enough in stock') }} (<span class="locale-number locale-number-quantity-amount">{{ $selectedRecipePosition->stock_amount }}</span> {{ $__n($selectedRecipePosition->stock_amount, FindObjectInArrayByPropertyValue($quantityUnits, 'id', $product->qu_id_stock)->name, FindObjectInArrayByPropertyValue($quantityUnits, 'id', $product->qu_id_stock)->name_plural) }}) @else {{ $__t('Not enough in stock, %1$s missing, %2$s already on shopping list', round($selectedRecipePosition->missing_amount, 2), round($selectedRecipePosition->amount_on_shopping_list, 2)) }} @endif</span>
 										</span>
 										@endif
 										@if($selectedRecipePosition->product_id != $selectedRecipePosition->product_id_effective)
 										<br class="d-print-none">
-										<span class="text-muted d-print-none"
+										<span class="productcard-trigger cursor-link text-muted d-print-none"
+											data-product-id="{{ $selectedRecipePosition->product_id_effective }}"
 											data-toggle="tooltip"
 											data-trigger="hover click"
 											title="{{ $__t('The parent product %1$s is currently not in stock, %2$s is the current next sub product based on the default consume rule (Opened first, then first due first, then first in first out)', FindObjectInArrayByPropertyValue($products, 'id', $selectedRecipePosition->product_id)->name, FindObjectInArrayByPropertyValue($products, 'id', $selectedRecipePosition->product_id_effective)->name) }}">
@@ -668,4 +671,8 @@
 		</div>
 	</div>
 </div>
+
+@include('components.productcard', [
+'asModal' => true
+])
 @stop
