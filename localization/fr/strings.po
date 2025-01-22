@@ -544,9 +544,6 @@ msgid ""
 "the shopping list?"
 msgstr ""
 
-msgid "Added for recipe %s"
-msgstr "Ajoutés pour la recette %s"
-
 msgid "Manage users"
 msgstr "Gérer les utilisateurs"
 
@@ -663,8 +660,8 @@ msgid ""
 "ignored)?"
 msgstr ""
 
-msgid "Removed all ingredients of recipe \"%s\" from stock"
-msgstr "Enlever tous les ingrédients de la recette \"%s\" du stock"
+msgid "Removed all in stock ingredients needed by recipe \"%s\" from stock"
+msgstr ""
 
 msgid "Consume all ingredients needed by this recipe"
 msgstr "Consommer tous les ingrédients requis par cette recette"
@@ -1768,9 +1765,6 @@ msgstr "Afficher le calendrier en vue mensuelle"
 msgid "Desired servings"
 msgstr "portions souhaitées"
 
-msgid "Base: %s"
-msgstr "Base: %s"
-
 msgid "Recipes settings"
 msgstr "Paramètres des recettes"
 
@@ -1854,13 +1848,9 @@ msgstr "Modifier le Code-barre"
 
 msgid ""
 "Based on the prices of the default consume rule (Opened first, then first "
-"due first, then first in first out) for in-stock ingredients and on the last"
+"due first, then first in first out) for in stock ingredients and on the last"
 " price for missing ones"
 msgstr ""
-"Basé sur les prix de la règle de consommation par défaut (produit déjà "
-"ouvert en premier, puis date de péremption proche et enfin produit le plus "
-"ancien) pour les ingrédients en stock et sur le dernier prix pour les "
-"manquants"
 
 msgid "Clear filter"
 msgstr "Enlever le filtre"
@@ -2029,9 +2019,8 @@ msgstr ""
 "Afficher un avertissement lorsque la date de péremption du produit acheté "
 "est avant la date de péremption du produit dans le stock"
 
-msgid "This is due earlier than already in-stock items"
+msgid "This is due earlier than already in stock items"
 msgstr ""
-"La date de péremption est plus courte que pour les éléments déjà en stock"
 
 msgid ""
 "When enabled, after changing/scanning a product and if all fields could be "
@@ -2331,13 +2320,10 @@ msgid "Link"
 msgstr "Lien"
 
 msgid ""
-"The stock overview page lists all products which are currently in-stock or "
+"The stock overview page lists all products which are currently in stock or "
 "below their min. stock amount - enable this to hide this product there "
 "always"
 msgstr ""
-"L'aperçu du stock liste tous les produits actuellement en stock ou en-deça "
-"de leur stock mini - cette option désactive l'affichage de ce produit dans "
-"tous les cas"
 
 msgid "Print options"
 msgstr "Options d'impression"
@@ -2409,8 +2395,8 @@ msgstr "Impossible d'imprimer"
 msgid "Only done items"
 msgstr "Seulement les éléments faits"
 
-msgid "Show only in-stock products"
-msgstr "Ne montrer que les produits en stock"
+msgid "Show only in stock products"
+msgstr ""
 
 msgid "Product description"
 msgstr "Description du produit"
@@ -2431,8 +2417,8 @@ msgstr "Champ utilisateur requis"
 msgid "When enabled, then this field must be filled on the destination form"
 msgstr "Lorsque activé, ce champ est requis dans le formulaire de destination"
 
-msgid "In-stock products"
-msgstr "Produits en stock"
+msgid "In stock products"
+msgstr ""
 
 msgid "Timestamp"
 msgstr "Horodatage"
@@ -2837,8 +2823,8 @@ msgstr "Dépenses"
 msgid "Stock report"
 msgstr "Rapport de stock"
 
-msgid "Out-of-stock products"
-msgstr "Produits en rupture de stock"
+msgid "Out of stock products"
+msgstr ""
 
 msgid "Quantity unit for prices"
 msgstr "Unité de quantité pour les prix"
@@ -2875,4 +2861,42 @@ msgid "Scheduled tracking time"
 msgstr ""
 
 msgid "Time of tracking"
+msgstr ""
+
+msgid "Show all out of stock products"
+msgstr ""
+
+msgid ""
+"By default the stock overview page lists all products which are currently in"
+" stock or below their min. stock amount - when this is enabled, all (active)"
+" products are always shown"
+msgstr ""
+
+msgid "No price information is available for at least one ingredient"
+msgstr ""
+
+msgid ""
+"For ingredients that are only partially in stock, the in stock amount will "
+"be consumed."
+msgstr ""
+
+msgid "Can't be opened"
+msgstr ""
+
+msgid "Default purchase price type"
+msgstr ""
+
+msgid "This will be used as the default price type selection on purchase"
+msgstr ""
+
+msgid "Unspecified"
+msgstr ""
+
+msgid "Round up quantity amounts to the nearest whole number"
+msgstr ""
+
+msgid "Stock actions"
+msgstr ""
+
+msgid "List actions"
 msgstr ""

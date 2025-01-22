@@ -509,9 +509,6 @@ msgid ""
 "the shopping list?"
 msgstr ""
 
-msgid "Added for recipe %s"
-msgstr "Ingredience pro recept „%s“"
-
 msgid "Manage users"
 msgstr "Spravovat uživatele"
 
@@ -631,8 +628,8 @@ msgid ""
 "ignored)?"
 msgstr ""
 
-msgid "Removed all ingredients of recipe \"%s\" from stock"
-msgstr "Všechny ingredience z receptu „%s“ byly odebrány ze zásob"
+msgid "Removed all in stock ingredients needed by recipe \"%s\" from stock"
+msgstr ""
 
 msgid "Consume all ingredients needed by this recipe"
 msgstr "Spotřebovat všechny ingredience použité v tomto receptu"
@@ -1748,9 +1745,6 @@ msgstr "Zobrazit měsíční kalendář"
 msgid "Desired servings"
 msgstr "Počet porcí"
 
-msgid "Base: %s"
-msgstr "Základ: %s"
-
 msgid "Recipes settings"
 msgstr "Nastavení receptu"
 
@@ -1834,13 +1828,9 @@ msgstr "Upravit čárový kód"
 
 msgid ""
 "Based on the prices of the default consume rule (Opened first, then first "
-"due first, then first in first out) for in-stock ingredients and on the last"
+"due first, then first in first out) for in stock ingredients and on the last"
 " price for missing ones"
 msgstr ""
-"Základem ceny je cena produktu v zásobě podle výchozího pořadí spotřeby "
-"produktů. Tedy nejprve se spotřebují otevřené, pak ty s nejbližším datem "
-"spotřeby a nakonec podle pravidla „dříve nakoupený, dříve spotřebovaný“. Pro"
-" chybějící produkty je použita cena z posledního nákupu."
 
 msgid "Clear filter"
 msgstr "Smazat filtr"
@@ -2010,8 +2000,8 @@ msgstr ""
 "Upozorni, pokud je datum min. trvanlivosti (použitelnosti) nakoupeného "
 "produktu dříve, než nejbližší datum spotřeby produktu v zásobě."
 
-msgid "This is due earlier than already in-stock items"
-msgstr "Datum min. trvanlivosti je dříve, než u produktů v zásobě"
+msgid "This is due earlier than already in stock items"
+msgstr ""
 
 msgid ""
 "When enabled, after changing/scanning a product and if all fields could be "
@@ -2306,12 +2296,10 @@ msgid "Link"
 msgstr "Odkaz"
 
 msgid ""
-"The stock overview page lists all products which are currently in-stock or "
+"The stock overview page lists all products which are currently in stock or "
 "below their min. stock amount - enable this to hide this product there "
 "always"
 msgstr ""
-"Stránka Přehledu zásob zobrazuje všechny produkty, které jsou v zásobě nebo "
-"pod jejich minimálním stavem. Zaškrtnutím se v něm produkt nikdy neobjeví."
 
 msgid "Print options"
 msgstr "Nastavení tisku"
@@ -2384,8 +2372,8 @@ msgstr "Nedaří se tisknout"
 msgid "Only done items"
 msgstr "vybrané produkty"
 
-msgid "Show only in-stock products"
-msgstr "Zobrazit produkty se zásobou"
+msgid "Show only in stock products"
+msgstr ""
 
 msgid "Product description"
 msgstr "Popis produktu"
@@ -2406,8 +2394,8 @@ msgstr "Povinný uživatelský údaj"
 msgid "When enabled, then this field must be filled on the destination form"
 msgstr "Použijete-li tento údaj ve formuláři, bude povinný"
 
-msgid "In-stock products"
-msgstr "produkty se zásobou"
+msgid "In stock products"
+msgstr ""
 
 msgid "Timestamp"
 msgstr "Čas zápisu"
@@ -2813,8 +2801,8 @@ msgstr "Výdaje"
 msgid "Stock report"
 msgstr "Přehled zásob"
 
-msgid "Out-of-stock products"
-msgstr "Produkty bez zásoby"
+msgid "Out of stock products"
+msgstr ""
 
 msgid "Quantity unit for prices"
 msgstr "Měrná jednotka pro ceny"
@@ -2850,4 +2838,42 @@ msgid "Scheduled tracking time"
 msgstr ""
 
 msgid "Time of tracking"
+msgstr ""
+
+msgid "Show all out of stock products"
+msgstr ""
+
+msgid ""
+"By default the stock overview page lists all products which are currently in"
+" stock or below their min. stock amount - when this is enabled, all (active)"
+" products are always shown"
+msgstr ""
+
+msgid "No price information is available for at least one ingredient"
+msgstr ""
+
+msgid ""
+"For ingredients that are only partially in stock, the in stock amount will "
+"be consumed."
+msgstr ""
+
+msgid "Can't be opened"
+msgstr ""
+
+msgid "Default purchase price type"
+msgstr ""
+
+msgid "This will be used as the default price type selection on purchase"
+msgstr ""
+
+msgid "Unspecified"
+msgstr ""
+
+msgid "Round up quantity amounts to the nearest whole number"
+msgstr ""
+
+msgid "Stock actions"
+msgstr ""
+
+msgid "List actions"
 msgstr ""

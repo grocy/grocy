@@ -503,9 +503,6 @@ msgid ""
 "the shopping list?"
 msgstr ""
 
-msgid "Added for recipe %s"
-msgstr "Hozzáadva ehhez a recepthez: %s"
-
 msgid "Manage users"
 msgstr "Felhasználók kezelése"
 
@@ -617,8 +614,8 @@ msgid ""
 "ignored)?"
 msgstr ""
 
-msgid "Removed all ingredients of recipe \"%s\" from stock"
-msgstr "Összes hozzávaló eltávolítva a készletről ehhez: \"%s\""
+msgid "Removed all in stock ingredients needed by recipe \"%s\" from stock"
+msgstr ""
 
 msgid "Consume all ingredients needed by this recipe"
 msgstr "A recept minden alapanyagának felhasználása"
@@ -1702,9 +1699,6 @@ msgstr "Havi-nézet naptár megjelenítése"
 msgid "Desired servings"
 msgstr "Kívánt adagok"
 
-msgid "Base: %s"
-msgstr "Alapértelmezés: %s"
-
 msgid "Recipes settings"
 msgstr "Recept beállítások"
 
@@ -1788,13 +1782,9 @@ msgstr "Vonalkód szerkesztése"
 
 msgid ""
 "Based on the prices of the default consume rule (Opened first, then first "
-"due first, then first in first out) for in-stock ingredients and on the last"
+"due first, then first in first out) for in stock ingredients and on the last"
 " price for missing ones"
 msgstr ""
-"Az alapértelmezett felhasználási szabály szerinti árak alapján (ami "
-"\"nyitott tétel, majd legkorábban lejáró, majd a legkorábban "
-"leltározott/FIFO\") a készleten lévő hozzávalók esetén, egyébként pedig az "
-"utolsó beszerzési ár alapján"
 
 msgid "Clear filter"
 msgstr "Szűrő törlése"
@@ -1960,8 +1950,8 @@ msgid ""
 msgstr ""
 "Figyelmeztessen, ha a vásárolt termék előbb jár le, mint ami készleten van"
 
-msgid "This is due earlier than already in-stock items"
-msgstr "Ez előbb lejár, mint a készleten lévő termékek"
+msgid "This is due earlier than already in stock items"
+msgstr ""
 
 msgid ""
 "When enabled, after changing/scanning a product and if all fields could be "
@@ -2255,13 +2245,10 @@ msgid "Link"
 msgstr "Hivatkozás"
 
 msgid ""
-"The stock overview page lists all products which are currently in-stock or "
+"The stock overview page lists all products which are currently in stock or "
 "below their min. stock amount - enable this to hide this product there "
 "always"
 msgstr ""
-"A készlet áttekintés oldal az összes készleten vagy min. készlet mennyiség "
-"alatt lévő terméket mutatja - kapcsold ezt be, hogy a termék soha ne "
-"jelenjen meg ott"
 
 msgid "Print options"
 msgstr "Nyomtatási beállítások"
@@ -2334,8 +2321,8 @@ msgstr "Nem lehet nyomtatni"
 msgid "Only done items"
 msgstr "Csak elvégzett tételek"
 
-msgid "Show only in-stock products"
-msgstr "Csak a készleten lévő termékek mutatása"
+msgid "Show only in stock products"
+msgstr ""
 
 msgid "Product description"
 msgstr "Termékleírás"
@@ -2357,8 +2344,8 @@ msgid "When enabled, then this field must be filled on the destination form"
 msgstr ""
 "Kötelezővé teszi ennek a mezőnek a kitöltését a kiválasztott objektumon"
 
-msgid "In-stock products"
-msgstr "Készleten lévő"
+msgid "In stock products"
+msgstr ""
 
 msgid "Timestamp"
 msgstr "Időbélyeg"
@@ -2745,8 +2732,8 @@ msgstr "Kiadások"
 msgid "Stock report"
 msgstr "Készletjelentés"
 
-msgid "Out-of-stock products"
-msgstr "Elfogyott termékek"
+msgid "Out of stock products"
+msgstr ""
 
 msgid "Quantity unit for prices"
 msgstr "Mennyiségi egység az árakhoz"
@@ -2781,4 +2768,42 @@ msgid "Scheduled tracking time"
 msgstr ""
 
 msgid "Time of tracking"
+msgstr ""
+
+msgid "Show all out of stock products"
+msgstr ""
+
+msgid ""
+"By default the stock overview page lists all products which are currently in"
+" stock or below their min. stock amount - when this is enabled, all (active)"
+" products are always shown"
+msgstr ""
+
+msgid "No price information is available for at least one ingredient"
+msgstr ""
+
+msgid ""
+"For ingredients that are only partially in stock, the in stock amount will "
+"be consumed."
+msgstr ""
+
+msgid "Can't be opened"
+msgstr ""
+
+msgid "Default purchase price type"
+msgstr ""
+
+msgid "This will be used as the default price type selection on purchase"
+msgstr ""
+
+msgid "Unspecified"
+msgstr ""
+
+msgid "Round up quantity amounts to the nearest whole number"
+msgstr ""
+
+msgid "Stock actions"
+msgstr ""
+
+msgid "List actions"
 msgstr ""

@@ -512,9 +512,6 @@ msgid ""
 "the shopping list?"
 msgstr ""
 
-msgid "Added for recipe %s"
-msgstr "Додано до рецепту %s"
-
 msgid "Manage users"
 msgstr "Керування користувачами"
 
@@ -634,8 +631,8 @@ msgid ""
 "ignored)?"
 msgstr ""
 
-msgid "Removed all ingredients of recipe \"%s\" from stock"
-msgstr "Вжито з наявності усі інгрідієнти з рецепту \"%s\""
+msgid "Removed all in stock ingredients needed by recipe \"%s\" from stock"
+msgstr ""
 
 msgid "Consume all ingredients needed by this recipe"
 msgstr "Вжити всі інгрідієнти цього рецепту"
@@ -1742,9 +1739,6 @@ msgstr ""
 msgid "Desired servings"
 msgstr "Потрібно порцій"
 
-msgid "Base: %s"
-msgstr "Базовий рецепт: %s"
-
 msgid "Recipes settings"
 msgstr "Налаштування рецептів"
 
@@ -1828,12 +1822,9 @@ msgstr "Редагувати штрихкод"
 
 msgid ""
 "Based on the prices of the default consume rule (Opened first, then first "
-"due first, then first in first out) for in-stock ingredients and on the last"
+"due first, then first in first out) for in stock ingredients and on the last"
 " price for missing ones"
 msgstr ""
-"Базується на вартості згідно з правилом споживання (спочатку відкритий, "
-"потім той, що швидше зіпсується, далі в такому порядку, у якому і "
-"купувалось)"
 
 msgid "Clear filter"
 msgstr "Очистити фільтр"
@@ -1996,8 +1987,8 @@ msgstr ""
 "Попередити, якщо термін придатності придбаного продукту мешний, ніж в того, "
 "що вже був у наявності"
 
-msgid "This is due earlier than already in-stock items"
-msgstr "Термін придатності менший за той, що на продукті вже в наявності"
+msgid "This is due earlier than already in stock items"
+msgstr ""
 
 msgid ""
 "When enabled, after changing/scanning a product and if all fields could be "
@@ -2263,13 +2254,10 @@ msgid "Link"
 msgstr "Посилання"
 
 msgid ""
-"The stock overview page lists all products which are currently in-stock or "
+"The stock overview page lists all products which are currently in stock or "
 "below their min. stock amount - enable this to hide this product there "
 "always"
 msgstr ""
-"Сторінка Інвентар є списком усіх продуктів, які наразі в наявності або не "
-"задовольняють потребу мінімальної кількості в наявності. Увімкніть цю опцію,"
-" щоб завжди приховувати звідти цей продукт."
 
 msgid "Print options"
 msgstr "Налаштування друку"
@@ -2339,8 +2327,8 @@ msgstr "Неможливо надрукувати"
 msgid "Only done items"
 msgstr "Тільки відмічені"
 
-msgid "Show only in-stock products"
-msgstr "Показати лише продукти в наявності"
+msgid "Show only in stock products"
+msgstr ""
 
 msgid "Product description"
 msgstr "Опис продкуту"
@@ -2361,8 +2349,8 @@ msgstr "Обов'язкове користувацьке поле"
 msgid "When enabled, then this field must be filled on the destination form"
 msgstr ""
 
-msgid "In-stock products"
-msgstr "Є в наявності"
+msgid "In stock products"
+msgstr ""
 
 msgid "Timestamp"
 msgstr "Timestamp"
@@ -2743,7 +2731,7 @@ msgstr ""
 msgid "Stock report"
 msgstr ""
 
-msgid "Out-of-stock products"
+msgid "Out of stock products"
 msgstr ""
 
 msgid "Quantity unit for prices"
@@ -2780,4 +2768,42 @@ msgid "Scheduled tracking time"
 msgstr ""
 
 msgid "Time of tracking"
+msgstr ""
+
+msgid "Show all out of stock products"
+msgstr ""
+
+msgid ""
+"By default the stock overview page lists all products which are currently in"
+" stock or below their min. stock amount - when this is enabled, all (active)"
+" products are always shown"
+msgstr ""
+
+msgid "No price information is available for at least one ingredient"
+msgstr ""
+
+msgid ""
+"For ingredients that are only partially in stock, the in stock amount will "
+"be consumed."
+msgstr ""
+
+msgid "Can't be opened"
+msgstr ""
+
+msgid "Default purchase price type"
+msgstr ""
+
+msgid "This will be used as the default price type selection on purchase"
+msgstr ""
+
+msgid "Unspecified"
+msgstr ""
+
+msgid "Round up quantity amounts to the nearest whole number"
+msgstr ""
+
+msgid "Stock actions"
+msgstr ""
+
+msgid "List actions"
 msgstr ""

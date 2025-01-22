@@ -513,9 +513,6 @@ msgstr ""
 "Ar tikrai norite į pirkinių sąrašą įtraukti visus recepto \"%s\" trūkstamus "
 "ingredientus?"
 
-msgid "Added for recipe %s"
-msgstr "Pridėta receptui %s"
-
 msgid "Manage users"
 msgstr "Tvarkyti vartotojus"
 
@@ -637,8 +634,8 @@ msgstr ""
 "Ar tikrai norite suvartoti visus ingredientus, kurių reikia pagal receptą "
 "\"%s\" (ingredientai, pažymėti „tik jeigu yra sandėlyje“, bus ignoruojami)?"
 
-msgid "Removed all ingredients of recipe \"%s\" from stock"
-msgstr "Iš atsargų pašalinti visi recepto „%s“ ingredientai"
+msgid "Removed all in stock ingredients needed by recipe \"%s\" from stock"
+msgstr "Iš atsargų pašalinti visi pagal receptą \"%s\" reikalingi ingredientai"
 
 msgid "Consume all ingredients needed by this recipe"
 msgstr "Suvartokite visus pagal šį receptą reikalingus ingredientus"
@@ -1753,9 +1750,6 @@ msgstr "Rodyti mėnesio peržiūros kalendorių"
 msgid "Desired servings"
 msgstr "Pageidaujamos porcijos"
 
-msgid "Base: %s"
-msgstr "Pagrindas: %s"
-
 msgid "Recipes settings"
 msgstr "Receptų nustatymai"
 
@@ -1839,12 +1833,12 @@ msgstr "Redaguoti brūkšninį kodą"
 
 msgid ""
 "Based on the prices of the default consume rule (Opened first, then first "
-"due first, then first in first out) for in-stock ingredients and on the last"
+"due first, then first in first out) for in stock ingredients and on the last"
 " price for missing ones"
 msgstr ""
 "Remiantis numatytosios vartojimo taisyklės kainomis (iš pradžių atidaroma, "
 "tada pirmiausia turi būti sumokėta, tada pirmiausia išleidžiama) sandėlyje "
-"esančioms sudedamosioms dalims ir paskutinei trūkstamų ingredientų kainai"
+"esančioms sudedamosioms dalims ir paskutinei trūkstamų ingredientų kainai."
 
 msgid "Clear filter"
 msgstr "Išvalyti filtą"
@@ -2013,8 +2007,8 @@ msgstr ""
 "Rodyti įspėjimą, kai įsigytos prekės terminas yra ankstesnis už kitą "
 "sandėlyje esantį terminą"
 
-msgid "This is due earlier than already in-stock items"
-msgstr "Tai atsitinka anksčiau nei jau esančios prekės"
+msgid "This is due earlier than already in stock items"
+msgstr "Tai atsitinka anksčiau nei jau yra sandėlyje"
 
 msgid ""
 "When enabled, after changing/scanning a product and if all fields could be "
@@ -2310,13 +2304,13 @@ msgid "Link"
 msgstr "Nuoroda"
 
 msgid ""
-"The stock overview page lists all products which are currently in-stock or "
+"The stock overview page lists all products which are currently in stock or "
 "below their min. stock amount - enable this to hide this product there "
 "always"
 msgstr ""
-"Atsargų apžvalgos puslapyje pateikiami visi produktai, kurie šiuo metu yra "
-"sandėlyje arba mažesni nei min. atsargų kiekis – įjunkite, kad šis produktas"
-" visada būtų paslėptas"
+"Atsargų puslapyje pateikiami visi produktai, kurių šiuo metu yra sandėlyje "
+"arba žemiau jų min. atsargų kiekis – įjunkite, kad šis produktas visada būtų"
+" paslėptas"
 
 msgid "Print options"
 msgstr "Spausdinimo parinktys"
@@ -2389,7 +2383,7 @@ msgstr "Nepavyko išspausdinti"
 msgid "Only done items"
 msgstr "Tik atliktiems daiktams"
 
-msgid "Show only in-stock products"
+msgid "Show only in stock products"
 msgstr "Rodyti tik sandėlyje esančius produktus"
 
 msgid "Product description"
@@ -2411,7 +2405,7 @@ msgstr "Privalomas vartotojo laukas"
 msgid "When enabled, then this field must be filled on the destination form"
 msgstr "Kai įjungta, šis laukas turi būti užpildytas paskirties formoje"
 
-msgid "In-stock products"
+msgid "In stock products"
 msgstr "Prekės sandėlyje"
 
 msgid "Timestamp"
@@ -2812,8 +2806,8 @@ msgstr "Išlaidos"
 msgid "Stock report"
 msgstr "Atsargų ataskaita"
 
-msgid "Out-of-stock products"
-msgstr "Prekės, kurių nebėra sandėlyje"
+msgid "Out of stock products"
+msgstr "Išparduotos prekės"
 
 msgid "Quantity unit for prices"
 msgstr "Kiekio vienetas kainoms"
@@ -2851,3 +2845,45 @@ msgstr "Suplanuotas sekimo laikas"
 
 msgid "Time of tracking"
 msgstr "Sekimo laikas"
+
+msgid "Show all out of stock products"
+msgstr "Rodyti visus išparduotus produktus"
+
+msgid ""
+"By default the stock overview page lists all products which are currently in"
+" stock or below their min. stock amount - when this is enabled, all (active)"
+" products are always shown"
+msgstr ""
+"Pagal numatytuosius nustatymus atsargos puslapyje pateikiami visi produktai,"
+" kurių šiuo metu yra sandėlyje arba žemiau jų min. atsargų kiekis – kai tai "
+"įjungta, visada rodomi visi (aktyvūs) produktai"
+
+msgid "No price information is available for at least one ingredient"
+msgstr "Nėra informacijos apie bent vienos sudedamosios dalies kainą"
+
+msgid ""
+"For ingredients that are only partially in stock, the in stock amount will "
+"be consumed."
+msgstr ""
+"Sudedamųjų dalių, kurių sandėlyje yra tik iš dalies, kiekis bus sunaudotas."
+
+msgid "Can't be opened"
+msgstr "Negalima atidaryti"
+
+msgid "Default purchase price type"
+msgstr "Numatytasis pirkimo kainos tipas"
+
+msgid "This will be used as the default price type selection on purchase"
+msgstr "Tai bus naudojama kaip numatytasis kainos tipo pasirinkimas perkant"
+
+msgid "Unspecified"
+msgstr "Nenurodyta"
+
+msgid "Round up quantity amounts to the nearest whole number"
+msgstr "Kiekis suapvalinamas iki artimiausio sveikojo skaičiaus"
+
+msgid "Stock actions"
+msgstr "Atsargų veiksmai"
+
+msgid "List actions"
+msgstr "Sąrašas veiksmų"

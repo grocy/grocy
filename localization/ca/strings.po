@@ -500,9 +500,6 @@ msgid ""
 "the shopping list?"
 msgstr ""
 
-msgid "Added for recipe %s"
-msgstr "Afegit per a la recepta  %s"
-
 msgid "Manage users"
 msgstr "Gestiona els usuaris"
 
@@ -614,8 +611,8 @@ msgid ""
 "ignored)?"
 msgstr ""
 
-msgid "Removed all ingredients of recipe \"%s\" from stock"
-msgstr " Tots els ingredients de la recepta \"%s\" s'han eliminat de l'inventari"
+msgid "Removed all in stock ingredients needed by recipe \"%s\" from stock"
+msgstr ""
 
 msgid "Consume all ingredients needed by this recipe"
 msgstr "Consumir tots els ingredients requerits per aquesta recepta"
@@ -1698,9 +1695,6 @@ msgstr "Mostra la vista mensual de calendari"
 msgid "Desired servings"
 msgstr "Racions desitjades"
 
-msgid "Base: %s"
-msgstr "Base: %s"
-
 msgid "Recipes settings"
 msgstr "Configuració de receptes"
 
@@ -1784,7 +1778,7 @@ msgstr "Editar codi de barres"
 
 msgid ""
 "Based on the prices of the default consume rule (Opened first, then first "
-"due first, then first in first out) for in-stock ingredients and on the last"
+"due first, then first in first out) for in stock ingredients and on the last"
 " price for missing ones"
 msgstr ""
 
@@ -1952,9 +1946,8 @@ msgstr ""
 "Mostra una advertència quan la data de caducitat del producte comprat és més"
 " propera que la de les existències"
 
-msgid "This is due earlier than already in-stock items"
+msgid "This is due earlier than already in stock items"
 msgstr ""
-"Aquesta data de caducitat és més propera que la que ja tens en existències"
 
 msgid ""
 "When enabled, after changing/scanning a product and if all fields could be "
@@ -2235,13 +2228,10 @@ msgid "Link"
 msgstr "Enllaç"
 
 msgid ""
-"The stock overview page lists all products which are currently in-stock or "
+"The stock overview page lists all products which are currently in stock or "
 "below their min. stock amount - enable this to hide this product there "
 "always"
 msgstr ""
-"La pàgina d'existències mostra tots els productes que estan actualment en "
-"existències o tenen existències per sota de la quantitat mínima - activa "
-"aquesta opció per amagar aquest producte a aquella pàgina sempre."
 
 msgid "Print options"
 msgstr "Opcions d'impressió"
@@ -2311,8 +2301,8 @@ msgstr "No s'ha pogut imprimir"
 msgid "Only done items"
 msgstr "Només elements completats"
 
-msgid "Show only in-stock products"
-msgstr "Mostra només productes en existències"
+msgid "Show only in stock products"
+msgstr ""
 
 msgid "Product description"
 msgstr "Descripció de producte"
@@ -2333,8 +2323,8 @@ msgstr "Camp d'usuari obligatori"
 msgid "When enabled, then this field must be filled on the destination form"
 msgstr "Quan activat, aquest camp s'ha d'omplir en el formulari de dest"
 
-msgid "In-stock products"
-msgstr "Productes en existències"
+msgid "In stock products"
+msgstr ""
 
 msgid "Timestamp"
 msgstr "Marca de temps"
@@ -2705,8 +2695,8 @@ msgstr "Despeses"
 msgid "Stock report"
 msgstr "Informe d'existències"
 
-msgid "Out-of-stock products"
-msgstr "Productes sense existències"
+msgid "Out of stock products"
+msgstr ""
 
 msgid "Quantity unit for prices"
 msgstr ""
@@ -2742,4 +2732,42 @@ msgid "Scheduled tracking time"
 msgstr ""
 
 msgid "Time of tracking"
+msgstr ""
+
+msgid "Show all out of stock products"
+msgstr ""
+
+msgid ""
+"By default the stock overview page lists all products which are currently in"
+" stock or below their min. stock amount - when this is enabled, all (active)"
+" products are always shown"
+msgstr ""
+
+msgid "No price information is available for at least one ingredient"
+msgstr ""
+
+msgid ""
+"For ingredients that are only partially in stock, the in stock amount will "
+"be consumed."
+msgstr ""
+
+msgid "Can't be opened"
+msgstr ""
+
+msgid "Default purchase price type"
+msgstr ""
+
+msgid "This will be used as the default price type selection on purchase"
+msgstr ""
+
+msgid "Unspecified"
+msgstr ""
+
+msgid "Round up quantity amounts to the nearest whole number"
+msgstr ""
+
+msgid "Stock actions"
+msgstr ""
+
+msgid "List actions"
 msgstr ""

@@ -507,9 +507,6 @@ msgid ""
 "the shopping list?"
 msgstr ""
 
-msgid "Added for recipe %s"
-msgstr "Tillagd för recept %s"
-
 msgid "Manage users"
 msgstr "Hantera användare"
 
@@ -619,8 +616,8 @@ msgid ""
 "ignored)?"
 msgstr ""
 
-msgid "Removed all ingredients of recipe \"%s\" from stock"
-msgstr "Ta bort alla ingredienser i receptet \"%s\" från lager"
+msgid "Removed all in stock ingredients needed by recipe \"%s\" from stock"
+msgstr ""
 
 msgid "Consume all ingredients needed by this recipe"
 msgstr "Konsumera alla ingredienser som behövs för detta recept"
@@ -1672,9 +1669,6 @@ msgstr "Visa månadsvy i kalender"
 msgid "Desired servings"
 msgstr "Önskat antal portioner"
 
-msgid "Base: %s"
-msgstr "Bas: %s"
-
 msgid "Recipes settings"
 msgstr "Recept, inställningar"
 
@@ -1759,7 +1753,7 @@ msgstr "Redigera streckkod"
 
 msgid ""
 "Based on the prices of the default consume rule (Opened first, then first "
-"due first, then first in first out) for in-stock ingredients and on the last"
+"due first, then first in first out) for in stock ingredients and on the last"
 " price for missing ones"
 msgstr ""
 
@@ -1929,8 +1923,8 @@ msgstr ""
 "Visa en varning när datumstämpeln på den inköpta produkten är tidigare än "
 "datumstämpeln på samma produkt i lager"
 
-msgid "This is due earlier than already in-stock items"
-msgstr "Datumstämpeln är tidigare än på samma produkt som redan finns i lager"
+msgid "This is due earlier than already in stock items"
+msgstr ""
 
 msgid ""
 "When enabled, after changing/scanning a product and if all fields could be "
@@ -2191,7 +2185,7 @@ msgid "Link"
 msgstr "Länk"
 
 msgid ""
-"The stock overview page lists all products which are currently in-stock or "
+"The stock overview page lists all products which are currently in stock or "
 "below their min. stock amount - enable this to hide this product there "
 "always"
 msgstr ""
@@ -2264,8 +2258,8 @@ msgstr "Kan inte skriva ut"
 msgid "Only done items"
 msgstr "Endast klara föremål"
 
-msgid "Show only in-stock products"
-msgstr "Visa endast produkter i lager"
+msgid "Show only in stock products"
+msgstr ""
 
 msgid "Product description"
 msgstr "Produktbeskrivning"
@@ -2286,8 +2280,8 @@ msgstr "Obligatoriskt användarfält"
 msgid "When enabled, then this field must be filled on the destination form"
 msgstr ""
 
-msgid "In-stock products"
-msgstr "Produkter i lager"
+msgid "In stock products"
+msgstr ""
 
 msgid "Timestamp"
 msgstr "Tidsstämpel"
@@ -2649,7 +2643,7 @@ msgstr ""
 msgid "Stock report"
 msgstr ""
 
-msgid "Out-of-stock products"
+msgid "Out of stock products"
 msgstr ""
 
 msgid "Quantity unit for prices"
@@ -2686,4 +2680,42 @@ msgid "Scheduled tracking time"
 msgstr ""
 
 msgid "Time of tracking"
+msgstr ""
+
+msgid "Show all out of stock products"
+msgstr ""
+
+msgid ""
+"By default the stock overview page lists all products which are currently in"
+" stock or below their min. stock amount - when this is enabled, all (active)"
+" products are always shown"
+msgstr ""
+
+msgid "No price information is available for at least one ingredient"
+msgstr ""
+
+msgid ""
+"For ingredients that are only partially in stock, the in stock amount will "
+"be consumed."
+msgstr ""
+
+msgid "Can't be opened"
+msgstr ""
+
+msgid "Default purchase price type"
+msgstr ""
+
+msgid "This will be used as the default price type selection on purchase"
+msgstr ""
+
+msgid "Unspecified"
+msgstr ""
+
+msgid "Round up quantity amounts to the nearest whole number"
+msgstr ""
+
+msgid "Stock actions"
+msgstr ""
+
+msgid "List actions"
 msgstr ""

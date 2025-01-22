@@ -494,9 +494,6 @@ msgid ""
 "the shopping list?"
 msgstr ""
 
-msgid "Added for recipe %s"
-msgstr "Tarif %s için eklendi"
-
 msgid "Manage users"
 msgstr "Kullanıcıları yönet"
 
@@ -606,8 +603,8 @@ msgid ""
 "ignored)?"
 msgstr ""
 
-msgid "Removed all ingredients of recipe \"%s\" from stock"
-msgstr "Tarif \"%s\"'in tüm malzemeleri stoklardan silindi"
+msgid "Removed all in stock ingredients needed by recipe \"%s\" from stock"
+msgstr ""
 
 msgid "Consume all ingredients needed by this recipe"
 msgstr "Bu tarif için gereken tüm malzemeleri tüket"
@@ -1683,9 +1680,6 @@ msgstr "Aylık görünüm takvimini göster"
 msgid "Desired servings"
 msgstr "Istenen porsiyon"
 
-msgid "Base: %s"
-msgstr "Taban:%s"
-
 msgid "Recipes settings"
 msgstr "Tarif seçenekleri"
 
@@ -1769,12 +1763,9 @@ msgstr "Barkodu düzenle"
 
 msgid ""
 "Based on the prices of the default consume rule (Opened first, then first "
-"due first, then first in first out) for in-stock ingredients and on the last"
+"due first, then first in first out) for in stock ingredients and on the last"
 " price for missing ones"
 msgstr ""
-"Stokta bulunan malzemeler için varsayılan tüketim kuralı fiyatları (Önce "
-"açılır, sonra ilk vadesi gelir, sonra ilk giren ilk çıkar) ve eksik "
-"malzemeler için son fiyat esas alınır."
 
 msgid "Clear filter"
 msgstr "Filtreyi temizle"
@@ -1941,10 +1932,8 @@ msgstr ""
 "Satın alınan ürünün son ödeme tarihi, stoktaki bir sonraki son ödeme "
 "tarihinden önce olduğunda uyarı göster"
 
-msgid "This is due earlier than already in-stock items"
+msgid "This is due earlier than already in stock items"
 msgstr ""
-"Bu, halihazırda stokta bulunan ürünlerden daha erken bir tarihte "
-"gerçekleşecektir"
 
 msgid ""
 "When enabled, after changing/scanning a product and if all fields could be "
@@ -2240,13 +2229,10 @@ msgid "Link"
 msgstr "Bağlantı"
 
 msgid ""
-"The stock overview page lists all products which are currently in-stock or "
+"The stock overview page lists all products which are currently in stock or "
 "below their min. stock amount - enable this to hide this product there "
 "always"
 msgstr ""
-"Stoklara genel bakış sayfası, halihazırda stokta bulunan veya minimum stok "
-"değerlerinin altında olan tüm ürünleri listeler. stok miktarı - bu ürünü her"
-" zaman orada gizlemek için bunu etkinleştirin"
 
 msgid "Print options"
 msgstr "Yazdırma seçenekleri"
@@ -2318,8 +2304,8 @@ msgstr "Yazıdırılamıyor"
 msgid "Only done items"
 msgstr "Sadece tamamlanmış nesneler"
 
-msgid "Show only in-stock products"
-msgstr "Yalnızca stoktaki ürünleri göster"
+msgid "Show only in stock products"
+msgstr ""
 
 msgid "Product description"
 msgstr "Ürün Açıklaması"
@@ -2340,8 +2326,8 @@ msgstr "Zorunlu Kullanıcı Alanı"
 msgid "When enabled, then this field must be filled on the destination form"
 msgstr "Etkinleştirildiğinde bu alan hedef formda doldurulmalıdır"
 
-msgid "In-stock products"
-msgstr "Stoktaki ürünler"
+msgid "In stock products"
+msgstr ""
 
 msgid "Timestamp"
 msgstr "Zaman damgası"
@@ -2730,8 +2716,8 @@ msgstr "Harcamalar"
 msgid "Stock report"
 msgstr "Stock raporu"
 
-msgid "Out-of-stock products"
-msgstr "Stokta olmayan ürünler"
+msgid "Out of stock products"
+msgstr ""
 
 msgid "Quantity unit for prices"
 msgstr "Fiyatlar için miktar birimi"
@@ -2766,4 +2752,42 @@ msgid "Scheduled tracking time"
 msgstr ""
 
 msgid "Time of tracking"
+msgstr ""
+
+msgid "Show all out of stock products"
+msgstr ""
+
+msgid ""
+"By default the stock overview page lists all products which are currently in"
+" stock or below their min. stock amount - when this is enabled, all (active)"
+" products are always shown"
+msgstr ""
+
+msgid "No price information is available for at least one ingredient"
+msgstr ""
+
+msgid ""
+"For ingredients that are only partially in stock, the in stock amount will "
+"be consumed."
+msgstr ""
+
+msgid "Can't be opened"
+msgstr ""
+
+msgid "Default purchase price type"
+msgstr ""
+
+msgid "This will be used as the default price type selection on purchase"
+msgstr ""
+
+msgid "Unspecified"
+msgstr ""
+
+msgid "Round up quantity amounts to the nearest whole number"
+msgstr ""
+
+msgid "Stock actions"
+msgstr ""
+
+msgid "List actions"
 msgstr ""

@@ -501,9 +501,6 @@ msgstr ""
 "Alle fehlenden Zutaten für Rezept \"%s\" wirklich auf den Einkaufszettel "
 "setzen?"
 
-msgid "Added for recipe %s"
-msgstr "Hinzugefügt für Rezept %s"
-
 msgid "Manage users"
 msgstr "Benutzer verwalten"
 
@@ -617,10 +614,10 @@ msgstr ""
 "Bestand entfernt werden sollen (Zutaten markiert mit \"Nur prüfen, ob eine "
 "beliebige Menge im Bestand verfügbar ist\" werden ignoriert)?"
 
-msgid "Removed all ingredients of recipe \"%s\" from stock"
+msgid "Removed all in stock ingredients needed by recipe \"%s\" from stock"
 msgstr ""
-"Alle Zutaten, die vom Rezept \"%s\" benötigt werden, wurden aus dem Bestand "
-"entfernt"
+"Alle vorrätigen Zutaten, die vom Rezept \"%s\" benötigt werden, wurden aus "
+"dem Bestand entfernt"
 
 msgid "Consume all ingredients needed by this recipe"
 msgstr ""
@@ -1715,9 +1712,6 @@ msgstr "Einen Kalender (Monatsansicht) anzeigen"
 msgid "Desired servings"
 msgstr "Gewünschte Portionen"
 
-msgid "Base: %s"
-msgstr "Basis: %s"
-
 msgid "Recipes settings"
 msgstr "Rezepteinstellungen"
 
@@ -1802,7 +1796,7 @@ msgstr "Barcode bearbeiten"
 
 msgid ""
 "Based on the prices of the default consume rule (Opened first, then first "
-"due first, then first in first out) for in-stock ingredients and on the last"
+"due first, then first in first out) for in stock ingredients and on the last"
 " price for missing ones"
 msgstr ""
 "Basierend auf den Preisen der Standardverbrauchsregel (Geöffnete zuerst, "
@@ -1976,7 +1970,7 @@ msgstr ""
 "Eine Warnung anzeigen, wenn das Fälligkeitsdatum des gekauften Produkts vor "
 "dem nächsten Fälligkeitsdatum von bereits vorrätigen Bestandseinträgen liegt"
 
-msgid "This is due earlier than already in-stock items"
+msgid "This is due earlier than already in stock items"
 msgstr "Dies ist früher fällig als bereits vorhandene Bestandseinträge"
 
 msgid ""
@@ -2280,7 +2274,7 @@ msgid "Link"
 msgstr "Link"
 
 msgid ""
-"The stock overview page lists all products which are currently in-stock or "
+"The stock overview page lists all products which are currently in stock or "
 "below their min. stock amount - enable this to hide this product there "
 "always"
 msgstr ""
@@ -2358,7 +2352,7 @@ msgstr "Drucken nicht möglich"
 msgid "Only done items"
 msgstr "Nur erledigte Einträge"
 
-msgid "Show only in-stock products"
+msgid "Show only in stock products"
 msgstr "Nur vorrätige Produkte anzeigen"
 
 msgid "Product description"
@@ -2380,7 +2374,7 @@ msgstr "Erforderliches Benutzerfeld"
 msgid "When enabled, then this field must be filled on the destination form"
 msgstr "Wenn aktiviert, dann muss dieses Feld ausgefüllt werden"
 
-msgid "In-stock products"
+msgid "In stock products"
 msgstr "Vorrätige Produkte"
 
 msgid "Timestamp"
@@ -2776,7 +2770,7 @@ msgstr "Ausgaben"
 msgid "Stock report"
 msgstr "Bestandsbericht"
 
-msgid "Out-of-stock products"
+msgid "Out of stock products"
 msgstr "Nicht vorrätige Produkte"
 
 msgid "Quantity unit for prices"
@@ -2816,3 +2810,47 @@ msgstr "Geplante Ausführungszeit"
 
 msgid "Time of tracking"
 msgstr "Erfassungszeit"
+
+msgid "Show all out of stock products"
+msgstr "Alle nicht vorrätigen Produkte anzeigen"
+
+msgid ""
+"By default the stock overview page lists all products which are currently in"
+" stock or below their min. stock amount - when this is enabled, all (active)"
+" products are always shown"
+msgstr ""
+"Standardmäßig listet die Bestandsübersicht alle Produkte auf, die derzeit im"
+" Bestand oder unter ihrem Mindestbestand sind - aktiviere dies, um dort "
+"immer alle (aktiven) Produkte anzuzeigen"
+
+msgid "No price information is available for at least one ingredient"
+msgstr "Für mindestens eine Zutat sind keine Preisinformationen verfügbar"
+
+msgid ""
+"For ingredients that are only partially in stock, the in stock amount will "
+"be consumed."
+msgstr ""
+"Für Zutaten, die nur teilweise vorrätig sind, wird die vorrätige Menge "
+"verbraucht."
+
+msgid "Can't be opened"
+msgstr "Kann nicht geöffnet werden"
+
+msgid "Default purchase price type"
+msgstr "Standard-Einkaufspreistyp"
+
+msgid "This will be used as the default price type selection on purchase"
+msgstr ""
+"Dies wird als Standard für die Preistyp-Auswahl beim Einkauf verwendet"
+
+msgid "Unspecified"
+msgstr "Nicht spezifiziert"
+
+msgid "Round up quantity amounts to the nearest whole number"
+msgstr "Mengen auf die nächste ganze Zahl aufrunden"
+
+msgid "Stock actions"
+msgstr "Bestandsaktionen"
+
+msgid "List actions"
+msgstr "Listenaktionen"

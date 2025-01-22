@@ -483,9 +483,6 @@ msgid ""
 "the shopping list?"
 msgstr ""
 
-msgid "Added for recipe %s"
-msgstr "已加進食譜「%s」"
-
 msgid "Manage users"
 msgstr "管理使用者"
 
@@ -590,8 +587,8 @@ msgid ""
 "ignored)?"
 msgstr ""
 
-msgid "Removed all ingredients of recipe \"%s\" from stock"
-msgstr "已從庫存中移除了食譜「%s」的所有食材"
+msgid "Removed all in stock ingredients needed by recipe \"%s\" from stock"
+msgstr ""
 
 msgid "Consume all ingredients needed by this recipe"
 msgstr "消耗此食譜所需的所有食材"
@@ -1595,9 +1592,6 @@ msgstr "顯示月視圖日曆"
 msgid "Desired servings"
 msgstr "需要份數"
 
-msgid "Base: %s"
-msgstr "按: %s"
-
 msgid "Recipes settings"
 msgstr "食譜設定"
 
@@ -1681,9 +1675,9 @@ msgstr "編輯條碼"
 
 msgid ""
 "Based on the prices of the default consume rule (Opened first, then first "
-"due first, then first in first out) for in-stock ingredients and on the last"
+"due first, then first in first out) for in stock ingredients and on the last"
 " price for missing ones"
-msgstr "根據庫存中食材的預設消耗規則（最先開封，然後最先到期，最後先入先出）的價格以及庫存不足的食材的上次價格"
+msgstr ""
 
 msgid "Clear filter"
 msgstr "清除過濾條件"
@@ -1844,7 +1838,7 @@ msgid ""
 "the next due date in stock"
 msgstr "當所購買物品的到期日期比庫存物品的到期日期早時顯示警告"
 
-msgid "This is due earlier than already in-stock items"
+msgid "This is due earlier than already in stock items"
 msgstr ""
 
 msgid ""
@@ -2096,10 +2090,10 @@ msgid "Link"
 msgstr ""
 
 msgid ""
-"The stock overview page lists all products which are currently in-stock or "
+"The stock overview page lists all products which are currently in stock or "
 "below their min. stock amount - enable this to hide this product there "
 "always"
-msgstr "庫存總覽頁面會列出庫存中的所有物品。啟用此選項以在庫存總覽頁面中永久隱藏此物品。"
+msgstr ""
 
 msgid "Print options"
 msgstr "列印選項"
@@ -2169,8 +2163,8 @@ msgstr "無法列印"
 msgid "Only done items"
 msgstr "僅已完成項目"
 
-msgid "Show only in-stock products"
-msgstr "只顯示有庫存的物品"
+msgid "Show only in stock products"
+msgstr ""
 
 msgid "Product description"
 msgstr "物品說明"
@@ -2191,7 +2185,7 @@ msgstr "此欄位為必填項目"
 msgid "When enabled, then this field must be filled on the destination form"
 msgstr "啟用後，此欄位在目標表單上為必填項目"
 
-msgid "In-stock products"
+msgid "In stock products"
 msgstr ""
 
 msgid "Timestamp"
@@ -2542,7 +2536,7 @@ msgstr ""
 msgid "Stock report"
 msgstr ""
 
-msgid "Out-of-stock products"
+msgid "Out of stock products"
 msgstr ""
 
 msgid "Quantity unit for prices"
@@ -2576,4 +2570,42 @@ msgid "Scheduled tracking time"
 msgstr ""
 
 msgid "Time of tracking"
+msgstr ""
+
+msgid "Show all out of stock products"
+msgstr ""
+
+msgid ""
+"By default the stock overview page lists all products which are currently in"
+" stock or below their min. stock amount - when this is enabled, all (active)"
+" products are always shown"
+msgstr ""
+
+msgid "No price information is available for at least one ingredient"
+msgstr ""
+
+msgid ""
+"For ingredients that are only partially in stock, the in stock amount will "
+"be consumed."
+msgstr ""
+
+msgid "Can't be opened"
+msgstr ""
+
+msgid "Default purchase price type"
+msgstr ""
+
+msgid "This will be used as the default price type selection on purchase"
+msgstr ""
+
+msgid "Unspecified"
+msgstr ""
+
+msgid "Round up quantity amounts to the nearest whole number"
+msgstr ""
+
+msgid "Stock actions"
+msgstr ""
+
+msgid "List actions"
 msgstr ""
