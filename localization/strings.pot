@@ -1540,9 +1540,6 @@ msgstr ""
 msgid "Desired servings"
 msgstr ""
 
-msgid "Base: %s"
-msgstr ""
-
 msgid "Recipes settings"
 msgstr ""
 

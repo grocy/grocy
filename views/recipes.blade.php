@@ -444,7 +444,6 @@
 								'decimals' => $userSettings['stock_decimal_places_amounts'],
 								'value' => $recipe->desired_servings,
 								'additionalAttributes' => 'data-recipe-id="' . $recipe->id . '"',
-								'hint' => $__t('Base: %s', $recipe->base_servings),
 								'additionalCssClasses' => 'locale-number-input locale-number-quantity-amount'
 								))
 							</div>
