@@ -552,3 +552,10 @@ canvas.drawingBuffer {
 	pointer-events: none;
 	opacity: 0.5;
 }
+
+@media (max-width: 992px) {
+
+	#table-filter-row div:not(:first-of-type) {
+		margin-top: 8px;
+	}
+}
