@@ -91,7 +91,8 @@
 
 			@include('components.shoppinglocationpicker', array(
 			'label' => 'Store',
-			'shoppinglocations' => $shoppinglocations
+			'shoppinglocations' => $shoppinglocations,
+			'hint' => $__t('This will apply to added products'),
 			))
 			@else
 			<input type="hidden"
