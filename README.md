@@ -70,7 +70,7 @@ If you run Grocy on Linux, there is also `update.sh` (remember to make the scrip
 
 Grocy is fully localizable - the default language is English (integrated into code), a German localization is always maintained by me.
 
-You can easily help translating Grocy on [Transifex](https://app.transifex.com/grocy/grocy/dashboard/) if your language is incomplete or not available yet.
+You can easily help translating Grocy on [Transifex](https://explore.transifex.com/grocy/grocy/) if your language is incomplete or not available yet.
 
 The default language can be set in `data/config.php`, e. g. `Setting('DEFAULT_LOCALE', 'de');` and there is also a user setting (see the user settings page) to set a different language per user.
 
