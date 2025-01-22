@@ -70,13 +70,13 @@ If you run Grocy on Linux, there is also `update.sh` (remember to make the scrip
 
 Grocy is fully localizable - the default language is English (integrated into code), a German localization is always maintained by me.
 
-You can easily help translating Grocy on [Transifex](https://www.transifex.com/grocy/grocy/dashboard/) if your language is incomplete or not available yet.
+You can easily help translating Grocy on [Transifex](https://app.transifex.com/grocy/grocy/dashboard/) if your language is incomplete or not available yet.
 
-The default language can be set in `data/config.php`, e. g. `Setting('DEFAULT_LOCALE', 'it');` and there is also a user setting (see the user settings page) to set a different language per user.
+The default language can be set in `data/config.php`, e. g. `Setting('DEFAULT_LOCALE', 'de');` and there is also a user setting (see the user settings page) to set a different language per user.
 
 The [pre-release demo](https://demo-prerelease.grocy.info) is available for any translation which is at least 70 % complete and will pull the translations from Transifex 10 minutes past every hour, so you can have a kind of instant preview of your contributed translations. Thank you!
 
-Also any translation which once reached a completion level of 70 % ([`strings` resource](https://www.transifex.com/grocy/grocy/strings/)) will be included in releases.
+Also any translation which once reached a completion level of 70 % ([`strings` resource](https://app.transifex.com/grocy/grocy/strings/)) will be included in releases.
 
 _RTL languages are unfortunately not yet supported._
 
@@ -96,7 +96,7 @@ The web frontend uses exactly this API for pretty much everything. So everything
 
 Some fields (with a barcode icon above) also allow to select a value by scanning a barcode. It works best when your barcode reader prefixes every barcode with a letter which is normally not part of a item name (I use a `$`) and sends a `TAB` after a scan.
 
-Additionally it's also possible to use your device camera to scan a barcode by using the camera button on the right side of the corresponding field (powered by [Quagga2](https://github.com/ericblade/quagga2), totally offline / client-side camera stream processing, please note due to browser security restrictions, this only works when serving Grocy via a secure connection (`https://`)). Quick video demo: <https://www.youtube.com/watch?v=Y5YH6IJFnfc>
+Additionally it's also possible to use your device camera to scan a barcode by using the camera button on the right side of the corresponding input field (powered by [Quagga2](https://github.com/ericblade/quagga2), totally offline / client-side camera stream processing, please note due to browser security restrictions, this only works when serving Grocy via a secure connection (`https://`)). [Here](https://www.youtube.com/watch?v=veezFX4X1JU) and [there](https://www.youtube.com/watch?v=Y5YH6IJFnfc) are quick video demos of that.
 
 _My personal recommendation: Use a USB barcode laser scanner. They are cheap and work 1000 % better, faster, under any lighting condition and from any angle._
 
@@ -105,11 +105,11 @@ _My personal recommendation: Use a USB barcode laser scanner. They are cheap and
 For (productivity) reasons all date (and time) input (and display) fields use the ISO-8601 format regardless of localization.
 The following shorthands are available:
 - `MMDD` gets expanded to the given day on the current year, if > today, or to the given day next year, if < today, in proper notation
-  - Example: `0517` will be converted to `2024-05-17`
+  - Example: `0517` will be converted to `2025-05-17`
 - `YYYYMMDD` gets expanded to the proper ISO-8601 notation
-  - Example: `20240417` will be converted to `2024-04-17`
+  - Example: `20250417` will be converted to `2025-04-17`
 - `YYYYMMe` or `YYYYMM+` gets expanded to the end of the given month in the given year in proper notation
-  - Example: `202407e` will be converted to `2024-07-31`
+  - Example: `202507e` will be converted to `2025-07-31`
 - `[+/-]n[d/m/y]` gets expanded to a date relative to today, while adding (**+**) or subtracting (**-**) the **n**umber of **d**ays/**m**onths/**y**ears, in proper notation
   - Example: `+1m` will be converted to the same day next month
 - `x` gets expanded to `2999-12-31` (which is an alias for "never overdue")
@@ -127,7 +127,7 @@ Example: Button "**P** Add as new product" can be "pressed" by using the `P` key
 
 Products can be directly added to the database via looking them up against external services by a barcode.
 
-This can be done in-place using the product picker workflow "External barcode lookup" (the workflow dialog is displayed when entering something unknown in any product input field).
+This can be done in-place using the product picker workflow "External barcode lookup" (the workflow dialog is displayed when entering something unknown in any product input field) Quick video demo: <https://www.youtube.com/watch?v=-moXPA-VvGc>.
 
 A plugin for [Open Food Facts](https://world.openfoodfacts.org/) is included and used by default (see the `data/config.php` option `STOCK_BARCODE_LOOKUP_PLUGIN`).
 
