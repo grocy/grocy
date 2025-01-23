@@ -9,7 +9,7 @@
 	<div class="col">
 		<div class="title-related-links">
 			<h2 class="title">
-				@yield('title')
+				@yield('title')<br>
 				@if($product != null)
 				<span class="text-muted font-italic small">{{ $__t('Product') }} <strong>{{ $product->name }}</strong></span>
 				@endif
