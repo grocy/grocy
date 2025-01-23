@@ -8,17 +8,6 @@
 $('#qu-conversions-resolved-table tbody').removeClass("d-none");
 quConversionsResolvedTable.columns.adjust().draw();
 
-$("#search").on("keyup", Delay(function()
-{
-	var value = $(this).val();
-	if (value === "all")
-	{
-		value = "";
-	}
-
-	quConversionsResolvedTable.search(value).draw();
-}, 500));
-
 $("#quantity-unit-filter").on("change", function()
 {
 	var value = $("#quantity-unit-filter option:selected").text();
@@ -32,7 +21,6 @@ $("#quantity-unit-filter").on("change", function()
 
 $("#clear-filter-button").on("click", function()
 {
-	$("#search").val("");
 	$("#quantity-unit-filter").val("all");
 	quConversionsResolvedTable.column([quConversionsResolvedTable.colReorder.transpose(1), quConversionsResolvedTable.colReorder.transpose(2)]).search("").draw();
 	quConversionsResolvedTable.search("").draw();

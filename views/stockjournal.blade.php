@@ -89,7 +89,7 @@
 		</div>
 	</div>
 	@endif
-	<div class="col-12 col-md-6 col-xl-2 mt-1">
+	<div class="col-12 col-md-6 col-xl-2 @if(!$embedded) mt-1 @endif">
 		<div class="input-group">
 			<div class="input-group-prepend">
 				<span class="input-group-text"><i class="fa-solid fa-filter"></i>&nbsp;{{ $__t('User') }}</span>

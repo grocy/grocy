@@ -33,17 +33,6 @@
 	<div class="col-12 col-md-6 col-xl-2">
 		<div class="input-group">
 			<div class="input-group-prepend">
-				<span class="input-group-text"><i class="fa-solid fa-search"></i></span>
-			</div>
-			<input type="text"
-				id="search"
-				class="form-control"
-				placeholder="{{ $__t('Search') }}">
-		</div>
-	</div>
-	<div class="col-12 col-md-6 col-xl-2">
-		<div class="input-group">
-			<div class="input-group-prepend">
 				<span class="input-group-text"><i class="fa-solid fa-filter"></i>&nbsp;{{ $__t('Quantity unit') }}</span>
 			</div>
 			<select class="custom-control custom-select"
