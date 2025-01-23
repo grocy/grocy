@@ -215,6 +215,8 @@ $('#product_id_text_input').on('blur', function(e)
 					{
 						Grocy.Components.ProductPicker.PopupOpen = false;
 						Grocy.Components.ProductPicker.SetValue('');
+						Grocy.Components.ProductPicker.GetInputElement().focus();
+						Grocy.Components.ProductPicker.GetInputElement().select();
 					}
 				},
 				addnewproduct: {
@@ -270,6 +272,8 @@ $('#product_id_text_input').on('blur', function(e)
 								{
 									toastr.warning(__t("Nothing was found for the given barcode"));
 									Grocy.FrontendHelpers.EndUiBusy($("form").first().attr("id"));
+									Grocy.Components.ProductPicker.GetInputElement().focus();
+									Grocy.Components.ProductPicker.GetInputElement().select();
 								}
 								else
 								{
@@ -332,6 +336,8 @@ $('#product_id_text_input').on('blur', function(e)
 									{
 										Grocy.Components.ProductPicker.PopupOpen = false;
 										Grocy.Components.ProductPicker.SetValue('');
+										Grocy.Components.ProductPicker.GetInputElement().focus();
+										Grocy.Components.ProductPicker.GetInputElement().select();
 									},
 									size: 'large',
 									backdrop: true,
