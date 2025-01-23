@@ -1,14 +1,8 @@
-> ⚠️ xxxBREAKING CHANGESxxx
-
-> ❗ xxxImportant upgrade informationXXX
-
-> 💡 xxxMinor upgrade informationXXX
-
 ### New Feature: External Barcode Lookups as a product picker workflow + a built-in Plugin for Open Food Facts
 
 - Added a new product picker workflow "External barcode lookup"
   - This executes the configured barcode lookup plugin with the given barcode
-  - If the lookup was successful, the product edit page of the created product is displayed, where the product setup can be completed (if required)
+  - If the lookup was successful, the product edit page of the created product is displayed where the product setup can be completed (if required)
   - After that, the transaction is continued with that product as usual
   - A plugin for [Open Food Facts](https://world.openfoodfacts.org/) is now included and used by default (see the `config.php` option `STOCK_BARCODE_LOOKUP_PLUGIN` and maybe change it as needed)
     - The product name and image (and of course the barcode itself) are taken over from Open Food Facts to the product being looked up
@@ -60,7 +54,7 @@
 - When no price information is available for at least one ingredient, a red exclamation mark is now displayed next to the recipe total cost information
 - When clicking a recipe ingredient / product name, the product card will now be opened like on many other places throughout Grocy
 - Fixed that calories/costs of recipe ingredients were wrong when the ingredient option "Only check if any amount is in stock" was set and the on the ingredient used quantity unit was different from the product's QU stock
-- Fixed that multi-nested recipes (at least 3 levels of "included recipes") resulted in wrong amounts/costs/calories calculated for the ingredients orginating in those nested recipes (also affected the meal plan)
+- Fixed that multi-nested recipes (at least 3 levels of "included recipes") resulted in wrong amounts/costs/calories calculated for the ingredients originating in those nested recipes (also affected the meal plan)
 
 ### Meal plan
 
@@ -69,26 +63,10 @@
 ### Chores
 
 - Added a possibility to see if a scheduled schedule chore was tracked/done on time or not:
-  - When tracking chores, the "Next estimated tracking date" (so the current scheduled time) is now also stored in the corresponding chore journal entry and displayed in new column "Scheduled tracking time" on the chores journal page
+  - When tracking chores, the "Next estimated tracking date" (so the current scheduled time) is now also stored in the corresponding chore journal entry and displayed in a new column "Scheduled tracking time" on the chores journal page
   - When the "Tracked time" is later than the "Scheduled tracking time", the corresponding chore journal entry is now highlighted in red on the chores journal page
 - Added a new column "Time of tracking" on the chores journal page (displays the time when the tracking actually happened, hidden by default)
 - Added a new option "Swap track next schedule / track now buttons" (chores settings / top right corner settings menu) to swap the "Track next chore schedule" / "Track chore execution now" buttons/menu items on the chores overview page (defaults to disabled, so no changed behavior when not configured)
-
-### Calendar
-
-- xxx
-
-### Tasks
-
-- xxx
-
-### Batteries
-
-- xxx
-
-### Equipment
-
-- xxx
 
 ### Userfields
 
@@ -106,7 +84,3 @@
   - Wide dialogs (e.g. all showing a table, like showing stock entries of a product from the stock overview more/context menu per line) now use the full screen width
 - Improved the handling of the initial field focus on form pages
 - The previously manually necessary update steps (e.g. emptying the `data/viewcache` directory) are now fully automated, so no need to do this manually after this and future updates
-
-### API
-
-- xxx
