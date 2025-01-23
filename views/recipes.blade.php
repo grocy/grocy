@@ -66,7 +66,7 @@
 
 		<div class="row collapse d-md-flex"
 			id="table-filter-row">
-			<div class="col-12 col-md-5 col-xl-5">
+			<div class="col-12 col-md-5">
 				<div class="input-group">
 					<div class="input-group-prepend">
 						<span class="input-group-text"><i class="fa-solid fa-search"></i></span>
@@ -78,7 +78,7 @@
 				</div>
 			</div>
 
-			<div class="col-12 col-md-5 col-xl-5">
+			<div class="col-12 col-md-5">
 				<div class="input-group">
 					<div class="input-group-prepend">
 						<span class="input-group-text"><i class="fa-solid fa-filter"></i>&nbsp;{{ $__t('Status') }}</span>

@@ -147,7 +147,7 @@
 
 <div class="row collapse d-md-flex d-print-none hide-on-fullscreen-card"
 	id="table-filter-row">
-	<div class="col-12 col-md-5">
+	<div class="col-12 col-md-6 col-xl-3">
 		<div class="input-group">
 			<div class="input-group-prepend">
 				<span class="input-group-text"><i class="fa-solid fa-search"></i></span>
@@ -158,7 +158,7 @@
 				placeholder="{{ $__t('Search') }}">
 		</div>
 	</div>
-	<div class="col-12 col-md-4 col-lg-5">
+	<div class="col-12 col-md-6 col-xl-3">
 		<div class="input-group">
 			<div class="input-group-prepend">
 				<span class="input-group-text"><i class="fa-solid fa-filter"></i>&nbsp;{{ $__t('Status') }}</span>

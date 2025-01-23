@@ -37,7 +37,7 @@
 							</tr>
 							<tr>
 								<td class="text-right">{{ $__t('Released on') }}</td>
-								<td><code>{{ $versionInfo->ReleaseDate }}</code> <time class="timeago timeago-contextual"
+								<td><code>{{ $versionInfo->ReleaseDate }}</code> <time class="timeago timeago-contextual text-muted"
 										datetime="{{ $versionInfo->ReleaseDate }}"></time></td>
 							</tr>
 							<tr>
@@ -79,7 +79,7 @@
 							href="#">
 							Version <span class="font-weight-bold">{{ $changelogItem['version'] }}</span><br>
 							{{ $__t('Released on') }} <span class="font-weight-bold">{{ $changelogItem['release_date'] }}</span>
-							<time class="timeago timeago-contextual"
+							<time class="timeago timeago-contextual text-muted"
 								datetime="{{ $changelogItem['release_date'] }}"></time>
 						</a>
 					</div>
