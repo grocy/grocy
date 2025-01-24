@@ -210,13 +210,15 @@ $('#product_id_text_input').on('blur', function(e)
 			var buttons = {
 				cancel: {
 					label: __t('Cancel'),
-					className: 'btn-secondary responsive-button',
+					className: 'btn-secondary responsive-button productpicker-workflow-cancel-button',
 					callback: function()
 					{
 						Grocy.Components.ProductPicker.PopupOpen = false;
-						Grocy.Components.ProductPicker.SetValue('');
-						Grocy.Components.ProductPicker.GetInputElement().focus();
-						Grocy.Components.ProductPicker.GetInputElement().select();
+						setTimeout(function()
+						{
+							Grocy.Components.ProductPicker.GetInputElement().focus();
+							Grocy.Components.ProductPicker.GetInputElement().select();
+						}, 500);
 					}
 				},
 				addnewproduct: {
@@ -272,8 +274,11 @@ $('#product_id_text_input').on('blur', function(e)
 								{
 									toastr.warning(__t("Nothing was found for the given barcode"));
 									Grocy.FrontendHelpers.EndUiBusy($("form").first().attr("id"));
-									Grocy.Components.ProductPicker.GetInputElement().focus();
-									Grocy.Components.ProductPicker.GetInputElement().select();
+									setTimeout(function()
+									{
+										Grocy.Components.ProductPicker.GetInputElement().focus();
+										Grocy.Components.ProductPicker.GetInputElement().select();
+									}, 500);
 								}
 								else
 								{
@@ -334,35 +339,32 @@ $('#product_id_text_input').on('blur', function(e)
 									title: __t('Create or assign product'),
 									onEscape: function()
 									{
-										Grocy.Components.ProductPicker.PopupOpen = false;
-										Grocy.Components.ProductPicker.SetValue('');
-										Grocy.Components.ProductPicker.GetInputElement().focus();
-										Grocy.Components.ProductPicker.GetInputElement().select();
+										$(".productpicker-workflow-cancel-button").click();
 									},
 									size: 'large',
 									backdrop: true,
 									closeButton: false,
 									buttons: buttons,
-									className: "wider"
+									className: "wider custom-escape-key-handling",
 								}).on('keypress', function(e)
 								{
 									if (e.key === 'B' || e.key === 'b')
 									{
 										$('.add-new-barcode-dialog-button').not(".d-none").click();
 									}
-									if (e.key === 'p' || e.key === 'P')
+									else if (e.key === 'p' || e.key === 'P')
 									{
 										$('.add-new-product-dialog-button').not(".d-none").click();
 									}
-									if (e.key === 'a' || e.key === 'A')
+									else if (e.key === 'a' || e.key === 'A')
 									{
 										$('.add-new-product-with-barcode-dialog-button').not(".d-none").click();
 									}
-									if (e.key === 'c' || e.key === 'C')
+									else if (e.key === 'c' || e.key === 'C')
 									{
 										$('.retry-camera-scanning-button').not(".d-none").click();
 									}
-									if (e.key === 'e' || e.key === 'E')
+									else if (e.key === 'e' || e.key === 'E')
 									{
 										$('.add-new-product-plugin-dialog-button').not(".d-none").click();
 									}
@@ -374,7 +376,10 @@ $('#product_id_text_input').on('blur', function(e)
 								Grocy.Components.ProductPicker.Clear();
 								Grocy.FrontendHelpers.ValidateForm('consume-form');
 								Grocy.Components.ProductPicker.ShowCustomError(__t('This product is not in stock'));
-								Grocy.Components.ProductPicker.GetInputElement().focus();
+								setTimeout(function()
+								{
+									Grocy.Components.ProductPicker.GetInputElement().focus();
+								}, 500);
 							}
 						},
 						function(xhr)

@@ -757,7 +757,7 @@ $(window).on("message", function(e)
 	}
 	else if (data.Message == "CloseLastModal")
 	{
-		$(".modal:visible").last().modal("hide");
+		$(".modal:visible").not(".custom-escape-key-handling").last().modal("hide");
 	}
 	else if (data.Message == "ResizeResponsiveEmbeds")
 	{
