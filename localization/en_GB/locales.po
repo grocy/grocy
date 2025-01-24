@@ -95,3 +95,15 @@ msgstr "Finnish"
 
 msgid "ca"
 msgstr "Catalan"
+
+msgid "lt"
+msgstr "Lithuanian"
+
+msgid "uk"
+msgstr "Ukrainian"
+
+msgid "ro_RO"
+msgstr "Romanian"
+
+msgid "et_EE"
+msgstr "Estonian"

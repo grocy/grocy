@@ -5,8 +5,8 @@
 # duck. <me@duck.me.uk>, 2020
 # John Coles <john@johncoles.com>, 2020
 # w ralb <g.frcy.trnsfx@barlowhome.org>, 2021
-# Andi Chandler <andi@gowling.com>, 2023
 # George Aston, 2024
+# Andi Chandler <andi@gowling.com>, 2025
 # 
 msgid ""
 msgstr ""
@@ -14,7 +14,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: George Aston, 2024\n"
+"Last-Translator: Andi Chandler <andi@gowling.com>, 2025\n"
 "Language-Team: English (United Kingdom) (https://app.transifex.com/grocy/teams/93189/en_GB/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -610,7 +610,7 @@ msgstr ""
 "will be ignored)"
 
 msgid "Removed all in stock ingredients needed by recipe \"%s\" from stock"
-msgstr ""
+msgstr "Removed all in stock ingredients needed by recipe \"%s\" from stock"
 
 msgid "Consume all ingredients needed by this recipe"
 msgstr "Consume all ingredients needed by this recipe"
@@ -865,8 +865,8 @@ msgstr "Not opened"
 
 msgid "Opened"
 msgid_plural "Opened"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Opened"
+msgstr[1] "Opened"
 
 msgid "%s opened"
 msgstr "%s opened"
@@ -1768,6 +1768,9 @@ msgid ""
 "due first, then first in first out) for in stock ingredients and on the last"
 " price for missing ones"
 msgstr ""
+"Based on the prices of the default consume rule (Opened first, then first "
+"due first, then first in first out) for in stock ingredients and on the last"
+" price for missing ones"
 
 msgid "Clear filter"
 msgstr "Clear filter"
@@ -1935,7 +1938,7 @@ msgstr ""
 "the next due date in stock"
 
 msgid "This is due earlier than already in stock items"
-msgstr ""
+msgstr "This is due earlier than already in stock items"
 
 msgid ""
 "When enabled, after changing/scanning a product and if all fields could be "
@@ -2234,6 +2237,9 @@ msgid ""
 "below their min. stock amount - enable this to hide this product there "
 "always"
 msgstr ""
+"The stock overview page lists all products which are currently in stock or "
+"below their min. stock amount - enable this to hide this product there "
+"always"
 
 msgid "Print options"
 msgstr "Print options"
@@ -2306,7 +2312,7 @@ msgid "Only done items"
 msgstr "Only done items"
 
 msgid "Show only in stock products"
-msgstr ""
+msgstr "Show only in stock products"
 
 msgid "Product description"
 msgstr "Product description"
@@ -2328,7 +2334,7 @@ msgid "When enabled, then this field must be filled on the destination form"
 msgstr "When enabled, then this field must be filled on the destination form"
 
 msgid "In stock products"
-msgstr ""
+msgstr "In stock products"
 
 msgid "Timestamp"
 msgstr "Timestamp"
@@ -2715,7 +2721,7 @@ msgid "Stock report"
 msgstr "Stock report"
 
 msgid "Out of stock products"
-msgstr ""
+msgstr "Out of stock products"
 
 msgid "Quantity unit for prices"
 msgstr "Quantity unit for prices"
@@ -2733,7 +2739,7 @@ msgstr[0] "This means 1 label will be printed"
 msgstr[1] "This means %1$s labels will be printed"
 
 msgid "External barcode lookup"
-msgstr ""
+msgstr "External barcode lookup"
 
 msgid "Error while executing the barcode lookup plugin"
 msgstr "Error while executing the barcode lookup plugin"
@@ -2745,48 +2751,53 @@ msgid "Configure colors"
 msgstr "Configure colours"
 
 msgid "Swap track next schedule / track now buttons"
-msgstr ""
+msgstr "Swap track next schedule / track now buttons"
 
 msgid "Scheduled tracking time"
-msgstr ""
+msgstr "Scheduled tracking time"
 
 msgid "Time of tracking"
-msgstr ""
+msgstr "Time of tracking"
 
 msgid "Show all out of stock products"
-msgstr ""
+msgstr "Show all out of stock products"
 
 msgid ""
 "By default the stock overview page lists all products which are currently in"
 " stock or below their min. stock amount - when this is enabled, all (active)"
 " products are always shown"
 msgstr ""
+"By default the stock overview page lists all products which are currently in"
+" stock or below their min. stock amount - when this is enabled, all (active)"
+" products are always shown"
 
 msgid "No price information is available for at least one ingredient"
-msgstr ""
+msgstr "No price information is available for at least one ingredient"
 
 msgid ""
 "For ingredients that are only partially in stock, the in stock amount will "
 "be consumed."
 msgstr ""
+"For ingredients that are only partially in stock, the in stock amount will "
+"be consumed."
 
 msgid "Can't be opened"
-msgstr ""
+msgstr "Can't be opened"
 
 msgid "Default purchase price type"
-msgstr ""
+msgstr "Default purchase price type"
 
 msgid "This will be used as the default price type selection on purchase"
-msgstr ""
+msgstr "This will be used as the default price type selection on purchase"
 
 msgid "Unspecified"
-msgstr ""
+msgstr "Unspecified"
 
 msgid "Round up quantity amounts to the nearest whole number"
-msgstr ""
+msgstr "Round up quantity amounts to the nearest whole number"
 
 msgid "Stock actions"
-msgstr ""
+msgstr "Stock actions"
 
 msgid "List actions"
-msgstr ""
+msgstr "List actions"
