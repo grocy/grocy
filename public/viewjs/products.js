@@ -32,7 +32,7 @@ $("#product-group-filter").on("change", function()
 	}
 	else
 	{
-		productsTable.column(productsTable.colReorder.transpose(6)).search("^" + value + "$", true, false).draw();
+		productsTable.column(productsTable.colReorder.transpose(6)).search("^" + $.fn.dataTable.util.escapeRegex(value) + "$", true, false).draw();
 	}
 
 });

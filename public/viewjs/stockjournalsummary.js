@@ -18,7 +18,7 @@ $("#product-filter").on("change", function()
 	}
 	else
 	{
-		journalSummaryTable.column(journalSummaryTable.colReorder.transpose(1)).search("^" + text + "$", true, false).draw();
+		journalSummaryTable.column(journalSummaryTable.colReorder.transpose(1)).search("^" + $.fn.dataTable.util.escapeRegex(text) + "$", true, false).draw();
 	}
 });
 

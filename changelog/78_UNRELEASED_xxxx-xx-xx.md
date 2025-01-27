@@ -6,11 +6,13 @@
 
 ### New Feature: xxxx
 
-- Fixed that the built-in Open Food Facts external barcode lookup plugin used the staging environment of the Open Food Facts API instead of the production one
+- xxx
 
 ### Stock
 
-- xxx
+- Fixed that the built-in Open Food Facts external barcode lookup plugin used the staging environment of the Open Food Facts API instead of the production one
+- Fixed that the product group filter on the products page (master data) didn't work when the selected product group contained special characters
+- Fixed that the product filter on the stock journal summary page didn't work when the selected product contained special characters
 
 ### Shopping list
 
