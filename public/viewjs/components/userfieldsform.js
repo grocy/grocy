@@ -394,3 +394,8 @@ $(".userfield-input").change(function(e)
 		Grocy.FrontendHelpers.ValidateForm(this.id);
 	});
 });
+
+$(".userfield-input.selectpicker").on("changed.bs.select", function()
+{
+	$(this).addClass("is-dirty");
+});

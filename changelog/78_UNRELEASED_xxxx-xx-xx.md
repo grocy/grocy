@@ -48,7 +48,7 @@
 
 ### Userfields
 
-- xxx
+- Fixed that saving Userfields of type "Select list (multiple items can be selected)" did not work
 
 ### General
 
