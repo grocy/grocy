@@ -16,7 +16,7 @@
 
 ### Shopping list
 
-- xxx
+- Optimized that non-number amounts are now prevented on database level (was infamously a problem when using specific community contributed alternative clients)
 
 ### Recipes
 
