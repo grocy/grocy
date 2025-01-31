@@ -8,7 +8,7 @@ BEGIN
 		AND id = NEW.id;
 
 	UPDATE shopping_list
-	SET amount = 1
+	SET amount = 0
 	WHERE TYPEOF(amount) NOT IN ('integer', 'real')
 		AND id = NEW.id;
 END;
@@ -21,7 +21,7 @@ BEGIN
 		AND id = NEW.id;
 
 	UPDATE shopping_list
-	SET amount = 1
+	SET amount = 0
 	WHERE TYPEOF(amount) NOT IN ('integer', 'real')
 		AND id = NEW.id;
 END;
@@ -31,5 +31,5 @@ SET qu_id = (SELECT qu_id_purchase FROM products WHERE id = product_id)
 WHERE IFNULL(qu_id, '') = '';
 
 UPDATE shopping_list
-SET amount = 1
+SET amount = 0
 WHERE TYPEOF(amount) NOT IN ('integer', 'real');
