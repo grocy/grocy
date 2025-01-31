@@ -523,9 +523,9 @@ mime-types@^2.0.1, mime-types@^2.1.12, mime-types@~2.1.19:
     mime-db "1.52.0"
 
 moment-timezone@^0.5.34:
-  version "0.5.46"
-  resolved "https://registry.yarnpkg.com/moment-timezone/-/moment-timezone-0.5.46.tgz#a21aa6392b3c6b3ed916cd5e95858a28d893704a"
-  integrity sha512-ZXm9b36esbe7OmdABqIWJuBBiLLwAjrN7CE+7sYdCCx82Nabt1wHDj8TVseS59QIlfFPbOoiBPm6ca9BioG4hw==
+  version "0.5.47"
+  resolved "https://registry.yarnpkg.com/moment-timezone/-/moment-timezone-0.5.47.tgz#d4d1a21b78372d914d6d69ae285454732a429749"
+  integrity sha512-UbNt/JAWS0m/NJOebR0QMRHBk0hu03r5dx9GK8Cs0AS3I81yDcOc9k+DytPItgVvBP7J6Mf6U2n3BPAacAV9oA==
   dependencies:
     moment "^2.29.4"
 
@@ -681,9 +681,9 @@ summernote@^0.9.1:
   integrity sha512-5Hfuey6+N0XIbk8ZpkGEVDmrkRVRHZWKBhw/072i9/TJLaWUKboB+KOyyd6AzDP2CQs1O6or4zRTU8HY30kt4w==
 
 swagger-ui-dist@^5.2.0:
-  version "5.18.2"
-  resolved "https://registry.yarnpkg.com/swagger-ui-dist/-/swagger-ui-dist-5.18.2.tgz#62013074374d272c04ed3030704b88db5aa8c0b7"
-  integrity sha512-J+y4mCw/zXh1FOj5wGJvnAajq6XgHOyywsa9yITmwxIlJbMqITq3gYRZHaeqLVH/eV/HOPphE6NjF+nbSNC5Zw==
+  version "5.18.3"
+  resolved "https://registry.yarnpkg.com/swagger-ui-dist/-/swagger-ui-dist-5.18.3.tgz#3ea990ed8b232f4c1e635e799d3da8f42c911486"
+  integrity sha512-G33HFW0iFNStfY2x6QXO2JYVMrFruc8AZRX0U/L71aA7WeWfX2E5Nm8E/tsipSZJeIZZbSjUDeynLK/wcuNWIw==
   dependencies:
     "@scarf/scarf" "=1.4.0"
 

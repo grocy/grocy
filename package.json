@@ -37,12 +37,5 @@
 		"swagger-ui-dist": "^5.2.0",
 		"tempusdominus-bootstrap-4": "^5.39.2",
 		"toastr": "^2.1.4"
-	},
-	"scripts": {
-		"create_release_package": "./.devtools/create_release_package.bat",
-		"install_dependencies": "./.devtools/install_dependencies.bat",
-		"transifex_download": "./.devtools/transifex_download.bat",
-		"transifex_upload": "./.devtools/transifex_upload.bat",
-		"update_dependencies": "./.devtools/update_dependencies.bat"
 	}
 }

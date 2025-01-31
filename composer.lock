@@ -1055,16 +1055,16 @@
         },
         {
             "name": "illuminate/bus",
-            "version": "v11.39.1",
+            "version": "v11.41.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/bus.git",
-                "reference": "3d5d67a07c73259aafba0514b4e34fbbc3965aa1"
+                "reference": "ed6dd9b36ff18a57a951bd5946f1c3a534f900cb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/bus/zipball/3d5d67a07c73259aafba0514b4e34fbbc3965aa1",
-                "reference": "3d5d67a07c73259aafba0514b4e34fbbc3965aa1",
+                "url": "https://api.github.com/repos/illuminate/bus/zipball/ed6dd9b36ff18a57a951bd5946f1c3a534f900cb",
+                "reference": "ed6dd9b36ff18a57a951bd5946f1c3a534f900cb",
                 "shasum": ""
             },
             "require": {
@@ -1104,20 +1104,20 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2025-01-17T22:56:39+00:00"
+            "time": "2025-01-22T21:19:28+00:00"
         },
         {
             "name": "illuminate/collections",
-            "version": "v11.39.1",
+            "version": "v11.41.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/collections.git",
-                "reference": "7ad26e6f53da716901f9a2b95cad0cadce09a8b0"
+                "reference": "80c85f81573cc4c024da05312119f9149a6b64c1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/collections/zipball/7ad26e6f53da716901f9a2b95cad0cadce09a8b0",
-                "reference": "7ad26e6f53da716901f9a2b95cad0cadce09a8b0",
+                "url": "https://api.github.com/repos/illuminate/collections/zipball/80c85f81573cc4c024da05312119f9149a6b64c1",
+                "reference": "80c85f81573cc4c024da05312119f9149a6b64c1",
                 "shasum": ""
             },
             "require": {
@@ -1160,11 +1160,11 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2025-01-21T16:13:55+00:00"
+            "time": "2025-01-24T15:40:32+00:00"
         },
         {
             "name": "illuminate/conditionable",
-            "version": "v11.39.1",
+            "version": "v11.41.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/conditionable.git",
@@ -1210,16 +1210,16 @@
         },
         {
             "name": "illuminate/container",
-            "version": "v11.39.1",
+            "version": "v11.41.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/container.git",
-                "reference": "4a777578ce2388384565bf5c8e76881f0da68e54"
+                "reference": "1caf7d6cf42078fa8d30f26f1e43943ed6b01dae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/container/zipball/4a777578ce2388384565bf5c8e76881f0da68e54",
-                "reference": "4a777578ce2388384565bf5c8e76881f0da68e54",
+                "url": "https://api.github.com/repos/illuminate/container/zipball/1caf7d6cf42078fa8d30f26f1e43943ed6b01dae",
+                "reference": "1caf7d6cf42078fa8d30f26f1e43943ed6b01dae",
                 "shasum": ""
             },
             "require": {
@@ -1257,11 +1257,11 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2024-12-08T15:40:56+00:00"
+            "time": "2025-01-28T20:44:34+00:00"
         },
         {
             "name": "illuminate/contracts",
-            "version": "v11.39.1",
+            "version": "v11.41.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/contracts.git",
@@ -1309,7 +1309,7 @@
         },
         {
             "name": "illuminate/events",
-            "version": "v11.39.1",
+            "version": "v11.41.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/events.git",
@@ -1364,16 +1364,16 @@
         },
         {
             "name": "illuminate/filesystem",
-            "version": "v11.39.1",
+            "version": "v11.41.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/filesystem.git",
-                "reference": "d81d1d7927af36a9194f6b4077ab7ba1ebe6dc7f"
+                "reference": "a8768cca697ddf6f0cecc6f5bd4763808d84c0b7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/filesystem/zipball/d81d1d7927af36a9194f6b4077ab7ba1ebe6dc7f",
-                "reference": "d81d1d7927af36a9194f6b4077ab7ba1ebe6dc7f",
+                "url": "https://api.github.com/repos/illuminate/filesystem/zipball/a8768cca697ddf6f0cecc6f5bd4763808d84c0b7",
+                "reference": "a8768cca697ddf6f0cecc6f5bd4763808d84c0b7",
                 "shasum": ""
             },
             "require": {
@@ -1427,11 +1427,11 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2025-01-17T16:27:14+00:00"
+            "time": "2025-01-24T16:08:55+00:00"
         },
         {
             "name": "illuminate/macroable",
-            "version": "v11.39.1",
+            "version": "v11.41.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/macroable.git",
@@ -1477,7 +1477,7 @@
         },
         {
             "name": "illuminate/pipeline",
-            "version": "v11.39.1",
+            "version": "v11.41.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/pipeline.git",
@@ -1525,16 +1525,16 @@
         },
         {
             "name": "illuminate/support",
-            "version": "v11.39.1",
+            "version": "v11.41.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/support.git",
-                "reference": "5681fe5290479727e26ff255af4cde7157ee69c3"
+                "reference": "5dc4a31f34d8a0529cf1fd6b7fe167f6cae91e0c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/support/zipball/5681fe5290479727e26ff255af4cde7157ee69c3",
-                "reference": "5681fe5290479727e26ff255af4cde7157ee69c3",
+                "url": "https://api.github.com/repos/illuminate/support/zipball/5dc4a31f34d8a0529cf1fd6b7fe167f6cae91e0c",
+                "reference": "5dc4a31f34d8a0529cf1fd6b7fe167f6cae91e0c",
                 "shasum": ""
             },
             "require": {
@@ -1546,7 +1546,7 @@
                 "illuminate/conditionable": "^11.0",
                 "illuminate/contracts": "^11.0",
                 "illuminate/macroable": "^11.0",
-                "nesbot/carbon": "^2.72.2|^3.4",
+                "nesbot/carbon": "^2.72.6|^3.8.4",
                 "php": "^8.2",
                 "voku/portable-ascii": "^2.0.2"
             },
@@ -1598,20 +1598,20 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2025-01-22T16:57:33+00:00"
+            "time": "2025-01-30T09:11:36+00:00"
         },
         {
             "name": "illuminate/view",
-            "version": "v11.39.1",
+            "version": "v11.41.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/illuminate/view.git",
-                "reference": "24f011946fbe2159f56ea61399ec779784d0c027"
+                "reference": "9f9bed5b55b1b888a6149860b4b26b20ca4435bf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/view/zipball/24f011946fbe2159f56ea61399ec779784d0c027",
-                "reference": "24f011946fbe2159f56ea61399ec779784d0c027",
+                "url": "https://api.github.com/repos/illuminate/view/zipball/9f9bed5b55b1b888a6149860b4b26b20ca4435bf",
+                "reference": "9f9bed5b55b1b888a6149860b4b26b20ca4435bf",
                 "shasum": ""
             },
             "require": {
@@ -1652,7 +1652,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2024-12-26T21:39:36+00:00"
+            "time": "2025-01-22T21:19:28+00:00"
         },
         {
             "name": "interficieis/php-barcode",
@@ -1707,32 +1707,32 @@
         },
         {
             "name": "laravel/serializable-closure",
-            "version": "v1.3.7",
+            "version": "v2.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/serializable-closure.git",
-                "reference": "4f48ade902b94323ca3be7646db16209ec76be3d"
+                "reference": "2e1a362527783bcab6c316aad51bf36c5513ae44"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/serializable-closure/zipball/4f48ade902b94323ca3be7646db16209ec76be3d",
-                "reference": "4f48ade902b94323ca3be7646db16209ec76be3d",
+                "url": "https://api.github.com/repos/laravel/serializable-closure/zipball/2e1a362527783bcab6c316aad51bf36c5513ae44",
+                "reference": "2e1a362527783bcab6c316aad51bf36c5513ae44",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.3|^8.0"
+                "php": "^8.1"
             },
             "require-dev": {
-                "illuminate/support": "^8.0|^9.0|^10.0|^11.0",
-                "nesbot/carbon": "^2.61|^3.0",
-                "pestphp/pest": "^1.21.3",
-                "phpstan/phpstan": "^1.8.2",
-                "symfony/var-dumper": "^5.4.11|^6.2.0|^7.0.0"
+                "illuminate/support": "^10.0|^11.0|^12.0",
+                "nesbot/carbon": "^2.67|^3.0",
+                "pestphp/pest": "^2.36|^3.0",
+                "phpstan/phpstan": "^2.0",
+                "symfony/var-dumper": "^6.2.0|^7.0.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.x-dev"
+                    "dev-master": "2.x-dev"
                 }
             },
             "autoload": {
@@ -1764,7 +1764,7 @@
                 "issues": "https://github.com/laravel/serializable-closure/issues",
                 "source": "https://github.com/laravel/serializable-closure"
             },
-            "time": "2024-11-14T18:34:49+00:00"
+            "time": "2025-01-24T15:42:37+00:00"
         },
         {
             "name": "mike42/escpos-php",
@@ -2143,20 +2143,20 @@
         },
         {
             "name": "php-di/php-di",
-            "version": "7.0.7",
+            "version": "7.0.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHP-DI/PHP-DI.git",
-                "reference": "e87435e3c0e8f22977adc5af0d5cdcc467e15cf1"
+                "reference": "98ddc81f8f768a2ad39e4cbe737285eaeabe577a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHP-DI/PHP-DI/zipball/e87435e3c0e8f22977adc5af0d5cdcc467e15cf1",
-                "reference": "e87435e3c0e8f22977adc5af0d5cdcc467e15cf1",
+                "url": "https://api.github.com/repos/PHP-DI/PHP-DI/zipball/98ddc81f8f768a2ad39e4cbe737285eaeabe577a",
+                "reference": "98ddc81f8f768a2ad39e4cbe737285eaeabe577a",
                 "shasum": ""
             },
             "require": {
-                "laravel/serializable-closure": "^1.0",
+                "laravel/serializable-closure": "^1.0 || ^2.0",
                 "php": ">=8.0",
                 "php-di/invoker": "^2.0",
                 "psr/container": "^1.1 || ^2.0"
@@ -2168,7 +2168,7 @@
                 "friendsofphp/php-cs-fixer": "^3",
                 "friendsofphp/proxy-manager-lts": "^1",
                 "mnapoli/phpunit-easymock": "^1.3",
-                "phpunit/phpunit": "^9.5",
+                "phpunit/phpunit": "^9.6",
                 "vimeo/psalm": "^4.6"
             },
             "suggest": {
@@ -2200,7 +2200,7 @@
             ],
             "support": {
                 "issues": "https://github.com/PHP-DI/PHP-DI/issues",
-                "source": "https://github.com/PHP-DI/PHP-DI/tree/7.0.7"
+                "source": "https://github.com/PHP-DI/PHP-DI/tree/7.0.8"
             },
             "funding": [
                 {
@@ -2212,7 +2212,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-07-21T15:55:45+00:00"
+            "time": "2025-01-28T21:02:46+00:00"
         },
         {
             "name": "psr/clock",
