@@ -57,7 +57,7 @@ See the website for more installation guides and troubleshooting help. &rarr; [h
 
 ## How to run using Docker
 
-See [grocy/grocy-docker](https://github.com/grocy/grocy-docker) or [linuxserver/docker-grocy](https://github.com/linuxserver/docker-grocy) for instructions.
+&rarr; https://hub.docker.com/r/linuxserver/grocy
 
 ## How to update
 
