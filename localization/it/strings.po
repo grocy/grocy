@@ -381,9 +381,6 @@ msgstr "Informazioni su Grocy"
 msgid "Close"
 msgstr "Chiudi"
 
-msgid "Released on"
-msgstr "Rilasciato il"
-
 msgid "Added %1$s of %2$s to stock"
 msgstr "Aggiunto %1$s di %2$s alla dispensa"
 

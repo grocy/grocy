@@ -371,9 +371,6 @@ msgstr ""
 msgid "Close"
 msgstr "Κλείσε"
 
-msgid "Released on"
-msgstr "Κυκλοφόρησε στις"
-
 msgid "Added %1$s of %2$s to stock"
 msgstr "Προστέθηκε %1$s από %2$s στο απόθεμα"
 

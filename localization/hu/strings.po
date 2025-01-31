@@ -369,9 +369,6 @@ msgstr "A Grocyról"
 msgid "Close"
 msgstr "Bezár"
 
-msgid "Released on"
-msgstr "Megjelent ekkor"
-
 msgid "Added %1$s of %2$s to stock"
 msgstr "%1$s %2$s készletre véve"
 

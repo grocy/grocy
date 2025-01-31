@@ -381,9 +381,6 @@ msgstr "О Grocy"
 msgid "Close"
 msgstr "Закрыть"
 
-msgid "Released on"
-msgstr "Выпуск от"
-
 msgid "Added %1$s of %2$s to stock"
 msgstr "Добавлено %1$s из %2$s в запас"
 

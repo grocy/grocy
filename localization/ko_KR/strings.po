@@ -354,9 +354,6 @@ msgstr ""
 msgid "Close"
 msgstr "닫기"
 
-msgid "Released on"
-msgstr "Released on"
-
 msgid "Added %1$s of %2$s to stock"
 msgstr " %2$s %1$s을 재고 목록에  추가함 "
 

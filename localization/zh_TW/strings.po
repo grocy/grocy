@@ -355,9 +355,6 @@ msgstr ""
 msgid "Close"
 msgstr "結束"
 
-msgid "Released on"
-msgstr "發佈於"
-
 msgid "Added %1$s of %2$s to stock"
 msgstr "已將 %2$s 的 %1$s 加到庫存中"
 

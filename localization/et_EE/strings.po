@@ -359,9 +359,6 @@ msgstr "Grocyst"
 msgid "Close"
 msgstr "Sulge"
 
-msgid "Released on"
-msgstr "Avaldatud"
-
 msgid "Added %1$s of %2$s to stock"
 msgstr "%1$s toodet %2$s lisatud varudesse"
 

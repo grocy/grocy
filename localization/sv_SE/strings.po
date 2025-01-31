@@ -372,9 +372,6 @@ msgstr "Om Grocy"
 msgid "Close"
 msgstr "Stäng"
 
-msgid "Released on"
-msgstr "Utgiven"
-
 msgid "Added %1$s of %2$s to stock"
 msgstr "Lade till %1$s %2$s till lagret"
 

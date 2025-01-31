@@ -368,9 +368,6 @@ msgstr "Om Grocy"
 msgid "Close"
 msgstr "Luk"
 
-msgid "Released on"
-msgstr "Udgivet den"
-
 msgid "Added %1$s of %2$s to stock"
 msgstr "Tilføjet %1$s af %2$s til beholdningen"
 

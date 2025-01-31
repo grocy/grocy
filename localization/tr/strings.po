@@ -360,9 +360,6 @@ msgstr "Grocy Hakkında"
 msgid "Close"
 msgstr "Kapat"
 
-msgid "Released on"
-msgstr "Yayınlanma tarihi"
-
 msgid "Added %1$s of %2$s to stock"
 msgstr "%1$s %2%s stoğa eklendi"
 

@@ -365,9 +365,6 @@ msgstr "על Grocy"
 msgid "Close"
 msgstr "סגירה"
 
-msgid "Released on"
-msgstr "מועד היציאה לאור"
-
 msgid "Added %1$s of %2$s to stock"
 msgstr "%1$s מתוך %2$s נוספו למלאי"
 

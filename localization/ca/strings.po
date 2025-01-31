@@ -365,9 +365,6 @@ msgstr "Sobre Grocy"
 msgid "Close"
 msgstr "Tancar"
 
-msgid "Released on"
-msgstr "Publicat el"
-
 msgid "Added %1$s of %2$s to stock"
 msgstr "%1$s de %2$s afegits a l'inventari"
 

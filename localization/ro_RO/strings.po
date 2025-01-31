@@ -372,9 +372,6 @@ msgstr ""
 msgid "Close"
 msgstr "Închide"
 
-msgid "Released on"
-msgstr "Lansat pe"
-
 msgid "Added %1$s of %2$s to stock"
 msgstr "Adăugat %1$s din %2$s în stoc"
 

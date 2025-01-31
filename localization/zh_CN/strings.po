@@ -358,9 +358,6 @@ msgstr "关于Grocy"
 msgid "Close"
 msgstr "关闭"
 
-msgid "Released on"
-msgstr "发布于"
-
 msgid "Added %1$s of %2$s to stock"
 msgstr "%1$s%2$s已添加至库存"
 

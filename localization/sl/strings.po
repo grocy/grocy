@@ -370,9 +370,6 @@ msgstr "O Grocy"
 msgid "Close"
 msgstr "Zapri"
 
-msgid "Released on"
-msgstr "Izdano na"
-
 msgid "Added %1$s of %2$s to stock"
 msgstr "Dodano %1$s količine %2$s v zalogo"
 

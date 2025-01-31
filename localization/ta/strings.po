@@ -358,9 +358,6 @@ msgstr ""
 msgid "Close"
 msgstr "மூடு"
 
-msgid "Released on"
-msgstr "வெளியிடப்பட்ட நாள்"
-
 msgid "Added %1$s of %2$s to stock"
 msgstr "கையிருப்பில் %2$s இல் %1$s சேர்க்கப்பட்டது"
 

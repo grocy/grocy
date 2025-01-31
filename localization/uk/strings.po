@@ -371,9 +371,6 @@ msgstr ""
 msgid "Close"
 msgstr "Закрити"
 
-msgid "Released on"
-msgstr "Випущено"
-
 msgid "Added %1$s of %2$s to stock"
 msgstr "Додано %1$s%2$s до наявності"
 

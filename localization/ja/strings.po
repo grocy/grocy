@@ -355,9 +355,6 @@ msgstr ""
 msgid "Close"
 msgstr "閉じる"
 
-msgid "Released on"
-msgstr "リリース日:"
-
 msgid "Added %1$s of %2$s to stock"
 msgstr "%2$s の %1$s を在庫に追加しました"
 

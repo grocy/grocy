@@ -372,9 +372,6 @@ msgstr "O Grocy"
 msgid "Close"
 msgstr "Zatvoriť"
 
-msgid "Released on"
-msgstr "Vydané"
-
 msgid "Added %1$s of %2$s to stock"
 msgstr "Pridané %1$s %2$s do zásoby"
 

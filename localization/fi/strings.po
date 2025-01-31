@@ -368,9 +368,6 @@ msgstr "Tietoja Grocysta"
 msgid "Close"
 msgstr "Sulje"
 
-msgid "Released on"
-msgstr "Julkaistu"
-
 msgid "Added %1$s of %2$s to stock"
 msgstr "Lisättiin %1$s tuotetta %2$svarastoon"
 

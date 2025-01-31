@@ -391,9 +391,6 @@ msgstr "Over Grocy"
 msgid "Close"
 msgstr "Sluit"
 
-msgid "Released on"
-msgstr "Vrijgegeven op"
-
 msgid "Added %1$s of %2$s to stock"
 msgstr "%1$s %2$s toegevoegd aan de voorraad"
 

@@ -371,9 +371,6 @@ msgstr "Apie Grocy"
 msgid "Close"
 msgstr "Uždaryti"
 
-msgid "Released on"
-msgstr "Išleista"
-
 msgid "Added %1$s of %2$s to stock"
 msgstr "Pridėta %1$s iš%2$s į sandėlį"
 
