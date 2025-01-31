@@ -17,7 +17,7 @@ $("#search").on("keyup", Delay(function()
 	}
 
 	apiKeysTable.search(value).draw();
-}, 500));
+}, Grocy.FormFocusDelay));
 
 $("#clear-filter-button").on("click", function()
 {
@@ -99,7 +99,7 @@ $("#add-api-key-modal").on("shown.bs.modal", function(e)
 	setTimeout(function()
 	{
 		$("#description").focus();
-	}, 500);
+	}, Grocy.FormFocusDelay);
 });
 
 $("#new-api-key-button").on("click", function(e)

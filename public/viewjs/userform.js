@@ -146,7 +146,7 @@ $("#change_password").click(function()
 	setTimeout(function()
 	{
 		$("#password").focus();
-	}, 500);
+	}, Grocy.FormFocusDelay);
 });
 
 if (GetUriParam("changepw") === "true")
@@ -158,7 +158,7 @@ else
 	setTimeout(function()
 	{
 		$('#username').focus();
-	}, 500);
+	}, Grocy.FormFocusDelay);
 }
 
 Grocy.Components.UserfieldsForm.Load();

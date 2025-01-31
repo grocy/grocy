@@ -145,7 +145,7 @@ Grocy.FrontendHelpers.ValidateForm('quconversion-form');
 setTimeout(function()
 {
 	$('#from_qu_id').focus();
-}, 500);
+}, Grocy.FormFocusDelay);
 
 if (GetUriParam("qu-unit") !== undefined)
 {

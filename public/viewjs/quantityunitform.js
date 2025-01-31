@@ -155,7 +155,7 @@ Grocy.FrontendHelpers.ValidateForm('quantityunit-form');
 setTimeout(function()
 {
 	$('#name').focus();
-}, 500);
+}, Grocy.FormFocusDelay);
 
 $(document).on('click', '.qu-conversion-delete-button', function(e)
 {

@@ -882,3 +882,10 @@ $(document).on("click", '.btn, a, button', function(e)
 	document.activeElement.blur();
 	$(".tooltip").tooltip("hide");
 });
+
+// Delay only initial field focus
+Grocy.FormFocusDelay = 500;
+setTimeout(function()
+{
+	Grocy.FormFocusDelay = 0;
+}, 1000);

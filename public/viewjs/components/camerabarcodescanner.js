@@ -139,7 +139,7 @@ Grocy.Components.CameraBarcodeScanner.StartScanning = function()
 			setTimeout(function()
 			{
 				$(".modal").last().modal("hide");
-			}, 500);
+			}, Grocy.FormFocusDelay);
 			return;
 		}
 

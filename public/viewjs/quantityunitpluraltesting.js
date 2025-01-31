@@ -37,4 +37,4 @@ if (GetUriParam("qu") !== undefined)
 setTimeout(function()
 {
 	$("#amount").focus();
-}, 500);
+}, Grocy.FormFocusDelay);

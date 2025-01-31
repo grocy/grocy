@@ -80,4 +80,4 @@ Grocy.FrontendHelpers.ValidateForm('mealplansection-form');
 setTimeout(function()
 {
 	$('#name').focus();
-}, 500);
+}, Grocy.FormFocusDelay);

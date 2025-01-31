@@ -112,6 +112,6 @@ Grocy.Components.UserfieldsForm.Load();
 setTimeout(function()
 {
 	$('#name').focus();
-}, 500);
+}, Grocy.FormFocusDelay);
 Grocy.Components.DateTimePicker.GetInputElement().trigger('input');
 Grocy.FrontendHelpers.ValidateForm('task-form');

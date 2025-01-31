@@ -124,14 +124,14 @@ if (!Grocy.Components.ProductPicker.InAnyFlow())
 		setTimeout(function()
 		{
 			$("#display_amount").focus();
-		}, 500);
+		}, Grocy.FormFocusDelay);
 	}
 	else
 	{
 		setTimeout(function()
 		{
 			Grocy.Components.ProductPicker.GetInputElement().focus();
-		}, 500);
+		}, Grocy.FormFocusDelay);
 	}
 }
 else
@@ -143,7 +143,7 @@ else
 		setTimeout(function()
 		{
 			Grocy.Components.ProductPicker.GetInputElement().focus();
-		}, 500);
+		}, Grocy.FormFocusDelay);
 	}
 }
 
@@ -159,7 +159,7 @@ $('#display_amount').on('focus', function(e)
 		setTimeout(function()
 		{
 			Grocy.Components.ProductPicker.GetInputElement().focus();
-		}, 500);
+		}, Grocy.FormFocusDelay);
 	}
 	else
 	{

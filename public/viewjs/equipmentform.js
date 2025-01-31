@@ -150,7 +150,7 @@ Grocy.FrontendHelpers.ValidateForm('equipment-form');
 setTimeout(function()
 {
 	$('#name').focus();
-}, 500);
+}, Grocy.FormFocusDelay);
 
 $("#instruction-manual").on("change", function(e)
 {

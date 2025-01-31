@@ -283,7 +283,7 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 				setTimeout(function()
 				{
 					$('#display_amount').focus();
-				}, 500);
+				}, Grocy.FormFocusDelay);
 			},
 			function(xhr)
 			{
@@ -521,7 +521,7 @@ if (GetUriParam("embedded") !== undefined)
 		setTimeout(function()
 		{
 			Grocy.Components.ProductPicker.GetInputElement().focus();
-		}, 500);
+		}, Grocy.FormFocusDelay);
 	}
 	else
 	{
@@ -538,4 +538,4 @@ if (GetUriParam("embedded") !== undefined)
 setTimeout(function()
 {
 	Grocy.Components.ProductPicker.GetInputElement().focus();
-}, 500);
+}, Grocy.FormFocusDelay);

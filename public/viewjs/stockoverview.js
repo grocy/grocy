@@ -108,7 +108,7 @@ $("#search").on("keyup", Delay(function()
 	}
 
 	stockOverviewTable.search(value).draw();
-}, 500));
+}, Grocy.FormFocusDelay));
 
 $(document).on('click', '.product-grocycode-label-print', function(e)
 {
@@ -397,7 +397,7 @@ function RefreshProductRow(productId)
 			{
 				RefreshContextualTimeago("#product-" + productId + "-row");
 				RefreshLocaleNumberDisplay("#product-" + productId + "-row");
-			}, 500);
+			}, Grocy.FormFocusDelay);
 		},
 		function(xhr)
 		{

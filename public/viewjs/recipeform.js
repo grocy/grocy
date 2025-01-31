@@ -109,7 +109,7 @@ Grocy.FrontendHelpers.ValidateForm('recipe-form');
 setTimeout(function()
 {
 	$("#name").focus();
-}, 500);
+}, Grocy.FormFocusDelay);
 
 $('#recipe-form input').keyup(function(event)
 {

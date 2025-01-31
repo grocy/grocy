@@ -118,14 +118,14 @@ if (GetUriParam("entity"))
 	setTimeout(function()
 	{
 		$('#name').focus();
-	}, 500);
+	}, Grocy.FormFocusDelay);
 }
 else
 {
 	setTimeout(function()
 	{
 		$('#entity').focus();
-	}, 500);
+	}, Grocy.FormFocusDelay);
 }
 
 $("#type").trigger("change");

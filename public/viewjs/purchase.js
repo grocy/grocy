@@ -355,7 +355,7 @@ if (Grocy.Components.ProductPicker !== undefined)
 					setTimeout(function()
 					{
 						$('#display_amount').focus();
-					}, 500);
+					}, Grocy.FormFocusDelay);
 
 					Grocy.FrontendHelpers.ValidateForm('purchase-form');
 					if (GetUriParam("flow") === "shoppinglistitemtostock" && BoolVal(Grocy.UserSettings.shopping_list_to_stock_workflow_auto_submit_when_prefilled) && Grocy.FrontendHelpers.ValidateForm("purchase-form"))
@@ -501,7 +501,7 @@ if (Grocy.Components.ProductPicker)
 		setTimeout(function()
 		{
 			Grocy.Components.ProductPicker.GetInputElement().focus();
-		}, 500);
+		}, Grocy.FormFocusDelay);
 	}
 	else
 	{
@@ -512,7 +512,7 @@ if (Grocy.Components.ProductPicker)
 			setTimeout(function()
 			{
 				Grocy.Components.ProductPicker.GetInputElement().focus();
-			}, 500);
+			}, Grocy.FormFocusDelay);
 		}
 	}
 }
@@ -524,7 +524,7 @@ $('#display_amount').on('focus', function(e)
 		setTimeout(function()
 		{
 			Grocy.Components.ProductPicker.GetInputElement().focus();
-		}, 500);
+		}, Grocy.FormFocusDelay);
 	}
 	else
 	{

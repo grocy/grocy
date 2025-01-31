@@ -302,7 +302,7 @@ function RefreshStockEntryRow(stockRowId)
 			{
 				RefreshContextualTimeago("#stock-" + stockRowId + "-row");
 				RefreshLocaleNumberDisplay("#stock-" + stockRowId + "-row");
-			}, 500);
+			}, Grocy.FormFocusDelay);
 		},
 		function(xhr)
 		{

@@ -74,4 +74,4 @@ $("#userfields-form").removeClass("border").removeClass("border-info").removeCla
 setTimeout(function()
 {
 	$(".userfield-input").first().focus();
-}, 500);
+}, Grocy.FormFocusDelay);

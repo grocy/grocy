@@ -21,7 +21,7 @@ $("#search").on("keyup", Delay(function()
 	}
 
 	productsTable.search(value).draw();
-}, 500));
+}, Grocy.FormFocusDelay));
 
 $("#product-group-filter").on("change", function()
 {

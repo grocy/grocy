@@ -262,7 +262,7 @@ Grocy.FrontendHelpers.ValidateForm('product-form');
 setTimeout(function()
 {
 	$('#name').focus();
-}, 500);
+}, Grocy.FormFocusDelay);
 
 $(document).on('click', '.product-grocycode-label-print', function(e)
 {

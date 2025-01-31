@@ -36,7 +36,7 @@ setTimeout(function()
 	$("#camerabarcodescanner-start-button").attr("disabled", "");
 	$("#camerabarcodescanner-start-button").addClass("disabled");
 	$("#expected_barcode").focus();
-}, 500);
+}, Grocy.FormFocusDelay);
 
 if (GetUriParam("barcode") !== undefined)
 {
@@ -45,7 +45,7 @@ if (GetUriParam("barcode") !== undefined)
 	{
 		$("#expected_barcode").keyup();
 		$("#scanned_barcode").focus();
-	}, 500);
+	}, Grocy.FormFocusDelay);
 }
 
 function OnBarcodeScanned(barcode)
@@ -82,7 +82,7 @@ function OnBarcodeScanned(barcode)
 		{
 			$("#scanned_barcode").focus();
 		}
-	}, 500);
+	}, Grocy.FormFocusDelay);
 }
 
 $(document).on("Grocy.BarcodeScanned", function(e, barcode, target)

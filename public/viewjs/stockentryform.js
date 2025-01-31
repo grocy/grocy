@@ -148,5 +148,5 @@ Grocy.Components.UserfieldsForm.Load();
 setTimeout(function()
 {
 	$('#amount').focus();
-}, 500);
+}, Grocy.FormFocusDelay);
 Grocy.FrontendHelpers.ValidateForm("stockentry-form");

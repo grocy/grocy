@@ -17,7 +17,7 @@ $("#search").on("keyup", Delay(function()
 	}
 
 	userfieldsTable.search(value).draw();
-}, 500));
+}, Grocy.FormFocusDelay));
 
 $("#entity-filter").on("change", function()
 {
@@ -83,5 +83,5 @@ if (GetUriParam("entity"))
 	setTimeout(function()
 	{
 		$("#name").focus();
-	}, 500);
+	}, Grocy.FormFocusDelay);
 }

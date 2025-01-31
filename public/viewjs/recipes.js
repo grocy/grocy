@@ -82,7 +82,7 @@ $("#search").on("keyup", Delay(function()
 
 	$(".recipe-gallery-item").removeClass("d-none");
 	$(".recipe-gallery-item .card-title-search:not(:contains_case_insensitive(" + value + "))").parent().parent().parent().addClass("d-none");
-}, 500));
+}, Grocy.FormFocusDelay));
 
 $("#clear-filter-button").on("click", function()
 {

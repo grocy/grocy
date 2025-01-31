@@ -32,7 +32,7 @@ $("#search").on("keyup", Delay(function()
 	}
 
 	batteriesJournalTable.search(value).draw();
-}, 500));
+}, Grocy.FormFocusDelay));
 
 $("#clear-filter-button").on("click", function()
 {

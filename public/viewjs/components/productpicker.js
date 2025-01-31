@@ -218,7 +218,7 @@ $('#product_id_text_input').on('blur', function(e)
 						{
 							Grocy.Components.ProductPicker.GetInputElement().focus();
 							Grocy.Components.ProductPicker.GetInputElement().select();
-						}, 500);
+						}, Grocy.FormFocusDelay);
 					}
 				},
 				addnewproduct: {
@@ -278,7 +278,7 @@ $('#product_id_text_input').on('blur', function(e)
 									{
 										Grocy.Components.ProductPicker.GetInputElement().focus();
 										Grocy.Components.ProductPicker.GetInputElement().select();
-									}, 500);
+									}, Grocy.FormFocusDelay);
 								}
 								else
 								{
@@ -379,7 +379,7 @@ $('#product_id_text_input').on('blur', function(e)
 								setTimeout(function()
 								{
 									Grocy.Components.ProductPicker.GetInputElement().focus();
-								}, 500);
+								}, Grocy.FormFocusDelay);
 							}
 						},
 						function(xhr)
@@ -416,7 +416,7 @@ $(document).on("Grocy.BarcodeScanned", function(e, barcode, target)
 		Grocy.Components.ProductPicker.GetInputElement().focusout();
 		Grocy.Components.ProductPicker.GetInputElement().focus();
 		Grocy.Components.ProductPicker.GetInputElement().blur();
-	}, 500);
+	}, Grocy.FormFocusDelay);
 });
 
 $(document).on("shown.bs.modal", function(e)

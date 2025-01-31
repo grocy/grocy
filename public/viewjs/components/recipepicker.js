@@ -121,5 +121,5 @@ $(document).on("Grocy.BarcodeScanned", function(e, barcode, target)
 		Grocy.Components.RecipePicker.GetInputElement().focusout();
 		Grocy.Components.RecipePicker.GetInputElement().focus();
 		Grocy.Components.RecipePicker.GetInputElement().blur();
-	}, 500);
+	}, Grocy.FormFocusDelay);
 });

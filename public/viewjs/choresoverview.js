@@ -20,7 +20,7 @@ $("#search").on("keyup", Delay(function()
 	}
 
 	choresOverviewTable.search(value).draw();
-}, 500));
+}, Grocy.FormFocusDelay));
 
 $("#status-filter").on("change", function()
 {
@@ -184,7 +184,7 @@ $(document).on('click', '.track-chore-button', function(e)
 								// Refresh the DataTable to re-apply filters
 								choresOverviewTable.rows().invalidate().draw(false);
 								$(".input-group-filter").trigger("change");
-							}, 500);
+							}, Grocy.FormFocusDelay);
 						},
 						function(xhr)
 						{

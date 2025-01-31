@@ -19,7 +19,7 @@ $("#search").on("keyup", Delay(function()
 	}
 
 	batteriesOverviewTable.search(value).draw();
-}, 500));
+}, Grocy.FormFocusDelay));
 
 $("#clear-filter-button").on("click", function()
 {

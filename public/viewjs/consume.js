@@ -492,7 +492,7 @@ Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
 				setTimeout(function()
 				{
 					$('#display_amount').focus();
-				}, 500);
+				}, Grocy.FormFocusDelay);
 
 				if (productDetails.stock_amount == productDetails.stock_amount_opened || productDetails.product.enable_tare_weight_handling == 1 || productDetails.product.disable_open == 1)
 				{
@@ -660,7 +660,7 @@ if (GetUriParam("embedded") !== undefined)
 setTimeout(function()
 {
 	Grocy.Components.ProductPicker.GetInputElement().focus();
-}, 500);
+}, Grocy.FormFocusDelay);
 
 $(document).on("change", "#scan-mode", function(e)
 {

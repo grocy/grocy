@@ -1,7 +1,7 @@
 ﻿setTimeout(function()
 {
 	$('#username').focus();
-}, 500);
+}, Grocy.FormFocusDelay);
 
 if (GetUriParam('invalid') === 'true')
 {

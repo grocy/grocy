@@ -17,7 +17,7 @@ $("#search").on("keyup", Delay(function()
 	}
 
 	usersTable.search(value).draw();
-}, 500));
+}, Grocy.FormFocusDelay));
 
 $("#clear-filter-button").on("click", function()
 {

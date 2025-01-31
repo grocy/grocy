@@ -99,7 +99,7 @@ $('#chore_id').on('change', function(e)
 		setTimeout(function()
 		{
 			Grocy.Components.DateTimePicker.GetInputElement().focus();
-		}, 500);
+		}, Grocy.FormFocusDelay);
 
 		Grocy.FrontendHelpers.ValidateForm('choretracking-form');
 	}
@@ -117,7 +117,7 @@ Grocy.FrontendHelpers.ValidateForm('choretracking-form');
 setTimeout(function()
 {
 	$('#chore_id_text_input').focus();
-}, 500);
+}, Grocy.FormFocusDelay);
 
 $('#choretracking-form input').keyup(function(event)
 {
@@ -161,7 +161,7 @@ $(document).on("Grocy.BarcodeScanned", function(e, barcode, target)
 		$("#chore_id_text_input").focus();
 		$("#chore_id_text_input").blur();
 		$('#tracked_time').find('input').focus();
-	}, 500);
+	}, Grocy.FormFocusDelay);
 });
 
 Grocy.Components.DateTimePicker.GetInputElement().on('keypress', function(e)

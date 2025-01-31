@@ -52,7 +52,7 @@
 
 ### General
 
-- xxx
+- Optimized than when navigating between form input fields via the keyboard (`TAB`) there was an unwanted delay at some places
 
 ### API
 
