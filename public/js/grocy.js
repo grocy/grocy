@@ -299,22 +299,22 @@ RefreshContextualTimeago = function(rootSelector = "#page-content")
 
 		if (!element.hasAttr("datetime"))
 		{
-			element.text("")
-			return
+			element.text("");
+			return;
 		}
 
 		var timestamp = element.attr("datetime");
 
 		if (!timestamp || timestamp.length < 10)
 		{
-			element.text("")
-			return
+			element.text("");
+			return;
 		}
 
 		if (!moment(timestamp).isValid())
 		{
-			element.text("")
-			return
+			element.text("");
+			return;
 		}
 
 		var isNever = timestamp && timestamp.substring(0, 10) == "2999-12-31";

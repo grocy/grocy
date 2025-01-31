@@ -199,20 +199,23 @@ function RefreshStatistics()
 
 			result.forEach(element =>
 			{
-				var date = moment(element.due_date + " 23:59:59").endOf("day");
+				if (element.due_date)
+				{
+					var date = moment(element.due_date + " 23:59:59").endOf("day");
 
-				if (date.isSameOrBefore(overdueThreshold))
-				{
-					overdueCount++;
-				}
-				else if (date.isSameOrBefore(todayThreshold))
-				{
-					dueTodayCount++;
-					dueSoonCount++;
-				}
-				else if (date.isSameOrBefore(nextXDaysThreshold))
-				{
-					dueSoonCount++;
+					if (date.isSameOrBefore(overdueThreshold))
+					{
+						overdueCount++;
+					}
+					else if (date.isSameOrBefore(todayThreshold))
+					{
+						dueTodayCount++;
+						dueSoonCount++;
+					}
+					else if (date.isSameOrBefore(nextXDaysThreshold))
+					{
+						dueSoonCount++;
+					}
 				}
 			});
 
@@ -228,3 +231,8 @@ function RefreshStatistics()
 }
 
 RefreshStatistics();
+
+// Apply filters (there are maybe some set when a task was just edited)
+$("#search").trigger("keyup");
+$("#status-filter").trigger("change");
+$("#category-filter").trigger("change");

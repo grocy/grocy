@@ -36,7 +36,7 @@
 
 ### Tasks
 
-- xxx
+- Fixed that set table filters were not applied after editing or adding a task
 
 ### Batteries
 
