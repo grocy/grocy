@@ -351,9 +351,6 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
-msgid "Released on"
-msgstr ""
-
 msgid "Added %1$s of %2$s to stock"
 msgstr ""
 

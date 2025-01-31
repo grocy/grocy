@@ -36,7 +36,7 @@
 								<td><code>{{ $versionInfo->Version }}</code></td>
 							</tr>
 							<tr>
-								<td class="text-right">{{ $__t('Released on') }}</td>
+								<td class="text-right">Released on</td>
 								<td><code>{{ $versionInfo->ReleaseDate }}</code> <time class="timeago timeago-contextual text-muted"
 										datetime="{{ $versionInfo->ReleaseDate }}"></time></td>
 							</tr>
@@ -47,6 +47,10 @@
 							<tr>
 								<td class="text-right">SQLite Version</td>
 								<td><code>{{ $systemInfo['sqlite_version'] }}</code></td>
+							</tr>
+							<tr>
+								<td class="text-right">Database Version</td>
+								<td><code>{{ $systemInfo['db_version'] }}</code></td>
 							</tr>
 							<tr>
 								<td class="text-right">OS</td>
@@ -78,7 +82,7 @@
 							data-toggle="collapse-next"
 							href="#">
 							Version <span class="font-weight-bold">{{ $changelogItem['version'] }}</span><br>
-							{{ $__t('Released on') }} <span class="font-weight-bold">{{ $changelogItem['release_date'] }}</span>
+							Released on <span class="font-weight-bold">{{ $changelogItem['release_date'] }}</span>
 							<time class="timeago timeago-contextual text-muted"
 								datetime="{{ $changelogItem['release_date'] }}"></time>
 						</a>
