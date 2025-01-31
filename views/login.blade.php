@@ -15,7 +15,7 @@
 			novalidate>
 
 			<div class="form-group">
-				<label for="name">{{ $__t('Username') }}</label>
+				<label for="username">{{ $__t('Username') }}</label>
 				<input type="text"
 					class="form-control"
 					required
@@ -24,7 +24,7 @@
 			</div>
 
 			<div class="form-group">
-				<label for="name">{{ $__t('Password') }}</label>
+				<label for="password">{{ $__t('Password') }}</label>
 				<input type="password"
 					class="form-control"
 					required
