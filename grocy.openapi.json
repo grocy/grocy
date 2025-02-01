@@ -1063,6 +1063,7 @@
 		"/users/{userId}/permissions": {
 			"get": {
 				"summary": "Returns the assigned permissions of the given user",
+				"description": "See \"GET /objects/permission_hierarchy\" for a permission name / id mapping",
 				"tags": [
 					"User management"
 				],
@@ -1113,6 +1114,7 @@
 			},
 			"post": {
 				"summary": "Adds a permission to the given user",
+				"description": "See \"GET /objects/permission_hierarchy\" for a permission name / id mapping",
 				"tags": [
 					"User management"
 				],
@@ -1161,6 +1163,7 @@
 			},
 			"put": {
 				"summary": "Replaces the assigned permissions of the given user",
+				"description": "See \"GET /objects/permission_hierarchy\" for a permission name / id mapping",
 				"tags": [
 					"User management"
 				],
@@ -5906,7 +5909,8 @@
 					"quantity_unit_conversions_resolved",
 					"recipes_pos_resolved",
 					"battery_charge_cycles",
-					"product_barcodes_view"
+					"product_barcodes_view",
+					"permission_hierarchy"
 				]
 			},
 			"ExposedEntityNoListing": {
@@ -5928,7 +5932,8 @@
 					"quantity_unit_conversions_resolved",
 					"recipes_pos_resolved",
 					"battery_charge_cycles",
-					"product_barcodes_view"
+					"product_barcodes_view",
+					"permission_hierarchy"
 				]
 			},
 			"ExposedEntityNoDelete": {
@@ -5943,7 +5948,8 @@
 					"quantity_unit_conversions_resolved",
 					"recipes_pos_resolved",
 					"battery_charge_cycles",
-					"product_barcodes_view"
+					"product_barcodes_view",
+					"permission_hierarchy"
 				]
 			},
 			"ExposedEntityEditRequiresAdmin": {
