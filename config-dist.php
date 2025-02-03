@@ -202,6 +202,9 @@ DefaultUserSetting('shopping_list_show_calendar', false); // When enabled, a sma
 DefaultUserSetting('shopping_list_round_up', false); // When enabled, all quantity amounts on the shopping list are always displayed rounded up to the nearest whole number
 DefaultUserSetting('shopping_list_auto_add_below_min_stock_amount', false); // If products should be automatically added to the shopping list when they are below their min. stock amount
 DefaultUserSetting('shopping_list_auto_add_below_min_stock_amount_list_id', 1); // When the above setting is enabled, the id of the shopping list to which the products will be added
+DefaultUserSetting('shopping_list_print_show_header', true); // Default for the shopping list print option "Show header"
+DefaultUserSetting('shopping_list_print_group_by_product_group', true); // Default for the shopping list print option "Group by product group"
+DefaultUserSetting('shopping_list_print_layout_type', 'table'); // Default for the shopping list print option "Layout type" (table or list)
 
 // Recipe settings
 DefaultUserSetting('recipe_ingredients_group_by_product_group', false); // Group recipe ingredients by their product group

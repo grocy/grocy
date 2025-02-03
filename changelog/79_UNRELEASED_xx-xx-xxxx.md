@@ -14,7 +14,7 @@
 
 ### Shopping list
 
-- xxx
+- The print options (show header, layout type etc.) are now saved (as user settings, so global defaults can also defined in `config.php` as usual)
 
 ### Recipes
 

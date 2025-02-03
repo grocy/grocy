@@ -375,12 +375,38 @@ OnListItemRemoved();
 
 $(document).on("click", "#print-shopping-list-button", function(e)
 {
+	var checkedPrintShowHeader = "";
+	if (BoolVal(Grocy.UserSettings.shopping_list_print_show_header))
+	{
+		checkedPrintShowHeader = "checked";
+	}
+
+	var checkedGroupByProductGroup = "";
+	if (BoolVal(Grocy.UserSettings.shopping_list_print_group_by_product_group))
+	{
+		checkedGroupByProductGroup = "checked";
+	}
+
+	var checkedLayoutTypeTable = "";
+	var checkedLayoutTypeList = "";
+	if (Grocy.UserSettings.shopping_list_print_layout_type == "table")
+	{
+		checkedLayoutTypeTable = "checked";
+		checkedLayoutTypeList = "";
+	}
+	else
+	{
+		checkedLayoutTypeTable = "";
+		checkedLayoutTypeList = "checked";
+	}
+
 	var dialogHtml = ' \
 	<div class="text-center"><h5>' + __t('Print options') + '</h5><hr></div> \
 	<div class="custom-control custom-checkbox"> \
 		<input id="print-show-header" \
-			 checked \
-			class="form-check-input custom-control-input" \
+			 ' + checkedPrintShowHeader + ' \
+			class="form-check-input custom-control-input user-setting-control" \
+			data-setting-key="shopping_list_print_show_header" \
 			type="checkbox" \
 			value="1"> \
 		<label class="form-check-label custom-control-label" \
@@ -389,8 +415,9 @@ $(document).on("click", "#print-shopping-list-button", function(e)
 	</div> \
 	<div class="custom-control custom-checkbox"> \
 		<input id="print-group-by-product-group" \
-			 checked \
-			class="form-check-input custom-control-input" \
+			 ' + checkedGroupByProductGroup + ' \
+			class="form-check-input custom-control-input user-setting-control" \
+			data-setting-key="shopping_list_print_group_by_product_group" \
 			type="checkbox" \
 			value="1"> \
 		<label class="form-check-label custom-control-label" \
@@ -400,21 +427,24 @@ $(document).on("click", "#print-shopping-list-button", function(e)
 	<h5 class="pt-3 pb-0">' + __t('Layout type') + '</h5> \
 	<div class="custom-control custom-radio"> \
 		<input id="print-layout-type-table" \
-			checked \
-			class="custom-control-input" \
+			' + checkedLayoutTypeTable + ' \
+			class="custom-control-input user-setting-control" \
+			data-setting-key="shopping_list_print_layout_type" \
 			type="radio" \
 			name="print-layout-type" \
-			value="print-layout-type-table"> \
+			value="table"> \
 		<label class="custom-control-label" \
 			for="print-layout-type-table">' + __t('Table') + ' \
 		</label> \
 	</div> \
 	<div class="custom-control custom-radio"> \
 		<input id="print-layout-type-list" \
-			class="custom-control-input" \
+		' + checkedLayoutTypeList + ' \
+			class="custom-control-input user-setting-control" \
+			data-setting-key="shopping_list_print_layout_type" \
 			type="radio" \
 			name="print-layout-type" \
-			value="print-layout-type-list"> \
+			value="list"> \
 		<label class="custom-control-label" \
 			for="print-layout-type-list">' + __t('List') + ' \
 		</label> \
@@ -442,7 +472,7 @@ $(document).on("click", "#print-shopping-list-button", function(e)
 					message: '<p><i class="fa fa-spin fa-spinner"></i> ' + __t('Connecting to printer...') + '</p>'
 				});
 
-				//Delaying for one second so that the alert can be closed
+				// Delaying for one second so that the alert can be closed
 				setTimeout(function()
 				{
 					Grocy.Api.Get('print/shoppinglist/thermal?list=' + $("#selected-shopping-list").val() + '&printHeader=' + printHeader,
@@ -454,17 +484,21 @@ $(document).on("click", "#print-shopping-list-button", function(e)
 						{
 							console.error(xhr);
 							var validResponse = true;
+
 							try
 							{
 								var jsonError = JSON.parse(xhr.responseText);
-							} catch (e)
+							}
+							catch (e)
 							{
 								validResponse = false;
 							}
+
 							if (validResponse)
 							{
 								thermalPrintDialog.find('.bootbox-body').html(__t('Unable to print') + '<br><pre><code>' + jsonError.error_message + '</pre></code>');
-							} else
+							}
+							else
 							{
 								thermalPrintDialog.find('.bootbox-body').html(__t('Unable to print') + '<br><pre><code>' + xhr.responseText + '</pre></code>');
 							}
@@ -500,7 +534,7 @@ $(document).on("click", "#print-shopping-list-button", function(e)
 				}
 
 				$(".print-layout-container").addClass("d-none");
-				$("." + $("input[name='print-layout-type']:checked").val()).removeClass("d-none");
+				$(".print-layout-type-" + $("input[name='print-layout-type']:checked").val()).removeClass("d-none");
 
 				window.print();
 			}
@@ -521,19 +555,6 @@ $(document).on("click", "#print-shopping-list-button", function(e)
 		className: "d-print-none",
 		buttons: printButtons
 	});
-});
-
-$(document).on("change", "input[name='print-layout-type']", function(e)
-{
-	if (this.value == "print-layout-type-list")
-	{
-		$("#print-group-by-product-group").prop("checked", false);
-		$("#print-group-by-product-group").attr("disabled", "");
-	}
-	else
-	{
-		$("#print-group-by-product-group").removeAttr("disabled");
-	}
 });
 
 $("#description").on("summernote.change", function()
