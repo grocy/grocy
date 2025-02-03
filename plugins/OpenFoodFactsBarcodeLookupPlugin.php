@@ -14,8 +14,10 @@ class OpenFoodFactsBarcodeLookupPlugin extends BaseBarcodeLookupPlugin
 
 	protected function ExecuteLookup($barcode)
 	{
+		$productNameFieldLocalized = 'product_name_' . substr(GROCY_LOCALE, 0, 2);
+
 		$webClient = new Client(['http_errors' => false]);
-		$response = $webClient->request('GET', 'https://world.openfoodfacts.org/api/v2/product/' . preg_replace('/[^0-9]/', '', $barcode) . '?fields=product_name,image_url', ['headers' => ['User-Agent' => 'GrocyOpenFoodFactsBarcodeLookupPlugin/1.0 (https://grocy.info)']]);
+		$response = $webClient->request('GET', 'https://world.openfoodfacts.org/api/v2/product/' . preg_replace('/[^0-9]/', '', $barcode) . '?fields=product_name,image_url,' . $productNameFieldLocalized, ['headers' => ['User-Agent' => 'GrocyOpenFoodFactsBarcodeLookupPlugin/1.0 (https://grocy.info)']]);
 		$statusCode = $response->getStatusCode();
 
 		// Guzzle throws exceptions for connection errors, so nothing to do on that here
@@ -48,8 +50,15 @@ class OpenFoodFactsBarcodeLookupPlugin extends BaseBarcodeLookupPlugin
 				$quId = $this->UserSettings['product_presets_qu_id'];
 			}
 
+			// Use the localized product name, if provided
+			$name = $data->product->product_name;
+			if (isset($data->product->$productNameFieldLocalized))
+			{
+				$name = $data->product->$productNameFieldLocalized;
+			}
+
 			return [
-				'name' => $data->product->product_name,
+				'name' => $name,
 				'location_id' => $locationId,
 				'qu_id_purchase' => $quId,
 				'qu_id_stock' => $quId,

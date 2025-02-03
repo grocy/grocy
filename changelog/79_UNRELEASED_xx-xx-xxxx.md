@@ -10,7 +10,7 @@
 
 ### Stock
 
-- xxx
+- Optimized that the built-in Open Food Facts external barcode lookup plugin now uses the localized product name (if provided by the Open Food Facts API, based on the set Grocy language of the current user)
 
 ### Shopping list
 
