@@ -384,7 +384,7 @@ $(".userfield-link").keyup(function(e)
 		"link": link
 	};
 
-	formRow.find(".userfield-input").val(JSON.stringify(value));
+	formRow.find(".userfield-input").val(JSON.stringify(value)).addClass("is-dirty");
 });
 
 $(".userfield-input").change(function(e)

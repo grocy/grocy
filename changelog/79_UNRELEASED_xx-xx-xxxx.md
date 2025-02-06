@@ -46,7 +46,7 @@
 
 ### Userfields
 
-- xxx
+- Fixed that saving Userfields of type "Link (with title)" did not work
 
 ### General
 
