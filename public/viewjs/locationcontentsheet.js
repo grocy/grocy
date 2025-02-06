@@ -27,3 +27,7 @@ $("#include-out-of-stock").change(function()
 	window.location.reload();
 });
 
+if (GetUriParam("include_out_of_stock"))
+{
+	$("#include-out-of-stock").prop("checked", false);
+}
