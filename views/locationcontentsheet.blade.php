@@ -40,7 +40,7 @@
 		<input class="form-check-input custom-control-input"
 			type="checkbox"
 			id="include-out-of-stock"
-			checked>
+                        @if(!$includeOutOfStockProductsAtTheDefaultLocation) checked @endif>
 		<label class="form-check-label custom-control-label"
 			for="include-out-of-stock">
 			{{ $__t('Show only in stock products') }}
