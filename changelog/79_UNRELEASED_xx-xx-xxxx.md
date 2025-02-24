@@ -50,7 +50,7 @@
 
 ### General
 
-- xxx
+- Fixed that most dialogs didn't work when hosting Grocy "embedded" in an `iframe` (affecting e.g. the [Home Assistant Add-on](https://github.com/hassio-addons/addon-grocy))
 
 ### API
 

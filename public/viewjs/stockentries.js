@@ -92,7 +92,7 @@ $(document).on('click', '.stock-consume-button', function(e)
 					Grocy.FrontendHelpers.EndUiBusy();
 					RefreshStockEntryRow(stockRowId);
 					toastr.success(toastMessage);
-					window.top.postMessage(WindowMessageBag("BroadcastMessage", WindowMessageBag("ProductChanged", productId)), Grocy.BaseUrl);
+					Grocy.GetTopmostWindow().postMessage(WindowMessageBag("BroadcastMessage", WindowMessageBag("ProductChanged", productId)), Grocy.BaseUrl);
 				},
 				function(xhr)
 				{
@@ -137,7 +137,7 @@ $(document).on('click', '.product-open-button', function(e)
 					}
 
 					RefreshStockEntryRow(stockRowId);
-					window.top.postMessage(WindowMessageBag("BroadcastMessage", WindowMessageBag("ProductChanged", productId)), Grocy.BaseUrl);
+					Grocy.GetTopmostWindow().postMessage(WindowMessageBag("BroadcastMessage", WindowMessageBag("ProductChanged", productId)), Grocy.BaseUrl);
 				},
 				function(xhr)
 				{
@@ -332,7 +332,7 @@ function UndoStockBookingEntry(bookingId, stockRowId, productId)
 	Grocy.Api.Post('stock/bookings/' + bookingId.toString() + '/undo', {},
 		function(result)
 		{
-			window.top.postMessage(WindowMessageBag("BroadcastMessage", WindowMessageBag("ProductChanged", productId)), Grocy.BaseUrl);
+			Grocy.GetTopmostWindow().postMessage(WindowMessageBag("BroadcastMessage", WindowMessageBag("ProductChanged", productId)), Grocy.BaseUrl);
 			toastr.success(__t("Booking successfully undone"));
 		},
 		function(xhr)

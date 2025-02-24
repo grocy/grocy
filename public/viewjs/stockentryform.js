@@ -62,7 +62,7 @@
 			{
 				var successMessage = __t('Stock entry successfully updated') + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoStockBookingEntry(\'' + result.id + '\',\'' + Grocy.EditObjectRowId + '\')"><i class="fa-solid fa-undo"></i> ' + __t("Undo") + '</a>';
 
-				window.top.postMessage(WindowMessageBag("BroadcastMessage", WindowMessageBag("ProductChanged", Grocy.EditObjectProductId)), Grocy.BaseUrl);
+				Grocy.GetTopmostWindow().postMessage(WindowMessageBag("BroadcastMessage", WindowMessageBag("ProductChanged", Grocy.EditObjectProductId)), Grocy.BaseUrl);
 				window.parent.postMessage(WindowMessageBag("ShowSuccessMessage", successMessage), Grocy.BaseUrl);
 				window.parent.postMessage(WindowMessageBag("Ready"), Grocy.BaseUrl);
 				window.parent.postMessage(WindowMessageBag("CloseLastModal"), Grocy.BaseUrl);

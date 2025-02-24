@@ -70,7 +70,7 @@
 
 					if (GetUriParam("embedded") !== undefined)
 					{
-						window.top.postMessage(WindowMessageBag("BroadcastMessage", WindowMessageBag("ProductChanged", jsonForm.product_id)), Grocy.BaseUrl);
+						Grocy.GetTopmostWindow().postMessage(WindowMessageBag("BroadcastMessage", WindowMessageBag("ProductChanged", jsonForm.product_id)), Grocy.BaseUrl);
 						window.parent.postMessage(WindowMessageBag("ShowSuccessMessage", successMessage), Grocy.BaseUrl);
 						window.parent.postMessage(WindowMessageBag("CloseLastModal"), Grocy.BaseUrl);
 					}

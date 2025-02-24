@@ -786,6 +786,34 @@ $(window).on("message", function(e)
 	}
 });
 
+window.IsGrocy = true;
+Grocy.GetTopmostWindow = function()
+{
+	if (window.top.IsGrocy)
+	{
+		// If the top window is Grocy (so when we're currently not running in an iframe) return that immediately
+		return window.top;
+	}
+	else
+	{
+		// Otherwise, so when we're currently running in an iframe, climb up the window chain and check for the top most Grocy window
+		var topmostGrocyWindow = window;
+
+		var currentWindow = window;
+		while (currentWindow != window.top)
+		{
+			if (currentWindow.IsGrocy)
+			{
+				topmostGrocyWindow = currentWindow;
+			}
+
+			currentWindow = currentWindow.parent;
+		}
+
+		return topmostGrocyWindow;
+	}
+}
+
 $(document).on("click", ".show-as-dialog-link", function(e)
 {
 	e.preventDefault();
@@ -799,10 +827,9 @@ $(document).on("click", ".show-as-dialog-link", function(e)
 		dialogType = element.attr("data-dialog-type")
 	}
 
-	if (window.top != window.self)
+	if (Grocy.GetTopmostWindow() != window.self)
 	{
-		window.top.postMessage(WindowMessageBag("IframeModal", { "Link": link, "DialogType": dialogType }), Grocy.BaseUrl);
-
+		Grocy.GetTopmostWindow().postMessage(WindowMessageBag("IframeModal", { "Link": link, "DialogType": dialogType }), Grocy.BaseUrl);
 	}
 	else
 	{

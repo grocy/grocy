@@ -130,7 +130,7 @@ $('#save-inventory-button').on('click', function(e)
 							{
 								Grocy.Components.UserfieldsForm.Save(function()
 								{
-									window.top.postMessage(WindowMessageBag("BroadcastMessage", WindowMessageBag("ProductChanged", jsonForm.product_id)), Grocy.BaseUrl);
+									Grocy.GetTopmostWindow().postMessage(WindowMessageBag("BroadcastMessage", WindowMessageBag("ProductChanged", jsonForm.product_id)), Grocy.BaseUrl);
 									window.parent.postMessage(WindowMessageBag("ShowSuccessMessage", successMessage), Grocy.BaseUrl);
 									window.parent.postMessage(WindowMessageBag("CloseLastModal"), Grocy.BaseUrl);
 								});
