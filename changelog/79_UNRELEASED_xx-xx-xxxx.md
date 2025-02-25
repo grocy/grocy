@@ -14,6 +14,7 @@
 
 ### Shopping list
 
+- When the shopping list setting (top right corner settings menu) "Round up quantity amounts to the nearest whole number" is enabled, the "Last price (Total)" of each shopping list item and the total value of the shopping list are now also scaled up accordingly
 - The print options (show header, layout type etc.) are now saved (as user settings, so global defaults can also defined in `config.php` as usual)
 
 ### Recipes
