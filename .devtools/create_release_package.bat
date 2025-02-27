@@ -10,7 +10,7 @@ for /f "tokens=*" %%a in ('jq .Version versiontemp.json --raw-output') do set ve
 del versiontemp.json
 
 del "%releasePath%\grocy_%version%.zip"
-7za a -r "%releasePath%\grocy_%version%.zip" "%projectPath%\*" -xr!.* -xr!build.bat -xr!composer.json -xr!composer.lock -xr!package.json -xr!yarn.lock -xr!docs
+7za a -r "%releasePath%\grocy_%version%.zip" "%projectPath%\*" -xr!.* -xr!build.bat -xr!composer.json -xr!composer.lock -xr!package.json -xr!yarn.lock -xr!docs -xr!test -x!public\packages\@fortawesome\fontawesome-free\js -x!public\packages\@fortawesome\fontawesome-free\less -x!public\packages\@fortawesome\fontawesome-free\metadata -x!public\packages\@fortawesome\fontawesome-free\scss -x!public\packages\@fortawesome\fontawesome-free\sprites -x!public\packages\@fortawesome\fontawesome-free\svgs
 7za a "%releasePath%\grocy_%version%.zip" "%projectPath%\public\.htaccess"
 7za rn "%releasePath%\grocy_%version%.zip" .htaccess public\.htaccess
 7za d "%releasePath%\grocy_%version%.zip" data\*.* data\storage data\viewcache\* changelog\__TEMPLATE.md
