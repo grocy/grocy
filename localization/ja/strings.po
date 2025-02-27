@@ -5,6 +5,7 @@
 # Tatsuya Ueda <ml@tatsuya.info>, 2020
 # KATSUHIKO SHIGEYAMA <kshigeyama@gmail.com>, 2020
 # 鳥山 陽平 <kagemomiji@gmail.com>, 2022
+# Taiki Matsumura, 2025
 # 
 msgid ""
 msgstr ""
@@ -12,7 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: 鳥山 陽平 <kagemomiji@gmail.com>, 2022\n"
+"Last-Translator: Taiki Matsumura, 2025\n"
 "Language-Team: Japanese (https://app.transifex.com/grocy/teams/93189/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -143,7 +144,7 @@ msgstr "バーコード検索が無効"
 
 msgid ""
 "will be added to the list of barcodes for the selected product on submit"
-msgstr ""
+msgstr "送信する際に、選択されたプロダクトのバーコードリストに追加されます"
 
 msgid "New amount"
 msgstr "新しい量"
@@ -275,7 +276,7 @@ msgid "Invalid credentials, please try again"
 msgstr "資格情報が無効です。もう一度お試しください"
 
 msgid "Are you sure you want to delete battery \"%s\"?"
-msgstr ""
+msgstr "バッテリーを削除してもよいですか: %s？"
 
 msgid "Yes"
 msgstr "はい"
@@ -284,7 +285,7 @@ msgid "No"
 msgstr "いいえ"
 
 msgid "Are you sure you want to delete chore \"%s\"?"
-msgstr ""
+msgstr "この家事を削除してもよいですか？"
 
 msgid "\"%s\" could not be resolved to a product, how do you want to proceed?"
 msgstr "\"%s\" を製品として解決できませんでした、どのように継続しますか?"
@@ -305,22 +306,22 @@ msgid "Add as new product and prefill barcode"
 msgstr "新しい製品として追加し、バーコードで事前入力する"
 
 msgid "Are you sure you want to delete quantity unit \"%s\"?"
-msgstr ""
+msgstr "この数のユニットを削除してよいですか？: %s"
 
 msgid "Are you sure you want to delete product \"%s\"?"
-msgstr ""
+msgstr "このプロダクトを削除してもよいですか？: %s"
 
 msgid "Are you sure you want to delete location \"%s\"?"
-msgstr ""
+msgstr "この場所を削除してもよいですか？: %s"
 
 msgid "Are you sure you want to delete store \"%s\"?"
-msgstr ""
+msgstr "このお店を削除してもよいですか？: %s"
 
 msgid "Manage API keys"
 msgstr "API キーを管理"
 
 msgid "REST API browser"
-msgstr ""
+msgstr "REST APIブラウザ"
 
 msgid "API keys"
 msgstr "API キー"
@@ -350,7 +351,7 @@ msgid "Removed %1$s of %2$s from stock"
 msgstr "在庫から %2$s の %1$s を削除しました"
 
 msgid "About Grocy"
-msgstr ""
+msgstr "Grocyについて"
 
 msgid "Close"
 msgstr "閉じる"
@@ -362,10 +363,10 @@ msgid "Stock amount of %1$s is now %2$s"
 msgstr "%1$s の在庫数は現在 %2$s です"
 
 msgid "Tracked execution of chore %1$s on %2$s"
-msgstr ""
+msgstr "家事のトラッキング: %2$sの%1$s"
 
 msgid "Tracked charge cycle of battery %1$s on %2$s"
-msgstr ""
+msgstr "バッテリーの放電数: %2$sの%1$s"
 
 msgid "Consume all %s which are currently in stock"
 msgstr "現在在庫にあるすべての %s を消費する"
@@ -407,7 +408,7 @@ msgid "Settings"
 msgstr "設定"
 
 msgid "This can only be before now"
-msgstr ""
+msgstr "以前にのみ見ることができます。"
 
 msgid "Calendar"
 msgstr "カレンダー"
@@ -428,13 +429,13 @@ msgid "Edit recipe ingredient"
 msgstr "レシピの材料を編集"
 
 msgid "Are you sure you want to delete recipe \"%s\"?"
-msgstr ""
+msgstr "このレシピを削除してもよいですか？: %s"
 
 msgid "Are you sure you want to delete recipe ingredient \"%s\"?"
-msgstr ""
+msgstr "このレシピの材料を削除してもよいですか？: %s"
 
 msgid "Are you sure you want to empty shopping list \"%s\"?"
-msgstr ""
+msgstr "この買い物リストを空にしてもよいですか？: %s"
 
 msgid "Clear list"
 msgstr "リストを削除"

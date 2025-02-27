@@ -2782,22 +2782,22 @@ msgid ""
 msgstr "לרכיבים שנמצאים חלקית במלאי, הכמות במלאי תיצרך."
 
 msgid "Can't be opened"
-msgstr ""
+msgstr "לא ניתן לפתוח"
 
 msgid "Default purchase price type"
-msgstr ""
+msgstr "סוג מחיר רכישה כברירת מחדל"
 
 msgid "This will be used as the default price type selection on purchase"
-msgstr ""
+msgstr "זה ישמש כבחירת סוג המחיר כברירת המחדל בעת רכישה"
 
 msgid "Unspecified"
-msgstr ""
+msgstr "לא צוין"
 
 msgid "Round up quantity amounts to the nearest whole number"
-msgstr ""
+msgstr "עיגול כמויות למספר השלם הקרוב ביותר"
 
 msgid "Stock actions"
-msgstr ""
+msgstr "פעולת על מלאי"
 
 msgid "List actions"
-msgstr ""
+msgstr "פעולות רשימה"

@@ -22,6 +22,7 @@
 # Stanisław Czajka <stanislaw@czajka.pl>, 2023
 # Marcin Lewandowski <email.marcina.lewandowskiego@gmail.com>, 2023
 # Peter Patalong <piotrpatalong@gmail.com>, 2024
+# Dawid K., 2025
 # 
 msgid ""
 msgstr ""
@@ -29,7 +30,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Peter Patalong <piotrpatalong@gmail.com>, 2024\n"
+"Last-Translator: Dawid K., 2025\n"
 "Language-Team: Polish (https://app.transifex.com/grocy/teams/93189/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -312,7 +313,7 @@ msgid "Invalid credentials, please try again"
 msgstr "Nieprawidłowe dane logowania, spróbuj jeszcze raz"
 
 msgid "Are you sure you want to delete battery \"%s\"?"
-msgstr ""
+msgstr "Czy na pewno chcesz usunąć baterię \"%s\"?"
 
 msgid "Yes"
 msgstr "Tak"
@@ -321,7 +322,7 @@ msgid "No"
 msgstr "Nie"
 
 msgid "Are you sure you want to delete chore \"%s\"?"
-msgstr ""
+msgstr "Czy na pewno chcesz usunąć obowiązek \"%s\"?"
 
 msgid "\"%s\" could not be resolved to a product, how do you want to proceed?"
 msgstr "Produkt \"%s\" nie istnieje. Co dalej?"
@@ -342,16 +343,16 @@ msgid "Add as new product and prefill barcode"
 msgstr "Dodaj jako nowy produkt i dodaj kod kreskowy"
 
 msgid "Are you sure you want to delete quantity unit \"%s\"?"
-msgstr ""
+msgstr "Czy na pewno chcesz usunąć jednostkę ilości \"%s\"?"
 
 msgid "Are you sure you want to delete product \"%s\"?"
-msgstr ""
+msgstr "Czy na pewno chcesz usunąć produkt \"%s\"?"
 
 msgid "Are you sure you want to delete location \"%s\"?"
-msgstr ""
+msgstr "Czy na pewno chcesz usunąć miejsce \"%s\"?"
 
 msgid "Are you sure you want to delete store \"%s\"?"
-msgstr ""
+msgstr "Czy na pewno chcesz usunąć sklep \"%s\"?"
 
 msgid "Manage API keys"
 msgstr "Zarządzaj kluczami API"
@@ -465,13 +466,13 @@ msgid "Edit recipe ingredient"
 msgstr "Edytuj składnik przepisu"
 
 msgid "Are you sure you want to delete recipe \"%s\"?"
-msgstr ""
+msgstr "Czy na pewno chcesz usunąć przepis \"%s\"?"
 
 msgid "Are you sure you want to delete recipe ingredient \"%s\"?"
-msgstr ""
+msgstr "Czy na pewno chcesz usunąć składnik przepisu \"%s\"?"
 
 msgid "Are you sure you want to empty shopping list \"%s\"?"
-msgstr ""
+msgstr "Czy na pewno chcesz wyczyścić listę zakupów \"%s\"?"
 
 msgid "Clear list"
 msgstr "Wyczyść listę"
@@ -524,6 +525,8 @@ msgid ""
 "Are you sure you want to put all missing ingredients for recipe \"%s\" on "
 "the shopping list?"
 msgstr ""
+"Czy na pewno chcesz dodać wszystkie brakujące składniki przepisu \"%s\" do "
+"listy zakupów?"
 
 msgid "Manage users"
 msgstr "Zarządzaj użytkownikami"
@@ -535,7 +538,7 @@ msgid "Users"
 msgstr "Użytkownicy"
 
 msgid "Are you sure you want to delete user \"%s\"?"
-msgstr ""
+msgstr "Czy na pewno chcesz usunąć użytkownika \"%s\"?"
 
 msgid "Create user"
 msgstr "Utwórz użytkownika"
@@ -644,9 +647,12 @@ msgid ""
 "(ingredients marked with \"only check if any amount is in stock\" will be "
 "ignored)?"
 msgstr ""
+"Czy na pewno chcesz zużyć wszystkie składniki wymagane przez przepis \"%s\" "
+"(składniki z opcją \"Zaznacz tylko w przypadku, gdy w zapasach znajduje się "
+"jedna jednostka\" zostaną zignorowane)?"
 
 msgid "Removed all in stock ingredients needed by recipe \"%s\" from stock"
-msgstr ""
+msgstr "Usunięto wszystkie składniki wymagane przez przepis \"%s\" z zapasów"
 
 msgid "Consume all ingredients needed by this recipe"
 msgstr "Użyj wszystkich składników wymaganych do tego przepisu"
@@ -697,7 +703,7 @@ msgid "Edit task"
 msgstr "Edytuj zadanie"
 
 msgid "Are you sure you want to delete task \"%s\"?"
-msgstr ""
+msgstr "Czy jesteś pewien, że chcesz usunąć zadanie \"%s\"?"
 
 msgid "%s task is due to be done"
 msgid_plural "%s tasks are due to be done"
@@ -735,7 +741,7 @@ msgid "Product group"
 msgstr "Grupa produktów"
 
 msgid "Are you sure you want to delete product group \"%s\"?"
-msgstr ""
+msgstr "Czy na pewno chcesz usunąć grupę produktów \"%s\"?"
 
 msgid "Stay logged in permanently"
 msgstr "Pozostań zalogowany na zawsze"
@@ -2417,7 +2423,7 @@ msgid "When enabled, then this field must be filled on the destination form"
 msgstr "Gdy włączone, te pole musi zostać uzupełnione na formularzu docelowym"
 
 msgid "In stock products"
-msgstr ""
+msgstr "Produkty na stanie"
 
 msgid "Timestamp"
 msgstr "Znacznik czasu"
@@ -2507,13 +2513,13 @@ msgid "Edit meal plan section"
 msgstr "Edytuj sekcję planu posiłków"
 
 msgid "Are you sure you want to delete meal plan section \"%s\"?"
-msgstr ""
+msgstr "Jesteś pewien sekcję planu posiłków \"%s\"?"
 
 msgid "Section"
 msgstr "Sekcja"
 
 msgid "Are you sure you want to empty the shopping list?"
-msgstr ""
+msgstr "Czy na pewno chcesz wyczyścić listę zakupów?"
 
 msgid "This is the default which will be prefilled on purchase"
 msgstr ""
@@ -2666,6 +2672,10 @@ msgid ""
 "sub product based on the default consume rule (Opened first, then first due "
 "first, then first in first out)"
 msgstr ""
+"Brak produktu nadrzędnego %1$s na stanie, %2$s jest obecnie kolejnym "
+"produktem podrzędnym według domyślnej reguły zużycia (Otwarte najpierw, "
+"następnie najszybciej przeterminowane, następnie pierwsze weszło, pierwsze "
+"wyszło)"
 
 msgid "Night mode"
 msgstr "Tryb nocny"

@@ -2873,7 +2873,7 @@ msgstr ""
 "aktuální zásoba."
 
 msgid "Can't be opened"
-msgstr "Nelze otevřít."
+msgstr "Tento produkt nelze „otevřít“."
 
 msgid "Default purchase price type"
 msgstr "Výchozí druh ceny"

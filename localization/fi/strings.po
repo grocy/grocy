@@ -12,6 +12,7 @@
 # Markus Laaksonen, 2022
 # 't <trajahan@gmail.com>, 2022
 # Sami Kiviniemi, 2024
+# Tomi H, 2025
 # 
 msgid ""
 msgstr ""
@@ -19,7 +20,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Sami Kiviniemi, 2024\n"
+"Last-Translator: Tomi H, 2025\n"
 "Language-Team: Finnish (https://app.transifex.com/grocy/teams/93189/fi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -288,7 +289,7 @@ msgid "Invalid credentials, please try again"
 msgstr "Virheelliset tunnukset. Yritä uudelleen"
 
 msgid "Are you sure you want to delete battery \"%s\"?"
-msgstr ""
+msgstr "Haluatko varmasti poistaa akun \"%s\"?"
 
 msgid "Yes"
 msgstr "Kyllä"
@@ -297,7 +298,7 @@ msgid "No"
 msgstr "Ei"
 
 msgid "Are you sure you want to delete chore \"%s\"?"
-msgstr ""
+msgstr "Haluatko varmasti poistaa tehtävän \"%s\"?"
 
 msgid "\"%s\" could not be resolved to a product, how do you want to proceed?"
 msgstr "\"%s\" ei vastaa mitään tuotetta, miten haluat jatkaa?"
@@ -318,16 +319,16 @@ msgid "Add as new product and prefill barcode"
 msgstr "Lisää uutena tuotteena ja täytä viivakoodi"
 
 msgid "Are you sure you want to delete quantity unit \"%s\"?"
-msgstr ""
+msgstr "Haluatko varmasti poistaa yksikön \"%s\"?"
 
 msgid "Are you sure you want to delete product \"%s\"?"
-msgstr ""
+msgstr "Haluatko varmasti poistaa tuotteen \"%s\"?"
 
 msgid "Are you sure you want to delete location \"%s\"?"
-msgstr ""
+msgstr "Haluatko varmasti poistaa sijainnin \"%s\"?"
 
 msgid "Are you sure you want to delete store \"%s\"?"
-msgstr ""
+msgstr "Haluatko varmasti poistaa myymälän \"%s\"?"
 
 msgid "Manage API keys"
 msgstr "Hallitse API-tunnuksia"
@@ -441,13 +442,13 @@ msgid "Edit recipe ingredient"
 msgstr "Muokkaa ainesosaa"
 
 msgid "Are you sure you want to delete recipe \"%s\"?"
-msgstr ""
+msgstr "Haluatko varmasti poistaa reseptin \"%s\"?"
 
 msgid "Are you sure you want to delete recipe ingredient \"%s\"?"
-msgstr ""
+msgstr "Haluako varmasti poistaa raaka-aineen \"%s\"?"
 
 msgid "Are you sure you want to empty shopping list \"%s\"?"
-msgstr ""
+msgstr "Haluatko varmasti tyhjentää ostoslistan \"%s\"?"
 
 msgid "Clear list"
 msgstr "Tyhjennä"
@@ -493,6 +494,8 @@ msgid ""
 "Are you sure you want to put all missing ingredients for recipe \"%s\" on "
 "the shopping list?"
 msgstr ""
+"Haluatko varmasti lisätä kaikki reseptin \"%s\" puuttuvat ainesosat "
+"ostoslistalle?"
 
 msgid "Manage users"
 msgstr "Hallitse käyttäjiä"
@@ -504,7 +507,7 @@ msgid "Users"
 msgstr "Käyttäjät"
 
 msgid "Are you sure you want to delete user \"%s\"?"
-msgstr ""
+msgstr "Haluatko varmasti poistaa käyttäjän \"%s\"?"
 
 msgid "Create user"
 msgstr "Luo käyttäjä"
@@ -603,9 +606,12 @@ msgid ""
 "(ingredients marked with \"only check if any amount is in stock\" will be "
 "ignored)?"
 msgstr ""
+"Haluatko varmasti kuluttaa kaikki reseptin \"%s\" tarvitsemat ainekset "
+"(aineksia, jotka on merkitty \"tarkista vain onko varastossa\" ei "
+"huomioida)?"
 
 msgid "Removed all in stock ingredients needed by recipe \"%s\" from stock"
-msgstr ""
+msgstr "Poistettu kaikki reseptin \"%s\" ainesosat varastosta"
 
 msgid "Consume all ingredients needed by this recipe"
 msgstr "Kuluta kaikki tämän reseptin ainesosat"
@@ -656,7 +662,7 @@ msgid "Edit task"
 msgstr "Muokkaa tehtävää"
 
 msgid "Are you sure you want to delete task \"%s\"?"
-msgstr ""
+msgstr "Haluatko varmasti poistaa tehtävän \"%s\"?"
 
 msgid "%s task is due to be done"
 msgid_plural "%s tasks are due to be done"
@@ -690,7 +696,7 @@ msgid "Product group"
 msgstr "Tuoteryhmä"
 
 msgid "Are you sure you want to delete product group \"%s\"?"
-msgstr ""
+msgstr "Haluatko varmasti poistaa tuoteryhmän \"%s\"?"
 
 msgid "Stay logged in permanently"
 msgstr "Pysy sisäänkirjautuneena"
@@ -862,8 +868,8 @@ msgstr "Avaamaton"
 
 msgid "Opened"
 msgid_plural "Opened"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Avattu"
+msgstr[1] "Avattu"
 
 msgid "%s opened"
 msgstr "%s avattu"
@@ -1031,7 +1037,7 @@ msgid "Create shopping list"
 msgstr "Luo kauppalista"
 
 msgid "Are you sure you want to delete shopping list \"%s\"?"
-msgstr ""
+msgstr "Haluatko varmasti tyhjentää ostoslistan \"%s\"?"
 
 msgid "Average shelf life"
 msgstr "Keskimääräinen säilymisaika"
@@ -1239,7 +1245,7 @@ msgid "Time of printing"
 msgstr "Tulostusaika"
 
 msgid "Are you sure you want to delete equipment \"%s\"?"
-msgstr ""
+msgstr "Haluatko varmasti poistaa laitteen \"%s\"?"
 
 msgid "Parent product"
 msgstr "Ylätuote"
@@ -1399,7 +1405,7 @@ msgid "Consume product on chore execution"
 msgstr "Kuluta tuote kotityötä tehdessä"
 
 msgid "Are you sure you want to delete user field \"%s\"?"
-msgstr ""
+msgstr "Haluatko varmasti poistaa oman kentän \"%s\"?"
 
 msgid "Userentities"
 msgstr "Käyttäjäosiot"
@@ -1420,7 +1426,7 @@ msgid "Create %s"
 msgstr "Luo %s"
 
 msgid "Are you sure you want to delete this userobject?"
-msgstr ""
+msgstr "Haluatko varmasti poistaa tämän käyttäjäobjektin?"
 
 msgid "Icon CSS class"
 msgstr "Kuvakkeen CSS-luokka"
@@ -1510,7 +1516,7 @@ msgstr ""
 "vain tämä tuote"
 
 msgid "Are you sure you want to remove this conversion?"
-msgstr ""
+msgstr "Haluatko varmasti poistaa tämän muunnoksen?"
 
 msgid "Unit price"
 msgstr "Yksikköhinta"
@@ -1528,7 +1534,7 @@ msgid "Clear"
 msgstr "Tyhjennä"
 
 msgid "Are you sure you want to remove the included recipe \"%s\"?"
-msgstr ""
+msgstr "Haluatko varmasti poistaa mukaan luetun reseptin \"%s\"?"
 
 msgid "Period interval"
 msgstr "Ajanjakson väli"
@@ -1618,7 +1624,7 @@ msgid "Booking does not exist or was already undone"
 msgstr "Merkintää ei löydy tai se on jo kumottu"
 
 msgid "Are you sure you want to delete API key \"%s\"?"
-msgstr ""
+msgstr "Haluatko varmasti poistaa API-avaimen \"%s\"?"
 
 msgid "Add note"
 msgstr "Lisää merkintä"
@@ -1674,7 +1680,7 @@ msgid "Frozen"
 msgstr "Pakastettu"
 
 msgid "Are you sure you want to delete userentity \"%s\"?"
-msgstr ""
+msgstr "Haluatko varmasti poistaa käyttäjäentiteetin \"%s\"?"
 
 msgid "Shopping list settings"
 msgstr "Ostoslista-asetukset"
@@ -1771,6 +1777,9 @@ msgid ""
 "due first, then first in first out) for in stock ingredients and on the last"
 " price for missing ones"
 msgstr ""
+"Perustuen ensin oletuskulutussäännön hintoihin varastoainesosissa (Avattu "
+"ensin, sitten ensin vanheneva, sitten ensin lisätty) ja sitten puuttuvien "
+"osalta viimeiseen hintaan"
 
 msgid "Clear filter"
 msgstr "Tyhjennä filtterit"
@@ -1939,7 +1948,7 @@ msgstr ""
 "varaston seuraava parasta ennen -päivä"
 
 msgid "This is due earlier than already in stock items"
-msgstr ""
+msgstr "Tämä vanhenee ennen kuin ennestään varastossa olevat tuotteet"
 
 msgid ""
 "When enabled, after changing/scanning a product and if all fields could be "
@@ -1971,7 +1980,7 @@ msgid "Copy"
 msgstr "Kopioi"
 
 msgid "Are you sure you want to remove this barcode?"
-msgstr ""
+msgstr "Haluatko varmasti poistaa tämän viivakoodin?"
 
 msgid "Due date type"
 msgstr "Päiväyksen tyyppi"
@@ -2168,7 +2177,7 @@ msgid "Reset"
 msgstr "Nollaa"
 
 msgid "Are you sure you want to reset the table options?"
-msgstr ""
+msgstr "Haluatko varmasti nollata taulukon valinnat?"
 
 msgid "Hide/view columns"
 msgstr "Sarakkeet"
@@ -2238,6 +2247,9 @@ msgid ""
 "below their min. stock amount - enable this to hide this product there "
 "always"
 msgstr ""
+"Varastosivu luettelee kaikki tuotteet, jotka ovat tällä hetkellä varastossa "
+"tai niiden minimivarastomärä on alitettuna – käytä tätä piilottaaksesi tuote"
+" aina siellä"
 
 msgid "Print options"
 msgstr "Tulostusasetukset"
@@ -2310,7 +2322,7 @@ msgid "Only done items"
 msgstr "Vain valmiit"
 
 msgid "Show only in stock products"
-msgstr ""
+msgstr "Näytä vain varastossa olevat"
 
 msgid "Product description"
 msgstr "Tuotekuvaus"
@@ -2333,7 +2345,7 @@ msgstr ""
 "Kun tämä asetus on käytössä, tämä kenttä on pakko täyttää syöttölomakkeella"
 
 msgid "In stock products"
-msgstr ""
+msgstr "Varastossa olevat tuotteet"
 
 msgid "Timestamp"
 msgstr "Aikaleima"
@@ -2420,13 +2432,13 @@ msgid "Edit meal plan section"
 msgstr "Muokkaa ateriasuunnitelma osiota"
 
 msgid "Are you sure you want to delete meal plan section \"%s\"?"
-msgstr ""
+msgstr "Haluatko varmasti poistaa ateriasuunnitelman osion \"%s\"?"
 
 msgid "Section"
 msgstr "Osio"
 
 msgid "Are you sure you want to empty the shopping list?"
-msgstr ""
+msgstr "Haluatko varmasti tyhjentää ostoslistan?"
 
 msgid "This is the default which will be prefilled on purchase"
 msgstr "Tämä on oletusarvo, jota käytetään ostettaessa"
@@ -2725,7 +2737,7 @@ msgid "Stock report"
 msgstr "Varasto raportti"
 
 msgid "Out of stock products"
-msgstr ""
+msgstr "Loppuneet tuotteet"
 
 msgid "Quantity unit for prices"
 msgstr "Oletusyksikkö hinnoille"
@@ -2743,7 +2755,7 @@ msgstr[0] "Tämä tarkoittaa, että 1 tarra tulostetaan"
 msgstr[1] "Tämä tarkoittaa, että %1$s tarraa tulostetaan"
 
 msgid "External barcode lookup"
-msgstr ""
+msgstr "Ulkoinen viivakoodihaku"
 
 msgid "Error while executing the barcode lookup plugin"
 msgstr "Virhe haettaessa viivakoodia, lisäosaa käyttämällä"
@@ -2755,48 +2767,52 @@ msgid "Configure colors"
 msgstr "Muokkaa värejä"
 
 msgid "Swap track next schedule / track now buttons"
-msgstr ""
+msgstr "Vaihda painikkeet seuraavan ajoituksen seuranta / seuraa nyt"
 
 msgid "Scheduled tracking time"
-msgstr ""
+msgstr "Ajoitettu seuranta-aika"
 
 msgid "Time of tracking"
-msgstr ""
+msgstr "Seuranta-aika"
 
 msgid "Show all out of stock products"
-msgstr ""
+msgstr "Näytä kaikki varastosta loppuneet tuotteet"
 
 msgid ""
 "By default the stock overview page lists all products which are currently in"
 " stock or below their min. stock amount - when this is enabled, all (active)"
 " products are always shown"
 msgstr ""
+"Varastosivu luettelee kaikki tuotteet, jotka ovat tällä hetkellä varastossa "
+"tai niiden minimivarastomärä on alitettuna – käytä tätä näyttääksesi kaikki "
+"(aktiiviset) tuotteet"
 
 msgid "No price information is available for at least one ingredient"
-msgstr ""
+msgstr "Hintatieto puuttuu ainakin yhdeltä ainesosalta"
 
 msgid ""
 "For ingredients that are only partially in stock, the in stock amount will "
 "be consumed."
 msgstr ""
+"Vain osittain varastossa olevia ainesosia kulutetaan varastossa oleva määrä."
 
 msgid "Can't be opened"
-msgstr ""
+msgstr "Ei voi avata"
 
 msgid "Default purchase price type"
-msgstr ""
+msgstr "Oletusostohintatyyppi"
 
 msgid "This will be used as the default price type selection on purchase"
-msgstr ""
+msgstr "Oletusarvo, jota käytetään ostoissa"
 
 msgid "Unspecified"
-msgstr ""
+msgstr "Ei määritetty"
 
 msgid "Round up quantity amounts to the nearest whole number"
-msgstr ""
+msgstr "Pyöristä määrät lähimpään tasalukuun"
 
 msgid "Stock actions"
-msgstr ""
+msgstr "Varastotoimenpiteet"
 
 msgid "List actions"
-msgstr ""
+msgstr "Näytä toimenpiteet"

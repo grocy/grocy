@@ -14,6 +14,7 @@
 # Eduard Kapoun, 2022
 # Eric Andersson, 2023
 # riiga <riiga_92@hotmail.com>, 2024
+# Jesper, 2025
 # 
 msgid ""
 msgstr ""
@@ -21,7 +22,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: riiga <riiga_92@hotmail.com>, 2024\n"
+"Last-Translator: Jesper, 2025\n"
 "Language-Team: Swedish (Sweden) (https://app.transifex.com/grocy/teams/93189/sv_SE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -85,7 +86,7 @@ msgid "Consume"
 msgstr "Förbruka"
 
 msgid "Inventory"
-msgstr "Lager"
+msgstr "Inventera"
 
 msgid "Shopping list"
 msgstr "Inköpslista"
@@ -292,7 +293,7 @@ msgid "Invalid credentials, please try again"
 msgstr "Ogiltiga uppgifter, var god försök igen"
 
 msgid "Are you sure you want to delete battery \"%s\"?"
-msgstr ""
+msgstr "Är du säker på att du vill radera batteri \"%s\"?"
 
 msgid "Yes"
 msgstr "Ja"
@@ -301,7 +302,7 @@ msgid "No"
 msgstr "Nej"
 
 msgid "Are you sure you want to delete chore \"%s\"?"
-msgstr ""
+msgstr "Är du säker på att du vill radera sysslan \"%s\"?"
 
 msgid "\"%s\" could not be resolved to a product, how do you want to proceed?"
 msgstr "\"%s\" kunde inte hittas som produkt, hur vill du fortsätta?"
@@ -322,16 +323,16 @@ msgid "Add as new product and prefill barcode"
 msgstr "Lägg till som ny produkt och fyll i streckkoden"
 
 msgid "Are you sure you want to delete quantity unit \"%s\"?"
-msgstr ""
+msgstr "Är du säker på att du vill radera mängdenheten \"%s\"?"
 
 msgid "Are you sure you want to delete product \"%s\"?"
-msgstr ""
+msgstr "Är du säker på att du vill radera produkten \"%s\"?"
 
 msgid "Are you sure you want to delete location \"%s\"?"
-msgstr ""
+msgstr "Är du säker på att du vill radera platsen \"%s\"?"
 
 msgid "Are you sure you want to delete store \"%s\"?"
-msgstr ""
+msgstr "Är du säker på att du vill radera affären \"%s\"?"
 
 msgid "Manage API keys"
 msgstr "Hantera API-nycklar"
@@ -445,13 +446,13 @@ msgid "Edit recipe ingredient"
 msgstr "Redigera receptingrediens"
 
 msgid "Are you sure you want to delete recipe \"%s\"?"
-msgstr ""
+msgstr "Är du säker på att du vill radera receptet \"%s\"?"
 
 msgid "Are you sure you want to delete recipe ingredient \"%s\"?"
-msgstr ""
+msgstr "Är du säker på att du vill radera receptingrediensen \"%s\"?"
 
 msgid "Are you sure you want to empty shopping list \"%s\"?"
-msgstr ""
+msgstr "Är du säker på att du vill tömma inköpslistan \"%s\"?"
 
 msgid "Clear list"
 msgstr "Töm lista"
@@ -503,6 +504,8 @@ msgid ""
 "Are you sure you want to put all missing ingredients for recipe \"%s\" on "
 "the shopping list?"
 msgstr ""
+"Vill du lägga tilll alla saknade ingredienser för receptet \"%s\" på "
+"inköpslistan?"
 
 msgid "Manage users"
 msgstr "Hantera användare"
@@ -514,7 +517,7 @@ msgid "Users"
 msgstr "Användare"
 
 msgid "Are you sure you want to delete user \"%s\"?"
-msgstr ""
+msgstr "Är du säker på att du vill radera användaren \"%s\"?"
 
 msgid "Create user"
 msgstr "Skapa användare"
@@ -612,6 +615,9 @@ msgid ""
 "(ingredients marked with \"only check if any amount is in stock\" will be "
 "ignored)?"
 msgstr ""
+"Vill du förbruka alla ingredienser som behövs för receptet \"%s\" "
+"(ingredienser märkta med \"kontrollera endast om någon enhet finns i lager\""
+" kommer att ignoreras)?"
 
 msgid "Removed all in stock ingredients needed by recipe \"%s\" from stock"
 msgstr ""
@@ -665,7 +671,7 @@ msgid "Edit task"
 msgstr "Redigera uppgiften"
 
 msgid "Are you sure you want to delete task \"%s\"?"
-msgstr ""
+msgstr "Är du säker på att du vill radera uppgiften \"%s\"?"
 
 msgid "%s task is due to be done"
 msgid_plural "%s tasks are due to be done"
@@ -699,7 +705,7 @@ msgid "Product group"
 msgstr "Produktgrupp"
 
 msgid "Are you sure you want to delete product group \"%s\"?"
-msgstr ""
+msgstr "Är du säker på att du vill radera produktgruppen \"%s\"?"
 
 msgid "Stay logged in permanently"
 msgstr "Håll dig permanent inloggad"
@@ -836,7 +842,7 @@ msgid "Charge cycle successfully undone"
 msgstr "Laddningscykeln är framgångsrikt borttagen"
 
 msgid "Disable stock fulfillment checking for this ingredient"
-msgstr "Inaktivera kontroll av lageruppfyllelse för denna ingrediens"
+msgstr "Inaktivera kontroll av lageruppfyllnad för denna ingrediens"
 
 msgid "Add all list items to stock"
 msgstr "Lägg till alla listobjekt på lager"
@@ -1043,13 +1049,13 @@ msgid "Create shopping list"
 msgstr "Skapa inköpslista"
 
 msgid "Are you sure you want to delete shopping list \"%s\"?"
-msgstr ""
+msgstr "Är du säker på att du vill radera inköpslistan \"%s\"?"
 
 msgid "Average shelf life"
 msgstr "Genomsnittlig hållbarhet"
 
 msgid "Spoil rate"
-msgstr "Skämd takt"
+msgstr "Svinngrad"
 
 msgid "Show more"
 msgstr "Visa mer"
@@ -1249,7 +1255,7 @@ msgid "Time of printing"
 msgstr "Tid för utskrift"
 
 msgid "Are you sure you want to delete equipment \"%s\"?"
-msgstr ""
+msgstr "Är du säker på att du vill radera utrustningen \"%s\"?"
 
 msgid "Parent product"
 msgstr "Överordnad produkt"
@@ -1599,7 +1605,7 @@ msgid "Booking does not exist or was already undone"
 msgstr "Bokning existerar ej eller är redan borttagen"
 
 msgid "Are you sure you want to delete API key \"%s\"?"
-msgstr ""
+msgstr "Är du säker på att du vill radera API-nyckeln \"%s\"?"
 
 msgid "Add note"
 msgstr "Lägg till anteckning"
@@ -1946,7 +1952,7 @@ msgid "Copy"
 msgstr "Kopiera"
 
 msgid "Are you sure you want to remove this barcode?"
-msgstr ""
+msgstr "Är du säker på att du vill ta bort den här streckkoden?"
 
 msgid "Due date type"
 msgstr "Typ av datummärkning"
@@ -2033,7 +2039,7 @@ msgid "Expired"
 msgstr "Utgått"
 
 msgid "Due soon days"
-msgstr ""
+msgstr "Förfallodagar inom kort"
 
 msgid "Add overdue/expired products"
 msgstr ""
@@ -2231,7 +2237,7 @@ msgid "Label per unit"
 msgstr "Etikett per enhet"
 
 msgid "Error while executing WebHook"
-msgstr ""
+msgstr "Fel vid körning av WebHook"
 
 # Example: Print *Product* Grocycode on label printer
 msgid "Print %s Grocycode on label printer"
@@ -2695,6 +2701,8 @@ msgid ""
 "For ingredients that are only partially in stock, the in stock amount will "
 "be consumed."
 msgstr ""
+"För de ingredienser som endast delvis finns i lager kommer det tillgängliga "
+"lagersaldot att förbrukas."
 
 msgid "Can't be opened"
 msgstr ""
