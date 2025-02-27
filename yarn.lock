@@ -234,11 +234,11 @@ datatables.net-bs4@^1.10.22, datatables.net-bs4@^1.13.0:
     jquery "1.8 - 4"
 
 datatables.net-bs4@^2:
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/datatables.net-bs4/-/datatables.net-bs4-2.2.1.tgz#07e9da60d88c6e872ffdbb63c5d96a164e8e11aa"
-  integrity sha512-YJpbGGTqrOhS6p8BolGv16mdmljaq4ewhc0dbm3yd02UQ86A2cWQ2tDq6lE966tvRD43JE0PPAc5wLgsRozReg==
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/datatables.net-bs4/-/datatables.net-bs4-2.2.2.tgz#bb668037b922ca8bdbb2e8ec8a321963409d973d"
+  integrity sha512-BrG2e4HVgtLydGWXLjnvniNfd4U537KKbRIyfS2PZ+y0pnjA+jIbYynceJWV4xGPA31XhWnqaJumTIfAPUVhxA==
   dependencies:
-    datatables.net "2.2.1"
+    datatables.net "2.2.2"
     jquery ">=1.7"
 
 datatables.net-colreorder-bs4@^1.5.2:
@@ -307,10 +307,10 @@ datatables.net@1.13.11, datatables.net@^1.10.22, datatables.net@^1.13.0, datatab
   dependencies:
     jquery "1.8 - 4"
 
-datatables.net@2.2.1, datatables.net@^2:
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/datatables.net/-/datatables.net-2.2.1.tgz#30506074a42eb6f9bfdd823bd7e97d7458c6f1c4"
-  integrity sha512-Hz7f+a77xGdroAzej88aobT5nkQIJ2Oy1JI7yh2cl0QAXQSJDXOKkOLknu+nphVP8CP8w9MtLCmwMst/F8niiQ==
+datatables.net@2.2.2, datatables.net@^2:
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/datatables.net/-/datatables.net-2.2.2.tgz#de45c9ef18775499481ffdae81a8de6a10d264a0"
+  integrity sha512-gfODIKE3gpgbVeZy2QGj2Dq9roO6hy00S+k1knklrqlMyAMrh1wt0Q6ryBUM7gU96U77ysbq8dYhxFdmcC/oPQ==
   dependencies:
     jquery ">=1.7"
 
@@ -681,9 +681,9 @@ summernote@^0.9.1:
   integrity sha512-5Hfuey6+N0XIbk8ZpkGEVDmrkRVRHZWKBhw/072i9/TJLaWUKboB+KOyyd6AzDP2CQs1O6or4zRTU8HY30kt4w==
 
 swagger-ui-dist@^5.2.0:
-  version "5.18.3"
-  resolved "https://registry.yarnpkg.com/swagger-ui-dist/-/swagger-ui-dist-5.18.3.tgz#3ea990ed8b232f4c1e635e799d3da8f42c911486"
-  integrity sha512-G33HFW0iFNStfY2x6QXO2JYVMrFruc8AZRX0U/L71aA7WeWfX2E5Nm8E/tsipSZJeIZZbSjUDeynLK/wcuNWIw==
+  version "5.20.0"
+  resolved "https://registry.yarnpkg.com/swagger-ui-dist/-/swagger-ui-dist-5.20.0.tgz#b14d5e2bd0ffab2179de221288ee366a5ec5fcf1"
+  integrity sha512-V5pozVTZxivdoQq/SQWxj3A4cOu5opk9MEbcZANX3Pj8X8xCrD1QCtBT7744Pz9msOvt0nnmy9JvM/9PGonCdg==
   dependencies:
     "@scarf/scarf" "=1.4.0"
 
