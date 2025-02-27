@@ -19,7 +19,7 @@ $.fn.dataTable.ext.search.push(function(settings, data, dataIndex)
 {
 	var productId = Grocy.Components.ProductPicker.GetValue();
 
-	if (!productId || Number.isNaN(productId) || productId == data[1])
+	if (!productId || Number.isNaN(productId) || productId == data[stockEntriesTable.colReorder.transpose(1)])
 	{
 		return true;
 	}

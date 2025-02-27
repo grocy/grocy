@@ -75,7 +75,7 @@
 							data-table-selector="#stockentries-table"
 							href="#"><i class="fa-solid fa-eye"></i></a>
 					</th>
-					<th class="d-none">Hidden product_id</th> <!-- This must be in the first column for searching -->
+					<th class="d-none">Hidden product_id</th>
 					<th class="allow-grouping">{{ $__t('Product') }}</th>
 					<th>{{ $__t('Amount') }}</th>
 					<th class="@if(!GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING) d-none @endif allow-grouping">{{ $__t('Due date') }}</th>
