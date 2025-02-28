@@ -60,7 +60,7 @@
 
 ### Other
 - A quick reminder about official native Grocy app experiences:
-  - Grocy's web frontend is a responsive one and is even an "installable web app" ([PWA](https://en.wikipedia.org/wiki/Progressive_web_app), without providing offline features, [ref1](https://web.dev/articles/install-criteria), [ref2](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Guides/Making_PWAs_installable)) which ends up in a pretty native mobile app-like experience
+  - Grocy's web frontend is responsive and an "installable web app" ([PWA](https://en.wikipedia.org/wiki/Progressive_web_app), without providing any offline usage capabilities), that provides a pretty native mobile app-like experience without the need for additional tools
     - => Quick video demo on Android/Firefox: https://www.youtube.com/watch?v=L38drVZfwHs
     - => Quick video demo on Android/Chrome: https://www.youtube.com/watch?v=rjLdXUFDNuk
-  - [Grocy Desktop](https://github.com/grocy/grocy-desktop) is a way to run Grocy without having to manage a webserver just like a normal (Windows) desktop application - available as a [classic `.msi` installation package](https://releases.grocy.info/latest-desktop) or as a [Microsoft Store App](https://apps.microsoft.com/detail/9NWB1TRNNKSF)
+  - [Grocy Desktop](https://github.com/grocy/grocy-desktop) is a way to run Grocy without having to manage a webserver, just like a normal (Windows) desktop application - available as a [classic `.msi` installation package](https://releases.grocy.info/latest-desktop) or as a [Microsoft Store App](https://apps.microsoft.com/detail/9NWB1TRNNKSF)
