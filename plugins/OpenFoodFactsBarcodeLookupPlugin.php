@@ -52,10 +52,13 @@ class OpenFoodFactsBarcodeLookupPlugin extends BaseBarcodeLookupPlugin
 
 			// Use the localized product name, if provided
 			$name = $data->product->product_name;
-			if (isset($data->product->$productNameFieldLocalized))
+			if (isset($data->product->$productNameFieldLocalized) && !empty($data->product->$productNameFieldLocalized))
 			{
 				$name = $data->product->$productNameFieldLocalized;
 			}
+
+			// Remove non-ASCII characters in product name (whyever a product name should have them at all)
+			$name = preg_replace('/[^\x20-\x7E]/', '', $name);
 
 			return [
 				'name' => $name,
