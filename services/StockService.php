@@ -626,7 +626,7 @@ class StockService extends BaseService
 					{
 						$webClient = new Client();
 						$response = $webClient->request('GET', $pluginOutput['__image_url'], ['headers' => ['User-Agent' => 'Grocy/' . $this->getApplicationService()->GetInstalledVersion()->Version . ' (https://grocy.info)']]);
-						$fileName = $pluginOutput['__barcode'] . '.' . pathinfo($pluginOutput['__image_url'], PATHINFO_EXTENSION);
+						$fileName = $pluginOutput['__barcode'] . '.' . pathinfo(parse_url($pluginOutput['__image_url'], PHP_URL_PATH), PATHINFO_EXTENSION);
 						file_put_contents($this->getFilesService()->GetFilePath('productpictures', $fileName), $response->getBody());
 						$productData['picture_file_name'] = $fileName;
 					}

@@ -13,6 +13,7 @@
 - Optimizations in the built-in Open Food Facts external barcode lookup plugin:
   - A provided but empty localized product name is now ignored
   - Non-ASCII characters in product names are now ignored (e.g. line breaks caused problems)
+- Optimized that when an external barcode lookup plugin returned an image URL with query parameters, an invalid picture (file name) was added to the created product
 
 ### Shopping list
 
