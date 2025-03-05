@@ -1617,10 +1617,7 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"type": "array",
-									"items": {
-										"$ref": "#/components/schemas/CurrentVolatilStockResponse"
-									}
+									"$ref": "#/components/schemas/CurrentVolatilStockResponse"
 								}
 							}
 						}
