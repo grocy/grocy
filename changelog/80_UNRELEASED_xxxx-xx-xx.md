@@ -14,6 +14,7 @@
   - A provided but empty localized product name is now ignored
   - Non-ASCII characters in product names are now ignored (e.g. line breaks caused problems)
 - Optimized that when an external barcode lookup plugin returned an image URL with query parameters, an invalid picture (file name) was added to the created product
+- Added a new column "Default store" on the stock overview page (hidden by default)
 
 ### Shopping list
 

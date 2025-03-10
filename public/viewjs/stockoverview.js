@@ -21,6 +21,7 @@ var stockOverviewTable = $('#stock-overview-table').DataTable({
 		{ 'visible': false, 'targets': 16 },
 		{ 'visible': false, 'targets': 17 },
 		{ 'visible': false, 'targets': 18 },
+		{ 'visible': false, 'targets': 19 },
 		{ "type": "custom-sort", "targets": 3 },
 		{ "type": "html-num-fmt", "targets": 9 },
 		{ "type": "html-num-fmt", "targets": 10 },
