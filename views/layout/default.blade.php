@@ -24,7 +24,11 @@
 
 	<title>@yield('title') | Grocy</title>
 
-	<link href="{{ $U('/packages/@fontsource/roboto/latin.css?v=', true) }}{{ $version }}"
+	<link href="{{ $U('/packages/@fontsource/roboto/400.css?v=', true) }}{{ $version }}"
+		rel="stylesheet">
+	<link href="{{ $U('/packages/@fontsource/roboto/500.css?v=', true) }}{{ $version }}"
+		rel="stylesheet">
+	<link href="{{ $U('/packages/@fontsource/roboto/700.css?v=', true) }}{{ $version }}"
 		rel="stylesheet">
 	<link href="{{ $U('/packages/bootstrap/dist/css/bootstrap.min.css?v=', true) }}{{ $version }}"
 		rel="stylesheet">

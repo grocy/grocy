@@ -248,10 +248,6 @@ body.sidenav-toggled #mainNav.fixed-top #sidenavToggler i {
 	}
 }
 
-#sidenavToggler i {
-	font-weight: 800;
-}
-
 .navbar-sidenav-tooltip.show {
 	display: none;
 }
@@ -417,7 +413,6 @@ body.sidenav-toggled .navbar-sidenav-tooltip.show {
 #mainNav .navbar-collapse .navbar-nav>.nav-item.dropdown>.nav-link:after,
 #mainNav .navbar-collapse .navbar-sidenav .nav-link-collapse:after {
 	font-family: 'Font Awesome 6 Free';
-	font-weight: 900;
 }
 
 #mainNav .navbar-collapse .navbar-nav>.nav-item.dropdown>.nav-link.py-0:after,

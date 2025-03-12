@@ -54,7 +54,7 @@
 
 ### General
 
-- xxx
+- Optimized that the default font of the web frontend is now also used for non-latin characters
 
 ### API
 

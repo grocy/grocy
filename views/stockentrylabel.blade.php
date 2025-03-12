@@ -2,7 +2,11 @@
 
 <head>
 	<title>{{ $product->name }}</title>
-	<link href="{{ $U('/packages/@fontsource/roboto/latin.css?v=', true) }}{{ $version }}"
+	<link href="{{ $U('/packages/@fontsource/roboto/400.css?v=', true) }}{{ $version }}"
+		rel="stylesheet">
+	<link href="{{ $U('/packages/@fontsource/roboto/500.css?v=', true) }}{{ $version }}"
+		rel="stylesheet">
+	<link href="{{ $U('/packages/@fontsource/roboto/700.css?v=', true) }}{{ $version }}"
 		rel="stylesheet">
 	<style>
 		body {
