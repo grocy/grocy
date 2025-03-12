@@ -4,7 +4,7 @@ namespace Grocy\Controllers;
 
 use Grocy\Controllers\Users\User;
 use Grocy\Services\StockService;
-use Grocy\Helpers\WebhookRunner;
+use Grocy\Services\WebhookService;
 use Grocy\Helpers\Grocycode;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
@@ -674,15 +674,12 @@ class StockApiController extends BaseApiController
 		{
 			$product = $this->getDatabase()->products()->where('id', $args['productId'])->fetch();
 
-			$webhookData = array_merge([
+			$webhookData = [
 				'product' => $product->name,
 				'grocycode' => (string)(new Grocycode(Grocycode::PRODUCT, $product->id)),
-			], GROCY_LABEL_PRINTER_PARAMS);
+			];
 
-			if (GROCY_LABEL_PRINTER_RUN_SERVER)
-			{
-				(new WebhookRunner())->run(GROCY_LABEL_PRINTER_WEBHOOK, $webhookData, GROCY_LABEL_PRINTER_HOOK_JSON);
-			}
+			$this->getWebhookService()->run(WebhookService::EVENT_PRODUCT_PRINT_LABEL, $webhookData);
 
 			return $this->ApiResponse($response, $webhookData);
 		}
@@ -699,20 +696,17 @@ class StockApiController extends BaseApiController
 			$stockEntry = $this->getDatabase()->stock()->where('id', $args['entryId'])->fetch();
 			$product = $this->getDatabase()->products()->where('id', $stockEntry->product_id)->fetch();
 
-			$webhookData = array_merge([
+			$webhookData = [
 				'product' => $product->name,
 				'grocycode' => (string)(new Grocycode(Grocycode::PRODUCT, $stockEntry->product_id, [$stockEntry->stock_id])),
-			], GROCY_LABEL_PRINTER_PARAMS);
+			];
 
 			if (GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING)
 			{
 				$webhookData['due_date'] = $this->getLocalizationService()->__t('DD') . ': ' . $stockEntry->best_before_date;
 			}
 
-			if (GROCY_LABEL_PRINTER_RUN_SERVER)
-			{
-				(new WebhookRunner())->run(GROCY_LABEL_PRINTER_WEBHOOK, $webhookData, GROCY_LABEL_PRINTER_HOOK_JSON);
-			}
+			$this->getWebhookService()->run(WebhookService::EVENT_STOCK_ENTRY_PRINT_LABEL, $webhookData);
 
 			return $this->ApiResponse($response, $webhookData);
 		}
