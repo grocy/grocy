@@ -679,6 +679,11 @@ class StockApiController extends BaseApiController
 				'grocycode' => (string)(new Grocycode(Grocycode::PRODUCT, $product->id)),
 			], GROCY_LABEL_PRINTER_PARAMS);
 
+			if (GROCY_LABEL_PRINTER_INCLUDE_DETAILS)
+			{
+				$webhookData['details'] = $this->getStockService()->GetProductDetails($product->id);
+			}
+
 			if (GROCY_LABEL_PRINTER_RUN_SERVER)
 			{
 				(new WebhookRunner())->run(GROCY_LABEL_PRINTER_WEBHOOK, $webhookData, GROCY_LABEL_PRINTER_HOOK_JSON);
@@ -703,6 +708,12 @@ class StockApiController extends BaseApiController
 				'product' => $product->name,
 				'grocycode' => (string)(new Grocycode(Grocycode::PRODUCT, $stockEntry->product_id, [$stockEntry->stock_id])),
 			], GROCY_LABEL_PRINTER_PARAMS);
+
+			if (GROCY_LABEL_PRINTER_INCLUDE_DETAILS)
+			{
+				$webhookData['details'] = $this->getStockService()->GetProductDetails($product->id);
+				$webhookData['details']['stock_entry'] = $stockEntry;
+			}
 
 			if (GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING)
 			{

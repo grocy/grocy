@@ -76,6 +76,11 @@ class BatteriesApiController extends BaseApiController
 				'grocycode' => (string)(new Grocycode(Grocycode::BATTERY, $args['batteryId'])),
 			], GROCY_LABEL_PRINTER_PARAMS);
 
+			if (GROCY_LABEL_PRINTER_INCLUDE_DETAILS)
+			{
+				$webhookData['details'] = $this->getBatteriesService()->GetBatteryDetails($battery->id);
+			}
+
 			if (GROCY_LABEL_PRINTER_RUN_SERVER)
 			{
 				(new WebhookRunner())->run(GROCY_LABEL_PRINTER_WEBHOOK, $webhookData, GROCY_LABEL_PRINTER_HOOK_JSON);
