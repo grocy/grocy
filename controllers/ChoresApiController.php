@@ -120,17 +120,13 @@ class ChoresApiController extends BaseApiController
 	{
 		try
 		{
-			$chore = $this->getDatabase()->chores()->where('id', $args['choreId'])->fetch();
+			$choreDetails = $this->getChoresService()->GetChoreDetails($args['choreId']);
 
 			$webhookData = array_merge([
-				'chore' => $chore->name,
+				'chore' => $choreDetails->chore->name,
 				'grocycode' => (string)(new Grocycode(Grocycode::CHORE, $args['choreId'])),
+				'details' => $choreDetails,
 			], GROCY_LABEL_PRINTER_PARAMS);
-
-			if (GROCY_LABEL_PRINTER_INCLUDE_DETAILS)
-			{
-				$webhookData['details'] = $this->getChoresService()->GetChoreDetails($chore->id);
-			}
 
 			if (GROCY_LABEL_PRINTER_RUN_SERVER)
 			{

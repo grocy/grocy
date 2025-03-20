@@ -69,17 +69,13 @@ class BatteriesApiController extends BaseApiController
 	{
 		try
 		{
-			$battery = $this->getDatabase()->batteries()->where('id', $args['batteryId'])->fetch();
+			$batteryDetails = $this->getBatteriesService()->GetBatteryDetails($args['batteryId']);
 
 			$webhookData = array_merge([
-				'battery' => $battery->name,
+				'battery' => $batteryDetails->battery->name,
 				'grocycode' => (string)(new Grocycode(Grocycode::BATTERY, $args['batteryId'])),
+				'details' => $batteryDetails,
 			], GROCY_LABEL_PRINTER_PARAMS);
-
-			if (GROCY_LABEL_PRINTER_INCLUDE_DETAILS)
-			{
-				$webhookData['details'] = $this->getBatteriesService()->GetBatteryDetails($battery->id);
-			}
 
 			if (GROCY_LABEL_PRINTER_RUN_SERVER)
 			{

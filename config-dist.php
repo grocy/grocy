@@ -111,7 +111,6 @@ Setting('LABEL_PRINTER_WEBHOOK', ''); // The URI that Grocy will POST to when as
 Setting('LABEL_PRINTER_RUN_SERVER', true); // Whether the webhook will be called server- or client-side
 Setting('LABEL_PRINTER_PARAMS', ['font_family' => 'Source Sans Pro (Regular)']); // Additional parameters supplied to the webhook
 Setting('LABEL_PRINTER_HOOK_JSON', false); // TRUE to use JSON or FALSE to use normal POST request variables
-Setting('LABEL_PRINTER_INCLUDE_DETAILS', false); // TRUE to include details for the object as well
 
 
 // Thermal printer options
