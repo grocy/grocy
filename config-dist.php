@@ -103,7 +103,7 @@ Setting('LDAP_UID_ATTR', ''); // Windows AD: "sAMAccountName", OpenLDAP: "uid", 
 Setting('DEFAULT_PERMISSIONS', ['ADMIN']);
 
 // "1D" (=> Code128) or "2D" (=> DataMatrix)
-Setting('GROCYCODE_TYPE', '1D');
+Setting('GROCYCODE_TYPE', '2D');
 
 
 // Label printer settings
