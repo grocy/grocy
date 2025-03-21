@@ -69,7 +69,7 @@ class BatteriesApiController extends BaseApiController
 	{
 		try
 		{
-			$batteryDetails = $this->getBatteriesService()->GetBatteryDetails($args['batteryId']);
+			$batteryDetails = (object)$this->getBatteriesService()->GetBatteryDetails($args['batteryId']);
 
 			$webhookData = array_merge([
 				'battery' => $batteryDetails->battery->name,

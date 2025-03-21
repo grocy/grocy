@@ -672,11 +672,11 @@ class StockApiController extends BaseApiController
 	{
 		try
 		{
-			$productDetails = $this->getStockService()->GetProductDetails($args['productId']);
+			$productDetails = (object)$this->getStockService()->GetProductDetails($args['productId']);
 
 			$webhookData = array_merge([
 				'product' => $productDetails->product->name,
-				'grocycode' => (string)(new Grocycode(Grocycode::PRODUCT, $product->id)),
+				'grocycode' => (string)(new Grocycode(Grocycode::PRODUCT, $productDetails->product->id)),
 				'details' => $productDetails,
 			], GROCY_LABEL_PRINTER_PARAMS);
 
@@ -698,7 +698,7 @@ class StockApiController extends BaseApiController
 		try
 		{
 			$stockEntry = $this->getDatabase()->stock()->where('id', $args['entryId'])->fetch();
-			$productDetails = $this->getStockService()->GetProductDetails($stockEntry->product_id);
+			$productDetails = (object)$this->getStockService()->GetProductDetails($stockEntry->product_id);
 
 			$webhookData = array_merge([
 				'product' => $productDetails->product->name,

@@ -120,7 +120,7 @@ class ChoresApiController extends BaseApiController
 	{
 		try
 		{
-			$choreDetails = $this->getChoresService()->GetChoreDetails($args['choreId']);
+			$choreDetails = (object)$this->getChoresService()->GetChoreDetails($args['choreId']);
 
 			$webhookData = array_merge([
 				'chore' => $choreDetails->chore->name,
