@@ -78,8 +78,10 @@ Grocy.Components.CameraBarcodeScanner.StartScanning = function()
 	Grocy.Components.CameraBarcodeScanner.Scanner.decodeFromVideoDevice(
 		window.localStorage.getItem('cameraId'),
 		document.querySelector("#camerabarcodescanner-livestream"),
-		(result, error) => {
-			if (error) {
+		(result, error) =>
+		{
+			if (error)
+			{
 				return;
 			}
 
@@ -90,7 +92,8 @@ Grocy.Components.CameraBarcodeScanner.StartScanning = function()
 			$(".modal").last().modal("hide");
 		}
 	)
-		.then(() => {
+		.then(() =>
+		{
 			Grocy.Components.CameraBarcodeScanner.CheckCapabilities();
 
 			if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_AUTO_TORCH_ON_WITH_CAMERA)
@@ -101,7 +104,8 @@ Grocy.Components.CameraBarcodeScanner.StartScanning = function()
 				}, 250);
 			}
 		})
-		.catch((error) => {
+		.catch((error) =>
+		{
 			Grocy.FrontendHelpers.ShowGenericError("Error while initializing the barcode scanning library", error.message);
 			toastr.info(__t("Camera access is only possible when supported and allowed by your browser and when Grocy is served via a secure (https://) connection"));
 			window.localStorage.removeItem("cameraId");
@@ -165,7 +169,8 @@ $(document).on("click", "#camerabarcodescanner-start-button", async function(e)
 				className: 'btn-warning responsive-button torch',
 				callback: function()
 				{
-					if (Grocy.Components.CameraBarcodeScanner.Scanner.stream) {
+					if (Grocy.Components.CameraBarcodeScanner.Scanner.stream)
+					{
 						Grocy.Components.CameraBarcodeScanner.TorchToggle(Grocy.Components.CameraBarcodeScanner.Scanner.stream.getVideoTracks()[0]);
 					}
 					return false;
