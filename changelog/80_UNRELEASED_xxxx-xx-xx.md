@@ -55,6 +55,8 @@
 ### General
 
 - Optimized that the default font of the web frontend is now also used for non-latin characters
+- Label printer WebHooks now include a new property/field `details` (that's the full product/chore/battery/etc. object)
+  - And also `stock_entry` (containing the full stock entry object) when printing a stock entry label
 
 ### API
 
