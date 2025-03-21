@@ -1,32 +1,33 @@
 #!/bin/bash
+echo "[$(date '+%d/%m/%Y %H:%M:%S')] Start updating Grocy"
 
 GROCY_RELEASE_URL=https://releases.grocy.info/latest
-
-
-echo Start updating Grocy
 
 set -e
 shopt -s extglob
 pushd `dirname $0` > /dev/null
 
 backupBundleFileName="backup_`date +%Y-%m-%d_%H-%M-%S`.tgz"
-echo Making a backup of the current installation in ./data/backups/$backupBundleFileName
+echo "[$(date '+%d/%m/%Y %H:%M:%S')] Making a backup of the current installation in ./data/backups/$backupBundleFileName"
 mkdir -p ./data/backups > /dev/null
 touch ./data/backups/$backupBundleFileName
 tar -zcvf ./data/backups/$backupBundleFileName --exclude ./data/backups . > /dev/null
 find ./data/backups/*.tgz -mtime +60 -type f -delete
 
-echo Deleting everything except ./data and this script
+echo "[$(date '+%d/%m/%Y %H:%M:%S')] Deleting everything except ./data and this script"
 rm -rf !(data|update.sh) > /dev/null
 
-echo Downloading latest release
+echo "[$(date '+%d/%m/%Y %H:%M:%S')] Downloading latest release"
 rm -f ./grocy-latest.zip > /dev/null
 wget $GROCY_RELEASE_URL -q --show-progress -O ./grocy-latest.zip > /dev/null
 
-echo Unzipping latest release
+echo "[$(date '+%d/%m/%Y %H:%M:%S')] Unzipping latest release"
 unzip -o ./grocy-latest.zip > /dev/null
 rm -f ./grocy-latest.zip > /dev/null
 
 popd > /dev/null
 
-echo Finished updating Grocy
+echo "[$(date '+%d/%m/%Y %H:%M:%S')] Make sure the new update.sh script is executable"
+chmod +x ./update.sh
+
+echo "[$(date '+%d/%m/%Y %H:%M:%S')] Finished updating Grocy"
