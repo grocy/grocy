@@ -7,9 +7,9 @@
   resolved "https://github.com/berrnd/bootstrap-combobox.git#fcf0110146f4daab94888234c57d198b4ca5f129"
 
 "@fontsource/roboto@^5.1.1":
-  version "5.1.1"
-  resolved "https://registry.yarnpkg.com/@fontsource/roboto/-/roboto-5.1.1.tgz#64b3f819baf8d3bcfb48c0437ddc7e4118a6ab14"
-  integrity sha512-XwVVXtERDQIM7HPUIbyDe0FP4SRovpjF7zMI8M7pbqFp3ahLJsJTd18h+E6pkar6UbV3btbwkKjYARr5M+SQow==
+  version "5.2.5"
+  resolved "https://registry.yarnpkg.com/@fontsource/roboto/-/roboto-5.2.5.tgz#b2d869075277e2cba31694951a2d355a8965d763"
+  integrity sha512-70r2UZ0raqLn5W+sPeKhqlf8wGvUXFWlofaDlcbt/S3d06+17gXKr3VNqDODB0I1ASme3dGT5OJj9NABt7OTZQ==
 
 "@fortawesome/fontawesome-free@^6.1.1":
   version "6.7.2"
@@ -68,9 +68,9 @@ bootstrap@^4.5.2, bootstrap@^4.6.1:
   integrity sha512-51Bbp/Uxr9aTuy6ca/8FbFloBUJZLHwnhTcnjIeRn2suQWsWzcuJhGjKDB5eppVte/8oCdOL3VuwxvZDUggwGQ==
 
 bwip-js@^4.5.1:
-  version "4.5.1"
-  resolved "https://registry.yarnpkg.com/bwip-js/-/bwip-js-4.5.1.tgz#005eb0372409e26d0347aca3494ddaf6e0411564"
-  integrity sha512-83yQCKiIftz5YonnsTh6wIkFoHHWl+B/XaGWD1UdRw7aB6XP9JtyYP9n8sRy3m5rzL+Ch/RUPnu28UW0RrPZUA==
+  version "4.5.3"
+  resolved "https://registry.yarnpkg.com/bwip-js/-/bwip-js-4.5.3.tgz#a2d27779ea091805c9d5cd420345cef1e38158a3"
+  integrity sha512-RzODtC4xyl7mCyyfModA+EFyE4ZBlaMRAGX9LDGqjeskmIrzUqTyF++WxHr8ccX/9la4Ii5K9LCn60yv1lYwDA==
 
 chart.js@^2.8.0:
   version "2.9.4"
@@ -282,9 +282,9 @@ summernote@^0.9.1:
   integrity sha512-5Hfuey6+N0XIbk8ZpkGEVDmrkRVRHZWKBhw/072i9/TJLaWUKboB+KOyyd6AzDP2CQs1O6or4zRTU8HY30kt4w==
 
 swagger-ui-dist@^5.2.0:
-  version "5.20.0"
-  resolved "https://registry.yarnpkg.com/swagger-ui-dist/-/swagger-ui-dist-5.20.0.tgz#b14d5e2bd0ffab2179de221288ee366a5ec5fcf1"
-  integrity sha512-V5pozVTZxivdoQq/SQWxj3A4cOu5opk9MEbcZANX3Pj8X8xCrD1QCtBT7744Pz9msOvt0nnmy9JvM/9PGonCdg==
+  version "5.20.1"
+  resolved "https://registry.yarnpkg.com/swagger-ui-dist/-/swagger-ui-dist-5.20.1.tgz#9aa6012cd537a9d3feac2d9e814d97bb36459824"
+  integrity sha512-qBPCis2w8nP4US7SvUxdJD3OwKcqiWeZmjN2VWhq2v+ESZEXOP/7n4DeiOiiZcGYTKMHAHUUrroHaTsjUWTEGw==
   dependencies:
     "@scarf/scarf" "=1.4.0"
 
