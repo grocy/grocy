@@ -90,6 +90,7 @@ class RecipesApiController extends BaseApiController
 			$webhookData = array_merge([
 				'recipe' => $recipe->name,
 				'grocycode' => (string)(new Grocycode(Grocycode::RECIPE, $args['recipeId'])),
+				'details' => $recipe
 			], GROCY_LABEL_PRINTER_PARAMS);
 
 			if (GROCY_LABEL_PRINTER_RUN_SERVER)

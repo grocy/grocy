@@ -672,11 +672,12 @@ class StockApiController extends BaseApiController
 	{
 		try
 		{
-			$product = $this->getDatabase()->products()->where('id', $args['productId'])->fetch();
+			$productDetails = (object)$this->getStockService()->GetProductDetails($args['productId']);
 
 			$webhookData = array_merge([
-				'product' => $product->name,
-				'grocycode' => (string)(new Grocycode(Grocycode::PRODUCT, $product->id)),
+				'product' => $productDetails->product->name,
+				'grocycode' => (string)(new Grocycode(Grocycode::PRODUCT, $productDetails->product->id)),
+				'details' => $productDetails,
 			], GROCY_LABEL_PRINTER_PARAMS);
 
 			if (GROCY_LABEL_PRINTER_RUN_SERVER)
@@ -697,11 +698,13 @@ class StockApiController extends BaseApiController
 		try
 		{
 			$stockEntry = $this->getDatabase()->stock()->where('id', $args['entryId'])->fetch();
-			$product = $this->getDatabase()->products()->where('id', $stockEntry->product_id)->fetch();
+			$productDetails = (object)$this->getStockService()->GetProductDetails($stockEntry->product_id);
 
 			$webhookData = array_merge([
-				'product' => $product->name,
+				'product' => $productDetails->product->name,
 				'grocycode' => (string)(new Grocycode(Grocycode::PRODUCT, $stockEntry->product_id, [$stockEntry->stock_id])),
+				'details' => $productDetails,
+				'stock_entry' => $stockEntry,
 			], GROCY_LABEL_PRINTER_PARAMS);
 
 			if (GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING)

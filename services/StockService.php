@@ -227,6 +227,8 @@ class StockService extends BaseService
 						$webhookData = array_merge([
 							'product' => $productDetails->product->name,
 							'grocycode' => (string)(new Grocycode(Grocycode::PRODUCT, $productId, [$stockId])),
+							'details' => $productDetails,
+							'stock_entry' => $stockRow,
 						], GROCY_LABEL_PRINTER_PARAMS);
 
 						if (GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING)
@@ -278,6 +280,8 @@ class StockService extends BaseService
 					$webhookData = array_merge([
 						'product' => $productDetails->product->name,
 						'grocycode' => (string)(new Grocycode(Grocycode::PRODUCT, $productId, [$stockId])),
+						'details' => $productDetails,
+						'stock_entry' => $stockRow,
 					], GROCY_LABEL_PRINTER_PARAMS);
 
 					if (GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING)
@@ -1009,6 +1013,8 @@ class StockService extends BaseService
 					$webhookData = array_merge([
 						'product' => $productDetails->product->name,
 						'grocycode' => (string)(new Grocycode(Grocycode::PRODUCT, $productId, [$stockEntry->stock_id])),
+						'details' => $productDetails,
+						'stock_entry' => $stockEntry,
 					], GROCY_LABEL_PRINTER_PARAMS);
 
 					if (GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING)
@@ -1321,6 +1327,8 @@ class StockService extends BaseService
 					$webhookData = array_merge([
 						'product' => $productDetails->product->name,
 						'grocycode' => (string)(new Grocycode(Grocycode::PRODUCT, $productId, [$stockEntry->stock_id])),
+						'details' => $productDetails,
+						'stock_entry' => $stockEntry,
 					], GROCY_LABEL_PRINTER_PARAMS);
 
 					if (GROCY_FEATURE_FLAG_STOCK_BEST_BEFORE_DATE_TRACKING)
