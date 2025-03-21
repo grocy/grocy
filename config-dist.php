@@ -227,13 +227,3 @@ DefaultUserSetting('calendar_color_tasks', '#28a745'); // The event color (hex c
 DefaultUserSetting('calendar_color_chores', '#ffc107'); // The event color (hex code) for due chores
 DefaultUserSetting('calendar_color_batteries', '#17a2b8'); // The event color (hex code) for due battery charge cycles
 DefaultUserSetting('calendar_color_meal_plan', '#6c757d'); // The event color (hex code) for meal plan items
-
-// Component configuration for Quagga2
-// See https://github.com/ericblade/quagga2#configobject for details
-// Below is a generic good configuration,
-// For an iPhone 7 Plus, halfsample = true, patchsize = small, frequency = 5 yields very good results
-DefaultUserSetting('quagga2_numofworkers', 4);
-DefaultUserSetting('quagga2_halfsample', false);
-DefaultUserSetting('quagga2_patchsize', 'medium');
-DefaultUserSetting('quagga2_frequency', 10);
-DefaultUserSetting('quagga2_debug', false);

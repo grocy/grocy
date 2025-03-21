@@ -740,8 +740,8 @@
 	@if(in_array('daterangepicker', $GROCY_REQUIRED_FRONTEND_PACKAGES))
 	<script src="{{ $U('/packages/daterangepicker/daterangepicker.js?v=', true) }}{{ $version }}"></script>
 	@endif
-	@if(in_array('quagga2', $GROCY_REQUIRED_FRONTEND_PACKAGES))
-	<script src="{{ $U('/packages/@ericblade/quagga2/dist/quagga.min.js?v=', true) }}{{ $version }}"></script>
+	@if(in_array('zxing', $GROCY_REQUIRED_FRONTEND_PACKAGES))
+	<script src="{{ $U('/packages/@zxing/library/umd/index.min.js?v=', true) }}{{ $version }}"></script>
 	@endif
 	@if(in_array('bwipjs', $GROCY_REQUIRED_FRONTEND_PACKAGES))
 	<script src="{{ $U('/packages/bwip-js/dist/bwip-js-min.js?v=', true) }}{{ $version }}"></script>
