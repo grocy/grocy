@@ -1,6 +1,6 @@
 @if (!GROCY_FEATURE_FLAG_DISABLE_BROWSER_BARCODE_CAMERA_SCANNING)
 
-@php require_frontend_packages(['quagga2']); @endphp
+@php require_frontend_packages(['zxing']); @endphp
 
 @once
 @push('componentScripts')

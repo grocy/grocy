@@ -209,16 +209,14 @@ a:not([href]) {
 	white-space: pre-wrap;
 }
 
-/* Camera Barcodescanner Quagga2 */
+/* Camera Barcodescanner */
 #camerabarcodescanner-container {
 	max-height: 90vh;
+	display: flex;
+	justify-content: center;
 }
 
-#camerabarcodescanner-livestream video {
-	width: 100%;
-}
-
-#camerabarcodescanner-livestream canvas {
+#camerabarcodescanner-livestream {
 	width: 100%;
 }
 
@@ -379,14 +377,6 @@ html {
 .tooltip {
 	pointer-events: none;
 	z-index: 99999 !important;
-}
-
-/* Third party component customizations - QuaggaJS */
-canvas.drawing,
-canvas.drawingBuffer {
-	position: absolute;
-	left: 0;
-	top: 0;
 }
 
 .warning-message,
