@@ -47,7 +47,7 @@ Grocy.Components.CameraBarcodeScanner.CheckCapabilities = async function()
 		document.querySelector('.camerabarcodescanner-modal .modal-footer').setAttribute('style', 'flex;');
 	}
 
-	// Reduce the height of the video, if it's higher than then the viewport
+	// Reduce the height of the video if it's higher than the viewport
 	if (!Grocy.Components.CameraBarcodeScanner.LiveVideoSizeAdjusted)
 	{
 		var bc = document.getElementById('camerabarcodescanner-container');
@@ -72,9 +72,6 @@ Grocy.Components.CameraBarcodeScanner.CheckCapabilities = async function()
 
 Grocy.Components.CameraBarcodeScanner.StartScanning = function()
 {
-	Grocy.Components.CameraBarcodeScanner.DecodedCodesCount = 0;
-	Grocy.Components.CameraBarcodeScanner.DecodedCodesErrorCount = 0;
-
 	Grocy.Components.CameraBarcodeScanner.Scanner.decodeFromVideoDevice(
 		window.localStorage.getItem('cameraId'),
 		document.querySelector("#camerabarcodescanner-livestream"),
@@ -85,7 +82,6 @@ Grocy.Components.CameraBarcodeScanner.StartScanning = function()
 				return;
 			}
 
-			Grocy.Components.CameraBarcodeScanner.DecodedCodesCount++;
 			Grocy.Components.CameraBarcodeScanner.StopScanning();
 
 			$(document).trigger("Grocy.BarcodeScanned", [result.getText(), Grocy.Components.CameraBarcodeScanner.CurrentTarget]);
@@ -121,8 +117,6 @@ Grocy.Components.CameraBarcodeScanner.StopScanning = function()
 {
 	Grocy.Components.CameraBarcodeScanner.Scanner.reset();
 
-	Grocy.Components.CameraBarcodeScanner.DecodedCodesCount = 0;
-	Grocy.Components.CameraBarcodeScanner.DecodedCodesErrorCount = 0;
 	Grocy.Components.CameraBarcodeScanner.LiveVideoSizeAdjusted = false;
 	Grocy.Components.CameraBarcodeScanner.CameraSelectLoaded = false;
 	Grocy.Components.CameraBarcodeScanner.TorchIsOn = false;
@@ -146,6 +140,7 @@ Grocy.Components.CameraBarcodeScanner.TorchToggle = function(track)
 $(document).on("click", "#camerabarcodescanner-start-button", async function(e)
 {
 	e.preventDefault();
+
 	var inputElement = $(e.currentTarget).prev();
 	if (inputElement.hasAttr("disabled"))
 	{
@@ -184,7 +179,7 @@ $(document).on("click", "#camerabarcodescanner-start-button", async function(e)
 	});
 
 	// Add camera select to existing dialog
-	dialog.find('.bootbox-body').append('<div class="form-group py-0 my-1 d-block cameraSelect-wrapper"><select class="custom-control custom-select cameraSelect"></select></div>');
+	dialog.find('.bootbox-body').append('<div class="form-group pb-0 pt-2 my-1 d-block cameraSelect-wrapper"><select class="custom-control custom-select cameraSelect"></select></div>');
 	var cameraSelect = document.querySelector('.cameraSelect');
 	cameraSelect.onchange = function()
 	{
@@ -204,16 +199,14 @@ Grocy.Components.CameraBarcodeScanner.Init = function()
 		return;
 	}
 
-	var scannerHints = new Map();
-	scannerHints.set(ZXing.DecodeHintType.POSSIBLE_FORMATS, [
+	Grocy.Components.CameraBarcodeScanner.Scanner = new ZXing.BrowserMultiFormatReader(new Map().set(ZXing.DecodeHintType.POSSIBLE_FORMATS, [
 		ZXing.BarcodeFormat.EAN_8,
 		ZXing.BarcodeFormat.EAN_13,
 		ZXing.BarcodeFormat.CODE_39,
 		ZXing.BarcodeFormat.CODE_128,
 		ZXing.BarcodeFormat.DATA_MATRIX,
 		ZXing.BarcodeFormat.QR_CODE,
-	])
-	Grocy.Components.CameraBarcodeScanner.Scanner = new ZXing.BrowserMultiFormatReader(scannerHints);
+	]));
 
 	$(".barcodescanner-input:visible").each(function()
 	{
