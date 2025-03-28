@@ -250,9 +250,9 @@ jquery-serializejson@^2.9.0:
   integrity sha512-m4avr8yL8kmFN8psrbFFFmB/If14iN5o9nw/NgnnM+kybDJpRsAynV2BsfpTYrTRysYUdADVD7CkUUizgkpLfg==
 
 moment-timezone@^0.5.34:
-  version "0.5.47"
-  resolved "https://registry.yarnpkg.com/moment-timezone/-/moment-timezone-0.5.47.tgz#d4d1a21b78372d914d6d69ae285454732a429749"
-  integrity sha512-UbNt/JAWS0m/NJOebR0QMRHBk0hu03r5dx9GK8Cs0AS3I81yDcOc9k+DytPItgVvBP7J6Mf6U2n3BPAacAV9oA==
+  version "0.5.48"
+  resolved "https://registry.yarnpkg.com/moment-timezone/-/moment-timezone-0.5.48.tgz#111727bb274734a518ae154b5ca589283f058967"
+  integrity sha512-f22b8LV1gbTO2ms2j2z13MuPogNoh5UzxL3nzNAYKGraILnbGc9NEE6dyiiiLv46DGRb8A4kg8UKWLjPthxBHw==
   dependencies:
     moment "^2.29.4"
 
@@ -282,9 +282,9 @@ summernote@^0.9.1:
   integrity sha512-5Hfuey6+N0XIbk8ZpkGEVDmrkRVRHZWKBhw/072i9/TJLaWUKboB+KOyyd6AzDP2CQs1O6or4zRTU8HY30kt4w==
 
 swagger-ui-dist@^5.2.0:
-  version "5.20.1"
-  resolved "https://registry.yarnpkg.com/swagger-ui-dist/-/swagger-ui-dist-5.20.1.tgz#9aa6012cd537a9d3feac2d9e814d97bb36459824"
-  integrity sha512-qBPCis2w8nP4US7SvUxdJD3OwKcqiWeZmjN2VWhq2v+ESZEXOP/7n4DeiOiiZcGYTKMHAHUUrroHaTsjUWTEGw==
+  version "5.20.2"
+  resolved "https://registry.yarnpkg.com/swagger-ui-dist/-/swagger-ui-dist-5.20.2.tgz#d90e5cf986ca9aa2d3b28221f6b684045b93669d"
+  integrity sha512-zP2biZvCt6R1IAz/iGcjeEViHez7UPHUFfMFyF6jcTKS1ZIP2cgr+KSZEMhBnpIcFfDrZxkD8v56taL5A8phuA==
   dependencies:
     "@scarf/scarf" "=1.4.0"
 
