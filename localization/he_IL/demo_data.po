@@ -429,3 +429,6 @@ msgstr "בירה"
 
 msgid "Estonian"
 msgstr "אסטונית"
+
+msgid "Bulgarian"
+msgstr ""

@@ -1,7 +1,6 @@
 # 
 # Translators:
-# EbXpJ6bp <ebxpj6bp@outlook.jp>, 2020
-# Takuya Mizuguchi, 2024
+# pigmentblue15, 2025
 # 
 msgid ""
 msgstr ""
@@ -9,7 +8,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Takuya Mizuguchi, 2024\n"
+"Last-Translator: pigmentblue15, 2025\n"
 "Language-Team: Japanese (https://app.transifex.com/grocy/teams/93189/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,22 +18,22 @@ msgstr ""
 "X-Domain: grocy/chore_types\n"
 
 msgid "manually"
-msgstr "手動"
+msgstr "適宜"
 
 msgid "daily"
-msgstr "毎日"
+msgstr "周期(日)"
 
 msgid "weekly"
-msgstr "毎週"
+msgstr "周期(週)"
 
 msgid "monthly"
-msgstr "毎月"
+msgstr "周期(月)"
 
 msgid "yearly"
-msgstr "毎年"
+msgstr "周期(年)"
 
 msgid "hourly"
-msgstr "毎時"
+msgstr "周期(時間)"
 
 msgid "adaptive"
-msgstr "適応型"
+msgstr "自動調整"

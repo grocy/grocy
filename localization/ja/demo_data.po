@@ -4,6 +4,7 @@
 # 鳥山 陽平 <kagemomiji@gmail.com>, 2020
 # Cisco Benjamin <metallica@vivaldi.net>, 2020
 # Takuya Mizuguchi, 2024
+# pigmentblue15, 2025
 # 
 msgid ""
 msgstr ""
@@ -11,7 +12,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Takuya Mizuguchi, 2024\n"
+"Last-Translator: pigmentblue15, 2025\n"
 "Language-Team: Japanese (https://app.transifex.com/grocy/teams/93189/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -30,10 +31,10 @@ msgid "Pantry"
 msgstr "パントリー"
 
 msgid "Candy cupboard"
-msgstr "お菓子棚"
+msgstr "菓子収納"
 
 msgid "Tinned food cupboard"
-msgstr "缶詰の保管棚"
+msgstr "缶詰収納"
 
 msgid "Fridge"
 msgstr "冷蔵庫"
@@ -48,7 +49,7 @@ msgstr[0] "パック"
 
 msgid "Glass"
 msgid_plural "Glasses"
-msgstr[0] "眼鏡"
+msgstr[0] "瓶"
 
 msgid "Tin"
 msgid_plural "Tins"
@@ -56,7 +57,7 @@ msgstr[0] "小缶"
 
 msgid "Can"
 msgid_plural "Cans"
-msgstr[0] "カン"
+msgstr[0] "缶"
 
 msgid "Bunch"
 msgid_plural "Bunches"
@@ -96,28 +97,28 @@ msgid "Cucumber"
 msgstr "きゅうり"
 
 msgid "Radish"
-msgstr "だいこん"
+msgstr "大根"
 
 msgid "Tomato"
 msgstr "トマト"
 
 msgid "Change towels in the bathroom"
-msgstr "お風呂のタオルを交換"
+msgstr "風呂場のタオルを交換"
 
 msgid "Mop the kitchen floor"
 msgstr "キッチンの床をモップがけ"
 
 msgid "Warranty ends"
-msgstr "保証終了"
+msgstr "保証期間終了"
 
 msgid "TV remote control"
-msgstr "TV リモコン"
+msgstr "TVのリモコン"
 
 msgid "Alarm clock"
-msgstr "時計のアラーム"
+msgstr "目覚まし時計"
 
 msgid "Heat remote control"
-msgstr "ヒータのリモコン"
+msgstr "暖房のリモコン"
 
 msgid "Take out the trash"
 msgstr "ごみを出す"
@@ -129,7 +130,7 @@ msgid "Pizza dough"
 msgstr "ピザ生地"
 
 msgid "Sieved tomatoes"
-msgstr "トマトペースト"
+msgstr "トマトピューレ"
 
 msgid "Salami"
 msgstr "サラミ"
@@ -159,14 +160,14 @@ msgid "Italian"
 msgstr "イタリア語"
 
 msgid "This is the note content of the recipe ingredient"
-msgstr "レシピの材料のノート"
+msgstr "これはレシピの材料メモです"
 
 msgid "Demo User"
 msgstr "デモユーザー"
 
 msgid "Gram"
 msgid_plural "Grams"
-msgstr[0] "グラム"
+msgstr[0] "g"
 
 msgid "Flour"
 msgstr "小麦粉"
@@ -181,31 +182,31 @@ msgid "Sweets"
 msgstr "お菓子"
 
 msgid "Bakery products"
-msgstr "パン食品"
+msgstr "パン類"
 
 msgid "Tinned food"
 msgstr "缶詰"
 
 msgid "Butchery products"
-msgstr "肉食品"
+msgstr "肉類"
 
 msgid "Vegetables/Fruits"
-msgstr "野菜/フルーツ"
+msgstr "野菜/果物"
 
 msgid "Refrigerated products"
 msgstr "冷凍食品"
 
 msgid "Coffee machine"
-msgstr "コーヒー マシーン"
+msgstr "コーヒーメーカー"
 
 msgid "Dishwasher"
 msgstr "食器洗い機"
 
 msgid "Liter"
-msgstr "リットル"
+msgstr "L"
 
 msgid "Liters"
-msgstr "リットル"
+msgstr "L"
 
 msgid "Bottle"
 msgstr "本"
@@ -214,19 +215,19 @@ msgid "Bottles"
 msgstr "本"
 
 msgid "Milk"
-msgstr "ミルク"
+msgstr "牛乳"
 
 msgid "Chocolate sauce"
-msgstr "チョコレート ソース"
+msgstr "チョコレートソース"
 
 msgid "Milliliters"
-msgstr "ミリリットル"
+msgstr "ml"
 
 msgid "Milliliter"
-msgstr "ミリリットル"
+msgstr "ml"
 
 msgid "Bottom"
-msgstr "底"
+msgstr "生地"
 
 msgid "Topping"
 msgstr "トッピング"
@@ -259,29 +260,29 @@ msgid "Polish"
 msgstr "ポーランド語"
 
 msgid "Milk Chocolate"
-msgstr "ミルク チョコレート"
+msgstr "ミルクチョコレート"
 
 msgid "Dark Chocolate"
-msgstr "ダーク チョコレート"
+msgstr "ダークチョコレート"
 
 msgid "Slice"
 msgid_plural "Slices"
 msgstr[0] "枚"
 
 msgid "Example userentity"
-msgstr "ユーザーエントリーの例"
+msgstr "ユーザーエンティティ例"
 
 msgid "This is an example user entity..."
-msgstr "これはユーザー エントリーの例です..."
+msgstr "これはユーザーエンティティ例です..."
 
 msgid "Custom field"
-msgstr "カスタム フィールド"
+msgstr "カスタムフィールド"
 
 msgid "Example field value..."
 msgstr "フィールド値の例..."
 
 msgid "Waffle rolls"
-msgstr "ワッフル・ロール"
+msgstr "ワッフルロール"
 
 msgid "Danish"
 msgstr "デンマーク語"
@@ -296,22 +297,22 @@ msgid "Demo"
 msgstr "デモ"
 
 msgid "Stable version"
-msgstr "安定板"
+msgstr "安定版"
 
 msgid "Preview version"
 msgstr "プレビュー版"
 
 msgid "current release"
-msgstr "リリース済み"
+msgstr "現在のリリース"
 
 msgid "not yet released"
 msgstr "未リリース"
 
 msgid "Portuguese (Brazil)"
-msgstr "ポルトガル語 (ブラジル)"
+msgstr "ポルトガル語(ブラジル)"
 
 msgid "This is a note"
-msgstr "てすと"
+msgstr "これはメモです"
 
 msgid "Freezer"
 msgstr "冷凍庫"
@@ -326,21 +327,21 @@ msgid "Czech"
 msgstr "チェコ語"
 
 msgid "Portuguese (Portugal)"
-msgstr "ポルトガル語 (ポルトガル)"
+msgstr "ポルトガル語(ポルトガル)"
 
 # Use a in your country well known supermarket name
 msgid "DemoSupermarket1"
-msgstr "イオン1"
+msgstr "マルエツ"
 
 # Use a in your country well known supermarket name
 msgid "DemoSupermarket2"
-msgstr "イオン2"
+msgstr "西友"
 
 msgid "Japanese"
 msgstr "日本語"
 
 msgid "Chinese (Taiwan)"
-msgstr "中国語（台湾）"
+msgstr "中国語(台湾)"
 
 msgid "Greek"
 msgstr "ギリシャ語"
@@ -349,10 +350,10 @@ msgid "Korean"
 msgstr "韓国語"
 
 msgid "Chinese (China)"
-msgstr "中国語 （中国）"
+msgstr "中国語(中国)"
 
 msgid "Hebrew (Israel)"
-msgstr "ヘブライ語 （イスラエル）"
+msgstr "ヘブライ語(イスラエル)"
 
 msgid "Tamil"
 msgstr "タミル語"
@@ -383,7 +384,7 @@ msgstr "ウクライナ語"
 
 msgid "Kilogram"
 msgid_plural "Kilograms"
-msgstr[0] "キログラム"
+msgstr[0] "kg"
 
 msgid "Romanian"
 msgstr "ルーマニア語"
@@ -405,3 +406,6 @@ msgstr "ビール"
 
 msgid "Estonian"
 msgstr "エストニア語"
+
+msgid "Bulgarian"
+msgstr ""

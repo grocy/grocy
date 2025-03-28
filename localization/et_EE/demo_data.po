@@ -413,3 +413,6 @@ msgstr "Õlu"
 
 msgid "Estonian"
 msgstr "eesti"
+
+msgid "Bulgarian"
+msgstr ""

@@ -414,3 +414,6 @@ msgstr "Bira"
 
 msgid "Estonian"
 msgstr "Estonya dili"
+
+msgid "Bulgarian"
+msgstr ""

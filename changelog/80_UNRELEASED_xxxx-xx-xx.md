@@ -58,6 +58,8 @@
 - Label printer WebHooks now include a new property/field `details` (that's the full product/chore/battery/etc. object)
   - And also `stock_entry` (containing the full stock entry object) when printing a stock entry label
 - The component used (so far [Quagga2](https://github.com/ericblade/quagga2)) that powers the camera barcode scanner was replaced by [ZXing](https://github.com/zxing-js/library) which should perform overall better and it also supports 2D barcodes (QRCode/DataMatrix) (thanks @gergof)
+- New translations: (thanks all the translators)
+  - Bulgarian (demo available at <https://bg-bg.demo.grocy.info>)
 
 ### API
 

@@ -426,3 +426,6 @@ msgstr "Bier"
 
 msgid "Estonian"
 msgstr "Estisch"
+
+msgid "Bulgarian"
+msgstr ""

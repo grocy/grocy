@@ -146,3 +146,7 @@ msgstr ""
 # Estonian
 msgid "et_EE"
 msgstr ""
+
+# Bulgarian
+msgid "bg_BG"
+msgstr ""

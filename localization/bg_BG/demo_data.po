@@ -1,0 +1,418 @@
+# 
+# Translators:
+# Plamen Stoyanov <fireto@gmail.com>, 2020
+# Mihail Andreev, 2020
+# Steliyan Stoyanov, 2025
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
+"PO-Revision-Date: 2019-05-01 17:42+0000\n"
+"Last-Translator: Steliyan Stoyanov, 2025\n"
+"Language-Team: Bulgarian (Bulgaria) (https://app.transifex.com/grocy/teams/93189/bg_BG/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: bg_BG\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Domain: grocy/demo_data\n"
+
+msgid "Cookies"
+msgstr "Бисквити"
+
+msgid "Chocolate"
+msgstr "Шоколад"
+
+msgid "Pantry"
+msgstr "Килер"
+
+msgid "Candy cupboard"
+msgstr "Шкаф за бонбони"
+
+msgid "Tinned food cupboard"
+msgstr "Шкаф за консерви"
+
+msgid "Fridge"
+msgstr "Хладилник"
+
+msgid "Piece"
+msgid_plural "Pieces"
+msgstr[0] "Брой"
+msgstr[1] "Броя"
+
+msgid "Pack"
+msgid_plural "Packs"
+msgstr[0] "Опаковка"
+msgstr[1] "Опаковки"
+
+msgid "Glass"
+msgid_plural "Glasses"
+msgstr[0] "Чаша"
+msgstr[1] "Чаши"
+
+msgid "Tin"
+msgid_plural "Tins"
+msgstr[0] "Консерва"
+msgstr[1] "Консерви"
+
+msgid "Can"
+msgid_plural "Cans"
+msgstr[0] "Кен"
+msgstr[1] "Кена"
+
+msgid "Bunch"
+msgid_plural "Bunches"
+msgstr[0] "Куп"
+msgstr[1] "Куп"
+
+msgid "Gummy bears"
+msgstr "Гумени мечета"
+
+msgid "Crisps"
+msgstr "Чипс"
+
+msgid "Eggs"
+msgstr "Яйца"
+
+msgid "Noodles"
+msgstr "Юфка"
+
+msgid "Pickles"
+msgstr "Туршия"
+
+msgid "Gulash soup"
+msgstr "Супа гулаш"
+
+msgid "Yogurt"
+msgstr "Кисело мляко"
+
+msgid "Cheese"
+msgstr "Сирене"
+
+msgid "Cold cuts"
+msgstr "Сухи мезета"
+
+msgid "Paprika"
+msgstr "Пипер"
+
+msgid "Cucumber"
+msgstr "Краставица"
+
+msgid "Radish"
+msgstr "Ряпа"
+
+msgid "Tomato"
+msgstr "Домати"
+
+msgid "Change towels in the bathroom"
+msgstr "Смени кърпите в банята"
+
+msgid "Mop the kitchen floor"
+msgstr "Избършете пода в кухнята"
+
+msgid "Warranty ends"
+msgstr "Край на гаранцията"
+
+msgid "TV remote control"
+msgstr "Дистанционно за телевизор"
+
+msgid "Alarm clock"
+msgstr "Будилник"
+
+msgid "Heat remote control"
+msgstr "Дистанционно за термостат"
+
+msgid "Take out the trash"
+msgstr "Изхвърлете боклука"
+
+msgid "Some good snacks"
+msgstr "Хубави закуски"
+
+msgid "Pizza dough"
+msgstr "Тесто за пица"
+
+msgid "Sieved tomatoes"
+msgstr "Пасирани домати"
+
+msgid "Salami"
+msgstr "Салам"
+
+msgid "Toast"
+msgstr "Хляб за тост"
+
+msgid "Minced meat"
+msgstr "Кайма"
+
+msgid "Pizza"
+msgstr "Пица"
+
+msgid "Spaghetti bolognese"
+msgstr "Спагети болонезе"
+
+msgid "Sandwiches"
+msgstr "Сандвичи"
+
+msgid "English"
+msgstr "Английски"
+
+msgid "German"
+msgstr "Немски"
+
+msgid "Italian"
+msgstr "Италиански"
+
+msgid "This is the note content of the recipe ingredient"
+msgstr "Това е съдържанието на бележката за съставката на рецептата"
+
+msgid "Demo User"
+msgstr "Демо потребител"
+
+msgid "Gram"
+msgid_plural "Grams"
+msgstr[0] "Грам"
+msgstr[1] "Грама"
+
+msgid "Flour"
+msgstr "Брашно"
+
+msgid "Pancakes"
+msgstr "Палачинки"
+
+msgid "Sugar"
+msgstr "Захар"
+
+msgid "Sweets"
+msgstr "Сладкиши"
+
+msgid "Bakery products"
+msgstr "Хлебни продукти"
+
+msgid "Tinned food"
+msgstr "Консерва"
+
+msgid "Butchery products"
+msgstr "Месни продукти"
+
+msgid "Vegetables/Fruits"
+msgstr "Зеленчуци/Плодове"
+
+msgid "Refrigerated products"
+msgstr "Охладени продукти"
+
+msgid "Coffee machine"
+msgstr "Кафе машина"
+
+msgid "Dishwasher"
+msgstr "Съдомиялна"
+
+msgid "Liter"
+msgstr "Литър"
+
+msgid "Liters"
+msgstr "Литри"
+
+msgid "Bottle"
+msgstr "Бутилка"
+
+msgid "Bottles"
+msgstr "Бутилки"
+
+msgid "Milk"
+msgstr "Мляко"
+
+msgid "Chocolate sauce"
+msgstr "Шоколадов сос"
+
+msgid "Milliliters"
+msgstr "Милилитри"
+
+msgid "Milliliter"
+msgstr "Милилитър"
+
+msgid "Bottom"
+msgstr "Дъно"
+
+msgid "Topping"
+msgstr "Топинг"
+
+msgid "French"
+msgstr "Френски"
+
+msgid "Turkish"
+msgstr "Турски"
+
+msgid "Spanish"
+msgstr "Испански"
+
+msgid "Russian"
+msgstr "Руски"
+
+msgid "Vacuum the living room floor"
+msgstr "Почистете пода с прахосмукачка в хола"
+
+msgid "Clean the litter box"
+msgstr "Почистете кутията за отпадъци"
+
+msgid "Change the bed sheets"
+msgstr "Смени чаршафите"
+
+msgid "Swedish"
+msgstr "Шведски"
+
+msgid "Polish"
+msgstr "Полски"
+
+msgid "Milk Chocolate"
+msgstr "Млечен шоколад"
+
+msgid "Dark Chocolate"
+msgstr "Тъмен шоколад"
+
+msgid "Slice"
+msgid_plural "Slices"
+msgstr[0] "Резън"
+msgstr[1] "Резъни"
+
+msgid "Example userentity"
+msgstr "Пример за ползване"
+
+msgid "This is an example user entity..."
+msgstr "Това е примерен потребителски запис..."
+
+msgid "Custom field"
+msgstr "Персонализирано поле"
+
+msgid "Example field value..."
+msgstr "Примерна стойност на полето..."
+
+msgid "Waffle rolls"
+msgstr "Вафлени рула"
+
+msgid "Danish"
+msgstr "Датски"
+
+msgid "Dutch"
+msgstr "Холандски"
+
+msgid "Norwegian"
+msgstr "Норвежки"
+
+msgid "Demo"
+msgstr "Демонстрация"
+
+msgid "Stable version"
+msgstr "Стабилна версия"
+
+msgid "Preview version"
+msgstr "Предварителна версия"
+
+msgid "current release"
+msgstr "текущо издание"
+
+msgid "not yet released"
+msgstr "още не издадено"
+
+msgid "Portuguese (Brazil)"
+msgstr "Португалски (Бразилия)"
+
+msgid "This is a note"
+msgstr "Това е бележка"
+
+msgid "Freezer"
+msgstr "Фризер"
+
+msgid "Hungarian"
+msgstr "Унгарски"
+
+msgid "Slovak"
+msgstr "Словашки"
+
+msgid "Czech"
+msgstr "Чехия"
+
+msgid "Portuguese (Portugal)"
+msgstr "Португалски (Португалия)"
+
+# Use a in your country well known supermarket name
+msgid "DemoSupermarket1"
+msgstr "ДемоСупермаркет1"
+
+# Use a in your country well known supermarket name
+msgid "DemoSupermarket2"
+msgstr "ТестовСупермаркет2"
+
+msgid "Japanese"
+msgstr "Японски"
+
+msgid "Chinese (Taiwan)"
+msgstr "Китайски (Тайван)"
+
+msgid "Greek"
+msgstr "гръцки"
+
+msgid "Korean"
+msgstr "корейски"
+
+msgid "Chinese (China)"
+msgstr "Китайски (China)"
+
+msgid "Hebrew (Israel)"
+msgstr "Иврит (Israel)"
+
+msgid "Tamil"
+msgstr "Тамилски"
+
+msgid "Finnish"
+msgstr "Финландски"
+
+msgid "Breakfast"
+msgstr "Закуска"
+
+msgid "Lunch"
+msgstr "Обяд"
+
+msgid "Dinner"
+msgstr "Вечеря"
+
+msgid "Catalan"
+msgstr "Каталонски"
+
+msgid "Slovenian"
+msgstr "Словенски"
+
+msgid "Lithuanian"
+msgstr "Литовски"
+
+msgid "Ukrainian"
+msgstr "Украински"
+
+msgid "Kilogram"
+msgid_plural "Kilograms"
+msgstr[0] "килограм"
+msgstr[1] "Килограми"
+
+msgid "Romanian"
+msgstr "Румънски"
+
+msgid "Pint"
+msgstr "Закачено"
+
+msgid "Beverages"
+msgstr "Напитки"
+
+msgid "Ice Cream"
+msgstr "Сладолед"
+
+msgid "Soda"
+msgstr "Газирана вода"
+
+msgid "Beer"
+msgstr "Бира"
+
+msgid "Estonian"
+msgstr "Естонски"
+
+msgid "Bulgarian"
+msgstr ""

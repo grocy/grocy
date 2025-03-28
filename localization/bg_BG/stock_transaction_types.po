@@ -1,0 +1,46 @@
+# 
+# Translators:
+# Plamen Stoyanov <fireto@gmail.com>, 2020
+# Mihail Andreev, 2020
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
+"PO-Revision-Date: 2019-05-01 17:42+0000\n"
+"Last-Translator: Mihail Andreev, 2020\n"
+"Language-Team: Bulgarian (Bulgaria) (https://app.transifex.com/grocy/teams/93189/bg_BG/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: bg_BG\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Domain: grocy/stock_transaction_types\n"
+
+msgid "purchase"
+msgstr "покупка"
+
+msgid "transfer_from"
+msgstr "прехвърли_от"
+
+msgid "transfer_to"
+msgstr "прехвъли_към"
+
+msgid "consume"
+msgstr "консумирай"
+
+msgid "inventory-correction"
+msgstr "корекция-инвентаризация"
+
+msgid "product-opened"
+msgstr "отворен-продукт"
+
+msgid "stock-edit-old"
+msgstr "наличност-промяна-стар"
+
+msgid "stock-edit-new"
+msgstr "наличност-промяна-нов"
+
+msgid "self-production"
+msgstr "домашна-продукция"

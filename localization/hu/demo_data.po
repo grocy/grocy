@@ -419,3 +419,6 @@ msgstr "Sör"
 
 msgid "Estonian"
 msgstr "Észt"
+
+msgid "Bulgarian"
+msgstr ""

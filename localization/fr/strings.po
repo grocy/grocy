@@ -42,6 +42,7 @@
 # Jonathan Blanc, 2023
 # Greg G, 2023
 # Lamecarlate, 2025
+# Olivier R, 2025
 # 
 msgid ""
 msgstr ""
@@ -49,7 +50,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Lamecarlate, 2025\n"
+"Last-Translator: Olivier R, 2025\n"
 "Language-Team: French (https://app.transifex.com/grocy/teams/93189/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -326,7 +327,7 @@ msgid "Invalid credentials, please try again"
 msgstr "Identifiants invalides, merci de réessayer"
 
 msgid "Are you sure you want to delete battery \"%s\"?"
-msgstr ""
+msgstr "Êtes-vous sûr de vouloir supprimer la pile \"%s\" ?"
 
 msgid "Yes"
 msgstr "Oui"
@@ -335,7 +336,7 @@ msgid "No"
 msgstr "Non"
 
 msgid "Are you sure you want to delete chore \"%s\"?"
-msgstr ""
+msgstr "Êtes-vous sûr de vouloir supprimer la corvée \"%s\" ?"
 
 msgid "\"%s\" could not be resolved to a product, how do you want to proceed?"
 msgstr ""
@@ -358,16 +359,16 @@ msgid "Add as new product and prefill barcode"
 msgstr "Ajouter un nouveau produit et pré-renseigner le code-barres"
 
 msgid "Are you sure you want to delete quantity unit \"%s\"?"
-msgstr ""
+msgstr "Êtes-vous sûr de vouloir supprimer l'unité \"%s\" ?"
 
 msgid "Are you sure you want to delete product \"%s\"?"
-msgstr ""
+msgstr "Êtes-vous sûr de vouloir supprimer le produit \"%s\" ?"
 
 msgid "Are you sure you want to delete location \"%s\"?"
-msgstr ""
+msgstr "Êtes-vous sûr de vouloir supprimer l'emplacement \"%s\" ?"
 
 msgid "Are you sure you want to delete store \"%s\"?"
-msgstr ""
+msgstr "Êtes-vous sûr de vouloir supprimer le magasin \"%s\"  ?"
 
 msgid "Manage API keys"
 msgstr "Gérer les clefs API"
@@ -481,13 +482,13 @@ msgid "Edit recipe ingredient"
 msgstr "Modifier un ingrédient dans la recette"
 
 msgid "Are you sure you want to delete recipe \"%s\"?"
-msgstr ""
+msgstr "Êtes-vous sûr de vouloir supprimer la recette \"%s\" ?"
 
 msgid "Are you sure you want to delete recipe ingredient \"%s\"?"
-msgstr ""
+msgstr "Êtes-vous sûr de vouloir supprimer l'ingrédient \"%s\" de la recette ?"
 
 msgid "Are you sure you want to empty shopping list \"%s\"?"
-msgstr ""
+msgstr "Êtes-vous sûr de vouloir vider la liste de courses \"%s\" ?"
 
 msgid "Clear list"
 msgstr "Vider la liste"
@@ -540,6 +541,8 @@ msgid ""
 "Are you sure you want to put all missing ingredients for recipe \"%s\" on "
 "the shopping list?"
 msgstr ""
+"Êtes-vous sûr de vouloir ajouter tous les ingrédients manquants de la "
+"recette \"%s\" dans la liste de courses ?"
 
 msgid "Manage users"
 msgstr "Gérer les utilisateurs"
@@ -551,7 +554,7 @@ msgid "Users"
 msgstr "Utilisateurs"
 
 msgid "Are you sure you want to delete user \"%s\"?"
-msgstr ""
+msgstr "Êtes-vous sûr de vouloir supprimer l'utilisateur \"%s\"  ?"
 
 msgid "Create user"
 msgstr "Créer un utilisateur"
@@ -656,9 +659,13 @@ msgid ""
 "(ingredients marked with \"only check if any amount is in stock\" will be "
 "ignored)?"
 msgstr ""
+"Êtes-vous sûr de vouloir consommer tous les ingrédients requis par la "
+"recette \"%s\" (les ingrédients marqués \"Vérifier seulement qu'une quantité"
+" non-nulle est en stock\" seront ignorés) ?"
 
 msgid "Removed all in stock ingredients needed by recipe \"%s\" from stock"
 msgstr ""
+"Enlever tous les ingrédients en stock requis par la recette \"%s\" du stock"
 
 msgid "Consume all ingredients needed by this recipe"
 msgstr "Consommer tous les ingrédients requis par cette recette"
@@ -709,7 +716,7 @@ msgid "Edit task"
 msgstr "Modifier la tâche"
 
 msgid "Are you sure you want to delete task \"%s\"?"
-msgstr ""
+msgstr "Êtes-vous sûr de vouloir supprimer la tâche \"%s\"  ?"
 
 msgid "%s task is due to be done"
 msgid_plural "%s tasks are due to be done"
@@ -745,7 +752,7 @@ msgid "Product group"
 msgstr "Groupe de produit"
 
 msgid "Are you sure you want to delete product group \"%s\"?"
-msgstr ""
+msgstr "Êtes-vous sûr de vouloir supprimer le groupe de produit \"%s\" ?"
 
 msgid "Stay logged in permanently"
 msgstr "Rester connecté de manière permanente"
@@ -1091,7 +1098,7 @@ msgid "Create shopping list"
 msgstr "Créer liste de courses"
 
 msgid "Are you sure you want to delete shopping list \"%s\"?"
-msgstr ""
+msgstr "Êtes-vous sûr de vouloir vider la liste de courses \"%s\" ?"
 
 msgid "Average shelf life"
 msgstr "Durée moyenne de conservation "
@@ -1299,7 +1306,7 @@ msgid "Time of printing"
 msgstr "Temps d'impression"
 
 msgid "Are you sure you want to delete equipment \"%s\"?"
-msgstr ""
+msgstr "Êtes-vous sûr de vouloir supprimer l'équipement \"%s\" ?"
 
 msgid "Parent product"
 msgstr "Produit parent"
@@ -1472,7 +1479,7 @@ msgid "Consume product on chore execution"
 msgstr "Consommer un produit lors de l'exécution de la corvée"
 
 msgid "Are you sure you want to delete user field \"%s\"?"
-msgstr ""
+msgstr "Êtes-vous sûr de vouloir supprimer l'attribut utilisateur \"%s\"  ?"
 
 msgid "Userentities"
 msgstr "Entités utilisateur"
@@ -1493,7 +1500,7 @@ msgid "Create %s"
 msgstr "Créer %s"
 
 msgid "Are you sure you want to delete this userobject?"
-msgstr ""
+msgstr "Êtes-vous sûr de vouloir supprimer cet objet utilisateur ?"
 
 msgid "Icon CSS class"
 msgstr "Classe CSS de l'icône"
@@ -1583,7 +1590,7 @@ msgstr ""
 "manquants, seulement ce produit."
 
 msgid "Are you sure you want to remove this conversion?"
-msgstr ""
+msgstr "Êtes-vous sûr de vouloir supprimer cette conversion ?"
 
 msgid "Unit price"
 msgstr "Prix unitaire"
@@ -1601,7 +1608,7 @@ msgid "Clear"
 msgstr "Vider"
 
 msgid "Are you sure you want to remove the included recipe \"%s\"?"
-msgstr ""
+msgstr "Êtes-vous sûr de vouloir supprimer la recette incluse \"%s\" ?"
 
 msgid "Period interval"
 msgstr "Intervalle de temps"
@@ -1695,7 +1702,7 @@ msgid "Booking does not exist or was already undone"
 msgstr "La réservation n'existe pas ou a déjà été annulée"
 
 msgid "Are you sure you want to delete API key \"%s\"?"
-msgstr ""
+msgstr "Êtes-vous sûr de vouloir supprimer la clef d'API \"%s\"  ?"
 
 msgid "Add note"
 msgstr "Ajouter une remarque"
@@ -1751,7 +1758,7 @@ msgid "Frozen"
 msgstr "Congelé"
 
 msgid "Are you sure you want to delete userentity \"%s\"?"
-msgstr ""
+msgstr "Êtes-vous sûr de vouloir supprimer l'entité utilisateur \"%s\"  ?"
 
 msgid "Shopping list settings"
 msgstr "Paramètres de la liste de courses"
@@ -1848,6 +1855,10 @@ msgid ""
 "due first, then first in first out) for in stock ingredients and on the last"
 " price for missing ones"
 msgstr ""
+"Basé sur les prix de la règle de consommation par défaut (produit déjà "
+"ouvert en premier, puis date de péremption proche et enfin produit le plus "
+"ancien) pour les ingrédients en stock et sur le dernier prix pour les "
+"manquants"
 
 msgid "Clear filter"
 msgstr "Enlever le filtre"
@@ -2018,6 +2029,7 @@ msgstr ""
 
 msgid "This is due earlier than already in stock items"
 msgstr ""
+"La date de péremption est plus courte que pour les éléments déjà en stock"
 
 msgid ""
 "When enabled, after changing/scanning a product and if all fields could be "
@@ -2049,7 +2061,7 @@ msgid "Copy"
 msgstr "Copier"
 
 msgid "Are you sure you want to remove this barcode?"
-msgstr ""
+msgstr "Êtes-vous sûr de vouloir supprimer ce code barre ?"
 
 msgid "Due date type"
 msgstr "Type d'échéance"
@@ -2252,7 +2264,7 @@ msgid "Reset"
 msgstr "Réinitialiser"
 
 msgid "Are you sure you want to reset the table options?"
-msgstr ""
+msgstr "Êtes-vous sûr de vouloir réinitialiser les options du tableau ?"
 
 msgid "Hide/view columns"
 msgstr "Afficher/cacher les colonnes"
@@ -2321,6 +2333,9 @@ msgid ""
 "below their min. stock amount - enable this to hide this product there "
 "always"
 msgstr ""
+"L'aperçu du stock liste tous les produits actuellement en stock ou en-deça "
+"de leur stock mini - cette option désactive l'affichage de ce produit dans "
+"tous les cas"
 
 msgid "Print options"
 msgstr "Options d'impression"
@@ -2393,7 +2408,7 @@ msgid "Only done items"
 msgstr "Seulement les éléments faits"
 
 msgid "Show only in stock products"
-msgstr ""
+msgstr "Ne montrer que les produits en stock"
 
 msgid "Product description"
 msgstr "Description du produit"
@@ -2415,7 +2430,7 @@ msgid "When enabled, then this field must be filled on the destination form"
 msgstr "Lorsque activé, ce champ est requis dans le formulaire de destination"
 
 msgid "In stock products"
-msgstr ""
+msgstr "Produits en stock"
 
 msgid "Timestamp"
 msgstr "Horodatage"
@@ -2503,13 +2518,13 @@ msgid "Edit meal plan section"
 msgstr "Modifier la section du menu"
 
 msgid "Are you sure you want to delete meal plan section \"%s\"?"
-msgstr ""
+msgstr "Êtes-vous sûr de vouloir supprimer la section \"%s\" du menu ?"
 
 msgid "Section"
 msgstr "Section"
 
 msgid "Are you sure you want to empty the shopping list?"
-msgstr ""
+msgstr "Êtes-vous sûr de vouloir vider la liste de courses ?"
 
 msgid "This is the default which will be prefilled on purchase"
 msgstr "Ceci est la valeur par défaut, qui va être préremplie à l'achat"
@@ -2743,7 +2758,7 @@ msgid "QU conversions resolved"
 msgstr "Conversions d'UQ résolue"
 
 msgid "Product specific QU conversions"
-msgstr ""
+msgstr "Conversions UQ spécifiques au produit"
 
 msgid "Default quantity unit consume"
 msgstr "Quantité consommée par défaut"
@@ -2821,7 +2836,7 @@ msgid "Stock report"
 msgstr "Rapport de stock"
 
 msgid "Out of stock products"
-msgstr ""
+msgstr "Produits en rupture de stock"
 
 msgid "Quantity unit for prices"
 msgstr "Unité de quantité pour les prix"
@@ -2840,7 +2855,7 @@ msgstr[1] "Cela signifie que %1$s étiquettes seront imprimées"
 msgstr[2] "Cela signifie que %1$s étiquettes seront imprimées"
 
 msgid "External barcode lookup"
-msgstr ""
+msgstr "Lecture externe de codes-barres"
 
 msgid "Error while executing the barcode lookup plugin"
 msgstr "Erreur durant l'exécution du plugin de lecture de code-barres"
@@ -2858,16 +2873,19 @@ msgid "Scheduled tracking time"
 msgstr ""
 
 msgid "Time of tracking"
-msgstr ""
+msgstr "Temps de pistage"
 
 msgid "Show all out of stock products"
-msgstr ""
+msgstr "Montrer tous les produits en rupture de stock"
 
 msgid ""
 "By default the stock overview page lists all products which are currently in"
 " stock or below their min. stock amount - when this is enabled, all (active)"
 " products are always shown"
 msgstr ""
+"Par défaut, la page d'aperçu des stocks liste tous les produits qui sont "
+"actuellement en stock ou en dessous de leur stock minimal - Lorsque cette "
+"option est activée, tous les produits (actifs) sont toujours affichés"
 
 msgid "No price information is available for at least one ingredient"
 msgstr ""
@@ -2876,21 +2894,25 @@ msgid ""
 "For ingredients that are only partially in stock, the in stock amount will "
 "be consumed."
 msgstr ""
+"Pour les ingrédients qui ne sont que partiellement en stock, le montant en "
+"stock sera consommé."
 
 msgid "Can't be opened"
-msgstr ""
+msgstr "Ne peut pas être ouvert"
 
 msgid "Default purchase price type"
-msgstr ""
+msgstr "Type de prix d'achat par défaut"
 
 msgid "This will be used as the default price type selection on purchase"
 msgstr ""
+"Cette option sera utilisée en tant que type de prix par défaut lors d'un "
+"achat"
 
 msgid "Unspecified"
-msgstr ""
+msgstr "Non spécifié"
 
 msgid "Round up quantity amounts to the nearest whole number"
-msgstr ""
+msgstr "Arrondir la quantité au nombre entier le plus proche"
 
 msgid "Stock actions"
 msgstr ""

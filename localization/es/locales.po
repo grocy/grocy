@@ -146,3 +146,7 @@ msgstr "Rumano (Rumanía)"
 # Estonian
 msgid "et_EE"
 msgstr "Estonio"
+
+# Bulgarian
+msgid "bg_BG"
+msgstr ""

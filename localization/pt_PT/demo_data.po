@@ -425,3 +425,6 @@ msgstr "Cerveja"
 
 msgid "Estonian"
 msgstr ""
+
+msgid "Bulgarian"
+msgstr ""

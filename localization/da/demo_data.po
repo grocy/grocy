@@ -419,3 +419,6 @@ msgstr "Øl"
 
 msgid "Estonian"
 msgstr "Estisk"
+
+msgid "Bulgarian"
+msgstr ""

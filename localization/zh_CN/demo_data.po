@@ -409,3 +409,6 @@ msgstr "啤酒"
 
 msgid "Estonian"
 msgstr "爱莎尼亚语"
+
+msgid "Bulgarian"
+msgstr ""

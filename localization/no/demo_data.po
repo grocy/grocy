@@ -415,3 +415,6 @@ msgstr ""
 
 msgid "Estonian"
 msgstr ""
+
+msgid "Bulgarian"
+msgstr ""

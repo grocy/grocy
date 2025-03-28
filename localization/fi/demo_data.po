@@ -416,3 +416,6 @@ msgstr "Olut"
 
 msgid "Estonian"
 msgstr "Viro"
+
+msgid "Bulgarian"
+msgstr ""

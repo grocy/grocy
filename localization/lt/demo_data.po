@@ -430,3 +430,6 @@ msgstr "Alus"
 
 msgid "Estonian"
 msgstr "Estija"
+
+msgid "Bulgarian"
+msgstr ""

@@ -107,3 +107,6 @@ msgstr "Romanian"
 
 msgid "et_EE"
 msgstr "Estonian"
+
+msgid "bg_BG"
+msgstr "Bulgarian"

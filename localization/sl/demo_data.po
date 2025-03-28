@@ -429,3 +429,6 @@ msgstr "Pivo"
 
 msgid "Estonian"
 msgstr ""
+
+msgid "Bulgarian"
+msgstr ""

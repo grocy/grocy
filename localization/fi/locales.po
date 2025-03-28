@@ -144,3 +144,7 @@ msgstr "Romania"
 # Estonian
 msgid "et_EE"
 msgstr "Viro"
+
+# Bulgarian
+msgid "bg_BG"
+msgstr ""

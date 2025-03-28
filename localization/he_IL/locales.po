@@ -144,3 +144,7 @@ msgstr "רומנית"
 # Estonian
 msgid "et_EE"
 msgstr "אסטונית"
+
+# Bulgarian
+msgid "bg_BG"
+msgstr ""
