@@ -10,6 +10,15 @@
 @php if(empty($label)) { $label = 'Amount'; } @endphp
 @php if(empty($initialQuId)) { $initialQuId = '-1'; } @endphp
 @php if(!isset($isRequired)) { $isRequired = true; } @endphp
+@php if(!isset($allowZero)) { $allowZero = false; } @endphp
+
+@php
+$minLocal = $DEFAULT_MIN_AMOUNT;
+if ($allowZero)
+{
+$minLocal = 0;
+}
+@endphp
 
 <div class="form-group row {{ $additionalGroupCssClasses }}">
 	<div class="col">
@@ -20,7 +29,7 @@
 			@include('components.numberpicker', array(
 			'id' => 'display_amount',
 			'label' => $label,
-			'min' => $DEFAULT_MIN_AMOUNT,
+			'min' => $minLocal,
 			'decimals' => $userSettings['stock_decimal_places_amounts'],
 			'value' => $value,
 			'additionalGroupCssClasses' => 'col-sm-5 col-12 my-0',
