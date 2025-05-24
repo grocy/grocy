@@ -416,5 +416,8 @@ $(window).on("message", function(e)
 	{
 		RefreshProductRow(data.Payload);
 		RefreshStatistics();
-	}
+	} else if (data.Message == "Ready")
+	{
+		window.parent.postMessage(WindowMessageBag("CloseLastModal"), Grocy.BaseUrl);
+	};
 });

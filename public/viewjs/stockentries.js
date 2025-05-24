@@ -322,6 +322,9 @@ $(window).on("message", function(e)
 		{
 			RefreshStockEntryRow($(this).attr("data-stockrow-id"));
 		});
+	} else if (data.Message == "Ready")
+	{
+		window.parent.postMessage(WindowMessageBag("CloseLastModal"), Grocy.BaseUrl);
 	};
 });
 
