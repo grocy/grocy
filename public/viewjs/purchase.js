@@ -178,7 +178,6 @@ $('#save-purchase-button').on('click', function(e)
 							window.parent.postMessage(WindowMessageBag("AfterItemAdded", GetUriParam("listitemid")), Grocy.BaseUrl);
 							window.parent.postMessage(WindowMessageBag("ShowSuccessMessage", successMessage), Grocy.BaseUrl);
 							window.parent.postMessage(WindowMessageBag("Ready"), Grocy.BaseUrl);
-							window.parent.postMessage(WindowMessageBag("CloseLastModal"), Grocy.BaseUrl);
 						});
 					}
 					else
