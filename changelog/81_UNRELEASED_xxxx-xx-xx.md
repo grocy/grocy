@@ -15,6 +15,7 @@
 ### Shopping list
 
 - An amount of `0` is now allowed for shopping list items (just a convenience optimization, it was already possible to leave the amount field empty which implicitly resulted in an amount of `0`)
+- Fixed that the "Add all list items to stock" workflow closed the dialog after every item instead only after the last one was added
 
 ### Recipes
 
