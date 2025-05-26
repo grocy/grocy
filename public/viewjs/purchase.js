@@ -202,6 +202,7 @@ $('#save-purchase-button').on('click', function(e)
 							}
 
 							Grocy.Components.ProductAmountPicker.Reset();
+							Grocy.Components.ProductPicker.Clear();
 							$("#purchase-form").removeAttr("data-used-barcode");
 							$("#display_amount").attr("min", Grocy.DefaultMinAmount);
 							$('#display_amount').val(Grocy.UserSettings.stock_default_purchase_amount);
@@ -216,7 +217,6 @@ $('#save-purchase-button').on('click', function(e)
 							{
 								Grocy.Components.DateTimePicker.Clear();
 							}
-							Grocy.Components.ProductPicker.SetValue('');
 							if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
 							{
 								Grocy.Components.ShoppingLocationPicker.SetValue('');

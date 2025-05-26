@@ -10,7 +10,7 @@
 
 ### Stock
 
-- xxx
+- Fixed that when using/scanning a barcode on the purchase page with a note attached (which prefills the note field) and when manually selecting another product afterwards, the note of the previously used barcode was incorrectly prefilled again
 
 ### Shopping list
 

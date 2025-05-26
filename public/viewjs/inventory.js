@@ -155,7 +155,7 @@ $('#save-inventory-button').on('click', function(e)
 									$('#note').val('');
 									$('#price-hint').text("");
 									Grocy.Components.DateTimePicker.Clear();
-									Grocy.Components.ProductPicker.SetValue('');
+									Grocy.Components.ProductPicker.Clear();
 									if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
 									{
 										Grocy.Components.ShoppingLocationPicker.SetValue('');
