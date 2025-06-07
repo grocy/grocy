@@ -53,9 +53,9 @@ animate.css@^3.7.2:
   integrity sha512-0bE8zYo7C0KvgOYrSVfrzkbYk6IOTVPNqkiHg2cbyF4Pq/PXzilz4BRWA3hwEUBoMp5VBgrC29lQIZyhRWdBTw==
 
 bootbox@^6.0.0:
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/bootbox/-/bootbox-6.0.0.tgz#a5f1074faab38b881e79e009ea4d625c7e8c536d"
-  integrity sha512-+Calbj1v5UvxAXXDAHfoBlsx63Hcz1JqHaZdJ5EjIcOlkyAbZLCreVScx0Em6ZUvsMCqynuz/3nGDyd9FtFrNQ==
+  version "6.0.4"
+  resolved "https://registry.yarnpkg.com/bootbox/-/bootbox-6.0.4.tgz#005f12d712da5d5723a13a0495e5fc4ad2cc1472"
+  integrity sha512-LoOT8WbiH6YjlhIxzJ3nZHK1p9tlcoa6QNILSGJMx9ihydzFk+DVzNVWNpHk8MZLOkizey1XhFu1dhoqk77xVg==
 
 bootstrap-select@^1.13.18:
   version "1.13.18"
@@ -68,9 +68,9 @@ bootstrap@^4.5.2, bootstrap@^4.6.1:
   integrity sha512-51Bbp/Uxr9aTuy6ca/8FbFloBUJZLHwnhTcnjIeRn2suQWsWzcuJhGjKDB5eppVte/8oCdOL3VuwxvZDUggwGQ==
 
 bwip-js@^4.5.1:
-  version "4.5.3"
-  resolved "https://registry.yarnpkg.com/bwip-js/-/bwip-js-4.5.3.tgz#a2d27779ea091805c9d5cd420345cef1e38158a3"
-  integrity sha512-RzODtC4xyl7mCyyfModA+EFyE4ZBlaMRAGX9LDGqjeskmIrzUqTyF++WxHr8ccX/9la4Ii5K9LCn60yv1lYwDA==
+  version "4.6.0"
+  resolved "https://registry.yarnpkg.com/bwip-js/-/bwip-js-4.6.0.tgz#9d6ed7480bd0d44b219f468ac05e1d05cb8fe7a2"
+  integrity sha512-Djr1aQ3d1N8rpLz5XgbpNW/yrP4owC+rk5/pZTSzkqXY0WvqzJ0yJTxA8JJA6WDxOAP1hP70AcnTxiDvthy+/g==
 
 chart.js@^2.8.0:
   version "2.9.4"
@@ -111,9 +111,9 @@ chartjs-plugin-piechart-outlabels@^0.1.4:
   integrity sha512-IaYkh6ab8nLAvgioQ+BwU0awfMbxwmfO2AeBL+S45VVx9AdObovr9+aE+ShUO2Og96y6eJpCxZGJr4zXB7YnRw==
 
 chartjs-plugin-trendline@^2.1.6:
-  version "2.1.6"
-  resolved "https://registry.yarnpkg.com/chartjs-plugin-trendline/-/chartjs-plugin-trendline-2.1.6.tgz#5090155cae06681c9888a63305991d868cff3596"
-  integrity sha512-73lpSv87RcIeu0so4ndEE48Xf08Q4scz079tSgYdfeGuIce4JKcSE64oluhz/j6NpBr50Z7PPwolGJ0cLtknRw==
+  version "2.1.9"
+  resolved "https://registry.yarnpkg.com/chartjs-plugin-trendline/-/chartjs-plugin-trendline-2.1.9.tgz#7444ffa96c1eba4521340e8fe8e2b6b289bcd699"
+  integrity sha512-6vzl7o2mytprS71yYCn91SZHbq5K8QnMGixz3SORemoAxPwJVTYK8J2ViQ44Hkxf6ld5/GwOtL0eU5k8IywocA==
 
 color-convert@^1.9.3:
   version "1.9.3"
@@ -141,11 +141,11 @@ datatables.net-bs4@^1.10.22, datatables.net-bs4@^1.13.0:
     jquery "1.8 - 4"
 
 datatables.net-bs4@^2:
-  version "2.2.2"
-  resolved "https://registry.yarnpkg.com/datatables.net-bs4/-/datatables.net-bs4-2.2.2.tgz#bb668037b922ca8bdbb2e8ec8a321963409d973d"
-  integrity sha512-BrG2e4HVgtLydGWXLjnvniNfd4U537KKbRIyfS2PZ+y0pnjA+jIbYynceJWV4xGPA31XhWnqaJumTIfAPUVhxA==
+  version "2.3.2"
+  resolved "https://registry.yarnpkg.com/datatables.net-bs4/-/datatables.net-bs4-2.3.2.tgz#6c840881fce496e971c9e44f98e114438a9dc00f"
+  integrity sha512-I2a2AeRO+iiMLUI/yCYo8UevscpYxray7AJGUnMep4HmqrQ+NQgseYr38N/kNdY7vxU5XKqq1c+uSGAPkk9Q9A==
   dependencies:
-    datatables.net "2.2.2"
+    datatables.net "2.3.2"
     jquery ">=1.7"
 
 datatables.net-colreorder-bs4@^1.5.2:
@@ -214,10 +214,10 @@ datatables.net@1.13.11, datatables.net@^1.10.22, datatables.net@^1.13.0, datatab
   dependencies:
     jquery "1.8 - 4"
 
-datatables.net@2.2.2, datatables.net@^2:
-  version "2.2.2"
-  resolved "https://registry.yarnpkg.com/datatables.net/-/datatables.net-2.2.2.tgz#de45c9ef18775499481ffdae81a8de6a10d264a0"
-  integrity sha512-gfODIKE3gpgbVeZy2QGj2Dq9roO6hy00S+k1knklrqlMyAMrh1wt0Q6ryBUM7gU96U77ysbq8dYhxFdmcC/oPQ==
+datatables.net@2.3.2, datatables.net@^2:
+  version "2.3.2"
+  resolved "https://registry.yarnpkg.com/datatables.net/-/datatables.net-2.3.2.tgz#6821f6288e6ad3cb6879c33e0e7e11d4091d330b"
+  integrity sha512-31TzwIQM0+pr2ZOEOEH6dsHd/WSAl5GDDGPezOHPI3mM2NK4lcDyOoG8xXeWmSbVfbi852LNK5C84fpp4Q+qxg==
   dependencies:
     jquery ">=1.7"
 
@@ -282,9 +282,9 @@ summernote@^0.9.1:
   integrity sha512-5Hfuey6+N0XIbk8ZpkGEVDmrkRVRHZWKBhw/072i9/TJLaWUKboB+KOyyd6AzDP2CQs1O6or4zRTU8HY30kt4w==
 
 swagger-ui-dist@^5.2.0:
-  version "5.20.2"
-  resolved "https://registry.yarnpkg.com/swagger-ui-dist/-/swagger-ui-dist-5.20.2.tgz#d90e5cf986ca9aa2d3b28221f6b684045b93669d"
-  integrity sha512-zP2biZvCt6R1IAz/iGcjeEViHez7UPHUFfMFyF6jcTKS1ZIP2cgr+KSZEMhBnpIcFfDrZxkD8v56taL5A8phuA==
+  version "5.24.0"
+  resolved "https://registry.yarnpkg.com/swagger-ui-dist/-/swagger-ui-dist-5.24.0.tgz#5c68287dac5c249a704fa27926677e6a2d1ce2a2"
+  integrity sha512-okwN8vf14TOgBTUyGgCXEAoHnrwwp/042dC00B3kPu2OAe9zD75BtSbLlgAK1Y5e3csJhs+AdnIxJYZN9uvptg==
   dependencies:
     "@scarf/scarf" "=1.4.0"
 
