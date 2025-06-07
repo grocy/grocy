@@ -34,7 +34,7 @@ msgid "inventory-correction"
 msgstr "ストック増減"
 
 msgid "product-opened"
-msgstr "開封"
+msgstr "開封済"
 
 msgid "stock-edit-old"
 msgstr "編集前"

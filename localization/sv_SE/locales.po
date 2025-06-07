@@ -2,6 +2,7 @@
 # Translators:
 # Robert Johansson, 2022
 # riiga <riiga_92@hotmail.com>, 2024
+# Johan Helin, 2025
 # 
 msgid ""
 msgstr ""
@@ -9,7 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2020-08-31 19:11+0000\n"
-"Last-Translator: riiga <riiga_92@hotmail.com>, 2024\n"
+"Last-Translator: Johan Helin, 2025\n"
 "Language-Team: Swedish (Sweden) (https://app.transifex.com/grocy/teams/93189/sv_SE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -148,4 +149,4 @@ msgstr "et_EE"
 
 # Bulgarian
 msgid "bg_BG"
-msgstr ""
+msgstr "bg_BG"

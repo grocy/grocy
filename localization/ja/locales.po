@@ -149,4 +149,4 @@ msgstr "エストニア語(エストニア)"
 
 # Bulgarian
 msgid "bg_BG"
-msgstr ""
+msgstr "ブルガリア語(ブルガリア)"

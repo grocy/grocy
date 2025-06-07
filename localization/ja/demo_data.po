@@ -408,4 +408,4 @@ msgid "Estonian"
 msgstr "エストニア語"
 
 msgid "Bulgarian"
-msgstr ""
+msgstr "ブルガリア語"

@@ -15,6 +15,7 @@
 # Eric Andersson, 2023
 # riiga <riiga_92@hotmail.com>, 2024
 # Jesper, 2025
+# Johan Helin, 2025
 # 
 msgid ""
 msgstr ""
@@ -22,7 +23,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Jesper, 2025\n"
+"Last-Translator: Johan Helin, 2025\n"
 "Language-Team: Swedish (Sweden) (https://app.transifex.com/grocy/teams/93189/sv_SE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -620,7 +621,7 @@ msgstr ""
 " kommer att ignoreras)?"
 
 msgid "Removed all in stock ingredients needed by recipe \"%s\" from stock"
-msgstr ""
+msgstr "Ta bort alla lagerhållna ingredienser i receptet \"%s\" från lager"
 
 msgid "Consume all ingredients needed by this recipe"
 msgstr "Konsumera alla ingredienser som behövs för detta recept"
@@ -877,8 +878,8 @@ msgstr "Ej öppnad"
 
 msgid "Opened"
 msgid_plural "Opened"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Öppnad"
+msgstr[1] "Öppnade"
 
 msgid "%s opened"
 msgstr "%s öppnade"
@@ -1819,10 +1820,10 @@ msgid "Default"
 msgstr "Standard"
 
 msgid "Stock journal summary"
-msgstr ""
+msgstr "Lagerloggssammanfattning"
 
 msgid "Journal summary"
-msgstr ""
+msgstr "Loggsammanfattning"
 
 msgid "Consume exact amount"
 msgstr "Förbruka exakt antal"
@@ -1831,7 +1832,7 @@ msgid "Value"
 msgstr "Värde"
 
 msgid "%s total value"
-msgstr "totalt värde"
+msgstr "%s totalt värde"
 
 msgid ""
 "Show purchased date on purchase and inventory page (otherwise the purchased "
@@ -1895,7 +1896,7 @@ msgid "Mark task as completed"
 msgstr "Markera uppgift som slutförd"
 
 msgid "Track charge cycle"
-msgstr ""
+msgstr "Spåra laddningscykel"
 
 msgid "Battery journal"
 msgstr "Batterilogg"
@@ -2262,7 +2263,7 @@ msgid "Only done items"
 msgstr "Endast klara föremål"
 
 msgid "Show only in stock products"
-msgstr ""
+msgstr "Visa endast produkter i lager"
 
 msgid "Product description"
 msgstr "Produktbeskrivning"
@@ -2284,7 +2285,7 @@ msgid "When enabled, then this field must be filled on the destination form"
 msgstr ""
 
 msgid "In stock products"
-msgstr ""
+msgstr "Produkter i lager"
 
 msgid "Timestamp"
 msgstr "Tidsstämpel"
@@ -2371,7 +2372,7 @@ msgid "Section"
 msgstr "Sektion"
 
 msgid "Are you sure you want to empty the shopping list?"
-msgstr ""
+msgstr "Är du säker på att du vill tömma inköpslistan?"
 
 msgid "This is the default which will be prefilled on purchase"
 msgstr "Detta är standardvärdet som kommer vara förifyllt vid inköp"
@@ -2383,7 +2384,7 @@ msgid "Chore to keep"
 msgstr "Sysslor att behålla"
 
 msgid "After merging, this chore will be kept"
-msgstr ""
+msgstr "Den här sysslan behålls efter sammanslagningen"
 
 msgid "Chore to remove"
 msgstr "Syssla att ta bort"
@@ -2429,7 +2430,7 @@ msgid ""
 msgstr ""
 
 msgid "Skipped"
-msgstr ""
+msgstr "Överhoppad"
 
 msgid "Skip next chore schedule"
 msgstr ""
@@ -2461,7 +2462,7 @@ msgid "Reschedule next execution"
 msgstr ""
 
 msgid "This can only be in the future"
-msgstr ""
+msgstr "Det här kan enbart vara i framtiden"
 
 msgid "Rescheduled"
 msgstr ""
@@ -2524,7 +2525,7 @@ msgstr ""
 "lagermängd i inköpslistan"
 
 msgid "Reassigned"
-msgstr ""
+msgstr "Omtilldelad"
 
 msgid "Default value"
 msgstr "Standardvärde"
@@ -2545,7 +2546,7 @@ msgid "Stock entries at this location will be consumed first"
 msgstr ""
 
 msgid "Move on open"
-msgstr ""
+msgstr "Flytta vid öppning"
 
 msgid ""
 "When enabled, on marking this product as opened, the corresponding amount "
@@ -2609,7 +2610,7 @@ msgid "Track chore execution now"
 msgstr ""
 
 msgid "Total"
-msgstr ""
+msgstr "Summa"
 
 msgid "Apply"
 msgstr "Tillämpa"
@@ -2622,8 +2623,8 @@ msgstr "Igår"
 
 msgid "Last %1$s day"
 msgid_plural "Last %1$s days"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Senaste %1$s dagen"
+msgstr[1] "Senaste %1$s dagarna"
 
 msgid "This month"
 msgstr "Den här månaden"
@@ -2641,13 +2642,13 @@ msgid "Reports"
 msgstr "Rapporter"
 
 msgid "Spendings"
-msgstr ""
+msgstr "Utgifter"
 
 msgid "Stock report"
-msgstr ""
+msgstr "Lagerrapport"
 
 msgid "Out of stock products"
-msgstr ""
+msgstr "Produkter slut i lager"
 
 msgid "Quantity unit for prices"
 msgstr "Mängdenhet för priser"
@@ -2686,7 +2687,7 @@ msgid "Time of tracking"
 msgstr ""
 
 msgid "Show all out of stock products"
-msgstr ""
+msgstr "Visa alla produkter som är slut i lager"
 
 msgid ""
 "By default the stock overview page lists all products which are currently in"
@@ -2705,7 +2706,7 @@ msgstr ""
 "lagersaldot att förbrukas."
 
 msgid "Can't be opened"
-msgstr ""
+msgstr "Kan inte öppnas"
 
 msgid "Default purchase price type"
 msgstr ""
@@ -2714,7 +2715,7 @@ msgid "This will be used as the default price type selection on purchase"
 msgstr ""
 
 msgid "Unspecified"
-msgstr ""
+msgstr "Ospecificerad"
 
 msgid "Round up quantity amounts to the nearest whole number"
 msgstr ""

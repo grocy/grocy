@@ -1,6 +1,6 @@
 # 
 # Translators:
-# Vytautas Barkauskas, 2023
+# Vytautas Barkauskas, 2025
 # 
 msgid ""
 msgstr ""
@@ -8,7 +8,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2020-08-31 19:11+0000\n"
-"Last-Translator: Vytautas Barkauskas, 2023\n"
+"Last-Translator: Vytautas Barkauskas, 2025\n"
 "Language-Team: Lithuanian (https://app.transifex.com/grocy/teams/93189/lt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -147,4 +147,4 @@ msgstr "et_EE"
 
 # Bulgarian
 msgid "bg_BG"
-msgstr ""
+msgstr "bg_BG"

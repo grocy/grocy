@@ -8,6 +8,7 @@
 # foo bar, 2023
 # aleixcox, 2023
 # aleixcox, 2024
+# 彬源 朱, 2025
 # 
 msgid ""
 msgstr ""
@@ -15,7 +16,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: aleixcox, 2024\n"
+"Last-Translator: 彬源 朱, 2025\n"
 "Language-Team: Chinese (China) (https://app.transifex.com/grocy/teams/93189/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -839,7 +840,7 @@ msgstr "未开封"
 
 msgid "Opened"
 msgid_plural "Opened"
-msgstr[0] ""
+msgstr[0] "已开封"
 
 msgid "%s opened"
 msgstr "%s 已开封"
@@ -1191,7 +1192,7 @@ msgid "Time of printing"
 msgstr "打印时间"
 
 msgid "Are you sure you want to delete equipment \"%s\"?"
-msgstr ""
+msgstr "您确定要删除设备\"%s\"吗?"
 
 msgid "Parent product"
 msgstr "父产品"
@@ -1321,7 +1322,7 @@ msgid "Consume product on chore execution"
 msgstr "在家务执行时消耗产品"
 
 msgid "Are you sure you want to delete user field \"%s\"?"
-msgstr ""
+msgstr "您确定要删除自定义字段\"%s\"吗?"
 
 msgid "Userentities"
 msgstr "自定义项目"
@@ -1342,7 +1343,7 @@ msgid "Create %s"
 msgstr "新建 %s"
 
 msgid "Are you sure you want to delete this userobject?"
-msgstr ""
+msgstr "您确定要删除此自定义物品吗?"
 
 msgid "Icon CSS class"
 msgstr "图标CSS类"
@@ -1429,7 +1430,7 @@ msgid ""
 msgstr "启用后，子产品的安全库存将累计到此产品，代表子产品安全库存永远满足，仅对此产品有效"
 
 msgid "Are you sure you want to remove this conversion?"
-msgstr ""
+msgstr "您确定要删除此转换吗?"
 
 msgid "Unit price"
 msgstr "单价"
@@ -1447,7 +1448,7 @@ msgid "Clear"
 msgstr "清除"
 
 msgid "Are you sure you want to remove the included recipe \"%s\"?"
-msgstr ""
+msgstr "您确定要删除关联菜谱“%s”吗？"
 
 msgid "Period interval"
 msgstr "时间间隔"
@@ -1528,7 +1529,7 @@ msgid "Booking does not exist or was already undone"
 msgstr "交易不存在或已撤销"
 
 msgid "Are you sure you want to delete API key \"%s\"?"
-msgstr ""
+msgstr "您确定要删除API密钥\"%s\"吗?"
 
 msgid "Add note"
 msgstr "添加备注"

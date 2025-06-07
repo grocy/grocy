@@ -12,6 +12,7 @@
 # hskdk <henrik@skjaerbaek.net>, 2023
 # G Momsen, 2024
 # Brian Moos Lindberg <brian@blueeel.dk>, 2024
+# eurosite, 2025
 # 
 msgid ""
 msgstr ""
@@ -19,7 +20,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Brian Moos Lindberg <brian@blueeel.dk>, 2024\n"
+"Last-Translator: eurosite, 2025\n"
 "Language-Team: Danish (https://app.transifex.com/grocy/teams/93189/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -288,7 +289,7 @@ msgid "Invalid credentials, please try again"
 msgstr "Ugyldig brugernavn og/eller adgangskode, prøv igen"
 
 msgid "Are you sure you want to delete battery \"%s\"?"
-msgstr ""
+msgstr "Er du sikker på du vil slette batteri \"%s\"?"
 
 msgid "Yes"
 msgstr "Ja"
@@ -321,13 +322,13 @@ msgid "Are you sure you want to delete quantity unit \"%s\"?"
 msgstr ""
 
 msgid "Are you sure you want to delete product \"%s\"?"
-msgstr ""
+msgstr "Er du sikker på du vil slette varen \"%s\"?"
 
 msgid "Are you sure you want to delete location \"%s\"?"
-msgstr ""
+msgstr "Er du sikker på du vil slette placeringen \"%s\"?"
 
 msgid "Are you sure you want to delete store \"%s\"?"
-msgstr ""
+msgstr "Er du sikker på du vil slette butikken \"%s\"?"
 
 msgid "Manage API keys"
 msgstr "Administrer API nøgler"
@@ -441,13 +442,13 @@ msgid "Edit recipe ingredient"
 msgstr "Rediger ingrediens til opskrift"
 
 msgid "Are you sure you want to delete recipe \"%s\"?"
-msgstr ""
+msgstr "Er du sikker på du vil slette opskriften \"%s\"?"
 
 msgid "Are you sure you want to delete recipe ingredient \"%s\"?"
-msgstr ""
+msgstr "Er du sikker på du vil slette ingrediensen \"%s\" fra opskriften?"
 
 msgid "Are you sure you want to empty shopping list \"%s\"?"
-msgstr ""
+msgstr "Er du sikker på at du vil tømme indkøbslisten \"%s\"?"
 
 msgid "Clear list"
 msgstr "Ryd indkøbslisten"
@@ -497,6 +498,8 @@ msgid ""
 "Are you sure you want to put all missing ingredients for recipe \"%s\" on "
 "the shopping list?"
 msgstr ""
+"Er du sikker på du vil sætte alle manglende ingredienser til \"%s\" på "
+"indkøbslisten?"
 
 msgid "Manage users"
 msgstr "Administrer brugere"
@@ -508,7 +511,7 @@ msgid "Users"
 msgstr "Brugere"
 
 msgid "Are you sure you want to delete user \"%s\"?"
-msgstr ""
+msgstr "Er du sikker på du vil slette brugeren \"%s\"?"
 
 msgid "Create user"
 msgstr "Opret bruger"
@@ -608,7 +611,7 @@ msgid ""
 msgstr ""
 
 msgid "Removed all in stock ingredients needed by recipe \"%s\" from stock"
-msgstr ""
+msgstr "Fjernede alle ingredienser til opskrift \"%s\" fra beholdningen"
 
 msgid "Consume all ingredients needed by this recipe"
 msgstr "Forbrug alle nødvendige ingredienser til denne opskrift"
