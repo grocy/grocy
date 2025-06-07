@@ -58,7 +58,7 @@ class OpenFoodFactsBarcodeLookupPlugin extends BaseBarcodeLookupPlugin
 			}
 
 			// Remove non-ASCII characters in product name (whyever a product name should have them at all)
-			$name = preg_replace('/[^\x20-\x7E]/', '', $name);
+			$name = preg_replace('/[^a-zA-Z0-9äöüÄÖÜß ]/', '', $name);
 
 			return [
 				'name' => $name,
