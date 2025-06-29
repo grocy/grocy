@@ -66,7 +66,11 @@ $hashCacheFile = $viewcachePath . "/$hash.txt";
 if (!file_exists($hashCacheFile))
 {
 	EmptyFolder($viewcachePath);
-	touch($hashCacheFile);
+	if!(touch($hashCacheFile))
+	{
+		// We failed to create the cache file, probably because of a missing write permission, bail!
+		exit('Unable to write to the viewcache directory.');
+	}
 
 	if (function_exists('opcache_reset'))
 	{
