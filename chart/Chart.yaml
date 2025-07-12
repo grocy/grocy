@@ -1,0 +1,7 @@
+apiVersion: v2
+name: grocy
+description: A Helm chart for Grocy (https://grocy.info/)
+
+type: application
+version: 0.1.0
+appVersion: "4.5.0"
