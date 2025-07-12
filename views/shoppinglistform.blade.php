@@ -41,6 +41,20 @@
 				<div class="invalid-feedback">{{ $__t('A name is required') }}</div>
 			</div>
 
+			@php $prefillById = ''; if($mode=='edit') { $prefillById = $shoppingList->shopping_location_id; } @endphp
+			@if(GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING)
+			@include('components.shoppinglocationpicker', array(
+			'label' => 'Associated store',
+			'prefillById' => $prefillById,
+			'shoppinglocations' => $shoppinglocations
+			))
+			@else
+			<input type="hidden"
+				name="shopping_location_id"
+				id="shopping_location_id"
+				value="1">
+			@endif
+
 			@include('components.userfieldsform', array(
 			'userfields' => $userfields,
 			'entity' => 'shopping_lists'

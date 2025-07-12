@@ -20,13 +20,18 @@ class StockApiController extends BaseApiController
 			$requestBody = $this->GetParsedAndFilteredRequestBody($request);
 
 			$listId = 1;
-
 			if (array_key_exists('list_id', $requestBody) && !empty($requestBody['list_id']) && is_numeric($requestBody['list_id']))
 			{
 				$listId = intval($requestBody['list_id']);
 			}
 
-			$this->getStockService()->AddMissingProductsToShoppingList($listId);
+			$checkDefaultShoppingLocation = false;
+			if (array_key_exists('check_default_shopping_location', $requestBody) && filter_var($requestBody['check_default_shopping_location'], FILTER_VALIDATE_BOOLEAN) !== false)
+			{
+				$checkDefaultShoppingLocation = boolval($requestBody['check_default_shopping_location']);
+			}
+
+			$this->getStockService()->AddMissingProductsToShoppingList($listId, $checkDefaultShoppingLocation);
 			return $this->EmptyApiResponse($response);
 		}
 		catch (\Exception $ex)

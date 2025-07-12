@@ -144,6 +144,9 @@ $listItem->last_price_total = $listItem->price * $listItem->amount;
 						<a id="add-products-below-min-stock-amount"
 							class="dropdown-item"
 							href="#">{{ $__t('Add products that are below defined min. stock amount') }}</a>
+						<a id="add-products-below-min-stock-amount-by-shopping-location"
+							class="dropdown-item"
+							href="#">{{ $__t('Add products that are below defined min. stock amount from matching store') }}</a>
 						@endif
 						<a id="add-overdue-expired-products"
 							class="dropdown-item"

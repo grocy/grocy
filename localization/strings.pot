@@ -2470,3 +2470,6 @@ msgstr ""
 
 msgid "List actions"
 msgstr ""
+
+msgid "Add products that are below defined min. stock amount from matching store"
+msgstr ""

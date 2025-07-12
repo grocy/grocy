@@ -156,6 +156,20 @@ $(document).on('click', '#add-products-below-min-stock-amount', function(e)
 	);
 });
 
+$(document).on('click', '#add-products-below-min-stock-amount-by-shopping-location', function(e)
+	{
+	Grocy.Api.Post('stock/shoppinglist/add-missing-products', { "list_id": $("#selected-shopping-list").val(), "check_default_shopping_location": true },
+		function(result)
+		{
+			window.location.href = U('/shoppinglist?list=' + $("#selected-shopping-list").val());
+		},
+		function(xhr)
+		{
+			console.error(xhr);
+		}
+	);
+});
+
 $(document).on('click', '#add-overdue-expired-products', function(e)
 {
 	Grocy.Api.Post('stock/shoppinglist/add-overdue-products', { "list_id": $("#selected-shopping-list").val() },

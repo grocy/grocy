@@ -18,41 +18,46 @@ class StockService extends BaseService
 	const TRANSACTION_TYPE_TRANSFER_FROM = 'transfer_from';
 	const TRANSACTION_TYPE_TRANSFER_TO = 'transfer_to';
 
-	public function AddMissingProductsToShoppingList($listId = 1)
+	public function AddMissingProductsToShoppingList($listId = 1, $checkDefaultShoppingLocation = False)
 	{
 		if (!$this->ShoppingListExists($listId))
 		{
 			throw new \Exception('Shopping list does not exist');
 		}
 
+		$shoppingList = $this->getDatabase()->shopping_lists()->where('id', $listId)->fetch();
 		$missingProducts = $this->GetMissingProducts();
 		foreach ($missingProducts as $missingProduct)
 		{
 			$product = $this->getDatabase()->products()->where('id', $missingProduct->id)->fetch();
-			$amountToAdd = round($missingProduct->amount_missing, 2);
 
-			$alreadyExistingEntry = $this->getDatabase()->shopping_list()->where('product_id', $missingProduct->id)->fetch();
-			if ($alreadyExistingEntry)
+			if (!$checkDefaultShoppingLocation || ($product->shopping_location_id == $shoppingList->shopping_location_id))
 			{
-				// Update
-				if ($alreadyExistingEntry->amount < $amountToAdd)
+				$amountToAdd = round($missingProduct->amount_missing, 2);
+
+				$alreadyExistingEntry = $this->getDatabase()->shopping_list()->where('product_id', $missingProduct->id)->fetch();
+				if ($alreadyExistingEntry)
 				{
-					$alreadyExistingEntry->update([
-						'amount' => $amountToAdd,
-						'shopping_list_id' => $listId
-					]);
+					// Update
+				    if ($alreadyExistingEntry->amount < $amountToAdd)
+					{
+						$alreadyExistingEntry->update([
+							'amount' => $amountToAdd,
+							'shopping_list_id' => $listId
+						]);
+					}
 				}
-			}
-			else
-			{
-				// Insert
-				$shoppinglistRow = $this->getDatabase()->shopping_list()->createRow([
-					'product_id' => $missingProduct->id,
-					'amount' => $amountToAdd,
-					'shopping_list_id' => $listId,
-					'qu_id' => $product->qu_id_purchase
-				]);
-				$shoppinglistRow->save();
+				else
+				{
+					// Insert
+				    $shoppinglistRow = $this->getDatabase()->shopping_list()->createRow([
+						'product_id' => $missingProduct->id,
+						'amount' => $amountToAdd,
+						'shopping_list_id' => $listId,
+						'qu_id' => $product->qu_id_purchase
+					]);
+					$shoppinglistRow->save();
+				}
 			}
 		}
 	}

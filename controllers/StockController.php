@@ -441,6 +441,7 @@ class StockController extends BaseController
 		{
 			return $this->renderPage($response, 'shoppinglistform', [
 				'mode' => 'create',
+				'shoppinglocations' => $this->getDatabase()->shopping_locations()->where('active = 1')->orderBy('name', 'COLLATE NOCASE'),
 				'userfields' => $this->getUserfieldsService()->GetFields('shopping_lists')
 			]);
 		}
@@ -449,6 +450,7 @@ class StockController extends BaseController
 			return $this->renderPage($response, 'shoppinglistform', [
 				'shoppingList' => $this->getDatabase()->shopping_lists($args['listId']),
 				'mode' => 'edit',
+				'shoppinglocations' => $this->getDatabase()->shopping_locations()->where('active = 1')->orderBy('name', 'COLLATE NOCASE'),
 				'userfields' => $this->getUserfieldsService()->GetFields('shopping_lists')
 			]);
 		}
