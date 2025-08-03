@@ -1,4 +1,4 @@
--- Recreated triggers that use double quoted string literals / convert them to single quoted ones
+-- Recreate triggers that use double quoted string literals / convert them to single quoted ones
 
 DROP TRIGGER prevent_self_nested_recipes_INS;
 CREATE TRIGGER prevent_self_nested_recipes_INS BEFORE INSERT ON recipes_nestings
