@@ -21,5 +21,5 @@ BEGIN
 		FROM recipes_pos rp
 		WHERE rp.id = NEW.id
 			AND IFNULL(rp.only_check_single_unit_in_stock, 0) = 1
-	) ISNULL) THEN RAISE(ABORT, "Provided qu_id doesn't have a related conversion for that product") END;
+	) ISNULL) THEN RAISE(ABORT, 'Provided qu_id doesn''t have a related conversion for that product') END;
 END;

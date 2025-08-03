@@ -12,7 +12,7 @@ SELECT CASE WHEN((
 		AND to_qu_id = NEW.to_qu_id
 		AND IFNULL(product_id, 0) = IFNULL(NEW.product_id, 0)
 	)
-	NOTNULL) THEN RAISE(ABORT, "QU conversion already exists") END;
+	NOTNULL) THEN RAISE(ABORT, 'QU conversion already exists') END;
 END;
 
 -- Remove including the product's qu_factor_purchase_to_stock
@@ -32,7 +32,7 @@ SELECT CASE WHEN((
 		AND IFNULL(product_id, 0) = IFNULL(NEW.product_id, 0)
 		AND id != NEW.id
 	)
-	NOTNULL) THEN RAISE(ABORT, "QU conversion already exists") END;
+	NOTNULL) THEN RAISE(ABORT, 'QU conversion already exists') END;
 END;
 
 -- Migrate qu_factor_purchase_to_stock to product specific QU conversions
@@ -154,7 +154,7 @@ BEGIN
         FROM products p
         WHERE IFNULL(NEW.parent_product_id, '') != ''
             AND IFNULL(parent_product_id, '') = NEW.id
-    ) NOTNULL) THEN RAISE(ABORT, "Unsupported product nesting level detected (currently only 1 level is supported)") END;
+    ) NOTNULL) THEN RAISE(ABORT, 'Unsupported product nesting level detected (currently only 1 level is supported)') END;
 END;
 
 CREATE TRIGGER enforce_min_stock_amount_for_cumulated_childs_INS AFTER INSERT ON products
@@ -218,7 +218,7 @@ BEGIN
         FROM stock_log
 		WHERE product_id = NEW.id
 			AND NEW.qu_id_stock != OLD.qu_id_stock
-    ) NOTNULL) THEN RAISE(ABORT, "qu_id_stock can only be changed when a corresponding QU conversion (old QU => new QU) exists when the product was once added to stock") END;
+    ) NOTNULL) THEN RAISE(ABORT, 'qu_id_stock can only be changed when a corresponding QU conversion (old QU => new QU) exists when the product was once added to stock') END;
 
 	UPDATE chores
 	SET product_amount = product_amount * IFNULL((SELECT factor FROM quantity_unit_conversions_resolved WHERE product_id = NEW.id AND from_qu_id = OLD.qu_id_stock AND to_qu_id = NEW.qu_id_stock LIMIT 1), 1.0)

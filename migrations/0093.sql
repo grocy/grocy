@@ -5,9 +5,9 @@ WITH RECURSIVE r1(recipe_id, includes_recipe_id, includes_servings)
 AS (
 	SELECT id, id, 1
 	FROM recipes
-	
+
 	UNION ALL
-	
+
 	SELECT rn.recipe_id, r1.includes_recipe_id, rn.servings
 	FROM recipes_nestings rn, r1 r1
 	WHERE rn.includes_recipe_id = r1.recipe_id
@@ -24,7 +24,7 @@ SELECT CASE WHEN((
 	FROM recipes_nestings
 	WHERE NEW.recipe_id = NEW.includes_recipe_id
 	)
-	NOTNULL) THEN RAISE(ABORT, "Recursive nested recipe detected") END;
+	NOTNULL) THEN RAISE(ABORT, 'Recursive nested recipe detected') END;
 END;
 
 CREATE TRIGGER prevent_self_nested_recipes_UPD BEFORE UPDATE ON recipes_nestings
@@ -34,7 +34,7 @@ SELECT CASE WHEN((
 	FROM recipes_nestings
 	WHERE NEW.recipe_id = NEW.includes_recipe_id
 	)
-	NOTNULL) THEN RAISE(ABORT, "Recursive nested recipe detected") END;
+	NOTNULL) THEN RAISE(ABORT, 'Recursive nested recipe detected') END;
 END;
 
 DELETE FROM recipes_nestings

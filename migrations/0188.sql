@@ -35,7 +35,7 @@ SELECT CASE WHEN((
 		AND qu_id_purchase = NEW.to_qu_id
 		AND qu_id_stock = NEW.from_qu_id
 	)
-	NOTNULL) THEN RAISE(ABORT, "QU conversion already exists") END;
+	NOTNULL) THEN RAISE(ABORT, 'QU conversion already exists') END;
 END;
 
 DROP TRIGGER quantity_unit_conversions_custom_unique_constraint_UPD;
@@ -67,7 +67,7 @@ SELECT CASE WHEN((
 		AND qu_id_purchase = NEW.to_qu_id
 		AND qu_id_stock = NEW.from_qu_id
 	)
-	NOTNULL) THEN RAISE(ABORT, "QU conversion already exists") END;
+	NOTNULL) THEN RAISE(ABORT, 'QU conversion already exists') END;
 END;
 
 CREATE TRIGGER qu_conversions_inverse_INS AFTER INSERT ON quantity_unit_conversions

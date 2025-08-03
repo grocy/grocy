@@ -48,7 +48,7 @@ BEGIN
         FROM stock_log
 		WHERE product_id = NEW.id
 			AND NEW.qu_id_stock != OLD.qu_id_stock
-    ) NOTNULL) THEN RAISE(ABORT, "qu_id_stock cannot be changed when the product was once added to stock") END;
+    ) NOTNULL) THEN RAISE(ABORT, 'qu_id_stock cannot be changed when the product was once added to stock') END;
 END;
 
 CREATE TRIGGER enforce_parent_product_id_null_when_empty_INS AFTER INSERT ON products
@@ -104,7 +104,7 @@ BEGIN
         FROM products p
         WHERE IFNULL(NEW.parent_product_id, '') != ''
             AND IFNULL(parent_product_id, '') = NEW.id
-    ) NOTNULL) THEN RAISE(ABORT, "Unsupported product nesting level detected (currently only 1 level is supported)") END;
+    ) NOTNULL) THEN RAISE(ABORT, 'Unsupported product nesting level detected (currently only 1 level is supported)') END;
 END;
 
 CREATE TRIGGER enforce_min_stock_amount_for_cumulated_childs_INS AFTER INSERT ON products

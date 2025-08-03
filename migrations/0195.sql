@@ -8,5 +8,5 @@ BEGIN
 		SELECT 1
 		FROM products p
 		WHERE id = NEW.product_id
-	) ISNULL) THEN RAISE(ABORT, "product_id doesn't reference a existing product") END;
+	) ISNULL) THEN RAISE(ABORT, 'product_id doesn''t reference a existing product') END;
 END;

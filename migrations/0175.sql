@@ -20,7 +20,7 @@ BEGIN
         FROM stock_log
 		WHERE product_id = NEW.id
 			AND NEW.qu_id_stock != OLD.qu_id_stock
-    ) NOTNULL) THEN RAISE(ABORT, "qu_id_stock can only be changed when a corresponding QU conversion (old QU => new QU) exists when the product was once added to stock") END;
+    ) NOTNULL) THEN RAISE(ABORT, 'qu_id_stock can only be changed when a corresponding QU conversion (old QU => new QU) exists when the product was once added to stock') END;
 
 	UPDATE chores
 	SET product_amount = product_amount * IFNULL((SELECT factor FROM quantity_unit_conversions_resolved WHERE product_id = NEW.id AND from_qu_id = OLD.qu_id_stock AND to_qu_id = NEW.qu_id_stock AND source NOT LIKE '1%'), 1.0)

@@ -88,7 +88,7 @@ BEGIN
         FROM stock_log
 		WHERE product_id = NEW.id
 			AND NEW.qu_id_stock != OLD.qu_id_stock
-    ) NOTNULL) THEN RAISE(ABORT, "qu_id_stock cannot be changed when the product was once added to stock") END;
+    ) NOTNULL) THEN RAISE(ABORT, 'qu_id_stock cannot be changed when the product was once added to stock') END;
 END;
 
 CREATE TRIGGER enforce_parent_product_id_null_when_empty_INS AFTER INSERT ON products

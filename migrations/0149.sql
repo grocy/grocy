@@ -20,5 +20,5 @@ BEGIN
 		FROM meal_plan_sections
 		WHERE id = OLD.id
 			AND id = -1
-	) NOTNULL) THEN RAISE(ABORT, "This is an internally used/required default section and therefore can't be deleted") END;
+	) NOTNULL) THEN RAISE(ABORT, 'This is an internally used/required default section and therefore can''t be deleted') END;
 END;

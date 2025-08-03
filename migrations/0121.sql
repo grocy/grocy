@@ -6,5 +6,5 @@ BEGIN
         FROM products p
         WHERE IFNULL(NEW.parent_product_id, '') != ''
             AND IFNULL(parent_product_id, '') = NEW.id
-    ) NOTNULL) THEN RAISE(ABORT, "Unsupported product nesting level detected (currently only 1 level is supported)") END;
+    ) NOTNULL) THEN RAISE(ABORT, 'Unsupported product nesting level detected (currently only 1 level is supported)') END;
 END;

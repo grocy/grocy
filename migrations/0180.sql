@@ -72,5 +72,5 @@ BEGIN
 		FROM products p
 		WHERE id = NEW.product_id
 			AND no_own_stock = 1
-	) NOTNULL) THEN RAISE(ABORT, "no_own_stock=1 products can't be added to stock") END;
+	) NOTNULL) THEN RAISE(ABORT, 'no_own_stock = 1 products can''t be added to stock') END;
 END;
