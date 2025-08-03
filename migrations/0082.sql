@@ -23,7 +23,7 @@ SELECT CASE WHEN((
 		AND qu_id_purchase = NEW.from_qu_id
 		AND qu_id_stock = NEW.to_qu_id
 	)
-	NOTNULL) THEN RAISE(ABORT, "Unique constraint violation") END;
+	NOTNULL) THEN RAISE(ABORT, 'Unique constraint violation') END;
 END;
 
 CREATE TRIGGER quantity_unit_conversions_custom_unique_constraint_UPD BEFORE UPDATE ON quantity_unit_conversions
@@ -43,7 +43,7 @@ SELECT CASE WHEN((
 		AND qu_id_purchase = NEW.from_qu_id
 		AND qu_id_stock = NEW.to_qu_id
 	)
-	NOTNULL) THEN RAISE(ABORT, "Unique constraint violation") END;
+	NOTNULL) THEN RAISE(ABORT, 'Unique constraint violation') END;
 END;
 
 CREATE VIEW quantity_unit_conversions_resolved
