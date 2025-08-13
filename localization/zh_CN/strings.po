@@ -279,7 +279,7 @@ msgid "Invalid credentials, please try again"
 msgstr "用户名或者密码错误，请重试"
 
 msgid "Are you sure you want to delete battery \"%s\"?"
-msgstr ""
+msgstr "您确定要删除电池“%s”吗？"
 
 msgid "Yes"
 msgstr "是"
@@ -288,7 +288,7 @@ msgid "No"
 msgstr "否"
 
 msgid "Are you sure you want to delete chore \"%s\"?"
-msgstr ""
+msgstr "您确定要删除家务“%s”吗？"
 
 msgid "\"%s\" could not be resolved to a product, how do you want to proceed?"
 msgstr "没有找到对应的产品“%s”，您想要执行哪一项操作？"
@@ -309,16 +309,16 @@ msgid "Add as new product and prefill barcode"
 msgstr "作为新产品添加并录入条码"
 
 msgid "Are you sure you want to delete quantity unit \"%s\"?"
-msgstr ""
+msgstr "您确定要删除数量单位“%s”吗？"
 
 msgid "Are you sure you want to delete product \"%s\"?"
-msgstr ""
+msgstr "您确定要删除产品“%s”吗？"
 
 msgid "Are you sure you want to delete location \"%s\"?"
-msgstr ""
+msgstr "您确定要删除位置“%s”吗？"
 
 msgid "Are you sure you want to delete store \"%s\"?"
-msgstr ""
+msgstr "您确定要删除商店“%s”吗？"
 
 msgid "Manage API keys"
 msgstr "管理API 密钥"
@@ -432,13 +432,13 @@ msgid "Edit recipe ingredient"
 msgstr "编辑食材"
 
 msgid "Are you sure you want to delete recipe \"%s\"?"
-msgstr ""
+msgstr "您确定要删除菜谱“%s”吗？"
 
 msgid "Are you sure you want to delete recipe ingredient \"%s\"?"
-msgstr ""
+msgstr "您确定要删除菜谱配料“%s”吗？"
 
 msgid "Are you sure you want to empty shopping list \"%s\"?"
-msgstr ""
+msgstr "您确定要清空购物清单“%s”吗？"
 
 msgid "Clear list"
 msgstr "清空列表"
@@ -482,7 +482,7 @@ msgstr "将缺少的数量加入购物清单"
 msgid ""
 "Are you sure you want to put all missing ingredients for recipe \"%s\" on "
 "the shopping list?"
-msgstr ""
+msgstr "您确定要将菜谱“%s”中所有缺少的配料添加到购物清单吗？"
 
 msgid "Manage users"
 msgstr "管理用户"
@@ -494,7 +494,7 @@ msgid "Users"
 msgstr "用户"
 
 msgid "Are you sure you want to delete user \"%s\"?"
-msgstr ""
+msgstr "您确定要删除用户“%s”吗？"
 
 msgid "Create user"
 msgstr "新建用户"
@@ -586,10 +586,10 @@ msgid ""
 "Are you sure you want to consume all ingredients needed by recipe \"%s\" "
 "(ingredients marked with \"only check if any amount is in stock\" will be "
 "ignored)?"
-msgstr ""
+msgstr "您确定要消耗菜谱“%s”所需的所有配料吗（标记为“仅检查是否有库存”的配料将被忽略）？"
 
 msgid "Removed all in stock ingredients needed by recipe \"%s\" from stock"
-msgstr ""
+msgstr "已从库存中移除菜谱“%s”所需的所有库存配料"
 
 msgid "Consume all ingredients needed by this recipe"
 msgstr "消耗此菜谱所需的全部食材"
@@ -640,7 +640,7 @@ msgid "Edit task"
 msgstr "编辑任务"
 
 msgid "Are you sure you want to delete task \"%s\"?"
-msgstr ""
+msgstr "您确定要删除任务“%s”吗？"
 
 msgid "%s task is due to be done"
 msgid_plural "%s tasks are due to be done"
@@ -672,7 +672,7 @@ msgid "Product group"
 msgstr "产品组"
 
 msgid "Are you sure you want to delete product group \"%s\"?"
-msgstr ""
+msgstr "您确定要删除产品组“%s”吗？"
 
 msgid "Stay logged in permanently"
 msgstr "保持登陆状态"
@@ -995,7 +995,7 @@ msgid "Create shopping list"
 msgstr "新建购物清单"
 
 msgid "Are you sure you want to delete shopping list \"%s\"?"
-msgstr ""
+msgstr "您确定要删除购物清单“%s”吗？"
 
 msgid "Average shelf life"
 msgstr "平均寿命"
@@ -1581,7 +1581,7 @@ msgid "Frozen"
 msgstr "冷冻"
 
 msgid "Are you sure you want to delete userentity \"%s\"?"
-msgstr ""
+msgstr "您确定要删除用户实体“%s”吗？"
 
 msgid "Shopping list settings"
 msgstr "购物清单设置"
@@ -1677,7 +1677,7 @@ msgid ""
 "Based on the prices of the default consume rule (Opened first, then first "
 "due first, then first in first out) for in stock ingredients and on the last"
 " price for missing ones"
-msgstr ""
+msgstr "根据默认消耗规则（先开封，然后先到期，然后先进先出）的库存配料价格和缺少配料的最后价格计算"
 
 msgid "Clear filter"
 msgstr "清除筛选"
@@ -1839,7 +1839,7 @@ msgid ""
 msgstr "当采购产品的到期日期早于库存产品的下次到期日期时显示警告"
 
 msgid "This is due earlier than already in stock items"
-msgstr ""
+msgstr "此商品比库存中的商品更早到期"
 
 msgid ""
 "When enabled, after changing/scanning a product and if all fields could be "
@@ -1864,7 +1864,7 @@ msgid "Copy"
 msgstr "复制"
 
 msgid "Are you sure you want to remove this barcode?"
-msgstr ""
+msgstr "您确定要移除此条形码吗？"
 
 msgid "Due date type"
 msgstr "到期日期类型"
@@ -2029,7 +2029,7 @@ msgid "Reset"
 msgstr "重置"
 
 msgid "Are you sure you want to reset the table options?"
-msgstr ""
+msgstr "您确定要重置表格选项吗？"
 
 msgid "Hide/view columns"
 msgstr "显示/隐藏 列"
@@ -2093,7 +2093,7 @@ msgid ""
 "The stock overview page lists all products which are currently in stock or "
 "below their min. stock amount - enable this to hide this product there "
 "always"
-msgstr ""
+msgstr "库存概览页面列出了所有当前有货或低于最低库存量的产品 - 启用此项可始终在此处隐藏该产品"
 
 msgid "Print options"
 msgstr "打印选项"
@@ -2164,7 +2164,7 @@ msgid "Only done items"
 msgstr "‎仅完成项目‎"
 
 msgid "Show only in stock products"
-msgstr ""
+msgstr "仅显示有库存的产品"
 
 msgid "Product description"
 msgstr "产品描述"
@@ -2186,7 +2186,7 @@ msgid "When enabled, then this field must be filled on the destination form"
 msgstr "‎启用后，必须在目标表单上填写此字段‎"
 
 msgid "In stock products"
-msgstr ""
+msgstr "库存产品"
 
 msgid "Timestamp"
 msgstr "‎时间戳‎"
@@ -2265,13 +2265,13 @@ msgid "Edit meal plan section"
 msgstr "编辑饮食计划时段"
 
 msgid "Are you sure you want to delete meal plan section \"%s\"?"
-msgstr ""
+msgstr "您确定要删除用餐计划部分“%s”吗？"
 
 msgid "Section"
 msgstr "‎时段"
 
 msgid "Are you sure you want to empty the shopping list?"
-msgstr ""
+msgstr "您确定要清空购物清单吗？"
 
 msgid "This is the default which will be prefilled on purchase"
 msgstr "在采购页面预先填入的默认值"
@@ -2537,7 +2537,7 @@ msgid "Stock report"
 msgstr "库存报表"
 
 msgid "Out of stock products"
-msgstr ""
+msgstr "缺货产品"
 
 msgid "Quantity unit for prices"
 msgstr "价格数量单位"
@@ -2552,7 +2552,7 @@ msgid_plural "This means %1$s labels will be printed"
 msgstr[0] "%1$s个标签将被打印"
 
 msgid "External barcode lookup"
-msgstr ""
+msgstr "外部条码查询"
 
 msgid "Error while executing the barcode lookup plugin"
 msgstr "运行条码查询插件时出错"
@@ -2564,48 +2564,60 @@ msgid "Configure colors"
 msgstr "配置颜色"
 
 msgid "Swap track next schedule / track now buttons"
-msgstr ""
+msgstr "交换“跟踪下一个计划”/“立即跟踪”按钮"
 
 msgid "Scheduled tracking time"
-msgstr ""
+msgstr "计划跟踪时间"
 
 msgid "Time of tracking"
-msgstr ""
+msgstr "跟踪时间"
 
 msgid "Show all out of stock products"
-msgstr ""
+msgstr "显示所有缺货产品"
 
 msgid ""
 "By default the stock overview page lists all products which are currently in"
 " stock or below their min. stock amount - when this is enabled, all (active)"
 " products are always shown"
-msgstr ""
+msgstr "默认情况下，库存概览页面列出所有当前有库存或低于最低库存量的产品 - 启用此选项后，将始终显示所有（活动的）产品"
 
 msgid "No price information is available for at least one ingredient"
-msgstr ""
+msgstr "至少有一种配料没有价格信息"
 
 msgid ""
 "For ingredients that are only partially in stock, the in stock amount will "
 "be consumed."
-msgstr ""
+msgstr "对于部分有库存的配料，将消耗库存数量。"
 
 msgid "Can't be opened"
-msgstr ""
+msgstr "无法开封"
 
 msgid "Default purchase price type"
-msgstr ""
+msgstr "默认购买价格类型"
 
 msgid "This will be used as the default price type selection on purchase"
-msgstr ""
+msgstr "这将用作购买时的默认价格类型选择"
 
 msgid "Unspecified"
-msgstr ""
+msgstr "未指定"
 
 msgid "Round up quantity amounts to the nearest whole number"
-msgstr ""
+msgstr "将数量四舍五入到最接近的整数"
 
 msgid "Stock actions"
-msgstr ""
+msgstr "库存操作"
 
 msgid "List actions"
-msgstr ""
+msgstr "列表操作"
+
+msgid "Reports"
+msgstr "报表"
+
+msgid "Last Used"
+msgstr "上次使用"
+
+msgid "Last Used Report"
+msgstr "闲置物品报告"
+
+msgid "Amount in stock"
+msgstr "库存数量"
