@@ -273,6 +273,34 @@
 				</li>
 				@endif
 
+				<div class="nav-item-divider"></div>
+				<li class="nav-item nav-item-sidebar"
+					data-toggle="tooltip"
+					data-placement="right"
+					title="{{ $__t('Reports') }}">
+					<a class="nav-link nav-link-collapse discrete-link collapsed"
+						data-toggle="collapse"
+						href="#sub-nav-reports">
+						<i class="fa-solid fa-fw fa-chart-line"></i>
+						<span class="nav-link-text">{{ $__t('Reports') }}</span>
+					</a>
+					<ul id="sub-nav-reports"
+						class="sidenav-second-level collapse">
+						<li>
+							<a class="nav-link discrete-link"
+								href="{{ $U('/stockreports/spendings') }}">
+								<span class="nav-link-text">{{ $__t('Spendings') }}</span>
+							</a>
+						</li>
+						<li>
+							<a class="nav-link discrete-link"
+								href="{{ $U('/stockreports/lastused') }}">
+								<span class="nav-link-text">{{ $__t('Last Used') }}</span>
+							</a>
+						</li>
+					</ul>
+				</li>
+
 				@if(GROCY_FEATURE_FLAG_STOCK)
 				<div class="nav-item-divider"></div>
 				<li class="nav-item nav-item-sidebar permission-STOCK_PURCHASE @if($viewName == 'purchase') active-page @endif"

@@ -102,4 +102,24 @@ class StockReportsController extends BaseController
 			'groupBy' => $groupBy
 		]);
 	}
+
+	public function LastUsed(Request $request, Response $response, array $args)
+	{
+		$sql = "
+		SELECT
+			p.id,
+			p.name,
+			sc.amount,
+			MAX(sl.used_date) as last_used
+		FROM products p
+		JOIN stock_current sc ON p.id = sc.product_id
+		LEFT JOIN stock_log sl ON p.id = sl.product_id AND sl.transaction_type = 'consume'
+		GROUP BY p.id, p.name, sc.amount
+		ORDER BY last_used IS NULL DESC, last_used ASC
+		";
+
+		return $this->renderPage($response, 'stockreportlastused', [
+			'products' => $this->getDatabaseService()->ExecuteDbQuery($sql)->fetchAll(\PDO::FETCH_OBJ)
+		]);
+	}
 }
