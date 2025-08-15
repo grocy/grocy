@@ -36,7 +36,28 @@
 
 对于有一定技术基础的用户，我们推荐使用 Docker 进行安装。这是最快、最稳定的方式。
 
-&rarr; [查看 Docker 安装指南](https://hub.docker.com/r/linuxserver/grocy)
+我们的 Docker 镜像基于本项目的源代码构建，默认使用中文界面，并已为您准备好一切。
+
+1.  **拉取镜像**
+    ```bash
+    docker pull nishizhen/anticlockwisegrocy:latest
+    ```
+
+2.  **运行容器**
+    ```bash
+    docker run -d \
+      --name=anticlockwisegrocy \
+      -p 9283:80 \
+      -v /path/to/your/data:/config \
+      nishizhen/anticlockwisegrocy:latest
+    ```
+    **请注意**：
+    *   `-p 9283:80`：将容器的 80 端口映射到您服务器的 9283 端口。您可以根据需要更改 `9283`。
+    *   `-v /path/to/your/data:/config`：将您的数据持久化存储在本地。请务必将 `/path/to/your/data` 替换为您服务器上的一个**真实路径**，例如 `/home/user/grocy_data`。
+
+3.  **访问应用**
+    打开浏览器，访问 `http://<您的服务器IP>:9283`。
+    默认登录用户为 `admin`，密码为 `admin`，请在登录后立即修改密码。
 
 ### 方式二：手动安装
 
