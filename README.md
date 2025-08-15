@@ -61,12 +61,44 @@
 
 ### 方式二：手动安装
 
-如果您熟悉网站搭建，可以按照以下步骤进行手动安装：
-1.  下载 [最新发布版](https://releases.grocy.info/latest)。
+对于熟悉网站环境搭建的用户，可以选择手动安装。
+
+#### 1. 下载预编译包
+
+您可以直接从本项目的 [GitHub Releases](https://github.com/nishizhen/AnticlockwiseGrocy/releases) 页面下载最新的 `grocy_x.x.x.zip` 包。这个包里已经包含了所有必需的依赖，开箱即用。
+
+#### 2. 自行打包（适合开发者）
+
+如果您想基于最新的源代码自行打包，可以按以下步骤操作：
+
+1.  确保您的开发环境中已安装 `bash`, `zip`, `composer` 和 `yarn`。
+2.  在项目根目录下，运行打包脚本：
+    ```bash
+    ./release.sh
+    ```
+3.  脚本执行成功后，会在项目根目录下生成一个 `grocy_x.x.x.zip` 文件。
+
+#### 3. 安装步骤
+
+获取到 `zip` 包后，请按照以下步骤进行安装：
+1.  将 `zip` 包解压到您的网站服务器的指定目录。
 2.  将 `config-dist.php` 复制为 `data/config.php`，并根据您的需求进行修改。
 3.  确保 `data` 目录具有写入权限。
 4.  将您的网站服务器根目录指向 `public` 目录。
 5.  默认登录用户为 `admin`，密码为 `admin`，请在登录后立即修改密码。
+
+#### 4. 自动发布 (GitHub Actions)
+
+本项目已配置 [GitHub Actions](https://github.com/features/actions)，可以在您创建新的 release 时自动构建和上传安装包。
+
+要触发自动发布，请按以下步骤操作：
+1.  确保您的代码已提交到 `master` 分支。
+2.  基于 `master` 分支创建一个新的 tag，并推送到 GitHub。tag 的名字需要符合 `v*.*.*` 的格式，例如 `v1.2.3`。
+    ```bash
+    git tag v1.2.3
+    git push origin v1.2.3
+    ```
+3.  推送 tag 后，GitHub Actions 会自动开始构建，并将生成的 `grocy_x.x.x.zip` 文件上传到您刚刚创建的 release 页面。
 
 更多详细的安装说明和帮助，请参考原版 Grocy 的文档。我们正在努力编写更符合中国用户习惯的中文文档。
 
