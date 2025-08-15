@@ -18,11 +18,20 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
+      - name: Get version
+        id: version
+        run: echo "tag=$(jq -r .Version < version.json)" >> $GITHUB_OUTPUT
+
       - name: Extract metadata (tags, labels) for Docker
         id: meta
         uses: docker/metadata-action@v4
         with:
           images: nishizhen/anticlockwisegrocy
+          tags: |
+            type=raw,value=latest,enable={{is_default_branch}}
+            type=semver,pattern={{version}},value=v${{ steps.version.outputs.tag }}
+            type=semver,pattern={{major}}.{{minor}},value=v${{ steps.version.outputs.tag }}
+            type=semver,pattern={{major}},value=v${{ steps.version.outputs.tag }}
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v4
