@@ -35,9 +35,11 @@ RUN mkdir -p /app/www/
 # We are in the root of the project, so this copies everything
 COPY . /app/www/
 
-# Set correct permissions for the web server to write to the data directory
-# The base image's init system will set ownership for /app, but let's ensure permissions are correct.
-RUN chmod -R 777 /app/www/data
+# Remove the original data directory from the source and symlink it to the /config volume's data subdir.
+# This ensures Grocy uses the persistent storage for its database and config,
+# and is compatible with the volume structure from linuxserver/grocy.
+RUN rm -rf /app/www/data && \
+    ln -s /config/data /app/www/data
 
 # Install dependencies and perform cleanup
 RUN \
