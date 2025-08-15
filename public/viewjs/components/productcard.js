@@ -165,11 +165,16 @@ Grocy.Components.ProductCard.Refresh = function(productId)
 							{
 								if (key != "_TrendlineDataset")
 								{
+									var color = "HSL(" + (129 * chart.datasets.length) + ",100%,50%)";
+
 									chart.datasets.push({
 										data: datasets[key],
+										label: key,
 										fill: false,
-										borderColor: "HSL(" + (129 * chart.datasets.length) + ",100%,50%)",
-										label: key
+										borderColor: color,
+										pointBackgroundColor: color,
+										pointBorderColor: color,
+										pointHoverBackgroundColor: color
 									});
 								}
 								else
