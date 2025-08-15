@@ -166,11 +166,12 @@ Grocy.Components.ProductCard.Refresh = function(productId)
 								if (key != "_TrendlineDataset")
 								{
 									var color = "HSL(" + (129 * chart.datasets.length) + ",100%,50%)";
+
 									chart.datasets.push({
 										data: datasets[key],
+										label: key,
 										fill: false,
 										borderColor: color,
-										label: key,
 										pointBackgroundColor: color,
 										pointBorderColor: color,
 										pointHoverBackgroundColor: color
