@@ -1,3 +1,4 @@
+
 Grocy.Components.DateTimePicker = {};
 
 Grocy.Components.DateTimePicker.GetInputElement = function()
@@ -7,6 +8,7 @@ Grocy.Components.DateTimePicker.GetInputElement = function()
 
 Grocy.Components.DateTimePicker.GetValue = function()
 {
+	
 	return Grocy.Components.DateTimePicker.GetInputElement().val();
 }
 
@@ -138,19 +140,25 @@ Grocy.Components.DateTimePicker.GetInputElement().on('keyup', function(e)
 	var centuryEnd = Number.parseInt(now.getFullYear().toString().substring(0, 2) + '99');
 	var format = inputElement.data('format');
 	var nextInputElement = $(inputElement.data('next-input-selector'));
-
 	// If input is empty and any arrow key is pressed, set date to today
 	if (value.length === 0 && (e.keyCode === 38 || e.keyCode === 40 || e.keyCode === 37 || e.keyCode === 39))
 	{
 		Grocy.Components.DateTimePicker.SetValue(moment(new Date(), format, true).format(format), inputElement);
 		nextInputElement.focus();
 	}
+	else if (value.split(" ").length == 3 && !isNaN(parseInt(value.split(" ")[0])) && moment.normalizeUnits(value.split(" ")[1]) != undefined)
+	{
+		let parts = value.split(" ")
+		let n = parseInt(parts[0]);
+		let unit = moment.normalizeUnits(parts[1]);
+		Grocy.Components.DateTimePicker.SetValue(moment().add(n, unit).format(format));
+	}
 	else if (value === 'x' || value === 'X') // Shorthand for never overdue
 	{
 		Grocy.Components.DateTimePicker.SetValue(moment('2999-12-31 23:59:59').format(format), inputElement);
 		nextInputElement.focus();
 	}
-	else if (value.length === 4 && !(Number.parseInt(value) > centuryStart && Number.parseInt(value) < centuryEnd)) // Shorthand for MMDD
+	else if (/[0-9]{4}/.test(value) && !(Number.parseInt(value) > centuryStart && Number.parseInt(value) < centuryEnd)) // Shorthand for MMDD
 	{
 		var date = moment((new Date()).getFullYear().toString() + value);
 		if (date.isBefore(moment()))
