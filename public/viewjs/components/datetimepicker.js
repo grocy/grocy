@@ -150,7 +150,7 @@ Grocy.Components.DateTimePicker.GetInputElement().on('keyup', function(e)
 		Grocy.Components.DateTimePicker.SetValue(moment('2999-12-31 23:59:59').format(format), inputElement);
 		nextInputElement.focus();
 	}
-	else if (value.length === 4 && !(Number.parseInt(value) > centuryStart && Number.parseInt(value) < centuryEnd)) // Shorthand for MMDD
+	else if (/{[0-9]{4}}/.test(value) && !(Number.parseInt(value) > centuryStart && Number.parseInt(value) < centuryEnd)) // Shorthand for MMDD
 	{
 		var date = moment((new Date()).getFullYear().toString() + value);
 		if (date.isBefore(moment()))
@@ -160,18 +160,18 @@ Grocy.Components.DateTimePicker.GetInputElement().on('keyup', function(e)
 		Grocy.Components.DateTimePicker.SetValue(date.format(format), inputElement);
 		nextInputElement.focus();
 	}
-	else if (value.length === 8 && $.isNumeric(value)) // Shorthand for YYYYMMDD
+	else if (/[0-9]{8}/.test(value)) // Shorthand for YYYYMMDD
 	{
 		Grocy.Components.DateTimePicker.SetValue(value.replace(/(\d{4})(\d{2})(\d{2})/, '$1-$2-$3'), inputElement);
 		nextInputElement.focus();
 	}
-	else if (value.length === 7 && $.isNumeric(value.substring(0, 6)) && (value.substring(6, 7).toLowerCase() === "e" || value.substring(6, 7).toLowerCase() === "+")) // Shorthand for YYYYMM[e/+]
+	else if (/[0-9]{6}[e+]/.test(value)) // Shorthand for YYYYMM[e/+]
 	{
 		var date = moment(value.substring(0, 4) + "-" + value.substring(4, 6) + "-01").endOf("month");
 		Grocy.Components.DateTimePicker.SetValue(date.format(format), inputElement);
 		nextInputElement.focus();
 	}
-	else if ((value.startsWith("+") || value.startsWith("-")) && (lastCharacter == "d" || lastCharacter == "m" || lastCharacter == "y")) // Shorthand for [+/-]n[d/m/y]
+	else if (/[+-][0-9]+[dmy]/.test(value)) // Shorthand for [+/-]n[d/m/y]
 	{
 		var n = Number.parseInt(value.substring(1, value.length - 1));
 		if (value.startsWith("-"))
