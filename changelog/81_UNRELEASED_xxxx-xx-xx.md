@@ -54,7 +54,7 @@
 
 ### General
 
-- xxx
+- Fixed that the date input shorthand `[+/-]n[d/m/y]` didn't work when the value lenght was >= 4 (e.g. `+10d`)
 
 ### API
 
