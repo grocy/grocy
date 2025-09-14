@@ -139,6 +139,11 @@ Grocy.Components.DateTimePicker.GetInputElement().on('keyup', function(e)
 	var format = inputElement.data('format');
 	var nextInputElement = $(inputElement.data('next-input-selector'));
 
+	if (!nextInputElement.is("input"))
+	{
+		nextInputElement = nextInputElement.find("input");
+	}
+
 	// If input is empty and any arrow key is pressed, set date to today
 	if (value.length === 0 && (e.keyCode === 38 || e.keyCode === 40 || e.keyCode === 37 || e.keyCode === 39))
 	{

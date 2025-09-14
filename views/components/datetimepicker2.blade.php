@@ -69,22 +69,20 @@
 		<div id="datetimepicker2-earlier-than-info"
 			class="form-text text-info font-italic w-100 d-none">{{ $earlierThanInfoText }}</div>
 		@if(isset($shortcutValue) && isset($shortcutLabel))
-		<div class="form-group mt-n2 mb-0>
-			<div class="
-			custom-control
-			custom-checkbox">
-			<input class="form-check-input custom-control-input"
-				type="checkbox"
-				id="datetimepicker2-shortcut"
-				name="datetimepicker2-shortcut"
-				value="1"
-				data-datetimepicker2-shortcut-value="{{ $shortcutValue }}"
-				tabindex="-1">
-			<label class="form-check-label custom-control-label"
-				for="datetimepicker2-shortcut">{{ $__t($shortcutLabel) }}
-			</label>
+		<div class="form-group mt-n2 mb-0">
+			<div class="custom-control custom-checkbox">
+				<input class="form-check-input custom-control-input"
+					type="checkbox"
+					id="datetimepicker2-shortcut"
+					name="datetimepicker2-shortcut"
+					value="1"
+					data-datetimepicker2-shortcut-value="{{ $shortcutValue }}"
+					tabindex="-1">
+				<label class="form-check-label custom-control-label"
+					for="datetimepicker2-shortcut">{{ $__t($shortcutLabel) }}
+				</label>
+			</div>
 		</div>
+		@endif
 	</div>
-	@endif
-</div>
 </div>
