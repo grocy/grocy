@@ -633,7 +633,7 @@ class StockService extends BaseService
 
 						$fileType = pathinfo(parse_url($pluginOutput['__image_url'], PHP_URL_PATH), PATHINFO_EXTENSION);
 
-						// Some API's don't use the filetype in the URL. In this case, use the content type in the headers.
+						// Some API's don't use the filetype in the URL. In this case, use the Content-Type header in the reponse.
 						if ($fileType == '') {
 							
 							// If the Content-Type does not exist, do not save the image.
@@ -646,7 +646,7 @@ class StockService extends BaseService
 
 							// If the Content-Type is not an image, do not save the image.
 							if ($contentTypeSplit[0] != 'image') {
-								throw new \Exception('Image lookup response for product "' . $pluginOutput['name'] . '" does not have a Content-Type image/xxxx.');
+								throw new \Exception('Image lookup response for product "' . $pluginOutput['name'] . '" does not have Content-Type image/xxxx.');
 							}
 
 							if ($contentType == 'image/svg+xml') {
