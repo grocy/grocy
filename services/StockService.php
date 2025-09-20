@@ -630,38 +630,18 @@ class StockService extends BaseService
 					{
 						$webClient = new Client();
 						$response = $webClient->request('GET', $pluginOutput['__image_url'], ['headers' => ['User-Agent' => 'Grocy/' . $this->getApplicationService()->GetInstalledVersion()->Version . ' (https://grocy.info)']]);
+						$fileName = $pluginOutput['__barcode'];
+						$fileExtension = pathinfo(parse_url($pluginOutput['__image_url'], PHP_URL_PATH), PATHINFO_EXTENSION);
 
-						$fileType = pathinfo(parse_url($pluginOutput['__image_url'], PHP_URL_PATH), PATHINFO_EXTENSION);
-
-						// Some API's don't use the filetype in the URL. In this case, use the Content-Type header in the reponse.
-						if ($fileType == '') {
-							
-							// If the Content-Type does not exist, do not save the image.
-							if (!$response->hasHeader('Content-Type')) {
-								throw new \Exception('Image lookup response for product "' . $pluginOutput['name'] . '" does not have a Content-Type.');
-							}
-
-							$contentType = $response->getHeader('Content-Type')[0]; // e.g. image/jpeg
-							$contentTypeSplit = explode('/', $contentType);
-
-							// If the Content-Type is not an image, do not save the image.
-							if ($contentTypeSplit[0] != 'image') {
-								throw new \Exception('Image lookup response for product "' . $pluginOutput['name'] . '" does not have Content-Type image/xxxx.');
-							}
-
-							if ($contentType == 'image/svg+xml') {
-								// SVG needs special handling
-								$fileType = 'svg';
-							} else {
-								// Use the content type as file extension
-								$fileType = $contentTypeSplit[1]; // e.g. jpeg
-							}		
-
+						// Fallback to Content-Type header if file extension is missing
+						if (strlen($fileExtension) == 0 && $response->hasHeader('Content-Type'))
+						{
+							$fileExtension = explode('+', explode('/', $response->getHeader('Content-Type')[0])[1])[0];
 						}
 
-						$fileName = $pluginOutput['__barcode'] . '.' . $fileType;
-						file_put_contents($this->getFilesService()->GetFilePath('productpictures', $fileName), $response->getBody());
-						$productData['picture_file_name'] = $fileName;
+						$filePath = $fileName . '.' . $fileExtension;
+						file_put_contents($this->getFilesService()->GetFilePath('productpictures', $filePath), $response->getBody());
+						$productData['picture_file_name'] = $filePath;
 					}
 					catch (\Exception)
 					{
