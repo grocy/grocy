@@ -630,9 +630,18 @@ class StockService extends BaseService
 					{
 						$webClient = new Client();
 						$response = $webClient->request('GET', $pluginOutput['__image_url'], ['headers' => ['User-Agent' => 'Grocy/' . $this->getApplicationService()->GetInstalledVersion()->Version . ' (https://grocy.info)']]);
-						$fileName = $pluginOutput['__barcode'] . '.' . pathinfo(parse_url($pluginOutput['__image_url'], PHP_URL_PATH), PATHINFO_EXTENSION);
-						file_put_contents($this->getFilesService()->GetFilePath('productpictures', $fileName), $response->getBody());
-						$productData['picture_file_name'] = $fileName;
+						$fileName = $pluginOutput['__barcode'];
+						$fileExtension = pathinfo(parse_url($pluginOutput['__image_url'], PHP_URL_PATH), PATHINFO_EXTENSION);
+
+						// Fallback to Content-Type header if file extension is missing
+						if (strlen($fileExtension) == 0 && $response->hasHeader('Content-Type'))
+						{
+							$fileExtension = explode('+', explode('/', $response->getHeader('Content-Type')[0])[1])[0];
+						}
+
+						$filePath = $fileName . '.' . $fileExtension;
+						file_put_contents($this->getFilesService()->GetFilePath('productpictures', $filePath), $response->getBody());
+						$productData['picture_file_name'] = $filePath;
 					}
 					catch (\Exception)
 					{
