@@ -12,8 +12,10 @@ class ExportController extends BaseController
 
 		if (file_exists($databasePath))
 		{
+			$dateTimeString = date('Y-m-d-H:i:s');
+
 			$response = $response->withHeader('Content-Type', 'application/octet-stream');
-			$response = $response->withHeader('Content-Disposition', 'attachment; filename="grocy.db"');
+			$response = $response->withHeader('Content-Disposition', "attachment; filename=\"grocy-$dateTimeString.db\"");
 			$response = $response->withHeader('Content-Length', filesize($databasePath));
 			$response->getBody()->write(file_get_contents($databasePath));
 			return $response;
