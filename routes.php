@@ -241,7 +241,10 @@ $app->group('/api', function (RouteCollectorProxy $group)
 
 	// Calendar
 	$group->get('/calendar/ical', '\Grocy\Controllers\CalendarApiController:Ical')->setName('calendar-ical');
-	$group->get('/calendar/ical/sharing-link', '\Grocy\Controllers\CalendarApiController:IcalSharingLink');
+	$group->get('/calendar/ical/sharing-link', '\Grocy\Controllers\CalendarApiController:IcalSharingLink');#
+
+	// Export routes
+	$group->get('/export/sql', '\Grocy\Controllers\ExportController:DownloadSql');
 })->add(JsonMiddleware::class);
 
 // Handle CORS preflight OPTIONS requests

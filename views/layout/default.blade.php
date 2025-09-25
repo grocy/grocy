@@ -674,6 +674,8 @@
 							href="{{ $U('/api') }}"><i class="fa-solid fa-fw fa-book"></i>&nbsp;{{ $__t('REST API browser') }}</a>
 						<a class="dropdown-item discrete-link"
 							href="{{ $U('/barcodescannertesting') }}"><i class="fa-solid fa-fw fa-barcode"></i>&nbsp;{{ $__t('Barcode scanner testing') }}</a>
+						<a class="dropdown-item discrete-link"
+							href="{{ $U('/api/export/sql') }}"><i class="fa-solid fa-fw fa-database"></i>&nbsp;{{ $__t('Download database') }}</a>
 						<div class="dropdown-divider"></div>
 						<a class="dropdown-item discrete-link show-as-dialog-link"
 							data-dialog-type="wider"
