@@ -675,7 +675,7 @@
 						<a class="dropdown-item discrete-link"
 							href="{{ $U('/barcodescannertesting') }}"><i class="fa-solid fa-fw fa-barcode"></i>&nbsp;{{ $__t('Barcode scanner testing') }}</a>
 						<a class="dropdown-item discrete-link"
-							href="{{ $U('/api/export/sql') }}"><i class="fa-solid fa-fw fa-database"></i>&nbsp;{{ $__t('Download database') }}</a>
+							href="{{ $U('/api/export/sql') }}"><i class="fa-solid fa-fw fa-database"></i>&nbsp;{{ $__t('Download SQL database') }}</a>
 						<div class="dropdown-divider"></div>
 						<a class="dropdown-item discrete-link show-as-dialog-link"
 							data-dialog-type="wider"

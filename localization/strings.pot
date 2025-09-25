@@ -318,6 +318,9 @@ msgstr ""
 msgid "REST API browser"
 msgstr ""
 
+msgid "Download SQL database"
+msgstr ""
+
 msgid "API keys"
 msgstr ""
 
