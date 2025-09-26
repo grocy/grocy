@@ -628,20 +628,34 @@ class StockService extends BaseService
 				{
 					try
 					{
-						$webClient = new Client();
-						$response = $webClient->request('GET', $pluginOutput['__image_url'], ['headers' => ['User-Agent' => 'Grocy/' . $this->getApplicationService()->GetInstalledVersion()->Version . ' (https://grocy.info)']]);
-						$fileName = $pluginOutput['__barcode'];
-						$fileExtension = pathinfo(parse_url($pluginOutput['__image_url'], PHP_URL_PATH), PATHINFO_EXTENSION);
-
-						// Fallback to Content-Type header if file extension is missing
-						if (strlen($fileExtension) == 0 && $response->hasHeader('Content-Type'))
+						if (preg_match('/^https?:\/\//', $pluginOutput['__image_url']))
 						{
-							$fileExtension = explode('+', explode('/', $response->getHeader('Content-Type')[0])[1])[0];
+							$webClient = new Client();
+							$response = $webClient->request('GET', $pluginOutput['__image_url'], ['headers' => ['User-Agent' => 'Grocy/' . $this->getApplicationService()->GetInstalledVersion()->Version . ' (https://grocy.info)']]);
+							$fileExtension = pathinfo(parse_url($pluginOutput['__image_url'], PHP_URL_PATH), PATHINFO_EXTENSION);
+
+							// Fallback to Content-Type header if file extension is missing
+							if (strlen($fileExtension) == 0 && $response->hasHeader('Content-Type')) {
+								$fileExtension = explode('+', explode('/', $response->getHeader('Content-Type')[0])[1])[0];
+							}
+							$imageContent = $response->getBody();
+						}
+						else if (preg_match('/data:image\/(\w+?);base64,([A-Za-z0-9+\/]*={0,2})$/',$pluginOutput['__image_url'] ,$matches))
+						{
+							$fileExtension = $matches[1];
+							if (!($imageContent = base64_decode($matches[2])))
+							{
+								unset($imageContent);
+							}
 						}
 
-						$filePath = $fileName . '.' . $fileExtension;
-						file_put_contents($this->getFilesService()->GetFilePath('productpictures', $filePath), $response->getBody());
-						$productData['picture_file_name'] = $filePath;
+						if (!empty($fileExtension) && !empty($imageContent))
+						{
+							$fileName = $pluginOutput['__barcode'];
+							$filePath = $fileName . '.' . $fileExtension;
+							file_put_contents($this->getFilesService()->GetFilePath('productpictures', $filePath), $imageContent);
+							$productData['picture_file_name'] = $filePath;
+						}
 					}
 					catch (\Exception)
 					{
