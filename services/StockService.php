@@ -635,26 +635,27 @@ class StockService extends BaseService
 							$fileExtension = pathinfo(parse_url($pluginOutput['__image_url'], PHP_URL_PATH), PATHINFO_EXTENSION);
 
 							// Fallback to Content-Type header if file extension is missing
-							if (strlen($fileExtension) == 0 && $response->hasHeader('Content-Type')) {
+							if (strlen($fileExtension) == 0 && $response->hasHeader('Content-Type'))
+							{
 								$fileExtension = explode('+', explode('/', $response->getHeader('Content-Type')[0])[1])[0];
 							}
-							$imageContent = $response->getBody();
+
+							$imageData = $response->getBody();
 						}
-						else if (preg_match('/data:image\/(\w+?);base64,([A-Za-z0-9+\/]*={0,2})$/',$pluginOutput['__image_url'] ,$matches))
+						elseif (preg_match('/data:image\/(\w+?);base64,([A-Za-z0-9+\/]*={0,2})$/', $pluginOutput['__image_url'], $matches))
 						{
 							$fileExtension = $matches[1];
-							if (!($imageContent = base64_decode($matches[2])))
+							if (!($imageData = base64_decode($matches[2])))
 							{
-								unset($imageContent);
+								unset($imageData);
 							}
 						}
 
-						if (!empty($fileExtension) && !empty($imageContent))
+						if (!empty($fileExtension) && !empty($imageData))
 						{
-							$fileName = $pluginOutput['__barcode'];
-							$filePath = $fileName . '.' . $fileExtension;
-							file_put_contents($this->getFilesService()->GetFilePath('productpictures', $filePath), $imageContent);
-							$productData['picture_file_name'] = $filePath;
+							$fileName = $pluginOutput['__barcode'] . '.' . $fileExtension;
+							file_put_contents($this->getFilesService()->GetFilePath('productpictures', $fileName), $imageData);
+							$productData['picture_file_name'] = $fileName;
 						}
 					}
 					catch (\Exception)
