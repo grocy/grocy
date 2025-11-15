@@ -6,26 +6,26 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-      steps:
-        - name: Checkout
-          uses: actions/checkout@v4
-      
-        - name: Set Node.js 18.x
-          uses: actions/setup-node@v3
-          with:
-            node-version: 18.x
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
         
-        - name: Get JS deps
-          uses: borales/actions-yarn@v4
-          with:
-            cmd: install
-            
-        - name: Get Composer deps
-          uses: php-actions/composer@v6
-          with:
-            command: install
+      - name: Set Node.js 18.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
+          
+       - name: Get JS deps
+         uses: borales/actions-yarn@v4
+         with:
+           cmd: install
+                
+       - name: Get Composer deps
+         uses: php-actions/composer@v6
+         with:
+           command: install
 
-        - name: Upload artifacts
-            uses: actions/upload-pages-artifact@v3
-            with:
-              path: '.'
+       - name: Upload artifacts
+         uses: actions/upload-pages-artifact@v3
+         with:
+           path: '.'
