@@ -3,3 +3,5 @@ embedded.txt
 /.release
 /packages
 /public/packages
+.direnv/
+.devtools/
