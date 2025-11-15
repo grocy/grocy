@@ -47,6 +47,16 @@ class GenericEntityApiController extends BaseApiController
 					throw new \Exception('Request body could not be parsed (probably invalid JSON format or missing/wrong Content-Type header)');
 				}
 
+				if ($args['entity'] == 'products' && (!isset($requestBody['qu_id_purchase']) || empty($requestBody['qu_id_purchase'])))
+				{
+					return $this->GenericErrorResponse($response, 'Product does not have Quantity unit purchase defined');
+				}
+
+				if ($args['entity'] == 'products' && (!isset($requestBody['qu_id_stock']) || empty($requestBody['qu_id_stock'])))
+				{
+					return $this->GenericErrorResponse($response, 'Product does not have Quantity unit stock defined');
+				}
+
 				$newRow = $this->getDatabase()->{$args['entity']}()->createRow($requestBody);
 				$newRow->save();
 				$newObjectId = $this->getDatabase()->lastInsertId();
