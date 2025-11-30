@@ -1,0 +1,20 @@
+{
+	"name": "Grocy Development",
+	"build": {
+		"dockerfile": "Dockerfile",
+		"context": "."
+	},
+	"forwardPorts": [
+		80
+	],
+	"postCreateCommand": "bash -c 'composer install && yarn install && if [ ! -f data/config.php ]; then cp config-dist.php data/config.php; fi && chmod -R 777 data'",
+	"postStartCommand": "apache2-foreground &",
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"php.validate.executablePath": "/usr/local/bin/php"
+			}
+		}
+	},
+	"remoteUser": "root"
+}
