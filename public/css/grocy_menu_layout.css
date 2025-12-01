@@ -5,15 +5,26 @@ html {
 
 body {
 	overflow-x: hidden;
+	margin: 0;
+	padding: 0;
+	color: #444;
+}
+
+body.fixed-nav {
+	padding-top: 64px;
 }
 
 body.fixed-nav {
 	padding-top: 56px;
 }
 
+
 .content-wrapper {
 	min-height: calc(100vh - 56px);
 	padding-top: 1rem;
+	padding: 2rem;
+	border-radius: 8px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 #mainNav .navbar-collapse {
@@ -280,6 +291,19 @@ body.sidenav-toggled .navbar-sidenav .nav-item {
 	white-space: nowrap;
 }
 
+.navbar-sidenav .nav-item {
+	margin: 0.5rem 0;
+}
+
+.navbar-sidenav .nav-item .nav-link {
+	color: #555;
+	font-weight: 500;
+}
+
+.navbar-sidenav .nav-item .nav-link:hover {
+	color: #007bff;
+}
+
 body.sidenav-toggled .navbar-sidenav-tooltip.show {
 	display: flex;
 }
@@ -351,7 +375,7 @@ body.sidenav-toggled .navbar-sidenav-tooltip.show {
 
 #mainNav {
 	line-height: 1;
-	background-color: #e5e5e5 !important;
+	background-color: #f1f1f1c7 !important;
 	border-bottom: 2px solid !important;
 	border-color: #d6d6d6 !important;
 	padding-bottom: 0.3rem;
@@ -372,9 +396,9 @@ body.sidenav-toggled .navbar-sidenav-tooltip.show {
 
 .navbar-sidenav,
 .sidenav-second-level {
-	background-color: #e5e5e5 !important;
-	border-right: 2px solid !important;
-	border-color: #d6d6d6 !important;
+	background-color: #f1f1f1c7 !important;
+	border-right: 0.1px solid !important;
+	border-color: #e4e3e3 !important;
 }
 
 .navbar-nav .dropdown-menu {
@@ -403,7 +427,7 @@ body.sidenav-toggled .navbar-sidenav-tooltip.show {
 .navbar-nav .dropdown-item:focus,
 .active-page {
 	box-shadow: inset 7px 0 0 #337ab7 !important;
-	background-color: #d6d6d6 !important;
+	background-color: #ebebeb !important;
 }
 
 .navbar-brand {

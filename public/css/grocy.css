@@ -1,14 +1,25 @@
 ﻿/* Main style customizations */
 body {
-	font-family: 'Roboto', sans-serif;
+	font-family: 'Inter', sans-serif;
+	font-size: 16px;
+	line-height: 1.5;
+	color: #333;
+	background-color: #f9f9f9;
 }
 
 .content-text {
-	font-size: 0.85rem;
+	color: #444;
+	font-size: 1rem;
 }
 
 .responsive-button {
 	white-space: normal;
+	border-radius: 4px;
+}
+
+.responsive-button:hover {
+	transform: translate(0px, 1px);
+	-webkit-transform: translate(0px, 1px);
 }
 
 .timeago-contextual {
@@ -38,6 +49,8 @@ a.discrete-link:hover {
 
 .grocy-card .card-header {
 	background-color: inherit;
+	background-color: #f8f9fa;
+	border-bottom: 1px solid #e7e7e7;
 }
 
 .grocy-card .card-icons a {
@@ -386,31 +399,36 @@ html {
 	padding: 12px;
 	font-weight: bold;
 	width: fit-content;
-	border-top: 6px solid;
+	border: 1.5px solid;
+	margin: 5px 0px
 }
 
 .warning-message {
 	background-color: #fffaeb;
 	color: #7c5e10;
 	border-top-color: #e9b949;
+	border-radius: 12px;
 }
 
 .error-message {
 	background-color: #ffeeee;
 	color: #780a0a;
 	border-top-color: #ba2525;
+	border-radius: 12px;
 }
 
 .normal-message {
 	background-color: #e0e8f9;
 	color: #2d3a8c;
 	border-top-color: #4c63b6;
+	border-radius: 12px;
 }
 
 .secondary-message {
 	background-color: #e1e4e8;
 	color: #4e575f;
 	border-top-color: #68696b;
+	border-radius: 12px;
 }
 
 .status-filter-message,
