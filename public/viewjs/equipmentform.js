@@ -12,7 +12,11 @@
 		return;
 	}
 
-	var jsonData = $('#equipment-form').serializeJSON();
+        var jsonData = $('#equipment-form').serializeJSON();
+        if (jsonData.location_id == "")
+        {
+                jsonData.location_id = null;
+        }
 	Grocy.FrontendHelpers.BeginUiBusy("equipment-form");
 
 	if ($("#instruction-manual")[0].files.length > 0)

@@ -5,10 +5,14 @@
 @section('title', $__t('Equipment'))
 
 @section('content')
+<script>
+        Grocy.Locations = @json($locations);
+</script>
+
 <div class="row">
-	<div class="col-12 col-md-4 pb-3">
-		<div class="title-related-links border-bottom mb-2 py-1">
-			<h2 class="title">@yield('title')</h2>
+        <div class="col-12 col-md-4 pb-3">
+                <div class="title-related-links border-bottom mb-2 py-1">
+                        <h2 class="title">@yield('title')</h2>
 			<div class="float-right @if($embedded) pr-5 @endif">
 				<button class="btn btn-outline-dark d-md-none mt-2 order-1 order-md-3"
 					type="button"
@@ -65,14 +69,15 @@
 							data-toggle="tooltip"
 							title="{{ $__t('Table options') }}"
 							data-table-selector="#equipment-table"
-							href="#"><i class="fa-solid fa-eye"></i></a>
-					</th>
-					<th>{{ $__t('Name') }}</th>
+                                        href="#"><i class="fa-solid fa-eye"></i></a>
+                                        </th>
+                                        <th>{{ $__t('Name') }}</th>
+                                        <th>{{ $__t('Location') }}</th>
 
-					@include('components.userfields_thead', array(
-					'userfields' => $userfields,
-					'excludeFieldTypes' => [\Grocy\Services\UserfieldsService::USERFIELD_TYPE_FILE]
-					))
+                                        @include('components.userfields_thead', array(
+                                        'userfields' => $userfields,
+                                        'excludeFieldTypes' => [\Grocy\Services\UserfieldsService::USERFIELD_TYPE_FILE]
+                                        ))
 
 				</tr>
 			</thead>
@@ -102,15 +107,21 @@
 								</a>
 							</div>
 						</div>
-					</td>
-					<td>
-						{{ $equipmentItem->name }}
-					</td>
+                                        </td>
+                                        <td>
+                                                {{ $equipmentItem->name }}
+                                        </td>
+                                        <td>
+                                                @php $location = FindObjectInArrayByPropertyValue($locations, 'id', $equipmentItem->location_id); @endphp
+                                                @if(!empty($location))
+                                                        {{ $location->name }}
+                                                @endif
+                                        </td>
 
-					@include('components.userfields_tbody', array(
-					'userfields' => $userfields,
-					'userfieldValues' => FindAllObjectsInArrayByPropertyValue($userfieldValues, 'object_id', $equipmentItem->id),
-					'excludeFieldTypes' => [\Grocy\Services\UserfieldsService::USERFIELD_TYPE_FILE]
+                                        @include('components.userfields_tbody', array(
+                                        'userfields' => $userfields,
+                                        'userfieldValues' => FindAllObjectsInArrayByPropertyValue($userfieldValues, 'object_id', $equipmentItem->id),
+                                        'excludeFieldTypes' => [\Grocy\Services\UserfieldsService::USERFIELD_TYPE_FILE]
 					))
 
 				</tr>
@@ -119,10 +130,15 @@
 		</table>
 	</div>
 
-	<div class="col-12 col-md-8">
-		<ul class="nav nav-tabs grocy-tabs mb-1">
-			<li class="nav-item">
-				<a class="nav-link active"
+        <div class="col-12 col-md-8">
+                <p id="selected-equipment-location"
+                        class="text-muted d-none">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span id="selected-equipment-location-name"></span>
+                </p>
+                <ul class="nav nav-tabs grocy-tabs mb-1">
+                        <li class="nav-item">
+                                <a class="nav-link active"
 					data-toggle="tab"
 					href="#instruction-manual-tab">{{ $__t('Instruction manual') }}</a>
 			</li>

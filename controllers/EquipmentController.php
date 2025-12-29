@@ -11,29 +11,32 @@ class EquipmentController extends BaseController
 
 	public function EditForm(Request $request, Response $response, array $args)
 	{
-		if ($args['equipmentId'] == 'new')
-		{
-			return $this->renderPage($response, 'equipmentform', [
-				'mode' => 'create',
-				'userfields' => $this->getUserfieldsService()->GetFields('equipment')
-			]);
-		}
-		else
-		{
-			return $this->renderPage($response, 'equipmentform', [
-				'equipment' => $this->getDatabase()->equipment($args['equipmentId']),
-				'mode' => 'edit',
-				'userfields' => $this->getUserfieldsService()->GetFields('equipment')
-			]);
-		}
-	}
+                if ($args['equipmentId'] == 'new')
+                {
+                        return $this->renderPage($response, 'equipmentform', [
+                                'mode' => 'create',
+                                'userfields' => $this->getUserfieldsService()->GetFields('equipment'),
+                                'locations' => $this->getDatabase()->locations()->orderBy('name', 'COLLATE NOCASE')
+                        ]);
+                }
+                else
+                {
+                        return $this->renderPage($response, 'equipmentform', [
+                                'equipment' => $this->getDatabase()->equipment($args['equipmentId']),
+                                'mode' => 'edit',
+                                'userfields' => $this->getUserfieldsService()->GetFields('equipment'),
+                                'locations' => $this->getDatabase()->locations()->orderBy('name', 'COLLATE NOCASE')
+                        ]);
+                }
+        }
 
-	public function Overview(Request $request, Response $response, array $args)
-	{
-		return $this->renderPage($response, 'equipment', [
-			'equipment' => $this->getDatabase()->equipment()->orderBy('name', 'COLLATE NOCASE'),
-			'userfields' => $this->getUserfieldsService()->GetFields('equipment'),
-			'userfieldValues' => $this->getUserfieldsService()->GetAllValues('equipment')
-		]);
-	}
+        public function Overview(Request $request, Response $response, array $args)
+        {
+                return $this->renderPage($response, 'equipment', [
+                        'equipment' => $this->getDatabase()->equipment()->orderBy('name', 'COLLATE NOCASE'),
+                        'userfields' => $this->getUserfieldsService()->GetFields('equipment'),
+                        'userfieldValues' => $this->getUserfieldsService()->GetAllValues('equipment'),
+                        'locations' => $this->getDatabase()->locations()->orderBy('name', 'COLLATE NOCASE')
+                ]);
+        }
 }

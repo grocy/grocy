@@ -38,21 +38,27 @@
 		<form id="equipment-form"
 			novalidate>
 
-			<div class="form-group">
-				<label for="name">{{ $__t('Name') }}</label>
-				<input type="text"
-					class="form-control"
-					required
-					id="name"
-					name="name"
-					value="@if($mode == 'edit'){{ $equipment->name }}@endif">
-				<div class="invalid-feedback">{{ $__t('A name is required') }}</div>
-			</div>
+                        <div class="form-group">
+                                <label for="name">{{ $__t('Name') }}</label>
+                                <input type="text"
+                                        class="form-control"
+                                        required
+                                        id="name"
+                                        name="name"
+                                        value="@if($mode == 'edit'){{ $equipment->name }}@endif">
+                                <div class="invalid-feedback">{{ $__t('A name is required') }}</div>
+                        </div>
 
-			<div class="form-group">
-				<label for="description">{{ $__t('Notes') }}</label>
-				<textarea class="form-control wysiwyg-editor"
-					id="description"
+                        @include('components.locationpicker', array(
+                        'locations' => $locations,
+                        'isRequired' => false,
+                        'prefillById' => $mode == 'edit' ? $equipment->location_id : ''
+                        ))
+
+                        <div class="form-group">
+                                <label for="description">{{ $__t('Notes') }}</label>
+                                <textarea class="form-control wysiwyg-editor"
+                                        id="description"
 					name="description">@if($mode == 'edit'){{ $equipment->description }}@endif</textarea>
 			</div>
 
