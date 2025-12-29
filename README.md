@@ -38,7 +38,7 @@ See the website for a list of community contributed Add-ons / Tools. &rarr; [htt
 Grocy is technically a pretty simple PHP application, so the basic notes to get it running are:
 - Unpack the [latest release](https://releases.grocy.info/latest)
 - Copy `config-dist.php` to `data/config.php` + edit to your needs
-- Ensure that the `data` directory is writable
+- Ensure that the `data` directory and its contents are writable
 - The webserver root should point to the `public` directory
 - Include `try_files $uri /index.php$is_args$query_string;` in your location block if you use nginx
   - Or disable URL rewriting (see the option `DISABLE_URL_REWRITING` in `data/config.php`)
