@@ -29,16 +29,28 @@ equipmentTable.on('select', function(e, dt, type, indexes)
 function DisplayEquipment(id)
 {
 	Grocy.Api.Get('objects/equipment/' + id,
-		function(equipmentItem)
-		{
-			$(".selected-equipment-name").text(equipmentItem.name);
-			$("#description-tab-content").html(equipmentItem.description);
-			$(".equipment-edit-button").attr("href", U("/equipment/" + equipmentItem.id.toString()));
+                function(equipmentItem)
+                {
+                        $(".selected-equipment-name").text(equipmentItem.name);
+                        $("#description-tab-content").html(equipmentItem.description);
+                        $(".equipment-edit-button").attr("href", U("/equipment/" + equipmentItem.id.toString()));
 
-			if (equipmentItem.instruction_manual_file_name)
-			{
-				var pdfUrl = U('/api/files/equipmentmanuals/' + btoa(equipmentItem.instruction_manual_file_name));
-				$("#selected-equipment-instruction-manual").attr("src", pdfUrl);
+                        var equipmentLocation = FindObjectInArrayByPropertyValue(Grocy.Locations, 'id', equipmentItem.location_id);
+                        if (equipmentLocation)
+                        {
+                                $("#selected-equipment-location-name").text(equipmentLocation.name);
+                                $("#selected-equipment-location").removeClass("d-none");
+                        }
+                        else
+                        {
+                                $("#selected-equipment-location-name").text("");
+                                $("#selected-equipment-location").addClass("d-none");
+                        }
+
+                        if (equipmentItem.instruction_manual_file_name)
+                        {
+                                var pdfUrl = U('/api/files/equipmentmanuals/' + btoa(equipmentItem.instruction_manual_file_name));
+                                $("#selected-equipment-instruction-manual").attr("src", pdfUrl);
 				$("#selectedEquipmentInstructionManualDownloadButton").attr("href", pdfUrl);
 				$("#selected-equipment-instruction-manual").removeClass("d-none");
 				$("#selectedEquipmentInstructionManualDownloadButton").removeClass("d-none");
