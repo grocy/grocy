@@ -22,7 +22,7 @@ class OpenFoodFactsBarcodeLookupPlugin extends BaseBarcodeLookupPlugin
 
 		// Guzzle throws exceptions for connection errors, so nothing to do on that here
 
-		$data = json_decode($response->getBody());
+		$data = json_decode(mb_convert_encoding($response->getBody(), 'UTF-8', 'UTF-8'));
 		if ($statusCode == 404 || $data->status != 1)
 		{
 			// Nothing found for the given barcode
@@ -56,9 +56,6 @@ class OpenFoodFactsBarcodeLookupPlugin extends BaseBarcodeLookupPlugin
 			{
 				$name = $data->product->$productNameFieldLocalized;
 			}
-
-			// Remove non-ASCII characters in product name (whyever a product name should have them at all)
-			$name = preg_replace('/[^a-zA-Z0-9äöüÄÖÜß ]/', '', $name);
 
 			return [
 				'name' => $name,
