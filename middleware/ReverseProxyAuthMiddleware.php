@@ -40,7 +40,7 @@ class ReverseProxyAuthMiddleware extends AuthMiddleware
 		else
 		{
 			$username = $request->getHeader(GROCY_REVERSE_PROXY_AUTH_HEADER);
-			if (count($username) !== 1)
+			if (count($username) !== 1 || (count($username) === 1 && strlen($username[0]) === 0))
 			{
 				// Invalid configuration of Proxy
 				throw new \Exception('ReverseProxyAuthMiddleware: ' . GROCY_REVERSE_PROXY_AUTH_HEADER . ' header is missing or invalid');
