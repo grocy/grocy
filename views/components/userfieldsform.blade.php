@@ -37,7 +37,7 @@
 	@elseif($userfield->type == \Grocy\Services\UserfieldsService::USERFIELD_TYPE_NUMBER_INT)
 	@include('components.numberpicker', array(
 	'id' => $userfield->name,
-	'label' => $userfield->caption,
+	'label' => str_replace('%', '%%', $userfield->caption), // Escape % (there are placeholders in Gettext translation strings)
 	'noNameAttribute' => true,
 	'min' => 0,
 	'isRequired' => $userfield->input_required == 1,
@@ -48,7 +48,7 @@
 	@elseif($userfield->type == \Grocy\Services\UserfieldsService::USERFIELD_TYPE_NUMBER_DECIMAL)
 	@include('components.numberpicker', array(
 	'id' => '',
-	'label' => $userfield->caption,
+	'label' => str_replace('%', '%%', $userfield->caption), // Escape % (there are placeholders in Gettext translation strings)
 	'noNameAttribute' => true,
 	'min' => 0,
 	'decimals' => 4,
@@ -60,7 +60,7 @@
 	@elseif($userfield->type == \Grocy\Services\UserfieldsService::USERFIELD_TYPE_NUMBER_CURRENCY)
 	@include('components.numberpicker', array(
 	'id' => '',
-	'label' => $userfield->caption,
+	'label' => str_replace('%', '%%', $userfield->caption), // Escape % (there are placeholders in Gettext translation strings)
 	'noNameAttribute' => true,
 	'min' => 0,
 	'decimals' => 4,
@@ -72,7 +72,7 @@
 	@elseif($userfield->type == \Grocy\Services\UserfieldsService::USERFIELD_TYPE_DATE)
 	@include('components.datetimepicker2', array(
 	'id' => $userfield->name,
-	'label' => $userfield->caption,
+	'label' => str_replace('%', '%%', $userfield->caption), // Escape % (there are placeholders in Gettext translation strings)
 	'noNameAttribute' => true,
 	'format' => 'YYYY-MM-DD',
 	'initWithNow' => false,
@@ -86,7 +86,7 @@
 	@elseif($userfield->type == \Grocy\Services\UserfieldsService::USERFIELD_TYPE_DATETIME)
 	@include('components.datetimepicker2', array(
 	'id' => $userfield->name,
-	'label' => $userfield->caption,
+	'label' => str_replace('%', '%%', $userfield->caption), // Escape % (there are placeholders in Gettext translation strings)
 	'noNameAttribute' => true,
 	'format' => 'YYYY-MM-DD HH:mm:ss',
 	'initWithNow' => false,

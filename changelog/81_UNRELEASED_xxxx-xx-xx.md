@@ -12,7 +12,7 @@
 
 - Optimized the line plot markers color of the price history chart (product card) (thanks @DeepCoreSystem)
 - External barcode lookup plugin optimizations:
-  - When an image URL without a file extension ist returned, the file extension is now determined by the Content-Type header (if any) (thanks @jordy-u for the idea)
+  - When an image URL without a file extension is returned, the file extension is now determined by the Content-Type header (if any) (thanks @jordy-u for the idea)
   - Data URLs for images are now supported (`data:image/png;base64,xxxx`) (thanks @GammaC0de)
 - Fixed that German Umlauts were removed from product names when looking up a barcode via the built-in Open Food Facts external barcode lookup plugin
 - Fixed that when using/scanning a barcode on the purchase page with a note attached (which prefills the note field) and when manually selecting another product afterwards, the note of the previously used barcode was incorrectly prefilled again
@@ -53,7 +53,7 @@
 
 ### Userfields
 
-- xxx
+- Fixed that the corresponding form was broken when using a `%` in an Userfield caption (only affected numeric and date-time Userfields)
 
 ### General
 
