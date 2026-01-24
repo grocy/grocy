@@ -13,11 +13,11 @@
 
 <div class="row">
 	<div class="col-lg-4 col-md-8 col-12">
-		<h4 ">{{ $__t('Chores overview') }}</h4>
+		<h4>{{ $__t('Chores overview') }}</h4>
 
 		@include('components.numberpicker', array(
 		'id' => 'chores_due_soon_days',
-		'additionalAttributes' => 'data-setting-key=" chores_due_soon_days"', 'label'=> 'Due soon days',
+		'additionalAttributes' => 'data-setting-key="chores_due_soon_days"', 'label'=> 'Due soon days',
 			'min' => 0,
 			'additionalCssClasses' => 'user-setting-control',
 			'hint' => $__t('Set to 0 to hide due soon filters/highlighting')
