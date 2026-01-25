@@ -15,6 +15,7 @@ class RecipesService extends BaseService
 	{
 		$recipe = $this->getDataBase()->recipes($recipeId);
 		$recipePositions = $this->GetRecipesPosResolved();
+		$ignoreStock = boolval($this->getUsersService()->GetUserSetting(GROCY_USER_ID, 'recipes_ignore_stock_on_add_to_cart_checkbox'));
 
 		if ($excludedProductIds == null)
 		{
@@ -26,13 +27,26 @@ class RecipesService extends BaseService
 			if ($recipePosition->recipe_id == $recipeId && !in_array($recipePosition->product_id, $excludedProductIds))
 			{
 				$product = $this->getDataBase()->products($recipePosition->product_id);
-				$toOrderAmount = round(($recipePosition->missing_amount - $recipePosition->amount_on_shopping_list), 2);
-				$quId = $product->qu_id_purchase;
 
-				if ($recipe->not_check_shoppinglist == 1)
-				{
-					$toOrderAmount = round($recipePosition->missing_amount, 2);
+				// Determine order amount
+				// First, define the base amount, depending on if the full recipe amount or just the missing amount shall be used
+				if ($ignoreStock) {
+					$toOrderAmount = $recipePosition->recipe_amount;
 				}
+				else {
+					$toOrderAmount = $recipePosition->missing_amount;
+				}
+
+				// Then, decide if on top of the base amount, the shopping cart shall be considered as well
+				if ($recipe->not_check_shoppinglist == 0)
+				{
+					$toOrderAmount = round($toOrderAmount - $recipePosition->amount_on_shopping_list, 2);
+				}
+				else {
+					$toOrderAmount = round($toOrderAmount, 2);
+				}
+
+				$quId = $product->qu_id_purchase;
 
 				// When the recipe ingredient option "Only check if any amount is in stock" is enabled,
 				// any QU can be used and the amount is not based on qu_stock then
