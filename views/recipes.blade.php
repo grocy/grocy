@@ -581,7 +581,7 @@
 				<div id="missing-recipe-pos-list"
 					class="list-group d-none mt-3">
 					@foreach($recipePositionsResolved as $recipePos)
-					@if(in_array($recipePos->recipe_id, $includedRecipeIdsAbsolute) && $recipePos->missing_amount > 0)
+					@if(in_array($recipePos->recipe_id, $includedRecipeIdsAbsolute) && $userSettings['recipes_ignore_stock_on_add_to_cart_checkbox'] || $recipePos->missing_amount > 0)
 					<a href="#"
 						class="list-group-item list-group-item-action list-group-item-primary missing-recipe-pos-select-button">
 						<div class="form-check form-check-inline">
