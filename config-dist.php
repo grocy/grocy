@@ -210,6 +210,7 @@ DefaultUserSetting('shopping_list_print_layout_type', 'table'); // Default for t
 DefaultUserSetting('recipe_ingredients_group_by_product_group', false); // Group recipe ingredients by their product group
 DefaultUserSetting('recipes_show_list_side_by_side', true); // If the recipe should be displayed next to recipe list on the recipes page
 DefaultUserSetting('recipes_show_ingredient_checkbox', false); // When enabled, a little checkbox will be shown next to each ingredient to mark it as done
+DefaultUserSetting('recipes_ignore_stock_on_add_to_cart_checkbox', false); // When enabled, the add to cart on a recipe will act as an add all ingredients, not a add all missing ingredients button
 
 // Chores settings
 DefaultUserSetting('chores_due_soon_days', 5); // The "due soon" days
