@@ -340,10 +340,10 @@
 										data-recipe-name="{{ $recipe->name }}">
 										<i class="fa-solid fa-utensils"></i>
 									</a>
-									<a class="btn @if(!GROCY_FEATURE_FLAG_SHOPPINGLIST) d-none @endif recipe-shopping-list @if(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->need_fulfilled_with_shopping_list == 1) disabled @endif"
+									<a class="btn @if(!GROCY_FEATURE_FLAG_SHOPPINGLIST) d-none @endif recipe-shopping-list @if(!$userSettings['recipes_ignore_stock_on_add_to_cart_checkbox'] && FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->need_fulfilled_with_shopping_list == 1) disabled @endif"
 										href="#"
 										data-toggle="tooltip"
-										title="{{ $__t('Put missing products on shopping list') }}"
+										title="@if($userSettings['recipes_ignore_stock_on_add_to_cart_checkbox']) {{ $__t('Put all recipe products on shopping list') }} @else {{ $__t('Put missing products on shopping list') }} @endif"
 										data-recipe-id="{{ $recipe->id }}"
 										data-recipe-name="{{ $recipe->name }}">
 										<i class="fa-solid fa-cart-plus"></i>
@@ -376,10 +376,10 @@
 									data-recipe-name="{{ $recipe->name }}">
 									<i class="fa-solid fa-utensils"></i>
 								</a>
-								<a class="btn recipe-shopping-list @if(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->need_fulfilled_with_shopping_list == 1) disabled @endif"
+								<a class="btn recipe-shopping-list @if(!$userSettings['recipes_ignore_stock_on_add_to_cart_checkbox'] && FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->need_fulfilled_with_shopping_list == 1) disabled @endif"
 									href="#"
 									data-toggle="tooltip"
-									title="{{ $__t('Put missing products on shopping list') }}"
+									title="@if($userSettings['recipes_ignore_stock_on_add_to_cart_checkbox']) {{ $__t('Put all recipe ingredients on shopping list') }} @else {{ $__t('Put missing products on shopping list') }} @endif"
 									data-recipe-id="{{ $recipe->id }}"
 									data-recipe-name="{{ $recipe->name }}">
 									<i class="fa-solid fa-cart-plus"></i>
