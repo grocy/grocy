@@ -12,3 +12,8 @@ if (BoolVal(Grocy.UserSettings.recipes_show_ingredient_checkbox))
 {
 	$("#recipes_show_ingredient_checkbox").prop("checked", true);
 }
+
+if (BoolVal(Grocy.UserSettings.recipes_ignore_stock_on_add_to_cart_checkbox))
+{
+	$("#recipes_ignore_stock_on_add_to_cart_checkbox").prop("checked", true);
+}
