@@ -43,6 +43,23 @@
 			</div>
 		</div>
 
+		<div class="form-group">
+			<div class="custom-control custom-checkbox">
+				<input type="checkbox"
+					class="form-check-input custom-control-input user-setting-control"
+					id="recipes_ignore_stock_on_add_to_cart_checkbox"
+					data-setting-key="recipes_ignore_stock_on_add_to_cart_checkbox">
+				<label class="form-check-label custom-control-label"
+					for="recipes_ignore_stock_on_add_to_cart_checkbox">
+					{{ $__t('Ignore stock on add to cart') }}
+					<i class="fa-solid fa-question-circle text-muted"
+						data-toggle="tooltip"
+						data-trigger="hover click"
+						title="{{ $__t('The add to cart icon will always be enabled and add all ingredients be added to the shopping list, regardless of the current stock.') }}"></i>
+				</label>
+			</div>
+		</div>
+
 		<h4 class="mt-5">{{ $__t('Recipe card') }}</h4>
 		<div class="form-group">
 			<div class="custom-control custom-checkbox">
