@@ -190,9 +190,20 @@ $(document).on('click', '.recipe-shopping-list', function(e)
 {
 	var objectName = $(e.currentTarget).attr('data-recipe-name');
 	var objectId = $(e.currentTarget).attr('data-recipe-id');
+	var ignore_stock = BoolVal(Grocy.UserSettings.recipes_ignore_stock_on_add_to_cart_checkbox);
 
 	bootbox.confirm({
-		message: __t('Are you sure you want to put all missing ingredients for recipe "%s" on the shopping list?', objectName) + "<br><br>" + __t("Uncheck ingredients to not put them on the shopping list") + ":" + $("#missing-recipe-pos-list")[0].outerHTML.replace("d-none", ""),
+		message:
+			__t(
+				(ignore_stock)
+					? 'Are you sure you want to put all ingredients for recipe "%s" on the shopping list?'
+					: 'Are you sure you want to put all missing ingredients for recipe "%s" on the shopping list?',
+				objectName
+			)
+			+ "<br><br>"
+			+ __t("Uncheck ingredients to not put them on the shopping list")
+			+ ":"
+			+ $("#missing-recipe-pos-list")[0].outerHTML.replace("d-none", ""),
 		closeButton: false,
 		buttons: {
 			confirm: {
