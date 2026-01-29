@@ -28,6 +28,17 @@
 			column-count: 2;
 		}
 	}
+
+	.missing-recipe-pos-list-radio-buttons {
+		display: flex;
+		flex-direction: row;
+		gap: 1em;
+		margin: 1em 0;
+	}
+
+	.missing-recipe-pos-list-selection-buttons {
+		margin: 1em 0;
+	}
 </style>
 @endpush
 
@@ -340,7 +351,7 @@
 										data-recipe-name="{{ $recipe->name }}">
 										<i class="fa-solid fa-utensils"></i>
 									</a>
-									<a class="btn @if(!GROCY_FEATURE_FLAG_SHOPPINGLIST) d-none @endif recipe-shopping-list @if(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->need_fulfilled_with_shopping_list == 1) disabled @endif"
+									<a class="btn @if(!GROCY_FEATURE_FLAG_SHOPPINGLIST) d-none @endif recipe-shopping-list"
 										href="#"
 										data-toggle="tooltip"
 										title="{{ $__t('Put missing products on shopping list') }}"
@@ -376,7 +387,7 @@
 									data-recipe-name="{{ $recipe->name }}">
 									<i class="fa-solid fa-utensils"></i>
 								</a>
-								<a class="btn recipe-shopping-list @if(FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $recipe->id)->need_fulfilled_with_shopping_list == 1) disabled @endif"
+								<a class="btn recipe-shopping-list"
 									href="#"
 									data-toggle="tooltip"
 									title="{{ $__t('Put missing products on shopping list') }}"
@@ -580,20 +591,56 @@
 
 				<div id="missing-recipe-pos-list"
 					class="list-group d-none mt-3">
+					<div class="missing-recipe-pos-list-selection-buttons">
+						<button id="missing-recipe-pos-list-select-missing"
+							class="btn btn-secondary">{{ $__t('Only Missing') }}</button>
+						<button id="missing-recipe-pos-list-select-all"
+							class="btn btn-secondary">{{ $__t('All') }}</button>
+					</div>
 					@foreach($recipePositionsResolved as $recipePos)
-					@if(in_array($recipePos->recipe_id, $includedRecipeIdsAbsolute) && $recipePos->missing_amount > 0)
+					@if(in_array($recipePos->recipe_id, $includedRecipeIdsAbsolute))
 					<a href="#"
-						class="list-group-item list-group-item-action list-group-item-primary missing-recipe-pos-select-button">
+						class="list-group-item list-group-item-action list-group-item-primary missing-recipe-pos-select-button @if($recipePos->recipe_pos_data->not_check_stock_fulfillment == 1) d-none @endif">
 						<div class="form-check form-check-inline">
 							<input class="form-check-input missing-recipe-pos-product-checkbox"
 								type="checkbox"
 								data-product-id="{{ $recipePos->product_id }}"
-								checked>
+								data-ignore="{{ $recipePos->recipe_pos_data->not_check_stock_fulfillment }}"
+								data-need-fulfilled="{{ $recipePos->need_fulfilled }}"
+								@if(!$recipePos->need_fulfilled) checked @endif>
 						</div>
-						{{ FindObjectInArrayByPropertyValue($products, 'id', $recipePos->product_id)->name }}
+						{{ FindObjectInArrayByPropertyValue($products, 'id', $recipePos->product_id)->name }}@if($recipePos->missing_amount > 0) ({{ $recipePos->missing_amount }} {{ $__t('missing') }})@endif
 					</a>
 					@endif
 					@endforeach
+					<div class="missing-recipe-pos-list-radio-buttons">
+						<script>$('[data-toggle="tooltip"]').tooltip();</script>
+						<div>
+							<input class="missing-recipe-pos-list-only-missing"
+								type="radio"
+								id="missing-recipe-pos-list-only-missing"
+								name="missing-recipe-pos-list"
+								val="1"
+								checked>
+							<label
+								data-toggle="tooltip"
+								title="{{ $__t('Only the from stock missing amount will be added to the shopping list') }}"
+								for="missing-recipe-pos-list-only-missing">{{ $__t('missing amount') }}
+							</label>
+						</div>
+						<div>
+							<input class="missing-recipe-pos-list-only-missing"
+								type="radio"
+								id="missing-recipe-pos-list-full-recipe"
+								name="missing-recipe-pos-list"
+								val="2">
+							<label
+								data-toggle="tooltip"
+								title="{{ $__t('The full recipe required amount will be added to the shopping list, regardless of your current stock') }}"
+								for="missing-recipe-pos-list-full-recipe">{{ $__t('full recipe amount') }}
+							</label>
+						</div>
+					</div>
 				</div>
 				@endforeach
 			</div>

@@ -190,9 +190,13 @@ $(document).on('click', '.recipe-shopping-list', function(e)
 {
 	var objectName = $(e.currentTarget).attr('data-recipe-name');
 	var objectId = $(e.currentTarget).attr('data-recipe-id');
+	var popUpTemplate = $("#missing-recipe-pos-list")[0];			// save template html for later
+	var popUpHtml = popUpTemplate.outerHTML.replace("d-none", "");	// prepare visible html for current popup
+	var popUpTemplateParent = popUpTemplate.parentElement			// remember where the template element was
+	$("#missing-recipe-pos-list").remove()							// delete the template from the dom, as we are about to add it into the popup
 
 	bootbox.confirm({
-		message: __t('Are you sure you want to put all missing ingredients for recipe "%s" on the shopping list?', objectName) + "<br><br>" + __t("Uncheck ingredients to not put them on the shopping list") + ":" + $("#missing-recipe-pos-list")[0].outerHTML.replace("d-none", ""),
+		message: __t('Are you sure you want to put all selected ingredients for recipe "%s" on the shopping list?', objectName) + "<br><br>" + __t("Uncheck ingredients to not put them on the shopping list") + ":" + popUpHtml,
 		closeButton: false,
 		buttons: {
 			confirm: {
@@ -211,12 +215,16 @@ $(document).on('click', '.recipe-shopping-list', function(e)
 				Grocy.FrontendHelpers.BeginUiBusy();
 
 				var excludedProductIds = new Array();
-				$(".missing-recipe-pos-product-checkbox:checkbox:not(:checked)").each(function()
+				$(".missing-recipe-pos-product-checkbox").each(function()
 				{
-					excludedProductIds.push($(this).data("product-id"));
+					if ($(this).data("ignore") || !$(this)[0].checked)
+					{
+						excludedProductIds.push($(this).data("product-id"));
+					}
 				});
+				var ignoreStock = $("#missing-recipe-pos-list-full-recipe")[0];
 
-				Grocy.Api.Post('recipes/' + objectId + '/add-not-fulfilled-products-to-shoppinglist', { "excludedProductIds": excludedProductIds },
+				Grocy.Api.Post('recipes/' + objectId + '/add-not-fulfilled-products-to-shoppinglist', { "excludedProductIds": excludedProductIds, "ignoreStock": ignoreStock.checked },
 					function(result)
 					{
 						window.location.reload();
@@ -228,7 +236,25 @@ $(document).on('click', '.recipe-shopping-list', function(e)
 					}
 				);
 			}
+
+			popUpTemplateParent.append(popUpTemplate);	// restore template, in case we don't reload the page and need the popup again
 		}
+	});
+});
+
+$(document).on('click', '#missing-recipe-pos-list-select-missing', function(e)
+{
+	$(".missing-recipe-pos-product-checkbox").each(function()
+	{
+		$(this)[0].checked = !$(this).data("need-fulfilled");
+	});
+});
+
+$(document).on('click', '#missing-recipe-pos-list-select-all', function(e)
+{
+	$(".missing-recipe-pos-product-checkbox").each(function()
+	{
+		$(this)[0].checked = true;
 	});
 });
 

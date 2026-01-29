@@ -16,13 +16,19 @@ class RecipesApiController extends BaseApiController
 
 		$requestBody = $this->GetParsedAndFilteredRequestBody($request);
 		$excludedProductIds = null;
+		$ignoreStock = false;
 
 		if ($requestBody !== null && array_key_exists('excludedProductIds', $requestBody))
 		{
 			$excludedProductIds = $requestBody['excludedProductIds'];
 		}
 
-		$this->getRecipesService()->AddNotFulfilledProductsToShoppingList($args['recipeId'], $excludedProductIds);
+		if ($requestBody !== null && array_key_exists('ignoreStock', $requestBody))
+		{
+			$ignoreStock = $requestBody['ignoreStock'];
+		}
+
+		$this->getRecipesService()->AddNotFulfilledProductsToShoppingList($args['recipeId'], $excludedProductIds, $ignoreStock);
 		return $this->EmptyApiResponse($response);
 	}
 

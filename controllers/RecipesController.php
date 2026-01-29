@@ -105,10 +105,16 @@ class RecipesController extends BaseController
 			$totalCalories = FindObjectInArrayByPropertyValue($recipesResolved, 'recipe_id', $selectedRecipe->id)->calories;
 		}
 
+		$recipePositionsResolved = $this->getDatabase()->recipes_pos_resolved()->where('recipe_id', $selectedRecipe->id);
+		foreach ($recipePositionsResolved as $pos)
+		{
+			$pos["recipe_pos_data"] = $this->getDatabase()->recipes_pos($pos->recipe_pos_id);
+		}
+
 		$viewData = [
 			'recipes' => $recipes,
 			'recipesResolved' => $recipesResolved,
-			'recipePositionsResolved' => $this->getDatabase()->recipes_pos_resolved()->where('recipe_id', $selectedRecipe->id),
+			'recipePositionsResolved' => $recipePositionsResolved,
 			'selectedRecipe' => $selectedRecipe,
 			'products' => $this->getDatabase()->products(),
 			'quantityUnits' => $this->getDatabase()->quantity_units(),
