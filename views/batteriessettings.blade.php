@@ -17,14 +17,17 @@
 
 		@include('components.numberpicker', array(
 		'id' => 'batteries_due_soon_days',
-		'additionalAttributes' => 'data-setting-key=" batteries_due_soon_days"', 'label'=> 'Due soon days',
+		'additionalAttributes' => 'data-setting-key="batteries_due_soon_days"',
+		'label'=> 'Due soon days',
 		'min' => 0,
 		'additionalCssClasses' => 'user-setting-control',
 		'hint' => $__t('Set to 0 to hide due soon filters/highlighting')
 		))
 
 		<a href="{{ $U('/batteriesoverview') }}"
-			class="btn btn-success">{{ $__t('OK') }}</a>
+			class="btn btn-success">
+			{{ $__t('OK') }}
+		</a>
 	</div>
 </div>
 @stop
