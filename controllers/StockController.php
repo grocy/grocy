@@ -161,7 +161,8 @@ class StockController extends BaseController
 
 		return $this->renderPage($response, 'stockoverview', [
 			'currentStock' => $this->getDatabase()->uihelper_stock_current_overview()->where($where),
-			'locations' => $this->getDatabase()->locations()->where('active = 1')->orderBy('name', 'COLLATE NOCASE'),
+			'locations' => $this->getDatabase()->locations_hierarchy()->where('active = 1')->orderBy('location_path', 'COLLATE NOCASE'),
+			'locationsResolved' => $this->getDatabase()->locations_resolved(),
 			'currentStockLocations' => $this->getStockService()->GetCurrentStockLocations(),
 			'nextXDays' => $nextXDays,
 			'productGroups' => $this->getDatabase()->product_groups()->where('active = 1')->orderBy('name', 'COLLATE NOCASE'),

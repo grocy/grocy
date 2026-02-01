@@ -112,7 +112,7 @@
 				id="location-filter">
 				<option value="all">{{ $__t('All') }}</option>
 				@foreach($locations as $location)
-				<option value="{{ $location->name }}">{{ $location->name }}</option>
+				<option value="{{ $location->name }}">{{ $location->location_path }}</option>
 				@endforeach
 			</select>
 		</div>
@@ -377,7 +377,14 @@
 					</td>
 					<td class="d-none">
 						@foreach(FindAllObjectsInArrayByPropertyValue($currentStockLocations, 'product_id', $currentStockEntry->product_id) as $locationsForProduct)
-						xx{{ FindObjectInArrayByPropertyValue($locations, 'id', $locationsForProduct->location_id)->name }}xx
+							@php
+								// Include all ancestor locations for hierarchical filtering
+								$ancestorMappings = FindAllObjectsInArrayByPropertyValue($locationsResolved, 'location_id', $locationsForProduct->location_id);
+							@endphp
+							@foreach($ancestorMappings as $ancestorMapping)
+								@php $ancestorLocation = FindObjectInArrayByPropertyValue($locations, 'id', $ancestorMapping->ancestor_location_id); @endphp
+								@if($ancestorLocation)xx{{ $ancestorLocation->name }}xx @endif
+							@endforeach
 						@endforeach
 					</td>
 					<td class="d-none">
