@@ -21,6 +21,7 @@ AS (
 	LIMIT 100 -- Safety limit to prevent infinite loops
 )
 SELECT
+	location_id AS id,
 	location_id,
 	ancestor_location_id,
 	level

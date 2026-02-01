@@ -1171,6 +1171,12 @@ msgstr ""
 msgid "Parent product"
 msgstr ""
 
+msgid "Parent location"
+msgstr ""
+
+msgid "Select a parent location to create a hierarchy (e.g., Building > Floor > Room)"
+msgstr ""
+
 msgid "Not possible because this product is already used as a parent product in another product"
 msgstr ""
 

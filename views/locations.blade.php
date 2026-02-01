@@ -118,10 +118,7 @@
 						</a>
 					</td>
 					<td>
-						@if($location->location_depth > 0)
-						<span class="text-muted">{{ str_repeat('&mdash; ', $location->location_depth) }}</span>
-						@endif
-						{{ $location->name }}
+						{{ $location->location_path }}
 					</td>
 					<td class="d-none">
 						@if($location->parent_location_id)
