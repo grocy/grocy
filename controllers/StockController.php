@@ -92,8 +92,10 @@ class StockController extends BaseController
 		return $this->renderPage($response, 'locationcontentsheet', [
 			'products' => $this->getDatabase()->products()->where('active = 1')->orderBy('name', 'COLLATE NOCASE'),
 			'quantityunits' => $this->getDatabase()->quantity_units()->orderBy('name', 'COLLATE NOCASE'),
-			'locations' => $this->getDatabase()->locations()->orderBy('name', 'COLLATE NOCASE'),
-			'currentStockLocationContent' => $this->getStockService()->GetCurrentStockLocationContent(isset($request->getQueryParams()['include_out_of_stock']))
+			'locations' => $this->getDatabase()->locations_hierarchy()->orderBy('location_path', 'COLLATE NOCASE'),
+			'locationsResolved' => $this->getDatabase()->locations_resolved(),
+			'currentStockLocationContent' => $this->getStockService()->GetCurrentStockLocationContent(isset($request->getQueryParams()['include_out_of_stock'])),
+			'showLeafLocationsOnly' => isset($request->getQueryParams()['leaf_locations_only'])
 		]);
 	}
 

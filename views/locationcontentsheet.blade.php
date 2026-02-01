@@ -50,6 +50,20 @@
 				title="{{ $__t('Out of stock items will be shown at the products default location') }}"></i>
 		</label>
 	</div>
+	<div class="form-check custom-control custom-checkbox">
+		<input class="form-check-input custom-control-input"
+			type="checkbox"
+			id="leaf-locations-only"
+			@if($showLeafLocationsOnly) checked @endif>
+		<label class="form-check-label custom-control-label"
+			for="leaf-locations-only">
+			{{ $__t('Show only leaf locations') }}
+			<i class="fa-solid fa-question-circle text-muted"
+				data-toggle="tooltip"
+				data-trigger="hover click"
+				title="{{ $__t('When enabled, only locations without sub-locations are shown. When disabled, parent locations show aggregated content from all sub-locations.') }}"></i>
+		</label>
+	</div>
 	<div class="float-right">
 		<button class="btn btn-outline-dark d-md-none mt-2 order-1 order-md-3"
 			type="button"
@@ -69,8 +83,64 @@
 
 <hr class="my-2 d-print-none">
 
-@foreach($locations as $location)
-@if(FindAllObjectsInArrayByPropertyValue($currentStockLocationContent, 'location_id', $location->id) == null)
+@php
+	// Convert iterators to arrays once for reuse
+	$locationsArray = iterator_to_array($locations);
+	$locationsResolvedArray = iterator_to_array($locationsResolved);
+	$stockContentArray = iterator_to_array($currentStockLocationContent);
+@endphp
+
+@foreach($locationsArray as $location)
+@php
+	// Determine if this location has children
+	$hasChildren = count(array_filter($locationsArray, function($loc) use ($location) {
+		return $loc->parent_location_id == $location->id;
+	})) > 0;
+
+	// Flag to skip this location
+	$skipLocation = $showLeafLocationsOnly && $hasChildren;
+
+	$currentStockEntriesForLocation = [];
+
+	if (!$skipLocation) {
+		// Get stock entries for this location
+		if ($showLeafLocationsOnly) {
+			// Only show products directly at this location
+			$currentStockEntriesForLocation = array_filter($stockContentArray, function($entry) use ($location) {
+				return $entry->location_id == $location->id;
+			});
+		} else {
+			// Aggregate products from this location and all descendant locations
+			$descendantLocationIds = array_map(function($r) {
+				return $r->location_id;
+			}, array_filter($locationsResolvedArray, function($r) use ($location) {
+				return $r->ancestor_location_id == $location->id;
+			}));
+
+			$currentStockEntriesForLocation = array_filter($stockContentArray, function($entry) use ($descendantLocationIds) {
+				return in_array($entry->location_id, $descendantLocationIds);
+			});
+
+			// Aggregate amounts by product_id
+			$aggregatedEntries = [];
+			foreach ($currentStockEntriesForLocation as $entry) {
+				$productId = $entry->product_id;
+				if (!isset($aggregatedEntries[$productId])) {
+					$aggregatedEntries[$productId] = (object)[
+						'product_id' => $productId,
+						'location_id' => $location->id,
+						'amount' => 0,
+						'amount_opened' => 0
+					];
+				}
+				$aggregatedEntries[$productId]->amount += $entry->amount;
+				$aggregatedEntries[$productId]->amount_opened += $entry->amount_opened;
+			}
+			$currentStockEntriesForLocation = array_values($aggregatedEntries);
+		}
+	}
+@endphp
+@if($skipLocation || count($currentStockEntriesForLocation) == 0)
 @continue
 @endif
 <div class="page">
@@ -79,7 +149,7 @@
 			width="114"
 			height="30"
 			class="d-none d-print-flex mx-auto">
-		{{ $location->name }}
+		{{ $location->location_path }}
 		<a class="btn btn-outline-dark btn-sm responsive-button print-single-location-button d-print-none"
 			href="#">
 			{{ $__t('Print') . ' (' . $__t('this location') . ')' }}
@@ -100,7 +170,6 @@
 					</tr>
 				</thead>
 				<tbody>
-					@php $currentStockEntriesForLocation = FindAllObjectsInArrayByPropertyValue($currentStockLocationContent, 'location_id', $location->id); @endphp
 					@foreach($currentStockEntriesForLocation as $currentStockEntry)
 					<tr>
 						<td class="fit-content">

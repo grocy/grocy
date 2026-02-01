@@ -31,3 +31,17 @@ if (GetUriParam("include_out_of_stock"))
 {
 	$("#include-out-of-stock").prop("checked", false);
 }
+
+$(document).on("change", "#leaf-locations-only", function()
+{
+	if (this.checked)
+	{
+		UpdateUriParam("leaf_locations_only", true);
+	}
+	else
+	{
+		RemoveUriParam("leaf_locations_only");
+	}
+
+	window.location.reload();
+});
