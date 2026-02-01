@@ -4660,6 +4660,18 @@
 					"description": {
 						"type": "string"
 					},
+					"parent_location_id": {
+						"type": "integer",
+						"description": "Parent location id for hierarchical organization"
+					},
+					"is_freezer": {
+						"type": "integer",
+						"description": "1 if this location is a freezer, 0 otherwise"
+					},
+					"active": {
+						"type": "integer",
+						"description": "1 if this location is active, 0 otherwise"
+					},
 					"row_created_timestamp": {
 						"type": "string",
 						"format": "date-time"
@@ -4671,8 +4683,11 @@
 				},
 				"example": {
 					"id": "2",
-					"name": "0",
-					"description": null,
+					"name": "Fridge",
+					"description": "The main refrigerator",
+					"parent_location_id": 1,
+					"is_freezer": 0,
+					"active": 1,
 					"row_created_timestamp": "2019-05-02 20:12:25",
 					"userfields": null
 				}

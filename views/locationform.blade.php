@@ -54,6 +54,37 @@
 				</div>
 			</div>
 
+			@php require_frontend_packages(['bootstrap-combobox']); @endphp
+			<div class="form-group">
+				<label for="parent_location_id">{{ $__t('Parent location') }}
+					&nbsp;<i class="fa-solid fa-question-circle text-muted"
+						data-toggle="tooltip"
+						data-trigger="hover click"
+						title="{{ $__t('Select a parent location to create a hierarchy (e.g., Building > Floor > Room)') }}"></i>
+				</label>
+				<select class="form-control combobox"
+					id="parent_location_id"
+					name="parent_location_id">
+					<option value=""></option>
+					@foreach($locationsHierarchy as $loc)
+					@php
+					$excludeFromPicker = false;
+					if($mode == 'edit') {
+						if($loc->id == $location->id) {
+							$excludeFromPicker = true;
+						}
+						if(isset($descendantLocationIds) && in_array($loc->id, $descendantLocationIds)) {
+							$excludeFromPicker = true;
+						}
+					}
+					@endphp
+					@if(!$excludeFromPicker)
+					<option @if($mode=='edit' && $loc->id == $location->parent_location_id) selected="selected" @endif value="{{ $loc->id }}">{{ str_repeat('-- ', $loc->location_depth) }}{{ $loc->name }}</option>
+					@endif
+					@endforeach
+				</select>
+			</div>
+
 			<div class="form-group">
 				<label for="description">{{ $__t('Description') }}</label>
 				<textarea class="form-control"

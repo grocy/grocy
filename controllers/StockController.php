@@ -103,14 +103,27 @@ class StockController extends BaseController
 		{
 			return $this->renderPage($response, 'locationform', [
 				'mode' => 'create',
+				'locationsHierarchy' => $this->getDatabase()->locations_hierarchy()->where('active = 1')->orderBy('location_path', 'COLLATE NOCASE'),
 				'userfields' => $this->getUserfieldsService()->GetFields('locations')
 			]);
 		}
 		else
 		{
+			// Get descendant location IDs to exclude from parent picker (prevent circular references)
+			$descendantIds = [];
+			foreach ($this->getDatabase()->locations_resolved()->where('ancestor_location_id', $args['locationId']) as $resolved)
+			{
+				if ($resolved->location_id != $args['locationId'])
+				{
+					$descendantIds[] = $resolved->location_id;
+				}
+			}
+
 			return $this->renderPage($response, 'locationform', [
 				'location' => $this->getDatabase()->locations($args['locationId']),
 				'mode' => 'edit',
+				'locationsHierarchy' => $this->getDatabase()->locations_hierarchy()->where('active = 1')->orderBy('location_path', 'COLLATE NOCASE'),
+				'descendantLocationIds' => $descendantIds,
 				'userfields' => $this->getUserfieldsService()->GetFields('locations')
 			]);
 		}
@@ -120,11 +133,11 @@ class StockController extends BaseController
 	{
 		if (isset($request->getQueryParams()['include_disabled']))
 		{
-			$locations = $this->getDatabase()->locations()->orderBy('name', 'COLLATE NOCASE');
+			$locations = $this->getDatabase()->locations_hierarchy()->orderBy('location_path', 'COLLATE NOCASE');
 		}
 		else
 		{
-			$locations = $this->getDatabase()->locations()->where('active = 1')->orderBy('name', 'COLLATE NOCASE');
+			$locations = $this->getDatabase()->locations_hierarchy()->where('active = 1')->orderBy('location_path', 'COLLATE NOCASE');
 		}
 
 		return $this->renderPage($response, 'locations', [

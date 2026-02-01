@@ -1,4 +1,10 @@
-﻿$('#save-location-button').on('click', function(e)
+﻿$('#parent_location_id').combobox({
+	appendId: '_text_input',
+	bsVersion: '4',
+	clearIfNoMatch: true
+});
+
+$('#save-location-button').on('click', function(e)
 {
 	e.preventDefault();
 
@@ -13,6 +19,7 @@
 	}
 
 	var jsonData = $('#location-form').serializeJSON();
+	jsonData.parent_location_id = jsonData.parent_location_id || null;
 	Grocy.FrontendHelpers.BeginUiBusy("location-form");
 
 	if (Grocy.EditMode === 'create')

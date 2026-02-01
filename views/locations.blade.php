@@ -89,6 +89,7 @@
 							href="#"><i class="fa-solid fa-eye"></i></a>
 					</th>
 					<th>{{ $__t('Name') }}</th>
+					<th class="d-none">{{ $__t('Parent location') }}</th>
 					<th>{{ $__t('Description') }}</th>
 
 					@include('components.userfields_thead', array(
@@ -117,7 +118,16 @@
 						</a>
 					</td>
 					<td>
+						@if($location->location_depth > 0)
+						<span class="text-muted">{{ str_repeat('&mdash; ', $location->location_depth) }}</span>
+						@endif
 						{{ $location->name }}
+					</td>
+					<td class="d-none">
+						@if($location->parent_location_id)
+						@php $parentLocation = FindObjectInArrayByPropertyValue($locations, 'id', $location->parent_location_id); @endphp
+						@if($parentLocation) {{ $parentLocation->name }} @endif
+						@endif
 					</td>
 					<td>
 						{{ $location->description }}
