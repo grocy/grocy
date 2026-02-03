@@ -18,6 +18,7 @@
 - Fixed that when using/scanning a barcode on the purchase page with a note attached (which prefills the note field) and when manually selecting another product afterwards, the note of the previously used barcode was incorrectly prefilled again
 - Fixed that the "next input focus handling" (jumping to the next input after entering a value) didn't work at some places (e.g. after entering a purchased date on the purchase page)
 - Fixed that changing the stock setting "Due soon days" wasn't saved/applied
+- Fixed that "Reprint stock entry label" on the stock entry edit page didn't actually print the corresponding label
 
 ### Shopping list
 

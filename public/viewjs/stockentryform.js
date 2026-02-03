@@ -49,7 +49,7 @@
 
 			if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_LABEL_PRINTER && $("#print-label").is(":checked"))
 			{
-				Grocy.Api.Get('stock/entry/' + result[0].stock_id + '/printlabel', function(labelData)
+				Grocy.Api.Get('stock/entry/' + Grocy.EditObjectRowId + '/printlabel', function(labelData)
 				{
 					if (Grocy.Webhooks.labelprinter !== undefined)
 					{
