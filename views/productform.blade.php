@@ -371,15 +371,19 @@
 
 			<div class="form-group">
 				<label for="qu_id_stock">{{ $__t('Quantity unit stock') }}</label>
+				<i class="fa-solid fa-question-circle text-muted"
+					data-toggle="tooltip"
+					data-trigger="hover click"
+					title="{{ $__t('After this product was once in stock and when the desired quantity unit cannot be selected here, first create a corresponding unit conversion') }}"></i>
 				<select required
 					class="custom-control custom-select input-group-qu"
 					id="qu_id_stock"
 					name="qu_id_stock">
 					<option></option>
-					@foreach($quantityunitsStock as $quantityunit)
+					@foreach($quantityunitsReferenced as $qu)
 					<option @if($mode=='edit'
 						&&
-						$quantityunit->id == $product->qu_id_stock) selected="selected" @endif value="{{ $quantityunit->id }}" data-plural-form="{{ $quantityunit->name_plural }}">{{ $quantityunit->name }}</option>
+						$qu->id == $product->qu_id_stock) selected="selected" @endif value="{{ $qu->id }}" data-plural-form="{{ $qu->name_plural }}">{{ $qu->name }}</option>
 					@endforeach
 				</select>
 				<div class="invalid-feedback">{{ $__t('A quantity unit is required') }}</div>
@@ -396,10 +400,10 @@
 					id="qu_id_purchase"
 					name="qu_id_purchase">
 					<option></option>
-					@foreach($referencedQuantityunits as $quantityunit)
+					@foreach($quantityunitsReferenced as $qu)
 					<option @if($mode=='edit'
 						&&
-						$quantityunit->id == $product->qu_id_purchase) selected="selected" @endif value="{{ $quantityunit->id }}">{{ $quantityunit->name }}</option>
+						$qu->id == $product->qu_id_purchase) selected="selected" @endif value="{{ $qu->id }}">{{ $qu->name }}</option>
 					@endforeach
 				</select>
 				<div class="invalid-feedback">{{ $__t('A quantity unit is required') }}</div>
@@ -416,10 +420,10 @@
 					id="qu_id_consume"
 					name="qu_id_consume">
 					<option></option>
-					@foreach($referencedQuantityunits as $quantityunit)
+					@foreach($quantityunitsReferenced as $qu)
 					<option @if($mode=='edit'
 						&&
-						$quantityunit->id == $product->qu_id_consume) selected="selected" @endif value="{{ $quantityunit->id }}">{{ $quantityunit->name }}</option>
+						$qu->id == $product->qu_id_consume) selected="selected" @endif value="{{ $qu->id }}">{{ $qu->name }}</option>
 					@endforeach
 				</select>
 				<div class="invalid-feedback">{{ $__t('A quantity unit is required') }}</div>
@@ -436,10 +440,10 @@
 					id="qu_id_price"
 					name="qu_id_price">
 					<option></option>
-					@foreach($referencedQuantityunits as $quantityunit)
+					@foreach($quantityunitsReferenced as $qu)
 					<option @if($mode=='edit'
 						&&
-						$quantityunit->id == $product->qu_id_price) selected="selected" @endif value="{{ $quantityunit->id }}">{{ $quantityunit->name }}</option>
+						$qu->id == $product->qu_id_price) selected="selected" @endif value="{{ $qu->id }}">{{ $qu->name }}</option>
 					@endforeach
 				</select>
 				<div class="invalid-feedback">{{ $__t('A quantity unit is required') }}</div>
@@ -762,7 +766,7 @@
 							</td>
 							<td>
 								@if(!empty($barcode->qu_id))
-								{{ FindObjectInArrayByPropertyValue($quantityunits, 'id', $barcode->qu_id)->name }}
+								{{ FindObjectInArrayByPropertyValue($quantityunitsAll, 'id', $barcode->qu_id)->name }}
 								@endif
 							</td>
 							<td>
@@ -886,16 +890,16 @@
 								</a>
 							</td>
 							<td>
-								{{ FindObjectInArrayByPropertyValue($quantityunits, 'id', $quConversion->from_qu_id)->name }}
+								{{ FindObjectInArrayByPropertyValue($quantityunitsAll, 'id', $quConversion->from_qu_id)->name }}
 							</td>
 							<td>
-								{{ FindObjectInArrayByPropertyValue($quantityunits, 'id', $quConversion->to_qu_id)->name }}
+								{{ FindObjectInArrayByPropertyValue($quantityunitsAll, 'id', $quConversion->to_qu_id)->name }}
 							</td>
 							<td>
 								<span class="locale-number locale-number-quantity-amount">{{ $quConversion->factor }}</span>
 							</td>
 							<td class="font-italic">
-								{!! $__t('This means 1 %1$s is the same as %2$s %3$s', FindObjectInArrayByPropertyValue($quantityunits, 'id', $quConversion->from_qu_id)->name, '<span class="locale-number locale-number-quantity-amount">' . $quConversion->factor . '</span>', $__n($quConversion->factor, FindObjectInArrayByPropertyValue($quantityunits, 'id', $quConversion->to_qu_id)->name, FindObjectInArrayByPropertyValue($quantityunits, 'id', $quConversion->to_qu_id)->name_plural, true)) !!}
+								{!! $__t('This means 1 %1$s is the same as %2$s %3$s', FindObjectInArrayByPropertyValue($quantityunitsAll, 'id', $quConversion->from_qu_id)->name, '<span class="locale-number locale-number-quantity-amount">' . $quConversion->factor . '</span>', $__n($quConversion->factor, FindObjectInArrayByPropertyValue($quantityunitsAll, 'id', $quConversion->to_qu_id)->name, FindObjectInArrayByPropertyValue($quantityunitsAll, 'id', $quConversion->to_qu_id)->name_plural, true)) !!}
 							</td>
 						</tr>
 						@endforeach

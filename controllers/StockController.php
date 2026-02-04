@@ -195,12 +195,13 @@ class StockController extends BaseController
 	{
 		if ($args['productId'] == 'new')
 		{
+			$quantityunits = $this->getDatabase()->quantity_units()->where('active = 1')->orderBy('name', 'COLLATE NOCASE');
+
 			return $this->renderPage($response, 'productform', [
 				'locations' => $this->getDatabase()->locations()->where('active = 1')->orderBy('name'),
 				'barcodes' => $this->getDatabase()->product_barcodes()->orderBy('barcode'),
-				'quantityunits' => $this->getDatabase()->quantity_units()->where('active = 1')->orderBy('name', 'COLLATE NOCASE'),
-				'quantityunitsStock' => $this->getDatabase()->quantity_units()->orderBy('name', 'COLLATE NOCASE'),
-				'referencedQuantityunits' => $this->getDatabase()->quantity_units()->where('active = 1')->orderBy('name', 'COLLATE NOCASE'),
+				'quantityunitsAll' => $quantityunits,
+				'quantityunitsReferenced' => $quantityunits,
 				'shoppinglocations' => $this->getDatabase()->shopping_locations()->where('active = 1')->orderBy('name', 'COLLATE NOCASE'),
 				'productgroups' => $this->getDatabase()->product_groups()->where('active = 1')->orderBy('name', 'COLLATE NOCASE'),
 				'userfields' => $this->getUserfieldsService()->GetFields('products'),
@@ -217,9 +218,8 @@ class StockController extends BaseController
 				'product' => $product,
 				'locations' => $this->getDatabase()->locations()->where('active = 1')->orderBy('name', 'COLLATE NOCASE'),
 				'barcodes' => $this->getDatabase()->product_barcodes()->orderBy('barcode'),
-				'quantityunits' => $this->getDatabase()->quantity_units()->where('active = 1')->orderBy('name', 'COLLATE NOCASE'),
-				'quantityunitsStock' => $this->getDatabase()->quantity_units()->where('id IN (SELECT to_qu_id FROM cache__quantity_unit_conversions_resolved WHERE product_id = :1) OR NOT EXISTS(SELECT 1 FROM stock_log WHERE product_id = :1)', $product->id)->orderBy('name', 'COLLATE NOCASE'),
-				'referencedQuantityunits' => $this->getDatabase()->quantity_units()->where('active = 1')->where('id IN (SELECT to_qu_id FROM cache__quantity_unit_conversions_resolved WHERE product_id = :1)', $product->id)->orderBy('name', 'COLLATE NOCASE'),
+				'quantityunitsAll' => $this->getDatabase()->quantity_units()->where('active = 1')->orderBy('name', 'COLLATE NOCASE'),
+				'quantityunitsReferenced' => $this->getDatabase()->quantity_units()->where('id IN (SELECT to_qu_id FROM cache__quantity_unit_conversions_resolved WHERE product_id = :1) OR NOT EXISTS(SELECT 1 FROM stock_log WHERE product_id = :1)', $product->id)->orderBy('name', 'COLLATE NOCASE'),
 				'shoppinglocations' => $this->getDatabase()->shopping_locations()->where('active = 1')->orderBy('name', 'COLLATE NOCASE'),
 				'productgroups' => $this->getDatabase()->product_groups()->where('active = 1')->orderBy('name', 'COLLATE NOCASE'),
 				'userfields' => $this->getUserfieldsService()->GetFields('products'),

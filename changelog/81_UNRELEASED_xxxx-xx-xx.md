@@ -10,6 +10,11 @@
 
 ### Stock
 
+- Optimized product definition quantity unit handling:
+  - As long as a product was not once in stock, the product options "Default quantity unit purchase", "Default quantity unit consume" and "Quantity unit for prices" can now be changed to any other unit
+  - When necessary (means when no default quantity unit conversions apply), "1:1" product specific quantity unit conversion between the product's QU stock and the corresponding other unit will now be created automatically after editing a product (like already done when initially creating a product with different unit definitions)
+  - For convenience, when changing a product's QU stock and when all other unit properties ("Default quantity unit purchase" etc.) are the same, they will now be changed in tandem (like already done when creating a new product and initially setting the product's QU stock)
+  - (This should drastically improve the workflow of completing a product setup looked up via an external barcode lookup plugin)
 - Optimized the line plot markers color of the price history chart (product card) (thanks @DeepCoreSystem)
 - External barcode lookup plugin optimizations:
   - When an image URL without a file extension is returned, the file extension is now determined by the Content-Type header (if any) (thanks @jordy-u for the idea)
