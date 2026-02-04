@@ -1,8 +1,40 @@
--- Add parent_location_id column to locations table for hierarchical organization
-ALTER TABLE locations ADD parent_location_id INTEGER;
+-- Add parent_location_id column and change uniqueness constraint for hierarchical locations
+-- Allows same name under different parents (e.g., "Shelf 1" in Fridge and "Shelf 1" in Cupboard)
+
+PRAGMA legacy_alter_table = ON;
+
+-- Rename old table
+ALTER TABLE locations RENAME TO locations_old;
+
+-- Create new table with parent_location_id and without UNIQUE constraint on name
+CREATE TABLE locations (
+	id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
+	name TEXT NOT NULL,
+	description TEXT,
+	row_created_timestamp DATETIME DEFAULT (datetime('now', 'localtime')),
+	is_freezer TINYINT NOT NULL DEFAULT 0,
+	active TINYINT NOT NULL DEFAULT 1 CHECK(active IN (0, 1)),
+	parent_location_id INTEGER
+);
+
+-- Copy data
+INSERT INTO locations (id, name, description, row_created_timestamp, is_freezer, active)
+SELECT id, name, description, row_created_timestamp, is_freezer, active
+FROM locations_old;
+
+-- Drop old table
+DROP TABLE locations_old;
+
+-- Create partial unique indexes for composite uniqueness
+-- Ensures name is unique within each parent (including NULL as a distinct parent)
+CREATE UNIQUE INDEX ix_locations_name_parent ON locations(name, parent_location_id)
+WHERE parent_location_id IS NOT NULL;
+
+CREATE UNIQUE INDEX ix_locations_name_root ON locations(name)
+WHERE parent_location_id IS NULL;
 
 -- Create recursive view for resolving location hierarchy (ancestor-descendant pairs)
--- Used for circular reference detection and finding all descendants
+-- Used for finding all descendants of a location
 CREATE VIEW locations_resolved
 AS
 WITH RECURSIVE location_hierarchy(location_id, ancestor_location_id, level)
@@ -59,7 +91,7 @@ SELECT
 	depth AS location_depth
 FROM location_tree;
 
--- Trigger to enforce NULL handling for empty parent_location_id (matching product pattern)
+-- Trigger to enforce NULL handling for empty parent_location_id
 CREATE TRIGGER enforce_parent_location_id_null_when_empty_INS AFTER INSERT ON locations
 BEGIN
 	UPDATE locations
@@ -96,13 +128,10 @@ BEGIN
 END;
 
 -- Trigger to prevent circular references in location hierarchy
--- Note: Uses a subquery approach since we can't reference the view during INSERT
 CREATE TRIGGER prevent_circular_location_hierarchy_UPD BEFORE UPDATE ON locations
 WHEN NEW.parent_location_id IS NOT NULL
 BEGIN
 	SELECT CASE WHEN((
-		-- Check if the new parent is a descendant of this location
-		-- This would create a circular reference
 		WITH RECURSIVE descendants(id) AS (
 			SELECT NEW.id
 			UNION ALL
