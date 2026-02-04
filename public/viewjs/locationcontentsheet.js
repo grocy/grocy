@@ -32,15 +32,15 @@ if (GetUriParam("include_out_of_stock"))
 	$("#include-out-of-stock").prop("checked", false);
 }
 
-$(document).on("change", "#leaf-locations-only", function()
+$(document).on("change", "#direct-content-only", function()
 {
 	if (this.checked)
 	{
-		UpdateUriParam("leaf_locations_only", true);
+		UpdateUriParam("direct_content_only", true);
 	}
 	else
 	{
-		RemoveUriParam("leaf_locations_only");
+		RemoveUriParam("direct_content_only");
 	}
 
 	window.location.reload();

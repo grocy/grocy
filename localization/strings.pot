@@ -2477,8 +2477,8 @@ msgstr ""
 msgid "List actions"
 msgstr ""
 
-msgid "Show only leaf locations"
+msgid "Show direct content only"
 msgstr ""
 
-msgid "When enabled, only locations without sub-locations are shown. When disabled, parent locations show aggregated content from all sub-locations."
+msgid "When enabled, each location shows only products stored directly there. When disabled, locations include products from all sub-locations."
 msgstr ""

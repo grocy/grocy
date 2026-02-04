@@ -95,7 +95,7 @@ class StockController extends BaseController
 			'locations' => $this->getDatabase()->locations_hierarchy()->orderBy('location_path', 'COLLATE NOCASE'),
 			'locationsResolved' => $this->getDatabase()->locations_resolved(),
 			'currentStockLocationContent' => $this->getStockService()->GetCurrentStockLocationContent(isset($request->getQueryParams()['include_out_of_stock'])),
-			'showLeafLocationsOnly' => isset($request->getQueryParams()['leaf_locations_only'])
+			'showDirectContentOnly' => isset($request->getQueryParams()['direct_content_only'])
 		]);
 	}
 

@@ -53,15 +53,15 @@
 	<div class="form-check custom-control custom-checkbox">
 		<input class="form-check-input custom-control-input"
 			type="checkbox"
-			id="leaf-locations-only"
-			@if($showLeafLocationsOnly) checked @endif>
+			id="direct-content-only"
+			@if($showDirectContentOnly) checked @endif>
 		<label class="form-check-label custom-control-label"
-			for="leaf-locations-only">
-			{{ $__t('Show only leaf locations') }}
+			for="direct-content-only">
+			{{ $__t('Show direct content only') }}
 			<i class="fa-solid fa-question-circle text-muted"
 				data-toggle="tooltip"
 				data-trigger="hover click"
-				title="{{ $__t('When enabled, only locations without sub-locations are shown. When disabled, parent locations show aggregated content from all sub-locations.') }}"></i>
+				title="{{ $__t('When enabled, each location shows only products stored directly there. When disabled, locations include products from all sub-locations.') }}"></i>
 		</label>
 	</div>
 	<div class="float-right">
@@ -88,59 +88,48 @@
 	$locationsArray = iterator_to_array($locations);
 	$locationsResolvedArray = iterator_to_array($locationsResolved);
 	$stockContentArray = iterator_to_array($currentStockLocationContent);
-@endphp
+	@endphp
 
 @foreach($locationsArray as $location)
 @php
-	// Determine if this location has children
-	$hasChildren = count(array_filter($locationsArray, function($loc) use ($location) {
-		return $loc->parent_location_id == $location->id;
-	})) > 0;
-
-	// Flag to skip this location
-	$skipLocation = $showLeafLocationsOnly && $hasChildren;
-
 	$currentStockEntriesForLocation = [];
 
-	if (!$skipLocation) {
-		// Get stock entries for this location
-		if ($showLeafLocationsOnly) {
-			// Only show products directly at this location
-			$currentStockEntriesForLocation = array_filter($stockContentArray, function($entry) use ($location) {
-				return $entry->location_id == $location->id;
-			});
-		} else {
-			// Aggregate products from this location and all descendant locations
-			$descendantLocationIds = array_map(function($r) {
-				return $r->location_id;
-			}, array_filter($locationsResolvedArray, function($r) use ($location) {
-				return $r->ancestor_location_id == $location->id;
-			}));
+	if ($showDirectContentOnly) {
+		// Only show products directly at this location
+		$currentStockEntriesForLocation = array_filter($stockContentArray, function($entry) use ($location) {
+			return $entry->location_id == $location->id;
+		});
+	} else {
+		// Aggregate products from this location and all descendant locations
+		$descendantLocationIds = array_map(function($r) {
+			return $r->location_id;
+		}, array_filter($locationsResolvedArray, function($r) use ($location) {
+			return $r->ancestor_location_id == $location->id;
+		}));
 
-			$currentStockEntriesForLocation = array_filter($stockContentArray, function($entry) use ($descendantLocationIds) {
-				return in_array($entry->location_id, $descendantLocationIds);
-			});
+		$currentStockEntriesForLocation = array_filter($stockContentArray, function($entry) use ($descendantLocationIds) {
+			return in_array($entry->location_id, $descendantLocationIds);
+		});
 
-			// Aggregate amounts by product_id
-			$aggregatedEntries = [];
-			foreach ($currentStockEntriesForLocation as $entry) {
-				$productId = $entry->product_id;
-				if (!isset($aggregatedEntries[$productId])) {
-					$aggregatedEntries[$productId] = (object)[
-						'product_id' => $productId,
-						'location_id' => $location->id,
-						'amount' => 0,
-						'amount_opened' => 0
-					];
-				}
-				$aggregatedEntries[$productId]->amount += $entry->amount;
-				$aggregatedEntries[$productId]->amount_opened += $entry->amount_opened;
+		// Aggregate amounts by product_id
+		$aggregatedEntries = [];
+		foreach ($currentStockEntriesForLocation as $entry) {
+			$productId = $entry->product_id;
+			if (!isset($aggregatedEntries[$productId])) {
+				$aggregatedEntries[$productId] = (object)[
+					'product_id' => $productId,
+					'location_id' => $location->id,
+					'amount' => 0,
+					'amount_opened' => 0
+				];
 			}
-			$currentStockEntriesForLocation = array_values($aggregatedEntries);
+			$aggregatedEntries[$productId]->amount += $entry->amount;
+			$aggregatedEntries[$productId]->amount_opened += $entry->amount_opened;
 		}
+		$currentStockEntriesForLocation = array_values($aggregatedEntries);
 	}
 @endphp
-@if($skipLocation || count($currentStockEntriesForLocation) == 0)
+@if(count($currentStockEntriesForLocation) == 0)
 @continue
 @endif
 <div class="page">
