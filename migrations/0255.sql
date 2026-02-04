@@ -144,3 +144,42 @@ BEGIN
 		SELECT 1 FROM descendants WHERE id = NEW.parent_location_id
 	) NOTNULL) THEN RAISE(ABORT, 'Circular location hierarchy detected') END;
 END;
+
+-- Trigger to inherit is_freezer from parent on INSERT
+CREATE TRIGGER inherit_freezer_from_parent_INS AFTER INSERT ON locations
+WHEN NEW.parent_location_id IS NOT NULL
+BEGIN
+	UPDATE locations
+	SET is_freezer = 1
+	WHERE id = NEW.id
+		AND (SELECT is_freezer FROM locations WHERE id = NEW.parent_location_id) = 1;
+END;
+
+-- Trigger to inherit is_freezer from parent on UPDATE (when parent changes)
+CREATE TRIGGER inherit_freezer_from_parent_UPD AFTER UPDATE ON locations
+WHEN NEW.parent_location_id IS NOT NULL AND NEW.parent_location_id != IFNULL(OLD.parent_location_id, 0)
+BEGIN
+	UPDATE locations
+	SET is_freezer = 1
+	WHERE id = NEW.id
+		AND (SELECT is_freezer FROM locations WHERE id = NEW.parent_location_id) = 1;
+END;
+
+-- Trigger to propagate is_freezer to all descendants when a location becomes a freezer
+CREATE TRIGGER propagate_freezer_to_descendants_UPD AFTER UPDATE ON locations
+WHEN NEW.is_freezer = 1 AND OLD.is_freezer = 0
+BEGIN
+	UPDATE locations
+	SET is_freezer = 1
+	WHERE id IN (
+		WITH RECURSIVE descendants(id) AS (
+			SELECT id FROM locations WHERE parent_location_id = NEW.id
+			UNION ALL
+			SELECT l.id
+			FROM locations l
+			JOIN descendants d ON l.parent_location_id = d.id
+			LIMIT 100
+		)
+		SELECT id FROM descendants
+	);
+END;
