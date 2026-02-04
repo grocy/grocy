@@ -32,7 +32,7 @@
 		@endif>
 		<option value=""></option>
 		@foreach($locations as $location)
-		<option value="{{ $location->id }}">{{ $location->name }}</option>
+		<option value="{{ $location->id }}">{{ $location->location_path }}</option>
 		@endforeach
 	</select>
 	<div class="invalid-feedback">{{ $__t('You have to select a location') }}</div>

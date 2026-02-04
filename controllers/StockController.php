@@ -48,7 +48,7 @@ class StockController extends BaseController
 			'products' => $this->getDatabase()->products()->where('active = 1 AND no_own_stock = 0')->orderBy('name', 'COLLATE NOCASE'),
 			'barcodes' => $this->getDatabase()->product_barcodes_comma_separated(),
 			'shoppinglocations' => $this->getDatabase()->shopping_locations()->where('active = 1')->orderBy('name', 'COLLATE NOCASE'),
-			'locations' => $this->getDatabase()->locations()->where('active = 1')->orderBy('name', 'COLLATE NOCASE'),
+			'locations' => $this->getDatabase()->locations_hierarchy()->where('active = 1')->orderBy('location_path', 'COLLATE NOCASE'),
 			'quantityUnits' => $this->getDatabase()->quantity_units()->orderBy('name', 'COLLATE NOCASE'),
 			'quantityUnitConversionsResolved' => $this->getDatabase()->cache__quantity_unit_conversions_resolved(),
 			'userfields' => $this->getUserfieldsService()->GetFields('stock')
@@ -212,7 +212,7 @@ class StockController extends BaseController
 		if ($args['productId'] == 'new')
 		{
 			return $this->renderPage($response, 'productform', [
-				'locations' => $this->getDatabase()->locations()->where('active = 1')->orderBy('name'),
+				'locations' => $this->getDatabase()->locations_hierarchy()->where('active = 1')->orderBy('location_path', 'COLLATE NOCASE'),
 				'barcodes' => $this->getDatabase()->product_barcodes()->orderBy('barcode'),
 				'quantityunits' => $this->getDatabase()->quantity_units()->where('active = 1')->orderBy('name', 'COLLATE NOCASE'),
 				'quantityunitsStock' => $this->getDatabase()->quantity_units()->orderBy('name', 'COLLATE NOCASE'),
@@ -231,7 +231,7 @@ class StockController extends BaseController
 
 			return $this->renderPage($response, 'productform', [
 				'product' => $product,
-				'locations' => $this->getDatabase()->locations()->where('active = 1')->orderBy('name', 'COLLATE NOCASE'),
+				'locations' => $this->getDatabase()->locations_hierarchy()->where('active = 1')->orderBy('location_path', 'COLLATE NOCASE'),
 				'barcodes' => $this->getDatabase()->product_barcodes()->orderBy('barcode'),
 				'quantityunits' => $this->getDatabase()->quantity_units()->where('active = 1')->orderBy('name', 'COLLATE NOCASE'),
 				'quantityunitsStock' => $this->getDatabase()->quantity_units()->where('id IN (SELECT to_qu_id FROM cache__quantity_unit_conversions_resolved WHERE product_id = :1) OR NOT EXISTS(SELECT 1 FROM stock_log WHERE product_id = :1)', $product->id)->orderBy('name', 'COLLATE NOCASE'),
@@ -329,7 +329,7 @@ class StockController extends BaseController
 			'products' => $this->getDatabase()->products()->where('active = 1 AND no_own_stock = 0')->orderBy('name', 'COLLATE NOCASE'),
 			'barcodes' => $this->getDatabase()->product_barcodes_comma_separated(),
 			'shoppinglocations' => $this->getDatabase()->shopping_locations()->where('active = 1')->orderBy('name', 'COLLATE NOCASE'),
-			'locations' => $this->getDatabase()->locations()->where('active = 1')->orderBy('name', 'COLLATE NOCASE'),
+			'locations' => $this->getDatabase()->locations_hierarchy()->where('active = 1')->orderBy('location_path', 'COLLATE NOCASE'),
 			'quantityUnits' => $this->getDatabase()->quantity_units()->where('active = 1')->orderBy('name', 'COLLATE NOCASE'),
 			'quantityUnitConversionsResolved' => $this->getDatabase()->cache__quantity_unit_conversions_resolved(),
 			'userfields' => $this->getUserfieldsService()->GetFields('stock')
@@ -549,7 +549,7 @@ class StockController extends BaseController
 			'stockEntry' => $this->getDatabase()->stock()->where('id', $args['entryId'])->fetch(),
 			'products' => $this->getDatabase()->products()->where('active = 1')->orderBy('name', 'COLLATE NOCASE'),
 			'shoppinglocations' => $this->getDatabase()->shopping_locations()->where('active = 1')->orderBy('name', 'COLLATE NOCASE'),
-			'locations' => $this->getDatabase()->locations()->where('active = 1')->orderBy('name', 'COLLATE NOCASE'),
+			'locations' => $this->getDatabase()->locations_hierarchy()->where('active = 1')->orderBy('location_path', 'COLLATE NOCASE'),
 			'userfields' => $this->getUserfieldsService()->GetFields('stock')
 		]);
 	}

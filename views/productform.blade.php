@@ -125,7 +125,7 @@
 					@foreach($locations as $location)
 					<option @if($mode=='edit'
 						&&
-						$location->id == $product->location_id) selected="selected" @endif value="{{ $location->id }}">{{ $location->name }}</option>
+						$location->id == $product->location_id) selected="selected" @endif value="{{ $location->id }}">{{ $location->location_path }}</option>
 					@endforeach
 				</select>
 				<div class="invalid-feedback">{{ $__t('A location is required') }}</div>
@@ -145,7 +145,7 @@
 					@foreach($locations as $location)
 					<option @if($mode=='edit'
 						&&
-						$location->id == $product->default_consume_location_id) selected="selected" @endif value="{{ $location->id }}">{{ $location->name }}</option>
+						$location->id == $product->default_consume_location_id) selected="selected" @endif value="{{ $location->id }}">{{ $location->location_path }}</option>
 					@endforeach
 				</select>
 
