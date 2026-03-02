@@ -1,7 +1,7 @@
 {
 	"phpserver.relativePath": "public",
 	"editor.formatOnType": true,
-	"editor.formatOnPaste": true,
+	"editor.formatOnPaste": false,
 	"editor.formatOnSave": true,
 	"editor.insertSpaces": false,
 	"javascript.format.placeOpenBraceOnNewLineForControlBlocks": true,
