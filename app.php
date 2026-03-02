@@ -14,7 +14,6 @@ require_once __DIR__ . '/packages/autoload.php';
 // Load config files
 require_once GROCY_DATAPATH . '/config.php';
 require_once __DIR__ . '/config-dist.php'; // For not in own config defined values we use the default ones
-require_once __DIR__ . '/helpers/ConfigurationValidator.php';
 
 // Error reporting definitions
 if (GROCY_MODE === 'dev')
@@ -44,9 +43,9 @@ if (GROCY_DISABLE_AUTH === true)
 // Check if any invalid entries in config.php have been made
 try
 {
-	(new ConfigurationValidator())->validateConfig();
+	(new Grocy\Helpers\ConfigurationValidator())->validateConfig();
 }
-catch (EInvalidConfig $ex)
+catch (\Grocy\Helpers\EInvalidConfig $ex)
 {
 	exit('Invalid setting in config.php: ' . $ex->getMessage());
 }
