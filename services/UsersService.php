@@ -6,7 +6,7 @@ use LessQL\Result;
 
 class UsersService extends BaseService
 {
-	public function CreateUser(string $username, ?string $firstName, ?string $lastName, string $password, string $pictureFileName = null)
+	public function CreateUser(string $username, ?string $firstName, ?string $lastName, string $password, ?string $pictureFileName = null)
 	{
 		$newUserRow = $this->getDatabase()->users()->createRow([
 			'username' => $username,
@@ -37,7 +37,7 @@ class UsersService extends BaseService
 		$row->delete();
 	}
 
-	public function EditUser(int $userId, string $username, string $firstName, string $lastName, ?string $password, string $pictureFileName = null)
+	public function EditUser(int $userId, string $username, string $firstName, string $lastName, ?string $password, ?string $pictureFileName = null)
 	{
 		if (!$this->UserExists($userId))
 		{

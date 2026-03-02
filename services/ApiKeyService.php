@@ -7,7 +7,7 @@ class ApiKeyService extends BaseService
 	const API_KEY_TYPE_DEFAULT = 'default';
 	const API_KEY_TYPE_SPECIAL_PURPOSE_CALENDAR_ICAL = 'special-purpose-calendar-ical';
 
-	public function CreateApiKey(string $keyType = self::API_KEY_TYPE_DEFAULT, string $description = null)
+	public function CreateApiKey(string $keyType = self::API_KEY_TYPE_DEFAULT, ?string $description = null)
 	{
 		$newApiKey = $this->GenerateApiKey();
 

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "728e901068c017ef990c1936652b93c6",
+    "content-hash": "ef8208c97da190ec7d138910f95733f2",
     "packages": [
         {
             "name": "berrnd/slim-blade-view",
@@ -517,16 +517,16 @@
         },
         {
             "name": "gettext/gettext",
-            "version": "v4.8.12",
+            "version": "dev-4.x-fork",
             "source": {
                 "type": "git",
-                "url": "https://github.com/php-gettext/Gettext.git",
-                "reference": "11af89ee6c087db3cf09ce2111a150bca5c46e12"
+                "url": "https://github.com/berrnd/php-gettext.git",
+                "reference": "3cafd9f9e66a8673500d767cf7e8da7762f8d00d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-gettext/Gettext/zipball/11af89ee6c087db3cf09ce2111a150bca5c46e12",
-                "reference": "11af89ee6c087db3cf09ce2111a150bca5c46e12",
+                "url": "https://api.github.com/repos/berrnd/php-gettext/zipball/3cafd9f9e66a8673500d767cf7e8da7762f8d00d",
+                "reference": "3cafd9f9e66a8673500d767cf7e8da7762f8d00d",
                 "shasum": ""
             },
             "require": {
@@ -547,13 +547,24 @@
                 "twig/extensions": "Is necessary if you want to use the Twig extractor",
                 "twig/twig": "Is necessary if you want to use the Twig extractor"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
                     "Gettext\\": "src"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "psr-4": {
+                    "Gettext\\Tests\\": "tests"
+                }
+            },
+            "scripts": {
+                "test": [
+                    "phpunit",
+                    "phpcs"
+                ]
+            },
             "license": [
                 "MIT"
             ],
@@ -568,9 +579,9 @@
             "description": "PHP gettext manager",
             "homepage": "https://github.com/oscarotero/Gettext",
             "keywords": [
-                "JS",
                 "gettext",
                 "i18n",
+                "js",
                 "mo",
                 "po",
                 "translation"
@@ -578,23 +589,9 @@
             "support": {
                 "email": "oom@oscarotero.com",
                 "issues": "https://github.com/oscarotero/Gettext/issues",
-                "source": "https://github.com/php-gettext/Gettext/tree/v4.8.12"
+                "source": "https://github.com/berrnd/php-gettext/tree/4.x-fork"
             },
-            "funding": [
-                {
-                    "url": "https://paypal.me/oscarotero",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/oscarotero",
-                    "type": "github"
-                },
-                {
-                    "url": "https://www.patreon.com/misteroom",
-                    "type": "patreon"
-                }
-            ],
-            "time": "2024-05-18T10:25:07+00:00"
+            "time": "2026-03-02T19:56:11+00:00"
         },
         {
             "name": "gettext/languages",
@@ -4085,6 +4082,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "gettext/gettext": 20,
         "morris/lessql": 20
     },
     "prefer-stable": false,

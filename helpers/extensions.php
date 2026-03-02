@@ -278,17 +278,3 @@ function EmptyFolder($folderPath)
 		}
 	}
 }
-
-global $ERROR_REPORTING_STATE;
-function ErrorReportingDisableDeprecationWarnings()
-{
-	global $ERROR_REPORTING_STATE;
-	$ERROR_REPORTING_STATE = error_reporting();
-	error_reporting($ERROR_REPORTING_STATE & ~E_DEPRECATED);
-}
-
-function ErrorReportingReset()
-{
-	global $ERROR_REPORTING_STATE;
-	error_reporting($ERROR_REPORTING_STATE);
-}

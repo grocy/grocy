@@ -73,9 +73,6 @@ class LocalizationService
 
 	public function __n($number, $singularForm, $pluralForm, $isQu = false)
 	{
-		// TODO: Upgrade to gettext/gettext >= v5.7
-		ErrorReportingDisableDeprecationWarnings();
-
 		$this->CheckAndAddMissingTranslationToPot($singularForm);
 
 		if (empty($pluralForm))
@@ -91,18 +88,10 @@ class LocalizationService
 		{
 			return sprintf($this->Translator->ngettext($singularForm, $pluralForm, abs(floatval($number))), $number);
 		}
-
-
-		// TODO: Upgrade to gettext/gettext >= v5.7
-		ErrorReportingReset();
 	}
 
 	public function __t($text, ...$placeholderValues)
 	{
-
-		// TODO: Upgrade to gettext/gettext >= v5.7
-		ErrorReportingDisableDeprecationWarnings();
-
 		$this->CheckAndAddMissingTranslationToPot($text);
 
 		if (func_num_args() === 1)
@@ -120,10 +109,6 @@ class LocalizationService
 				return sprintf($this->Translator->gettext($text), array_shift($placeholderValues));
 			}
 		}
-
-
-		// TODO: Upgrade to gettext/gettext >= v5.7
-		ErrorReportingReset();
 	}
 
 	public static function getInstance(string $culture)
