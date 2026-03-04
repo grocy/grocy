@@ -1,20 +1,20 @@
 {
 	"require": {
 		"php": "8.5.*",
-		"slim/slim": "^4.0",
-		"slim/psr7": "^1.0",
-		"slim/http": "^1.0",
-		"php-di/php-di": "^7.0.3",
-		"berrnd/slim-blade-view": "^1.0.0",
-		"morris/lessql": "dev-php82",
-		"gettext/gettext": "dev-4.x-fork",
 		"eluceo/ical": "^2.2.0",
 		"erusev/parsedown": "^1.7",
-		"gumlet/php-image-resize": "^2.0",
 		"ezyang/htmlpurifier": "^4.13",
-		"interficieis/php-barcode": "^2.0.2",
+		"gettext/gettext": "dev-4.x-fork",
+		"gumlet/php-image-resize": "^2.0",
 		"guzzlehttp/guzzle": "^7.0",
-		"mike42/escpos-php": "^4.0"
+		"interficieis/php-barcode": "^2.0.2",
+		"mike42/escpos-php": "^4.0",
+		"morris/lessql": "dev-master-fork",
+		"php-di/php-di": "^7.0.3",
+		"slim/http": "^1.0",
+		"slim/psr7": "^1.0",
+		"slim/slim": "^4.0",
+		"webman/blade": "^1.5"
 	},
 	"repositories": [
 		{

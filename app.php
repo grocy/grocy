@@ -2,11 +2,11 @@
 
 use Grocy\Controllers\ExceptionController;
 use Grocy\Helpers\UrlManager;
+use Grocy\Helpers\SlimBladeView;
 use Grocy\Middleware\LocaleMiddleware;
 use Grocy\Middleware\CorsMiddleware;
 use Psr\Container\ContainerInterface as Container;
 use Slim\Factory\AppFactory;
-use Slim\Views\Blade;
 
 // Load composer dependencies
 require_once __DIR__ . '/packages/autoload.php';
@@ -84,7 +84,7 @@ $app = AppFactory::create();
 $container = $app->getContainer();
 $container->set('view', function (Container $container)
 {
-	return new Blade(__DIR__ . '/views', GROCY_DATAPATH . '/viewcache');
+	return new SlimBladeView(__DIR__ . '/views', GROCY_DATAPATH . '/viewcache');
 });
 
 $container->set('UrlManager', function (Container $container)
