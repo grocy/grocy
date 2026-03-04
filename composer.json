@@ -14,7 +14,8 @@
 		"slim/http": "^1.0",
 		"slim/psr7": "^1.0",
 		"slim/slim": "^4.0",
-		"webman/blade": "^1.5"
+		"webman/blade": "^1.5",
+		"ramsey/uuid": "^4.9"
 	},
 	"repositories": [
 		{
