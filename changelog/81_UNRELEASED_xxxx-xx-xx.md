@@ -1,6 +1,4 @@
-> 💡 PHP 8.5 is from now on supported.
->
-> ⚠️ PHP 8.2 and 8.3 are no longer supported.
+> ⚠️ PHP 8.5 (with SQLite 3.40+) is from now on the only supported runtime version.
 
 ### New Feature: xxxx
 

@@ -50,7 +50,7 @@ See the website for more installation guides and troubleshooting help. &rarr; [h
 
 ### Platform support
 
-- PHP 8.5 (with SQLite 3.34.0+)
+- PHP 8.5 (with SQLite 3.40+)
   - Required PHP extensions: `fileinfo`, `pdo_sqlite`, `gd`, `ctype`, `intl`, `zlib`, `mbstring`
 - Recent Firefox, Chrome or Edge
 
