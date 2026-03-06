@@ -1,4 +1,3 @@
-# 
 # Translators:
 # Bernd Bestel <bernd@berrnd.de>, 2020
 # richegg Tsai <zxp86021@gmail.com>, 2020

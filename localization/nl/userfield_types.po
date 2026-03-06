@@ -1,4 +1,3 @@
-# 
 # Translators:
 # Rutger Meekers, 2023
 # Matthijs <matthijs@spamkip.com>, 2023

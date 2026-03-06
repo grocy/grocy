@@ -1,4 +1,3 @@
-# 
 # Translators:
 # @RubenKelevra <ruben@freifunk-nrw.de>, 2021
 # Bernd Bestel <bernd@berrnd.de>, 2021

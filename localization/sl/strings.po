@@ -1,4 +1,3 @@
-# 
 # Translators:
 # bostjo g, 2022
 # Anže Pintar <anze.pintar2@gmail.com>, 2023
@@ -2753,3 +2752,8 @@ msgstr "Dejanja zaloge"
 
 msgid "List actions"
 msgstr "Dejanja seznama"
+
+msgid ""
+"After this product was once in stock and when the desired quantity unit "
+"cannot be selected here, first create a corresponding unit conversion"
+msgstr ""

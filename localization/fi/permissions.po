@@ -1,4 +1,3 @@
-# 
 # Translators:
 # James Jesse <jt.inkinen@gmail.com>, 2020
 # 

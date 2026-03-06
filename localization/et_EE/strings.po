@@ -1,7 +1,6 @@
-# 
 # Translators:
 # Mario Loik <mariomobla@gmail.com>, 2020
-# Lauri Lepik, 2023
+# 27c44a6313ba1383accb315c80acc885_50e4575, 2023
 # aylamz, 2023
 # 
 msgid ""
@@ -2783,4 +2782,9 @@ msgid "Stock actions"
 msgstr ""
 
 msgid "List actions"
+msgstr ""
+
+msgid ""
+"After this product was once in stock and when the desired quantity unit "
+"cannot be selected here, first create a corresponding unit conversion"
 msgstr ""

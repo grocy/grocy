@@ -1,4 +1,3 @@
-# 
 # Translators:
 # CW kim <cw2002.kim@gmail.com>, 2020
 # YS Lee, 2024

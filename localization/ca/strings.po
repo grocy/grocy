@@ -1,4 +1,3 @@
-# 
 # Translators:
 # Joan Rodas <joanrc93@gmail.com>, 2020
 # Carles Riera <blauigris@gmail.com>, 2021
@@ -2767,4 +2766,9 @@ msgid "Stock actions"
 msgstr ""
 
 msgid "List actions"
+msgstr ""
+
+msgid ""
+"After this product was once in stock and when the desired quantity unit "
+"cannot be selected here, first create a corresponding unit conversion"
 msgstr ""

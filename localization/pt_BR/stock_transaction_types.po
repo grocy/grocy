@@ -1,4 +1,3 @@
-# 
 # Translators:
 # Fernando Luiz Bonifácio de Oliveira, 2022
 # Aurelio Barreto <aurelio@aureliobarreto.com>, 2024

@@ -1,4 +1,3 @@
-# 
 # Translators:
 # Pierre Penninckx <ibizapeanut@gmail.com>, 2021
 # Jonathan Blanc, 2022

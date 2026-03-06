@@ -1,4 +1,3 @@
-# 
 # Translators:
 # Yigit Sever <yigit@ceng.metu.edu.tr>, 2021
 # Burak ER, 2023

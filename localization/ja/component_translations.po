@@ -1,4 +1,3 @@
-# 
 # Translators:
 # EbXpJ6bp <ebxpj6bp@outlook.jp>, 2020
 # Bernd Bestel <bernd@berrnd.de>, 2020

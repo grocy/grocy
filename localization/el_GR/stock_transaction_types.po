@@ -1,4 +1,3 @@
-# 
 # Translators:
 # Dionysios Gkotsis <bloodsak4@yahoo.gr>, 2020
 # ByteGet, 2020

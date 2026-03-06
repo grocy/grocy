@@ -1,4 +1,3 @@
-# 
 # Translators:
 # Aswin Kumar, 2020
 # 

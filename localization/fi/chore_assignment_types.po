@@ -1,4 +1,3 @@
-# 
 # Translators:
 # Sami Kiviniemi, 2024
 # 

@@ -1,4 +1,3 @@
-# 
 # Translators:
 # Joao Santos <joaocpdsantos@gmail.com>, 2022
 # João Queirós, 2022

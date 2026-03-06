@@ -1,4 +1,3 @@
-# 
 # Translators:
 # Robert Johansson, 2022
 # riiga <riiga_92@hotmail.com>, 2024

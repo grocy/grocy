@@ -1,4 +1,3 @@
-# 
 # Translators:
 # Radim Kabeláč <radim.ekk@gmail.com>, 2020
 # Jarda Tesar <intossh@gmail.com>, 2021

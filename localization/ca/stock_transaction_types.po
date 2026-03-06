@@ -1,4 +1,3 @@
-# 
 # Translators:
 # gimy16 <gimy16@hotmail.com>, 2021
 # Auri, 2024

@@ -1,4 +1,3 @@
-# 
 # Translators:
 # Ivan Gavryliuk <igavryliuk@solusvm.com>, 2020
 # 

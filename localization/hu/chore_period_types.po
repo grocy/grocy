@@ -1,4 +1,3 @@
-# 
 # Translators:
 # Ádám Kovács <kovacsadam07@outlook.hu>, 2019
 # rozgonik <rozgonik1@gmail.com>, 2023

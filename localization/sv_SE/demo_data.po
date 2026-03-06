@@ -1,4 +1,3 @@
-# 
 # Translators:
 # Mathias Fröjd <info@mcfrojd.com>, 2019
 # Fredrik Hendeberg <fredrik@hendeberg.com>, 2019

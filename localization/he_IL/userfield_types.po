@@ -1,4 +1,3 @@
-# 
 # Translators:
 # רון יצחקי <ronveofir@gmail.com>, 2020
 # Yaron Shahrabani <sh.yaron@gmail.com>, 2023

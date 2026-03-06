@@ -1,4 +1,3 @@
-# 
 # Translators:
 # Plamen Stoyanov <fireto@gmail.com>, 2020
 # Dwight Schrute <rvelitchkov@gmail.com>, 2020

@@ -1,6 +1,5 @@
-# 
 # Translators:
-# Lauri Lepik, 2023
+# 27c44a6313ba1383accb315c80acc885_50e4575, 2023
 # aylamz, 2023
 # 
 msgid ""

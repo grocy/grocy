@@ -1,4 +1,3 @@
-# 
 # Translators:
 # Kalle Laakso <rogueshadow@keemail.me>, 2020
 # jarkko hämäläinen <zeik@iki.fi>, 2020

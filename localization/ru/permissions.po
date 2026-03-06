@@ -1,4 +1,3 @@
-# 
 # Translators:
 # Dmitry Galyshev, 2022
 # 

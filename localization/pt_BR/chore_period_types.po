@@ -1,4 +1,3 @@
-# 
 # Translators:
 # Aurelio Barreto <aurelio@aureliobarreto.com>, 2024
 # 

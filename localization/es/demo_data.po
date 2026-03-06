@@ -1,4 +1,3 @@
-# 
 # Translators:
 # Ankue <ankue.spam@gmail.com>, 2019
 # Fernando Sánchez <fernando.l.sanchez@gmail.com>, 2019

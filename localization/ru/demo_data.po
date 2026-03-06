@@ -1,4 +1,3 @@
-# 
 # Translators:
 # cool guy <eut53770@bcaoo.com>, 2019
 # Maksim Moiseikin <m.moiseikin@gmail.com>, 2020

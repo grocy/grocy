@@ -1,4 +1,3 @@
-# 
 # Translators:
 # dark159123 <r.j.hansen@protonmail.com>, 2019
 # Bernd Bestel <bernd@berrnd.de>, 2019
@@ -2769,4 +2768,9 @@ msgid "Stock actions"
 msgstr ""
 
 msgid "List actions"
+msgstr ""
+
+msgid ""
+"After this product was once in stock and when the desired quantity unit "
+"cannot be selected here, first create a corresponding unit conversion"
 msgstr ""

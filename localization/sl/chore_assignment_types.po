@@ -1,4 +1,3 @@
-# 
 # Translators:
 # Anže Pintar <anze.pintar2@gmail.com>, 2023
 # Žiga Bobnar, 2025

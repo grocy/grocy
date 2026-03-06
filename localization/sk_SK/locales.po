@@ -1,4 +1,3 @@
-# 
 # Translators:
 # Miroslav Ďurian, 2021
 # 

@@ -1,4 +1,3 @@
-# 
 # Translators:
 # Per Bäckman <fotodille@gmail.com>, 2020
 # riiga <riiga_92@hotmail.com>, 2024

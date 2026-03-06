@@ -1,4 +1,3 @@
-# 
 # Translators:
 # ByteGet, 2020
 # Thodoris Kalatzis <teo.kal@hotmail.com>, 2021

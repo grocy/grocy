@@ -1,4 +1,3 @@
-# 
 # Translators:
 # Pro Peller <smiglo@tuta.io>, 2020
 # 

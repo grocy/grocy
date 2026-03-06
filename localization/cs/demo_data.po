@@ -1,4 +1,3 @@
-# 
 # Translators:
 # Michal Petříček <michal@petricek.org>, 2019
 # Ondřej Suk <ondra.suk.55@gmail.com>, 2020

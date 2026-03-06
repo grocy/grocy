@@ -1,4 +1,3 @@
-# 
 # Translators:
 # Alberto Martin <ami232@gmail.com>, 2021
 # Jose Manuel Ruiz, 2023

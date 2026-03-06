@@ -1,4 +1,3 @@
-# 
 # Translators:
 # klavslund <klavslund@gmail.com>, 2021
 # Brian Moos Lindberg <brian@blueeel.dk>, 2022

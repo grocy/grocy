@@ -1,4 +1,3 @@
-# 
 # Translators:
 # Gábor Szellő <gabor.szello@gmail.com>, 2020
 # 

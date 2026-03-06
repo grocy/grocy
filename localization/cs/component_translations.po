@@ -1,4 +1,3 @@
-# 
 # Translators:
 # Tomas Reznicek <tomas.reznicek@gmail.com>, 2019
 # Bernd Bestel <bernd@berrnd.de>, 2020

@@ -1,4 +1,3 @@
-# 
 # Translators:
 # David Koprivec, 2024
 # Žiga Bobnar, 2025

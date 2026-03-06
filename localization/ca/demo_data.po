@@ -1,4 +1,3 @@
-# 
 # Translators:
 # Joan Rodas <joanrc93@gmail.com>, 2020
 # gimy16 <gimy16@hotmail.com>, 2021

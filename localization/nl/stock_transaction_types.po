@@ -1,4 +1,3 @@
-# 
 # Translators:
 # Bernd Bestel <bernd@berrnd.de>, 2019
 # BodingClockchian <joost_nl@live.nl>, 2020

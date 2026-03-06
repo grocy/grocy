@@ -1,4 +1,3 @@
-# 
 # Translators:
 # Bernd Bestel <bernd@berrnd.de>, 2019
 # Yigit Sever <yigit@ceng.metu.edu.tr>, 2021

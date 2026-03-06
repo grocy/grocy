@@ -1,4 +1,3 @@
-# 
 # Translators:
 # Gabriel Andreescu <gabone01@gmail.com>, 2020
 # 

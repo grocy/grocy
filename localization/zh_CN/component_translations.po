@@ -1,4 +1,3 @@
-# 
 # Translators:
 # milkfish <i@mxd.moe>, 2020
 # Bernd Bestel <bernd@berrnd.de>, 2023

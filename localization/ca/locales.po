@@ -1,4 +1,3 @@
-# 
 # Translators:
 # Martí Gombau, 2023
 # Auri, 2024

@@ -1,9 +1,9 @@
-# 
 # Translators:
 # jd615645 <jd615645@gmail.com>, 2020
 # richegg Tsai <zxp86021@gmail.com>, 2020
 # alexli1205, 2022
 # 鍾佑豪 <zobuwei@gmail.com>, 2022
+# NelsonSu, 2026
 # 
 msgid ""
 msgstr ""
@@ -11,7 +11,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: 鍾佑豪 <zobuwei@gmail.com>, 2022\n"
+"Last-Translator: NelsonSu, 2026\n"
 "Language-Team: Chinese (Taiwan) (https://app.transifex.com/grocy/teams/93189/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -376,35 +376,35 @@ msgid "Slovenian"
 msgstr "斯洛維尼亞文"
 
 msgid "Lithuanian"
-msgstr ""
+msgstr "立陶宛語"
 
 msgid "Ukrainian"
-msgstr ""
+msgstr "烏克蘭語"
 
 msgid "Kilogram"
 msgid_plural "Kilograms"
-msgstr[0] ""
+msgstr[0] "公斤"
 
 msgid "Romanian"
-msgstr ""
+msgstr "羅馬尼亞語"
 
 msgid "Pint"
-msgstr ""
+msgstr "品脫"
 
 msgid "Beverages"
-msgstr ""
+msgstr "飲品"
 
 msgid "Ice Cream"
-msgstr ""
+msgstr "冰淇淋"
 
 msgid "Soda"
-msgstr ""
+msgstr "氣泡水"
 
 msgid "Beer"
-msgstr ""
+msgstr "啤酒"
 
 msgid "Estonian"
-msgstr ""
+msgstr "愛沙尼亞語"
 
 msgid "Bulgarian"
-msgstr ""
+msgstr "保加利亞語"

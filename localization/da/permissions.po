@@ -1,4 +1,3 @@
-# 
 # Translators:
 # Mihai Marinescu <mihai@marinescu.dk>, 2020
 # klavslund <klavslund@gmail.com>, 2021

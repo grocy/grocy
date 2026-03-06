@@ -1,4 +1,3 @@
-# 
 # Translators:
 # Mihail Andreev, 2020
 # N T, 2025

@@ -1,4 +1,3 @@
-# 
 # Translators:
 # Fredrik Hendeberg <fredrik@hendeberg.com>, 2019
 # Peter Wickenberg <peter@wickenberg.nu>, 2019

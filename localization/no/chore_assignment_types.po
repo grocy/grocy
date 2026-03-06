@@ -1,4 +1,3 @@
-# 
 # Translators:
 # Kurt Inge Smådal, 2022
 # 

@@ -1,4 +1,3 @@
-# 
 # Translators:
 # Bernd Bestel <bernd@berrnd.de>, 2019
 # Guillaume RICHARD <giz.richard@gmail.com>, 2020

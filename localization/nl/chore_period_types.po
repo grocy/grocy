@@ -1,4 +1,3 @@
-# 
 # Translators:
 # D. Polders <zigurana@gmail.com>, 2020
 # T. van der Nagel, 2022

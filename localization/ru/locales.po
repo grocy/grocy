@@ -1,4 +1,3 @@
-# 
 # Translators:
 # J K <su1ka.box@gmail.com>, 2021
 # Sergey Kodolov, 2023

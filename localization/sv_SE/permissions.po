@@ -1,4 +1,3 @@
-# 
 # Translators:
 # A A <transifex@stardestroyer.se>, 2020
 # 

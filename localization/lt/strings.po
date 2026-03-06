@@ -1,4 +1,3 @@
-# 
 # Translators:
 # Vytautas Barkauskas, 2025
 # 
@@ -2884,3 +2883,8 @@ msgstr "Atsargų veiksmai"
 
 msgid "List actions"
 msgstr "Sąrašas veiksmų"
+
+msgid ""
+"After this product was once in stock and when the desired quantity unit "
+"cannot be selected here, first create a corresponding unit conversion"
+msgstr ""

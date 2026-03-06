@@ -1,4 +1,3 @@
-# 
 # Translators:
 # Brian Moos Lindberg <brian@blueeel.dk>, 2019
 # Mihai Marinescu <mihai@marinescu.dk>, 2020

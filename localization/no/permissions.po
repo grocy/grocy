@@ -1,4 +1,3 @@
-# 
 # Translators:
 # Tor Eirik Trandal <teitrand@hotmail.com>, 2020
 # Marius Borø <blizzwave@gmail.com>, 2021

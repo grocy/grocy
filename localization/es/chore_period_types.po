@@ -1,4 +1,3 @@
-# 
 # Translators:
 # GRBaset, 2023
 # 

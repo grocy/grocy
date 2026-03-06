@@ -1,4 +1,3 @@
-# 
 # Translators:
 # Sergio Zampello <seriotv88@gmail.com>, 2019
 # Bernd Bestel <bernd@berrnd.de>, 2019
@@ -8,7 +7,6 @@
 # Walter Palagi, 2022
 # Moltivie Denied <major2015usa@gmail.com>, 2022
 # Martino Falorni, 2023
-# Saul il, 2023
 # Davide Casella, 2023
 # Claudio Arseni <claudio.arseni@gmail.com>, 2023
 # Antonino Ursino <ninus_@libero.it>, 2023
@@ -16,6 +14,7 @@
 # gabrieke partiti, 2024
 # Giovanni Mascellani, 2024
 # albanobattistella <albanobattistella@gmail.com>, 2025
+# Saul il <ilsaul2@gmail.com>, 2025
 # 
 msgid ""
 msgstr ""
@@ -23,7 +22,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: albanobattistella <albanobattistella@gmail.com>, 2025\n"
+"Last-Translator: Saul il <ilsaul2@gmail.com>, 2025\n"
 "Language-Team: Italian (https://app.transifex.com/grocy/teams/93189/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -221,7 +220,7 @@ msgid "Create product"
 msgstr "Aggiungi prodotto"
 
 msgid "Barcode(s)"
-msgstr "Codice a barre"
+msgstr "Codice(i) a barre"
 
 msgid "Minimum stock amount"
 msgstr "Quantità minima in dispensa"
@@ -1983,7 +1982,7 @@ msgid "Chore journal"
 msgstr "Diario delle Faccende"
 
 msgid "Track next chore schedule"
-msgstr "Salta la prossima faccenda programmata"
+msgstr "Tieni traccia della prossima faccenda programmata"
 
 msgid "Mark task as completed"
 msgstr "Segna l'attività come completata"
@@ -2924,3 +2923,8 @@ msgstr "Azioni di magazzino"
 
 msgid "List actions"
 msgstr "Elenco azioni"
+
+msgid ""
+"After this product was once in stock and when the desired quantity unit "
+"cannot be selected here, first create a corresponding unit conversion"
+msgstr ""

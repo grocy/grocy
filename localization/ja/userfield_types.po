@@ -1,4 +1,3 @@
-# 
 # Translators:
 # 鳥山 陽平 <kagemomiji@gmail.com>, 2020
 # KATSUHIKO SHIGEYAMA <kshigeyama@gmail.com>, 2020

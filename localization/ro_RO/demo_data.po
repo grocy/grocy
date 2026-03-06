@@ -1,4 +1,3 @@
-# 
 # Translators:
 # Pwnisher <ciprian420@gmail.com>, 2021
 # Gabriel Andreescu <gabone01@gmail.com>, 2022

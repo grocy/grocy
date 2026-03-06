@@ -1,4 +1,3 @@
-# 
 # Translators:
 # Joan Rodas <joanrc93@gmail.com>, 2020
 # Martí Gombau, 2023

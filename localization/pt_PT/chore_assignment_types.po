@@ -1,4 +1,3 @@
-# 
 # Translators:
 # Ricardo Rodrigues <fenix999@gmail.com>, 2020
 # Jorge Araújo, 2021

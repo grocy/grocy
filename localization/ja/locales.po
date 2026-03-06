@@ -1,4 +1,3 @@
-# 
 # Translators:
 # KATSUHIKO SHIGEYAMA <kshigeyama@gmail.com>, 2020
 # Takuya Mizuguchi, 2024

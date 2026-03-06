@@ -1,4 +1,3 @@
-# 
 # Translators:
 # Márk Kökény <oregapamgroup@gmail.com>, 2019
 # Ádám Kovács <kovacsadam07@outlook.hu>, 2019
@@ -11,6 +10,8 @@
 # Tallyrald, 2021
 # rozgonik <rozgonik1@gmail.com>, 2023
 # Tamas Voros <voros.e.tamas@gmail.com>, 2023
+# Gábor Buslig, 2025
+# Gergő Mihály, 2025
 # 
 msgid ""
 msgstr ""
@@ -18,7 +19,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Tamas Voros <voros.e.tamas@gmail.com>, 2023\n"
+"Last-Translator: Gergő Mihály, 2025\n"
 "Language-Team: Hungarian (https://app.transifex.com/grocy/teams/93189/hu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -289,7 +290,7 @@ msgid "Invalid credentials, please try again"
 msgstr "Érvénytelen adatok, kérlek próbáld újra"
 
 msgid "Are you sure you want to delete battery \"%s\"?"
-msgstr ""
+msgstr "Biztosan törölni szeretné az alábbi elemet \"%s\"?"
 
 msgid "Yes"
 msgstr "Igen"
@@ -319,7 +320,7 @@ msgid "Add as new product and prefill barcode"
 msgstr "Hozzáadás új termékként és a vonalkód kitöltése"
 
 msgid "Are you sure you want to delete quantity unit \"%s\"?"
-msgstr ""
+msgstr "Biztosan szeretnéd törölni a következő mennyiségi egységet: \"%s\"?"
 
 msgid "Are you sure you want to delete product \"%s\"?"
 msgstr ""
@@ -2319,7 +2320,7 @@ msgid "Only done items"
 msgstr "Csak elvégzett tételek"
 
 msgid "Show only in stock products"
-msgstr ""
+msgstr "Csak készleten lévő termékek mutatása"
 
 msgid "Product description"
 msgstr "Termékleírás"
@@ -2803,4 +2804,9 @@ msgid "Stock actions"
 msgstr ""
 
 msgid "List actions"
+msgstr ""
+
+msgid ""
+"After this product was once in stock and when the desired quantity unit "
+"cannot be selected here, first create a corresponding unit conversion"
 msgstr ""

@@ -1,4 +1,3 @@
-# 
 # Translators:
 # Engelbert Mercelis <engelbertmercelis@gmail.com>, 2020
 # th p <thijs.paelman+git@hotmail.be>, 2020

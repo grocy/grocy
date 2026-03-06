@@ -1,4 +1,3 @@
-# 
 # Translators:
 # Adi Zarko <kapkapon@gmail.com>, 2020
 # Netanel Lazarovich <natylaza89@gmail.com>, 2020

@@ -1,4 +1,3 @@
-# 
 # Translators:
 # Bernd Bestel <bernd@berrnd.de>, 2019
 # Pavel Pletenev <cpp.create@gmail.com>, 2019

@@ -1,4 +1,3 @@
-# 
 # Translators:
 # EbXpJ6bp <ebxpj6bp@outlook.jp>, 2020
 # 鳥山 陽平 <kagemomiji@gmail.com>, 2020

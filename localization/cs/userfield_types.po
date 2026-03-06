@@ -1,4 +1,3 @@
-# 
 # Translators:
 # Tomas Reznicek <tomas.reznicek@gmail.com>, 2019
 # Michal Franc, 2020

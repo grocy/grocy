@@ -1,4 +1,3 @@
-# 
 # Translators:
 # Dorin JOREA <dorin.jorea@gmail.com>, 2020
 # Pwnisher <ciprian420@gmail.com>, 2021

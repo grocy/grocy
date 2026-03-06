@@ -1,4 +1,3 @@
-# 
 # Translators:
 # a a <akv40402@zzrgg.com>, 2020
 # aleixcox, 2023

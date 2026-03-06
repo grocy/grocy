@@ -1,4 +1,3 @@
-# 
 # Translators:
 # datablitz7 <plant7@gmail.com>, 2019
 # ByteGet, 2020

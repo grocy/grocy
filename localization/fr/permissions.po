@@ -1,6 +1,6 @@
-# 
 # Translators:
 # Hydreliox <hydreliox@gmail.com>, 2020
+# Vulf vulf, 2025
 # 
 msgid ""
 msgstr ""
@@ -8,7 +8,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2020-08-29 16:33+0000\n"
-"Last-Translator: Hydreliox <hydreliox@gmail.com>, 2020\n"
+"Last-Translator: Vulf vulf, 2025\n"
 "Language-Team: French (https://app.transifex.com/grocy/teams/93189/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,27 +23,27 @@ msgstr "Administrateur"
 
 # Create users
 msgid "USERS_CREATE"
-msgstr "Création d'utilisateurs"
+msgstr "Création des utilisateurs"
 
 # Edit users (including passwords)
 msgid "USERS_EDIT"
-msgstr "Edition d'utilisateurs"
+msgstr "Modification des utilisateurs"
 
 # Show users
 msgid "USERS_READ"
-msgstr "Lecture utilisateurs"
+msgstr "Consultation des utilisateurs"
 
 # Edit own user data / change own password
 msgid "USERS_EDIT_SELF"
-msgstr "Auto-édition de l'utilisateur"
+msgstr "Modification de son propre utilisateur"
 
 # Undo charge cycle
 msgid "BATTERIES_UNDO_CHARGE_CYCLE"
-msgstr "Annuler le cycle de charge de la batterie"
+msgstr "Annuler le cycle de recharge des piles"
 
 # Track charge cycle
 msgid "BATTERIES_TRACK_CHARGE_CYCLE"
-msgstr "Suivre la charge de batterie"
+msgstr "Suivre la recharge des piles"
 
 # Track execution
 msgid "CHORE_TRACK_EXECUTION"
@@ -55,7 +55,7 @@ msgstr "Annuler l'exécution de la corvée"
 
 # Edit master data
 msgid "MASTER_DATA_EDIT"
-msgstr "Editer les données maîtres"
+msgstr "Editer les données principales"
 
 # Undo execution
 msgid "TASKS_UNDO_EXECUTION"
@@ -67,7 +67,7 @@ msgstr "Marquer la tâche comme terminée"
 
 # Edit stock entries
 msgid "STOCK_EDIT"
-msgstr "Edition de stock"
+msgstr "Edition du stock"
 
 # Transfer
 msgid "STOCK_TRANSFER"
@@ -79,7 +79,7 @@ msgstr "Inventaire du stock"
 
 # Consume
 msgid "STOCK_CONSUME"
-msgstr "Consumer le stock"
+msgstr "Consommer dans le stock"
 
 # Open products
 msgid "STOCK_OPEN"
@@ -87,15 +87,15 @@ msgstr "Ouvrir le stock"
 
 # Purchase
 msgid "STOCK_PURCHASE"
-msgstr "Acheter le stock"
+msgstr "Acheter pour le stock"
 
 # Add items
 msgid "SHOPPINGLIST_ITEMS_ADD"
-msgstr "Ajouter un article à la liste de course"
+msgstr "Ajouter un article à la liste de courses"
 
 # Remove items
 msgid "SHOPPINGLIST_ITEMS_DELETE"
-msgstr "Supprimer un article à la liste de course"
+msgstr "Supprimer un article de la liste de courses"
 
 # User management
 msgid "USERS"
@@ -107,7 +107,7 @@ msgstr "Stock"
 
 # Shopping list
 msgid "SHOPPINGLIST"
-msgstr "Liste de course"
+msgstr "Liste de courses"
 
 # Chores
 msgid "CHORES"
@@ -115,7 +115,7 @@ msgstr "Corvées"
 
 # Batteries
 msgid "BATTERIES"
-msgstr "Batteries"
+msgstr "Piles"
 
 # Tasks
 msgid "TASKS"
@@ -135,4 +135,4 @@ msgstr "Calendrier"
 
 # Meal plan
 msgid "RECIPES_MEALPLAN"
-msgstr " Programme Alimentaire"
+msgstr " Programme alimentaire"

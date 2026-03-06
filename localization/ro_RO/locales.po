@@ -1,4 +1,3 @@
-# 
 # Translators:
 # Gabriel Andreescu <gabone01@gmail.com>, 2022
 # rathantara Tase, 2022

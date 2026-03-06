@@ -1,4 +1,3 @@
-# 
 # Translators:
 # Oleksii Filonenko <brightone@protonmail.com>, 2020
 # 

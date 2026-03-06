@@ -1,11 +1,6 @@
-# 
 # Translators:
-# Pro Peller <smiglo@tuta.io>, 2020
-# M L, 2021
-# Tomasz Wieczorek <tomek12-96@o2.pl>, 2022
-# Hans Müller, 2022
-# Michał G, 2022
 # Oskar Sawaryn, 2023
+# Michal G-K, 2025
 # 
 msgid ""
 msgstr ""
@@ -13,7 +8,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2020-08-31 19:11+0000\n"
-"Last-Translator: Oskar Sawaryn, 2023\n"
+"Last-Translator: Michal G-K, 2025\n"
 "Language-Team: Polish (https://app.transifex.com/grocy/teams/93189/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,123 +19,123 @@ msgstr ""
 
 # Czech
 msgid "cs"
-msgstr "Czech"
+msgstr "Czeski"
 
 # Danish
 msgid "da"
-msgstr "Danish"
+msgstr "Duński"
 
 # German
 msgid "de"
-msgstr "German"
+msgstr "Niemiecki"
 
 # Greek
 msgid "el_GR"
-msgstr "Greek"
+msgstr "Grecki"
 
 # English
 msgid "en"
-msgstr "English"
+msgstr "Angielski"
 
 # English (Great Britain)
 msgid "en_GB"
-msgstr "English (Great Britain)"
+msgstr "Angielski (Wielka Brytania)"
 
 # Spanish
 msgid "es"
-msgstr "Spanish"
+msgstr "Hiszpański"
 
 # French
 msgid "fr"
-msgstr "French"
+msgstr "Francuski"
 
 # Hungarian
 msgid "hu"
-msgstr "Hungarian"
+msgstr "Węgierski"
 
 # Italian
 msgid "it"
-msgstr "Italian"
+msgstr "Włoski"
 
 # Japanese
 msgid "ja"
-msgstr "Japanese"
+msgstr "Japoński"
 
 # Korean
 msgid "ko_KR"
-msgstr "Korean"
+msgstr "Koreański"
 
 # Dutch
 msgid "nl"
-msgstr "Dutch"
+msgstr "Holenderski"
 
 # Norwegian
 msgid "no"
-msgstr "Norwegian"
+msgstr "Norweski"
 
 # Polish
 msgid "pl"
-msgstr "Polish"
+msgstr "Polski"
 
 # Portuguese (Brazil)
 msgid "pt_BR"
-msgstr "Portuguese (Brazil)"
+msgstr "Portugalski (Brazylia)"
 
 # Portuguese (Portugal)
 msgid "pt_PT"
-msgstr "Portuguese (Portugal)"
+msgstr "Portugalski"
 
 # Russian
 msgid "ru"
-msgstr "Russian"
+msgstr "Rosyjski"
 
 # Slovak
 msgid "sk_SK"
-msgstr "Slovak"
+msgstr "Słowacki"
 
 # Slovenian
 msgid "sl"
-msgstr "Slovenia"
+msgstr "Słoweński"
 
 # Swedish
 msgid "sv_SE"
-msgstr "Swedish"
+msgstr "Szwedzki"
 
 # Turkish
 msgid "tr"
-msgstr "Turkish"
+msgstr "Turecki"
 
 # Chinese (Taiwan)
 msgid "zh_TW"
-msgstr "Chinese (Taiwan)"
+msgstr "Chiński (Tajwan)"
 
 # Chinese (China)
 msgid "zh_CN"
-msgstr "Chinese (China)"
+msgstr "Chiński"
 
 # Hebrew (Israel)
 msgid "he_IL"
-msgstr "Hebrew (Israel)"
+msgstr "Hebrajski"
 
 # Tamil
 msgid "ta"
-msgstr "Tamil"
+msgstr "Tamilski"
 
 # Finnish
 msgid "fi"
-msgstr "Finnish"
+msgstr "Fiński"
 
 # Catalan
 msgid "ca"
-msgstr "Catalan"
+msgstr "Kataloński"
 
 # Lithuanian
 msgid "lt"
-msgstr "Lithuanian"
+msgstr "Litewski"
 
 # Ukrainian
 msgid "uk"
-msgstr "Ukrainian"
+msgstr "Ukraiński"
 
 # Romanian
 msgid "ro_RO"
@@ -148,8 +143,8 @@ msgstr "Rumuński"
 
 # Estonian
 msgid "et_EE"
-msgstr ""
+msgstr "Estoński"
 
 # Bulgarian
 msgid "bg_BG"
-msgstr ""
+msgstr "Bułgarski"

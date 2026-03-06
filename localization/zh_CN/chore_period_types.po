@@ -1,4 +1,3 @@
-# 
 # Translators:
 # a a <akv40402@zzrgg.com>, 2020
 # ba X <985096998@qq.com>, 2022
