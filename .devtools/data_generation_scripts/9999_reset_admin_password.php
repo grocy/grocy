@@ -15,5 +15,5 @@ if ($adminUserRow == null)
 }
 
 $adminUserRow->update([
-	'password' => password_hash('admin', PASSWORD_DEFAULT)
+	'password' => password_hash('admin', PASSWORD_ARGON2ID)
 ]);

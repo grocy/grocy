@@ -12,7 +12,7 @@ class UsersService extends BaseService
 			'username' => $username,
 			'first_name' => $firstName,
 			'last_name' => $lastName,
-			'password' => password_hash($password, PASSWORD_DEFAULT),
+			'password' => password_hash($password, PASSWORD_ARGON2ID),
 			'picture_file_name' => $pictureFileName
 		]);
 		$newUserRow = $newUserRow->save();
@@ -61,7 +61,7 @@ class UsersService extends BaseService
 				'username' => $username,
 				'first_name' => $firstName,
 				'last_name' => $lastName,
-				'password' => password_hash($password, PASSWORD_DEFAULT),
+				'password' => password_hash($password, PASSWORD_ARGON2ID),
 				'picture_file_name' => $pictureFileName
 			]);
 		}

@@ -40,10 +40,10 @@ class DefaultAuthMiddleware extends AuthMiddleware
 				$sessionKey = SessionService::getInstance()->CreateSession($user->id, $stayLoggedInPermanently);
 				self::SetSessionCookie($sessionKey);
 
-				if (password_needs_rehash($user->password, PASSWORD_DEFAULT))
+				if (password_needs_rehash($user->password, PASSWORD_ARGON2ID))
 				{
 					$user->update([
-						'password' => password_hash($inputPassword, PASSWORD_DEFAULT)
+						'password' => password_hash($inputPassword, PASSWORD_ARGON2ID)
 					]);
 				}
 
