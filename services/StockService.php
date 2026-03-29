@@ -463,7 +463,8 @@ class StockService extends BaseService
 						'transaction_id' => $transactionId,
 						'user_id' => GROCY_USER_ID,
 						'location_id' => $stockEntry->location_id,
-						'note' => $stockEntry->note
+						'note' => $stockEntry->note,
+						'shopping_location_id' => $stockEntry->shopping_location_id
 					]);
 					$logRow->save();
 
@@ -498,7 +499,8 @@ class StockService extends BaseService
 						'transaction_id' => $transactionId,
 						'user_id' => GROCY_USER_ID,
 						'location_id' => $stockEntry->location_id,
-						'note' => $stockEntry->note
+						'note' => $stockEntry->note,
+						'shopping_location_id' => $stockEntry->shopping_location_id
 					]);
 					$logRow->save();
 
@@ -1532,7 +1534,8 @@ class StockService extends BaseService
 				'opened_date' => $logRow->opened_date,
 				'open' => $logRow->opened_date !== null,
 				'location_id' => $logRow->location_id,
-				'note' => $logRow->note
+				'note' => $logRow->note,
+				'shopping_location_id' => $logRow->shopping_location_id
 			]);
 			$stockRow->save();
 
@@ -1583,7 +1586,8 @@ class StockService extends BaseService
 					'stock_id' => $logRow->stock_id,
 					'price' => $logRow->price,
 					'opened_date' => $logRow->opened_date,
-					'note' => $logRow->note
+					'note' => $logRow->note,
+					'shopping_location_id' => $logRow->shopping_location_id
 				]);
 				$stockRow->save();
 			}
