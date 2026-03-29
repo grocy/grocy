@@ -50,7 +50,7 @@
 
 ### General
 
-- Optimized that date time picker shortcuts (e.g. the "Never overdue" checkbox) are now also accessible via keyboard navigation (using `Tab`)
+- xxx
 
 ### API
 
