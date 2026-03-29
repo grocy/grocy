@@ -10,7 +10,7 @@
 
 ### Stock
 
-- xxx
+- Fixed that changing the location on the purchase page re-initialized the due date based on product defaults (if any)
 
 ### Shopping list
 
