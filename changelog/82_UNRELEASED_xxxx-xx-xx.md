@@ -48,7 +48,7 @@
 
 ### Userfields
 
-- xxx
+- Fixed that Userfields of type "Select list (a single item can be selected)" changed by keyboard only were not saved
 
 ### General
 

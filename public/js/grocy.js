@@ -1,10 +1,10 @@
 ﻿Grocy.Api = {};
-Grocy.Api.Get = function(apiFunction, success, error)
+Grocy.Api.Get = function (apiFunction, success, error)
 {
 	var xhr = new XMLHttpRequest();
 	var url = U('/api/' + apiFunction);
 
-	xhr.onreadystatechange = function()
+	xhr.onreadystatechange = function ()
 	{
 		if (xhr.readyState === XMLHttpRequest.DONE)
 		{
@@ -36,12 +36,12 @@ Grocy.Api.Get = function(apiFunction, success, error)
 	xhr.send();
 };
 
-Grocy.Api.Post = function(apiFunction, jsonData, success, error)
+Grocy.Api.Post = function (apiFunction, jsonData, success, error)
 {
 	var xhr = new XMLHttpRequest();
 	var url = U('/api/' + apiFunction);
 
-	xhr.onreadystatechange = function()
+	xhr.onreadystatechange = function ()
 	{
 		if (xhr.readyState === XMLHttpRequest.DONE)
 		{
@@ -74,12 +74,12 @@ Grocy.Api.Post = function(apiFunction, jsonData, success, error)
 	xhr.send(JSON.stringify(jsonData));
 };
 
-Grocy.Api.Put = function(apiFunction, jsonData, success, error)
+Grocy.Api.Put = function (apiFunction, jsonData, success, error)
 {
 	var xhr = new XMLHttpRequest();
 	var url = U('/api/' + apiFunction);
 
-	xhr.onreadystatechange = function()
+	xhr.onreadystatechange = function ()
 	{
 		if (xhr.readyState === XMLHttpRequest.DONE)
 		{
@@ -112,12 +112,12 @@ Grocy.Api.Put = function(apiFunction, jsonData, success, error)
 	xhr.send(JSON.stringify(jsonData));
 };
 
-Grocy.Api.Delete = function(apiFunction, jsonData, success, error)
+Grocy.Api.Delete = function (apiFunction, jsonData, success, error)
 {
 	var xhr = new XMLHttpRequest();
 	var url = U('/api/' + apiFunction);
 
-	xhr.onreadystatechange = function()
+	xhr.onreadystatechange = function ()
 	{
 		if (xhr.readyState === XMLHttpRequest.DONE)
 		{
@@ -150,12 +150,12 @@ Grocy.Api.Delete = function(apiFunction, jsonData, success, error)
 	xhr.send(JSON.stringify(jsonData));
 };
 
-Grocy.Api.UploadFile = function(file, group, fileName, success, error)
+Grocy.Api.UploadFile = function (file, group, fileName, success, error)
 {
 	var xhr = new XMLHttpRequest();
 	var url = U('/api/files/' + group + '/' + btoa(fileName));
 
-	xhr.onreadystatechange = function()
+	xhr.onreadystatechange = function ()
 	{
 		if (xhr.readyState === XMLHttpRequest.DONE)
 		{
@@ -188,12 +188,12 @@ Grocy.Api.UploadFile = function(file, group, fileName, success, error)
 	xhr.send(file);
 };
 
-Grocy.Api.DeleteFile = function(fileName, group, success, error)
+Grocy.Api.DeleteFile = function (fileName, group, success, error)
 {
 	var xhr = new XMLHttpRequest();
 	var url = U('/api/files/' + group + '/' + btoa(fileName));
 
-	xhr.onreadystatechange = function()
+	xhr.onreadystatechange = function ()
 	{
 		if (xhr.readyState === XMLHttpRequest.DONE)
 		{
@@ -226,14 +226,14 @@ Grocy.Api.DeleteFile = function(fileName, group, success, error)
 	xhr.send();
 };
 
-U = function(relativePath)
+U = function (relativePath)
 {
 	return Grocy.BaseUrl.replace(/\/$/, '') + relativePath;
 }
 
 Grocy.Translator = new window.translator.default(Grocy.LocalizationStrings);
 Grocy.TranslatorQu = new window.translator.default(Grocy.LocalizationStringsQu);
-__t = function(text, ...placeholderValues)
+__t = function (text, ...placeholderValues)
 {
 	if (!text)
 	{
@@ -258,7 +258,7 @@ __t = function(text, ...placeholderValues)
 		return Grocy.Translator.__(text, ...placeholderValues);
 	}
 }
-__n = function(number, singularForm, pluralForm, isQu = false)
+__n = function (number, singularForm, pluralForm, isQu = false)
 {
 	if (!singularForm)
 	{
@@ -291,9 +291,9 @@ __n = function(number, singularForm, pluralForm, isQu = false)
 	}
 }
 
-RefreshContextualTimeago = function(rootSelector = "#page-content")
+RefreshContextualTimeago = function (rootSelector = "#page-content")
 {
-	$(rootSelector + " time.timeago").each(function()
+	$(rootSelector + " time.timeago").each(function ()
 	{
 		var element = $(this);
 
@@ -357,7 +357,7 @@ toastr.options = {
 };
 
 Grocy.FrontendHelpers = {};
-Grocy.FrontendHelpers.ValidateForm = function(formId, reportValidity = false)
+Grocy.FrontendHelpers.ValidateForm = function (formId, reportValidity = false)
 {
 	var form = document.getElementById(formId);
 	if (form === null || form === undefined)
@@ -375,7 +375,7 @@ Grocy.FrontendHelpers.ValidateForm = function(formId, reportValidity = false)
 	return form.checkValidity();
 }
 
-Grocy.FrontendHelpers.BeginUiBusy = function(formId = null)
+Grocy.FrontendHelpers.BeginUiBusy = function (formId = null)
 {
 	$("body").addClass("cursor-busy");
 
@@ -385,7 +385,7 @@ Grocy.FrontendHelpers.BeginUiBusy = function(formId = null)
 	}
 }
 
-Grocy.FrontendHelpers.EndUiBusy = function(formId = null)
+Grocy.FrontendHelpers.EndUiBusy = function (formId = null)
 {
 	$("body").removeClass("cursor-busy");
 
@@ -395,10 +395,10 @@ Grocy.FrontendHelpers.EndUiBusy = function(formId = null)
 	}
 }
 
-Grocy.FrontendHelpers.ShowGenericError = function(message, exception)
+Grocy.FrontendHelpers.ShowGenericError = function (message, exception)
 {
 	toastr.error(__t(message) + '<br><br>' + __t('Click to show technical details'), '', {
-		onclick: function()
+		onclick: function ()
 		{
 			var errorDetails = JSON.stringify(exception, null, 4);
 			if (typeof exception === "object" && exception !== null && exception.hasOwnProperty("error_message"))
@@ -418,7 +418,7 @@ Grocy.FrontendHelpers.ShowGenericError = function(message, exception)
 	console.error(exception);
 }
 
-Grocy.FrontendHelpers.SaveUserSetting = function(settingsKey, value, force = false)
+Grocy.FrontendHelpers.SaveUserSetting = function (settingsKey, value, force = false)
 {
 	if (Grocy.UserSettings[settingsKey] == value && !force)
 	{
@@ -430,30 +430,30 @@ Grocy.FrontendHelpers.SaveUserSetting = function(settingsKey, value, force = fal
 	jsonData = {};
 	jsonData.value = value;
 	Grocy.Api.Put('user/settings/' + settingsKey, jsonData,
-		function(result)
+		function (result)
 		{
 			// Nothing to do...
 		},
-		function(xhr)
+		function (xhr)
 		{
 			console.error(xhr);
 		}
 	);
 }
 
-Grocy.FrontendHelpers.DeleteUserSetting = function(settingsKey, reloadPageOnSuccess = false)
+Grocy.FrontendHelpers.DeleteUserSetting = function (settingsKey, reloadPageOnSuccess = false)
 {
 	delete Grocy.UserSettings[settingsKey];
 
 	Grocy.Api.Delete('user/settings/' + settingsKey, {},
-		function(result)
+		function (result)
 		{
 			if (reloadPageOnSuccess)
 			{
 				location.reload();
 			}
 		},
-		function(xhr)
+		function (xhr)
 		{
 			if (xhr.statusText)
 			{
@@ -463,7 +463,7 @@ Grocy.FrontendHelpers.DeleteUserSetting = function(settingsKey, reloadPageOnSucc
 	);
 }
 
-Grocy.FrontendHelpers.RunWebhook = function(webhook, data, repetitions = 1)
+Grocy.FrontendHelpers.RunWebhook = function (webhook, data, repetitions = 1)
 {
 	Object.assign(data, webhook.extra_data);
 	var hasAlreadyFailed = false;
@@ -472,7 +472,7 @@ Grocy.FrontendHelpers.RunWebhook = function(webhook, data, repetitions = 1)
 	{
 		if (webhook.json)
 		{
-			$.ajax(webhook.hook, { "data": JSON.stringify(data), "contentType": "application/json", "type": "POST" }).fail(function(req, status, errorThrown)
+			$.ajax(webhook.hook, { "data": JSON.stringify(data), "contentType": "application/json", "type": "POST" }).fail(function (req, status, errorThrown)
 			{
 				if (!hasAlreadyFailed)
 				{
@@ -483,7 +483,7 @@ Grocy.FrontendHelpers.RunWebhook = function(webhook, data, repetitions = 1)
 		}
 		else
 		{
-			$.post(webhook.hook, data).fail(function(req, status, errorThrown)
+			$.post(webhook.hook, data).fail(function (req, status, errorThrown)
 			{
 				if (!hasAlreadyFailed)
 				{
@@ -495,17 +495,13 @@ Grocy.FrontendHelpers.RunWebhook = function(webhook, data, repetitions = 1)
 	}
 }
 
-$(document).on("keyup paste change", "input, textarea", function()
-{
-	$(this).addClass("is-dirty").closest("form").addClass("is-dirty");
-});
-$(document).on("click", "select", function()
+$(document).on("keyup paste change click", "input, select, textarea", function ()
 {
 	$(this).addClass("is-dirty").closest("form").addClass("is-dirty");
 });
 
 // Auto saving user setting controls
-$(document).on("change", ".user-setting-control", function()
+$(document).on("change", ".user-setting-control", function ()
 {
 	var element = $(this);
 	var settingKey = element.attr("data-setting-key");
@@ -534,7 +530,7 @@ $(document).on("change", ".user-setting-control", function()
 });
 
 // Show file name Bootstrap custom file input
-$('input.custom-file-input').on('change', function()
+$('input.custom-file-input').on('change', function ()
 {
 	$(this).next('.custom-file-label').html(GetFileNameFromPath($(this).val()));
 });
@@ -545,9 +541,9 @@ if ($(".custom-file-label").length > 0)
 	$("<style>").html('.custom-file-label::after { content: "' + __t("Select file") + '"; }').appendTo("head");
 }
 
-ResizeResponsiveEmbeds = function()
+ResizeResponsiveEmbeds = function ()
 {
-	$("iframe.embed-responsive").each(function()
+	$("iframe.embed-responsive").each(function ()
 	{
 		var iframeBody = $(this)[0].contentWindow.document.body;
 		if (iframeBody)
@@ -568,25 +564,25 @@ ResizeResponsiveEmbeds = function()
 	}
 	$("embed.embed-responsive:not(.resize-done)").attr("height", maxHeight.toString() + "px").addClass("resize-done");
 }
-$(window).on("resize", function()
+$(window).on("resize", function ()
 {
 	ResizeResponsiveEmbeds();
 });
-$("iframe").on("load", function()
+$("iframe").on("load", function ()
 {
 	ResizeResponsiveEmbeds();
 });
-$(document).on("shown.bs.modal", function(e)
+$(document).on("shown.bs.modal", function (e)
 {
 	ResizeResponsiveEmbeds();
 });
-$(document).on("hidden.bs.modal", function(e)
+$(document).on("hidden.bs.modal", function (e)
 {
 	$("body").removeClass("fullscreen-card");
 });
-$("body").children().each(function(index, child)
+$("body").children().each(function (index, child)
 {
-	new ResizeObserver(function()
+	new ResizeObserver(function ()
 	{
 		window.parent.postMessage(WindowMessageBag("ResizeResponsiveEmbeds"), Grocy.BaseUrl);
 	}).observe(child);
@@ -608,7 +604,7 @@ if (window.location.hash)
 
 function RefreshLocaleNumberDisplay(rootSelector = "#page-content")
 {
-	$(rootSelector + " .locale-number.locale-number-currency:not('.number-parsing-done')").each(function()
+	$(rootSelector + " .locale-number.locale-number-currency:not('.number-parsing-done')").each(function ()
 	{
 		var element = $(this);
 		var text = element.text();
@@ -622,7 +618,7 @@ function RefreshLocaleNumberDisplay(rootSelector = "#page-content")
 		element.addClass("number-parsing-done");
 	});
 
-	$(rootSelector + " .locale-number.locale-number-quantity-amount:not('.number-parsing-done')").each(function()
+	$(rootSelector + " .locale-number.locale-number-quantity-amount:not('.number-parsing-done')").each(function ()
 	{
 		var element = $(this);
 		var text = element.text();
@@ -636,7 +632,7 @@ function RefreshLocaleNumberDisplay(rootSelector = "#page-content")
 		element.addClass("number-parsing-done");
 	});
 
-	$(rootSelector + " .locale-number.locale-number-generic:not('.number-parsing-done')").each(function()
+	$(rootSelector + " .locale-number.locale-number-generic:not('.number-parsing-done')").each(function ()
 	{
 		var element = $(this);
 		var text = element.text();
@@ -651,9 +647,9 @@ function RefreshLocaleNumberDisplay(rootSelector = "#page-content")
 	});
 }
 RefreshLocaleNumberDisplay();
-$(".locale-number").each(function()
+$(".locale-number").each(function ()
 {
-	new MutationObserver(function(mutations)
+	new MutationObserver(function (mutations)
 	{
 		mutations.forEach(mutation =>
 		{
@@ -671,7 +667,7 @@ $(".locale-number").each(function()
 
 function RefreshLocaleNumberInput(rootSelector = "#page-content")
 {
-	$(rootSelector + " .locale-number-input.locale-number-currency").each(function()
+	$(rootSelector + " .locale-number-input.locale-number-currency").each(function ()
 	{
 		var element = $(this);
 		var value = element.val();
@@ -683,7 +679,7 @@ function RefreshLocaleNumberInput(rootSelector = "#page-content")
 		element.val(Number.parseFloat(value).toLocaleString("en", { minimumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices_input, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_prices_input, useGrouping: false }));
 	});
 
-	$(rootSelector + " .locale-number-input.locale-number-quantity-amount").each(function()
+	$(rootSelector + " .locale-number-input.locale-number-quantity-amount").each(function ()
 	{
 		var element = $(this);
 		var value = element.val();
@@ -695,7 +691,7 @@ function RefreshLocaleNumberInput(rootSelector = "#page-content")
 		element.val(Number.parseFloat(value).toLocaleString("en", { minimumFractionDigits: 0, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_amounts, useGrouping: false }));
 	});
 
-	$(rootSelector + " .locale-number-input.locale-number-generic").each(function()
+	$(rootSelector + " .locale-number-input.locale-number-generic").each(function ()
 	{
 		var element = $(this);
 		var value = element.val();
@@ -709,7 +705,7 @@ function RefreshLocaleNumberInput(rootSelector = "#page-content")
 }
 RefreshLocaleNumberInput();
 
-$(document).on("click", ".easy-link-copy-textbox", function()
+$(document).on("click", ".easy-link-copy-textbox", function ()
 {
 	$(this).select();
 });
@@ -733,12 +729,12 @@ if (GetUriParam("embedded"))
 	</div>');
 }
 
-$(document).on("click", ".close-last-modal-button", function()
+$(document).on("click", ".close-last-modal-button", function ()
 {
 	window.parent.postMessage(WindowMessageBag("CloseLastModal"), Grocy.BaseUrl);
 });
 
-$("body").on("keydown", function(e)
+$("body").on("keydown", function (e)
 {
 	if (e.key == "Escape")
 	{
@@ -747,7 +743,7 @@ $("body").on("keydown", function(e)
 });
 
 
-$(window).on("message", function(e)
+$(window).on("message", function (e)
 {
 	var data = e.originalEvent.data;
 
@@ -779,7 +775,7 @@ $(window).on("message", function(e)
 		window.postMessage(data.Payload, Grocy.BaseUrl);
 
 		// => Bubble the broadcast message down to all child iframes
-		$("iframe.embed-responsive").each(function()
+		$("iframe.embed-responsive").each(function ()
 		{
 			$(this)[0].contentWindow.postMessage(data, Grocy.BaseUrl);
 		});
@@ -787,7 +783,7 @@ $(window).on("message", function(e)
 });
 
 window.IsGrocy = true;
-Grocy.GetTopmostWindow = function()
+Grocy.GetTopmostWindow = function ()
 {
 	if (window.top.IsGrocy)
 	{
@@ -814,7 +810,7 @@ Grocy.GetTopmostWindow = function()
 	}
 }
 
-$(document).on("click", ".show-as-dialog-link", function(e)
+$(document).on("click", ".show-as-dialog-link", function (e)
 {
 	e.preventDefault();
 
@@ -854,7 +850,7 @@ $('[data-toggle="tooltip"]').tooltip();
 // serializeJSON defaults
 $.serializeJSON.defaultOptions.checkboxUncheckedValue = "0";
 
-$(Grocy.UserPermissions).each(function(index, item)
+$(Grocy.UserPermissions).each(function (index, item)
 {
 	if (item.has_permission == 0)
 	{
@@ -862,7 +858,7 @@ $(Grocy.UserPermissions).each(function(index, item)
 	}
 });
 
-$('a.link-return').not(".btn").each(function()
+$('a.link-return').not(".btn").each(function ()
 {
 	var base = $(this).data('href');
 	if (base.contains('?'))
@@ -875,7 +871,7 @@ $('a.link-return').not(".btn").each(function()
 	}
 
 });
-$(document).on("click", "a.btn.link-return", function(e)
+$(document).on("click", "a.btn.link-return", function (e)
 {
 	e.preventDefault();
 
@@ -890,7 +886,7 @@ $(document).on("click", "a.btn.link-return", function(e)
 	}
 });
 
-$('.dropdown-item').has('.form-check input[type=checkbox]').on('click', function(e)
+$('.dropdown-item').has('.form-check input[type=checkbox]').on('click', function (e)
 {
 	if ($(e.target).is('div.form-check') || $(e.target).is('div.dropdown-item'))
 	{
@@ -898,12 +894,12 @@ $('.dropdown-item').has('.form-check input[type=checkbox]').on('click', function
 	}
 });
 
-$('[data-toggle="tooltip"][data-html="true"]').on("shown.bs.tooltip", function()
+$('[data-toggle="tooltip"][data-html="true"]').on("shown.bs.tooltip", function ()
 {
 	RefreshLocaleNumberDisplay(".tooltip");
 })
 
-$(document).on("click", '.btn, a, button', function(e)
+$(document).on("click", '.btn, a, button', function (e)
 {
 	// Remove focus and hide any tooltips after click
 	document.activeElement.blur();
@@ -912,7 +908,7 @@ $(document).on("click", '.btn, a, button', function(e)
 
 // Delay only initial field focus
 Grocy.FormFocusDelay = 500;
-setTimeout(function()
+setTimeout(function ()
 {
 	Grocy.FormFocusDelay = 0;
 }, 1000);
