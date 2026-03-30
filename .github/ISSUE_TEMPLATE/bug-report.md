@@ -14,6 +14,7 @@ Please make sure to:
 - Attach screenshots where useful
 - Check if the problem was maybe already reported or fixed by searching open and also already closed requests here
 - Keep it to one topic per request
+- Exclude any AI generated content and only include what you truly understand yourself
 
 Please also try to reproduce the problem on the pre-release demo: => https://demo-prerelease.grocy.info
 - Use a private demo instance to make your example persistent
