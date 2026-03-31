@@ -22,7 +22,15 @@ class LoginController extends BaseController
 	public function ProcessLogin(Request $request, Response $response, array $args)
 	{
 		$authMiddlewareClass = GROCY_AUTH_CLASS;
-		if ($authMiddlewareClass::ProcessLogin($request->getParsedBody()))
+
+		$postParams = $request->getParsedBody();
+		if (isset($postParams['password_base64']))
+		{
+			$postParams['password'] = base64_decode($postParams['password_base64']);
+		}
+		unset($postParams['password_base64']);
+
+		if ($authMiddlewareClass::ProcessLogin($postParams))
 		{
 			return $response->withRedirect($this->AppContainer->get('UrlManager')->ConstructUrl('/'));
 		}

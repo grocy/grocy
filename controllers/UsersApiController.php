@@ -43,6 +43,12 @@ class UsersApiController extends BaseApiController
 				throw new \Exception('Request body could not be parsed (probably invalid JSON format or missing/wrong Content-Type header)');
 			}
 
+			if (isset($requestBody['password_base64']))
+			{
+				$requestBody['password'] = base64_decode($requestBody['password_base64']);
+			}
+			unset($requestBody['password_base64']);
+
 			$this->getUsersService()->CreateUser($requestBody['username'], $requestBody['first_name'], $requestBody['last_name'], $requestBody['password'], $requestBody['picture_file_name']);
 			return $this->EmptyApiResponse($response);
 		}
@@ -81,6 +87,12 @@ class UsersApiController extends BaseApiController
 
 		try
 		{
+			if (isset($requestBody['password_base64']))
+			{
+				$requestBody['password'] = base64_decode($requestBody['password_base64']);
+			}
+			unset($requestBody['password_base64']);
+
 			$this->getUsersService()->EditUser($args['userId'], $requestBody['username'], $requestBody['first_name'], $requestBody['last_name'], $requestBody['password'], $requestBody['picture_file_name']);
 			return $this->EmptyApiResponse($response);
 		}

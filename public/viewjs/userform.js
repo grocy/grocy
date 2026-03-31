@@ -24,7 +24,7 @@
 	});
 }
 
-$('#save-user-button').on('click', function(e)
+$('#save-user-button').on('click', function (e)
 {
 	e.preventDefault();
 
@@ -46,11 +46,16 @@ $('#save-user-button').on('click', function(e)
 		jsonData.picture_file_name = RandomString() + CleanFileName($("#user-picture")[0].files[0].name);
 	}
 
+	jsonData.password_base64 = btoa(jsonData.password);
+	delete jsonData.password;
+	delete jsonData.password_confirm;
+	delete jsonData.change_password;
+
 	if (Grocy.EditMode === 'create')
 	{
 		Grocy.Api.Post('users', jsonData,
 			(result) => SaveUserPicture(result, jsonData),
-			function(xhr)
+			function (xhr)
 			{
 				Grocy.FrontendHelpers.EndUiBusy("user-form");
 				console.error(xhr);
@@ -64,11 +69,11 @@ $('#save-user-button').on('click', function(e)
 			jsonData.picture_file_name = null;
 
 			Grocy.Api.DeleteFile(Grocy.UserPictureFileName, 'userpictures',
-				function(result)
+				function (result)
 				{
 					// Nothing to do
 				},
-				function(xhr)
+				function (xhr)
 				{
 					Grocy.FrontendHelpers.EndUiBusy("user-form");
 					Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response);
@@ -78,7 +83,7 @@ $('#save-user-button').on('click', function(e)
 
 		Grocy.Api.Put('users/' + Grocy.EditObjectId, jsonData,
 			(result) => SaveUserPicture(result, jsonData),
-			function(xhr)
+			function (xhr)
 			{
 				Grocy.FrontendHelpers.EndUiBusy("user-form");
 				console.error(xhr);
@@ -87,7 +92,7 @@ $('#save-user-button').on('click', function(e)
 	}
 });
 
-$('#user-form input').keyup(function(event)
+$('#user-form input').keyup(function (event)
 {
 	var element = document.getElementById("password_confirm");
 	if ($("#password").val() !== $("#password_confirm").val())
@@ -102,7 +107,7 @@ $('#user-form input').keyup(function(event)
 	Grocy.FrontendHelpers.ValidateForm('user-form');
 });
 
-$('#user-form input').keydown(function(event)
+$('#user-form input').keydown(function (event)
 {
 	if (event.keyCode === 13) // Enter
 	{
@@ -119,7 +124,7 @@ $('#user-form input').keydown(function(event)
 	}
 });
 
-$("#user-picture").on("change", function(e)
+$("#user-picture").on("change", function (e)
 {
 	$("#user-picture-label").removeClass("d-none");
 	$("#user-picture-label-none").addClass("d-none");
@@ -129,7 +134,7 @@ $("#user-picture").on("change", function(e)
 });
 
 Grocy.DeleteUserPictureOnSave = false;
-$("#delete-current-user-picture-button").on("click", function(e)
+$("#delete-current-user-picture-button").on("click", function (e)
 {
 	Grocy.DeleteUserPictureOnSave = true;
 	$("#current-user-picture").addClass("d-none");
@@ -138,12 +143,12 @@ $("#delete-current-user-picture-button").on("click", function(e)
 	$("#user-picture-label-none").removeClass("d-none");
 });
 
-$("#change_password").click(function()
+$("#change_password").click(function ()
 {
 	$("#password").attr("disabled", !this.checked);
 	$("#password_confirm").attr("disabled", !this.checked);
 
-	setTimeout(function()
+	setTimeout(function ()
 	{
 		$("#password").focus();
 	}, Grocy.FormFocusDelay);
@@ -155,7 +160,7 @@ if (GetUriParam("changepw") === "true")
 }
 else
 {
-	setTimeout(function()
+	setTimeout(function ()
 	{
 		$('#username').focus();
 	}, Grocy.FormFocusDelay);

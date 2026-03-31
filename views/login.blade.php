@@ -23,13 +23,16 @@
 					name="username">
 			</div>
 
+
+			<input type="hidden"
+				id="password_base64"
+				name="password_base64">
 			<div class="form-group">
-				<label for="password">{{ $__t('Password') }}</label>
+				<label for="password_input">{{ $__t('Password') }}</label>
 				<input type="password"
 					class="form-control"
 					required
-					id="password"
-					name="password">
+					id="password_input">
 				<div id="login-error"
 					class="form-text text-danger d-none"></div>
 			</div>

@@ -117,7 +117,9 @@ else
 
 $authMiddlewareClass = GROCY_AUTH_CLASS;
 $app->add(new $authMiddlewareClass($container, $app->getResponseFactory()));
+
 // Add default middleware
+$app->addBodyParsingMiddleware();
 $app->addRoutingMiddleware();
 $errorMiddleware = $app->addErrorMiddleware(true, false, false);
 $errorMiddleware->setDefaultErrorHandler(

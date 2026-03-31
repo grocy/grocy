@@ -52,7 +52,7 @@
 
 ### General
 
-- xxx
+- Fixed that it wasn't possible to log in using passwords containing special escape sequences (e.g. `<<`)
 
 ### API
 
