@@ -1,4 +1,4 @@
-﻿$('#save-batterytracking-button').on('click', function(e)
+﻿$('#save-batterytracking-button').on('click', function (e)
 {
 	e.preventDefault();
 
@@ -16,13 +16,13 @@
 	Grocy.FrontendHelpers.BeginUiBusy("batterytracking-form");
 
 	Grocy.Api.Get('batteries/' + jsonForm.battery_id,
-		function(batteryDetails)
+		function (batteryDetails)
 		{
 			Grocy.Api.Post('batteries/' + jsonForm.battery_id + '/charge', { 'tracked_time': $('#tracked_time').find('input').val() },
-				function(result)
+				function (result)
 				{
 					Grocy.EditObjectId = result.id;
-					Grocy.Components.UserfieldsForm.Save(function()
+					Grocy.Components.UserfieldsForm.Save(function ()
 					{
 						Grocy.FrontendHelpers.EndUiBusy("batterytracking-form");
 						toastr.success(__t('Tracked charge cycle of battery %1$s on %2$s', batteryDetails.battery.name, $('#tracked_time').find('input').val()) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoChargeCycle(' + result.id + ')"><i class="fa-solid fa-undo"></i> ' + __t("Undo") + '</a>');
@@ -36,14 +36,14 @@
 						Grocy.FrontendHelpers.ValidateForm('batterytracking-form');
 					});
 				},
-				function(xhr)
+				function (xhr)
 				{
 					Grocy.FrontendHelpers.EndUiBusy("batterytracking-form");
 					console.error(xhr);
 				}
 			);
 		},
-		function(xhr)
+		function (xhr)
 		{
 			Grocy.FrontendHelpers.EndUiBusy("batterytracking-form");
 			console.error(xhr);
@@ -51,7 +51,7 @@
 	);
 });
 
-$('#battery_id').on('change', function(e)
+$('#battery_id').on('change', function (e)
 {
 	var input = $('#battery_id_text_input').val().toString();
 	$('#battery_id_text_input').val(input);
@@ -62,7 +62,7 @@ $('#battery_id').on('change', function(e)
 	{
 		Grocy.Components.BatteryCard.Refresh(batteryId);
 
-		setTimeout(function()
+		setTimeout(function ()
 		{
 			$('#tracked_time').find('input').focus();
 		}, Grocy.FormFocusDelay);
@@ -71,28 +71,24 @@ $('#battery_id').on('change', function(e)
 	}
 });
 
-$('.combobox').combobox({
-	appendId: '_text_input',
-	bsVersion: '4',
-	clearIfNoMatch: false
-});
+$(".combobox").combobox(Object.assign(BootstrapComboboxDefaults, { "clearIfNoMatch": false }));
 
 $('#battery_id').val('');
 $('#battery_id_text_input').val('');
 $('#battery_id_text_input').trigger('change');
 Grocy.Components.DateTimePicker.GetInputElement().trigger('input');
 Grocy.FrontendHelpers.ValidateForm('batterytracking-form');
-setTimeout(function()
+setTimeout(function ()
 {
 	$('#battery_id_text_input').focus();
 }, Grocy.FormFocusDelay);
 
-$('#batterytracking-form input').keyup(function(event)
+$('#batterytracking-form input').keyup(function (event)
 {
 	Grocy.FrontendHelpers.ValidateForm('batterytracking-form');
 });
 
-$('#batterytracking-form input').keydown(function(event)
+$('#batterytracking-form input').keydown(function (event)
 {
 	if (event.keyCode === 13) // Enter
 	{
@@ -109,12 +105,12 @@ $('#batterytracking-form input').keydown(function(event)
 	}
 });
 
-$('#tracked_time').find('input').on('keypress', function(e)
+$('#tracked_time').find('input').on('keypress', function (e)
 {
 	Grocy.FrontendHelpers.ValidateForm('batterytracking-form');
 });
 
-$(document).on("Grocy.BarcodeScanned", function(e, barcode, target)
+$(document).on("Grocy.BarcodeScanned", function (e, barcode, target)
 {
 	if (!(target == "@batterypicker" || target == "undefined" || target == undefined)) // Default target
 	{
@@ -128,7 +124,7 @@ $(document).on("Grocy.BarcodeScanned", function(e, barcode, target)
 
 	$("#battery_id_text_input").val(barcode);
 
-	setTimeout(function()
+	setTimeout(function ()
 	{
 		$("#battery_id_text_input").focusout();
 		$("#battery_id_text_input").focus();
@@ -140,18 +136,18 @@ $(document).on("Grocy.BarcodeScanned", function(e, barcode, target)
 function UndoChargeCycle(chargeCycleId)
 {
 	Grocy.Api.Post('batteries/charge-cycles/' + chargeCycleId.toString() + '/undo', {},
-		function(result)
+		function (result)
 		{
 			toastr.success(__t("Charge cycle successfully undone"));
 		},
-		function(xhr)
+		function (xhr)
 		{
 			console.error(xhr);
 		}
 	);
 };
 
-$('#battery_id_text_input').on('blur', function(e)
+$('#battery_id_text_input').on('blur', function (e)
 {
 	if ($('#battery_id').hasClass("combobox-menu-visible"))
 	{
@@ -187,7 +183,7 @@ $('#battery_id_text_input').on('blur', function(e)
 	}
 });
 
-$("#tracked_time").find("input").on("focus", function(e)
+$("#tracked_time").find("input").on("focus", function (e)
 {
 	$(this).select();
 });

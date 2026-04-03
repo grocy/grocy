@@ -9,7 +9,7 @@ $.extend(true, $.fn.dataTable.defaults, {
 	'colReorder': true,
 	'stateSave': true,
 	'stateDuration': 0,
-	'stateSaveParams': function(settings, data)
+	'stateSaveParams': function (settings, data)
 	{
 		data.search.search = "";
 
@@ -18,7 +18,7 @@ $.extend(true, $.fn.dataTable.defaults, {
 			column.search.search = "";
 		});
 	},
-	'stateSaveCallback': function(settings, data)
+	'stateSaveCallback': function (settings, data)
 	{
 		var settingKey = 'datatables_state_' + settings.sTableId;
 
@@ -49,7 +49,7 @@ $.extend(true, $.fn.dataTable.defaults, {
 			Grocy.FrontendHelpers.SaveUserSetting(settingKey, JSON.stringify(data));
 		}
 	},
-	'stateLoadCallback': function(settings, data)
+	'stateLoadCallback': function (settings, data)
 	{
 		var settingKey = 'datatables_state_' + settings.sTableId;
 
@@ -62,7 +62,7 @@ $.extend(true, $.fn.dataTable.defaults, {
 			return JSON.parse(Grocy.UserSettings[settingKey]);
 		}
 	},
-	'preDrawCallback': function(settings)
+	'preDrawCallback': function (settings)
 	{
 		// Currently it is not possible to save the state of rowGroup via saveState events
 		var api = new $.fn.dataTable.Api(settings);
@@ -99,16 +99,16 @@ $.extend(true, $.fn.dataTable.defaults, {
 		}
 	},
 	'columnDefs': [
-		{ type: 'chinese-string', targets: '_all' }
+		{ type: 'string', targets: '_all' }
 	],
 	'rowGroup': {
 		enable: false,
-		startRender: function(rows, group)
+		startRender: function (rows, group)
 		{
 			var collapsed = !!collapsedGroups[group];
 			var toggleClass = collapsed ? "fa-caret-right" : "fa-caret-down";
 
-			rows.nodes().each(function(row)
+			rows.nodes().each(function (row)
 			{
 				row.style.display = collapsed ? "none" : "";
 			});
@@ -120,13 +120,13 @@ $.extend(true, $.fn.dataTable.defaults, {
 		}
 	}
 });
-$(document).on("click", "tr.dtrg-group", function()
+$(document).on("click", "tr.dtrg-group", function ()
 {
 	var name = $(this).data('name');
 	collapsedGroups[name] = !collapsedGroups[name];
 	$("table").DataTable().draw();
 });
-$.fn.dataTable.ext.type.order["custom-sort-pre"] = function(data)
+$.fn.dataTable.ext.type.order["custom-sort-pre"] = function (data)
 {
 	// Workaround for https://github.com/DataTables/ColReorder/issues/85
 	//
@@ -139,7 +139,24 @@ $.fn.dataTable.ext.type.order["custom-sort-pre"] = function(data)
 	return (Number.parseFloat($(data).get(0).innerText));
 };
 
-$('.table').on('column-sizing.dt', function(e, settings)
+$.fn.dataTable.ext.type.search.string = function (s)
+{
+	return s.accentNeutralise();
+};
+$.fn.dataTable.ext.type.search.html = function (s)
+{
+	return s.stripHtml().accentNeutralise();
+};
+$.fn.dataTable.ext.type.order["string-pre"] = function (s)
+{
+	return s.accentNeutralise();
+};
+$.fn.dataTable.ext.type.order["html-pre"] = function (s)
+{
+	return s.stripHtml().accentNeutralise();
+};
+
+$('.table').on('column-sizing.dt', function (e, settings)
 {
 	var dtScrollWidth = $('.dataTables_scroll').width();
 	var tableWidth = $('.table').width() + 100; // Some extra padding, otherwise the scrollbar maybe only appears after a column is already completely out of the viewport
@@ -155,14 +172,14 @@ $('.table').on('column-sizing.dt', function(e, settings)
 		$('.dataTables_scrollBody').addClass("force-overflow-visible");
 	}
 });
-$(document).on("show.bs.dropdown", "td .dropdown", function(e)
+$(document).on("show.bs.dropdown", "td .dropdown", function (e)
 {
 	if ($('.dataTables_scrollBody').hasClass("no-force-overflow-visible"))
 	{
 		$('.dataTables_scrollBody').addClass("force-overflow-visible");
 	}
 });
-$(document).on("hide.bs.dropdown", "td .dropdown", function(e)
+$(document).on("hide.bs.dropdown", "td .dropdown", function (e)
 {
 	if ($('.dataTables_scrollBody').hasClass("no-force-overflow-visible"))
 	{
@@ -170,7 +187,7 @@ $(document).on("hide.bs.dropdown", "td .dropdown", function(e)
 	}
 });
 
-$(".change-table-columns-visibility-button").on("click", function(e)
+$(".change-table-columns-visibility-button").on("click", function (e)
 {
 	e.preventDefault();
 
@@ -200,7 +217,7 @@ $(".change-table-columns-visibility-button").on("click", function(e)
 			</div>';
 	}
 
-	dataTable.columns().every(function()
+	dataTable.columns().every(function ()
 	{
 		var index = this.index();
 		var indexForGrouping = index;
@@ -292,7 +309,7 @@ $(".change-table-columns-visibility-button").on("click", function(e)
 			reset: {
 				label: __t('Reset'),
 				className: 'btn-outline-danger float-left responsive-button',
-				callback: function()
+				callback: function ()
 				{
 					bootbox.confirm({
 						message: __t("Are you sure you want to reset the table options?"),
@@ -307,7 +324,7 @@ $(".change-table-columns-visibility-button").on("click", function(e)
 								className: 'btn-success'
 							}
 						},
-						callback: function(result)
+						callback: function (result)
 						{
 							if (result)
 							{
@@ -328,7 +345,7 @@ $(".change-table-columns-visibility-button").on("click", function(e)
 			ok: {
 				label: __t('OK'),
 				className: 'btn-primary responsive-button',
-				callback: function()
+				callback: function ()
 				{
 					$(".modal").last().modal("hide");
 				}
@@ -337,7 +354,7 @@ $(".change-table-columns-visibility-button").on("click", function(e)
 	});
 });
 
-$(document).on("click", ".change-table-columns-visibility-toggle", function()
+$(document).on("click", ".change-table-columns-visibility-toggle", function ()
 {
 	var dataTableSelector = $(this).attr("data-table-selector");
 	var columnIndex = $(this).attr("data-column-index");
@@ -347,7 +364,7 @@ $(document).on("click", ".change-table-columns-visibility-toggle", function()
 });
 
 
-$(document).on("click", ".change-table-columns-rowgroup-toggle", function()
+$(document).on("click", ".change-table-columns-rowgroup-toggle", function ()
 {
 	var dataTableSelector = $(this).attr("data-table-selector");
 	var columnIndex = $(this).attr("data-column-index");

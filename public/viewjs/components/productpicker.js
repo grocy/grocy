@@ -1,56 +1,56 @@
 Grocy.Components.ProductPicker = {};
 
-Grocy.Components.ProductPicker.GetPicker = function()
+Grocy.Components.ProductPicker.GetPicker = function ()
 {
 	return $('#product_id');
 }
 
-Grocy.Components.ProductPicker.GetInputElement = function()
+Grocy.Components.ProductPicker.GetInputElement = function ()
 {
 	return $('#product_id_text_input');
 }
 
-Grocy.Components.ProductPicker.GetValue = function()
+Grocy.Components.ProductPicker.GetValue = function ()
 {
 	return $('#product_id').val();
 }
 
-Grocy.Components.ProductPicker.SetValue = function(value)
+Grocy.Components.ProductPicker.SetValue = function (value)
 {
 	Grocy.Components.ProductPicker.GetInputElement().val(value);
 	Grocy.Components.ProductPicker.GetInputElement().trigger('change');
 }
 
-Grocy.Components.ProductPicker.SetId = function(value)
+Grocy.Components.ProductPicker.SetId = function (value)
 {
 	Grocy.Components.ProductPicker.GetPicker().val(value);
 	Grocy.Components.ProductPicker.GetPicker().data('combobox').refresh();
 	Grocy.Components.ProductPicker.GetInputElement().trigger('change');
 }
 
-Grocy.Components.ProductPicker.Clear = function()
+Grocy.Components.ProductPicker.Clear = function ()
 {
 	Grocy.Components.ProductPicker.SetValue('');
 	Grocy.Components.ProductPicker.SetId(null);
 	$('#product_id').attr("barcode", "null");
 }
 
-Grocy.Components.ProductPicker.InProductAddWorkflow = function()
+Grocy.Components.ProductPicker.InProductAddWorkflow = function ()
 {
 	return GetUriParam('flow') == "InplaceNewProductWithName";
 }
 
-Grocy.Components.ProductPicker.InProductModifyWorkflow = function()
+Grocy.Components.ProductPicker.InProductModifyWorkflow = function ()
 {
 	return GetUriParam('flow') == "InplaceAddBarcodeToExistingProduct";
 }
 
-Grocy.Components.ProductPicker.InAnyFlow = function()
+Grocy.Components.ProductPicker.InAnyFlow = function ()
 {
 	return Grocy.Components.ProductPicker.InProductAddWorkflow() || Grocy.Components.ProductPicker.InProductModifyWorkflow();
 }
 
-Grocy.Components.ProductPicker.FinishFlow = function()
+Grocy.Components.ProductPicker.FinishFlow = function ()
 {
 	if (GetUriParam("flow") == "InplaceAddBarcodeToExistingProduct")
 	{
@@ -62,37 +62,33 @@ Grocy.Components.ProductPicker.FinishFlow = function()
 	RemoveUriParam("product-name");
 }
 
-Grocy.Components.ProductPicker.ShowCustomError = function(text)
+Grocy.Components.ProductPicker.ShowCustomError = function (text)
 {
 	var element = $("#custom-productpicker-error");
 	element.text(text);
 	element.removeClass("d-none");
 }
 
-Grocy.Components.ProductPicker.HideCustomError = function()
+Grocy.Components.ProductPicker.HideCustomError = function ()
 {
 	$("#custom-productpicker-error").addClass("d-none");
 }
 
-Grocy.Components.ProductPicker.Disable = function()
+Grocy.Components.ProductPicker.Disable = function ()
 {
 	Grocy.Components.ProductPicker.GetInputElement().attr("disabled", "");
 	$("#camerabarcodescanner-start-button").attr("disabled", "");
 	$("#camerabarcodescanner-start-button").addClass("disabled");
 }
 
-Grocy.Components.ProductPicker.Enable = function()
+Grocy.Components.ProductPicker.Enable = function ()
 {
 	Grocy.Components.ProductPicker.GetInputElement().removeAttr("disabled");
 	$("#camerabarcodescanner-start-button").removeAttr("disabled");
 	$("#camerabarcodescanner-start-button").removeClass("disabled");
 }
 
-$('.product-combobox').combobox({
-	appendId: '_text_input',
-	bsVersion: '4',
-	clearIfNoMatch: false
-});
+$(".product-combobox").combobox(Object.assign(BootstrapComboboxDefaults, { "clearIfNoMatch": false }));
 
 var prefillProduct = GetUriParam('product-name');
 var prefillProduct2 = Grocy.Components.ProductPicker.GetPicker().parent().data('prefill-by-name').toString();
@@ -152,7 +148,7 @@ if (GetUriParam("flow") === "InplaceAddBarcodeToExistingProduct")
 }
 
 Grocy.Components.ProductPicker.PopupOpen = false;
-$('#product_id_text_input').on('blur', function(e)
+$('#product_id_text_input').on('blur', function (e)
 {
 	if (Grocy.Components.ProductPicker.GetPicker().hasClass("combobox-menu-visible"))
 	{
@@ -212,10 +208,10 @@ $('#product_id_text_input').on('blur', function(e)
 				cancel: {
 					label: __t('Cancel'),
 					className: 'btn-secondary responsive-button productpicker-workflow-cancel-button',
-					callback: function()
+					callback: function ()
 					{
 						Grocy.Components.ProductPicker.PopupOpen = false;
-						setTimeout(function()
+						setTimeout(function ()
 						{
 							Grocy.Components.ProductPicker.GetInputElement().focus();
 							Grocy.Components.ProductPicker.GetInputElement().select();
@@ -225,7 +221,7 @@ $('#product_id_text_input').on('blur', function(e)
 				addnewproduct: {
 					label: '<strong>P</strong> ' + __t('Add as new product'),
 					className: 'btn-success add-new-product-dialog-button responsive-button ' + addProductWorkflowsAdditionalCssClasses,
-					callback: function()
+					callback: function ()
 					{
 						// Not the best place here - this is only relevant when this flow is started from the shopping list item form
 						// (to select the correct shopping list on return)
@@ -241,7 +237,7 @@ $('#product_id_text_input').on('blur', function(e)
 				addbarcode: {
 					label: '<strong>B</strong> ' + __t('Add as barcode to existing product'),
 					className: 'btn-info add-new-barcode-dialog-button responsive-button',
-					callback: function()
+					callback: function ()
 					{
 						Grocy.Components.ProductPicker.PopupOpen = false;
 						window.location.href = U(Grocy.CurrentUrlRelative + '?flow=InplaceAddBarcodeToExistingProduct&barcode=' + encodeURIComponent(input) + "&" + embedded);
@@ -250,7 +246,7 @@ $('#product_id_text_input').on('blur', function(e)
 				addnewproductwithbarcode: {
 					label: '<strong>A</strong> ' + __t('Add as new product and prefill barcode'),
 					className: 'btn-warning add-new-product-with-barcode-dialog-button responsive-button ' + addProductWorkflowsAdditionalCssClasses,
-					callback: function()
+					callback: function ()
 					{
 						Grocy.Components.ProductPicker.PopupOpen = false;
 						window.location.href = U('/product/new?flow=InplaceNewProductWithBarcode&barcode=' + encodeURIComponent(input) + '&returnto=' + encodeURIComponent(Grocy.CurrentUrlRelative + "?flow=InplaceAddBarcodeToExistingProduct&barcode=" + input + "&" + embedded) + "&" + embedded);
@@ -263,19 +259,19 @@ $('#product_id_text_input').on('blur', function(e)
 				buttons.barcodepluginlookup = {
 					label: '<strong>E</strong> ' + __t('External barcode lookup') + ' <span class="badge badge-pill badge-light">' + Grocy.ExternalBarcodeLookupPluginName + '</span>',
 					className: 'btn-dark add-new-product-plugin-dialog-button responsive-button ' + addProductWorkflowsAdditionalCssClasses,
-					callback: function()
+					callback: function ()
 					{
 						Grocy.Components.ProductPicker.PopupOpen = false;
 						Grocy.FrontendHelpers.BeginUiBusy($("form").first().attr("id"));
 
 						Grocy.Api.Get("stock/barcodes/external-lookup/" + encodeURIComponent(input) + "?add=true",
-							function(pluginResponse)
+							function (pluginResponse)
 							{
 								if (pluginResponse == null)
 								{
 									toastr.warning(__t("Nothing was found for the given barcode"));
 									Grocy.FrontendHelpers.EndUiBusy($("form").first().attr("id"));
-									setTimeout(function()
+									setTimeout(function ()
 									{
 										Grocy.Components.ProductPicker.GetInputElement().focus();
 										Grocy.Components.ProductPicker.GetInputElement().select();
@@ -286,7 +282,7 @@ $('#product_id_text_input').on('blur', function(e)
 									window.location.href = U("/product/" + pluginResponse.id + "?flow=InplaceNewProductByExternalBarcodeLookupPlugin&returnto=" + encodeURIComponent(Grocy.CurrentUrlRelative + "?flow=InplaceNewProductWithName&" + embedded) + "&" + embedded);
 								}
 							},
-							function(xhr)
+							function (xhr)
 							{
 								Grocy.FrontendHelpers.ShowGenericError("Error while executing the barcode lookup plugin", xhr.response);
 								Grocy.FrontendHelpers.EndUiBusy($("form").first().attr("id"));
@@ -301,7 +297,7 @@ $('#product_id_text_input').on('blur', function(e)
 				buttons.retrycamerascanning = {
 					label: '<strong>C</strong> <i class="fa-solid fa-camera"></i>',
 					className: 'btn-primary responsive-button retry-camera-scanning-button',
-					callback: function()
+					callback: function ()
 					{
 						Grocy.Components.ProductPicker.PopupOpen = false;
 						Grocy.Components.ProductPicker.SetValue('');
@@ -317,7 +313,7 @@ $('#product_id_text_input').on('blur', function(e)
 			var existsAsProduct = false;
 			var existsAsBarcode = false;
 			Grocy.Api.Get('objects/product_barcodes_view?query[]=barcode=' + input,
-				function(barcodeResult)
+				function (barcodeResult)
 				{
 					if (barcodeResult.length > 0)
 					{
@@ -325,7 +321,7 @@ $('#product_id_text_input').on('blur', function(e)
 					}
 
 					Grocy.Api.Get('objects/products?query[]=name=' + input,
-						function(productResult)
+						function (productResult)
 						{
 							if (productResult.length > 0)
 							{
@@ -338,7 +334,7 @@ $('#product_id_text_input').on('blur', function(e)
 								bootbox.dialog({
 									message: __t('"%s" could not be resolved to a product, how do you want to proceed?', input),
 									title: __t('Create or assign product'),
-									onEscape: function()
+									onEscape: function ()
 									{
 										$(".productpicker-workflow-cancel-button").click();
 									},
@@ -347,7 +343,7 @@ $('#product_id_text_input').on('blur', function(e)
 									closeButton: false,
 									buttons: buttons,
 									className: "wider custom-escape-key-handling",
-								}).on('keypress', function(e)
+								}).on('keypress', function (e)
 								{
 									if (e.key === 'B' || e.key === 'b')
 									{
@@ -377,19 +373,19 @@ $('#product_id_text_input').on('blur', function(e)
 								Grocy.Components.ProductPicker.Clear();
 								Grocy.FrontendHelpers.ValidateForm('consume-form');
 								Grocy.Components.ProductPicker.ShowCustomError(__t('This product is not in stock'));
-								setTimeout(function()
+								setTimeout(function ()
 								{
 									Grocy.Components.ProductPicker.GetInputElement().focus();
 								}, Grocy.FormFocusDelay);
 							}
 						},
-						function(xhr)
+						function (xhr)
 						{
 							console.error(xhr);
 						}
 					);
 				},
-				function(xhr)
+				function (xhr)
 				{
 					console.error(xhr);
 				}
@@ -398,7 +394,7 @@ $('#product_id_text_input').on('blur', function(e)
 	}
 });
 
-$(document).on("Grocy.BarcodeScanned", function(e, barcode, target)
+$(document).on("Grocy.BarcodeScanned", function (e, barcode, target)
 {
 	if (!(target == "@productpicker" || target == "undefined" || target == undefined)) // Default target
 	{
@@ -412,7 +408,7 @@ $(document).on("Grocy.BarcodeScanned", function(e, barcode, target)
 
 	Grocy.Components.ProductPicker.GetInputElement().val(barcode);
 
-	setTimeout(function()
+	setTimeout(function ()
 	{
 		Grocy.Components.ProductPicker.GetInputElement().focusout();
 		Grocy.Components.ProductPicker.GetInputElement().focus();
@@ -420,14 +416,14 @@ $(document).on("Grocy.BarcodeScanned", function(e, barcode, target)
 	}, Grocy.FormFocusDelay);
 });
 
-$(document).on("shown.bs.modal", function(e)
+$(document).on("shown.bs.modal", function (e)
 {
 	$(".modal-footer").addClass("d-block").addClass("d-sm-flex");
 	$(".modal-footer").find("button").addClass("mt-2").addClass("mt-sm-0");
 })
 
 // Make that ENTER behaves the same like TAB (trigger blur to start workflows, but only when the dropdown is not opened)
-$('#product_id_text_input').keydown(function(event)
+$('#product_id_text_input').keydown(function (event)
 {
 	if (event.keyCode === 13) // Enter
 	{

@@ -281,7 +281,8 @@
 
 					@include('components.productpicker', array(
 					'products' => $products,
-					'nextInputSelector' => '#amount'
+					'nextInputSelector' => '#amount',
+					'disallowAddProductWorkflows' => true
 					))
 
 					@include('components.productamountpicker', array(

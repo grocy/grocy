@@ -21,18 +21,6 @@
   resolved "https://registry.yarnpkg.com/@scarf/scarf/-/scarf-1.4.0.tgz#3bbb984085dbd6d982494538b523be1ce6562972"
   integrity sha512-xxeapPiUXdZAE3che6f3xogoJPeZgig6omHEy1rIY5WVsB3H2BHNnZH+gHG6x91SCWyQCzWGsuL2Hh3ClO5/qQ==
 
-"@types/jquery@^3.5.16":
-  version "3.5.34"
-  resolved "https://registry.yarnpkg.com/@types/jquery/-/jquery-3.5.34.tgz#c1993eaac0db03cf9db974976dd8f07bbf7c5708"
-  integrity sha512-3m3939S3erqmTLJANS/uy0B6V7BorKx7RorcGZVjZ62dF5PAGbKEDZK1CuLtKombJkFA2T1jl8LAIIs7IV6gBQ==
-  dependencies:
-    "@types/sizzle" "*"
-
-"@types/sizzle@*":
-  version "2.3.10"
-  resolved "https://registry.yarnpkg.com/@types/sizzle/-/sizzle-2.3.10.tgz#277a542aff6776d8a9b15f2ac682a663e3e94bbd"
-  integrity sha512-TC0dmN0K8YcWEAEfiPi5gJP14eJe30TTGjkvek3iM/1NdHHsdCA/Td6GvNndMOo/iSnIsZ4HuuhrYPDAmbxzww==
-
 "@zxing/library@^0.21.3":
   version "0.21.3"
   resolved "https://registry.yarnpkg.com/@zxing/library/-/library-0.21.3.tgz#0a4cb777701884131832b05922d7e88ef1b87ab4"
@@ -165,14 +153,6 @@ datatables.net-colreorder@1.7.2, datatables.net-colreorder@^1.5.2:
     datatables.net "^1.13.0"
     jquery ">=1.7"
 
-datatables.net-plugins@^1.10.20:
-  version "1.13.6"
-  resolved "https://registry.yarnpkg.com/datatables.net-plugins/-/datatables.net-plugins-1.13.6.tgz#7b0af0675083e2c669ccd09ef7c86878d6c9638d"
-  integrity sha512-CPLH+09OiEAP3PKbZH7u2qcLajgHhy4fBHCdLzjGWJwKbIkhaPu7tby4jZHQXqoolUznbm3TEpJj4eMI1eqcGw==
-  dependencies:
-    "@types/jquery" "^3.5.16"
-    datatables.net "^1.13.2"
-
 datatables.net-rowgroup-bs4@^1.1.2:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/datatables.net-rowgroup-bs4/-/datatables.net-rowgroup-bs4-1.6.0.tgz#452cd6ebb576c76d0341cf4fece21cdbd194a617"
@@ -215,7 +195,7 @@ datatables.net-select@1.7.1, datatables.net-select@^1.3.1:
     datatables.net "^1.13.0"
     jquery ">=1.7"
 
-datatables.net@1.13.11, datatables.net@^1.10.22, datatables.net@^1.13.0, datatables.net@^1.13.2:
+datatables.net@1.13.11, datatables.net@^1.10.22, datatables.net@^1.13.0:
   version "1.13.11"
   resolved "https://registry.yarnpkg.com/datatables.net/-/datatables.net-1.13.11.tgz#e2a4c8b50553512f241ebfcbc078d74d551183b2"
   integrity sha512-AE6RkMXziRaqzPcu/pl3SJXeRa6fmXQG/fVjuRESujvkzqDCYEeKTTpPMuVJSGYJpPi32WGSphVNNY1G4nSN/g==

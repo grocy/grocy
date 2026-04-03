@@ -1,4 +1,4 @@
-﻿$('.save-choretracking-button').on('click', function(e)
+﻿$('.save-choretracking-button').on('click', function (e)
 {
 	e.preventDefault();
 
@@ -18,13 +18,13 @@
 	Grocy.FrontendHelpers.BeginUiBusy("choretracking-form");
 
 	Grocy.Api.Get('chores/' + jsonForm.chore_id,
-		function(choreDetails)
+		function (choreDetails)
 		{
 			Grocy.Api.Post('chores/' + jsonForm.chore_id + '/execute', { 'tracked_time': Grocy.Components.DateTimePicker.GetValue(), 'done_by': $("#user_id").val(), 'skipped': skipped },
-				function(result)
+				function (result)
 				{
 					Grocy.EditObjectId = result.id;
-					Grocy.Components.UserfieldsForm.Save(function()
+					Grocy.Components.UserfieldsForm.Save(function ()
 					{
 						Grocy.FrontendHelpers.EndUiBusy("choretracking-form");
 						toastr.success(__t('Tracked execution of chore %1$s on %2$s', choreDetails.chore.name, Grocy.Components.DateTimePicker.GetValue()) + '<br><a class="btn btn-secondary btn-sm mt-2" href="#" onclick="UndoChoreExecution(' + result.id + ')"><i class="fa-solid fa-undo"></i> ' + __t("Undo") + '</a>');
@@ -38,14 +38,14 @@
 						Grocy.FrontendHelpers.ValidateForm('choretracking-form');
 					});
 				},
-				function(xhr)
+				function (xhr)
 				{
 					Grocy.FrontendHelpers.EndUiBusy("choretracking-form");
 					console.error(xhr);
 				}
 			);
 		},
-		function(xhr)
+		function (xhr)
 		{
 			Grocy.FrontendHelpers.EndUiBusy("choretracking-form");
 			console.error(xhr);
@@ -53,7 +53,7 @@
 	);
 });
 
-$('#chore_id').on('change', function(e)
+$('#chore_id').on('change', function (e)
 {
 	var input = $('#chore_id_text_input').val().toString();
 	$('#chore_id_text_input').val(input);
@@ -63,7 +63,7 @@ $('#chore_id').on('change', function(e)
 	if (choreId)
 	{
 		Grocy.Api.Get('objects/chores/' + choreId,
-			function(chore)
+			function (chore)
 			{
 
 				if (chore.track_date_only == 1)
@@ -88,7 +88,7 @@ $('#chore_id').on('change', function(e)
 
 				Grocy.FrontendHelpers.ValidateForm('choretracking-form');
 			},
-			function(xhr)
+			function (xhr)
 			{
 				console.error(xhr);
 			}
@@ -96,7 +96,7 @@ $('#chore_id').on('change', function(e)
 
 		Grocy.Components.ChoreCard.Refresh(choreId);
 
-		setTimeout(function()
+		setTimeout(function ()
 		{
 			Grocy.Components.DateTimePicker.GetInputElement().focus();
 		}, Grocy.FormFocusDelay);
@@ -105,26 +105,22 @@ $('#chore_id').on('change', function(e)
 	}
 });
 
-$('.combobox').combobox({
-	appendId: '_text_input',
-	bsVersion: '4',
-	clearIfNoMatch: false
-});
+$(".combobox").combobox(Object.assign(BootstrapComboboxDefaults, { "clearIfNoMatch": false }));
 
 $('#chore_id_text_input').trigger('change');
 Grocy.Components.DateTimePicker.GetInputElement().trigger('input');
 Grocy.FrontendHelpers.ValidateForm('choretracking-form');
-setTimeout(function()
+setTimeout(function ()
 {
 	$('#chore_id_text_input').focus();
 }, Grocy.FormFocusDelay);
 
-$('#choretracking-form input').keyup(function(event)
+$('#choretracking-form input').keyup(function (event)
 {
 	Grocy.FrontendHelpers.ValidateForm('choretracking-form');
 });
 
-$('#choretracking-form input').keydown(function(event)
+$('#choretracking-form input').keydown(function (event)
 {
 	if (event.keyCode === 13) // Enter
 	{
@@ -141,7 +137,7 @@ $('#choretracking-form input').keydown(function(event)
 	}
 });
 
-$(document).on("Grocy.BarcodeScanned", function(e, barcode, target)
+$(document).on("Grocy.BarcodeScanned", function (e, barcode, target)
 {
 	if (!(target == "@chorepicker" || target == "undefined" || target == undefined)) // Default target
 	{
@@ -155,7 +151,7 @@ $(document).on("Grocy.BarcodeScanned", function(e, barcode, target)
 
 	$("#chore_id_text_input").val(barcode);
 
-	setTimeout(function()
+	setTimeout(function ()
 	{
 		$("#chore_id_text_input").focusout();
 		$("#chore_id_text_input").focus();
@@ -164,7 +160,7 @@ $(document).on("Grocy.BarcodeScanned", function(e, barcode, target)
 	}, Grocy.FormFocusDelay);
 });
 
-Grocy.Components.DateTimePicker.GetInputElement().on('keypress', function(e)
+Grocy.Components.DateTimePicker.GetInputElement().on('keypress', function (e)
 {
 	Grocy.FrontendHelpers.ValidateForm('choretracking-form');
 });
@@ -172,18 +168,18 @@ Grocy.Components.DateTimePicker.GetInputElement().on('keypress', function(e)
 function UndoChoreExecution(executionId)
 {
 	Grocy.Api.Post('chores/executions/' + executionId.toString() + '/undo', {},
-		function(result)
+		function (result)
 		{
 			toastr.success(__t("Chore execution successfully undone"));
 		},
-		function(xhr)
+		function (xhr)
 		{
 			console.error(xhr);
 		}
 	);
 };
 
-$('#chore_id_text_input').on('blur', function(e)
+$('#chore_id_text_input').on('blur', function (e)
 {
 	if ($('#chore_id').hasClass("combobox-menu-visible"))
 	{
@@ -218,7 +214,7 @@ $('#chore_id_text_input').on('blur', function(e)
 	}
 });
 
-$("#tracked_time").find("input").on("focus", function(e)
+$("#tracked_time").find("input").on("focus", function (e)
 {
 	$(this).select();
 });

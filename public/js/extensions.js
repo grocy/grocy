@@ -1,4 +1,4 @@
-EmptyElementWhenMatches = function(selector, text)
+EmptyElementWhenMatches = function (selector, text)
 {
 	if ($(selector).text() === text)
 	{
@@ -6,22 +6,34 @@ EmptyElementWhenMatches = function(selector, text)
 	}
 };
 
-String.prototype.contains = function(search)
+String.prototype.contains = function (search)
 {
 	return this.toLowerCase().indexOf(search.toLowerCase()) !== -1;
 };
 
-String.prototype.replaceAll = function(search, replacement)
+String.prototype.replaceAll = function (search, replacement)
 {
 	return this.replace(new RegExp(search, "g"), replacement);
 };
 
-String.prototype.escapeHTML = function()
+String.prototype.escapeHTML = function ()
 {
 	return this.replace(/[&<>"'`=\/]/g, s => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;', '/': '&#x2F;', '`': '&#x60;', '=': '&#x3D;' })[s]);;
 };
 
-GetUriParam = function(key)
+// E.g. "Crème fraîche" becomes "Creme fraiche"
+String.prototype.accentNeutralise = function ()
+{
+	return this.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+};
+
+// E.g. "<div class='c'>test</div>" becomes "test"
+String.prototype.stripHtml = function ()
+{
+	return this.replace(/<.*?>/g, '');
+};
+
+GetUriParam = function (key)
 {
 	var currentUri = window.location.search.substring(1);
 	var vars = currentUri.split('&');
@@ -37,21 +49,21 @@ GetUriParam = function(key)
 	}
 };
 
-UpdateUriParam = function(key, value)
+UpdateUriParam = function (key, value)
 {
 	var queryParameters = new URLSearchParams(location.search);
 	queryParameters.set(key, value);
 	window.history.replaceState({}, "", decodeURIComponent(`${location.pathname}?${queryParameters}`));
 };
 
-RemoveUriParam = function(key)
+RemoveUriParam = function (key)
 {
 	var queryParameters = new URLSearchParams(location.search);
 	queryParameters.delete(key);
 	window.history.replaceState({}, "", decodeURIComponent(`${location.pathname}?${queryParameters}`));
 };
 
-BoolVal = function(test)
+BoolVal = function (test)
 {
 	if (!test)
 	{
@@ -69,25 +81,25 @@ BoolVal = function(test)
 	}
 }
 
-GetFileNameFromPath = function(path)
+GetFileNameFromPath = function (path)
 {
 	return path.split("/").pop().split("\\").pop();
 }
 
-GetFileExtension = function(pathOrFileName)
+GetFileExtension = function (pathOrFileName)
 {
 	return pathOrFileName.split(".").pop();
 }
 
 $.extend($.expr[":"],
 	{
-		"contains_case_insensitive": function(elem, i, match, array)
+		"contains_case_insensitive": function (elem, i, match, array)
 		{
 			return (elem.textContent || elem.innerText || "").toLowerCase().indexOf((match[3] || "").toLowerCase()) >= 0;
 		}
 	});
 
-FindObjectInArrayByPropertyValue = function(array, propertyName, propertyValue)
+FindObjectInArrayByPropertyValue = function (array, propertyName, propertyValue)
 {
 	for (var i = 0; i < array.length; i++)
 	{
@@ -100,7 +112,7 @@ FindObjectInArrayByPropertyValue = function(array, propertyName, propertyValue)
 	return null;
 }
 
-FindAllObjectsInArrayByPropertyValue = function(array, propertyName, propertyValue)
+FindAllObjectsInArrayByPropertyValue = function (array, propertyName, propertyValue)
 {
 	var returnArray = [];
 
@@ -115,7 +127,7 @@ FindAllObjectsInArrayByPropertyValue = function(array, propertyName, propertyVal
 	return returnArray;
 }
 
-$.fn.hasAttr = function(name)
+$.fn.hasAttr = function (name)
 {
 	return this.attr(name) !== undefined;
 };
@@ -135,20 +147,20 @@ function IsJsonString(text)
 function Delay(callable, delayMilliseconds)
 {
 	var timer = 0;
-	return function()
+	return function ()
 	{
 		var context = this;
 		var args = arguments;
 
 		clearTimeout(timer);
-		timer = setTimeout(function()
+		timer = setTimeout(function ()
 		{
 			callable.apply(context, args);
 		}, delayMilliseconds || 0);
 	};
 }
 
-$.fn.isVisibleInViewport = function(extraHeightPadding = 0)
+$.fn.isVisibleInViewport = function (extraHeightPadding = 0)
 {
 	var elementTop = $(this).offset().top;
 	var viewportTop = $(window).scrollTop() - extraHeightPadding;

@@ -1,44 +1,40 @@
 Grocy.Components.RecipePicker = {};
 
-Grocy.Components.RecipePicker.GetPicker = function()
+Grocy.Components.RecipePicker.GetPicker = function ()
 {
 	return $('#recipe_id');
 }
 
-Grocy.Components.RecipePicker.GetInputElement = function()
+Grocy.Components.RecipePicker.GetInputElement = function ()
 {
 	return $('#recipe_id_text_input');
 }
 
-Grocy.Components.RecipePicker.GetValue = function()
+Grocy.Components.RecipePicker.GetValue = function ()
 {
 	return $('#recipe_id').val();
 }
 
-Grocy.Components.RecipePicker.SetValue = function(value)
+Grocy.Components.RecipePicker.SetValue = function (value)
 {
 	Grocy.Components.RecipePicker.GetInputElement().val(value);
 	Grocy.Components.RecipePicker.GetInputElement().trigger('change');
 }
 
-Grocy.Components.RecipePicker.SetId = function(value)
+Grocy.Components.RecipePicker.SetId = function (value)
 {
 	Grocy.Components.RecipePicker.GetPicker().val(value);
 	Grocy.Components.RecipePicker.GetPicker().data('combobox').refresh();
 	Grocy.Components.RecipePicker.GetInputElement().trigger('change');
 }
 
-Grocy.Components.RecipePicker.Clear = function()
+Grocy.Components.RecipePicker.Clear = function ()
 {
 	Grocy.Components.RecipePicker.SetValue('');
 	Grocy.Components.RecipePicker.SetId(null);
 }
 
-$('.recipe-combobox').combobox({
-	appendId: '_text_input',
-	bsVersion: '4',
-	clearIfNoMatch: false
-});
+$(".recipe-combobox").combobox(Object.assign(BootstrapComboboxDefaults, { "clearIfNoMatch": false }));
 
 var prefillByName = Grocy.Components.RecipePicker.GetPicker().parent().data('prefill-by-name').toString();
 if (typeof prefillByName !== "undefined")
@@ -67,7 +63,7 @@ if (typeof prefillById !== "undefined")
 	nextInputElement.focus();
 }
 
-$('#recipe_id_text_input').on('blur', function(e)
+$('#recipe_id_text_input').on('blur', function (e)
 {
 	if ($('#recipe_id').hasClass("combobox-menu-visible"))
 	{
@@ -102,7 +98,7 @@ $('#recipe_id_text_input').on('blur', function(e)
 	}
 });
 
-$(document).on("Grocy.BarcodeScanned", function(e, barcode, target)
+$(document).on("Grocy.BarcodeScanned", function (e, barcode, target)
 {
 	if (!(target == "@recipepicker" || target == "undefined" || target == undefined)) // Default target
 	{
@@ -116,7 +112,7 @@ $(document).on("Grocy.BarcodeScanned", function(e, barcode, target)
 
 	Grocy.Components.RecipePicker.GetInputElement().val(barcode);
 
-	setTimeout(function()
+	setTimeout(function ()
 	{
 		Grocy.Components.RecipePicker.GetInputElement().focusout();
 		Grocy.Components.RecipePicker.GetInputElement().focus();

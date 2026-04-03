@@ -5,9 +5,11 @@
 <script src="{{ $U('/viewjs/components/productpicker.js', true) }}?v={{ $version }}"></script>
 @endpush
 @push('componentScripts')
+@if(isset($ExternalBarcodeLookupPluginName))
 <script>
 	Grocy.ExternalBarcodeLookupPluginName = "{{ $ExternalBarcodeLookupPluginName }}";
 </script>
+@endif
 @endpush
 @endonce
 

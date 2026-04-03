@@ -1,43 +1,40 @@
 Grocy.Components.UserPicker = {};
 
-Grocy.Components.UserPicker.GetPicker = function()
+Grocy.Components.UserPicker.GetPicker = function ()
 {
 	return $('#user_id');
 }
 
-Grocy.Components.UserPicker.GetInputElement = function()
+Grocy.Components.UserPicker.GetInputElement = function ()
 {
 	return $('#user_id_text_input');
 }
 
-Grocy.Components.UserPicker.GetValue = function()
+Grocy.Components.UserPicker.GetValue = function ()
 {
 	return $('#user_id').val();
 }
 
-Grocy.Components.UserPicker.SetValue = function(value)
+Grocy.Components.UserPicker.SetValue = function (value)
 {
 	Grocy.Components.UserPicker.GetInputElement().val(value);
 	Grocy.Components.UserPicker.GetInputElement().trigger('change');
 }
 
-Grocy.Components.UserPicker.SetId = function(value)
+Grocy.Components.UserPicker.SetId = function (value)
 {
 	Grocy.Components.UserPicker.GetPicker().val(value);
 	Grocy.Components.UserPicker.GetPicker().data('combobox').refresh();
 	Grocy.Components.UserPicker.GetInputElement().trigger('change');
 }
 
-Grocy.Components.UserPicker.Clear = function()
+Grocy.Components.UserPicker.Clear = function ()
 {
 	Grocy.Components.UserPicker.SetValue('');
 	Grocy.Components.UserPicker.SetId(null);
 }
 
-$('.user-combobox').combobox({
-	appendId: '_text_input',
-	bsVersion: '4'
-});
+$(".user-combobox").combobox(BootstrapComboboxDefaults);
 
 var prefillUser = Grocy.Components.UserPicker.GetPicker().parent().data('prefill-by-username').toString();
 if (typeof prefillUser !== "undefined")

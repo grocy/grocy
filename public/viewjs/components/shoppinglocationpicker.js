@@ -1,44 +1,40 @@
 Grocy.Components.ShoppingLocationPicker = {};
 
-Grocy.Components.ShoppingLocationPicker.GetPicker = function()
+Grocy.Components.ShoppingLocationPicker.GetPicker = function ()
 {
 	return $('#shopping_location_id');
 }
 
-Grocy.Components.ShoppingLocationPicker.GetInputElement = function()
+Grocy.Components.ShoppingLocationPicker.GetInputElement = function ()
 {
 	return $('#shopping_location_id_text_input');
 }
 
-Grocy.Components.ShoppingLocationPicker.GetValue = function()
+Grocy.Components.ShoppingLocationPicker.GetValue = function ()
 {
 	return $('#shopping_location_id').val();
 }
 
-Grocy.Components.ShoppingLocationPicker.SetValue = function(value)
+Grocy.Components.ShoppingLocationPicker.SetValue = function (value)
 {
 	Grocy.Components.ShoppingLocationPicker.GetInputElement().val(value);
 	Grocy.Components.ShoppingLocationPicker.GetInputElement().trigger('change');
 }
 
-Grocy.Components.ShoppingLocationPicker.SetId = function(value)
+Grocy.Components.ShoppingLocationPicker.SetId = function (value)
 {
 	Grocy.Components.ShoppingLocationPicker.GetPicker().val(value);
 	Grocy.Components.ShoppingLocationPicker.GetPicker().data('combobox').refresh();
 	Grocy.Components.ShoppingLocationPicker.GetInputElement().trigger('change');
 }
 
-Grocy.Components.ShoppingLocationPicker.Clear = function()
+Grocy.Components.ShoppingLocationPicker.Clear = function ()
 {
 	Grocy.Components.ShoppingLocationPicker.SetValue('');
 	Grocy.Components.ShoppingLocationPicker.SetId(null);
 }
 
-$('.shopping-location-combobox').combobox({
-	appendId: '_text_input',
-	bsVersion: '4',
-	clearIfNoMatch: true
-});
+$(".shopping-location-combobox").combobox(BootstrapComboboxDefaults);
 
 var prefillByName = Grocy.Components.ShoppingLocationPicker.GetPicker().parent().data('prefill-by-name').toString();
 if (typeof prefillByName !== "undefined")

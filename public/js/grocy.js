@@ -850,6 +850,16 @@ $('[data-toggle="tooltip"]').tooltip();
 // serializeJSON defaults
 $.serializeJSON.defaultOptions.checkboxUncheckedValue = "0";
 
+// bootstrap-combobox defaults
+BootstrapComboboxDefaults = {
+	appendId: "_text_input",
+	bsVersion: "4",
+	"matcher": function (item)
+	{
+		return ~item.accentNeutralise().toLowerCase().indexOf(this.query.accentNeutralise().toLowerCase());
+	}
+};
+
 $(Grocy.UserPermissions).each(function (index, item)
 {
 	if (item.has_permission == 0)
