@@ -2,9 +2,9 @@
 # yarn lockfile v1
 
 
-"@danielfarrell/bootstrap-combobox@https://github.com/berrnd/bootstrap-combobox.git#master":
-  version "1.1.8"
-  resolved "https://github.com/berrnd/bootstrap-combobox.git#fcf0110146f4daab94888234c57d198b4ca5f129"
+"@danielfarrell/bootstrap-combobox@https://github.com/berrnd/bootstrap-combobox.git#master-fork":
+  version "1.2.0"
+  resolved "https://github.com/berrnd/bootstrap-combobox.git#4dd21c3dcd3e3601f77718d493cd626e7cf0e782"
 
 "@fontsource/roboto@^5.1.1":
   version "5.2.10"
@@ -56,9 +56,9 @@ bootstrap@^4.5.2, bootstrap@^4.6.1:
   integrity sha512-51Bbp/Uxr9aTuy6ca/8FbFloBUJZLHwnhTcnjIeRn2suQWsWzcuJhGjKDB5eppVte/8oCdOL3VuwxvZDUggwGQ==
 
 bwip-js@^4.5.1:
-  version "4.8.0"
-  resolved "https://registry.yarnpkg.com/bwip-js/-/bwip-js-4.8.0.tgz#115b43035f9adc217f1eff436f5390d8a7ec8751"
-  integrity sha512-gUDkDHSTv8/DJhomSIbO0fX/Dx0MO/sgllLxJyJfu4WixCQe9nfGJzmHm64ZCbxo+gUYQEsQcRmqcwcwPRwUkg==
+  version "4.9.0"
+  resolved "https://registry.yarnpkg.com/bwip-js/-/bwip-js-4.9.0.tgz#8a863b17f0890385432ee44f1c7719c752b5e268"
+  integrity sha512-U3aWIxR/Px4m3GPd0opQ5GQJq/G8Cj0cr5z5hrcvy/SAApPnfkLqBqjRuB3GiEAasEQup3m7k/MDM/uiS9te8Q==
 
 chart.js@^2.8.0:
   version "2.9.4"
@@ -275,9 +275,9 @@ summernote@^0.9.1:
   integrity sha512-5Hfuey6+N0XIbk8ZpkGEVDmrkRVRHZWKBhw/072i9/TJLaWUKboB+KOyyd6AzDP2CQs1O6or4zRTU8HY30kt4w==
 
 swagger-ui-dist@^5.2.0:
-  version "5.32.0"
-  resolved "https://registry.yarnpkg.com/swagger-ui-dist/-/swagger-ui-dist-5.32.0.tgz#e52db2bfc2402305cbb263626f03e5b2bed0d871"
-  integrity sha512-nKZB0OuDvacB0s/lC2gbge+RigYvGRGpLLMWMFxaTUwfM+CfndVk9Th2IaTinqXiz6Mn26GK2zriCpv6/+5m3Q==
+  version "5.32.1"
+  resolved "https://registry.yarnpkg.com/swagger-ui-dist/-/swagger-ui-dist-5.32.1.tgz#21abc8944763901c9fade461c2c669f5621985e3"
+  integrity sha512-6HQoo7+j8PA2QqP5kgAb9dl1uxUjvR0SAoL/WUp1sTEvm0F6D5npgU2OGCLwl++bIInqGlEUQ2mpuZRZYtyCzQ==
   dependencies:
     "@scarf/scarf" "=1.4.0"
 
