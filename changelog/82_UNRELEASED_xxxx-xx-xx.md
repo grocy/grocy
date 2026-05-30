@@ -22,7 +22,7 @@
 
 ### Recipes
 
-- xxx
+- Fixed that the ingredient list showed fixed "Calories" instead of the configured `ENERGY_UNIT`
 
 ### Meal plan
 
