@@ -17,17 +17,6 @@
 <script src="{{ $U('/viewjs/purchase.js?v=', true) }}{{ $version }}"></script>
 @endpush
 
-@php
-if(boolval($userSettings['shopping_list_round_up']))
-{
-foreach($listItems as $listItem)
-{
-$listItem->amount = ceil($listItem->amount);
-$listItem->last_price_total = $listItem->price * $listItem->amount;
-}
-}
-@endphp
-
 @section('content')
 <div class="row d-print-none hide-on-fullscreen-card">
 	<div class="col">
@@ -276,6 +265,12 @@ $listItem->last_price_total = $listItem->price * $listItem->amount;
 					if ($productQuConversion)
 					{
 					$listItem->amount = $listItem->amount * $productQuConversion->factor;
+					}
+
+					if(boolval($userSettings['shopping_list_round_up']))
+					{
+					$listItem->amount = ceil($listItem->amount);
+					$listItem->last_price_total = $listItem->price * $listItem->amount;
 					}
 					@endphp
 					@endif

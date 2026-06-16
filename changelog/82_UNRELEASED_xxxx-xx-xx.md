@@ -19,6 +19,7 @@
 
 ### Shopping list
 
+- Fixed that the shopping list setting (top right corner settings menu) "Round up quantity amounts to the nearest whole number" wasn't applied to shopping list item amounts where a quantity unit conversion was involved
 - Fixed that printing the shopping list with "Group by product group" enabled created duplicated product group headlines in some cases
 
 ### Recipes
