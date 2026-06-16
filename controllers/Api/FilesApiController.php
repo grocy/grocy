@@ -47,45 +47,25 @@ class FilesApiController extends BaseApiController
 				throw new \Exception('Invalid file group');
 			}
 
-			$fileName = $this->CheckFileName($args['fileName']);
-			$filePath = $this->GetFilePath($args['group'], $fileName, $request->getQueryParams());
-
-			if (file_exists($filePath))
+			if (str_contains($args['fileName'], '_'))
 			{
-				$response = $response->withHeader('Cache-Control', 'max-age=2592000');
-				$response = $response->withHeader('Content-Type', mime_content_type($filePath));
-				$response = $response->withHeader('Content-Disposition', 'inline; filename="' . $fileName . '"');
-				return $response->withBody(new Stream(fopen($filePath, 'rb')));
+				$fileInfo = explode('_', $args['fileName']);
+				$fileName = $this->CheckFileName($fileInfo[0]);
+				$fileNameOutput = $this->CheckFileName($fileInfo[1]);
+				$filePath = $this->GetFilePath($args['group'], $fileName, $request->getQueryParams());
 			}
 			else
 			{
-				throw new HttpNotFoundException($request, 'File not found');
+				$fileName = $this->CheckFileName($args['fileName']);
+				$fileNameOutput = $fileName;
+				$filePath = $this->GetFilePath($args['group'], $fileName, $request->getQueryParams());
 			}
-		}
-		catch (\Exception $ex)
-		{
-			throw new HttpNotFoundException($request, $ex->getMessage(), $ex);
-		}
-	}
-
-	public function ShowFile(Request $request, Response $response, array $args)
-	{
-		try
-		{
-			if (!in_array($args['group'], $this->GetOpenApispec()->components->schemas->FileGroups->enum))
-			{
-				throw new \Exception('Invalid file group');
-			}
-
-			$fileInfo = explode('_', $args['fileName']);
-			$fileName = $this->CheckFileName($fileInfo[1]);
-			$filePath = $this->GetFilePath($args['group'], base64_decode($fileInfo[0]), $request->getQueryParams());
 
 			if (file_exists($filePath))
 			{
 				$response = $response->withHeader('Cache-Control', 'max-age=2592000');
 				$response = $response->withHeader('Content-Type', mime_content_type($filePath));
-				$response = $response->withHeader('Content-Disposition', 'inline; filename="' . $fileName . '"');
+				$response = $response->withHeader('Content-Disposition', 'inline; filename="' . $fileNameOutput . '"');
 				return $response->withBody(new Stream(fopen($filePath, 'rb')));
 			}
 			else

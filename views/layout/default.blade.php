@@ -476,7 +476,7 @@
 						<i class="fa-solid fa-user"></i>
 						@else
 						<img class="rounded-circle"
-							src="{{ $U('/files/userpictures/' . base64_encode(GROCY_USER_PICTURE_FILE_NAME) . '_' . base64_encode(GROCY_USER_PICTURE_FILE_NAME) . '?force_serve_as=picture&best_fit_width=32&best_fit_height=32') }}"
+							src="{{ $U('/api/files/userpictures/' . base64_encode(GROCY_USER_PICTURE_FILE_NAME) . '?force_serve_as=picture&best_fit_width=32&best_fit_height=32') }}"
 							loading="lazy">
 						@endif
 						{{ GROCY_USER_USERNAME }}

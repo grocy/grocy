@@ -38,12 +38,12 @@ $excludeFieldTypes = [];
 	<a href="{{ $link }}"
 		target="_blank">{{ $title }}</a>
 	@elseif($userfield->type == \Grocy\Services\UserfieldsService::USERFIELD_TYPE_FILE && !empty($userfieldObject->value))
-	<a href="{{ $U('/files/userfiles/'. $userfieldObject->value) }}"
+	<a href="{{ $U('/api/files/userfiles/'. $userfieldObject->value) }}"
 		target="_blank">{{ base64_decode(explode('_', $userfieldObject->value)[1]) }}</a>
 	@elseif($userfield->type == \Grocy\Services\UserfieldsService::USERFIELD_TYPE_IMAGE && !empty($userfieldObject->value))
 	<a class="show-as-dialog-link"
-		href="{{ $U('/files/userfiles/'. $userfieldObject->value . '?force_serve_as=picture') }}">
-		<img src="{{ $U('/files/userfiles/'. $userfieldObject->value . '?force_serve_as=picture&best_fit_width=32&best_fit_height=32') }}"
+		href="{{ $U('/api/files/userfiles/'. $userfieldObject->value . '?force_serve_as=picture') }}">
+		<img src="{{ $U('/api/files/userfiles/'. $userfieldObject->value . '?force_serve_as=picture&best_fit_width=32&best_fit_height=32') }}"
 			title="{{ base64_decode(explode('_', $userfieldObject->value)[1]) }}"
 			alt="{{ base64_decode(explode('_', $userfieldObject->value)[1]) }}"
 			loading="lazy">

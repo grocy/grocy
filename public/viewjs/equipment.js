@@ -8,7 +8,7 @@
 		style: 'single',
 		selector: 'tr td:not(:first-child)'
 	},
-	'initComplete': function()
+	'initComplete': function ()
 	{
 		this.api().row({ order: 'current' }, 0).select();
 		DisplayEquipment($('#equipment-table tbody tr:eq(0)').data("equipment-id"));
@@ -17,7 +17,7 @@
 $('#equipment-table tbody').removeClass("d-none");
 equipmentTable.columns.adjust().draw();
 
-equipmentTable.on('select', function(e, dt, type, indexes)
+equipmentTable.on('select', function (e, dt, type, indexes)
 {
 	if (type === 'row')
 	{
@@ -29,7 +29,7 @@ equipmentTable.on('select', function(e, dt, type, indexes)
 function DisplayEquipment(id)
 {
 	Grocy.Api.Get('objects/equipment/' + id,
-		function(equipmentItem)
+		function (equipmentItem)
 		{
 			$(".selected-equipment-name").text(equipmentItem.name);
 			$("#description-tab-content").html(equipmentItem.description);
@@ -59,14 +59,14 @@ function DisplayEquipment(id)
 			if (equipmentItem.userfields != null)
 			{
 				Grocy.Api.Get('objects/userfields?query[]=entity=equipment&query[]=type=file',
-					function(result)
+					function (result)
 					{
-						$.each(result, function(key, userfield)
+						$.each(result, function (key, userfield)
 						{
 							var userfieldFile = equipmentItem.userfields[userfield.name];
 							if (userfieldFile)
 							{
-								var pdfUrl = U('/files/userfiles/' + userfieldFile);
+								var pdfUrl = U('/api/files/userfiles/' + userfieldFile);
 								$("#file-userfield-" + userfield.name + "-embed").attr("src", pdfUrl);
 								$("#file-userfield-" + userfield.name + "-download-button").attr("href", pdfUrl);
 								$("#file-userfield-" + userfield.name + "-embed").removeClass("d-none");
@@ -82,21 +82,21 @@ function DisplayEquipment(id)
 							}
 						});
 					},
-					function(xhr)
+					function (xhr)
 					{
 						console.error(xhr);
 					}
 				);
 			}
 		},
-		function(xhr)
+		function (xhr)
 		{
 			console.error(xhr);
 		}
 	);
 }
 
-$("#search").on("keyup", Delay(function()
+$("#search").on("keyup", Delay(function ()
 {
 	var value = $(this).val();
 	if (value === "all")
@@ -107,13 +107,13 @@ $("#search").on("keyup", Delay(function()
 	equipmentTable.search(value).draw();
 }, Grocy.FormFocusDelay));
 
-$("#clear-filter-button").on("click", function()
+$("#clear-filter-button").on("click", function ()
 {
 	$("#search").val("");
 	equipmentTable.search("").draw();
 });
 
-$(document).on('click', '.equipment-delete-button', function(e)
+$(document).on('click', '.equipment-delete-button', function (e)
 {
 	var objectName = $(e.currentTarget).attr('data-equipment-name');
 	var objectId = $(e.currentTarget).attr('data-equipment-id');
@@ -131,16 +131,16 @@ $(document).on('click', '.equipment-delete-button', function(e)
 				className: 'btn-danger'
 			}
 		},
-		callback: function(result)
+		callback: function (result)
 		{
 			if (result === true)
 			{
 				Grocy.Api.Delete('objects/equipment/' + objectId, {},
-					function(result)
+					function (result)
 					{
 						window.location.href = U('/equipment');
 					},
-					function(xhr)
+					function (xhr)
 					{
 						console.error(xhr);
 					}
@@ -150,7 +150,7 @@ $(document).on('click', '.equipment-delete-button', function(e)
 	});
 });
 
-$(".selectedEquipmentInstructionManualToggleFullscreenButton").on('click', function(e)
+$(".selectedEquipmentInstructionManualToggleFullscreenButton").on('click', function (e)
 {
 	var button = $(e.currentTarget);
 	var card = button.closest(".selectedEquipmentInstructionManualCard");
@@ -163,7 +163,7 @@ $(".selectedEquipmentInstructionManualToggleFullscreenButton").on('click', funct
 	ResizeResponsiveEmbeds();
 });
 
-$("#selectedEquipmentDescriptionToggleFullscreenButton").on('click', function(e)
+$("#selectedEquipmentDescriptionToggleFullscreenButton").on('click', function (e)
 {
 	$("#selectedEquipmentDescriptionCard").toggleClass("fullscreen");
 	$("#selectedEquipmentDescriptionCard .card-header").toggleClass("fixed-top");

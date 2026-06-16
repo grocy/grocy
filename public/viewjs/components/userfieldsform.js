@@ -1,6 +1,6 @@
 Grocy.Components.UserfieldsForm = {};
 
-Grocy.Components.UserfieldsForm.Save = function(success, error)
+Grocy.Components.UserfieldsForm.Save = function (success, error)
 {
 	if (!$("#userfields-form").length)
 	{
@@ -24,7 +24,7 @@ Grocy.Components.UserfieldsForm.Save = function(success, error)
 		return;
 	}
 
-	editedUserfieldInputs.each(function(index, item)
+	editedUserfieldInputs.each(function (index, item)
 	{
 		var jsonData = {};
 		var input = $(this);
@@ -68,22 +68,22 @@ Grocy.Components.UserfieldsForm.Save = function(success, error)
 		}
 
 		Grocy.Api.Put('userfields/' + $("#userfields-form").data("entity") + '/' + Grocy.EditObjectId, jsonData,
-			function(result)
+			function (result)
 			{
 				if (typeof newFile !== 'undefined' && typeof oldFile !== 'undefined') // Delete and Upload
 				{
 					Grocy.Api.DeleteFile(oldFile, 'userfiles',
-						function(result)
+						function (result)
 						{
 							Grocy.Api.UploadFile(input[0].files[0], 'userfiles', newFile,
-								function(result2)
+								function (result2)
 								{
 									if (success && index === editedUserfieldInputs.length - 1) // Last item
 									{
 										success();
 									}
 								},
-								function(xhr)
+								function (xhr)
 								{
 									Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response);
 									if (error && index === editedUserfieldInputs.length - 1) // Last item
@@ -93,7 +93,7 @@ Grocy.Components.UserfieldsForm.Save = function(success, error)
 								}
 							);
 						},
-						function(xhr)
+						function (xhr)
 						{
 							Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response);
 							if (error && index === editedUserfieldInputs.length - 1) // Last item
@@ -106,14 +106,14 @@ Grocy.Components.UserfieldsForm.Save = function(success, error)
 				else if (typeof newFile !== 'undefined') // Upload only
 				{
 					Grocy.Api.UploadFile(input[0].files[0], 'userfiles', newFile,
-						function(result2)
+						function (result2)
 						{
 							if (success && index === editedUserfieldInputs.length - 1) // Last item
 							{
 								success();
 							}
 						},
-						function(xhr)
+						function (xhr)
 						{
 							Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response);
 							if (error && index === editedUserfieldInputs.length - 1) // Last item
@@ -126,14 +126,14 @@ Grocy.Components.UserfieldsForm.Save = function(success, error)
 				else if (typeof oldFile !== 'undefined') // Delete only
 				{
 					Grocy.Api.DeleteFile(oldFile, 'userfiles',
-						function(result)
+						function (result)
 						{
 							if (success && index === editedUserfieldInputs.length - 1) // Last item
 							{
 								success();
 							}
 						},
-						function(xhr)
+						function (xhr)
 						{
 							Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response);
 							if (error && index === editedUserfieldInputs.length - 1) // Last item
@@ -151,7 +151,7 @@ Grocy.Components.UserfieldsForm.Save = function(success, error)
 					}
 				}
 			},
-			function(xhr)
+			function (xhr)
 			{
 				if (error && index === editedUserfieldInputs.length - 1) // Last item
 				{
@@ -162,7 +162,7 @@ Grocy.Components.UserfieldsForm.Save = function(success, error)
 	});
 }
 
-Grocy.Components.UserfieldsForm.Load = function()
+Grocy.Components.UserfieldsForm.Load = function ()
 {
 	if (!$("#userfields-form").length)
 	{
@@ -174,9 +174,9 @@ Grocy.Components.UserfieldsForm.Load = function()
 		// Init fields by configured default values
 
 		Grocy.Api.Get("objects/userfields?query[]=entity=" + $("#userfields-form").data("entity"),
-			function(result)
+			function (result)
 			{
-				$.each(result, function(key, userfield)
+				$.each(result, function (key, userfield)
 				{
 					var input = $(".userfield-input[data-userfield-name='" + userfield.name + "']");
 
@@ -191,19 +191,19 @@ Grocy.Components.UserfieldsForm.Load = function()
 					else if (userfield.type == "checkbox" && userfield.input_required == 1)
 					{
 						input.prop("indeterminate", true);
-						input.on("change", function()
+						input.on("change", function ()
 						{
 							input.removeAttr("required");
 						});
 					}
 				});
 
-				$("form").each(function()
+				$("form").each(function ()
 				{
 					Grocy.FrontendHelpers.ValidateForm(this.id);
 				});
 			},
-			function(xhr)
+			function (xhr)
 			{
 				console.error(xhr);
 			}
@@ -214,9 +214,9 @@ Grocy.Components.UserfieldsForm.Load = function()
 		// Load object field values
 
 		Grocy.Api.Get('userfields/' + $("#userfields-form").data("entity") + '/' + Grocy.EditObjectId,
-			function(result)
+			function (result)
 			{
-				$.each(result, function(key, value)
+				$.each(result, function (key, value)
 				{
 					var input = $(".userfield-input[data-userfield-name='" + key + "']");
 
@@ -248,12 +248,12 @@ Grocy.Components.UserfieldsForm.Load = function()
 							var formGroup = input.parent().parent().parent();
 
 							formGroup.find("label.custom-file-label").text(fileName);
-							formGroup.find(".userfield-file-show").attr('href', U('/files/userfiles/' + value));
+							formGroup.find(".userfield-file-show").attr('href', U('/api/files/userfiles/' + value));
 							formGroup.find('.userfield-file-show').removeClass('d-none');
-							formGroup.find('img.userfield-current-file').attr('src', U('/files/userfiles/' + value + '?force_serve_as=picture&best_fit_width=250&best_fit_height=250'));
+							formGroup.find('img.userfield-current-file').attr('src', U('/api/files/userfiles/' + value + '?force_serve_as=picture&best_fit_width=250&best_fit_height=250'));
 
 							formGroup.find('.userfield-file-delete').click(
-								function()
+								function ()
 								{
 									formGroup.find("label.custom-file-label").text(__t("No file selected"));
 									formGroup.find(".userfield-file-show").addClass('d-none');
@@ -262,7 +262,7 @@ Grocy.Components.UserfieldsForm.Load = function()
 								}
 							);
 
-							input.on("change", function(e)
+							input.on("change", function (e)
 							{
 								formGroup.find(".userfield-file-show").addClass('d-none');
 							});
@@ -287,12 +287,12 @@ Grocy.Components.UserfieldsForm.Load = function()
 					}
 				});
 
-				$("form").each(function()
+				$("form").each(function ()
 				{
 					Grocy.FrontendHelpers.ValidateForm(this.id);
 				});
 			},
-			function(xhr)
+			function (xhr)
 			{
 				console.error(xhr);
 			}
@@ -300,7 +300,7 @@ Grocy.Components.UserfieldsForm.Load = function()
 	}
 }
 
-Grocy.Components.UserfieldsForm.Clear = function()
+Grocy.Components.UserfieldsForm.Clear = function ()
 {
 	if (!$("#userfields-form").length)
 	{
@@ -308,9 +308,9 @@ Grocy.Components.UserfieldsForm.Clear = function()
 	}
 
 	Grocy.Api.Get('objects/userfields?query[]=entity=' + $("#userfields-form").data("entity"),
-		function(result)
+		function (result)
 		{
-			$.each(result, function(key, userfield)
+			$.each(result, function (key, userfield)
 			{
 				var input = $(".userfield-input[data-userfield-name='" + userfield.name + "']");
 
@@ -328,13 +328,13 @@ Grocy.Components.UserfieldsForm.Clear = function()
 					var formGroup = input.parent().parent().parent();
 
 					formGroup.find("label.custom-file-label").text("");
-					formGroup.find(".userfield-file-show").attr('href', U('/files/userfiles/' + value));
+					formGroup.find(".userfield-file-show").attr('href', U('/api/files/userfiles/' + value));
 					formGroup.find('.userfield-file-show').removeClass('d-none');
 					formGroup.find('img.userfield-current-file')
-						.attr('src', U('/files/userfiles/' + value + '?force_serve_as=picture&best_fit_width=250&best_fit_height=250'));
+						.attr('src', U('/api/files/userfiles/' + value + '?force_serve_as=picture&best_fit_width=250&best_fit_height=250'));
 
 					formGroup.find('.userfield-file-delete').click(
-						function()
+						function ()
 						{
 							formGroup.find("label.custom-file-label").text(__t("No file selected"));
 							formGroup.find(".userfield-file-show").addClass('d-none');
@@ -342,7 +342,7 @@ Grocy.Components.UserfieldsForm.Clear = function()
 						}
 					);
 
-					input.on("change", function(e)
+					input.on("change", function (e)
 					{
 						formGroup.find(".userfield-file-show").addClass('d-none');
 					});
@@ -361,19 +361,19 @@ Grocy.Components.UserfieldsForm.Clear = function()
 				}
 			});
 
-			$("form").each(function()
+			$("form").each(function ()
 			{
 				Grocy.FrontendHelpers.ValidateForm(this.id);
 			});
 		},
-		function(xhr)
+		function (xhr)
 		{
 			console.error(xhr);
 		}
 	);
 }
 
-$(".userfield-link").keyup(function(e)
+$(".userfield-link").keyup(function (e)
 {
 	var formRow = $(this).parent().parent();
 	var title = formRow.find(".userfield-link-title").val();
@@ -387,15 +387,15 @@ $(".userfield-link").keyup(function(e)
 	formRow.find(".userfield-input").val(JSON.stringify(value)).addClass("is-dirty");
 });
 
-$(".userfield-input").change(function(e)
+$(".userfield-input").change(function (e)
 {
-	$("form").each(function()
+	$("form").each(function ()
 	{
 		Grocy.FrontendHelpers.ValidateForm(this.id);
 	});
 });
 
-$(".userfield-input.selectpicker").on("changed.bs.select", function()
+$(".userfield-input.selectpicker").on("changed.bs.select", function ()
 {
 	$(this).addClass("is-dirty");
 });

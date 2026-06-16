@@ -57,8 +57,6 @@ $app->group('', function (RouteCollectorProxy $group)
 	$group->get('/user/{userId}/permissions', [UsersController::class, 'PermissionList']);
 	$group->get('/usersettings', [UsersController::class, 'UserSettings']);
 
-	$group->get('/files/{group}/{fileName}', [FilesApiController::class, 'ShowFile']);
-
 	// Stock master data routes
 	$group->get('/products', [StockController::class, 'ProductsList']);
 	$group->get('/product/{productId}', [StockController::class, 'ProductEditForm']);
