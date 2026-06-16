@@ -25,6 +25,11 @@ class ExceptionController extends BaseApiController
 
 	public function __invoke(ServerRequestInterface $request, Throwable $exception, bool $displayErrorDetails, bool $logErrors, bool $logErrorDetails, ?LoggerInterface $logger = null)
 	{
+		if (!defined('GROCY_LOCALE'))
+		{
+			define('GROCY_LOCALE', GROCY_DEFAULT_LOCALE);
+		}
+
 		$response = $this->ResponseFactory->createResponse();
 		$isApiRoute = string_starts_with($request->getUri()->getPath(), '/api/');
 
