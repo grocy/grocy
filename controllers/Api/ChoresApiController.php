@@ -18,10 +18,9 @@ class ChoresApiController extends BaseApiController
 			$requestBody = $this->GetParsedAndFilteredRequestBody($request);
 
 			$choreId = null;
-
 			if (array_key_exists('chore_id', $requestBody) && !empty($requestBody['chore_id']) && is_numeric($requestBody['chore_id']))
 			{
-				$choreId = intval($requestBody['chore_id']);
+				$choreId = $requestBody['chore_id'];
 			}
 
 			if ($choreId === null)
