@@ -62,4 +62,4 @@
 
 ### API
 
-- xxx
+- Fixed that the endpoints `POST /stock/shoppinglist/add-product` and `POST /stock/shoppinglist/remove-product` truncated decimal product amounts

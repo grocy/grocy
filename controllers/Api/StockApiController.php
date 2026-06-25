@@ -24,7 +24,7 @@ class StockApiController extends BaseApiController
 
 			if (array_key_exists('list_id', $requestBody) && !empty($requestBody['list_id']) && is_numeric($requestBody['list_id']))
 			{
-				$listId = intval($requestBody['list_id']);
+				$listId = $requestBody['list_id'];
 			}
 
 			StockService::GetInstance()->AddMissingProductsToShoppingList($listId);
@@ -45,10 +45,9 @@ class StockApiController extends BaseApiController
 			$requestBody = $this->GetParsedAndFilteredRequestBody($request);
 
 			$listId = 1;
-
 			if (array_key_exists('list_id', $requestBody) && !empty($requestBody['list_id']) && is_numeric($requestBody['list_id']))
 			{
-				$listId = intval($requestBody['list_id']);
+				$listId = $requestBody['list_id'];
 			}
 
 			StockService::GetInstance()->AddOverdueProductsToShoppingList($listId);
@@ -69,10 +68,9 @@ class StockApiController extends BaseApiController
 			$requestBody = $this->GetParsedAndFilteredRequestBody($request);
 
 			$listId = 1;
-
 			if (array_key_exists('list_id', $requestBody) && !empty($requestBody['list_id']) && is_numeric($requestBody['list_id']))
 			{
-				$listId = intval($requestBody['list_id']);
+				$listId = $requestBody['list_id'];
 			}
 
 			StockService::GetInstance()->AddExpiredProductsToShoppingList($listId);
@@ -141,7 +139,7 @@ class StockApiController extends BaseApiController
 			$stockLabelType = 0;
 			if (array_key_exists('stock_label_type', $requestBody) && is_numeric($requestBody['stock_label_type']))
 			{
-				$stockLabelType = intval($requestBody['stock_label_type']);
+				$stockLabelType = $requestBody['stock_label_type'];
 			}
 
 			$note = null;
@@ -190,17 +188,17 @@ class StockApiController extends BaseApiController
 
 			if (array_key_exists('list_id', $requestBody) && !empty($requestBody['list_id']) && is_numeric($requestBody['list_id']))
 			{
-				$listId = intval($requestBody['list_id']);
+				$listId = $requestBody['list_id'];
 			}
 
 			if (array_key_exists('product_amount', $requestBody) && !empty($requestBody['product_amount']) && is_numeric($requestBody['product_amount']))
 			{
-				$amount = intval($requestBody['product_amount']);
+				$amount = $requestBody['product_amount'];
 			}
 
 			if (array_key_exists('product_id', $requestBody) && !empty($requestBody['product_id']) && is_numeric($requestBody['product_id']))
 			{
-				$productId = intval($requestBody['product_id']);
+				$productId = $requestBody['product_id'];
 			}
 
 			if (array_key_exists('note', $requestBody) && !empty($requestBody['note']))
@@ -238,7 +236,7 @@ class StockApiController extends BaseApiController
 			$listId = 1;
 			if (array_key_exists('list_id', $requestBody) && !empty($requestBody['list_id']) && is_numeric($requestBody['list_id']))
 			{
-				$listId = intval($requestBody['list_id']);
+				$listId = $requestBody['list_id'];
 			}
 
 			$doneOnly = false;
@@ -507,7 +505,7 @@ class StockApiController extends BaseApiController
 			$stockLabelType = 0;
 			if (array_key_exists('stock_label_type', $requestBody) && is_numeric($requestBody['stock_label_type']))
 			{
-				$stockLabelType = intval($requestBody['stock_label_type']);
+				$stockLabelType = $requestBody['stock_label_type'];
 			}
 
 			$note = null;
@@ -740,17 +738,17 @@ class StockApiController extends BaseApiController
 
 			if (array_key_exists('list_id', $requestBody) && !empty($requestBody['list_id']) && is_numeric($requestBody['list_id']))
 			{
-				$listId = intval($requestBody['list_id']);
+				$listId = $requestBody['list_id'];
 			}
 
 			if (array_key_exists('product_amount', $requestBody) && !empty($requestBody['product_amount']) && is_numeric($requestBody['product_amount']))
 			{
-				$amount = intval($requestBody['product_amount']);
+				$amount = $requestBody['product_amount'];
 			}
 
 			if (array_key_exists('product_id', $requestBody) && !empty($requestBody['product_id']) && is_numeric($requestBody['product_id']))
 			{
-				$productId = intval($requestBody['product_id']);
+				$productId = $requestBody['product_id'];
 			}
 
 			if ($productId == null)
