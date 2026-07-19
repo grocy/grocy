@@ -17,6 +17,7 @@
   - This will only apply to new consume / transfer transactions, not when undoing transactions made before using this release
 - Fixed that the status filter on the master data products page always displayed "All" after selection (only affected Chrome/Edge)
 - Fixed that the "This means _n QU_ will be removed/added from stock"-hint on the inventory page wasn't updated when changing the quantity unit only
+- Fixed that the product open button on the stock overview page wasn't disabled after opening the last unit
 
 ### Shopping list
 
