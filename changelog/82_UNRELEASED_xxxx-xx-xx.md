@@ -16,6 +16,7 @@
 - Fixed that when undoing a product consume or transfer transaction, the store of the corresponding stock entry wasn't restored
   - This will only apply to new consume / transfer transactions, not when undoing transactions made before using this release
 - Fixed that the status filter on the master data products page always displayed "All" after selection (only affected Chrome/Edge)
+- Fixed that the "This means _n QU_ will be removed/added from stock"-hint on the inventory page wasn't updated when changing the quantity unit only
 
 ### Shopping list
 
