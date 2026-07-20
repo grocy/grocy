@@ -11,6 +11,7 @@
 ### Stock
 
 - The product picker now searches product names accent insensitive
+- Optimized the location input on the transfer page: The selected "From Location" is now automatically hidden in the "To Location" dropdown
 - Fixed that the product picker workflow dialog was not displayed when the entered value contained double quotes
 - Fixed that changing the location on the purchase page re-initialized the due date based on product defaults (if any)
 - Fixed that when undoing a product consume or transfer transaction, the store of the corresponding stock entry wasn't restored

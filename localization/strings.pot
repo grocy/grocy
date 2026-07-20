@@ -1516,9 +1516,6 @@ msgstr ""
 msgid "Is freezer"
 msgstr ""
 
-msgid "This cannot be the same as the \"From\" location"
-msgstr ""
-
 msgid "Thawed"
 msgstr ""
 
