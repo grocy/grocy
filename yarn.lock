@@ -4,12 +4,12 @@
 
 "@danielfarrell/bootstrap-combobox@https://github.com/berrnd/bootstrap-combobox.git#master-fork":
   version "1.2.0"
-  resolved "https://github.com/berrnd/bootstrap-combobox.git#4dd21c3dcd3e3601f77718d493cd626e7cf0e782"
+  resolved "https://github.com/berrnd/bootstrap-combobox.git#76d7b5a17bfaaad5ed2296b321d85bf60a900e2b"
 
 "@fontsource/roboto@^5.1.1":
-  version "5.2.10"
-  resolved "https://registry.yarnpkg.com/@fontsource/roboto/-/roboto-5.2.10.tgz#b985d34de475913b41d0fb57e2dcd0b16ab9ecb5"
-  integrity sha512-8HlA5FtSfz//oFSr2eL7GFXAiE7eIkcGOtx7tjsLKq+as702x9+GU7K95iDeWFapHC4M2hv9RrpXKRTGGBI8Zg==
+  version "5.3.0"
+  resolved "https://registry.yarnpkg.com/@fontsource/roboto/-/roboto-5.3.0.tgz#fd0dcdaa0c6ef3a1621253ea702db933ca1b573a"
+  integrity sha512-BapRJOWYP+LZ21zp+wBQjfpPYKRoxc4LspJ/RLuI+HSMBD5u/X4O+ESDrSvEqDSy0rAl7GwBJ+09mdc16cVQ1Q==
 
 "@fortawesome/fontawesome-free@^6.1.1":
   version "6.7.2"
@@ -56,9 +56,9 @@ bootstrap@^4.5.2, bootstrap@^4.6.1:
   integrity sha512-51Bbp/Uxr9aTuy6ca/8FbFloBUJZLHwnhTcnjIeRn2suQWsWzcuJhGjKDB5eppVte/8oCdOL3VuwxvZDUggwGQ==
 
 bwip-js@^4.5.1:
-  version "4.9.0"
-  resolved "https://registry.yarnpkg.com/bwip-js/-/bwip-js-4.9.0.tgz#8a863b17f0890385432ee44f1c7719c752b5e268"
-  integrity sha512-U3aWIxR/Px4m3GPd0opQ5GQJq/G8Cj0cr5z5hrcvy/SAApPnfkLqBqjRuB3GiEAasEQup3m7k/MDM/uiS9te8Q==
+  version "4.11.2"
+  resolved "https://registry.yarnpkg.com/bwip-js/-/bwip-js-4.11.2.tgz#b760c80bb589d149b71ed648f6796c38f2d3f88a"
+  integrity sha512-gAjZvO0a8n6NmzbtqRY5gLrYO4vNWtbmUXfyWG/NMG8/qJE66ahbzA8J0MvBkWnYY69zx3qfJQq4q9qu3Bm3FQ==
 
 chart.js@^2.8.0:
   version "2.9.4"
@@ -129,11 +129,11 @@ datatables.net-bs4@^1.10.22, datatables.net-bs4@^1.13.0:
     jquery "1.8 - 4"
 
 datatables.net-bs4@^2:
-  version "2.3.7"
-  resolved "https://registry.yarnpkg.com/datatables.net-bs4/-/datatables.net-bs4-2.3.7.tgz#c361ff8f439bf63e1ec4862085ec667fb96bfd7f"
-  integrity sha512-ZyofK/3Unj0lQdAIsI9gT5oGCwTnx8y2UF6muYkbdO/Rw9h+x2kQwFkuCX5J0j6N2B+YCwzHk2OPu9yU8nk1Kw==
+  version "2.3.8"
+  resolved "https://registry.yarnpkg.com/datatables.net-bs4/-/datatables.net-bs4-2.3.8.tgz#da3660b5981ba062aa59dda1c81c524201111742"
+  integrity sha512-i65jbIw6DPG6KyUXRacCFzbawRYA2UjPg68tPkOns/r9YXQngSMQ/+izdmJk1xnPDRXh3cuTqV8cqOIy1NXH1A==
   dependencies:
-    datatables.net "2.3.7"
+    datatables.net "2.3.8"
     jquery ">=1.7"
 
 datatables.net-colreorder-bs4@^1.5.2:
@@ -202,10 +202,10 @@ datatables.net@1.13.11, datatables.net@^1.10.22, datatables.net@^1.13.0:
   dependencies:
     jquery "1.8 - 4"
 
-datatables.net@2.3.7, datatables.net@^2:
-  version "2.3.7"
-  resolved "https://registry.yarnpkg.com/datatables.net/-/datatables.net-2.3.7.tgz#3cd34f6f5d1f40a46b5a20a4ba32604bdbcd6738"
-  integrity sha512-AvsjG/Nkp6OxeyBKYZauemuzQCPogE1kOtKwG4sYjvdqGCSLiGaJagQwXv4YxG+ts5vaJr6qKGG9ec3g6vTo3w==
+datatables.net@2.3.8, datatables.net@^2:
+  version "2.3.8"
+  resolved "https://registry.yarnpkg.com/datatables.net/-/datatables.net-2.3.8.tgz#55a8dbe3bd2196951c498ab79bf44602a2bf3229"
+  integrity sha512-uhViowhlDlheAuo5a8TrkQqADsjrtGeOyvrigvr4t0+K3MyAWqClORXWAYIcN9VLX6iIX0C8O9gwJNd01hITRg==
   dependencies:
     jquery ">=1.7"
 
@@ -275,9 +275,9 @@ summernote@^0.9.1:
   integrity sha512-5Hfuey6+N0XIbk8ZpkGEVDmrkRVRHZWKBhw/072i9/TJLaWUKboB+KOyyd6AzDP2CQs1O6or4zRTU8HY30kt4w==
 
 swagger-ui-dist@^5.2.0:
-  version "5.32.1"
-  resolved "https://registry.yarnpkg.com/swagger-ui-dist/-/swagger-ui-dist-5.32.1.tgz#21abc8944763901c9fade461c2c669f5621985e3"
-  integrity sha512-6HQoo7+j8PA2QqP5kgAb9dl1uxUjvR0SAoL/WUp1sTEvm0F6D5npgU2OGCLwl++bIInqGlEUQ2mpuZRZYtyCzQ==
+  version "5.32.10"
+  resolved "https://registry.yarnpkg.com/swagger-ui-dist/-/swagger-ui-dist-5.32.10.tgz#043741fbed5fdfbbfb383000209a5f5c8f41f3cb"
+  integrity sha512-RTrAPrp/J5H/H8JvRBOpR3qCsIhntOweFwaasR0TD2Y6a/7VUYYFnjyB3MFe1niAg3VkEQGT9pVZ0r225jvJJA==
   dependencies:
     "@scarf/scarf" "=1.4.0"
 

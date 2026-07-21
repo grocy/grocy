@@ -852,8 +852,9 @@ $.serializeJSON.defaultOptions.checkboxUncheckedValue = "0";
 
 // bootstrap-combobox defaults
 BootstrapComboboxDefaults = {
-	appendId: "_text_input",
-	bsVersion: "4",
+	"appendId": "_text_input",
+	"iconCaret": "fa-solid fa-caret-down",
+	"iconRemove": "fa-solid fa-xmark",
 	"matcher": function (item)
 	{
 		return ~item.accentNeutralise().toLowerCase().indexOf(this.query.accentNeutralise().toLowerCase());
