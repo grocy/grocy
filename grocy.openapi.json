@@ -301,6 +301,9 @@
 											},
 											{
 												"$ref": "#/components/schemas/ProductBarcode"
+											},
+											{
+												"$ref": "#/components/schemas/Userfield"
 											}
 										]
 									}
@@ -376,6 +379,9 @@
 									},
 									{
 										"$ref": "#/components/schemas/ProductBarcode"
+									},
+									{
+										"$ref": "#/components/schemas/Userfield"
 									}
 								]
 							}
@@ -469,6 +475,9 @@
 										},
 										{
 											"$ref": "#/components/schemas/ProductBarcode"
+										},
+										{
+											"$ref": "#/components/schemas/Userfield"
 										}
 									]
 								}
@@ -552,6 +561,9 @@
 									},
 									{
 										"$ref": "#/components/schemas/ProductBarcode"
+									},
+									{
+										"$ref": "#/components/schemas/Userfield"
 									}
 								]
 							}
@@ -5024,6 +5036,42 @@
 					},
 					"note": {
 						"type": "string"
+					}
+				}
+			},
+			"Userfield": {
+				"type": "object",
+				"properties": {
+					"entity": {
+						"type": "string"
+					},
+					"name": {
+						"type": "string"
+					},
+					"caption": {
+						"type": "string"
+					},
+					"type": {
+						"type": "string"
+					},
+					"show_as_column_in_tables": {
+						"type": "boolean"
+					},
+					"config": {
+						"type": "string"
+					},
+					"sort_number": {
+						"type": "integer"
+					},
+					"input_required": {
+						"type": "boolean"
+					},
+					"default_value": {
+						"type": "string"
+					},
+					"row_created_timestamp": {
+						"type": "string",
+						"format": "date-time"
 					}
 				}
 			},
