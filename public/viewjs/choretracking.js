@@ -105,7 +105,7 @@ $('#chore_id').on('change', function (e)
 	}
 });
 
-$(".combobox").combobox(Object.assign(BootstrapComboboxDefaults, { "clearIfNoMatch": false }));
+$(".combobox").combobox(BootstrapComboboxDefaults);
 
 $('#chore_id_text_input').trigger('change');
 Grocy.Components.DateTimePicker.GetInputElement().trigger('input');

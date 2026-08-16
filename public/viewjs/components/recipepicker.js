@@ -34,7 +34,7 @@ Grocy.Components.RecipePicker.Clear = function ()
 	Grocy.Components.RecipePicker.SetId(null);
 }
 
-$(".recipe-combobox").combobox(Object.assign(BootstrapComboboxDefaults, { "clearIfNoMatch": false }));
+$(".recipe-combobox").combobox(BootstrapComboboxDefaults);
 
 var prefillByName = Grocy.Components.RecipePicker.GetPicker().parent().data('prefill-by-name').toString();
 if (typeof prefillByName !== "undefined")

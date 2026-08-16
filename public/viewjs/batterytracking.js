@@ -71,7 +71,7 @@ $('#battery_id').on('change', function (e)
 	}
 });
 
-$(".combobox").combobox(Object.assign(BootstrapComboboxDefaults, { "clearIfNoMatch": false }));
+$(".combobox").combobox(BootstrapComboboxDefaults);
 
 $('#battery_id').val('');
 $('#battery_id_text_input').val('');
