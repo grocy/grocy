@@ -15,7 +15,7 @@ class BaseMiddleware
 		$this->ApplicationService = ApplicationService::GetInstance();
 	}
 
-	protected $AppContainer;
-	protected $ResponseFactory;
-	protected $ApplicationService;
+	protected Container $AppContainer;
+	protected ResponseFactoryInterface $ResponseFactory;
+	protected ApplicationService $ApplicationService;
 }

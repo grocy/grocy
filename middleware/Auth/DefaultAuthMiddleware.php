@@ -13,14 +13,14 @@ class DefaultAuthMiddleware extends BaseAuthMiddleware
 		if ($this->IsApiRoute)
 		{
 			// Session cookie or API Key is ok
-			$auth = new ApiKeyAuthMiddleware($this->AppContainer, $this->ResponseFactory);
+			$auth = new SessionAuthMiddleware($this->AppContainer, $this->ResponseFactory);
 			$user = $auth->AuthenticateRequest($request);
 			if ($user !== null)
 			{
 				return $user;
 			}
 
-			$auth = new SessionAuthMiddleware($this->AppContainer, $this->ResponseFactory);
+			$auth = new ApiKeyAuthMiddleware($this->AppContainer, $this->ResponseFactory);
 			$user = $auth->AuthenticateRequest($request);
 			return $user;
 		}

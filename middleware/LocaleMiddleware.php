@@ -18,7 +18,7 @@ class LocaleMiddleware extends BaseMiddleware
 
 	private function GetLocale(Request $request)
 	{
-		// demo and prerelease modes are fixed to the default locale
+		// Demo and Prerelease modes are fixed to the default locale
 		if (GROCY_MODE === 'demo' || GROCY_MODE === 'prerelease')
 		{
 			return GROCY_DEFAULT_LOCALE;
@@ -28,7 +28,6 @@ class LocaleMiddleware extends BaseMiddleware
 		if (defined('GROCY_AUTHENTICATED') && GROCY_AUTHENTICATED)
 		{
 			$locale = UsersService::GetInstance()->GetUserSetting(GROCY_USER_ID, 'locale');
-
 			if (isset($locale) && !empty($locale))
 			{
 				if (in_array($locale, scandir(__DIR__ . '/../localization')))
