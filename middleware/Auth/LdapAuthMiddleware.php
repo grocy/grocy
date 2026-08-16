@@ -1,43 +1,36 @@
 <?php
 
-namespace Grocy\Middleware;
+namespace Grocy\Middleware\Auth;
 
 use Grocy\Services\DatabaseService;
 use Grocy\Services\SessionService;
 use Grocy\Services\UsersService;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
-class LdapAuthMiddleware extends AuthMiddleware
+class LdapAuthMiddleware extends BaseAuthMiddleware
 {
-	public function authenticate(Request $request)
+	public function AuthenticateRequest(Request $request)
 	{
 		define('GROCY_EXTERNALLY_MANAGED_AUTHENTICATION', true);
 
-		// TODO: Reuse DefaultAuthMiddleware->authenticate somehow
-
-		// First try to authenticate by API key
-		$auth = new ApiKeyAuthMiddleware($this->AppContainer, $this->ResponseFactory);
-		$user = $auth->authenticate($request);
-		if ($user !== null)
-		{
-			return $user;
-		}
-
-		// Then by session cookie
-		$auth = new SessionAuthMiddleware($this->AppContainer, $this->ResponseFactory);
-		$user = $auth->authenticate($request);
-		return $user;
+		$auth = new DefaultAuthMiddleware($this->AppContainer, $this->ResponseFactory);
+		return $auth->AuthenticateRequest($request);
 	}
 
 	public static function ProcessLogin(array $postParams)
 	{
+		if (empty($postParams['username']) || empty($postParams['password']))
+		{
+			return false;
+		}
+
 		if ($connect = ldap_connect(GROCY_LDAP_ADDRESS))
 		{
 			ldap_set_option($connect, LDAP_OPT_PROTOCOL_VERSION, 3);
 			ldap_set_option($connect, LDAP_OPT_REFERRALS, 0);
 
-			// bind with service account to retrieve user DN
-			if ($bind = ldap_bind($connect, GROCY_LDAP_BIND_DN, GROCY_LDAP_BIND_PW))
+			// Bind with service account to retrieve user DN
+			if (ldap_bind($connect, GROCY_LDAP_BIND_DN, GROCY_LDAP_BIND_PW))
 			{
 				$filter = '(&(' . GROCY_LDAP_UID_ATTR . '=' . $postParams['username'] . ')' . GROCY_LDAP_USER_FILTER . ')';
 
@@ -61,20 +54,19 @@ class LdapAuthMiddleware extends AuthMiddleware
 				if (is_null($ldapDistinguishedName))
 				{
 					// User not found
+					ldap_close($connect);
 					return false;
 				}
 			}
 			else
 			{
 				// Bind authentication failed
-				return false;
+				throw new \Exception('LDAP error: ' . ldap_error($connect));
 			}
 
-			// bind with user account to validate password
-			if ($bind = ldap_bind($connect, $ldapDistinguishedName, $postParams['password']))
+			// Bind with user account to validate password
+			if (ldap_bind($connect, $ldapDistinguishedName, $postParams['password']))
 			{
-				ldap_close($connect);
-
 				$db = DatabaseService::GetInstance()->GetDbConnection();
 				$user = $db->users()->where('username', $ldapUidAttribute)->fetch();
 				if ($user == null)
@@ -89,9 +81,8 @@ class LdapAuthMiddleware extends AuthMiddleware
 			}
 			else
 			{
-				ldap_close($connect);
-
 				// User authentication failed
+				ldap_close($connect);
 				return false;
 			}
 		}

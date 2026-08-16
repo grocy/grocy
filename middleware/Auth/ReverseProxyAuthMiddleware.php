@@ -1,25 +1,26 @@
 <?php
 
-namespace Grocy\Middleware;
+namespace Grocy\Middleware\Auth;
 
 use Grocy\Services\DatabaseService;
 use Grocy\Services\UsersService;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
-class ReverseProxyAuthMiddleware extends AuthMiddleware
+class ReverseProxyAuthMiddleware extends BaseAuthMiddleware
 {
-	public function authenticate(Request $request)
+	public function AuthenticateRequest(Request $request)
 	{
 		define('GROCY_EXTERNALLY_MANAGED_AUTHENTICATION', true);
 
-		$db = DatabaseService::GetInstance()->GetDbConnection();
-
-		// API key authentication is also ok
-		$auth = new ApiKeyAuthMiddleware($this->AppContainer, $this->ResponseFactory);
-		$user = $auth->authenticate($request);
-		if ($user !== null)
+		// When the reverse proxy is configured to be bypassed for API routes, try to use regular ApiKeyAuth
+		if ($this->IsApiRoute)
 		{
-			return $user;
+			$auth = new ApiKeyAuthMiddleware($this->AppContainer, $this->ResponseFactory);
+			$user = $auth->AuthenticateRequest($request);
+			if ($user !== null)
+			{
+				return $user;
+			}
 		}
 
 		if (GROCY_REVERSE_PROXY_AUTH_USE_ENV)
@@ -48,6 +49,7 @@ class ReverseProxyAuthMiddleware extends AuthMiddleware
 			$username = $username[0];
 		}
 
+		$db = DatabaseService::GetInstance()->GetDbConnection();
 		$user = $db->users()->where('username', $username)->fetch();
 		if ($user == null)
 		{

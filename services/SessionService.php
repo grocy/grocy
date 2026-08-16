@@ -8,7 +8,7 @@ class SessionService extends BaseService
 
 	public function CreateSession($userId, $stayLoggedInPermanently = false)
 	{
-		$newSessionKey = $this->GenerateSessionKey();
+		$newSessionKey = $this->GenerateKey();
 		$expires = date('Y-m-d H:i:s', time() + 2592000);
 
 		// Default is that sessions expire in 30 days
@@ -76,7 +76,7 @@ class SessionService extends BaseService
 		$this->DB->sessions()->where('session_key', $sessionKey)->delete();
 	}
 
-	private function GenerateSessionKey()
+	private function GenerateKey()
 	{
 		return RandomString(50);
 	}

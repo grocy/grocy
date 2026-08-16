@@ -1,8 +1,4 @@
-> ⚠️ xxxBREAKING CHANGESxxx
-
-> ❗ xxxImportant upgrade informationXXX
-
-> 💡 xxxMinor upgrade informationXXX
+> ⚠️ Authentication middleware was reorganized, review your `AUTH_CLASS` setting (see the default reference in `config-dist.php` as usual)
 
 ### New Feature: xxxx
 

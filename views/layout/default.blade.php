@@ -119,12 +119,12 @@
 		};
 
 		@if (GROCY_AUTHENTICATED)
-		Grocy.UserSettings = {!! json_encode($userSettings) !!};
 		Grocy.UserId = {{ GROCY_USER_ID }};
+		Grocy.UserSettings = {!! json_encode($userSettings) !!};
 		Grocy.UserPermissions = {!! json_encode($permissions) !!};
 		@else
-		Grocy.UserSettings = { };
 		Grocy.UserId = -1;
+		Grocy.UserSettings = { };
 		@endif
 	</script>
 </head>

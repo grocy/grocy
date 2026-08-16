@@ -1,14 +1,13 @@
 <?php
 
-namespace Grocy\Middleware;
+namespace Grocy\Middleware\Auth;
 
 use DI\Container;
 use Grocy\Services\ApiKeyService;
 use Psr\Http\Message\ResponseFactoryInterface;
 use Psr\Http\Message\ServerRequestInterface as Request;
-use Slim\Routing\RouteContext;
 
-class ApiKeyAuthMiddleware extends AuthMiddleware
+class ApiKeyAuthMiddleware extends BaseAuthMiddleware
 {
 	public function __construct(Container $container, ResponseFactoryInterface $responseFactory)
 	{
@@ -16,26 +15,18 @@ class ApiKeyAuthMiddleware extends AuthMiddleware
 		$this->ApiKeyHeaderName = $this->AppContainer->get('ApiKeyHeaderName');
 	}
 
-	protected $ApiKeyHeaderName;
+	protected readonly string $ApiKeyHeaderName;
 
-	public function authenticate(Request $request)
+	public function AuthenticateRequest(Request $request)
 	{
-		$routeContext = RouteContext::fromRequest($request);
-		$route = $routeContext->getRoute();
-		$routeName = $route->getName();
-
-		$validApiKey = true;
+		$validApiKey = false;
 		$usedApiKey = null;
-
 		$apiKeyService = new ApiKeyService();
 
-		// First check of the API key in the configured header
-		if (!$request->hasHeader($this->ApiKeyHeaderName) || !$apiKeyService->IsValidApiKey($request->getHeaderLine($this->ApiKeyHeaderName)))
+		// First check the key in the configured header
+		if ($request->hasHeader($this->ApiKeyHeaderName) && $apiKeyService->IsValidApiKey($request->getHeaderLine($this->ApiKeyHeaderName)))
 		{
-			$validApiKey = false;
-		}
-		else
-		{
+			$validApiKey = true;
 			$usedApiKey = $request->getHeaderLine($this->ApiKeyHeaderName);
 		}
 
@@ -49,7 +40,7 @@ class ApiKeyAuthMiddleware extends AuthMiddleware
 		// Handling of special purpose API keys
 		if (!$validApiKey)
 		{
-			if ($routeName === 'calendar-ical')
+			if ($this->RouteName === 'calendar-ical')
 			{
 				if ($request->getQueryParam('secret') !== null && $apiKeyService->IsValidApiKey($request->getQueryParam('secret'), ApiKeyService::API_KEY_TYPE_SPECIAL_PURPOSE_CALENDAR_ICAL))
 				{

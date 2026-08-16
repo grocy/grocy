@@ -1,34 +1,38 @@
 <?php
 
-namespace Grocy\Middleware;
+namespace Grocy\Middleware\Auth;
 
+use Grocy\Middleware\BaseMiddleware;
 use Grocy\Services\SessionService;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Server\RequestHandlerInterface as RequestHandler;
 use Slim\Routing\RouteContext;
 
-abstract class AuthMiddleware extends BaseMiddleware
+abstract class BaseAuthMiddleware extends BaseMiddleware
 {
+	protected ?string $RouteName = null;
+	protected bool $IsApiRoute = false;
+
 	public function __invoke(Request $request, RequestHandler $handler): Response
 	{
 		$routeContext = RouteContext::fromRequest($request);
 		$route = $routeContext->getRoute();
-		$routeName = $route->getName();
-		$isApiRoute = string_starts_with($request->getUri()->getPath(), '/api/');
+		$this->RouteName = $route->getName();
+		$this->IsApiRoute = string_starts_with($request->getUri()->getPath(), '/api/');
 
-		if ($routeName === 'root')
+		if ($this->RouteName === 'root' || $this->RouteName === 'login')
 		{
-			return $handler->handle($request);
-		}
-		elseif ($routeName === 'login')
-		{
+			// Root and Login routes are public/unauthenticated
+
 			define('GROCY_AUTHENTICATED', false);
 			return $handler->handle($request);
 		}
 
 		if (GROCY_MODE === 'dev' || GROCY_MODE === 'demo' || GROCY_MODE === 'prerelease' || GROCY_IS_EMBEDDED_INSTALL || GROCY_DISABLE_AUTH)
 		{
+			// These modes use default user context (without authentication) only
+
 			$sessionService = SessionService::GetInstance();
 			$user = $sessionService->GetDefaultUser();
 
@@ -40,15 +44,16 @@ abstract class AuthMiddleware extends BaseMiddleware
 		}
 		else
 		{
-			$user = $this->authenticate($request);
+			// Normal authentication flow (up to specific middleware implementation)
+
+			$user = $this->AuthenticateRequest($request);
 
 			if ($user === null)
 			{
 				define('GROCY_AUTHENTICATED', false);
-
 				$response = $this->ResponseFactory->createResponse();
 
-				if ($isApiRoute)
+				if ($this->IsApiRoute)
 				{
 					return $response->withStatus(401);
 				}
@@ -69,7 +74,7 @@ abstract class AuthMiddleware extends BaseMiddleware
 		}
 	}
 
-	protected static function SetSessionCookie($sessionKey)
+	protected static function SetSessionCookie(string $sessionKey)
 	{
 		// Cookie never expires, session validity is up to SessionService
 		setcookie(SessionService::SESSION_COOKIE_NAME, $sessionKey, PHP_INT_SIZE == 4 ? PHP_INT_MAX : PHP_INT_MAX >> 32);
@@ -78,14 +83,14 @@ abstract class AuthMiddleware extends BaseMiddleware
 	/**
 	 * @param array $postParams
 	 * @return bool True/False if the provided credentials were valid
-	 * @throws \Exception Throws an \Exception if an error happened during credentials processing or if this AuthMiddleware doesn't provide credentials processing (e. g. handles this externally)
+	 * @throws \Exception Throws an \Exception if an error happened during credentials processing or if this authentication middlware doesn't provide credentials processing (e.g. handles this externally)
 	 */
 	abstract public static function ProcessLogin(array $postParams);
 
 	/**
 	 * @param Request $request
 	 * @return mixed|null the user row or null if the request is not authenticated
-	 * @throws \Exception Throws an \Exception if config is invalid.
+	 * @throws \Exception Throws an \Exception if authentaction config is invalid
 	 */
-	abstract protected function authenticate(Request $request);
+	abstract protected function AuthenticateRequest(Request $request);
 }

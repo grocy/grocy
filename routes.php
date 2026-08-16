@@ -269,7 +269,7 @@ $app->group('/api', function (RouteCollectorProxy $group)
 
 
 // For CORS preflight OPTIONS requests
-$app->options('/api/{routes:.+}', function (Request $request, Response $response): Response
+$app->any('/api/{routes:.+}', function (Request $request, Response $response): Response
 {
 	return $response;
 })->add(new CorsMiddleware($container, $app->getResponseFactory()));
