@@ -5907,7 +5907,8 @@
 					"recipes_pos_resolved",
 					"battery_charge_cycles",
 					"product_barcodes_view",
-					"permission_hierarchy"
+					"permission_hierarchy",
+					"uihelper_shopping_list"
 				]
 			},
 			"ExposedEntityNoListing": {
@@ -5930,7 +5931,8 @@
 					"recipes_pos_resolved",
 					"battery_charge_cycles",
 					"product_barcodes_view",
-					"permission_hierarchy"
+					"permission_hierarchy",
+					"uihelper_shopping_list"
 				]
 			},
 			"ExposedEntityNoDelete": {
@@ -5946,7 +5948,8 @@
 					"recipes_pos_resolved",
 					"battery_charge_cycles",
 					"product_barcodes_view",
-					"permission_hierarchy"
+					"permission_hierarchy",
+					"uihelper_shopping_list"
 				]
 			},
 			"ExposedEntityEditRequiresAdmin": {

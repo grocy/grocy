@@ -371,6 +371,18 @@ function OnListItemRemoved()
 	{
 		$("#add-all-items-to-stock-button").addClass("disabled");
 	}
+
+	Grocy.Api.Get("objects/uihelper_shopping_list?" + "?query[]=shopping_list_id=" + $("#selected-shopping-list").val(),
+		function (items)
+		{
+			$("#total-value").text(items.reduce((x, { last_price_total }) => x + last_price_total, 0));
+			RefreshLocaleNumberDisplay();
+		},
+		function (xhr)
+		{
+			console.error(xhr);
+		}
+	);
 }
 OnListItemRemoved();
 
