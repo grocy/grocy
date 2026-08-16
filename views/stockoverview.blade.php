@@ -173,8 +173,8 @@
 					<th class="d-none">Hidden location</th>
 					<th class="d-none">Hidden status</th>
 					<th class="d-none">Hidden product group</th>
-					<th>{{ $__t('Calories') }} ({{ $__t('Per stock quantity unit') }})</th>
-					<th>{{ $__t('Calories') }}</th>
+					<th>{{ GROCY_ENERGY_UNIT }} ({{ $__t('Per stock quantity unit') }})</th>
+					<th>{{ GROCY_ENERGY_UNIT }}</th>
 					<th class="allow-grouping">{{ $__t('Last purchased') }}</th>
 					<th class="@if(!GROCY_FEATURE_FLAG_STOCK_PRICE_TRACKING) d-none @endif">{{ $__t('Last price') }}</th>
 					<th class="allow-grouping">{{ $__t('Min. stock amount') }}</th>
