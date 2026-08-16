@@ -15,6 +15,7 @@
 - Fixed that the status filter on the master data products page always displayed "All" after selection (only affected Chrome/Edge)
 - Fixed that the "This means _n QU_ will be removed/added from stock"-hint on the inventory page wasn't updated when changing the quantity unit only
 - Fixed that the product open button on the stock overview page wasn't disabled after opening the last unit
+- Fixed that when changing a product name to one that already exists, no corresponding error message was shown on the product edit page
 
 ### Shopping list
 
