@@ -166,6 +166,7 @@
 							<div class="table-inline-menu dropdown-menu dropdown-menu-right">
 								<a class="dropdown-item track-chore-button permission-CHORE_TRACK_EXECUTION @if(!boolval($userSettings['chores_overview_swap_tracking_buttons'])) now @endif"
 									data-chore-id="{{ $curentChoreEntry->chore_id }}"
+									data-chore-name="{{ FindObjectInArrayByPropertyValue($chores, 'id', $curentChoreEntry->chore_id)->name }}"
 									type="button"
 									href="#">
 									@if(boolval($userSettings['chores_overview_swap_tracking_buttons']))

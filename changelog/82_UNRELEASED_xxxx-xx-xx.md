@@ -32,7 +32,7 @@
 
 ### Chores
 
-- xxx
+- Fixed that when tracking a chore via the context/more menu on the chores overview page, the chore name was missing in the confirmation popup
 
 ### Calendar
 
