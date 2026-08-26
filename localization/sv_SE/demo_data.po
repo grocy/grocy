@@ -8,6 +8,7 @@
 # Matt Sawyers, 2022
 # riiga <riiga_92@hotmail.com>, 2024
 # Johan Helin, 2025
+# Jonatan Nyberg, 2026
 # 
 msgid ""
 msgstr ""
@@ -15,7 +16,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Johan Helin, 2025\n"
+"Last-Translator: Jonatan Nyberg, 2026\n"
 "Language-Team: Swedish (Sweden) (https://app.transifex.com/grocy/teams/93189/sv_SE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -37,30 +38,30 @@ msgid "Candy cupboard"
 msgstr "Godisskåp"
 
 msgid "Tinned food cupboard"
-msgstr "Konservskafferi"
+msgstr "Konservskåp"
 
 msgid "Glass"
 msgid_plural "Glasses"
-msgstr[0] "Glas"
+msgstr[0] "glas"
 msgstr[1] "glas"
 
 msgid "Tin"
 msgid_plural "Tins"
-msgstr[0] "Burk"
+msgstr[0] "konservburk"
 msgstr[1] "konservburkar"
 
 msgid "Can"
 msgid_plural "Cans"
-msgstr[0] "Burk"
+msgstr[0] "burk"
 msgstr[1] "burkar"
 
 msgid "Bunch"
 msgid_plural "Bunches"
-msgstr[0] "Knippa"
+msgstr[0] "knippa"
 msgstr[1] "knippor"
 
 msgid "Gummy bears"
-msgstr "Gummibjörnar"
+msgstr "Gelébjörnar"
 
 msgid "Crisps"
 msgstr "Chips"
@@ -69,13 +70,13 @@ msgid "Eggs"
 msgstr "Ägg"
 
 msgid "Noodles"
-msgstr "Spaghetti"
+msgstr "Nudlar"
 
 msgid "Pickles"
-msgstr "Inlagda grönsaker"
+msgstr "Inlagd gurka"
 
 msgid "Gulash soup"
-msgstr "Gulashsoppa"
+msgstr "Gulaschsoppa"
 
 msgid "Yogurt"
 msgstr "Yoghurt"
@@ -99,7 +100,7 @@ msgid "Tomato"
 msgstr "Tomat"
 
 msgid "Change towels in the bathroom"
-msgstr "Byta handdukar i badrummet"
+msgstr "Byt handdukar i badrummet"
 
 msgid "Mop the kitchen floor"
 msgstr "Moppa köksgolvet"
@@ -108,19 +109,19 @@ msgid "Warranty ends"
 msgstr "Garantin upphör"
 
 msgid "TV remote control"
-msgstr "TV-fjärrkontroll"
+msgstr "Tv-fjärrkontroll"
 
 msgid "Alarm clock"
 msgstr "Väckarklocka"
 
 msgid "Heat remote control"
-msgstr "Termostat-fjärrkontroll"
+msgstr "Fjärrkontroll till värmen"
 
 msgid "Take out the trash"
-msgstr "Ta ut soporna"
+msgstr "Gå ut med soporna"
 
 msgid "Some good snacks"
-msgstr "Några bra tilltugg"
+msgstr "Lite gott tilltugg"
 
 msgid "Pizza dough"
 msgstr "Pizzadeg"
@@ -156,10 +157,10 @@ msgid "Italian"
 msgstr "Italienska"
 
 msgid "This is the note content of the recipe ingredient"
-msgstr "Detta är anteckningen för receptets ingrediens"
+msgstr "Det här är anteckningstexten för receptingrediensen"
 
 msgid "Demo User"
-msgstr "Demo-användare"
+msgstr "Demoanvändare"
 
 msgid "Gram"
 msgid_plural "Grams"
@@ -182,10 +183,10 @@ msgid "Bakery products"
 msgstr "Bageriprodukter"
 
 msgid "Tinned food"
-msgstr "Konserverad mat"
+msgstr "Konserver"
 
 msgid "Butchery products"
-msgstr "Slaktprodukter"
+msgstr "Köttvaror"
 
 msgid "Vegetables/Fruits"
 msgstr "Grönsaker/frukt"
@@ -194,7 +195,7 @@ msgid "Refrigerated products"
 msgstr "Kylda produkter"
 
 msgid "Coffee machine"
-msgstr "Kaffebryggare"
+msgstr "Kaffemaskin"
 
 msgid "Dishwasher"
 msgstr "Diskmaskin"
@@ -227,7 +228,7 @@ msgid "Bottom"
 msgstr "Botten"
 
 msgid "Topping"
-msgstr "Garnering"
+msgstr "Topping"
 
 msgid "French"
 msgstr "Franska"
@@ -245,10 +246,10 @@ msgid "Vacuum the living room floor"
 msgstr "Dammsug vardagsrumsgolvet"
 
 msgid "Clean the litter box"
-msgstr "Städa kattlådan"
+msgstr "Rengör kattlådan"
 
 msgid "Change the bed sheets"
-msgstr "Byta lakanen"
+msgstr "Byt lakan"
 
 msgid "Swedish"
 msgstr "Svenska"
@@ -260,24 +261,24 @@ msgid "Milk Chocolate"
 msgstr "Mjölkchoklad"
 
 msgid "Dark Chocolate"
-msgstr "Mörk chocklad"
+msgstr "Mörk choklad"
 
 msgid "Slice"
 msgid_plural "Slices"
-msgstr[0] "Skiva"
+msgstr[0] "skiva"
 msgstr[1] "skivor"
 
 msgid "Example userentity"
-msgstr "Exempel användarenhet"
+msgstr "Exempel på användarpost"
 
 msgid "This is an example user entity..."
-msgstr "Detta är ett exempel på en användarenhet..."
+msgstr "Det här är ett exempel på en användarpost..."
 
 msgid "Custom field"
 msgstr "Anpassat fält"
 
 msgid "Example field value..."
-msgstr "Anpassat fält värde..."
+msgstr "Exempel på fältvärde..."
 
 msgid "Waffle rolls"
 msgstr "Våffelrullar"
@@ -286,7 +287,7 @@ msgid "Danish"
 msgstr "Danska"
 
 msgid "Dutch"
-msgstr "Hollänska"
+msgstr "Nederländska"
 
 msgid "Norwegian"
 msgstr "Norska"
@@ -298,13 +299,13 @@ msgid "Stable version"
 msgstr "Stabil version"
 
 msgid "Preview version"
-msgstr "Förhandsgranskningsversion"
+msgstr "Förhandsversion"
 
 msgid "current release"
 msgstr "aktuell version"
 
 msgid "not yet released"
-msgstr "osläppt version"
+msgstr "ännu inte släppt"
 
 msgid "Portuguese (Brazil)"
 msgstr "Portugisiska (Brasilien)"
@@ -329,11 +330,11 @@ msgstr "Portugisiska (Portugal)"
 
 # Use a in your country well known supermarket name
 msgid "DemoSupermarket1"
-msgstr "Demo-affär1"
+msgstr "Demobutik 1"
 
 # Use a in your country well known supermarket name
 msgid "DemoSupermarket2"
-msgstr "Demo-affär2"
+msgstr "Demobutik 2"
 
 msgid "Japanese"
 msgstr "Japanska"
@@ -389,7 +390,7 @@ msgid "Romanian"
 msgstr "Rumänska"
 
 msgid "Pint"
-msgstr "brittisk pint"
+msgstr "pint"
 
 msgid "Beverages"
 msgstr "Drycker"

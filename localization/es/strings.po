@@ -723,11 +723,8 @@ msgstr "Grupo de productos"
 msgid "Are you sure you want to delete product group \"%s\"?"
 msgstr ""
 
-msgid "Stay logged in permanently"
-msgstr "Mantener la sesión iniciada"
-
-msgid "When not set, you will get logged out at latest after 30 days"
-msgstr "Si no está marcado, se cerrará la sesión como máximo en 30 días"
+msgid "Remember Me"
+msgstr ""
 
 msgid "Status"
 msgstr "Estado"
@@ -1727,9 +1724,6 @@ msgstr ""
 msgid "Is freezer"
 msgstr "Es congelador"
 
-msgid "This cannot be the same as the \"From\" location"
-msgstr "Esto no puede ser lo mismo que la ubicación origen"
-
 msgid "Thawed"
 msgstr "Descongelado"
 
@@ -1787,9 +1781,6 @@ msgstr "Eliminar este artículo"
 msgid "Show an icon if the product is already on the shopping list"
 msgstr "Mostrar un icono si el producto ya está en la lista de la compra"
 
-msgid "Calories"
-msgstr "Calorías"
-
 msgid "means %1$s per %2$s"
 msgstr "significa %1$s por %2$s"
 
@@ -1838,8 +1829,8 @@ msgstr ""
 msgid "Clear filter"
 msgstr "Limpiar filtro"
 
-msgid "Permissions for user %s"
-msgstr "Permisos del usuario %s"
+msgid "Permissions"
+msgstr ""
 
 msgid "Are you sure you want to remove full permissions for yourself?"
 msgstr "¿Está seguro de querer eliminar permisos totales para usted?"
@@ -2913,3 +2904,24 @@ msgid_plural "Packs"
 msgstr[0] "Paquetes"
 msgstr[1] "Paquetes"
 msgstr[2] "Paquetes"
+
+msgid "Manage user sessions"
+msgstr ""
+
+msgid "Sessions"
+msgstr ""
+
+msgid "Token type"
+msgstr ""
+
+msgid "Token hash"
+msgstr ""
+
+msgid "Client"
+msgstr ""
+
+msgid "This session"
+msgstr ""
+
+msgid "Are you sure you want to delete the selected session?"
+msgstr ""

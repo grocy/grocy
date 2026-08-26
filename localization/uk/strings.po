@@ -719,11 +719,8 @@ msgstr "Група продуктів"
 msgid "Are you sure you want to delete product group \"%s\"?"
 msgstr ""
 
-msgid "Stay logged in permanently"
-msgstr "Залишатись авторизованим"
-
-msgid "When not set, you will get logged out at latest after 30 days"
-msgstr "Якщо не обрано, вас буде деавторизовано через 30 днів"
+msgid "Remember Me"
+msgstr ""
 
 msgid "Status"
 msgstr "Статус"
@@ -1714,9 +1711,6 @@ msgstr ""
 msgid "Is freezer"
 msgstr "Є морозильною камерою"
 
-msgid "This cannot be the same as the \"From\" location"
-msgstr "Не може бути тим же місцем, що й \"з\""
-
 msgid "Thawed"
 msgstr "Розморожене"
 
@@ -1774,9 +1768,6 @@ msgstr "Видалити цей пункт"
 msgid "Show an icon if the product is already on the shopping list"
 msgstr ""
 
-msgid "Calories"
-msgstr "Калорії"
-
 msgid "means %1$s per %2$s"
 msgstr "одначає %1$s на %2$s"
 
@@ -1825,8 +1816,8 @@ msgstr ""
 msgid "Clear filter"
 msgstr "Очистити фільтр"
 
-msgid "Permissions for user %s"
-msgstr "Права користувача %s"
+msgid "Permissions"
+msgstr ""
 
 msgid "Are you sure you want to remove full permissions for yourself?"
 msgstr "Ви впевнені, що хочете позбавити себе повних прав?"
@@ -2828,3 +2819,24 @@ msgstr[0] "Пакет"
 msgstr[1] "Пакети"
 msgstr[2] "Пакетів"
 msgstr[3] "Пакетів"
+
+msgid "Manage user sessions"
+msgstr ""
+
+msgid "Sessions"
+msgstr ""
+
+msgid "Token type"
+msgstr ""
+
+msgid "Token hash"
+msgstr ""
+
+msgid "Client"
+msgstr ""
+
+msgid "This session"
+msgstr ""
+
+msgid "Are you sure you want to delete the selected session?"
+msgstr ""

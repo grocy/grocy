@@ -730,11 +730,8 @@ msgstr "Группа продуктов"
 msgid "Are you sure you want to delete product group \"%s\"?"
 msgstr ""
 
-msgid "Stay logged in permanently"
-msgstr "Оставаться  в сети всегда"
-
-msgid "When not set, you will get logged out at latest after 30 days"
-msgstr "Если не отмечено, то вы выйдете автоматически через 30 дней"
+msgid "Remember Me"
+msgstr ""
 
 msgid "Status"
 msgstr "Статус"
@@ -1743,9 +1740,6 @@ msgstr ""
 msgid "Is freezer"
 msgstr "Это морозильная камера"
 
-msgid "This cannot be the same as the \"From\" location"
-msgstr "Это не может быть тем же местом хранения, что и \"из\""
-
 msgid "Thawed"
 msgstr "Разморожен"
 
@@ -1803,9 +1797,6 @@ msgstr "Удалить этот элемент"
 msgid "Show an icon if the product is already on the shopping list"
 msgstr "Отображать уведомление если продукт уже добавлен в список покупок"
 
-msgid "Calories"
-msgstr "Калории"
-
 msgid "means %1$s per %2$s"
 msgstr "означает %1$s за %2$s"
 
@@ -1854,8 +1845,8 @@ msgstr ""
 msgid "Clear filter"
 msgstr "Очистить фильтр"
 
-msgid "Permissions for user %s"
-msgstr "Разрешения для пользователя %s"
+msgid "Permissions"
+msgstr ""
 
 msgid "Are you sure you want to remove full permissions for yourself?"
 msgstr "Вы уверены, что хотите убрать все разрешения для себя?"
@@ -2928,3 +2919,24 @@ msgstr[0] "Упаковка"
 msgstr[1] "Упаковки"
 msgstr[2] "Упаковок"
 msgstr[3] "Упаковок"
+
+msgid "Manage user sessions"
+msgstr ""
+
+msgid "Sessions"
+msgstr ""
+
+msgid "Token type"
+msgstr ""
+
+msgid "Token hash"
+msgstr ""
+
+msgid "Client"
+msgstr ""
+
+msgid "This session"
+msgstr ""
+
+msgid "Are you sure you want to delete the selected session?"
+msgstr ""

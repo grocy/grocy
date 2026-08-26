@@ -714,11 +714,8 @@ msgstr "Skupina výrobkov"
 msgid "Are you sure you want to delete product group \"%s\"?"
 msgstr ""
 
-msgid "Stay logged in permanently"
-msgstr "Zostať prihlásený"
-
-msgid "When not set, you will get logged out at latest after 30 days"
-msgstr "Ak nie je zaškrtnuté, budete odhlásený najneskôr o 30 dní"
+msgid "Remember Me"
+msgstr ""
 
 msgid "Status"
 msgstr "Stav"
@@ -1672,9 +1669,6 @@ msgstr ""
 msgid "Is freezer"
 msgstr "Je mraznička"
 
-msgid "This cannot be the same as the \"From\" location"
-msgstr "Toto nemôže byť rovnaké ako umiestnenie \"Od\""
-
 msgid "Thawed"
 msgstr "Rozmrazené"
 
@@ -1732,9 +1726,6 @@ msgstr "Odstrániť túto položku"
 msgid "Show an icon if the product is already on the shopping list"
 msgstr "Zobraziť ikonu, ak je už výrobok v nákupnom zozname"
 
-msgid "Calories"
-msgstr "Kalórie"
-
 msgid "means %1$s per %2$s"
 msgstr ""
 
@@ -1783,8 +1774,8 @@ msgstr ""
 msgid "Clear filter"
 msgstr "Vyčistiť filter"
 
-msgid "Permissions for user %s"
-msgstr "Oprávnenia pre používateľa 1%s"
+msgid "Permissions"
+msgstr ""
 
 msgid "Are you sure you want to remove full permissions for yourself?"
 msgstr ""
@@ -2772,3 +2763,24 @@ msgstr[0] "Balenie"
 msgstr[1] "Balenia"
 msgstr[2] "Balení"
 msgstr[3] "Balení"
+
+msgid "Manage user sessions"
+msgstr ""
+
+msgid "Sessions"
+msgstr ""
+
+msgid "Token type"
+msgstr ""
+
+msgid "Token hash"
+msgstr ""
+
+msgid "Client"
+msgstr ""
+
+msgid "This session"
+msgstr ""
+
+msgid "Are you sure you want to delete the selected session?"
+msgstr ""

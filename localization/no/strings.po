@@ -8,6 +8,7 @@
 # Kristian Daae-Johansen, 2024
 # Bernd Bestel <bernd@berrnd.de>, 2026
 # Marius Borø <blizzwave@gmail.com>, 2026
+# Eirik Zakariassen, 2026
 # 
 msgid ""
 msgstr ""
@@ -15,7 +16,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Marius Borø <blizzwave@gmail.com>, 2026\n"
+"Last-Translator: Eirik Zakariassen, 2026\n"
 "Language-Team: Norwegian (https://app.transifex.com/grocy/teams/93189/no/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -284,7 +285,7 @@ msgid "Invalid credentials, please try again"
 msgstr "Feil brukernavn og/eller passord, prøv igjen"
 
 msgid "Are you sure you want to delete battery \"%s\"?"
-msgstr ""
+msgstr "Er du sikker på at du vil slette batteri \"%s\"?"
 
 msgid "Yes"
 msgstr "Ja"
@@ -293,7 +294,7 @@ msgid "No"
 msgstr "Nei"
 
 msgid "Are you sure you want to delete chore \"%s\"?"
-msgstr ""
+msgstr "Er du sikker på at du vil slette oppgave \"%s\"?"
 
 msgid "\"%s\" could not be resolved to a product, how do you want to proceed?"
 msgstr "\"%s\" kunne ikke bli tildelt et produkt, hvordan ønsker du å fortsette?"
@@ -314,16 +315,16 @@ msgid "Add as new product and prefill barcode"
 msgstr "Legg til som nytt produkt med forhåndsfylt strekkode"
 
 msgid "Are you sure you want to delete quantity unit \"%s\"?"
-msgstr ""
+msgstr "Er du sikker på at du vil slette enhet \"%s\"?"
 
 msgid "Are you sure you want to delete product \"%s\"?"
-msgstr ""
+msgstr "Er du sikker på at du vil slette produkt \"%s\"?"
 
 msgid "Are you sure you want to delete location \"%s\"?"
-msgstr ""
+msgstr "Er du sikker på at du vil slette lokasjon \"%s\"?"
 
 msgid "Are you sure you want to delete store \"%s\"?"
-msgstr ""
+msgstr "Er du sikker på at du vil slette butikk \"%s\"?"
 
 msgid "Manage API keys"
 msgstr "Administrer API-Keys"
@@ -437,13 +438,13 @@ msgid "Edit recipe ingredient"
 msgstr "Endre ingrediens i oppskrift"
 
 msgid "Are you sure you want to delete recipe \"%s\"?"
-msgstr ""
+msgstr "Er du sikker på at du vil slette oppskrift \"%s\"?"
 
 msgid "Are you sure you want to delete recipe ingredient \"%s\"?"
-msgstr ""
+msgstr "Er du sikker på at du vil slette ingrediens \"%s\"?"
 
 msgid "Are you sure you want to empty shopping list \"%s\"?"
-msgstr ""
+msgstr "Er du sikker på at du vil slette den tomme handlelisten\"%s\"?"
 
 msgid "Clear list"
 msgstr "Slett handleliste"
@@ -491,6 +492,8 @@ msgid ""
 "Are you sure you want to put all missing ingredients for recipe \"%s\" on "
 "the shopping list?"
 msgstr ""
+"Er du sikker på at du vil putte alle de manglende ingrediensene \"%s\" på "
+"handlelisten?"
 
 msgid "Manage users"
 msgstr "Administrer brukere"
@@ -502,7 +505,7 @@ msgid "Users"
 msgstr "Brukere"
 
 msgid "Are you sure you want to delete user \"%s\"?"
-msgstr ""
+msgstr "Er du sikker på at du vil slette bruker \"%s\"?"
 
 msgid "Create user"
 msgstr "Legg til bruker"
@@ -600,9 +603,13 @@ msgid ""
 "(ingredients marked with \"only check if any amount is in stock\" will be "
 "ignored)?"
 msgstr ""
+"Er du sikker på at du vil bruke alle ingrediensene som kreves for "
+"oppskrift\"%s\" (ingredienser merket med \"bare bruk hvis ingrediensen "
+"finnes i lageret\" vil bli ignorert)?"
 
 msgid "Removed all in stock ingredients needed by recipe \"%s\" from stock"
 msgstr ""
+"Fjern alle ingredienser som brukes av oppskrift \"%s\" fra lagerbeholdning"
 
 msgid "Consume all ingredients needed by this recipe"
 msgstr "Forbruk alle ingredienser for denne oppskriften"
@@ -653,7 +660,7 @@ msgid "Edit task"
 msgstr "Endre oppgave"
 
 msgid "Are you sure you want to delete task \"%s\"?"
-msgstr ""
+msgstr "Er du sikker på at du vil slette oppgave \"%s\"?"
 
 msgid "%s task is due to be done"
 msgid_plural "%s tasks are due to be done"
@@ -687,15 +694,10 @@ msgid "Product group"
 msgstr "Produktgruppe"
 
 msgid "Are you sure you want to delete product group \"%s\"?"
-msgstr ""
+msgstr "Er du sikker på at du vil slette produktgruppe \"%s\"?"
 
-msgid "Stay logged in permanently"
-msgstr "Husk meg"
-
-msgid "When not set, you will get logged out at latest after 30 days"
+msgid "Remember Me"
 msgstr ""
-"Hvis \"Husk meg\" ikke er huket av vil du automatisk bli logget av om 30 "
-"dager"
 
 msgid "Status"
 msgstr "Status"
@@ -1034,7 +1036,7 @@ msgid "Create shopping list"
 msgstr "Lag handleliste"
 
 msgid "Are you sure you want to delete shopping list \"%s\"?"
-msgstr ""
+msgstr "Er du sikker på at du vil slette handleliste \"%s\"?"
 
 msgid "Average shelf life"
 msgstr "Gjennomsnittlig holdbarhetstid"
@@ -1237,7 +1239,7 @@ msgid "Time of printing"
 msgstr "Tidspunkt for utskrift"
 
 msgid "Are you sure you want to delete equipment \"%s\"?"
-msgstr ""
+msgstr "Er du sikker på at du vil slette utstyr \"%s\"?"
 
 msgid "Parent product"
 msgstr "Hovedprodukt"
@@ -1398,7 +1400,7 @@ msgid "Consume product on chore execution"
 msgstr "Konsumer produkt når husarbeid blir utført"
 
 msgid "Are you sure you want to delete user field \"%s\"?"
-msgstr ""
+msgstr "Er du sikker på at du vil slette brukerfelt \"%s\"?"
 
 msgid "Userentities"
 msgstr "Egendefinerte linjer"
@@ -1419,7 +1421,7 @@ msgid "Create %s"
 msgstr "Opprett %s"
 
 msgid "Are you sure you want to delete this userobject?"
-msgstr ""
+msgstr "Er du sikker på at du vil slette dette brukerobjektet?"
 
 msgid "Icon CSS class"
 msgstr "Icon CSS class"
@@ -1509,7 +1511,7 @@ msgstr ""
 "aldri vil \"mangle\", kunne dette produktet."
 
 msgid "Are you sure you want to remove this conversion?"
-msgstr ""
+msgstr "Er du sikker på at du vil slette denne konverteringen?"
 
 msgid "Unit price"
 msgstr "Enhetspris"
@@ -1527,7 +1529,7 @@ msgid "Clear"
 msgstr "Slett"
 
 msgid "Are you sure you want to remove the included recipe \"%s\"?"
-msgstr ""
+msgstr "Er du sikker på at du vil slette den inkluderte oppskriften \"%s\"?"
 
 msgid "Period interval"
 msgstr "Periodiskinterval"
@@ -1617,7 +1619,7 @@ msgid "Booking does not exist or was already undone"
 msgstr "Registeringen eksistere ikke eller har allerede blitt angret"
 
 msgid "Are you sure you want to delete API key \"%s\"?"
-msgstr ""
+msgstr "Er du sikker på at du vil slette APInøkkel \"%s\"?"
 
 msgid "Add note"
 msgstr "Legg til notat"
@@ -1661,9 +1663,6 @@ msgstr "Scannemodus er på, men ikke alle felt kan fylles ut automatisk"
 msgid "Is freezer"
 msgstr "Er fryser"
 
-msgid "This cannot be the same as the \"From\" location"
-msgstr "Dette kan ikke være det som \"Fra\" lokasjonen"
-
 msgid "Thawed"
 msgstr "Tint"
 
@@ -1671,7 +1670,7 @@ msgid "Frozen"
 msgstr "Fryst"
 
 msgid "Are you sure you want to delete userentity \"%s\"?"
-msgstr ""
+msgstr "Er du sikker på at du vil slette brukeren \"%s\"?"
 
 msgid "Shopping list settings"
 msgstr "Handleliste - innstillinger"
@@ -1721,9 +1720,6 @@ msgstr "Slett denne varen"
 msgid "Show an icon if the product is already on the shopping list"
 msgstr "Vis ett ikon dersom produktet allerede er på handlelisten"
 
-msgid "Calories"
-msgstr "Kalorier"
-
 msgid "means %1$s per %2$s"
 msgstr "betyr %1$s per %2$s"
 
@@ -1769,12 +1765,15 @@ msgid ""
 "due first, then first in first out) for in stock ingredients and on the last"
 " price for missing ones"
 msgstr ""
+"Basert på prisene fra den standard konsumentrekkefølgen (Åpnet først, "
+"deretter først utgått, deretter først inn først ut) for lagerførte "
+"ingredienser og basert på den siste prisen for manglende"
 
 msgid "Clear filter"
 msgstr "Tøm filter"
 
-msgid "Permissions for user %s"
-msgstr "Tillatelser for bruker %s"
+msgid "Permissions"
+msgstr ""
 
 msgid "Are you sure you want to remove full permissions for yourself?"
 msgstr "Er du sikker på at du ønsker å fjerne alle rettigheter for deg selv?"
@@ -1936,7 +1935,7 @@ msgstr ""
 " neste forfallsdato i beholdningen"
 
 msgid "This is due earlier than already in stock items"
-msgstr ""
+msgstr "Dette produktet går ut før allerede lagerførte varer"
 
 msgid ""
 "When enabled, after changing/scanning a product and if all fields could be "
@@ -1961,12 +1960,14 @@ msgid ""
 "This amount is used for the \"quick open button\" on the stock overview page"
 " (related to quantity unit stock)"
 msgstr ""
+"Dette antallet er brukt for \"quick open button\" på lagerbeholdningsiden "
+"(relatert til antall enheter på lager)"
 
 msgid "Copy"
 msgstr "Kopier"
 
 msgid "Are you sure you want to remove this barcode?"
-msgstr ""
+msgstr "Er du sikker på at du vil fjerne denne strekkoden?"
 
 msgid "Due date type"
 msgstr "Forfallsdatotype"
@@ -2160,7 +2161,7 @@ msgid "Reset"
 msgstr "Reset"
 
 msgid "Are you sure you want to reset the table options?"
-msgstr ""
+msgstr "Er du sikker på at du vil resette denne tabellens opsjoner ?"
 
 msgid "Hide/view columns"
 msgstr "Skjul / vis kolonner"
@@ -2229,6 +2230,9 @@ msgid ""
 "below their min. stock amount - enable this to hide this product there "
 "always"
 msgstr ""
+"Lagerbeholdningssiden lister alle produkter som er på lager nå, eller har "
+"lavere beholdning enn minimumsnivået - skru på dette for å alltid skjule "
+"produktet"
 
 msgid "Print options"
 msgstr "Printevalg"
@@ -2237,14 +2241,14 @@ msgid "A product or a note is required"
 msgstr "Et produkt eller en merknad kreves"
 
 msgid "Grocycode"
-msgstr ""
+msgstr "Grocykode"
 
 msgid "Download"
 msgstr "Last ned"
 
 # Example: Download *Product* Grocycode
 msgid "Download %s Grocycode"
-msgstr ""
+msgstr "Last ned %s Grocykode"
 
 msgid ""
 "Grocycode is a unique referer to this %s in your Grocy instance - print it "
@@ -2798,3 +2802,24 @@ msgid "Pack"
 msgid_plural "Packs"
 msgstr[0] "Pakke"
 msgstr[1] "Pakker"
+
+msgid "Manage user sessions"
+msgstr ""
+
+msgid "Sessions"
+msgstr ""
+
+msgid "Token type"
+msgstr ""
+
+msgid "Token hash"
+msgstr ""
+
+msgid "Client"
+msgstr ""
+
+msgid "This session"
+msgstr ""
+
+msgid "Are you sure you want to delete the selected session?"
+msgstr ""

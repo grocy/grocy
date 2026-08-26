@@ -697,11 +697,8 @@ msgstr "Varegruppe"
 msgid "Are you sure you want to delete product group \"%s\"?"
 msgstr ""
 
-msgid "Stay logged in permanently"
-msgstr "Forbliv logget ind"
-
-msgid "When not set, you will get logged out at latest after 30 days"
-msgstr "Hvis ikke markeret, vil du blive logget ud senest efter 30 dage"
+msgid "Remember Me"
+msgstr ""
 
 msgid "Status"
 msgstr "Status"
@@ -1669,9 +1666,6 @@ msgstr ""
 msgid "Is freezer"
 msgstr "Er en fryser"
 
-msgid "This cannot be the same as the \"From\" location"
-msgstr "Kan ikke være det samme som “Fra” lokation"
-
 msgid "Thawed"
 msgstr "Optøet"
 
@@ -1729,9 +1723,6 @@ msgstr "Slet dette punkt"
 msgid "Show an icon if the product is already on the shopping list"
 msgstr "Vis hvis denne vare allerede findes i indkøbslisten"
 
-msgid "Calories"
-msgstr "Kalorier"
-
 msgid "means %1$s per %2$s"
 msgstr "betyder %1$ per %2$"
 
@@ -1780,8 +1771,8 @@ msgstr ""
 msgid "Clear filter"
 msgstr "Ryd filter"
 
-msgid "Permissions for user %s"
-msgstr "Adgangsrettigheder for bruger %s"
+msgid "Permissions"
+msgstr ""
 
 msgid "Are you sure you want to remove full permissions for yourself?"
 msgstr "Er du sikker på at du vil fjerne rettigheder for dig selv?"
@@ -2790,3 +2781,24 @@ msgid "Pack"
 msgid_plural "Packs"
 msgstr[0] "Pakke"
 msgstr[1] "Pakker"
+
+msgid "Manage user sessions"
+msgstr ""
+
+msgid "Sessions"
+msgstr ""
+
+msgid "Token type"
+msgstr ""
+
+msgid "Token hash"
+msgstr ""
+
+msgid "Client"
+msgstr ""
+
+msgid "This session"
+msgstr ""
+
+msgid "Are you sure you want to delete the selected session?"
+msgstr ""

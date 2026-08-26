@@ -668,11 +668,8 @@ msgstr "제품 그룹"
 msgid "Are you sure you want to delete product group \"%s\"?"
 msgstr ""
 
-msgid "Stay logged in permanently"
-msgstr "로그인 영구유지"
-
-msgid "When not set, you will get logged out at latest after 30 days"
-msgstr "설정되지 않은 경우 30일 후에 로그아웃됨"
+msgid "Remember Me"
+msgstr ""
 
 msgid "Status"
 msgstr "상태"
@@ -1582,9 +1579,6 @@ msgstr "스캔 모드가 켜져 있지만 일부 필수 필드를 자동으로 �
 msgid "Is freezer"
 msgstr "냉동고"
 
-msgid "This cannot be the same as the \"From\" location"
-msgstr "This cannot be the same as the \"From\" location"
-
 msgid "Thawed"
 msgstr "해동"
 
@@ -1642,9 +1636,6 @@ msgstr "항목 삭제"
 msgid "Show an icon if the product is already on the shopping list"
 msgstr "제품이 이미 구매 목록에 있는 경우 아이콘 표시"
 
-msgid "Calories"
-msgstr "칼로리"
-
 msgid "means %1$s per %2$s"
 msgstr "각 %2$s당 %1$s  "
 
@@ -1693,7 +1684,7 @@ msgstr ""
 msgid "Clear filter"
 msgstr "필터 초기화"
 
-msgid "Permissions for user %s"
+msgid "Permissions"
 msgstr ""
 
 msgid "Are you sure you want to remove full permissions for yourself?"
@@ -2639,3 +2630,24 @@ msgstr[0] "조각"
 msgid "Pack"
 msgid_plural "Packs"
 msgstr[0] "팩"
+
+msgid "Manage user sessions"
+msgstr ""
+
+msgid "Sessions"
+msgstr ""
+
+msgid "Token type"
+msgstr ""
+
+msgid "Token hash"
+msgstr ""
+
+msgid "Client"
+msgstr ""
+
+msgid "This session"
+msgstr ""
+
+msgid "Are you sure you want to delete the selected session?"
+msgstr ""

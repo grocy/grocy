@@ -674,11 +674,8 @@ msgstr "产品组"
 msgid "Are you sure you want to delete product group \"%s\"?"
 msgstr "确定要删除产品组\"%s\"吗?"
 
-msgid "Stay logged in permanently"
-msgstr "保持登陆状态"
-
-msgid "When not set, you will get logged out at latest after 30 days"
-msgstr "未启用将在30天后注销"
+msgid "Remember Me"
+msgstr ""
 
 msgid "Status"
 msgstr "状态"
@@ -1571,9 +1568,6 @@ msgstr "扫描模式已启用，但并非所有必填字段都可以自动填充
 msgid "Is freezer"
 msgstr "冷冻设备"
 
-msgid "This cannot be the same as the \"From\" location"
-msgstr "不能和“原始位置”相同"
-
 msgid "Thawed"
 msgstr "解冻"
 
@@ -1631,9 +1625,6 @@ msgstr "删除此项"
 msgid "Show an icon if the product is already on the shopping list"
 msgstr "如果产品已经在购物清单上，则显示一个图标"
 
-msgid "Calories"
-msgstr "卡路里"
-
 msgid "means %1$s per %2$s"
 msgstr "每%2$s%1$s"
 
@@ -1682,8 +1673,8 @@ msgstr "基于在库食材默认消耗规则的价格(先开封、先到期、�
 msgid "Clear filter"
 msgstr "清除筛选"
 
-msgid "Permissions for user %s"
-msgstr "%s的用户权限"
+msgid "Permissions"
+msgstr ""
 
 msgid "Are you sure you want to remove full permissions for yourself?"
 msgstr "您确定要删除自己账号的全部权限吗?"
@@ -2628,3 +2619,24 @@ msgstr[0] "件"
 msgid "Pack"
 msgid_plural "Packs"
 msgstr[0] "包"
+
+msgid "Manage user sessions"
+msgstr ""
+
+msgid "Sessions"
+msgstr ""
+
+msgid "Token type"
+msgstr ""
+
+msgid "Token hash"
+msgstr ""
+
+msgid "Client"
+msgstr ""
+
+msgid "This session"
+msgstr ""
+
+msgid "Are you sure you want to delete the selected session?"
+msgstr ""

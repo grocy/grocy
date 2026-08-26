@@ -1,5 +1,4 @@
 # Translators:
-# Cisco Benjamin <metallica@vivaldi.net>, 2020
 # Tatsuya Ueda <ml@tatsuya.info>, 2020
 # KATSUHIKO SHIGEYAMA <kshigeyama@gmail.com>, 2020
 # 鳥山 陽平 <kagemomiji@gmail.com>, 2022
@@ -671,11 +670,8 @@ msgstr "物品グループ"
 msgid "Are you sure you want to delete product group \"%s\"?"
 msgstr "物品グループ「%s」を削除してもよろしいですか？"
 
-msgid "Stay logged in permanently"
-msgstr "ログインしたままにする"
-
-msgid "When not set, you will get logged out at latest after 30 days"
-msgstr "設定しない場合、30日後にログアウトされます"
+msgid "Remember Me"
+msgstr ""
 
 msgid "Status"
 msgstr "状態"
@@ -1572,9 +1568,6 @@ msgstr "スキャンモードが有効ですが、必須フィールドの一部
 msgid "Is freezer"
 msgstr "冷凍庫"
 
-msgid "This cannot be the same as the \"From\" location"
-msgstr "「移動元」と同じ保管場所にすることはできません"
-
 msgid "Thawed"
 msgstr "解凍"
 
@@ -1632,9 +1625,6 @@ msgstr "項目を削除"
 msgid "Show an icon if the product is already on the shopping list"
 msgstr "既に買い物リストにある物品のアイコンを表示"
 
-msgid "Calories"
-msgstr "カロリー"
-
 msgid "means %1$s per %2$s"
 msgstr "%1$s あたり %2$s"
 
@@ -1684,8 +1674,8 @@ msgstr ""
 msgid "Clear filter"
 msgstr "フィルター解除"
 
-msgid "Permissions for user %s"
-msgstr "ユーザー %s の権限"
+msgid "Permissions"
+msgstr ""
 
 msgid "Are you sure you want to remove full permissions for yourself?"
 msgstr "自分自身の完全な権限を削除してもよろしいですか？"
@@ -2636,3 +2626,24 @@ msgstr[0] "ピース"
 msgid "Pack"
 msgid_plural "Packs"
 msgstr[0] "パック"
+
+msgid "Manage user sessions"
+msgstr ""
+
+msgid "Sessions"
+msgstr ""
+
+msgid "Token type"
+msgstr ""
+
+msgid "Token hash"
+msgstr ""
+
+msgid "Client"
+msgstr ""
+
+msgid "This session"
+msgstr ""
+
+msgid "Are you sure you want to delete the selected session?"
+msgstr ""

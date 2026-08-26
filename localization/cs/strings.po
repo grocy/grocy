@@ -1,7 +1,6 @@
 # Translators:
 # Tomas Reznicek <tomas.reznicek@gmail.com>, 2019
 # Jose Riha <jose1711@gmail.com>, 2020
-# Matyas Bobek <matyas.bobek@gmail.com>, 2020
 # Adam Kroupa <mavi222@seznam.cz>, 2020
 # Radim Kabeláč <radim.ekk@gmail.com>, 2020
 # Jaroslav Lichtblau <l10n@lichtblau.cz>, 2020
@@ -721,11 +720,8 @@ msgstr "Skupina produktů"
 msgid "Are you sure you want to delete product group \"%s\"?"
 msgstr "Odstranit skupinu produktů „%s“?"
 
-msgid "Stay logged in permanently"
-msgstr "Zůstat přihlášen"
-
-msgid "When not set, you will get logged out at latest after 30 days"
-msgstr "Pokud nebude zaškrtnuto, budete odhlášeni nejpozději za 30 dní"
+msgid "Remember Me"
+msgstr ""
 
 msgid "Status"
 msgstr "Stav"
@@ -1725,9 +1721,6 @@ msgstr ""
 msgid "Is freezer"
 msgstr "Místo je mrazící box"
 
-msgid "This cannot be the same as the \"From\" location"
-msgstr "Nemůže být stejné jako „Z umístění“"
-
 msgid "Thawed"
 msgstr "Rozmraženo"
 
@@ -1785,9 +1778,6 @@ msgstr "Smazat"
 msgid "Show an icon if the product is already on the shopping list"
 msgstr "Zobrazit ikonku pokud je produkt na nákupním seznamu"
 
-msgid "Calories"
-msgstr "Kalorie"
-
 msgid "means %1$s per %2$s"
 msgstr "to je %1$s za %2$s"
 
@@ -1840,8 +1830,8 @@ msgstr ""
 msgid "Clear filter"
 msgstr "Smazat filtr"
 
-msgid "Permissions for user %s"
-msgstr "Přístupová práva pro uživatele: %s"
+msgid "Permissions"
+msgstr ""
 
 msgid "Are you sure you want to remove full permissions for yourself?"
 msgstr "Opravdu chcete odstranit všechna svoje oprávnění?"
@@ -2919,3 +2909,24 @@ msgstr[0] "Balení"
 msgstr[1] "Balení"
 msgstr[2] "Balení"
 msgstr[3] "Balení"
+
+msgid "Manage user sessions"
+msgstr ""
+
+msgid "Sessions"
+msgstr ""
+
+msgid "Token type"
+msgstr ""
+
+msgid "Token hash"
+msgstr ""
+
+msgid "Client"
+msgstr ""
+
+msgid "This session"
+msgstr ""
+
+msgid "Are you sure you want to delete the selected session?"
+msgstr ""

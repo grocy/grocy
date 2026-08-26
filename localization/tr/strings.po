@@ -688,12 +688,8 @@ msgstr "Ürün grubu"
 msgid "Are you sure you want to delete product group \"%s\"?"
 msgstr ""
 
-msgid "Stay logged in permanently"
-msgstr "Oturum açık kalsın"
-
-msgid "When not set, you will get logged out at latest after 30 days"
+msgid "Remember Me"
 msgstr ""
-"Seçilmediği takdirde, en az 30 gün sonra otomatik olarak çıkış yapacaksınız"
 
 msgid "Status"
 msgstr "Durum"
@@ -1656,9 +1652,6 @@ msgstr ""
 msgid "Is freezer"
 msgstr "Dondurucu mu"
 
-msgid "This cannot be the same as the \"From\" location"
-msgstr "Bu, \"Şundan\" konumuyla aynı olamaz"
-
 msgid "Thawed"
 msgstr "Çözülmüş"
 
@@ -1716,9 +1709,6 @@ msgstr "Bu maddeyi sil"
 msgid "Show an icon if the product is already on the shopping list"
 msgstr "Ürün zaten alışveriş listesindeyse bir simge göster"
 
-msgid "Calories"
-msgstr "Kalori"
-
 msgid "means %1$s per %2$s"
 msgstr "%2$sbaşına %1$sanlamına gelir"
 
@@ -1767,8 +1757,8 @@ msgstr ""
 msgid "Clear filter"
 msgstr "Filtreyi temizle"
 
-msgid "Permissions for user %s"
-msgstr "%s kullanıcısı için izinler"
+msgid "Permissions"
+msgstr ""
 
 msgid "Are you sure you want to remove full permissions for yourself?"
 msgstr "Kendinize ait tüm izinleri kaldırmak istediğinizden emin misiniz?"
@@ -2809,3 +2799,24 @@ msgid "Pack"
 msgid_plural "Packs"
 msgstr[0] "Paket"
 msgstr[1] "Paket"
+
+msgid "Manage user sessions"
+msgstr ""
+
+msgid "Sessions"
+msgstr ""
+
+msgid "Token type"
+msgstr ""
+
+msgid "Token hash"
+msgstr ""
+
+msgid "Client"
+msgstr ""
+
+msgid "This session"
+msgstr ""
+
+msgid "Are you sure you want to delete the selected session?"
+msgstr ""

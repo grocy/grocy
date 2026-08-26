@@ -699,11 +699,8 @@ msgstr "קבוצת מוצרים"
 msgid "Are you sure you want to delete product group \"%s\"?"
 msgstr "למחוק את קבוצת המוצרים „%s”?"
 
-msgid "Stay logged in permanently"
-msgstr "להישאר במערכת לצמיתות"
-
-msgid "When not set, you will get logged out at latest after 30 days"
-msgstr "כשהערך אינו מוגדר המערכת תוציא אותך לאחר 30 ימים"
+msgid "Remember Me"
+msgstr ""
 
 msgid "Status"
 msgstr "מצב"
@@ -1677,9 +1674,6 @@ msgstr "מצב סריקה פעיל אבל אין אפשרות למלא את כל
 msgid "Is freezer"
 msgstr "הקפאה"
 
-msgid "This cannot be the same as the \"From\" location"
-msgstr "לא יכול להיות כמו מיקום המוצא"
-
 msgid "Thawed"
 msgstr "הופשר"
 
@@ -1737,9 +1731,6 @@ msgstr "מחיקת פריט זה"
 msgid "Show an icon if the product is already on the shopping list"
 msgstr "הצגת סמל אם המוצר כבר ברשימת הקניות"
 
-msgid "Calories"
-msgstr "קלוריות"
-
 msgid "means %1$s per %2$s"
 msgstr "כלומר %1$s לכל %2$s"
 
@@ -1790,8 +1781,8 @@ msgstr ""
 msgid "Clear filter"
 msgstr "לבטל את הסינון"
 
-msgid "Permissions for user %s"
-msgstr "הרשאות למשתמש %s"
+msgid "Permissions"
+msgstr ""
 
 msgid "Are you sure you want to remove full permissions for yourself?"
 msgstr "להסיר את מלוא ההרשאות לעצמך?"
@@ -2805,6 +2796,8 @@ msgid ""
 "After this product was once in stock and when the desired quantity unit "
 "cannot be selected here, first create a corresponding unit conversion"
 msgstr ""
+"לאחר שהמוצר הזה היה במלאי לפחות פעם אחת וכאשר לא ניתן לבחור כאן את יחידת "
+"הכמות הרצויה, יש ליצור את המרת היחידות התואמת תחילה."
 
 # Default / initially created location
 msgid "Fridge"
@@ -2825,3 +2818,24 @@ msgstr[0] "אריזה"
 msgstr[1] "אריזות"
 msgstr[2] "אריזות"
 msgstr[3] "אריזות"
+
+msgid "Manage user sessions"
+msgstr ""
+
+msgid "Sessions"
+msgstr ""
+
+msgid "Token type"
+msgstr ""
+
+msgid "Token hash"
+msgstr ""
+
+msgid "Client"
+msgstr ""
+
+msgid "This session"
+msgstr ""
+
+msgid "Are you sure you want to delete the selected session?"
+msgstr ""

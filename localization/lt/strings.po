@@ -722,11 +722,8 @@ msgstr "Produktų grupė"
 msgid "Are you sure you want to delete product group \"%s\"?"
 msgstr "Ar tikrai norite ištrinti produktų grupę \"%s\"?"
 
-msgid "Stay logged in permanently"
-msgstr "Būkite prisijungę visam laikui"
-
-msgid "When not set, you will get logged out at latest after 30 days"
-msgstr "Jei nenustatyta, būsite atjungti ne vėliau kaip po 30 dienų"
+msgid "Remember Me"
+msgstr ""
 
 msgid "Status"
 msgstr "Būsena"
@@ -1725,9 +1722,6 @@ msgstr ""
 msgid "Is freezer"
 msgstr "Yra šaldiklis"
 
-msgid "This cannot be the same as the \"From\" location"
-msgstr "Tai negali būti tokia pati kaip vieta „Iš“."
-
 msgid "Thawed"
 msgstr "Atšildytas"
 
@@ -1785,9 +1779,6 @@ msgstr "Ištrinti šį elementą"
 msgid "Show an icon if the product is already on the shopping list"
 msgstr "Rodyti piktogramą, jei prekė jau yra pirkinių sąraše"
 
-msgid "Calories"
-msgstr "Kalorijos"
-
 msgid "means %1$s per %2$s"
 msgstr "reiškia %1$suž %2$s"
 
@@ -1839,8 +1830,8 @@ msgstr ""
 msgid "Clear filter"
 msgstr "Išvalyti filtą"
 
-msgid "Permissions for user %s"
-msgstr "Leidimai naudotojui %s"
+msgid "Permissions"
+msgstr ""
 
 msgid "Are you sure you want to remove full permissions for yourself?"
 msgstr "Ar tikrai norite pašalinti visus leidimus?"
@@ -2888,6 +2879,8 @@ msgid ""
 "After this product was once in stock and when the desired quantity unit "
 "cannot be selected here, first create a corresponding unit conversion"
 msgstr ""
+"Po to, kai ši prekė bent kartą buvo sandėlyje, jei čia negalima pasirinkti "
+"norimo kiekio vieneto, pirmiausia sukurkite atitinkamą vienetų konversiją."
 
 # Default / initially created location
 msgid "Fridge"
@@ -2908,3 +2901,24 @@ msgstr[0] "Pakuotė"
 msgstr[1] "Pakuotės"
 msgstr[2] "Pakuočių"
 msgstr[3] "Pakuočių"
+
+msgid "Manage user sessions"
+msgstr ""
+
+msgid "Sessions"
+msgstr ""
+
+msgid "Token type"
+msgstr ""
+
+msgid "Token hash"
+msgstr ""
+
+msgid "Client"
+msgstr ""
+
+msgid "This session"
+msgstr ""
+
+msgid "Are you sure you want to delete the selected session?"
+msgstr ""

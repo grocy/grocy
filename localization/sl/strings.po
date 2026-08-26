@@ -719,11 +719,8 @@ msgstr "Skupina izdelkov"
 msgid "Are you sure you want to delete product group \"%s\"?"
 msgstr "Ali res želiš izbrisati skupino izdelkov \"%s\"?"
 
-msgid "Stay logged in permanently"
-msgstr "Ostani stalno prijavljen"
-
-msgid "When not set, you will get logged out at latest after 30 days"
-msgstr "Če ni nastavljeno, boš odjavljen čez najpozneje 30 dni"
+msgid "Remember Me"
+msgstr ""
 
 msgid "Status"
 msgstr "Stanje"
@@ -1658,9 +1655,6 @@ msgstr ""
 msgid "Is freezer"
 msgstr "Je zmrzovalnik"
 
-msgid "This cannot be the same as the \"From\" location"
-msgstr "To ne more biti enako kot lokacija \"Iz\""
-
 msgid "Thawed"
 msgstr "Odtaljeno"
 
@@ -1718,9 +1712,6 @@ msgstr "Izbriši ta element"
 msgid "Show an icon if the product is already on the shopping list"
 msgstr "Prikaži ikono če je izdelek že na nakupovalnem seznamu"
 
-msgid "Calories"
-msgstr "Kalorije"
-
 msgid "means %1$s per %2$s"
 msgstr "pomeni %1$s na %2$s"
 
@@ -1769,8 +1760,8 @@ msgstr ""
 msgid "Clear filter"
 msgstr "Počisti filter"
 
-msgid "Permissions for user %s"
-msgstr "Dovoljenja za uporabnika %s"
+msgid "Permissions"
+msgstr ""
 
 msgid "Are you sure you want to remove full permissions for yourself?"
 msgstr "Ali res želiš odstraniti vse pravice za sebe?"
@@ -2777,3 +2768,24 @@ msgstr[0] "Paket"
 msgstr[1] "Paketa"
 msgstr[2] "Paketi"
 msgstr[3] "Paketov"
+
+msgid "Manage user sessions"
+msgstr ""
+
+msgid "Sessions"
+msgstr ""
+
+msgid "Token type"
+msgstr ""
+
+msgid "Token hash"
+msgstr ""
+
+msgid "Client"
+msgstr ""
+
+msgid "This session"
+msgstr ""
+
+msgid "Are you sure you want to delete the selected session?"
+msgstr ""

@@ -730,11 +730,8 @@ msgstr "Gruppo di prodotti"
 msgid "Are you sure you want to delete product group \"%s\"?"
 msgstr "Sei sicuro di voler eliminare il gruppo di prodotti \"%s\"?"
 
-msgid "Stay logged in permanently"
-msgstr "Resta connesso in modo permanente"
-
-msgid "When not set, you will get logged out at latest after 30 days"
-msgstr "Se non impostato, si verrà disconnessi alla fine dopo 30 giorni"
+msgid "Remember Me"
+msgstr ""
 
 msgid "Status"
 msgstr "Stato"
@@ -1737,9 +1734,6 @@ msgstr ""
 msgid "Is freezer"
 msgstr "È congelato"
 
-msgid "This cannot be the same as the \"From\" location"
-msgstr "Non può essere uguale alla posizione \"Da\""
-
 msgid "Thawed"
 msgstr "Scongelato"
 
@@ -1797,9 +1791,6 @@ msgstr "Elimina questo elemento"
 msgid "Show an icon if the product is already on the shopping list"
 msgstr "Mostra un'icona se il prodotto è già nella lista della spesa"
 
-msgid "Calories"
-msgstr "Calorie"
-
 msgid "means %1$s per %2$s"
 msgstr "si intende %1$s fino a %2$s"
 
@@ -1851,8 +1842,8 @@ msgstr ""
 msgid "Clear filter"
 msgstr "Pulisci filtro"
 
-msgid "Permissions for user %s"
-msgstr "Autorizzazioni per l'utente %s"
+msgid "Permissions"
+msgstr ""
 
 msgid "Are you sure you want to remove full permissions for yourself?"
 msgstr ""
@@ -2928,6 +2919,9 @@ msgid ""
 "After this product was once in stock and when the desired quantity unit "
 "cannot be selected here, first create a corresponding unit conversion"
 msgstr ""
+"Dopo che questo prodotto è già stato in dispensa e quando non si può "
+"selezionare l'unità di quantità desiderata qui, prima crea una "
+"corrispondente conversione di unità"
 
 # Default / initially created location
 msgid "Fridge"
@@ -2946,3 +2940,24 @@ msgid_plural "Packs"
 msgstr[0] "Pacco"
 msgstr[1] "Pacchi"
 msgstr[2] "Pacchi"
+
+msgid "Manage user sessions"
+msgstr ""
+
+msgid "Sessions"
+msgstr ""
+
+msgid "Token type"
+msgstr ""
+
+msgid "Token hash"
+msgstr ""
+
+msgid "Client"
+msgstr ""
+
+msgid "This session"
+msgstr ""
+
+msgid "Are you sure you want to delete the selected session?"
+msgstr ""

@@ -708,11 +708,8 @@ msgstr "Grupă de produse"
 msgid "Are you sure you want to delete product group \"%s\"?"
 msgstr ""
 
-msgid "Stay logged in permanently"
-msgstr "Rămâneți autentificat permanent"
-
-msgid "When not set, you will get logged out at latest after 30 days"
-msgstr "Când nu este setat, veți fi deconectat cel târziu după 30 de zile"
+msgid "Remember Me"
+msgstr ""
 
 msgid "Status"
 msgstr "Stadiu"
@@ -1665,9 +1662,6 @@ msgstr ""
 msgid "Is freezer"
 msgstr ""
 
-msgid "This cannot be the same as the \"From\" location"
-msgstr ""
-
 msgid "Thawed"
 msgstr "Decongelat"
 
@@ -1725,9 +1719,6 @@ msgstr "Șterge produs"
 msgid "Show an icon if the product is already on the shopping list"
 msgstr "Afișați o pictogramă dacă produsul este deja pe lista de cumpărături"
 
-msgid "Calories"
-msgstr "Calorii"
-
 msgid "means %1$s per %2$s"
 msgstr "înseamnă %1$s per %2$s"
 
@@ -1776,8 +1767,8 @@ msgstr ""
 msgid "Clear filter"
 msgstr "Șterge filtru"
 
-msgid "Permissions for user %s"
-msgstr "Permisiuni pentru utilizatorul %s"
+msgid "Permissions"
+msgstr ""
 
 msgid "Are you sure you want to remove full permissions for yourself?"
 msgstr ""
@@ -2771,3 +2762,24 @@ msgid_plural "Packs"
 msgstr[0] "Pachet"
 msgstr[1] "Pachete"
 msgstr[2] "Pachete"
+
+msgid "Manage user sessions"
+msgstr ""
+
+msgid "Sessions"
+msgstr ""
+
+msgid "Token type"
+msgstr ""
+
+msgid "Token hash"
+msgstr ""
+
+msgid "Client"
+msgstr ""
+
+msgid "This session"
+msgstr ""
+
+msgid "Are you sure you want to delete the selected session?"
+msgstr ""

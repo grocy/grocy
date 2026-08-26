@@ -700,11 +700,8 @@ msgstr "Ομάδα προϊόντων"
 msgid "Are you sure you want to delete product group \"%s\"?"
 msgstr ""
 
-msgid "Stay logged in permanently"
-msgstr "Μείνετε μόνιμα συνδεδεμένοι"
-
-msgid "When not set, you will get logged out at latest after 30 days"
-msgstr "Όταν δεν ρυθμιστεί, θα αποσυνδεθείτε το αργότερο μετά από 30 ημέρες"
+msgid "Remember Me"
+msgstr ""
 
 msgid "Status"
 msgstr "Κατάσταση"
@@ -1658,9 +1655,6 @@ msgstr ""
 msgid "Is freezer"
 msgstr "Είναι καταψύκτης"
 
-msgid "This cannot be the same as the \"From\" location"
-msgstr "Αυτό δεν μπορεί να είναι το ίδιο με την τοποθεσία \"Από\""
-
 msgid "Thawed"
 msgstr "Αποψυχθεί"
 
@@ -1718,9 +1712,6 @@ msgstr "Διαγραφή αυτού του αντικειμένου"
 msgid "Show an icon if the product is already on the shopping list"
 msgstr "Εμφάνιση ενός εικονιδίου εάν το προϊόν βρίσκεται ήδη στη λίστα αγορών"
 
-msgid "Calories"
-msgstr "Θερμίδες"
-
 msgid "means %1$s per %2$s"
 msgstr "σημαίνει %1$s ανά %2$s"
 
@@ -1769,8 +1760,8 @@ msgstr ""
 msgid "Clear filter"
 msgstr "Απόθεμα μονάδας ποσότητας"
 
-msgid "Permissions for user %s"
-msgstr "Αγορά παράγοντα σε μονάδα ποσότητας αποθεμάτων %s"
+msgid "Permissions"
+msgstr ""
 
 msgid "Are you sure you want to remove full permissions for yourself?"
 msgstr "Δημιουργία τοποθεσίας"
@@ -2728,3 +2719,24 @@ msgid "Pack"
 msgid_plural "Packs"
 msgstr[0] "Πακέτο"
 msgstr[1] "Πακέτα"
+
+msgid "Manage user sessions"
+msgstr ""
+
+msgid "Sessions"
+msgstr ""
+
+msgid "Token type"
+msgstr ""
+
+msgid "Token hash"
+msgstr ""
+
+msgid "Client"
+msgstr ""
+
+msgid "This session"
+msgstr ""
+
+msgid "Are you sure you want to delete the selected session?"
+msgstr ""

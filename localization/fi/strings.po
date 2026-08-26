@@ -697,12 +697,8 @@ msgstr "Tuoteryhmä"
 msgid "Are you sure you want to delete product group \"%s\"?"
 msgstr "Haluatko varmasti poistaa tuoteryhmän \"%s\"?"
 
-msgid "Stay logged in permanently"
-msgstr "Pysy sisäänkirjautuneena"
-
-msgid "When not set, you will get logged out at latest after 30 days"
+msgid "Remember Me"
 msgstr ""
-"Kun ei valittuna, sinut kirjataan ulos viimeistään 30 päivän kuluttua."
 
 msgid "Status"
 msgstr "Tila"
@@ -1669,9 +1665,6 @@ msgstr ""
 msgid "Is freezer"
 msgstr "On pakastin"
 
-msgid "This cannot be the same as the \"From\" location"
-msgstr "Tämä ei voi olla sama kuin lähtösijainti"
-
 msgid "Thawed"
 msgstr "Sulanut"
 
@@ -1729,9 +1722,6 @@ msgstr "Poista"
 msgid "Show an icon if the product is already on the shopping list"
 msgstr "Näytä kuvake, jos tuote on jo ostoslistalla"
 
-msgid "Calories"
-msgstr "kcal"
-
 msgid "means %1$s per %2$s"
 msgstr "tarkoittaa %1$s per %2$s"
 
@@ -1783,8 +1773,8 @@ msgstr ""
 msgid "Clear filter"
 msgstr "Tyhjennä filtterit"
 
-msgid "Permissions for user %s"
-msgstr "Oikeudet käyttäjälle %s"
+msgid "Permissions"
+msgstr ""
 
 msgid "Are you sure you want to remove full permissions for yourself?"
 msgstr "Haluatko todella poistaa täydet oikeudet itseltäsi?"
@@ -2838,3 +2828,24 @@ msgid "Pack"
 msgid_plural "Packs"
 msgstr[0] "Paketti"
 msgstr[1] "Pakettia"
+
+msgid "Manage user sessions"
+msgstr ""
+
+msgid "Sessions"
+msgstr ""
+
+msgid "Token type"
+msgstr ""
+
+msgid "Token hash"
+msgstr ""
+
+msgid "Client"
+msgstr ""
+
+msgid "This session"
+msgstr ""
+
+msgid "Are you sure you want to delete the selected session?"
+msgstr ""

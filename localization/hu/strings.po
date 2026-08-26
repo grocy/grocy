@@ -702,12 +702,8 @@ msgstr "Termékcsoport"
 msgid "Are you sure you want to delete product group \"%s\"?"
 msgstr ""
 
-msgid "Stay logged in permanently"
-msgstr "Bejelentkezés korlátlan ideig"
-
-msgid "When not set, you will get logged out at latest after 30 days"
+msgid "Remember Me"
 msgstr ""
-"Amikor nincs beállítva, akkor legkorábban 30 nap után ki leszel léptetve"
 
 msgid "Status"
 msgstr "Állapot"
@@ -1678,9 +1674,6 @@ msgstr ""
 msgid "Is freezer"
 msgstr "Fagyasztószekrény"
 
-msgid "This cannot be the same as the \"From\" location"
-msgstr "Nem lehet azonos a \"Forrás\" hellyel"
-
 msgid "Thawed"
 msgstr "Kiolvasztott"
 
@@ -1738,9 +1731,6 @@ msgstr "Tétel törlése"
 msgid "Show an icon if the product is already on the shopping list"
 msgstr "Jelenítsen meg egy ikont, ha a termék már a bevásárlólistán van"
 
-msgid "Calories"
-msgstr "Kalória"
-
 msgid "means %1$s per %2$s"
 msgstr "%1$s minden %2$s-ben"
 
@@ -1789,8 +1779,8 @@ msgstr ""
 msgid "Clear filter"
 msgstr "Szűrő törlése"
 
-msgid "Permissions for user %s"
-msgstr "%s jogosultságai"
+msgid "Permissions"
+msgstr ""
 
 msgid "Are you sure you want to remove full permissions for yourself?"
 msgstr "Biztosan el akarod távolítani az összes jogosultságodat?"
@@ -2828,3 +2818,24 @@ msgid "Pack"
 msgid_plural "Packs"
 msgstr[0] "Csomag"
 msgstr[1] "Csomag"
+
+msgid "Manage user sessions"
+msgstr ""
+
+msgid "Sessions"
+msgstr ""
+
+msgid "Token type"
+msgstr ""
+
+msgid "Token hash"
+msgstr ""
+
+msgid "Client"
+msgstr ""
+
+msgid "This session"
+msgstr ""
+
+msgid "Are you sure you want to delete the selected session?"
+msgstr ""
