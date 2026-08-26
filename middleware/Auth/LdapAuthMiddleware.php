@@ -74,8 +74,15 @@ class LdapAuthMiddleware extends BaseAuthMiddleware
 					$user = UsersService::GetInstance()->CreateUser($ldapUidAttribute, $ldapFirstName, $ldapLastName, '');
 				}
 
-				$sessionKey = SessionService::GetInstance()->CreateSession($user->id, $postParams['stay_logged_in'] == 'on');
-				self::SetSessionCookie($sessionKey);
+				$token = SessionService::GetInstance()->CreateToken(SessionService::SESSION_TOKEN_TYPE_ACCESS, $user->id, GetClientUserAgent());
+				self::SetSessionCookie(SessionService::SESSION_TOKEN_TYPE_ACCESS, $token);
+
+				$rememberMe = isset($postParams['remember_me']) && $postParams['remember_me'] == 'on';
+				if ($rememberMe)
+				{
+					$token = SessionService::GetInstance()->CreateToken(SessionService::SESSION_TOKEN_TYPE_REMEMBER_ME, $user->id, GetClientUserAgent());
+					self::SetSessionCookie(SessionService::SESSION_TOKEN_TYPE_REMEMBER_ME, $token);
+				}
 
 				return true;
 			}

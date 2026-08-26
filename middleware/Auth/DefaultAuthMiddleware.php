@@ -44,12 +44,18 @@ class DefaultAuthMiddleware extends BaseAuthMiddleware
 
 		$user = $db->users()->where('username', $postParams['username'])->fetch();
 		$inputPassword = $postParams['password'];
-		$stayLoggedInPermanently = $postParams['stay_logged_in'] == 'on';
+		$rememberMe = isset($postParams['remember_me']) && $postParams['remember_me'] == 'on';
 
 		if ($user !== null && password_verify($inputPassword, $user->password))
 		{
-			$sessionKey = SessionService::GetInstance()->CreateSession($user->id, $stayLoggedInPermanently);
-			self::SetSessionCookie($sessionKey);
+			$token = SessionService::GetInstance()->CreateToken(SessionService::SESSION_TOKEN_TYPE_ACCESS, $user->id, GetClientUserAgent());
+			self::SetSessionCookie(SessionService::SESSION_TOKEN_TYPE_ACCESS, $token);
+
+			if ($rememberMe)
+			{
+				$token = SessionService::GetInstance()->CreateToken(SessionService::SESSION_TOKEN_TYPE_REMEMBER_ME, $user->id, GetClientUserAgent());
+				self::SetSessionCookie(SessionService::SESSION_TOKEN_TYPE_REMEMBER_ME, $token);
+			}
 
 			if (password_needs_rehash($user->password, PASSWORD_ARGON2ID))
 			{

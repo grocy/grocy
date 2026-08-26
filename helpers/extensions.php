@@ -106,17 +106,6 @@ function GetClassConstants($className, $prefix = null)
 	}
 }
 
-function RandomString($length, $allowedChars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ')
-{
-	$randomString = '';
-	for ($i = 0; $i < $length; $i++)
-	{
-		$randomString .= $allowedChars[rand(0, strlen($allowedChars) - 1)];
-	}
-
-	return $randomString;
-}
-
 function IsAssociativeArray(array $array)
 {
 	$keys = array_keys($array);
@@ -277,4 +266,9 @@ function EmptyFolder($folderPath)
 			unlink($item);
 		}
 	}
+}
+
+function GetClientUserAgent()
+{
+	return isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : 'unknown';
 }

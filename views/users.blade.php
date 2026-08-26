@@ -92,20 +92,26 @@
 				@foreach($users as $user)
 				<tr>
 					<td class="fit-content border-right">
+						@if(!GROCY_IS_EMBEDDED_INSTALL && !GROCY_DISABLE_AUTH)
+						<a class="btn btn-primary btn-sm"
+							href="{{ $U('/user/' . $user->id . '/permissions') }}"
+							data-toggle="tooltip"
+							title="{{ $__t('Configure user permissions') }}">
+							<i class="fa-solid fa-lock"></i>
+						</a>
+						<a class="btn btn-primary btn-sm"
+							href="{{ $U('/user/' . $user->id . '/sessions') }}"
+							data-toggle="tooltip"
+							title="{{ $__t('Manage user sessions') }}">
+							<i class="fa-solid fa-tower-broadcast"></i>
+						</a>
+						@endif
 						<a class="btn btn-info btn-sm"
 							href="{{ $U('/user/') }}{{ $user->id }}"
 							data-toggle="tooltip"
 							title="{{ $__t('Edit this item') }}">
 							<i class="fa-solid fa-edit"></i>
 						</a>
-						@if(!GROCY_IS_EMBEDDED_INSTALL && !GROCY_DISABLE_AUTH)
-						<a class="btn btn-info btn-sm"
-							href="{{ $U('/user/' . $user->id . '/permissions') }}"
-							data-toggle="tooltip"
-							title="{{ $__t('Configure user permissions') }}">
-							<i class="fa-solid fa-lock"></i>
-						</a>
-						@endif
 						<a class="btn btn-danger btn-sm user-delete-button @if($user->id == GROCY_USER_ID) disabled @endif"
 							href="#"
 							data-user-id="{{ $user->id }}"

@@ -3,6 +3,7 @@
 namespace Grocy\Controllers;
 
 use Grocy\Controllers\Users\User;
+use Grocy\Services\SessionService;
 use Grocy\Services\UserfieldsService;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
@@ -71,6 +72,34 @@ class UsersController extends BaseController
 			'users' => $this->DB->users()->orderBy('username'),
 			'userfields' => UserfieldsService::GetInstance()->GetFields('users'),
 			'userfieldValues' => UserfieldsService::GetInstance()->GetAllValues('users')
+		]);
+	}
+
+	public function SessionList(Request $request, Response $response, array $args)
+	{
+		if ($args['userId'] == GROCY_USER_ID)
+		{
+			User::CheckPermission($request, User::PERMISSION_USERS_EDIT_SELF);
+		}
+		else
+		{
+			User::CheckPermission($request, User::PERMISSION_USERS_EDIT);
+		}
+
+		$thisSessionTokenHashes = [];
+		if (isset($_COOKIE[SessionService::SESSION_TOKEN_COOKIE_NAME_ACCESS]))
+		{
+			$thisSessionTokenHashes[] = hash('sha256', $_COOKIE[SessionService::SESSION_TOKEN_COOKIE_NAME_ACCESS]);
+		}
+		if (isset($_COOKIE[SessionService::SESSION_TOKEN_COOKIE_NAME_REMEMBER_ME]))
+		{
+			$thisSessionTokenHashes[] = hash('sha256', $_COOKIE[SessionService::SESSION_TOKEN_COOKIE_NAME_REMEMBER_ME]);
+		}
+
+		return $this->RenderPage($response, 'managesessions', [
+			'user' => $this->DB->users($args['userId']),
+			'thisSessionTokenHashes' => $thisSessionTokenHashes,
+			'sessionRows' => $this->DB->sessions()->where('user_id', $args['userId'])->orderBy('id')
 		]);
 	}
 }

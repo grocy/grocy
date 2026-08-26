@@ -17,10 +17,24 @@ class SystemApiController extends BaseApiController
 			$constants = get_defined_constants();
 
 			// Some GROCY_* constants are not really config settings and therefore should not be exposed
-			unset($constants['GROCY_AUTHENTICATED'], $constants['GROCY_DATAPATH'], $constants['GROCY_IS_EMBEDDED_INSTALL'], $constants['GROCY_USER_ID']);
+			unset(
+				$constants['GROCY_AUTHENTICATED'],
+				$constants['GROCY_DATAPATH'],
+				$constants['GROCY_IS_EMBEDDED_INSTALL'],
+				$constants['GROCY_REVERSE_PROXY_AUTH_HEADER'],
+				$constants['GROCY_REVERSE_PROXY_AUTH_USE_ENV'],
+				$constants['GROCY_LDAP_ADDRESS'],
+				$constants['GROCY_LDAP_BASE_DN'],
+				$constants['GROCY_LDAP_BIND_DN'],
+				$constants['GROCY_LDAP_BIND_PW'],
+				$constants['GROCY_LDAP_USER_FILTER'],
+				$constants['GROCY_LDAP_UID_ATTR'],
+				$constants['GROCY_USER_USERNAME'],
+				$constants['GROCY_USER_PICTURE_FILE_NAME'],
+				$constants['GROCY_USER_ID']
+			);
 
 			$returnArray = [];
-
 			foreach ($constants as $constant => $value)
 			{
 				if (substr($constant, 0, 6) === 'GROCY_')

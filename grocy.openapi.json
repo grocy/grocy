@@ -5189,29 +5189,6 @@
 					"next_estimated_charge_time": "2999-12-31 23:59:59"
 				}
 			},
-			"Session": {
-				"type": "object",
-				"properties": {
-					"id": {
-						"type": "integer"
-					},
-					"session_key": {
-						"type": "string"
-					},
-					"expires": {
-						"type": "string",
-						"format": "date-time"
-					},
-					"last_used": {
-						"type": "string",
-						"format": "date-time"
-					},
-					"row_created_timestamp": {
-						"type": "string",
-						"format": "date-time"
-					}
-				}
-			},
 			"User": {
 				"type": "object",
 				"properties": {
@@ -5956,13 +5933,15 @@
 					"battery_charge_cycles",
 					"product_barcodes_view",
 					"permission_hierarchy",
-					"uihelper_shopping_list"
+					"uihelper_shopping_list",
+					"sessions"
 				]
 			},
 			"ExposedEntityNoListing": {
 				"type": "string",
 				"enum": [
-					"api_keys"
+					"api_keys",
+					"sessions"
 				]
 			},
 			"ExposedEntityNoEdit": {
@@ -5980,7 +5959,8 @@
 					"battery_charge_cycles",
 					"product_barcodes_view",
 					"permission_hierarchy",
-					"uihelper_shopping_list"
+					"uihelper_shopping_list",
+					"sessions"
 				]
 			},
 			"ExposedEntityNoDelete": {

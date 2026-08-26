@@ -41,15 +41,11 @@
 				<div class="custom-control custom-checkbox">
 					<input type="checkbox"
 						class="form-check-input custom-control-input"
-						id="stay_logged_in"
-						name="stay_logged_in">
+						id="remember_me"
+						name="remember_me">
 					<label class="form-check-label custom-control-label"
-						for="stay_logged_in">
-						{{ $__t('Stay logged in permanently') }}
-						<i class="fa-solid fa-question-circle text-muted"
-							data-toggle="tooltip"
-							data-trigger="hover click"
-							title="{{ $__t('When not set, you will get logged out at latest after 30 days') }}"></i>
+						for="remember_me">
+						{{ $__t('Remember Me') }}
 					</label>
 				</div>
 			</div>

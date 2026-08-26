@@ -94,7 +94,7 @@ class DemoBarcodeLookupPlugin extends BaseBarcodeLookupPlugin
 			}
 
 			return [
-				'name' => 'LookedUpProduct_' . RandomString(5),
+				'name' => 'LookedUpProduct_' . bin2hex(random_bytes(4)),
 				'location_id' => $locationId,
 				'qu_id_purchase' => $quId,
 				'qu_id_stock' => $quId,

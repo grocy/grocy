@@ -16,5 +16,4 @@ CREATE TABLE sessions (
 	expires DATETIME,
 	last_used DATETIME,
 	row_created_timestamp DATETIME DEFAULT (datetime('now', 'localtime'))
-)
-
+);

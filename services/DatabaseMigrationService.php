@@ -40,6 +40,8 @@ class DatabaseMigrationService extends BaseService
 		{
 			DatabaseService::GetInstance()->ExecuteDbStatement('VACUUM');
 		}
+
+		SessionService::GetInstance()->DeleteExpiredTokens();
 	}
 
 	private function ExecutePhpMigrationWhenNeeded(int $migrationId, string $phpFile, int &$migrationCounter)

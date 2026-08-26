@@ -74,10 +74,52 @@ abstract class BaseAuthMiddleware extends BaseMiddleware
 		}
 	}
 
-	protected static function SetSessionCookie(string $sessionKey)
+	protected static function SetSessionCookie(int $tokenType, string $token)
 	{
-		// Cookie never expires, session validity is up to SessionService
-		setcookie(SessionService::SESSION_COOKIE_NAME, $sessionKey, PHP_INT_SIZE == 4 ? PHP_INT_MAX : PHP_INT_MAX >> 32);
+		switch ($tokenType)
+		{
+			case SessionService::SESSION_TOKEN_TYPE_ACCESS:
+				setcookie(SessionService::SESSION_TOKEN_COOKIE_NAME_ACCESS, $token, [
+					'expires' => 0, // Browser session end
+					'httponly' => true,
+					'samesite' => 'Lax',
+					'path' => '/'
+				]);
+				break;
+
+			case SessionService::SESSION_TOKEN_TYPE_REMEMBER_ME:
+				setcookie(SessionService::SESSION_TOKEN_COOKIE_NAME_REMEMBER_ME, $token, [
+					'expires' => time() + SessionService::SESSION_TOKEN_EXPIRATION_SECONDS_REMEMBER_ME,
+					'httponly' => true,
+					'samesite' => 'Lax',
+					'path' => '/'
+				]);
+				break;
+		}
+	}
+
+	protected static function RemoveSessionCookie(int $tokenType)
+	{
+		switch ($tokenType)
+		{
+			case SessionService::SESSION_TOKEN_TYPE_ACCESS:
+				setcookie(SessionService::SESSION_TOKEN_COOKIE_NAME_ACCESS, '', [
+					'expires' => time() - 3600,
+					'httponly' => true,
+					'samesite' => 'Lax',
+					'path' => '/'
+				]);
+				break;
+
+			case SessionService::SESSION_TOKEN_TYPE_REMEMBER_ME:
+				setcookie(SessionService::SESSION_TOKEN_COOKIE_NAME_REMEMBER_ME, '', [
+					'expires' => time() - 3600,
+					'httponly' => true,
+					'samesite' => 'Lax',
+					'path' => '/'
+				]);
+				break;
+		}
 	}
 
 	/**

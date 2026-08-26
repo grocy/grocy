@@ -55,6 +55,7 @@ $app->group('', function (RouteCollectorProxy $group)
 	$group->get('/users', [UsersController::class, 'UsersList']);
 	$group->get('/user/{userId}', [UsersController::class, 'UserEditForm']);
 	$group->get('/user/{userId}/permissions', [UsersController::class, 'PermissionList']);
+	$group->get('/user/{userId}/sessions', [UsersController::class, 'SessionList']);
 	$group->get('/usersettings', [UsersController::class, 'UserSettings']);
 
 	// Stock master data routes

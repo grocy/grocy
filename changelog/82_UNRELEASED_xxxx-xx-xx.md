@@ -1,5 +1,7 @@
 > ⚠️ Authentication middleware was reorganized, review your `AUTH_CLASS` setting (see the default reference in `config-dist.php` as usual)
 
+> ⚠️ This update invalidates all sessions (means you will have to log in again)
+
 ### New Feature: xxxx
 
 - xxx
@@ -57,6 +59,7 @@
 
 ### General
 
+- It's now possible to view (and delete) active sessions of a user (new button per user on the "Manage users" page)
 - Fixed accent insensitive searching using the general table search field was broken
 - Fixed that it wasn't possible to log in using passwords containing special escape sequences (e.g. `<<`)
 - Fixed that the initially created location and quantity units weren't localized (only applies to new installations)
