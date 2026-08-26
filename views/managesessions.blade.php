@@ -73,7 +73,7 @@
 					<th>{{ $__t('Token hash') }}</th>
 					<th>{{ $__t('Created') }}</th>
 					<th>{{ $__t('Expires') }}</th>
-					<th>{{ $__t('Last used') }}</th>
+					<th>{{ $__t('Last access') }}</th>
 					<th>{{ $__t('Client') }}</th>
 				</tr>
 			</thead>
