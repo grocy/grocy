@@ -88,7 +88,7 @@ Grocy.Components.ProductPicker.Enable = function ()
 	$("#camerabarcodescanner-start-button").removeClass("disabled");
 }
 
-$(".product-combobox").combobox(BootstrapComboboxDefaults);
+$(".product-combobox").combobox(Object.assign(BootstrapComboboxDefaults, { "clearIfNoMatch": false }));
 
 var prefillProduct = GetUriParam('product-name');
 var prefillProduct2 = Grocy.Components.ProductPicker.GetPicker().parent().data('prefill-by-name').toString();

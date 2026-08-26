@@ -28,7 +28,7 @@ body.fixed-nav {
 #mainNav .navbar-collapse .navbar-sidenav .nav-link-collapse:after {
 	float: right;
 	content: '\f107';
-	font-family: 'Font Awesome 6 Free';
+	font-family: 'Font Awesome 7 Free';
 }
 
 #mainNav .navbar-collapse .navbar-sidenav .nav-link-collapse.collapsed:after {
@@ -78,7 +78,7 @@ body.fixed-nav {
 	width: auto;
 	content: '\f105';
 	border: none;
-	font-family: 'Font Awesome 6 Free';
+	font-family: 'Font Awesome 7 Free';
 }
 
 #mainNav .navbar-collapse .navbar-nav>.nav-item.dropdown>.nav-link .indicator {
@@ -412,7 +412,7 @@ body.sidenav-toggled .navbar-sidenav-tooltip.show {
 
 #mainNav .navbar-collapse .navbar-nav>.nav-item.dropdown>.nav-link:after,
 #mainNav .navbar-collapse .navbar-sidenav .nav-link-collapse:after {
-	font-family: 'Font Awesome 6 Free';
+	font-family: 'Font Awesome 7 Free';
 }
 
 #mainNav .navbar-collapse .navbar-nav>.nav-item.dropdown>.nav-link.py-0:after,

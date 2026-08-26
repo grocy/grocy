@@ -5,7 +5,7 @@ Grocy.Components.CameraBarcodeScanner.LiveVideoSizeAdjusted = false;
 Grocy.Components.CameraBarcodeScanner.CameraSelectLoaded = false;
 Grocy.Components.CameraBarcodeScanner.TorchIsOn = false;
 
-Grocy.Components.CameraBarcodeScanner.CheckCapabilities = async function()
+Grocy.Components.CameraBarcodeScanner.CheckCapabilities = async function ()
 {
 	var track = Grocy.Components.CameraBarcodeScanner.Scanner.stream.getVideoTracks()[0];
 	var capabilities = {};
@@ -70,7 +70,7 @@ Grocy.Components.CameraBarcodeScanner.CheckCapabilities = async function()
 	}
 }
 
-Grocy.Components.CameraBarcodeScanner.StartScanning = function()
+Grocy.Components.CameraBarcodeScanner.StartScanning = function ()
 {
 	Grocy.Components.CameraBarcodeScanner.Scanner.decodeFromVideoDevice(
 		window.localStorage.getItem('cameraId'),
@@ -94,7 +94,7 @@ Grocy.Components.CameraBarcodeScanner.StartScanning = function()
 
 			if (Grocy.FeatureFlags.GROCY_FEATURE_FLAG_AUTO_TORCH_ON_WITH_CAMERA)
 			{
-				setTimeout(function()
+				setTimeout(function ()
 				{
 					Grocy.Components.CameraBarcodeScanner.TorchToggle(Grocy.Components.CameraBarcodeScanner.Scanner.stream.getVideoTracks()[0]);
 				}, 250);
@@ -105,7 +105,7 @@ Grocy.Components.CameraBarcodeScanner.StartScanning = function()
 			Grocy.FrontendHelpers.ShowGenericError("Error while initializing the barcode scanning library", error.message);
 			toastr.info(__t("Camera access is only possible when supported and allowed by your browser and when Grocy is served via a secure (https://) connection"));
 			window.localStorage.removeItem("cameraId");
-			setTimeout(function()
+			setTimeout(function ()
 			{
 				$(".modal").last().modal("hide");
 			}, Grocy.FormFocusDelay);
@@ -113,7 +113,7 @@ Grocy.Components.CameraBarcodeScanner.StartScanning = function()
 		})
 }
 
-Grocy.Components.CameraBarcodeScanner.StopScanning = function()
+Grocy.Components.CameraBarcodeScanner.StopScanning = function ()
 {
 	Grocy.Components.CameraBarcodeScanner.Scanner.reset();
 
@@ -122,7 +122,7 @@ Grocy.Components.CameraBarcodeScanner.StopScanning = function()
 	Grocy.Components.CameraBarcodeScanner.TorchIsOn = false;
 }
 
-Grocy.Components.CameraBarcodeScanner.TorchToggle = function(track)
+Grocy.Components.CameraBarcodeScanner.TorchToggle = function (track)
 {
 	if (track)
 	{
@@ -137,7 +137,7 @@ Grocy.Components.CameraBarcodeScanner.TorchToggle = function(track)
 	}
 }
 
-$(document).on("click", "#camerabarcodescanner-start-button", async function(e)
+$(document).on("click", "#camerabarcodescanner-start-button", async function (e)
 {
 	e.preventDefault();
 
@@ -162,7 +162,7 @@ $(document).on("click", "#camerabarcodescanner-start-button", async function(e)
 			torch: {
 				label: '<i class="fa-solid fa-lightbulb"></i>',
 				className: 'btn-warning responsive-button torch',
-				callback: function()
+				callback: function ()
 				{
 					if (Grocy.Components.CameraBarcodeScanner.Scanner.stream)
 					{
@@ -172,7 +172,7 @@ $(document).on("click", "#camerabarcodescanner-start-button", async function(e)
 				}
 			}
 		},
-		onHide: function(e)
+		onHide: function (e)
 		{
 			Grocy.Components.CameraBarcodeScanner.StopScanning();
 		}
@@ -181,7 +181,7 @@ $(document).on("click", "#camerabarcodescanner-start-button", async function(e)
 	// Add camera select to existing dialog
 	dialog.find('.bootbox-body').append('<div class="form-group pb-0 pt-2 my-1 d-block cameraSelect-wrapper"><select class="custom-control custom-select cameraSelect"></select></div>');
 	var cameraSelect = document.querySelector('.cameraSelect');
-	cameraSelect.onchange = function()
+	cameraSelect.onchange = function ()
 	{
 		window.localStorage.setItem('cameraId', cameraSelect.value);
 		Grocy.Components.CameraBarcodeScanner.Scanner.reset();
@@ -192,7 +192,7 @@ $(document).on("click", "#camerabarcodescanner-start-button", async function(e)
 });
 
 Grocy.Components.CameraBarcodeScanner.InitDone = false;
-Grocy.Components.CameraBarcodeScanner.Init = function()
+Grocy.Components.CameraBarcodeScanner.Init = function ()
 {
 	if (Grocy.Components.CameraBarcodeScanner.InitDone)
 	{
@@ -208,7 +208,7 @@ Grocy.Components.CameraBarcodeScanner.Init = function()
 		ZXing.BarcodeFormat.QR_CODE,
 	]));
 
-	$(".barcodescanner-input:visible").each(function()
+	$(".barcodescanner-input:visible").each(function ()
 	{
 		if ($(this).hasAttr("disabled"))
 		{
@@ -223,7 +223,7 @@ Grocy.Components.CameraBarcodeScanner.Init = function()
 	});
 }
 
-setTimeout(function()
+setTimeout(function ()
 {
 	Grocy.Components.CameraBarcodeScanner.Init();
 }, 50);

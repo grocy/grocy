@@ -4,10 +4,10 @@
 	"dependencies": {
 		"@danielfarrell/bootstrap-combobox": "https://github.com/berrnd/bootstrap-combobox.git#master-fork",
 		"@fontsource/roboto": "^5.1.1",
-		"@fortawesome/fontawesome-free": "^6.1.1",
-		"@zxing/library": "^0.21.3",
+		"@fortawesome/fontawesome-free": "^7.3.1",
+		"@zxing/library": "^0.23.0",
 		"animate.css": "^3.7.2",
-		"bootbox": "^6.0.0",
+		"bootbox": "^6.0.4",
 		"bootstrap": "^4.5.2",
 		"bootstrap-select": "^1.13.18",
 		"bwip-js": "^4.5.1",

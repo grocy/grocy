@@ -167,7 +167,7 @@
 					title="{{ $__t('Stock overview') }}">
 					<a class="nav-link discrete-link"
 						href="{{ $U('/stockoverview') }}">
-						<i class="fa-solid fa-fw fa-box"></i>
+						<i class="fa-solid fa-box"></i>
 						<span class="nav-link-text">{{ $__t('Stock overview') }}</span>
 					</a>
 				</li>
@@ -179,7 +179,7 @@
 					title="{{ $__t('Shopping list') }}">
 					<a class="nav-link discrete-link"
 						href="{{ $U('/shoppinglist') }}">
-						<i class="fa-solid fa-fw fa-shopping-cart"></i>
+						<i class="fa-solid fa-shopping-cart"></i>
 						<span class="nav-link-text">{{ $__t('Shopping list') }}</span>
 					</a>
 				</li>
@@ -192,7 +192,7 @@
 					title="{{ $__t('Recipes') }}">
 					<a class="nav-link discrete-link"
 						href="{{ $U('/recipes') }}">
-						<i class="fa-solid fa-fw fa-pizza-slice"></i>
+						<i class="fa-solid fa-pizza-slice"></i>
 						<span class="nav-link-text">{{ $__t('Recipes') }}</span>
 					</a>
 				</li>
@@ -204,7 +204,7 @@
 					<a id="meal-plan-nav-link"
 						class="nav-link discrete-link"
 						href="{{ $U('/mealplan') }}">
-						<i class="fa-solid fa-fw fa-paper-plane"></i>
+						<i class="fa-solid fa-paper-plane"></i>
 						<span class="nav-link-text">{{ $__t('Meal plan') }}</span>
 					</a>
 				</li>
@@ -218,7 +218,7 @@
 					title="{{ $__t('Chores overview') }}">
 					<a class="nav-link discrete-link"
 						href="{{ $U('/choresoverview') }}">
-						<i class="fa-solid fa-fw fa-home"></i>
+						<i class="fa-solid fa-home"></i>
 						<span class="nav-link-text">{{ $__t('Chores overview') }}</span>
 					</a>
 				</li>
@@ -230,7 +230,7 @@
 					title="{{ $__t('Tasks') }}">
 					<a class="nav-link discrete-link"
 						href="{{ $U('/tasks') }}">
-						<i class="fa-solid fa-fw fa-tasks"></i>
+						<i class="fa-solid fa-tasks"></i>
 						<span class="nav-link-text">{{ $__t('Tasks') }}</span>
 					</a>
 				</li>
@@ -242,7 +242,7 @@
 					title="{{ $__t('Batteries overview') }}">
 					<a class="nav-link discrete-link"
 						href="{{ $U('/batteriesoverview') }}">
-						<i class="fa-solid fa-fw fa-battery-half"></i>
+						<i class="fa-solid fa-battery-half"></i>
 						<span class="nav-link-text">{{ $__t('Batteries overview') }}</span>
 					</a>
 				</li>
@@ -254,7 +254,7 @@
 					title="{{ $__t('Equipment') }}">
 					<a class="nav-link discrete-link"
 						href="{{ $U('/equipment') }}">
-						<i class="fa-solid fa-fw fa-toolbox"></i>
+						<i class="fa-solid fa-toolbox"></i>
 						<span class="nav-link-text">{{ $__t('Equipment') }}</span>
 					</a>
 				</li>
@@ -267,7 +267,7 @@
 					title="{{ $__t('Calendar') }}">
 					<a class="nav-link discrete-link"
 						href="{{ $U('/calendar') }}">
-						<i class="fa-solid fa-fw fa-calendar-days"></i>
+						<i class="fa-solid fa-calendar-days"></i>
 						<span class="nav-link-text">{{ $__t('Calendar') }}</span>
 					</a>
 				</li>
@@ -281,7 +281,7 @@
 					title="{{ $__t('Purchase') }}">
 					<a class="nav-link discrete-link"
 						href="{{ $U('/purchase') }}">
-						<i class="fa-solid fa-fw fa-cart-plus"></i>
+						<i class="fa-solid fa-cart-plus"></i>
 						<span class="nav-link-text">{{ $__t('Purchase') }}</span>
 					</a>
 				</li>
@@ -291,7 +291,7 @@
 					title="{{ $__t('Consume') }}">
 					<a class="nav-link discrete-link"
 						href="{{ $U('/consume') }}">
-						<i class="fa-solid fa-fw fa-utensils"></i>
+						<i class="fa-solid fa-utensils"></i>
 						<span class="nav-link-text">{{ $__t('Consume') }}</span>
 					</a>
 				</li>
@@ -302,7 +302,7 @@
 					title="{{ $__t('Transfer') }}">
 					<a class="nav-link discrete-link"
 						href="{{ $U('/transfer') }}">
-						<i class="fa-solid fa-fw fa-exchange-alt"></i>
+						<i class="fa-solid fa-exchange-alt"></i>
 						<span class="nav-link-text">{{ $__t('Transfer') }}</span>
 					</a>
 				</li>
@@ -313,7 +313,7 @@
 					title="{{ $__t('Inventory') }}">
 					<a class="nav-link discrete-link"
 						href="{{ $U('/inventory') }}">
-						<i class="fa-solid fa-fw fa-list"></i>
+						<i class="fa-solid fa-list"></i>
 						<span class="nav-link-text">{{ $__t('Inventory') }}</span>
 					</a>
 				</li>
@@ -325,7 +325,7 @@
 					title="{{ $__t('Chore tracking') }}">
 					<a class="nav-link discrete-link"
 						href="{{ $U('/choretracking') }}">
-						<i class="fa-solid fa-fw fa-play"></i>
+						<i class="fa-solid fa-play"></i>
 						<span class="nav-link-text">{{ $__t('Chore tracking') }}</span>
 					</a>
 				</li>
@@ -337,7 +337,7 @@
 					title="{{ $__t('Battery tracking') }}">
 					<a class="nav-link discrete-link"
 						href="{{ $U('/batterytracking') }}">
-						<i class="fa-solid fa-fw fa-car-battery"></i>
+						<i class="fa-solid fa-car-battery"></i>
 						<span class="nav-link-text">{{ $__t('Battery tracking') }}</span>
 					</a>
 				</li>
@@ -355,7 +355,7 @@
 					title="{{ $userentity->caption }}">
 					<a class="nav-link discrete-link"
 						href="{{ $U('/userobjects/' . $userentity->name) }}">
-						<i class="fa-fw {{ $userentity->icon_css_class }}"></i>
+						<i class="{{ $userentity->icon_css_class }}"></i>
 						<span class="nav-link-text">{{ $userentity->caption }}</span>
 					</a>
 				</li>
@@ -376,7 +376,7 @@
 					<a class="nav-link nav-link-collapse discrete-link @if(!in_array($viewName, $masterDataViews)) collapsed @else active-page @endif"
 						data-toggle="collapse"
 						href="#sub-nav-manage-master-data">
-						<i class="fa-solid fa-fw fa-table"></i>
+						<i class="fa-solid fa-table"></i>
 						<span class="nav-link-text">{{ $__t('Manage master data') }}</span>
 					</a>
 					<ul id="sub-nav-manage-master-data"
@@ -484,14 +484,14 @@
 
 					<div class="dropdown-menu dropdown-menu-right">
 						<a class="dropdown-item logout-button discrete-link"
-							href="{{ $U('/logout') }}"><i class="fa-solid fa-fw fa-sign-out-alt"></i>&nbsp;{{ $__t('Logout') }}</a>
+							href="{{ $U('/logout') }}"><i class="fa-solid fa-sign-out-alt"></i>&nbsp;{{ $__t('Logout') }}</a>
 						<div class="dropdown-divider"></div>
 						@if(!defined('GROCY_EXTERNALLY_MANAGED_AUTHENTICATION'))
 						<a class="dropdown-item logout-button discrete-link"
-							href="{{ $U('/user/' . GROCY_USER_ID . '?changepw=true') }}"><i class="fa-solid fa-fw fa-key"></i>&nbsp;{{ $__t('Change password') }}</a>
+							href="{{ $U('/user/' . GROCY_USER_ID . '?changepw=true') }}"><i class="fa-solid fa-key"></i>&nbsp;{{ $__t('Change password') }}</a>
 						@else
 						<a class="dropdown-item logout-button discrete-link"
-							href="{{ $U('/user/' . GROCY_USER_ID) }}"><i class="fa-solid fa-fw fa-key"></i>&nbsp;{{ $__t('Edit user') }}</a>
+							href="{{ $U('/user/' . GROCY_USER_ID) }}"><i class="fa-solid fa-key"></i>&nbsp;{{ $__t('Edit user') }}</a>
 						@endif
 					</div>
 				</li>
@@ -636,48 +636,48 @@
 
 					<div class="dropdown-menu dropdown-menu-right">
 						<a class="dropdown-item discrete-link"
-							href="{{ $U('/stocksettings') }}"><i class="fa-solid fa-fw fa-box"></i>&nbsp;{{ $__t('Stock settings') }}</a>
+							href="{{ $U('/stocksettings') }}"><i class="fa-solid fa-box"></i>&nbsp;{{ $__t('Stock settings') }}</a>
 						@if(GROCY_FEATURE_FLAG_SHOPPINGLIST)
 						<a class="dropdown-item discrete-link permission-SHOPPINGLIST"
-							href="{{ $U('/shoppinglistsettings') }}"><i class="fa-solid fa-fw fa-shopping-cart"></i>&nbsp;{{ $__t('Shopping list settings') }}</a>
+							href="{{ $U('/shoppinglistsettings') }}"><i class="fa-solid fa-shopping-cart"></i>&nbsp;{{ $__t('Shopping list settings') }}</a>
 						@endif
 						@if(GROCY_FEATURE_FLAG_RECIPES)
 						<a class="dropdown-item discrete-link permission-RECIPES"
-							href="{{ $U('/recipessettings') }}"><i class="fa-solid fa-fw fa-pizza-slice"></i>&nbsp;{{ $__t('Recipes settings') }}</a>
+							href="{{ $U('/recipessettings') }}"><i class="fa-solid fa-pizza-slice"></i>&nbsp;{{ $__t('Recipes settings') }}</a>
 						@endif
 						@if(GROCY_FEATURE_FLAG_CHORES)
 						<a class="dropdown-item discrete-link permission-CHORES"
-							href="{{ $U('/choressettings') }}"><i class="fa-solid fa-fw fa-home"></i>&nbsp;{{ $__t('Chores settings') }}</a>
+							href="{{ $U('/choressettings') }}"><i class="fa-solid fa-home"></i>&nbsp;{{ $__t('Chores settings') }}</a>
 						@endif
 						@if(GROCY_FEATURE_FLAG_TASKS)
 						<a class="dropdown-item discrete-link permission-TASKS"
-							href="{{ $U('/taskssettings') }}"><i class="fa-solid fa-fw fa-tasks"></i>&nbsp;{{ $__t('Tasks settings') }}</a>
+							href="{{ $U('/taskssettings') }}"><i class="fa-solid fa-tasks"></i>&nbsp;{{ $__t('Tasks settings') }}</a>
 						@endif
 						@if(GROCY_FEATURE_FLAG_BATTERIES)
 						<a class="dropdown-item discrete-link permission-BATTERIES"
-							href="{{ $U('/batteriessettings') }}"><i class="fa-solid fa-fw fa-battery-half"></i>&nbsp;{{ $__t('Batteries settings') }}</a>
+							href="{{ $U('/batteriessettings') }}"><i class="fa-solid fa-battery-half"></i>&nbsp;{{ $__t('Batteries settings') }}</a>
 						@endif
 						<div class="dropdown-divider"></div>
 						<a data-href="{{ $U('/usersettings') }}"
 							class="dropdown-item discrete-link link-return">
-							<i class="fa-solid fa-fw fa-user-cog"></i> {{ $__t('User settings') }}
+							<i class="fa-solid fa-user-cog"></i> {{ $__t('User settings') }}
 						</a>
 						<a class="dropdown-item discrete-link permission-USERS_READ"
-							href="{{ $U('/users') }}"><i class="fa-solid fa-fw fa-users"></i>&nbsp;{{ $__t('Manage users') }}</a>
+							href="{{ $U('/users') }}"><i class="fa-solid fa-users"></i>&nbsp;{{ $__t('Manage users') }}</a>
 						<div class="dropdown-divider"></div>
 						@if(!GROCY_DISABLE_AUTH)
 						<a class="dropdown-item discrete-link"
-							href="{{ $U('/manageapikeys') }}"><i class="fa-solid fa-fw fa-handshake"></i>&nbsp;{{ $__t('Manage API keys') }}</a>
+							href="{{ $U('/manageapikeys') }}"><i class="fa-solid fa-handshake"></i>&nbsp;{{ $__t('Manage API keys') }}</a>
 						@endif
 						<a class="dropdown-item discrete-link"
 							target="_blank"
-							href="{{ $U('/api') }}"><i class="fa-solid fa-fw fa-book"></i>&nbsp;{{ $__t('REST API browser') }}</a>
+							href="{{ $U('/api') }}"><i class="fa-solid fa-book"></i>&nbsp;{{ $__t('REST API browser') }}</a>
 						<a class="dropdown-item discrete-link"
-							href="{{ $U('/barcodescannertesting') }}"><i class="fa-solid fa-fw fa-barcode"></i>&nbsp;{{ $__t('Barcode scanner testing') }}</a>
+							href="{{ $U('/barcodescannertesting') }}"><i class="fa-solid fa-barcode"></i>&nbsp;{{ $__t('Barcode scanner testing') }}</a>
 						<div class="dropdown-divider"></div>
 						<a class="dropdown-item discrete-link show-as-dialog-link"
 							data-dialog-type="wider"
-							href="{{ $U('/about?embedded') }}"><i class="fa-solid fa-fw fa-info"></i>&nbsp;{{ $__t('About Grocy') }}</a>
+							href="{{ $U('/about?embedded') }}"><i class="fa-solid fa-info"></i>&nbsp;{{ $__t('About Grocy') }}</a>
 					</div>
 				</li>
 			</ul>
@@ -689,7 +689,7 @@
 		<div class="container-fluid @if(GROCY_AUTHENTICATED && !$embedded) pr-1 pl-md-3 pl-2 @endif @if($embedded) px-1 @endif">
 			<div class="row mb-3">
 				<div id="page-content"
-					class="col content-text">
+					class="col content-text fa-width-auto">
 					@yield('content')
 				</div>
 			</div>

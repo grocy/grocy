@@ -302,7 +302,7 @@ a:not([href]) {
 	margin: 0;
 	border: none;
 	content: '\f107';
-	font-family: 'Font Awesome 6 Free';
+	font-family: 'Font Awesome 7 Free';
 }
 
 /* Third party component customizations - DataTables */
