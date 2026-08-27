@@ -15,7 +15,6 @@ class BatteriesApiController extends BaseApiController
 	{
 		try
 		{
-			throw new \Exception('df');
 			return $this->ApiResponse($response, BatteriesService::GetInstance()->GetBatteryDetails($args['batteryId']));
 		}
 		catch (\Exception $ex)
