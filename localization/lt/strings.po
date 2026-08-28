@@ -723,7 +723,7 @@ msgid "Are you sure you want to delete product group \"%s\"?"
 msgstr "Ar tikrai norite ištrinti produktų grupę \"%s\"?"
 
 msgid "Remember Me"
-msgstr ""
+msgstr "Atsiminti mane"
 
 msgid "Status"
 msgstr "Būsena"
@@ -1831,7 +1831,7 @@ msgid "Clear filter"
 msgstr "Išvalyti filtą"
 
 msgid "Permissions"
-msgstr ""
+msgstr "Teisės"
 
 msgid "Are you sure you want to remove full permissions for yourself?"
 msgstr "Ar tikrai norite pašalinti visus leidimus?"
@@ -2903,22 +2903,25 @@ msgstr[2] "Pakuočių"
 msgstr[3] "Pakuočių"
 
 msgid "Manage user sessions"
-msgstr ""
+msgstr "Tvarkyti vartotojų sesijas"
 
 msgid "Sessions"
-msgstr ""
+msgstr "Sesijos"
 
 msgid "Token type"
-msgstr ""
+msgstr "Rakto tipas"
 
 msgid "Token hash"
-msgstr ""
+msgstr "Rakto šifras"
 
 msgid "Client"
-msgstr ""
+msgstr "Klientas"
 
 msgid "This session"
-msgstr ""
+msgstr "Ši sesija"
 
 msgid "Are you sure you want to delete the selected session?"
-msgstr ""
+msgstr "Ar tikrai norite ištrinti pasirinktą sesiją?"
+
+msgid "Last access"
+msgstr "Paskutinė prieiga"

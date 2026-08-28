@@ -2823,3 +2823,6 @@ msgstr ""
 
 msgid "Are you sure you want to delete the selected session?"
 msgstr ""
+
+msgid "Last access"
+msgstr ""

@@ -2885,3 +2885,6 @@ msgstr "Diese Sitzung"
 
 msgid "Are you sure you want to delete the selected session?"
 msgstr "Diese Sitzung wirklich löschen?"
+
+msgid "Last access"
+msgstr "Letzter Zugriff"

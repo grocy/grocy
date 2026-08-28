@@ -731,7 +731,7 @@ msgid "Are you sure you want to delete product group \"%s\"?"
 msgstr "Sei sicuro di voler eliminare il gruppo di prodotti \"%s\"?"
 
 msgid "Remember Me"
-msgstr ""
+msgstr "Ricordami"
 
 msgid "Status"
 msgstr "Stato"
@@ -1843,7 +1843,7 @@ msgid "Clear filter"
 msgstr "Pulisci filtro"
 
 msgid "Permissions"
-msgstr ""
+msgstr "Permessi"
 
 msgid "Are you sure you want to remove full permissions for yourself?"
 msgstr ""
@@ -2942,22 +2942,25 @@ msgstr[1] "Pacchi"
 msgstr[2] "Pacchi"
 
 msgid "Manage user sessions"
-msgstr ""
+msgstr "Gestisci sessioni utente"
 
 msgid "Sessions"
-msgstr ""
+msgstr "Sessioni"
 
 msgid "Token type"
-msgstr ""
+msgstr "Tipo di token"
 
 msgid "Token hash"
-msgstr ""
+msgstr "Hash del token"
 
 msgid "Client"
-msgstr ""
+msgstr "Client"
 
 msgid "This session"
-msgstr ""
+msgstr "Questa sessione"
 
 msgid "Are you sure you want to delete the selected session?"
-msgstr ""
+msgstr "Sei sicuro di voler cancellare la sessione selezionata?"
+
+msgid "Last access"
+msgstr "Ultimo accesso"
