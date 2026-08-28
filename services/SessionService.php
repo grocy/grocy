@@ -45,6 +45,7 @@ class SessionService extends BaseService
 	public function DeleteToken(int $tokenType, string $token)
 	{
 		$this->DB->sessions()->where('token_type = :1 AND token_hash = :2', $tokenType, hash('sha256', $token))->delete();
+		$this->DeleteExpiredTokens();
 	}
 
 	public function ValidateToken(int $tokenType, string $token)
@@ -89,7 +90,7 @@ class SessionService extends BaseService
 		return $this->DB->users()->orderBy('id')->limit(1)->fetch();
 	}
 
-	public function DeleteExpiredTokens()
+	private function DeleteExpiredTokens()
 	{
 		$this->DB->sessions()->where('expires < :1', date('Y-m-d H:i:s', time()))->delete();
 	}
