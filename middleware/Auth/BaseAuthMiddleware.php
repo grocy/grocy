@@ -11,17 +11,10 @@ use Slim\Routing\RouteContext;
 
 abstract class BaseAuthMiddleware extends BaseMiddleware
 {
-	protected ?string $RouteName = null;
-	protected bool $IsApiRoute = false;
-
 	public function __invoke(Request $request, RequestHandler $handler): Response
 	{
-		$routeContext = RouteContext::fromRequest($request);
-		$route = $routeContext->getRoute();
-		$this->RouteName = $route->getName();
-		$this->IsApiRoute = string_starts_with($request->getUri()->getPath(), '/api/');
-
-		if ($this->RouteName === 'root' || $this->RouteName === 'login')
+		$routeName = $this->GetRouteName($request);
+		if ($routeName === 'root' || $routeName === 'login')
 		{
 			// Root and Login routes are public/unauthenticated
 
@@ -53,7 +46,7 @@ abstract class BaseAuthMiddleware extends BaseMiddleware
 				define('GROCY_AUTHENTICATED', false);
 				$response = $this->ResponseFactory->createResponse();
 
-				if ($this->IsApiRoute)
+				if ($this->IsApiRoute($request))
 				{
 					return $response->withStatus(401);
 				}
@@ -69,7 +62,7 @@ abstract class BaseAuthMiddleware extends BaseMiddleware
 				define('GROCY_USER_USERNAME', $user->username);
 				define('GROCY_USER_PICTURE_FILE_NAME', $user->picture_file_name);
 
-				return $response = $handler->handle($request);
+				return $handler->handle($request);
 			}
 		}
 	}
@@ -120,6 +113,16 @@ abstract class BaseAuthMiddleware extends BaseMiddleware
 				]);
 				break;
 		}
+	}
+
+	protected function GetRouteName(Request $request): ?string
+	{
+		return RouteContext::fromRequest($request)->getRoute()?->getName();
+	}
+
+	protected function IsApiRoute(Request $request): bool
+	{
+		return string_starts_with($request->getUri()->getPath(), '/api/');
 	}
 
 	/**

@@ -10,7 +10,7 @@ class DefaultAuthMiddleware extends BaseAuthMiddleware
 {
 	protected function AuthenticateRequest(Request $request)
 	{
-		if ($this->IsApiRoute)
+		if ($this->IsApiRoute($request))
 		{
 			// Session cookie or API Key is ok
 			$auth = new SessionAuthMiddleware($this->AppContainer, $this->ResponseFactory);
