@@ -54,4 +54,4 @@
 
 ### API
 
-- xxx
+- Fixed that API Key Authentication did not work when running Grocy in a subdirectory

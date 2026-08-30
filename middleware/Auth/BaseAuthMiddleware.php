@@ -122,7 +122,7 @@ abstract class BaseAuthMiddleware extends BaseMiddleware
 
 	protected function IsApiRoute(Request $request): bool
 	{
-		return string_starts_with($request->getUri()->getPath(), '/api/');
+		return string_starts_with(RouteContext::fromRequest($request)->getRoute()->getPattern(), '/api/');
 	}
 
 	/**
