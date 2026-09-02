@@ -50,7 +50,7 @@
 
 ### General
 
-- xxx
+- Fixed that it wasn't possible to log in using passwords containing non-latin characters
 
 ### API
 

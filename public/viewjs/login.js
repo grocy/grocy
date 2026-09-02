@@ -13,6 +13,6 @@ $("#login-button").on("click", function (e)
 {
 	e.preventDefault();
 
-	$("#password_base64").val(btoa($("#password_input").val()));
+	$("#password_base64").val(btoa(String.fromCharCode(...new TextEncoder().encode($("#password_input").val()))));
 	$("#login-form").trigger("submit");
 });

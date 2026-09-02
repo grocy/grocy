@@ -46,7 +46,7 @@ $('#save-user-button').on('click', function (e)
 		jsonData.picture_file_name = RandomString() + CleanFileName($("#user-picture")[0].files[0].name);
 	}
 
-	jsonData.password_base64 = btoa(jsonData.password);
+	jsonData.password_base64 = btoa(String.fromCharCode(...new TextEncoder().encode(jsonData.password)));
 	delete jsonData.password;
 	delete jsonData.password_confirm;
 	delete jsonData.change_password;
