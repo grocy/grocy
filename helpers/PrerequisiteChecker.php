@@ -19,15 +19,15 @@ class PrerequisiteChecker
 {
 	public function checkRequirements()
 	{
-		self::checkForPhpVersion();
-		self::checkForConfigFile();
-		self::checkForConfigDistFile();
-		self::checkForComposer();
-		self::checkForPhpExtensions();
-		self::checkForSqliteVersion();
+		self::CheckPhpVersion();
+		self::CheckConfigFile();
+		self::CheckConfigDistFile();
+		self::CheckComposer();
+		self::CheckPhpExtensions();
+		self::CheckSqliteVersion();
 	}
 
-	private function checkForComposer()
+	private function CheckComposer()
 	{
 		if (!file_exists(__DIR__ . '/../packages/autoload.php'))
 		{
@@ -35,7 +35,7 @@ class PrerequisiteChecker
 		}
 	}
 
-	private function checkForConfigDistFile()
+	private function CheckConfigDistFile()
 	{
 		if (!file_exists(__DIR__ . '/../config-dist.php'))
 		{
@@ -43,7 +43,7 @@ class PrerequisiteChecker
 		}
 	}
 
-	private function checkForConfigFile()
+	private function CheckConfigFile()
 	{
 		if (!file_exists(GROCY_DATAPATH . '/config.php'))
 		{
@@ -51,7 +51,7 @@ class PrerequisiteChecker
 		}
 	}
 
-	private function checkForPhpExtensions()
+	private function CheckPhpExtensions()
 	{
 		$loadedExtensions = get_loaded_extensions();
 		foreach (REQUIRED_PHP_EXTENSIONS as $extension)
@@ -63,16 +63,16 @@ class PrerequisiteChecker
 		}
 	}
 
-	private function checkForSqliteVersion()
+	private function CheckSqliteVersion()
 	{
-		$sqliteVersion = self::getSqlVersionAsString();
+		$sqliteVersion = self::GetSqlVersion();
 		if (version_compare($sqliteVersion, REQUIRED_SQLITE_VERSION, '<'))
 		{
 			throw new ERequirementNotMet('SQLite ' . REQUIRED_SQLITE_VERSION . ' is required, however you are running ' . $sqliteVersion);
 		}
 	}
 
-	private function checkForPhpVersion()
+	private function CheckPhpVersion()
 	{
 		$phpVersion = phpversion();
 		if (version_compare($phpVersion, REQUIRED_PHP_VERSION, '<'))
@@ -81,7 +81,7 @@ class PrerequisiteChecker
 		}
 	}
 
-	private function getSqlVersionAsString()
+	private function GetSqlVersion(): string
 	{
 		$dbh = new \PDO('sqlite::memory:');
 		return $dbh->query('select sqlite_version()')->fetch()[0];

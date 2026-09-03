@@ -39,6 +39,7 @@ try
 }
 catch (Grocy\Helpers\ERequirementNotMet $ex)
 {
+	http_response_code(500);
 	exit('Unable to run Grocy: ' . $ex->getMessage());
 }
 

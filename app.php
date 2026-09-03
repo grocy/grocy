@@ -46,6 +46,7 @@ try
 }
 catch (\Grocy\Helpers\EInvalidConfig $ex)
 {
+	http_response_code(500);
 	exit('Invalid setting in config.php: ' . $ex->getMessage());
 }
 
