@@ -8,7 +8,7 @@
 $('#stock-journal-table tbody').removeClass("d-none");
 stockJournalTable.columns.adjust().draw();
 
-$("#product-filter").on("change", function()
+$("#product-filter").on("change", function ()
 {
 	var value = $(this).val();
 	if (value === "all")
@@ -23,7 +23,7 @@ $("#product-filter").on("change", function()
 	window.location.reload();
 });
 
-$("#transaction-type-filter").on("change", function()
+$("#transaction-type-filter").on("change", function ()
 {
 	var value = $(this).val();
 	var text = $("#transaction-type-filter option:selected").text();
@@ -32,10 +32,10 @@ $("#transaction-type-filter").on("change", function()
 		text = "";
 	}
 
-	stockJournalTable.column(stockJournalTable.colReorder.transpose(4)).search(text).draw();
+	stockJournalTable.column(stockJournalTable.colReorder.transpose(4)).search(text.accentNeutralise()).draw();
 });
 
-$("#location-filter").on("change", function()
+$("#location-filter").on("change", function ()
 {
 	var value = $(this).val();
 	var text = $("#location-filter option:selected").text();
@@ -44,10 +44,10 @@ $("#location-filter").on("change", function()
 		text = "";
 	}
 
-	stockJournalTable.column(stockJournalTable.colReorder.transpose(5)).search(text).draw();
+	stockJournalTable.column(stockJournalTable.colReorder.transpose(5)).search(text.accentNeutralise()).draw();
 });
 
-$("#user-filter").on("change", function()
+$("#user-filter").on("change", function ()
 {
 	var value = $(this).val();
 	var text = $("#user-filter option:selected").text();
@@ -56,16 +56,16 @@ $("#user-filter").on("change", function()
 		text = "";
 	}
 
-	stockJournalTable.column(stockJournalTable.colReorder.transpose(6)).search(text).draw();
+	stockJournalTable.column(stockJournalTable.colReorder.transpose(6)).search(text.accentNeutralise()).draw();
 });
 
-$("#daterange-filter").on("change", function()
+$("#daterange-filter").on("change", function ()
 {
 	UpdateUriParam("months", $(this).val());
 	window.location.reload();
 });
 
-$("#search").on("keyup", Delay(function()
+$("#search").on("keyup", Delay(function ()
 {
 	var value = $(this).val();
 	if (value === "all")
@@ -73,10 +73,10 @@ $("#search").on("keyup", Delay(function()
 		value = "";
 	}
 
-	stockJournalTable.search(value).draw();
+	stockJournalTable.search(value.accentNeutralise()).draw();
 }, Grocy.FormFocusDelay));
 
-$("#clear-filter-button").on("click", function()
+$("#clear-filter-button").on("click", function ()
 {
 	$("#search").val("");
 	$("#transaction-type-filter").val("all");
@@ -104,7 +104,7 @@ if (typeof GetUriParam("months") !== "undefined")
 	$("#daterange-filter").val(GetUriParam("months"));
 }
 
-$(document).on('click', '.undo-stock-booking-button', function(e)
+$(document).on('click', '.undo-stock-booking-button', function (e)
 {
 	e.preventDefault();
 
@@ -118,7 +118,7 @@ $(document).on('click', '.undo-stock-booking-button', function(e)
 	}
 
 	Grocy.Api.Post('stock/bookings/' + bookingId.toString() + '/undo', {},
-		function(result)
+		function (result)
 		{
 			correspondingBookingsRoot.addClass("text-muted");
 			correspondingBookingsRoot.find("span.name-anchor").addClass("text-strike-through").after("<br>" + __t("Undone on") + " " + moment().format("YYYY-MM-DD HH:mm:ss") + " <time class='timeago timeago-contextual' datetime='" + moment().format("YYYY-MM-DD HH:mm:ss") + "'></time>");
@@ -126,7 +126,7 @@ $(document).on('click', '.undo-stock-booking-button', function(e)
 			RefreshContextualTimeago("#stock-booking-" + bookingId + "-row");
 			toastr.success(__t("Booking successfully undone"));
 		},
-		function(xhr)
+		function (xhr)
 		{
 			console.error(xhr);
 			toastr.error(__t(JSON.parse(xhr.response).error_message));
@@ -134,12 +134,12 @@ $(document).on('click', '.undo-stock-booking-button', function(e)
 	);
 });
 
-$(document).on('click', '.product-grocycode-label-print', function(e)
+$(document).on('click', '.product-grocycode-label-print', function (e)
 {
 	e.preventDefault();
 
 	var productId = $(e.currentTarget).attr('data-product-id');
-	Grocy.Api.Get('stock/products/' + productId + '/printlabel', function(labelData)
+	Grocy.Api.Get('stock/products/' + productId + '/printlabel', function (labelData)
 	{
 		if (Grocy.Webhooks.labelprinter !== undefined)
 		{

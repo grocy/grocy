@@ -8,7 +8,7 @@
 $('#locations-table tbody').removeClass("d-none");
 locationsTable.columns.adjust().draw();
 
-$("#search").on("keyup", Delay(function()
+$("#search").on("keyup", Delay(function ()
 {
 	var value = $(this).val();
 	if (value === "all")
@@ -16,16 +16,16 @@ $("#search").on("keyup", Delay(function()
 		value = "";
 	}
 
-	locationsTable.search(value).draw();
+	locationsTable.search(value.accentNeutralise()).draw();
 }, Grocy.FormFocusDelay));
 
-$("#clear-filter-button").on("click", function()
+$("#clear-filter-button").on("click", function ()
 {
 	$("#search").val("");
 	locationsTable.search("").draw();
 });
 
-$(document).on('click', '.location-delete-button', function(e)
+$(document).on('click', '.location-delete-button', function (e)
 {
 	var objectName = $(e.currentTarget).attr('data-location-name');
 	var objectId = $(e.currentTarget).attr('data-location-id');
@@ -43,16 +43,16 @@ $(document).on('click', '.location-delete-button', function(e)
 				className: 'btn-danger'
 			}
 		},
-		callback: function(result)
+		callback: function (result)
 		{
 			if (result === true)
 			{
 				Grocy.Api.Delete('objects/locations/' + objectId, {},
-					function(result)
+					function (result)
 					{
 						window.location.href = U('/locations');
 					},
-					function(xhr)
+					function (xhr)
 					{
 						console.error(xhr);
 					}
@@ -62,7 +62,7 @@ $(document).on('click', '.location-delete-button', function(e)
 	});
 });
 
-$("#show-disabled").change(function()
+$("#show-disabled").change(function ()
 {
 	if (this.checked)
 	{

@@ -9,7 +9,7 @@
 $('#chores-journal-table tbody').removeClass("d-none");
 choresJournalTable.columns.adjust().draw();
 
-$("#chore-filter").on("change", function()
+$("#chore-filter").on("change", function ()
 {
 	var value = $(this).val();
 	if (value === "all")
@@ -24,13 +24,13 @@ $("#chore-filter").on("change", function()
 	window.location.reload();
 });
 
-$("#daterange-filter").on("change", function()
+$("#daterange-filter").on("change", function ()
 {
 	UpdateUriParam("months", $(this).val());
 	window.location.reload();
 });
 
-$("#search").on("keyup", Delay(function()
+$("#search").on("keyup", Delay(function ()
 {
 	var value = $(this).val();
 	if (value === "all")
@@ -38,10 +38,10 @@ $("#search").on("keyup", Delay(function()
 		value = "";
 	}
 
-	choresJournalTable.search(value).draw();
+	choresJournalTable.search(value.accentNeutralise()).draw();
 }, Grocy.FormFocusDelay));
 
-$("#clear-filter-button").on("click", function()
+$("#clear-filter-button").on("click", function ()
 {
 	$("#search").val("");
 	$("#daterange-filter").val("24");
@@ -66,7 +66,7 @@ if (typeof GetUriParam("months") !== "undefined")
 	$("#daterange-filter").val(GetUriParam("months"));
 }
 
-$(document).on('click', '.undo-chore-execution-button', function(e)
+$(document).on('click', '.undo-chore-execution-button', function (e)
 {
 	e.preventDefault();
 
@@ -74,7 +74,7 @@ $(document).on('click', '.undo-chore-execution-button', function(e)
 	var executionId = $(e.currentTarget).attr('data-execution-id');
 
 	Grocy.Api.Post('chores/executions/' + executionId.toString() + '/undo', {},
-		function(result)
+		function (result)
 		{
 			element.closest("tr").addClass("text-muted");
 			element.parent().siblings().find("span.name-anchor").addClass("text-strike-through").after("<br>" + __t("Undone on") + " " + moment().format("YYYY-MM-DD HH:mm:ss") + " <time class='timeago timeago-contextual' datetime='" + moment().format("YYYY-MM-DD HH:mm:ss") + "'></time>");
@@ -82,7 +82,7 @@ $(document).on('click', '.undo-chore-execution-button', function(e)
 			RefreshContextualTimeago("#chore-execution-" + executionId + "-row");
 			toastr.success(__t("Chore execution successfully undone"));
 		},
-		function(xhr)
+		function (xhr)
 		{
 			console.error(xhr);
 		}

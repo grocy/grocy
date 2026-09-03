@@ -20,7 +20,7 @@ $("#search").on("keyup", Delay(function ()
 		value = "";
 	}
 
-	productsTable.search(value).draw();
+	productsTable.search(value.accentNeutralise()).draw();
 }, Grocy.FormFocusDelay));
 
 $("#product-group-filter").on("change", function ()
@@ -32,7 +32,7 @@ $("#product-group-filter").on("change", function ()
 	}
 	else
 	{
-		productsTable.column(productsTable.colReorder.transpose(6)).search("^" + $.fn.dataTable.util.escapeRegex(value) + "$", true, false).draw();
+		productsTable.column(productsTable.colReorder.transpose(6)).search("^" + $.fn.dataTable.util.escapeRegex(value.accentNeutralise()) + "$", true, false).draw();
 	}
 
 });

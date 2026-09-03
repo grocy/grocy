@@ -8,7 +8,7 @@
 $('#chores-table tbody').removeClass("d-none");
 choresTable.columns.adjust().draw();
 
-$("#search").on("keyup", Delay(function()
+$("#search").on("keyup", Delay(function ()
 {
 	var value = $(this).val();
 	if (value === "all")
@@ -16,17 +16,17 @@ $("#search").on("keyup", Delay(function()
 		value = "";
 	}
 
-	choresTable.search(value).draw();
+	choresTable.search(value.accentNeutralise()).draw();
 }, Grocy.FormFocusDelay));
 
-$("#clear-filter-button").on("click", function()
+$("#clear-filter-button").on("click", function ()
 {
 	$("#search").val("");
 	choresTable.search("").draw();
 	$("#show-disabled").prop('checked', false);
 });
 
-$(document).on('click', '.chore-delete-button', function(e)
+$(document).on('click', '.chore-delete-button', function (e)
 {
 	var objectName = $(e.currentTarget).attr('data-chore-name');
 	var objectId = $(e.currentTarget).attr('data-chore-id');
@@ -44,16 +44,16 @@ $(document).on('click', '.chore-delete-button', function(e)
 				className: 'btn-danger'
 			}
 		},
-		callback: function(result)
+		callback: function (result)
 		{
 			if (result === true)
 			{
 				Grocy.Api.Delete('objects/chores/' + objectId, {},
-					function(result)
+					function (result)
 					{
 						window.location.href = U('/chores');
 					},
-					function(xhr)
+					function (xhr)
 					{
 						console.error(xhr);
 					}
@@ -63,7 +63,7 @@ $(document).on('click', '.chore-delete-button', function(e)
 	});
 });
 
-$("#show-disabled").change(function()
+$("#show-disabled").change(function ()
 {
 	if (this.checked)
 	{
@@ -80,7 +80,7 @@ if (GetUriParam('include_disabled'))
 	$("#show-disabled").prop('checked', true);
 }
 
-$(".merge-chores-button").on("click", function(e)
+$(".merge-chores-button").on("click", function (e)
 {
 	var choreId = $(e.currentTarget).attr("data-chore-id");
 	$("#merge-chores-keep").val(choreId);
@@ -88,7 +88,7 @@ $(".merge-chores-button").on("click", function(e)
 	$("#merge-chores-modal").modal("show");
 });
 
-$("#merge-chores-save-button").on("click", function(e)
+$("#merge-chores-save-button").on("click", function (e)
 {
 	e.preventDefault();
 
@@ -101,11 +101,11 @@ $("#merge-chores-save-button").on("click", function(e)
 	var choreIdToRemove = $("#merge-chores-remove").val();
 
 	Grocy.Api.Post("chores/" + choreIdToKeep.toString() + "/merge/" + choreIdToRemove.toString(), {},
-		function(result)
+		function (result)
 		{
 			window.location.href = U('/chores');
 		},
-		function(xhr)
+		function (xhr)
 		{
 			Grocy.FrontendHelpers.ShowGenericError('Error while merging', xhr.response);
 		}

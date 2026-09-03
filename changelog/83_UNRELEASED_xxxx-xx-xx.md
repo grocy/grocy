@@ -50,6 +50,7 @@
 
 ### General
 
+- Optimized that table dropdown filters now search accent insensitive
 - Fixed that it wasn't possible to log in using passwords containing non-latin characters
 
 ### API

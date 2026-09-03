@@ -8,7 +8,7 @@
 $('#qu-conversions-resolved-table tbody').removeClass("d-none");
 quConversionsResolvedTable.columns.adjust().draw();
 
-$("#quantity-unit-filter").on("change", function()
+$("#quantity-unit-filter").on("change", function ()
 {
 	var value = $("#quantity-unit-filter option:selected").text();
 	if (value === __t("All"))
@@ -16,10 +16,10 @@ $("#quantity-unit-filter").on("change", function()
 		value = "";
 	}
 
-	quConversionsResolvedTable.column([quConversionsResolvedTable.colReorder.transpose(1), quConversionsResolvedTable.colReorder.transpose(2)]).search(value).draw();
+	quConversionsResolvedTable.column([quConversionsResolvedTable.colReorder.transpose(1), quConversionsResolvedTable.colReorder.transpose(2)]).search(value.accentNeutralise()).draw();
 });
 
-$("#clear-filter-button").on("click", function()
+$("#clear-filter-button").on("click", function ()
 {
 	$("#quantity-unit-filter").val("all");
 	quConversionsResolvedTable.column([quConversionsResolvedTable.colReorder.transpose(1), quConversionsResolvedTable.colReorder.transpose(2)]).search("").draw();

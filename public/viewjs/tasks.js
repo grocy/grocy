@@ -17,7 +17,7 @@ $("#search").on("keyup", Delay(function ()
 		value = "";
 	}
 
-	tasksTable.search(value).draw();
+	tasksTable.search(value.accentNeutralise()).draw();
 }, Grocy.FormFocusDelay));
 
 $("#status-filter").on("change", function ()
@@ -31,7 +31,7 @@ $("#status-filter").on("change", function ()
 	// Transfer CSS classes of selected element to dropdown element (for background)
 	$(this).attr("class", $("#" + $(this).attr("id") + " option[value='" + value + "']").attr("class") + " form-control");
 
-	tasksTable.column(tasksTable.colReorder.transpose(5)).search(value).draw();
+	tasksTable.column(tasksTable.colReorder.transpose(5)).search(value.accentNeutralise()).draw();
 });
 
 $("#user-filter").on("change", function ()
@@ -46,7 +46,7 @@ $("#user-filter").on("change", function ()
 		"^" + $.fn.dataTable.util.escapeRegex(value) + "$"
 	}
 
-	tasksTable.column(tasksTable.colReorder.transpose(4)).search(value, true, false).draw();
+	tasksTable.column(tasksTable.colReorder.transpose(4)).search(value.accentNeutralise(), true, false).draw();
 });
 
 $("#category-filter").on("change", function ()
@@ -57,7 +57,7 @@ $("#category-filter").on("change", function ()
 		value = "";
 	}
 
-	tasksTable.column(tasksTable.colReorder.transpose(3)).search(value).draw();
+	tasksTable.column(tasksTable.colReorder.transpose(3)).search(value.accentNeutralise()).draw();
 });
 
 $("#clear-filter-button").on("click", function ()

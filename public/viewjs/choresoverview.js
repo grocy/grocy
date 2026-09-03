@@ -11,7 +11,7 @@
 $('#chores-overview-table tbody').removeClass("d-none");
 choresOverviewTable.columns.adjust().draw();
 
-$("#search").on("keyup", Delay(function()
+$("#search").on("keyup", Delay(function ()
 {
 	var value = $(this).val();
 	if (value === "all")
@@ -19,10 +19,10 @@ $("#search").on("keyup", Delay(function()
 		value = "";
 	}
 
-	choresOverviewTable.search(value).draw();
+	choresOverviewTable.search(value.accentNeutralise()).draw();
 }, Grocy.FormFocusDelay));
 
-$("#status-filter").on("change", function()
+$("#status-filter").on("change", function ()
 {
 	var value = $(this).val();
 	if (value === "all")
@@ -33,10 +33,10 @@ $("#status-filter").on("change", function()
 	// Transfer CSS classes of selected element to dropdown element (for background)
 	$(this).attr("class", $("#" + $(this).attr("id") + " option[value='" + value + "']").attr("class") + " form-control");
 
-	choresOverviewTable.column(choresOverviewTable.colReorder.transpose(5)).search(value).draw();
+	choresOverviewTable.column(choresOverviewTable.colReorder.transpose(5)).search(value.accentNeutralise()).draw();
 });
 
-$("#user-filter").on("change", function()
+$("#user-filter").on("change", function ()
 {
 	var value = $(this).val();
 	if (value === "all")
@@ -47,7 +47,7 @@ $("#user-filter").on("change", function()
 	// Transfer CSS classes of selected element to dropdown element (for background)
 	$(this).attr("class", $("#" + $(this).attr("id") + " option[value='" + value + "']").attr("class") + " form-control");
 
-	choresOverviewTable.column(choresOverviewTable.colReorder.transpose(6)).search(value).draw();
+	choresOverviewTable.column(choresOverviewTable.colReorder.transpose(6)).search(value.accentNeutralise()).draw();
 
 	if (value)
 	{
@@ -55,7 +55,7 @@ $("#user-filter").on("change", function()
 	}
 });
 
-$("#clear-filter-button").on("click", function()
+$("#clear-filter-button").on("click", function ()
 {
 	$("#search").val("");
 	$("#status-filter").val("all");
@@ -66,21 +66,21 @@ $("#clear-filter-button").on("click", function()
 	RemoveUriParam("user");
 });
 
-$(".status-filter-message").on("click", function()
+$(".status-filter-message").on("click", function ()
 {
 	var value = $(this).data("status-filter");
 	$("#status-filter").val(value);
 	$("#status-filter").trigger("change");
 });
 
-$(".user-filter-message").on("click", function()
+$(".user-filter-message").on("click", function ()
 {
 	var value = $(this).data("user-filter");
 	$("#user-filter").val(value);
 	$("#user-filter").trigger("change");
 });
 
-$(document).on('click', '.track-chore-button', function(e)
+$(document).on('click', '.track-chore-button', function (e)
 {
 	e.preventDefault();
 
@@ -92,7 +92,7 @@ $(document).on('click', '.track-chore-button', function(e)
 	var now = $(e.currentTarget).hasClass("now");
 
 	Grocy.Api.Get('chores/' + choreId,
-		function(choreDetails)
+		function (choreDetails)
 		{
 			var trackedTime = moment().format('YYYY-MM-DD HH:mm:ss');
 			if ((skipped || !now) && choreDetails.next_estimated_execution_time != null)
@@ -113,10 +113,10 @@ $(document).on('click', '.track-chore-button', function(e)
 			}
 
 			Grocy.Api.Post('chores/' + choreId + '/execute', { 'tracked_time': trackedTime, 'skipped': skipped },
-				function()
+				function ()
 				{
 					Grocy.Api.Get('chores/' + choreId,
-						function(result)
+						function (result)
 						{
 							var choreRow = $('#chore-' + choreId + '-row');
 							var nextXDaysThreshold = moment().add($("#info-due-soon-chores").data("next-x-days"), "days");
@@ -177,7 +177,7 @@ $(document).on('click', '.track-chore-button', function(e)
 							RefreshStatistics();
 
 							// Delay due to delayed/animated set of new timestamps above
-							setTimeout(function()
+							setTimeout(function ()
 							{
 								RefreshContextualTimeago("#chore-" + choreId + "-row");
 
@@ -186,21 +186,21 @@ $(document).on('click', '.track-chore-button', function(e)
 								$(".input-group-filter").trigger("change");
 							}, Grocy.FormFocusDelay);
 						},
-						function(xhr)
+						function (xhr)
 						{
 							Grocy.FrontendHelpers.EndUiBusy();
 							console.error(xhr);
 						}
 					);
 				},
-				function(xhr)
+				function (xhr)
 				{
 					Grocy.FrontendHelpers.EndUiBusy();
 					console.error(xhr);
 				}
 			);
 		},
-		function(xhr)
+		function (xhr)
 		{
 			Grocy.FrontendHelpers.EndUiBusy("choretracking-form");
 			console.error(xhr);
@@ -208,12 +208,12 @@ $(document).on('click', '.track-chore-button', function(e)
 	);
 });
 
-$(document).on('click', '.chore-grocycode-label-print', function(e)
+$(document).on('click', '.chore-grocycode-label-print', function (e)
 {
 	e.preventDefault();
 
 	var choreId = $(e.currentTarget).attr('data-chore-id');
-	Grocy.Api.Get('chores/' + choreId + '/printlabel', function(labelData)
+	Grocy.Api.Get('chores/' + choreId + '/printlabel', function (labelData)
 	{
 		if (Grocy.Webhooks.labelprinter !== undefined)
 		{
@@ -226,7 +226,7 @@ function RefreshStatistics()
 {
 	var nextXDays = $("#info-due-soon-chores").data("next-x-days");
 	Grocy.Api.Get('chores',
-		function(result)
+		function (result)
 		{
 			var dueTodayCount = 0;
 			var dueSoonCount = 0;
@@ -265,20 +265,20 @@ function RefreshStatistics()
 			$("#info-overdue-chores").html('<span class="d-block d-md-none">' + overdueCount + ' <i class="fa-solid fa-times-circle"></i></span><span class="d-none d-md-block">' + __n(overdueCount, '%s chore is overdue to be done', '%s chores are overdue to be done'));
 			$("#info-assigned-to-me-chores").html('<span class="d-block d-md-none">' + assignedToMeCount + ' <i class="fa-solid fa-exclamation-circle"></i></span><span class="d-none d-md-block">' + __n(assignedToMeCount, '%s chore is assigned to me', '%s chores are assigned to me'));
 		},
-		function(xhr)
+		function (xhr)
 		{
 			console.error(xhr);
 		}
 	);
 }
 
-$(document).on("click", ".reschedule-chore-button", function(e)
+$(document).on("click", ".reschedule-chore-button", function (e)
 {
 	e.preventDefault();
 
 	var choreId = $(e.currentTarget).attr("data-chore-id");
 	Grocy.EditObjectId = choreId;
-	Grocy.Api.Get("chores/" + choreId, function(choreDetails)
+	Grocy.Api.Get("chores/" + choreId, function (choreDetails)
 	{
 		var prefillDate = choreDetails.next_estimated_execution_time || moment().format("YYYY-MM-DD HH:mm:ss");
 		if (choreDetails.chore.rescheduled_date)
@@ -316,7 +316,7 @@ $(document).on("click", ".reschedule-chore-button", function(e)
 	});
 });
 
-$("#reschedule-chore-save-button").on("click", function(e)
+$("#reschedule-chore-save-button").on("click", function (e)
 {
 	e.preventDefault();
 
@@ -326,45 +326,45 @@ $("#reschedule-chore-save-button").on("click", function(e)
 	}
 
 	Grocy.Api.Put('objects/chores/' + Grocy.EditObjectId, { "rescheduled_date": Grocy.Components.DateTimePicker.GetValue(), "rescheduled_next_execution_assigned_to_user_id": Grocy.Components.UserPicker.GetValue() },
-		function(result)
+		function (result)
 		{
 			Grocy.Api.Post('chores/executions/calculate-next-assignments', { "chore_id": Grocy.EditObjectId },
-				function(result)
+				function (result)
 				{
 					window.location.reload();
 				},
-				function(xhr)
+				function (xhr)
 				{
 					console.error(xhr);
 				}
 			);
 		},
-		function(xhr)
+		function (xhr)
 		{
 			Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response);
 		}
 	);
 });
 
-$("#reschedule-chore-clear-button").on("click", function(e)
+$("#reschedule-chore-clear-button").on("click", function (e)
 {
 	e.preventDefault();
 
 	Grocy.Api.Put('objects/chores/' + Grocy.EditObjectId, { "rescheduled_date": null, "rescheduled_next_execution_assigned_to_user_id": null },
-		function(result)
+		function (result)
 		{
 			Grocy.Api.Post('chores/executions/calculate-next-assignments', { "chore_id": Grocy.EditObjectId },
-				function(result)
+				function (result)
 				{
 					window.location.reload();
 				},
-				function(xhr)
+				function (xhr)
 				{
 					console.error(xhr);
 				}
 			);
 		},
-		function(xhr)
+		function (xhr)
 		{
 			Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response);
 		}

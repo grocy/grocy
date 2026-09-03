@@ -8,7 +8,7 @@
 $('#mealplansections-table tbody').removeClass("d-none");
 mealplanSectionsTable.columns.adjust().draw();
 
-$("#search").on("keyup", Delay(function()
+$("#search").on("keyup", Delay(function ()
 {
 	var value = $(this).val();
 	if (value === "all")
@@ -16,16 +16,16 @@ $("#search").on("keyup", Delay(function()
 		value = "";
 	}
 
-	mealplanSectionsTable.search(value).draw();
+	mealplanSectionsTable.search(value.accentNeutralise()).draw();
 }, Grocy.FormFocusDelay));
 
-$("#clear-filter-button").on("click", function()
+$("#clear-filter-button").on("click", function ()
 {
 	$("#search").val("");
 	mealplanSectionsTable.search("").draw();
 });
 
-$(document).on('click', '.mealplansection-delete-button', function(e)
+$(document).on('click', '.mealplansection-delete-button', function (e)
 {
 	var objectName = $(e.currentTarget).attr('data-mealplansection-name');
 	var objectId = $(e.currentTarget).attr('data-mealplansection-id');
@@ -43,16 +43,16 @@ $(document).on('click', '.mealplansection-delete-button', function(e)
 				className: 'btn-danger'
 			}
 		},
-		callback: function(result)
+		callback: function (result)
 		{
 			if (result === true)
 			{
 				Grocy.Api.Delete('objects/meal_plan_sections/' + objectId, {},
-					function(result)
+					function (result)
 					{
 						window.location.href = U('/mealplansections');
 					},
-					function(xhr)
+					function (xhr)
 					{
 						console.error(xhr);
 					}

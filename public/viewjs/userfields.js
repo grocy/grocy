@@ -8,7 +8,7 @@
 $('#userfields-table tbody').removeClass("d-none");
 userfieldsTable.columns.adjust().draw();
 
-$("#search").on("keyup", Delay(function()
+$("#search").on("keyup", Delay(function ()
 {
 	var value = $(this).val();
 	if (value === "all")
@@ -16,10 +16,10 @@ $("#search").on("keyup", Delay(function()
 		value = "";
 	}
 
-	userfieldsTable.search(value).draw();
+	userfieldsTable.search(value.accentNeutralise()).draw();
 }, Grocy.FormFocusDelay));
 
-$("#entity-filter").on("change", function()
+$("#entity-filter").on("change", function ()
 {
 	var value = $("#entity-filter option:selected").text();
 	if (value === __t("All"))
@@ -27,11 +27,11 @@ $("#entity-filter").on("change", function()
 		value = "";
 	}
 
-	userfieldsTable.column(userfieldsTable.colReorder.transpose(1)).search(value).draw();
+	userfieldsTable.column(userfieldsTable.colReorder.transpose(1)).search(value.accentNeutralise()).draw();
 	$("#new-userfield-button").attr("href", U("/userfield/new?embedded&entity=" + value));
 });
 
-$("#clear-filter-button").on("click", function()
+$("#clear-filter-button").on("click", function ()
 {
 	$("#search").val("");
 	$("#entity-filter").val("all");
@@ -39,7 +39,7 @@ $("#clear-filter-button").on("click", function()
 	userfieldsTable.search("").draw();
 });
 
-$(document).on('click', '.userfield-delete-button', function(e)
+$(document).on('click', '.userfield-delete-button', function (e)
 {
 	var objectName = $(e.currentTarget).attr('data-userfield-name');
 	var objectId = $(e.currentTarget).attr('data-userfield-id');
@@ -57,16 +57,16 @@ $(document).on('click', '.userfield-delete-button', function(e)
 				className: 'btn-danger'
 			}
 		},
-		callback: function(result)
+		callback: function (result)
 		{
 			if (result === true)
 			{
 				Grocy.Api.Delete('objects/userfields/' + objectId, {},
-					function(result)
+					function (result)
 					{
 						window.location.href = U('/userfields');
 					},
-					function(xhr)
+					function (xhr)
 					{
 						console.error(xhr);
 					}
@@ -80,7 +80,7 @@ if (GetUriParam("entity"))
 {
 	$("#entity-filter").val(GetUriParam("entity"));
 	$("#entity-filter").trigger("change");
-	setTimeout(function()
+	setTimeout(function ()
 	{
 		$("#name").focus();
 	}, Grocy.FormFocusDelay);

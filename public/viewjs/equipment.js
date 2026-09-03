@@ -104,7 +104,7 @@ $("#search").on("keyup", Delay(function ()
 		value = "";
 	}
 
-	equipmentTable.search(value).draw();
+	equipmentTable.search(value.accentNeutralise()).draw();
 }, Grocy.FormFocusDelay));
 
 $("#clear-filter-button").on("click", function ()

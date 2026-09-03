@@ -15,7 +15,7 @@
 $('#stockentries-table tbody').removeClass("d-none");
 stockEntriesTable.columns.adjust().draw();
 
-$.fn.dataTable.ext.search.push(function(settings, data, dataIndex)
+$.fn.dataTable.ext.search.push(function (settings, data, dataIndex)
 {
 	var productId = Grocy.Components.ProductPicker.GetValue();
 
@@ -27,7 +27,7 @@ $.fn.dataTable.ext.search.push(function(settings, data, dataIndex)
 	return false;
 });
 
-$("#clear-filter-button").on("click", function()
+$("#clear-filter-button").on("click", function ()
 {
 	$("#location-filter").val("all");
 	$("#location-filter").trigger("change");
@@ -40,7 +40,7 @@ $("#clear-filter-button").on("click", function()
 	stockEntriesTable.draw();
 });
 
-$("#location-filter").on("change", function()
+$("#location-filter").on("change", function ()
 {
 	var value = $(this).val();
 	var text = $("#location-filter option:selected").text();
@@ -49,20 +49,20 @@ $("#location-filter").on("change", function()
 		text = "";
 	}
 
-	stockEntriesTable.column(stockEntriesTable.colReorder.transpose(5)).search(text).draw();
+	stockEntriesTable.column(stockEntriesTable.colReorder.transpose(5)).search(text.accentNeutralise()).draw();
 });
 
-Grocy.Components.ProductPicker.GetPicker().on('change', function(e)
+Grocy.Components.ProductPicker.GetPicker().on('change', function (e)
 {
 	stockEntriesTable.draw();
 });
 
-Grocy.Components.ProductPicker.GetInputElement().on('keyup', function(e)
+Grocy.Components.ProductPicker.GetInputElement().on('keyup', function (e)
 {
 	stockEntriesTable.draw();
 });
 
-$(document).on('click', '.stock-consume-button', function(e)
+$(document).on('click', '.stock-consume-button', function (e)
 {
 	e.preventDefault();
 
@@ -77,10 +77,10 @@ $(document).on('click', '.stock-consume-button', function(e)
 	var wasSpoiled = $(e.currentTarget).hasClass("stock-consume-button-spoiled");
 
 	Grocy.Api.Post('stock/products/' + productId + '/consume', { 'amount': consumeAmount, 'spoiled': wasSpoiled, 'location_id': locationId, 'stock_entry_id': specificStockEntryId, 'exact_amount': true },
-		function(bookingResponse)
+		function (bookingResponse)
 		{
 			Grocy.Api.Get('stock/products/' + productId,
-				function(result)
+				function (result)
 				{
 					var toastMessage = __t('Removed %1$s of %2$s from stock', consumeAmount.toLocaleString({ minimumFractionDigits: 0, maximumFractionDigits: Grocy.UserSettings.stock_decimal_places_amounts }) + " " + __n(consumeAmount, result.quantity_unit_stock.name, result.quantity_unit_stock.name_plural, true), result.product.name);
 					if (wasSpoiled)
@@ -94,14 +94,14 @@ $(document).on('click', '.stock-consume-button', function(e)
 					toastr.success(toastMessage);
 					Grocy.GetTopmostWindow().postMessage(WindowMessageBag("BroadcastMessage", WindowMessageBag("ProductChanged", productId)), Grocy.BaseUrl);
 				},
-				function(xhr)
+				function (xhr)
 				{
 					Grocy.FrontendHelpers.EndUiBusy();
 					console.error(xhr);
 				}
 			);
 		},
-		function(xhr)
+		function (xhr)
 		{
 			Grocy.FrontendHelpers.EndUiBusy();
 			console.error(xhr);
@@ -109,7 +109,7 @@ $(document).on('click', '.stock-consume-button', function(e)
 	);
 });
 
-$(document).on('click', '.product-open-button', function(e)
+$(document).on('click', '.product-open-button', function (e)
 {
 	e.preventDefault();
 
@@ -122,10 +122,10 @@ $(document).on('click', '.product-open-button', function(e)
 	var button = $(e.currentTarget);
 
 	Grocy.Api.Post('stock/products/' + productId + '/open', { 'amount': openAmount, 'stock_entry_id': specificStockEntryId },
-		function(bookingResponse)
+		function (bookingResponse)
 		{
 			Grocy.Api.Get('stock/products/' + productId,
-				function(result)
+				function (result)
 				{
 					button.addClass("disabled");
 					Grocy.FrontendHelpers.EndUiBusy();
@@ -139,14 +139,14 @@ $(document).on('click', '.product-open-button', function(e)
 					RefreshStockEntryRow(stockRowId);
 					Grocy.GetTopmostWindow().postMessage(WindowMessageBag("BroadcastMessage", WindowMessageBag("ProductChanged", productId)), Grocy.BaseUrl);
 				},
-				function(xhr)
+				function (xhr)
 				{
 					Grocy.FrontendHelpers.EndUiBusy();
 					console.error(xhr);
 				}
 			);
 		},
-		function(xhr)
+		function (xhr)
 		{
 			Grocy.FrontendHelpers.EndUiBusy();
 			console.error(xhr);
@@ -154,12 +154,12 @@ $(document).on('click', '.product-open-button', function(e)
 	);
 });
 
-$(document).on('click', '.stockentry-grocycode-label-print', function(e)
+$(document).on('click', '.stockentry-grocycode-label-print', function (e)
 {
 	e.preventDefault();
 
 	var stockId = $(e.currentTarget).attr('data-stock-id');
-	Grocy.Api.Get('stock/entry/' + stockId + '/printlabel', function(labelData)
+	Grocy.Api.Get('stock/entry/' + stockId + '/printlabel', function (labelData)
 	{
 		if (Grocy.Webhooks.labelprinter !== undefined)
 		{
@@ -171,7 +171,7 @@ $(document).on('click', '.stockentry-grocycode-label-print', function(e)
 function RefreshStockEntryRow(stockRowId)
 {
 	Grocy.Api.Get("stock/entry/" + stockRowId,
-		function(result)
+		function (result)
 		{
 			var stockRow = $('#stock-' + stockRowId + '-row');
 
@@ -183,7 +183,7 @@ function RefreshStockEntryRow(stockRowId)
 
 			if (result == null || result.amount == 0)
 			{
-				animateCSS("#stock-" + stockRowId + "-row", "fadeOut", function()
+				animateCSS("#stock-" + stockRowId + "-row", "fadeOut", function ()
 				{
 					$("#stock-" + stockRowId + "-row").addClass("d-none");
 				});
@@ -225,21 +225,21 @@ function RefreshStockEntryRow(stockRowId)
 
 				var locationName = "";
 				Grocy.Api.Get("objects/locations/" + result.location_id,
-					function(locationResult)
+					function (locationResult)
 					{
 						locationName = locationResult.name;
 
 						$('#stock-' + stockRowId + '-location').attr('data-location-id', result.location_id);
 						$('#stock-' + stockRowId + '-location').text(locationName);
 					},
-					function(xhr)
+					function (xhr)
 					{
 						console.error(xhr);
 					}
 				);
 
 				Grocy.Api.Get("stock/products/" + result.product_id,
-					function(productDetails)
+					function (productDetails)
 					{
 						if (!result.price)
 						{
@@ -254,7 +254,7 @@ function RefreshStockEntryRow(stockRowId)
 							$(".product-open-button[data-stockrow-id='" + stockRowId + "']").addClass("disabled");
 						}
 					},
-					function(xhr)
+					function (xhr)
 					{
 						console.error(xhr);
 					}
@@ -268,14 +268,14 @@ function RefreshStockEntryRow(stockRowId)
 				{
 					var shoppingLocationName = "";
 					Grocy.Api.Get("objects/shopping_locations/" + result.shopping_location_id,
-						function(shoppingLocationResult)
+						function (shoppingLocationResult)
 						{
 							shoppingLocationName = shoppingLocationResult.name;
 
 							$('#stock-' + stockRowId + '-shopping-location').attr('data-shopping-location-id', result.location_id);
 							$('#stock-' + stockRowId + '-shopping-location').text(shoppingLocationName);
 						},
-						function(xhr)
+						function (xhr)
 						{
 							console.error(xhr);
 						}
@@ -298,13 +298,13 @@ function RefreshStockEntryRow(stockRowId)
 			}
 
 			// Needs to be delayed because of the animation above the date-text would be wrong if fired immediately...
-			setTimeout(function()
+			setTimeout(function ()
 			{
 				RefreshContextualTimeago("#stock-" + stockRowId + "-row");
 				RefreshLocaleNumberDisplay("#stock-" + stockRowId + "-row");
 			}, Grocy.FormFocusDelay);
 		},
-		function(xhr)
+		function (xhr)
 		{
 			Grocy.FrontendHelpers.EndUiBusy();
 			console.error(xhr);
@@ -312,13 +312,13 @@ function RefreshStockEntryRow(stockRowId)
 	);
 }
 
-$(window).on("message", function(e)
+$(window).on("message", function (e)
 {
 	var data = e.originalEvent.data;
 
 	if (data.Message == "ProductChanged")
 	{
-		$(".stock-consume-button[data-product-id='" + data.Payload + "']").each(function()
+		$(".stock-consume-button[data-product-id='" + data.Payload + "']").each(function ()
 		{
 			RefreshStockEntryRow($(this).attr("data-stockrow-id"));
 		});
@@ -330,12 +330,12 @@ Grocy.Components.ProductPicker.GetPicker().trigger('change');
 function UndoStockBookingEntry(bookingId, stockRowId, productId)
 {
 	Grocy.Api.Post('stock/bookings/' + bookingId.toString() + '/undo', {},
-		function(result)
+		function (result)
 		{
 			Grocy.GetTopmostWindow().postMessage(WindowMessageBag("BroadcastMessage", WindowMessageBag("ProductChanged", productId)), Grocy.BaseUrl);
 			toastr.success(__t("Booking successfully undone"));
 		},
-		function(xhr)
+		function (xhr)
 		{
 			console.error(xhr);
 		}

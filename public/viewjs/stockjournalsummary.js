@@ -8,7 +8,7 @@ var journalSummaryTable = $('#stock-journal-summary-table').DataTable({
 $('#stock-journal-summary-table tbody').removeClass("d-none");
 journalSummaryTable.columns.adjust().draw();
 
-$("#product-filter").on("change", function()
+$("#product-filter").on("change", function ()
 {
 	var value = $(this).val();
 	var text = $("#product-filter option:selected").text();
@@ -18,11 +18,11 @@ $("#product-filter").on("change", function()
 	}
 	else
 	{
-		journalSummaryTable.column(journalSummaryTable.colReorder.transpose(1)).search("^" + $.fn.dataTable.util.escapeRegex(text) + "$", true, false).draw();
+		journalSummaryTable.column(journalSummaryTable.colReorder.transpose(1)).search("^" + $.fn.dataTable.util.escapeRegex(text.accentNeutralise()) + "$", true, false).draw();
 	}
 });
 
-$("#transaction-type-filter").on("change", function()
+$("#transaction-type-filter").on("change", function ()
 {
 	var value = $(this).val();
 	var text = $("#transaction-type-filter option:selected").text();
@@ -31,10 +31,10 @@ $("#transaction-type-filter").on("change", function()
 		text = "";
 	}
 
-	journalSummaryTable.column(journalSummaryTable.colReorder.transpose(2)).search(text).draw();
+	journalSummaryTable.column(journalSummaryTable.colReorder.transpose(2)).search(text.accentNeutralise()).draw();
 });
 
-$("#user-filter").on("change", function()
+$("#user-filter").on("change", function ()
 {
 	var value = $(this).val();
 	var text = $("#user-filter option:selected").text();
@@ -43,10 +43,10 @@ $("#user-filter").on("change", function()
 		text = "";
 	}
 
-	journalSummaryTable.column(journalSummaryTable.colReorder.transpose(3)).search(text).draw();
+	journalSummaryTable.column(journalSummaryTable.colReorder.transpose(3)).search(text.accentNeutralise()).draw();
 });
 
-$("#search").on("keyup", Delay(function()
+$("#search").on("keyup", Delay(function ()
 {
 	var value = $(this).val();
 	if (value === "all")
@@ -54,10 +54,10 @@ $("#search").on("keyup", Delay(function()
 		value = "";
 	}
 
-	journalSummaryTable.search(value).draw();
+	journalSummaryTable.search(value.accentNeutralise()).draw();
 }, Grocy.FormFocusDelay));
 
-$("#clear-filter-button").on("click", function()
+$("#clear-filter-button").on("click", function ()
 {
 	$("#search").val("");
 	$("#transaction-type-filter").val("all");

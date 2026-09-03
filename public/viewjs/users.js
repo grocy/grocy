@@ -8,7 +8,7 @@
 $('#users-table tbody').removeClass("d-none");
 usersTable.columns.adjust().draw();
 
-$("#search").on("keyup", Delay(function()
+$("#search").on("keyup", Delay(function ()
 {
 	var value = $(this).val();
 	if (value === "all")
@@ -16,16 +16,16 @@ $("#search").on("keyup", Delay(function()
 		value = "";
 	}
 
-	usersTable.search(value).draw();
+	usersTable.search(value.accentNeutralise()).draw();
 }, Grocy.FormFocusDelay));
 
-$("#clear-filter-button").on("click", function()
+$("#clear-filter-button").on("click", function ()
 {
 	$("#search").val("");
 	usersTable.search("").draw();
 });
 
-$(document).on('click', '.user-delete-button', function(e)
+$(document).on('click', '.user-delete-button', function (e)
 {
 	var objectName = $(e.currentTarget).attr('data-user-username');
 	var objectId = $(e.currentTarget).attr('data-user-id');
@@ -43,16 +43,16 @@ $(document).on('click', '.user-delete-button', function(e)
 				className: 'btn-danger'
 			}
 		},
-		callback: function(result)
+		callback: function (result)
 		{
 			if (result === true)
 			{
 				Grocy.Api.Delete('users/' + objectId, {},
-					function(result)
+					function (result)
 					{
 						window.location.href = U('/users');
 					},
-					function(xhr)
+					function (xhr)
 					{
 						console.error(xhr);
 					}

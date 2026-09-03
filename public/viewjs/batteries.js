@@ -9,7 +9,7 @@
 $('#batteries-table tbody').removeClass("d-none");
 batteriesTable.columns.adjust().draw();
 
-$("#search").on("keyup", Delay(function()
+$("#search").on("keyup", Delay(function ()
 {
 	var value = $(this).val();
 	if (value === "all")
@@ -17,17 +17,17 @@ $("#search").on("keyup", Delay(function()
 		value = "";
 	}
 
-	batteriesTable.search(value).draw();
+	batteriesTable.search(value.accentNeutralise()).draw();
 }, Grocy.FormFocusDelay));
 
-$("#clear-filter-button").on("click", function()
+$("#clear-filter-button").on("click", function ()
 {
 	$("#search").val("");
 	batteriesTable.search("").draw();
 	$("#show-disabled").prop('checked', false);
 });
 
-$(document).on('click', '.battery-delete-button', function(e)
+$(document).on('click', '.battery-delete-button', function (e)
 {
 	var objectName = $(e.currentTarget).attr('data-battery-name');
 	var objectId = $(e.currentTarget).attr('data-battery-id');
@@ -45,16 +45,16 @@ $(document).on('click', '.battery-delete-button', function(e)
 			}
 		},
 		closeButton: false,
-		callback: function(result)
+		callback: function (result)
 		{
 			if (result === true)
 			{
 				Grocy.Api.Delete('objects/batteries/' + objectId, {},
-					function(result)
+					function (result)
 					{
 						window.location.href = U('/batteries');
 					},
-					function(xhr)
+					function (xhr)
 					{
 						console.error(xhr);
 					}
@@ -64,7 +64,7 @@ $(document).on('click', '.battery-delete-button', function(e)
 	});
 });
 
-$("#show-disabled").change(function()
+$("#show-disabled").change(function ()
 {
 	if (this.checked)
 	{

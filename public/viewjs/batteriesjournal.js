@@ -8,7 +8,7 @@
 $('#batteries-journal-table tbody').removeClass("d-none");
 batteriesJournalTable.columns.adjust().draw();
 
-$("#battery-filter").on("change", function()
+$("#battery-filter").on("change", function ()
 {
 	var value = $(this).val();
 	if (value === "all")
@@ -23,7 +23,7 @@ $("#battery-filter").on("change", function()
 	window.location.reload();
 });
 
-$("#search").on("keyup", Delay(function()
+$("#search").on("keyup", Delay(function ()
 {
 	var value = $(this).val();
 	if (value === "all")
@@ -31,10 +31,10 @@ $("#search").on("keyup", Delay(function()
 		value = "";
 	}
 
-	batteriesJournalTable.search(value).draw();
+	batteriesJournalTable.search(value.accentNeutralise()).draw();
 }, Grocy.FormFocusDelay));
 
-$("#clear-filter-button").on("click", function()
+$("#clear-filter-button").on("click", function ()
 {
 	$("#search").val("");
 	$("#battery-filter").val("all");
@@ -45,7 +45,7 @@ $("#clear-filter-button").on("click", function()
 	window.location.reload();
 });
 
-$("#daterange-filter").on("change", function()
+$("#daterange-filter").on("change", function ()
 {
 	UpdateUriParam("months", $(this).val());
 	window.location.reload();
@@ -61,7 +61,7 @@ if (typeof GetUriParam("months") !== "undefined")
 	$("#daterange-filter").val(GetUriParam("months"));
 }
 
-$(document).on('click', '.undo-battery-execution-button', function(e)
+$(document).on('click', '.undo-battery-execution-button', function (e)
 {
 	e.preventDefault();
 
@@ -69,7 +69,7 @@ $(document).on('click', '.undo-battery-execution-button', function(e)
 	var chargeCycleId = $(e.currentTarget).attr('data-charge-cycle-id');
 
 	Grocy.Api.Post('batteries/charge-cycles/' + chargeCycleId.toString() + '/undo', {},
-		function(result)
+		function (result)
 		{
 			element.closest("tr").addClass("text-muted");
 			element.parent().siblings().find("span.name-anchor").addClass("text-strike-through").after("<br>" + __t("Undone on") + " " + moment().format("YYYY-MM-DD HH:mm:ss") + " <time class='timeago timeago-contextual' datetime='" + moment().format("YYYY-MM-DD HH:mm:ss") + "'></time>");
@@ -77,7 +77,7 @@ $(document).on('click', '.undo-battery-execution-button', function(e)
 			RefreshContextualTimeago("#charge-cycle-" + chargeCycleId + "-row");
 			toastr.success(__t("Charge cycle successfully undone"));
 		},
-		function(xhr)
+		function (xhr)
 		{
 			console.error(xhr);
 		}

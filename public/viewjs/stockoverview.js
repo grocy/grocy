@@ -49,7 +49,7 @@ $("#location-filter").on("change", function ()
 		value = "xx" + value + "xx";
 	}
 
-	stockOverviewTable.column(stockOverviewTable.colReorder.transpose(6)).search(value).draw();
+	stockOverviewTable.column(stockOverviewTable.colReorder.transpose(6)).search(value.accentNeutralise()).draw();
 });
 
 $("#product-group-filter").on("change", function ()
@@ -64,7 +64,7 @@ $("#product-group-filter").on("change", function ()
 		value = "xx" + value + "xx";
 	}
 
-	stockOverviewTable.column(stockOverviewTable.colReorder.transpose(8)).search(value).draw();
+	stockOverviewTable.column(stockOverviewTable.colReorder.transpose(8)).search(value.accentNeutralise()).draw();
 });
 
 $("#status-filter").on("change", function ()
@@ -78,7 +78,7 @@ $("#status-filter").on("change", function ()
 	// Transfer CSS classes of selected element to dropdown element (for background)
 	$(this).attr("class", $("#" + $(this).attr("id") + " option[value='" + value + "']").attr("class") + " form-control");
 
-	stockOverviewTable.column(stockOverviewTable.colReorder.transpose(7)).search(value).draw();
+	stockOverviewTable.column(stockOverviewTable.colReorder.transpose(7)).search(value.accentNeutralise()).draw();
 });
 
 $(".status-filter-message").on("click", function ()
@@ -108,7 +108,7 @@ $("#search").on("keyup", Delay(function ()
 		value = "";
 	}
 
-	stockOverviewTable.search(value).draw();
+	stockOverviewTable.search(value.accentNeutralise()).draw();
 }, Grocy.FormFocusDelay));
 
 $(document).on('click', '.product-grocycode-label-print', function (e)

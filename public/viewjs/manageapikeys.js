@@ -8,7 +8,7 @@
 $('#apikeys-table tbody').removeClass("d-none");
 apiKeysTable.columns.adjust().draw();
 
-$("#search").on("keyup", Delay(function()
+$("#search").on("keyup", Delay(function ()
 {
 	var value = $(this).val();
 	if (value === "all")
@@ -16,16 +16,16 @@ $("#search").on("keyup", Delay(function()
 		value = "";
 	}
 
-	apiKeysTable.search(value).draw();
+	apiKeysTable.search(value.accentNeutralise()).draw();
 }, Grocy.FormFocusDelay));
 
-$("#clear-filter-button").on("click", function()
+$("#clear-filter-button").on("click", function ()
 {
 	$("#search").val("");
 	apiKeysTable.search("").draw();
 });
 
-$(document).on('click', '.apikey-delete-button', function(e)
+$(document).on('click', '.apikey-delete-button', function (e)
 {
 	var button = $(e.currentTarget);
 	var objectName = button.attr('data-apikey-key');
@@ -51,16 +51,16 @@ $(document).on('click', '.apikey-delete-button', function(e)
 				className: 'btn-danger'
 			}
 		},
-		callback: function(result)
+		callback: function (result)
 		{
 			if (result === true)
 			{
 				Grocy.Api.Delete('objects/api_keys/' + objectId, {},
-					function(result)
+					function (result)
 					{
 						window.location.href = U('/manageapikeys');
 					},
-					function(xhr)
+					function (xhr)
 					{
 						console.error(xhr);
 					}
@@ -70,7 +70,7 @@ $(document).on('click', '.apikey-delete-button', function(e)
 	});
 });
 
-$(".apikey-show-qr-button").on("click", function()
+$(".apikey-show-qr-button").on("click", function ()
 {
 	var button = $(this);
 	var apiKey = button.data("apikey-key");
@@ -89,20 +89,20 @@ $(".apikey-show-qr-button").on("click", function()
 	});
 });
 
-$("#add-api-key-button").on("click", function(e)
+$("#add-api-key-button").on("click", function (e)
 {
 	$("#add-api-key-modal").modal("show");
 });
 
-$("#add-api-key-modal").on("shown.bs.modal", function(e)
+$("#add-api-key-modal").on("shown.bs.modal", function (e)
 {
-	setTimeout(function()
+	setTimeout(function ()
 	{
 		$("#description").focus();
 	}, Grocy.FormFocusDelay);
 });
 
-$("#new-api-key-button").on("click", function(e)
+$("#new-api-key-button").on("click", function (e)
 {
 	window.location.href = U("/manageapikeys/new?description=" + encodeURIComponent($("#description").val()));
 });

@@ -10,7 +10,7 @@
 $('#batteries-overview-table tbody').removeClass("d-none");
 batteriesOverviewTable.columns.adjust().draw();
 
-$("#search").on("keyup", Delay(function()
+$("#search").on("keyup", Delay(function ()
 {
 	var value = $(this).val();
 	if (value === "all")
@@ -18,10 +18,10 @@ $("#search").on("keyup", Delay(function()
 		value = "";
 	}
 
-	batteriesOverviewTable.search(value).draw();
+	batteriesOverviewTable.search(value.accentNeutralise()).draw();
 }, Grocy.FormFocusDelay));
 
-$("#clear-filter-button").on("click", function()
+$("#clear-filter-button").on("click", function ()
 {
 	$("#search").val("");
 	$("#status-filter").val("all");
@@ -29,7 +29,7 @@ $("#clear-filter-button").on("click", function()
 	batteriesOverviewTable.search("").draw();
 });
 
-$("#status-filter").on("change", function()
+$("#status-filter").on("change", function ()
 {
 	var value = $(this).val();
 	if (value === "all")
@@ -40,17 +40,17 @@ $("#status-filter").on("change", function()
 	// Transfer CSS classes of selected element to dropdown element (for background)
 	$(this).attr("class", $("#" + $(this).attr("id") + " option[value='" + value + "']").attr("class") + " form-control");
 
-	batteriesOverviewTable.column(batteriesOverviewTable.colReorder.transpose(5)).search(value).draw();
+	batteriesOverviewTable.column(batteriesOverviewTable.colReorder.transpose(5)).search(value.accentNeutralise()).draw();
 });
 
-$(".status-filter-message").on("click", function()
+$(".status-filter-message").on("click", function ()
 {
 	var value = $(this).data("status-filter");
 	$("#status-filter").val(value);
 	$("#status-filter").trigger("change");
 });
 
-$(document).on('click', '.track-charge-cycle-button', function(e)
+$(document).on('click', '.track-charge-cycle-button', function (e)
 {
 	e.preventDefault();
 
@@ -61,10 +61,10 @@ $(document).on('click', '.track-charge-cycle-button', function(e)
 	var trackedTime = moment().format('YYYY-MM-DD HH:mm:ss');
 
 	Grocy.Api.Post('batteries/' + batteryId + '/charge', { 'tracked_time': trackedTime },
-		function()
+		function ()
 		{
 			Grocy.Api.Get('batteries/' + batteryId,
-				function(result)
+				function (result)
 				{
 					var batteryRow = $('#battery-' + batteryId + '-row');
 					var nextXDaysThreshold = moment().add($("#info-due-soon-batteries").data("next-x-days"), "days");
@@ -97,14 +97,14 @@ $(document).on('click', '.track-charge-cycle-button', function(e)
 					RefreshContextualTimeago("#battery-" + batteryId + "-row");
 					RefreshStatistics();
 				},
-				function(xhr)
+				function (xhr)
 				{
 					Grocy.FrontendHelpers.EndUiBusy();
 					console.error(xhr);
 				}
 			);
 		},
-		function(xhr)
+		function (xhr)
 		{
 			Grocy.FrontendHelpers.EndUiBusy();
 			console.error(xhr);
@@ -112,12 +112,12 @@ $(document).on('click', '.track-charge-cycle-button', function(e)
 	);
 });
 
-$(document).on('click', '.battery-grocycode-label-print', function(e)
+$(document).on('click', '.battery-grocycode-label-print', function (e)
 {
 	e.preventDefault();
 
 	var batteryId = $(e.currentTarget).attr('data-battery-id');
-	Grocy.Api.Get('batteries/' + batteryId + '/printlabel', function(labelData)
+	Grocy.Api.Get('batteries/' + batteryId + '/printlabel', function (labelData)
 	{
 		if (Grocy.Webhooks.labelprinter !== undefined)
 		{
@@ -130,7 +130,7 @@ function RefreshStatistics()
 {
 	var nextXDays = $("#info-due-soon-batteries").data("next-x-days");
 	Grocy.Api.Get('batteries',
-		function(result)
+		function (result)
 		{
 			var dueTodayCount = 0;
 			var dueSoonCount = 0;
@@ -162,7 +162,7 @@ function RefreshStatistics()
 			$("#info-due-soon-batteries").html('<span class="d-block d-md-none">' + dueSoonCount + ' <i class="fa-solid fa-clock"></i></span><span class="d-none d-md-block">' + __n(dueSoonCount, '%s battery is due to be charged', '%s batteries are due to be charged') + ' ' + __n(nextXDays, 'within the next day', 'within the next %s days'));
 			$("#info-overdue-batteries").html('<span class="d-block d-md-none">' + overdueCount + ' <i class="fa-solid fa-times-circle"></i></span><span class="d-none d-md-block">' + __n(overdueCount, '%s battery is overdue to be charged', '%s batteries are overdue to be charged'));
 		},
-		function(xhr)
+		function (xhr)
 		{
 			console.error(xhr);
 		}

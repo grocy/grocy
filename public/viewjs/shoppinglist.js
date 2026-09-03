@@ -43,7 +43,7 @@ $("#search").on("keyup", Delay(function ()
 		value = "";
 	}
 
-	shoppingListTable.search(value).draw();
+	shoppingListTable.search(value.accentNeutralise()).draw();
 }, Grocy.FormFocusDelay));
 
 $("#clear-filter-button").on("click", function ()
@@ -65,7 +65,7 @@ $("#status-filter").on("change", function ()
 	// Transfer CSS classes of selected element to dropdown element (for background)
 	$(this).attr("class", $("#" + $(this).attr("id") + " option[value='" + value + "']").attr("class") + " form-control");
 
-	shoppingListTable.column(shoppingListTable.colReorder.transpose(4)).search(value).draw();
+	shoppingListTable.column(shoppingListTable.colReorder.transpose(4)).search(value.accentNeutralise()).draw();
 });
 
 $("#selected-shopping-list").on("change", function ()

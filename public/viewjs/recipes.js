@@ -11,7 +11,7 @@
 		style: 'single',
 		selector: 'tr td:not(:first-child)'
 	},
-	'initComplete': function()
+	'initComplete': function ()
 	{
 		this.api().row({ order: 'current' }, 0).select();
 	}
@@ -44,7 +44,7 @@ if (typeof recipe !== "undefined")
 if (GetUriParam("search") !== undefined)
 {
 	$("#search").val(GetUriParam("search"));
-	setTimeout(function()
+	setTimeout(function ()
 	{
 		$("#search").keyup();
 	}, 50);
@@ -53,23 +53,23 @@ if (GetUriParam("search") !== undefined)
 if (GetUriParam("status") !== undefined)
 {
 	$("#status-filter").val(GetUriParam("status"));
-	setTimeout(function()
+	setTimeout(function ()
 	{
 		$("#status-filter").trigger("change");
 	}, 50);
 }
 
-$("a[data-toggle='tab']").on("shown.bs.tab", function(e)
+$("a[data-toggle='tab']").on("shown.bs.tab", function (e)
 {
 	var tabId = $(e.target).attr("id");
 	window.localStorage.setItem("recipes_last_tab_id", tabId);
 });
 
-$("#search").on("keyup", Delay(function()
+$("#search").on("keyup", Delay(function ()
 {
 	var value = $(this).val();
 
-	recipesTables.search(value).draw();
+	recipesTables.search(value.accentNeutralise()).draw();
 
 	if (!value)
 	{
@@ -84,7 +84,7 @@ $("#search").on("keyup", Delay(function()
 	$(".recipe-gallery-item .card-title-search:not(:contains_case_insensitive(" + value + "))").parent().parent().parent().addClass("d-none");
 }, Grocy.FormFocusDelay));
 
-$("#clear-filter-button").on("click", function()
+$("#clear-filter-button").on("click", function ()
 {
 	$("#search").val("");
 	$("#status-filter").val("all");
@@ -92,7 +92,7 @@ $("#clear-filter-button").on("click", function()
 	$("#status-filter").trigger("change");
 });
 
-$("#status-filter").on("change", function()
+$("#status-filter").on("change", function ()
 {
 	var value = $(this).val();
 	if (value === "all")
@@ -100,7 +100,7 @@ $("#status-filter").on("change", function()
 		value = "";
 	}
 
-	recipesTables.column(recipesTables.colReorder.transpose(6)).search(value).draw();
+	recipesTables.column(recipesTables.colReorder.transpose(6)).search(value.accentNeutralise()).draw();
 
 	$('.recipe-gallery-item').removeClass('d-none');
 	if (value !== "")
@@ -129,7 +129,7 @@ $("#status-filter").on("change", function()
 	}
 });
 
-$(".recipe-delete").on('click', function(e)
+$(".recipe-delete").on('click', function (e)
 {
 	e.preventDefault();
 
@@ -149,16 +149,16 @@ $(".recipe-delete").on('click', function(e)
 				className: 'btn-danger'
 			}
 		},
-		callback: function(result)
+		callback: function (result)
 		{
 			if (result === true)
 			{
 				Grocy.Api.Delete('objects/recipes/' + objectId, {},
-					function(result)
+					function (result)
 					{
 						window.location.href = U('/recipes');
 					},
-					function(xhr)
+					function (xhr)
 					{
 						console.error(xhr);
 					}
@@ -168,25 +168,25 @@ $(".recipe-delete").on('click', function(e)
 	});
 });
 
-$(".recipe-copy").on('click', function(e)
+$(".recipe-copy").on('click', function (e)
 {
 	e.preventDefault();
 
 	var objectId = $(e.currentTarget).attr('data-recipe-id');
 
 	Grocy.Api.Post("recipes/" + objectId.toString() + "/copy", {},
-		function(result)
+		function (result)
 		{
 			window.location.href = U('/recipes?recipe=' + result.created_object_id.toString());
 		},
-		function(xhr)
+		function (xhr)
 		{
 			Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response);
 		}
 	);
 });
 
-$(document).on('click', '.recipe-shopping-list', function(e)
+$(document).on('click', '.recipe-shopping-list', function (e)
 {
 	var objectName = $(e.currentTarget).attr('data-recipe-name');
 	var objectId = $(e.currentTarget).attr('data-recipe-id');
@@ -204,24 +204,24 @@ $(document).on('click', '.recipe-shopping-list', function(e)
 				className: 'btn-danger'
 			}
 		},
-		callback: function(result)
+		callback: function (result)
 		{
 			if (result === true)
 			{
 				Grocy.FrontendHelpers.BeginUiBusy();
 
 				var excludedProductIds = new Array();
-				$(".missing-recipe-pos-product-checkbox:checkbox:not(:checked)").each(function()
+				$(".missing-recipe-pos-product-checkbox:checkbox:not(:checked)").each(function ()
 				{
 					excludedProductIds.push($(this).data("product-id"));
 				});
 
 				Grocy.Api.Post('recipes/' + objectId + '/add-not-fulfilled-products-to-shoppinglist', { "excludedProductIds": excludedProductIds },
-					function(result)
+					function (result)
 					{
 						window.location.reload();
 					},
-					function(xhr)
+					function (xhr)
 					{
 						Grocy.FrontendHelpers.EndUiBusy();
 						console.error(xhr);
@@ -232,7 +232,7 @@ $(document).on('click', '.recipe-shopping-list', function(e)
 	});
 });
 
-$(".recipe-consume").on('click', function(e)
+$(".recipe-consume").on('click', function (e)
 {
 	var objectName = $(e.currentTarget).attr('data-recipe-name');
 	var objectId = $(e.currentTarget).attr('data-recipe-id');
@@ -251,19 +251,19 @@ $(".recipe-consume").on('click', function(e)
 				className: 'btn-danger'
 			}
 		},
-		callback: function(result)
+		callback: function (result)
 		{
 			if (result === true)
 			{
 				Grocy.FrontendHelpers.BeginUiBusy();
 
 				Grocy.Api.Post('recipes/' + objectId + '/consume', {},
-					function(result)
+					function (result)
 					{
 						Grocy.FrontendHelpers.EndUiBusy();
 						toastr.success(__t('Removed all in stock ingredients needed by recipe \"%s\" from stock', objectName));
 					},
-					function(xhr)
+					function (xhr)
 					{
 						Grocy.FrontendHelpers.EndUiBusy();
 						Grocy.FrontendHelpers.ShowGenericError("A server error occured while processing your request", xhr.response);
@@ -274,7 +274,7 @@ $(".recipe-consume").on('click', function(e)
 	});
 });
 
-recipesTables.on('select', function(e, dt, type, indexes)
+recipesTables.on('select', function (e, dt, type, indexes)
 {
 	if (type === 'row')
 	{
@@ -302,7 +302,7 @@ recipesTables.on('select', function(e, dt, type, indexes)
 					cancel: {
 						label: __t('Close'),
 						className: 'btn-secondary responsive-button',
-						callback: function()
+						callback: function ()
 						{
 							$(".modal").last().modal("hide");
 						}
@@ -313,7 +313,7 @@ recipesTables.on('select', function(e, dt, type, indexes)
 	}
 });
 
-$(".recipe-gallery-item").on("click", function(e)
+$(".recipe-gallery-item").on("click", function (e)
 {
 	e.preventDefault();
 
@@ -336,7 +336,7 @@ $(".recipe-gallery-item").on("click", function(e)
 				cancel: {
 					label: __t('Close'),
 					className: 'btn-secondary responsive-button',
-					callback: function()
+					callback: function ()
 					{
 						$(".modal").last().modal("hide");
 					}
@@ -346,12 +346,12 @@ $(".recipe-gallery-item").on("click", function(e)
 	}
 });
 
-$(".recipe-edit-button").on("click", function(e)
+$(".recipe-edit-button").on("click", function (e)
 {
 	e.stopPropagation();
 });
 
-$(".recipe-fullscreen").on('click', function(e)
+$(".recipe-fullscreen").on('click', function (e)
 {
 	e.preventDefault();
 
@@ -374,7 +374,7 @@ $(".recipe-fullscreen").on('click', function(e)
 	}
 });
 
-$(".recipe-print").on('click', function(e)
+$(".recipe-print").on('click', function (e)
 {
 	e.preventDefault();
 
@@ -387,24 +387,24 @@ $(".recipe-print").on('click', function(e)
 	window.print();
 });
 
-$('#servings-scale').keyup(function(event)
+$('#servings-scale').keyup(function (event)
 {
 	var data = {};
 	data.desired_servings = $(this).val();
 
 	Grocy.Api.Put('objects/recipes/' + $(this).data("recipe-id"), data,
-		function(result)
+		function (result)
 		{
 			window.location.reload();
 		},
-		function(xhr)
+		function (xhr)
 		{
 			console.error(xhr);
 		}
 	);
 });
 
-$(document).on("click", ".missing-recipe-pos-select-button", function(e)
+$(document).on("click", ".missing-recipe-pos-select-button", function (e)
 {
 	e.preventDefault();
 
@@ -414,7 +414,7 @@ $(document).on("click", ".missing-recipe-pos-select-button", function(e)
 	$(this).toggleClass("list-group-item-primary");
 });
 
-$(document).on("click", ".missing-recipe-pos-product-checkbox", function(e)
+$(document).on("click", ".missing-recipe-pos-product-checkbox", function (e)
 {
 	e.stopPropagation();
 
@@ -427,12 +427,12 @@ if (window.location.hash === "#fullscreen")
 	$("#selectedRecipeToggleFullscreenButton").click();
 }
 
-$(document).on('click', '.recipe-grocycode-label-print', function(e)
+$(document).on('click', '.recipe-grocycode-label-print', function (e)
 {
 	e.preventDefault();
 
 	var recipeId = $(e.currentTarget).attr('data-recipe-id');
-	Grocy.Api.Get('recipes/' + recipeId + '/printlabel', function(labelData)
+	Grocy.Api.Get('recipes/' + recipeId + '/printlabel', function (labelData)
 	{
 		if (Grocy.Webhooks.labelprinter !== undefined)
 		{
@@ -441,14 +441,14 @@ $(document).on('click', '.recipe-grocycode-label-print', function(e)
 	});
 });
 
-$(document).on('click', '.ingredient-done-button', function(e)
+$(document).on('click', '.ingredient-done-button', function (e)
 {
 	e.preventDefault();
 
 	$(e.currentTarget).parent().toggleClass("text-strike-through").toggleClass("text-muted");
 });
 
-$(document).on("click", ".add-to-mealplan-button", function(e)
+$(document).on("click", ".add-to-mealplan-button", function (e)
 {
 	Grocy.Components.DateTimePicker.Init(true);
 	Grocy.Components.DateTimePicker.SetValue(moment().format("YYYY-MM-DD"));
@@ -461,7 +461,7 @@ $(document).on("click", ".add-to-mealplan-button", function(e)
 	$("#recipe_servings").focus();
 });
 
-$('#save-add-to-mealplan-button').on('click', function(e)
+$('#save-add-to-mealplan-button').on('click', function (e)
 {
 	e.preventDefault();
 
@@ -474,19 +474,19 @@ $('#save-add-to-mealplan-button').on('click', function(e)
 	formData.day = Grocy.Components.DateTimePicker.GetValue();
 
 	Grocy.Api.Post('objects/meal_plan', formData,
-		function(result)
+		function (result)
 		{
 			toastr.success(__t("Successfully added the recipe to the meal plan"));
 			$("#add-to-mealplan-modal").modal("hide");
 		},
-		function(xhr)
+		function (xhr)
 		{
 			Grocy.FrontendHelpers.ShowGenericError('Error while saving, probably this item already exists', xhr.response);
 		}
 	);
 });
 
-$('#add-to-mealplan-form input').keydown(function(event)
+$('#add-to-mealplan-form input').keydown(function (event)
 {
 	if (event.keyCode === 13) // Enter
 	{
