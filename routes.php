@@ -207,6 +207,7 @@ $app->group('/api', function (RouteCollectorProxy $group)
 	$group->post('/stock/products/{productId}/inventory', [StockApiController::class, 'InventoryProduct']);
 	$group->post('/stock/products/{productId}/open', [StockApiController::class, 'OpenProduct']);
 	$group->post('/stock/products/{productIdToKeep}/merge/{productIdToRemove}', [StockApiController::class, 'MergeProducts']);
+	$group->post('/stock/products/{productId}/copy', [StockApiController::class, 'CopyProduct']);
 	$group->get('/stock/products/by-barcode/{barcode}', [StockApiController::class, 'ProductDetailsByBarcode']);
 	$group->post('/stock/products/by-barcode/{barcode}/add', [StockApiController::class, 'AddProductByBarcode']);
 	$group->post('/stock/products/by-barcode/{barcode}/consume', [StockApiController::class, 'ConsumeProductByBarcode']);

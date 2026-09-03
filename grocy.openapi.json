@@ -2333,6 +2333,53 @@
 				}
 			}
 		},
+		"/stock/products/{productId}/copy": {
+			"post": {
+				"summary": "Copies a product",
+				"tags": [
+					"Stock"
+				],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "productId",
+						"required": true,
+						"description": "A valid product id of the product to copy",
+						"schema": {
+							"type": "integer"
+						}
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "The operation was successful",
+						"content": {
+							"application/json": {
+								"schema": {
+									"type": "object",
+									"properties": {
+										"created_object_id": {
+											"type": "integer",
+											"description": "The id of the created product"
+										}
+									}
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "The operation was not successful (possible errors are: Invalid product id)",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Error400"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
 		"/stock/products/{productIdToKeep}/merge/{productIdToRemove}": {
 			"post": {
 				"summary": "Merges two products into one",

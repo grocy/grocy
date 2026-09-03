@@ -1730,6 +1730,54 @@ class StockService extends BaseService
 		DatabaseService::GetInstance()->GetDbConnectionRaw()->commit();
 	}
 
+	public function CopyProduct(int $productId)
+	{
+		if (!$this->ProductExists($productId))
+		{
+			throw new \Exception('Product does not exist');
+		}
+
+		$newName = LocalizationService::GetInstance()->__t('Copy of %s', $this->DB->products($productId)->name);
+
+		DatabaseService::GetInstance()->ExecuteDbStatement(
+			'INSERT INTO products
+				(name, description, product_group_id, active, location_id, shopping_location_id, qu_id_purchase, qu_id_stock, min_stock_amount,
+				default_best_before_days, default_best_before_days_after_open, default_best_before_days_after_freezing,
+				default_best_before_days_after_thawing, picture_file_name, enable_tare_weight_handling, tare_weight, not_check_stock_fulfillment_for_recipes,
+				parent_product_id, calories, cumulate_min_stock_amount_of_sub_products, due_type, quick_consume_amount, hide_on_stock_overview, default_stock_label_type,
+				should_not_be_frozen, treat_opened_as_out_of_stock, no_own_stock, default_consume_location_id, move_on_open, row_created_timestamp, qu_id_consume,
+				auto_reprint_stock_label, quick_open_amount, qu_id_price, disable_open, default_purchase_price_type)
+			SELECT :new_name, description, product_group_id, active, location_id, shopping_location_id, qu_id_purchase, qu_id_stock, min_stock_amount,
+				default_best_before_days, default_best_before_days_after_open, default_best_before_days_after_freezing,
+				default_best_before_days_after_thawing, picture_file_name, enable_tare_weight_handling, tare_weight, not_check_stock_fulfillment_for_recipes,
+				parent_product_id, calories, cumulate_min_stock_amount_of_sub_products, due_type, quick_consume_amount, hide_on_stock_overview, default_stock_label_type,
+				should_not_be_frozen, treat_opened_as_out_of_stock, no_own_stock, default_consume_location_id, move_on_open, row_created_timestamp, qu_id_consume,
+				auto_reprint_stock_label, quick_open_amount, qu_id_price, disable_open, default_purchase_price_type
+			FROM products
+			WHERE id = :product_id',
+			['product_id' => $productId, 'new_name' => $newName]
+		);
+		$lastInsertId = $this->DB->lastInsertId();
+
+		DatabaseService::GetInstance()->ExecuteDbStatement(
+			'INSERT INTO quantity_unit_conversions
+				(product_id, from_qu_id, to_qu_id, factor)
+			SELECT :last_insert_id, from_qu_id, to_qu_id, factor
+			FROM quantity_unit_conversions q
+			WHERE IFNULL(q.product_id, 0) = :product_id
+				AND q.id = (
+					SELECT MIN(q2.id)
+					FROM quantity_unit_conversions q2
+					WHERE IFNULL(q2.product_id, 0) = :product_id
+						AND MIN(q2.from_qu_id, q2.to_qu_id) = MIN(q.from_qu_id, q.to_qu_id)
+						AND MAX(q2.from_qu_id, q2.to_qu_id) = MAX(q.from_qu_id, q.to_qu_id)
+					)', // The corresponding inverse conversion is automatically created by a trigger
+			['product_id' => $productId, 'last_insert_id' => $lastInsertId]
+		);
+
+		return $lastInsertId;
+	}
+
 	public function CompactStockEntries($productId = null)
 	{
 		if ($productId == null)

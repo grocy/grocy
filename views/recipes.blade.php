@@ -190,7 +190,7 @@
 											type="button"
 											href="#"
 											data-recipe-id="{{ $recipe->id }}">
-											<span class="dropdown-item-text">{{ $__t('Copy recipe') }}</span>
+											<span class="dropdown-item-text">{{ $__t('Copy') }}</span>
 										</a>
 										<div class="dropdown-divider"></div>
 										<a class="dropdown-item"

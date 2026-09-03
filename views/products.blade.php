@@ -160,9 +160,10 @@
 								<i class="fa-solid fa-ellipsis-v"></i>
 							</button>
 							<div class="table-inline-menu dropdown-menu dropdown-menu-right">
-								<a class="dropdown-item"
+								<a class="dropdown-item product-copy-button"
+									data-product-id="{{ $product->id }}"
 									type="button"
-									href="{{ $U('/product/new?copy-of=') }}{{ $product->id }}">
+									href="#">
 									<span class="dropdown-item-text">{{ $__t('Copy') }}</span>
 								</a>
 								<a class="dropdown-item merge-products-button"

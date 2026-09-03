@@ -926,4 +926,25 @@ class StockApiController extends BaseApiController
 			return $this->GenericErrorResponse($response, $ex->getMessage());
 		}
 	}
+
+	public function CopyProduct(Request $request, Response $response, array $args)
+	{
+		User::CheckPermission($request, User::PERMISSION_STOCK_EDIT);
+
+		try
+		{
+			if (filter_var($args['productId'], FILTER_VALIDATE_INT) === false)
+			{
+				throw new \Exception('Provided {productId} is not a valid integer');
+			}
+
+			return $this->ApiResponse($response, [
+				'created_object_id' => StockService::GetInstance()->CopyProduct($args['productId'])
+			]);
+		}
+		catch (\Exception $ex)
+		{
+			return $this->GenericErrorResponse($response, $ex->getMessage());
+		}
+	}
 }

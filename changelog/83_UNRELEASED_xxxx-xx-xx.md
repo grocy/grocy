@@ -10,7 +10,7 @@
 
 ### Stock
 
-- xxx
+- Fixed that certain fields were not copied when copying a product
 
 ### Shopping list
 
@@ -55,4 +55,5 @@
 
 ### API
 
+- New API endpoint `/stock/products/{productId}/copy` (to copy a product)
 - Fixed that API Key Authentication did not work when running Grocy in a subdirectory
