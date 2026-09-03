@@ -31,7 +31,7 @@ class ExceptionController extends BaseApiController
 		}
 
 		$response = $this->ResponseFactory->createResponse();
-		$isApiRoute = string_starts_with($request->getUri()->getPath(), '/api/');
+		$isApiRoute = str_contains($request->getUri()->getPath(), '/api/');
 
 		if (!defined('GROCY_AUTHENTICATED'))
 		{
