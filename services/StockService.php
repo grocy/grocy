@@ -1764,11 +1764,11 @@ class StockService extends BaseService
 				(product_id, from_qu_id, to_qu_id, factor)
 			SELECT :last_insert_id, from_qu_id, to_qu_id, factor
 			FROM quantity_unit_conversions q
-			WHERE IFNULL(q.product_id, 0) = :product_id
+			WHERE q.product_id = :product_id
 				AND q.id = (
 					SELECT MIN(q2.id)
 					FROM quantity_unit_conversions q2
-					WHERE IFNULL(q2.product_id, 0) = :product_id
+					WHERE q2.product_id = q.product_id
 						AND MIN(q2.from_qu_id, q2.to_qu_id) = MIN(q.from_qu_id, q.to_qu_id)
 						AND MAX(q2.from_qu_id, q2.to_qu_id) = MAX(q.from_qu_id, q.to_qu_id)
 					)', // The corresponding inverse conversion is automatically created by a trigger
