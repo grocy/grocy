@@ -61,6 +61,11 @@ if (!file_exists($viewcachePath))
 // The version changed (so when an update was done)
 // GROCY_BASE_URL OR GROCY_BASE_PATH changed
 $hash = hash('sha256', file_get_contents(__DIR__ . '/version.json') . GROCY_BASE_URL . GROCY_BASE_PATH);
+if (GROCY_MODE === 'dev')
+{
+	// For dev mode use routes.php to track changes
+	$hash = hash('sha256', file_get_contents(__DIR__ . '/routes.php'));
+}
 $hashCacheFile = $viewcachePath . "/$hash.txt";
 if (!file_exists($hashCacheFile))
 {
