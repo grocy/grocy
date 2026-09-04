@@ -36,20 +36,25 @@ class DatabaseService
 			}
 		}
 
-		if ($params == null)
+		if ($params === null)
 		{
-
 			if ($pdo->exec($sql) === false)
 			{
-				throw new \Exception($pdo->errorInfo());
+				throw new \Exception(implode(' | ', $pdo->errorInfo()));
 			}
 		}
 		else
 		{
 			$cmd = $pdo->prepare($sql);
+
+			if ($cmd === false)
+			{
+				throw new \Exception(implode(' | ', $pdo->errorInfo()));
+			}
+
 			if ($cmd->execute($params) === false)
 			{
-				throw new \Exception($pdo->errorInfo());
+				throw new \Exception(implode(' | ', $cmd->errorInfo()));
 			}
 		}
 
