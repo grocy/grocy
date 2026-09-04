@@ -2440,9 +2440,6 @@ msgstr[1] "%s jaren"
 msgid "Display product"
 msgstr "Toon product"
 
-msgid "Copy recipe"
-msgstr "Kopieer recept"
-
 msgid "Copy of %s"
 msgstr "Kopie van %s"
 

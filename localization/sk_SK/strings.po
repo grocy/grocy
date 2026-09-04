@@ -2343,9 +2343,6 @@ msgstr[3] ""
 msgid "Display product"
 msgstr "Zobraziť výrobok"
 
-msgid "Copy recipe"
-msgstr ""
-
 msgid "Copy of %s"
 msgstr ""
 

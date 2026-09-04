@@ -2351,9 +2351,6 @@ msgstr[2] "%s ani"
 msgid "Display product"
 msgstr ""
 
-msgid "Copy recipe"
-msgstr ""
-
 msgid "Copy of %s"
 msgstr ""
 

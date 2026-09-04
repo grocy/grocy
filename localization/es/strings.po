@@ -2450,9 +2450,6 @@ msgstr[2] "%s años"
 msgid "Display product"
 msgstr "Mostrar producto"
 
-msgid "Copy recipe"
-msgstr "Copiar receta"
-
 msgid "Copy of %s"
 msgstr "Copia de %s"
 

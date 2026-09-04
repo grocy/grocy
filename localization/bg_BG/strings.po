@@ -2393,9 +2393,6 @@ msgstr[1] "%s години"
 msgid "Display product"
 msgstr "Показване на продукта"
 
-msgid "Copy recipe"
-msgstr "Копирайте рецептата"
-
 msgid "Copy of %s"
 msgstr "Копие от %s"
 

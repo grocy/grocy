@@ -2383,9 +2383,6 @@ msgstr[1] "%s vuotta"
 msgid "Display product"
 msgstr "Näytä tuote"
 
-msgid "Copy recipe"
-msgstr "Kopioi resepti"
-
 msgid "Copy of %s"
 msgstr "Kopio nimikkeestä %s"
 

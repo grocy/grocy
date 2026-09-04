@@ -2218,9 +2218,6 @@ msgstr[0] "%s 年"
 msgid "Display product"
 msgstr ""
 
-msgid "Copy recipe"
-msgstr "複製食譜"
-
 msgid "Copy of %s"
 msgstr ""
 

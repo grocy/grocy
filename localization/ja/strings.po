@@ -2226,9 +2226,6 @@ msgstr[0] "%s年"
 msgid "Display product"
 msgstr "物品を表示"
 
-msgid "Copy recipe"
-msgstr "レシピをコピー"
-
 msgid "Copy of %s"
 msgstr "%sのコピー"
 

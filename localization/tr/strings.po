@@ -2363,9 +2363,6 @@ msgstr[1] "%syıl"
 msgid "Display product"
 msgstr "Ürünü görüntüle"
 
-msgid "Copy recipe"
-msgstr "Tarifi kopyala"
-
 msgid "Copy of %s"
 msgstr "%s'ın kopyası"
 

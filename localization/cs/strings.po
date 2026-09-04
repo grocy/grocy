@@ -5,8 +5,8 @@
 # Radim Kabeláč <radim.ekk@gmail.com>, 2020
 # Jaroslav Lichtblau <l10n@lichtblau.cz>, 2020
 # Jarda Tesar <intossh@gmail.com>, 2021
-# Pavel Paseka, 2026
 # Michal Petříček <michal@petricek.org>, 2026
+# Pavel Paseka, 2026
 # 
 msgid ""
 msgstr ""
@@ -14,7 +14,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-01T17:59:17+00:00\n"
 "PO-Revision-Date: 2019-05-01 17:42+0000\n"
-"Last-Translator: Michal Petříček <michal@petricek.org>, 2026\n"
+"Last-Translator: Pavel Paseka, 2026\n"
 "Language-Team: Czech (https://app.transifex.com/grocy/teams/93189/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -721,7 +721,7 @@ msgid "Are you sure you want to delete product group \"%s\"?"
 msgstr "Odstranit skupinu produktů „%s“?"
 
 msgid "Remember Me"
-msgstr ""
+msgstr "Zapamatuj si mne"
 
 msgid "Status"
 msgstr "Stav"
@@ -1831,7 +1831,7 @@ msgid "Clear filter"
 msgstr "Smazat filtr"
 
 msgid "Permissions"
-msgstr ""
+msgstr "Oprávnění"
 
 msgid "Are you sure you want to remove full permissions for yourself?"
 msgstr "Opravdu chcete odstranit všechna svoje oprávnění?"
@@ -2444,9 +2444,6 @@ msgstr[3] "%s let"
 msgid "Display product"
 msgstr "Zobrazit produkt"
 
-msgid "Copy recipe"
-msgstr "Vytvořit kopii receptu"
-
 msgid "Copy of %s"
 msgstr "%s (Kopie)"
 
@@ -2911,25 +2908,25 @@ msgstr[2] "Balení"
 msgstr[3] "Balení"
 
 msgid "Manage user sessions"
-msgstr ""
+msgstr "Správa přihlášených uživatelů"
 
 msgid "Sessions"
-msgstr ""
+msgstr "Přihlášení"
 
 msgid "Token type"
-msgstr ""
+msgstr "Způsob přihlášení"
 
 msgid "Token hash"
-msgstr ""
+msgstr "Otisk přístupového kódu"
 
 msgid "Client"
-msgstr ""
+msgstr "Přístup přes"
 
 msgid "This session"
-msgstr ""
+msgstr "Toto přihlášení"
 
 msgid "Are you sure you want to delete the selected session?"
-msgstr ""
+msgstr "Opravdu chcete zrušit vybrané přihlášení?"
 
 msgid "Last access"
-msgstr ""
+msgstr "Poslední přístup"

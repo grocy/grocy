@@ -2315,9 +2315,6 @@ msgstr[1] "%sχρόνια"
 msgid "Display product"
 msgstr "Προβολή προϊόντος"
 
-msgid "Copy recipe"
-msgstr "Αντιγραφή συνταγής"
-
 msgid "Copy of %s"
 msgstr ""
 

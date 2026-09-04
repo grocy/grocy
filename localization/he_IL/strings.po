@@ -700,7 +700,7 @@ msgid "Are you sure you want to delete product group \"%s\"?"
 msgstr "למחוק את קבוצת המוצרים „%s”?"
 
 msgid "Remember Me"
-msgstr ""
+msgstr "לזכור אותי"
 
 msgid "Status"
 msgstr "מצב"
@@ -1782,7 +1782,7 @@ msgid "Clear filter"
 msgstr "לבטל את הסינון"
 
 msgid "Permissions"
-msgstr ""
+msgstr "הרשאה"
 
 msgid "Are you sure you want to remove full permissions for yourself?"
 msgstr "להסיר את מלוא ההרשאות לעצמך?"
@@ -2375,9 +2375,6 @@ msgstr[2] "%s שנים"
 msgid "Display product"
 msgstr "הצגת מוצר"
 
-msgid "Copy recipe"
-msgstr "העתקת מתכון"
-
 msgid "Copy of %s"
 msgstr "עותק של %s"
 
@@ -2820,25 +2817,25 @@ msgstr[2] "אריזות"
 msgstr[3] "אריזות"
 
 msgid "Manage user sessions"
-msgstr ""
+msgstr "ניהול הפעלות משתמשים"
 
 msgid "Sessions"
-msgstr ""
+msgstr "הפעלות"
 
 msgid "Token type"
-msgstr ""
+msgstr "סוג אסימון"
 
 msgid "Token hash"
-msgstr ""
+msgstr "גיבוב אסימון"
 
 msgid "Client"
-msgstr ""
+msgstr "לקוח"
 
 msgid "This session"
-msgstr ""
+msgstr "ההפעלה הזאת"
 
 msgid "Are you sure you want to delete the selected session?"
-msgstr ""
+msgstr "למחוק את ההפעלה הנבחרת?"
 
 msgid "Last access"
-msgstr ""
+msgstr "גישה אחרונה"

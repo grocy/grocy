@@ -2384,9 +2384,6 @@ msgstr[1] "%s év"
 msgid "Display product"
 msgstr "Termék megjelenítése"
 
-msgid "Copy recipe"
-msgstr "Recept másolás"
-
 msgid "Copy of %s"
 msgstr "%s másolata"
 

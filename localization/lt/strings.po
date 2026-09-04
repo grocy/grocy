@@ -2446,9 +2446,6 @@ msgstr[3] "%smetų"
 msgid "Display product"
 msgstr "Rodyti produktą"
 
-msgid "Copy recipe"
-msgstr "Kopijuoti receptą"
-
 msgid "Copy of %s"
 msgstr "Kopijuoti iš %s"
 
