@@ -880,7 +880,6 @@ class StockService extends BaseService
 		$sqlWhereAndLocationId = '';
 		if ($locationId !== null)
 		{
-			// Consume from any location
 			$sqlWhereAndLocationId = 'AND location_id = ' . $locationId;
 		}
 
