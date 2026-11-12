@@ -1,8 +1,9 @@
-﻿var mealplanSectionsTable = $('#mealplansections-table').DataTable({
-	'order': [[2, 'asc']],
+﻿var mealplanSectionsTable = $("#mealplansections-table").DataTable({
+	"order": [[2, "asc"]],
 	'columnDefs': [
-		{ 'orderable': false, 'targets': 0 },
-		{ 'searchable': false, "targets": 0 }
+		{ "orderable": false, "targets": 0 },
+		{ "searchable": false, "targets": 0 },
+		{ "type": "num", "targets": 2 }
 	].concat($.fn.dataTable.defaults.columnDefs)
 });
 $('#mealplansections-table tbody').removeClass("d-none");

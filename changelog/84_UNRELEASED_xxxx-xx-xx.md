@@ -22,7 +22,7 @@
 
 ### Meal plan
 
-- xxx
+- Fixed that sorting the column "Sort number" on the meal plan sections edit page sorted alphabetically instead of numerically
 
 ### Chores
 
@@ -46,7 +46,7 @@
 
 ### Userfields
 
-- xxx
+- Fixed that sorting the column "Sort number" on the Userfields edit page sorted alphabetically instead of numerically
 
 ### General
 
