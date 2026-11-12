@@ -26,7 +26,7 @@
 
 ### Chores
 
-- xxx
+- Fixed that skipping a chore consumed its "Consume product on chore execution" (if any)
 
 ### Calendar
 

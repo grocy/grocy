@@ -198,7 +198,7 @@ class ChoresService extends BaseService
 		$logRow->save();
 		$lastInsertId = $this->DB->lastInsertId();
 
-		if ($chore->consume_product_on_execution == 1 && !empty($chore->product_id))
+		if ($chore->consume_product_on_execution == 1 && !$skipped && !empty($chore->product_id))
 		{
 			$transactionId = uniqid();
 			StockService::GetInstance()->ConsumeProduct($chore->product_id, $chore->product_amount, false, StockService::TRANSACTION_TYPE_CONSUME, 'default', null, null, $transactionId, true);
