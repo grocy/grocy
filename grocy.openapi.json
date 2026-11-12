@@ -4672,7 +4672,6 @@
 					"tare_weight": "0.0",
 					"not_check_stock_fulfillment_for_recipes": "0",
 					"shopping_location_id": null,
-					"userfields": null,
 					"should_not_be_frozen": "1",
 					"default_consume_location_id": "5",
 					"move_on_open": "1"
