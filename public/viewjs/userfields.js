@@ -3,7 +3,7 @@
 	"columnDefs": [
 		{ "orderable": false, "targets": 0 },
 		{ "searchable": false, "targets": 0 },
-		{ "type": "num", "targets": 2 }
+		{ "type": "num", "targets": 5 }
 	].concat($.fn.dataTable.defaults.columnDefs)
 });
 $('#userfields-table tbody').removeClass("d-none");
